@@ -50,9 +50,6 @@ const Footer = () => {
       </a>
     </span>
     </div>
-    <div>
-        <p>©Copyright FreySmiles 2023 - Braces & Invisalign in Allentown, Bethlehem, Schnecksville, & Lehighton, PA</p>
-    </div>
   </section>
   <div>
   <p className = "text-sm">©Copyright FreySmiles 2023 - All Rights Reserved</p>
