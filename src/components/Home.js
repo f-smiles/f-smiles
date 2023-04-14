@@ -46,27 +46,28 @@ const Home = () => {
       <section className="flex gap-8 justify-center">
       <div className="flex flex-col justify-between bg-f7f5f2 rounded-bl-3xl rounded-br-3xl width h-48 max-h-full items-center">
           <h1> <strong className="ml-8">Allentown</strong></h1>
-          <h4 className="px-2">1251 South Cedar Crest Blvd Suite 210</h4>
-          <h4 className="px-16">Allentown, PA 18103</h4>
-          <button className="bg-stone-400 p-2 text-white hover:text-white px-4 py-2 w-full rounded-bl-3xl rounded-br-3xl">Book Now</button>
+          <h4 className="px-2 text-sm">1251 S Cedar Crest Blvd</h4>
+          <h4 className= "px-2 text-sm">Suite 210</h4>
+          <h4 className="text-sm">Allentown, PA 18103</h4>
+          <button className="bg-stone-400 p-2 text-white hover:text-black px-4 py-2 w-full rounded-bl-3xl rounded-br-3xl">Book Now</button>
         </div>
         <div className="flex flex-col justify-between bg-f7f5f2 rounded-bl-3xl rounded-br-3xl width h-48 max-h-full items-center">
           <h1><strong className="ml-8">Bethlehem</strong></h1>
-          <h4 className="px-2">2901 Emrick Boulevard</h4>
-          <h4 className="px-3">Bethlehem, PA 18020</h4>
-          <button className="bg-stone-400 p-2 text-white hover:text-white px-4 py-2 w-full rounded-bl-3xl rounded-br-3xl">Book Now</button>
+          <h4 className="px-2 text-sm">2901 Emrick Boulevard</h4>
+          <h4 className="px-3 text-sm">Bethlehem, PA 18020</h4>
+          <button className="bg-stone-400 p-2 text-white hover:text-black px-4 py-2 w-full rounded-bl-3xl rounded-br-3xl">Book Now</button>
         </div>
         <div className="flex flex-col justify-between bg-f7f5f2 rounded-bl-3xl rounded-br-3xl width h-48 max-h-full items-center">
           <h1><strong className="ml-8">Schnecksville</strong></h1>
-          <h4>4155 Independence Drive</h4>
-          <h4>Schnecksville, PA 18078</h4>
-          <button className="bg-stone-400 p-2 text-white hover:text-white px-4 py-2 w-full rounded-bl-3xl rounded-br-3xl">Book Now</button>
+          <h4 className= "px-2 text-sm">4155 Independence Drive</h4>
+          <h4 className= "px-3 text-sm">Schnecksville, PA 18078</h4>
+          <button className="bg-stone-400 p-2 text-white hover:text-black px-4 py-2 w-full rounded-bl-3xl rounded-br-3xl">Book Now</button>
         </div>
         <div className="flex flex-col justify-between bg-f7f5f2 rounded-bl-3xl rounded-br-3xl width h-48 max-h-full items-center">
           <h1><strong className="ml-8">Lehighton</strong></h1>
-          <h4>1080 Blakeslee Blvd Dr E</h4>
-          <h4>Lehighton, PA 18235</h4>
-          <button className="bg-stone-400 p-2 text-white hover:text-white px-4 py-2 w-full rounded-bl-3xl rounded-br-3xl">Book Now</button>
+          <h4 className="px-2 text-sm">1080 Blakeslee Blvd Dr E</h4>
+          <h4 className="px-3 text-sm">Lehighton, PA 18235</h4>
+          <button className="bg-stone-400 p-2 text-white hover:text-black px-4 py-2 w-full rounded-bl-3xl rounded-br-3xl">Book Now</button>
         </div>
       </section>
     </>
