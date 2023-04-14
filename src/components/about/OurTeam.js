@@ -5,10 +5,10 @@ import { ChevronUpIcon } from "@heroicons/react/20/solid";
 
 const OurTeam = () => {
   return (
-    <div className="w-full px-4 pt-16">
+    <div className="w-full px-4 pt-16 ">
       <div
         data-headlessui-state="open"
-        className="mx-auto w-full max-w-md rounded-2xl bg-white p-2"
+        className="mx-auto w-full max-w-screen-lg rounded-2xl bg-white p-2"
       >
         <Disclosure defaultOpen={true}>
           {({ open }) => (
