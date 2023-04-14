@@ -9,15 +9,17 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="flex items-center justify-center bg-gray-200">
+    <nav className="flex items-center justify-center">
       <div className="flex max-w-6xl mx-auto items-center space-x-4">
+        <div className="bg-indigo-50 w-16">
         <Link to="/">
-          <h1>frey smiles</h1>
+          <img alt="doctors" src="../../images/logo_short.png"></img>
         </Link>
+        </div>
         <section className="group relative cursor-pointer py-2">
-          <div className="flex items-center justify-between bg-white px-4">
+          <div className="flex items-center justify-between ">
             <h1
-              className="menu-hover my-2 py-2 text-base font-medium text-black lg:mx-4"
+              className="menu-hover my-2 py-1 text-base font-medium text-black lg:mx-4"
             >
               About Us
             </h1>
@@ -51,7 +53,7 @@ const Navbar = () => {
           </div>
         </section>
         <section className="group relative cursor-pointer py-2">
-          <div className="flex items-center justify-between space-x-5 bg-white px-4">
+          <div className="flex items-center justify-between space-x-5">
             <h1
               className="menu-hover my-2 py-2 text-base font-medium text-black lg:mx-4"
             >
@@ -92,7 +94,7 @@ const Navbar = () => {
           </div>
         </section>
         <section className="group relative cursor-pointer py-2">
-          <div className="flex items-center justify-between space-x-5 bg-white px-4">
+          <div className="flex items-center justify-between space-x-5">
             <h1
               className="menu-hover my-2 py-2 text-base font-medium text-black lg:mx-4"
             >
@@ -133,9 +135,10 @@ const Navbar = () => {
           </div>
         </section>
         <section className="flex space-x-4">
-          <Link>Patient Login</Link>
-          <Link>Our Locations</Link>
-          <Link>Book Now</Link>
+          <div className="hover:text-indigo-500 py-1"><Link>Patient Login</Link></div>
+          
+          <div className="hover:text-indigo-500 py-1"><Link>Our Locations</Link></div>
+          <div className="hover:text-indigo-500 bg-transparent hover:bg-violet-400 text-black hover:text-white py-1 px-2 border border-black hover:border-transparent rounded-full"> <Link>Book Now</Link> </div>
         </section>
       </div>
     </nav>

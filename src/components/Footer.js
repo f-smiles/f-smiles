@@ -2,8 +2,9 @@ import React from "react";
 
 const Footer = () => {
   return (
-  <div className="bg-f7f5f2 grid grid-cols-4 gap-4 items-start absolute bottom-0 left-0 right-0 py-10">
-    <div>
+    <div className="bg-f7f5f2 py-10">
+      <div className="container mx-auto flex flex-wrap"></div>
+      <div className="w-full sm:w-1/2 md:w-1/4 lg:w-1/4 xl:w-1/4">
     <a href="/" className="text-black hover:text-indigo-500 hover:underline">
         <h1 className="text-sm">Home</h1>
       </a>
@@ -50,10 +51,10 @@ const Footer = () => {
       </a>
     </span>
     </div>
-  </section>
-  <div>
-  <p className = "text-sm">©Copyright FreySmiles 2023 - All Rights Reserved</p>
+    <div>
+  <p className = "text-sm py-1">©Copyright FreySmiles 2023 - All Rights Reserved</p>
   </div>
+  </section>
   </div>
   )
 };
