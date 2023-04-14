@@ -1,10 +1,42 @@
 import React from "react";
 import { Disclosure } from "@headlessui/react";
 import { ChevronUpIcon } from "@heroicons/react/20/solid"; 
+import { useEffect } from "react";
+import * as THREE from 'three';
 
 const Home = () => {
+//Create a scene, camera, renderer
+useEffect(()=>{
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+camera.position.z = 5;
+const renderer = new THREE.WebGLRenderer();
+renderer.setSize(window.innerWidth, window.innerHeight);
+document.body.appendChild(renderer.domElement);
 
 
+const geometry = new THREE.TorusGeometry(1, 0.3, 16, 100);
+const material = new THREE.MeshPhongMaterial({ color: 999999 });
+const ambientLight = new THREE.AmbientLight("violet", 2)
+const directionalLight = new THREE.DirectionalLight( 0xffffff, 2 );
+//  mesh with torus geometry and material
+const torus = new THREE.Mesh(geometry, material);
+
+scene.add(torus, directionalLight, ambientLight);
+
+function animate() {
+  requestAnimationFrame(animate);
+
+  // rotate torus
+  torus.rotation.x += 0.005;
+  torus.rotation.y += 0.005;
+
+  // render scene w/ camera 
+  renderer.render(scene, camera);
+}
+
+animate();
+}, [])
   return (
     <>
       <main>

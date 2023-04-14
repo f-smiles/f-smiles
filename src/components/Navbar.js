@@ -11,9 +11,11 @@ const Navbar = () => {
   return (
     <nav className="flex items-center justify-center">
       <div className="flex max-w-6xl mx-auto items-center space-x-4">
+        <div className="bg-indigo-50 w-16">
         <Link to="/">
-          <h1>frey smiles</h1>
+          <img alt="doctors" src="../../images/logo_short.png"></img>
         </Link>
+        </div>
         <section className="group relative cursor-pointer py-2">
           <div className="flex items-center justify-between ">
             <h1
