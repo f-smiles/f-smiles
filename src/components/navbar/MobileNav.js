@@ -31,12 +31,12 @@ const MobileNav = () => {
 
   const handleOpenMenu = (index) => {
     setIsOpen((prevIndex) => (prevIndex === index ? null : index));
+    setCloseMenu(true);
   };
 
   return (
     <Disclosure>
       {({ open }) => (
-        /* Use the `open` state to conditionally change the direction of an icon. */
         <>
         <span>
           frey smiles
@@ -69,8 +69,8 @@ const MobileNav = () => {
                 {about_us_links && about_us_links.map((link) => {
                   return (
                     <Menu.Item key={link.name}>
-                      {({ active }) => (
-                        <Link to={link.href} className={`block ${active ? 'bg-purple-100 text-purple-900' : 'text-gray-900'}`}>
+                      {({ active, close }) => (
+                        <Link to={link.href} className={`block ${active ? 'bg-purple-100 text-purple-900' : 'text-gray-900'}`} onClick={close}>
                           {link.name}
                         </Link>
                       )}
