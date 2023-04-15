@@ -38,8 +38,9 @@ const MobileNav = () => {
     <Disclosure>
       {({ open }) => (
         <>
+        <div className="flex items-center justify-between px-4 py-2">
         <span>
-          frey smiles
+          <img className="w-12 inline-block bg-indigo-300" src="../../images/logo_short.png" alt="frey smiles orthodontics logo"></img>
         </span>
         <Disclosure.Button onClick={() => setCloseMenu(!closeMenu)}>
           {closeMenu ? (
@@ -52,6 +53,7 @@ const MobileNav = () => {
             </svg>
           )}
         </Disclosure.Button>
+        </div>
         <Disclosure.Panel>
           <Menu as="nav" className="top-0 left-0 right-0">
             <div className="relative">
