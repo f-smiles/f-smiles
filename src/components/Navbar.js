@@ -1,14 +1,19 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import MobileNav from "./navbar/MobileNav";
+import DesktopNav from "./navbar/DesktopNav";
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  // const [isOpen, setIsOpen] = useState(false);
 
-  const toggleOpenMenu = () => {
-    setIsOpen(!isOpen);
-  };
+  // const toggleOpenMenu = () => {
+  //   setIsOpen(!isOpen);
+  // };
 
   return (
+    <>
+    <MobileNav className="lg:hidden md:block" />
+    <DesktopNav className="md:hidden sm:hidden lg:block" />
     <nav className="flex items-center justify-center">
       <div className="flex max-w-6xl mx-auto items-center space-x-4">
         <div className="bg-indigo-50 w-16">
@@ -136,12 +141,13 @@ const Navbar = () => {
         </section>
         <section className="flex space-x-4">
           <div className="hover:text-indigo-500 py-1"><Link>Patient Login</Link></div>
-          
+
           <div className="hover:text-indigo-500 py-1"><Link>Our Locations</Link></div>
           <div className="hover:text-indigo-500 bg-transparent hover:bg-violet-400 text-black hover:text-white py-1 px-2 border border-black hover:border-transparent rounded-full"> <Link>Book Now</Link> </div>
         </section>
       </div>
     </nav>
+    </>
   );
 };
 
