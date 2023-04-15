@@ -6,6 +6,7 @@ import YourCare from "../components/patient/YourCare";
 import FinancingTreatment from "../components/patient/FinancingTreatment";
 import CaringForYourBraces from "../components/patient/CaringForYourBraces";
 import Emergency from "../components/patient/Emergency";
+import VirtualConsultation from "../components/patient/VirtualConsultation";
 
 const AppRoutes = () => {
   return (
@@ -17,6 +18,7 @@ const AppRoutes = () => {
       <Route path="/financing-treatment" element={<FinancingTreatment />} />
       <Route path="/braces-care" element={<CaringForYourBraces />} />
       <Route path="/emergency" element={<Emergency />} />
+      <Route path="/virtual-consultation" element={<VirtualConsultation />}/>
     </Routes>
   );
 };
