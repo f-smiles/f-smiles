@@ -31,15 +31,16 @@ const MobileNav = () => {
 
   const handleOpenMenu = (index) => {
     setIsOpen((prevIndex) => (prevIndex === index ? null : index));
+    setCloseMenu(true);
   };
 
   return (
     <Disclosure>
       {({ open }) => (
-        /* Use the `open` state to conditionally change the direction of an icon. */
         <>
+        <div className="flex items-center justify-between px-4 py-2">
         <span>
-          frey smiles
+          <img className="w-12 inline-block bg-indigo-300" src="../../images/logo_short.png" alt="frey smiles orthodontics logo"></img>
         </span>
         <Disclosure.Button onClick={() => setCloseMenu(!closeMenu)}>
           {closeMenu ? (
@@ -52,6 +53,7 @@ const MobileNav = () => {
             </svg>
           )}
         </Disclosure.Button>
+        </div>
         <Disclosure.Panel>
           <Menu as="nav" className="top-0 left-0 right-0">
             <div className="relative">
@@ -69,8 +71,8 @@ const MobileNav = () => {
                 {about_us_links && about_us_links.map((link) => {
                   return (
                     <Menu.Item key={link.name}>
-                      {({ active }) => (
-                        <Link to={link.href} className={`block ${active ? 'bg-purple-100 text-purple-900' : 'text-gray-900'}`}>
+                      {({ active, close }) => (
+                        <Link to={link.href} className={`block ${active ? 'bg-purple-100 text-purple-900' : 'text-gray-900'}`} onClick={close}>
                           {link.name}
                         </Link>
                       )}
