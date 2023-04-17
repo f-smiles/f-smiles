@@ -18,7 +18,7 @@ const AppRoutes = () => {
       <Route path="/why-choose-us" element={<WhyChooseUs />} />
       <Route path="/your-care" element={<YourCare />} />
       <Route path="/financing-treatment" element={<FinancingTreatment />} />
-      <Route path="/braces-care" element={<CaringForYourBraces />} />
+      <Route path="/caring-for-your-braces" element={<CaringForYourBraces />} />
       <Route path="/emergency" element={<Emergency />} />
       <Route path="/virtual-consultation" element={<VirtualConsultation />}/>
       <Route path="/invisalign" element={<Invisalign />} />
