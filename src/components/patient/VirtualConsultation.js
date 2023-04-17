@@ -1,4 +1,5 @@
-import React, { Component, useState } from "react";
+import React, { Component, useState, useRef } from "react";
+import emailjs from '@emailjs/browser';
 import "tw-elements";
 import {
   Datepicker,
@@ -9,7 +10,7 @@ import {
 class VirtualConsultation extends Component {
   constructor(props) {
     super(props);
-
+    this.formRef = React.createRef();
     this.state = {
       days: [
         { day: "Monday", clicked: false },
@@ -29,6 +30,7 @@ class VirtualConsultation extends Component {
 
     this.handleDayClick = this.handleDayClick.bind(this);
     this.handleTimeClick = this.handleTimeClick.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   handleDayClick = (index) => {
@@ -43,9 +45,20 @@ class VirtualConsultation extends Component {
     this.setState({ times });
   };
 
+  handleSubmit =(e) =>{
+    e.preventDefault();
+    emailjs.sendForm(process.env.REACT_APP_SERVICE_ID, process.env.REACT_APP_TEMPLATE_ID, this.formRef.current, process.env.REACT_APP_PUBLIC_KEY)
+    .then(function(response) {
+       console.log('SUCCESS!', response.status, response.text);
+    }, function(error) {
+       console.log('FAILED...', error);
+    });
+  }
+
   componentDidMount() {
     initTE({ Datepicker, Input });
   }
+
   render() {
     const baseButtonClass = "text-slate-700 py-2 px-4 rounded-full";
     const activeButtonClass = "bg-gradient-to-r from-violet-100 via-violet-200 to-violet-300";
@@ -53,7 +66,7 @@ class VirtualConsultation extends Component {
 
     return (
       <div className= " mx-auto justify-center w-1/3">
-      <form>
+      <form ref={this.formRef}>
         <label
           htmlFor="first_name"
           className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
@@ -154,7 +167,7 @@ class VirtualConsultation extends Component {
         </div>
       </form>
       <div class="max-w-lg rounded-lg shadow-md shadow-indigo-600/50">
-  <form action="" className="w-full p-4 my-8">
+  <form ref={this.formRef} onSubmit={this.handleSubmit} action="" className="w-full p-4 my-8">
     <div className="mb-2">
       <label for="comment" className="text-lg text-gray-600">Inquiry</label>
       <textarea
@@ -163,11 +176,11 @@ class VirtualConsultation extends Component {
         placeholder=""></textarea>
     </div>
     <div className="space-x-2">
-      <button class="px-3 py-2 text-sm text-white bg-indigo-300 rounded-lg">
-        Send
-      </button>
+    <button onClick={this.handleSubmit} type="submit" className="px-3 py-2 text-sm text-white bg-indigo-300 rounded-lg">
+  Send
+</button>
       <button
-        class="px-3 py-2 text-sm text-blue-600 border border-blue-100 rounded-lg">
+        className="px-3 py-2 text-sm text-blue-600 border border-blue-100 rounded-lg">
         Cancel
       </button>
     </div>
