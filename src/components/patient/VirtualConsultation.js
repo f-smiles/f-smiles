@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import "tw-elements";
 import {
   Datepicker,
@@ -7,14 +7,27 @@ import {
 } from "tw-elements";
 
 class VirtualConsultation extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      buttonColor: "slate-100"
+    };
+  }
+  handleButtonClick = (color, time) => { 
+    if (time === "Morning") {
+      this.setState({ morningButton: color });
+    }
+    this.setState({ buttonColor: color });
+  }
+
 
   componentDidMount() {
     initTE({ Datepicker, Input });
   }
-
   render() {
+    const { buttonColor } = this.state;
     return (
-      <div>
+      <div className= " mx-auto justify-center w-1/3">
       <form>
         <label
           htmlFor="first_name"
@@ -64,7 +77,7 @@ class VirtualConsultation extends Component {
         />
       
       <div
-      className="relative mb-3"
+      className="my-4 relative mb-3"
       data-te-datepicker-init
       data-te-input-wrapper-init>
       <input
@@ -74,12 +87,45 @@ class VirtualConsultation extends Component {
       <label
       htmlFor="floatingInput"
       className="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary"
-      >Select a date</label>
+      >Date of Birth</label>
       </div>
-      
-      
+      <div className="flex justify-center flex-col">
+        Preferred Day(s)
+        <div className="justify-center py-2 flex space-x-4">
+        <button
+                className={buttonColor === "yellow" ? "bg-yellow-500 px-4 border rounded-full" : "px-4 border border-slate-900 rounded-full"}
+                onClick={() => this.handleButtonClick("yellow")}
+              >
+                Monday
+              </button>
+        <button className= " px-4 border border-slate-900 rounded-full">Tuesday</button>
+        <button className= " px-4 border border-slate-900 rounded-full">Wednesday</button>
+        </div>
+        <div className="justify-center py-2 flex space-x-4">
+        <button className= " px-4 border border-slate-900 rounded-full">Thursday</button>
+        <button className= " px-4 border border-slate-900 rounded-full">Friday</button>
+        <button className= " px-4 border border-slate-900 rounded-full">Saturday</button>
+      </div>
+      </div>
+      <div className="py-2 flex space-x-4">
+        Preferred Time(s)
+        <div className="justify-center py-8 flex space-x-4">
+        <button
+  className={buttonColor === "yellow" ? "bg-yellow-500 px-4 border rounded-full" : "px-4 border border-slate-900 rounded-full"}
+  onClick={() => this.handleButtonClick("yellow", "morning")} 
+>
+  Morning
+</button>
+            <button className="px-4 border border-slate-900 rounded-full hover:bg-gradient-to-r from-blue-500 to-purple-500 focus:bg-gradient-to-r from-blue-500 to-purple-500 focus:outline-none">
+              Afternoon
+            </button>
+            <button className="px-4 border border-slate-900 rounded-full hover:bg-gradient-to-r from-blue-500 to-purple-500 focus:bg-gradient-to-r from-blue-500 to-purple-500 focus:outline-none">
+              Evening
+            </button>
+          </div>
+        </div>
       </form>
-      </div>
+    </div>
     );
   }
 }
