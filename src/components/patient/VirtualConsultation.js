@@ -11,25 +11,46 @@ class VirtualConsultation extends Component {
     super(props);
 
     this.state = {
-      clicked: false,
+      days: [
+        { day: "Monday", clicked: false },
+        { day: "Tuesday", clicked: false },
+        { day: "Wednesday", clicked: false },
+        { day: "Thursday", clicked: false },
+        { day: "Friday", clicked: false },
+        { day: "Saturday", clicked: false },
+        { day: "Sunday", clicked: false },
+      ],
+      times: [
+        { time: "Morning", clicked: false },
+        { time: "Afternoon", clicked: false },
+        { time: "Evening", clicked: false },
+      ],
     };
 
-    this.handleClick = this.handleClick.bind(this);
+    this.handleDayClick = this.handleDayClick.bind(this);
+    this.handleTimeClick = this.handleTimeClick.bind(this);
   }
 
-  handleClick() {
-    this.setState({ clicked: !this.state.clicked });
-  }
+  handleDayClick = (index) => {
+    const days = [...this.state.days];
+    days[index].clicked = !days[index].clicked;
+    this.setState({ days });
+  };
+
+  handleTimeClick = (index) => {
+    const times = [...this.state.times];
+    times[index].clicked = !times[index].clicked;
+    this.setState({ times });
+  };
 
   componentDidMount() {
     initTE({ Datepicker, Input });
   }
   render() {
-    const buttonStyle = {
-      background: this.state.clicked
-        ? "linear-gradient(90deg, #FFB6C1, #FF69B4)"
-        : "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded",
-    };
+    const baseButtonClass = "text-white py-2 px-4 rounded-full";
+    const activeButtonClass = "bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500";
+    const inactiveButtonClass = "text-slate-700 border-2 border-violet-400 hover:bg-violet-400 hover:text-white";
+
     return (
       <div className= " mx-auto justify-center w-1/3">
       <form>
@@ -94,30 +115,41 @@ class VirtualConsultation extends Component {
       >Date of Birth</label>
       </div>
       <div className="flex justify-center flex-col">
-        Preferred Day(s)
-        <div className="justify-center py-2 flex space-x-4">
-        <button type="button" className={this.state.clicked ? "bg-gradient-to-r from-pink-500 to-yellow-500 text-white font-bold py-2 px-4 rounded" : "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"} onClick={this.handleClick}>
-          Monday
-        </button>
-        <button type="button" className={this.state.clicked ? "bg-gradient-to-r from-pink-500 to-yellow-500 text-white font-bold py-2 px-4 rounded" : "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"} onClick={this.handleClick}>Tuesday</button>
-        <button type="button" className={this.state.clicked ? "bg-gradient-to-r from-pink-500 to-yellow-500 text-white font-bold py-2 px-4 rounded" : "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"} onClick={this.handleClick}>Wednesday</button>
+        Preferred Day(s):
+        <div className="flex flex-wrap justify-start py-4 gap-4 ml-4">
+        {this.state.days.map((button, index) => (
+          <button
+            key={button.day}
+            type="button"
+            className={
+              button.clicked
+                ? `${baseButtonClass} ${activeButtonClass}`
+                : `${baseButtonClass} ${inactiveButtonClass}`
+            }
+            onClick={() => this.handleDayClick(index)}
+          >
+            {button.day}
+          </button>
+        ))}      
         </div>
-        <div className="justify-center py-2 flex space-x-4">
-        <button type="button" className={this.state.clicked ? "bg-gradient-to-r from-pink-500 to-yellow-500 text-white font-bold py-2 px-4 rounded" : "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"} onClick={this.handleClick}>Thursday</button>
-        <button type="button" className={this.state.clicked ? "bg-gradient-to-r from-pink-500 to-yellow-500 text-white font-bold py-2 px-4 rounded" : "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"} onClick={this.handleClick}>Friday</button>
-        <button type="button" className={this.state.clicked ? "bg-gradient-to-r from-pink-500 to-yellow-500 text-white font-bold py-2 px-4 rounded" : "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"} onClick={this.handleClick}>Saturday</button>
       </div>
-      </div>
-      <div className="py-2 flex space-x-4">
-        Preferred Time(s)
-        <div className="justify-center py-8 flex space-x-4">
-        <button type="button" className={this.state.clicked ? "bg-gradient-to-r from-pink-500 to-yellow-500 text-white font-bold py-2 px-4 rounded" : "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"} onClick={this.handleClick}>Morning</button>
-            <button type="button" className={this.state.clicked ? "bg-gradient-to-r from-pink-500 to-yellow-500 text-white font-bold py-2 px-4 rounded" : "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"} onClick={this.handleClick}>
-              Afternoon
-            </button>
-            <button type="button" className={this.state.clicked ? "bg-gradient-to-r from-pink-500 to-yellow-500 text-white font-bold py-2 px-4 rounded" : "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"} onClick={this.handleClick}>
-              Evening
-            </button>
+      <div className="py-2 space-x-4">
+        Preferred Time(s):
+        <div className="flex flex-wrap justify-start py-4 gap-4 ml-4">
+        {this.state.times.map((button, index) => (
+          <button
+            key={button.time}
+            type="button"
+            className={
+              button.clicked
+                ? `${baseButtonClass} ${activeButtonClass}`
+                : `${baseButtonClass} ${inactiveButtonClass}`
+            }
+            onClick={() => this.handleTimeClick(index)}
+          >
+            {button.time}
+          </button>
+        ))}
           </div>
         </div>
       </form>
