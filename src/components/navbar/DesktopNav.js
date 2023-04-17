@@ -122,10 +122,11 @@ const DesktopNav = () => {
             <Link to="/patient-login">Patient Login</Link>
           </Menu.Button>
 
-          <Menu.Button className="flex justify-between rounded-lg bg-purple-100 px-4 py-2 text-left text-sm font-medium text-purple-900 hover:bg-purple-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
-            <Link to="/our-locations">Our Locations</Link>
+          <Menu.Button className="flex justify-between rounded-lg bg-purple-100 px-4 py-2 text-left text-sm font-medium text-purple-900 hover:bg-purple-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75" onClick={() => handleOpenMenu(3)}>
+            <span>Our Locations</span>
+            <ChevronDownIcon className="h-5 w-5 text-purple-500" aria-hidden="true" />
           </Menu.Button>
-          {isOpen === 4 && (
+          {isOpen === 3 && (
           <Menu.Items className="absolute left-0 right-0 top-16 bg-white divide-y divide-gray-100 rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
             <div className="px-4 py-2 text-sm text-gray-500">
               {locations_links && locations_links.map((link) => {
