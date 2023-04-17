@@ -8,6 +8,9 @@ import CaringForYourBraces from "../components/patient/CaringForYourBraces";
 import Emergency from "../components/patient/Emergency";
 import VirtualConsultation from "../components/patient/VirtualConsultation";
 import Invisalign from "../components/treatments/Invisalign";
+import Braces from "../components/treatments/Braces";
+import EarlyOrthodontics from "../components/treatments/EarlyOrthodontics";
+import AdultOrthodontics from "../components/treatments/AdultOrthodontics";
 import Allentown from "../components/OurLocations/Allentown";
 import Bethlehem from "../components/OurLocations/Bethlehem";
 import Schnecksville from "../components/OurLocations/Schnecksville";
@@ -25,6 +28,9 @@ const AppRoutes = () => {
       <Route path="/emergency" element={<Emergency />} />
       <Route path="/virtual-consultation" element={<VirtualConsultation />}/>
       <Route path="/invisalign" element={<Invisalign />} />
+      <Route path="/braces" element={<Braces />} />
+      <Route path="/early-orthodontics" element={<EarlyOrthodontics />} />
+      <Route path="adult-orthodontics" element={<AdultOrthodontics />} />
       <Route path="/allentown" element={<Allentown />} />
       <Route path="/bethlehem" element={<Bethlehem />} />
       <Route path="/schnecksville" element={<Schnecksville />} />

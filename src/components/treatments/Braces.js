@@ -2,14 +2,14 @@ import React from "react";
 import { Disclosure } from "@headlessui/react";
 import { ChevronUpIcon } from "@heroicons/react/20/solid";
 
-const Invisalign = () => {
+const Braces = () => {
   return (
     <main>
        <Disclosure as="section" defaultOpen={true}>
           {({ open }) => (
             <>
               <Disclosure.Button className="flex w-full justify-between rounded-lg bg-purple-100 px-4 py-2 text-left text-sm font-medium text-purple-900 hover:bg-purple-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
-                <span>Invisible Braces for Adults and Teens in Allentown, Bethlehem, Schnecksville and Lehighton, PA</span>
+                <span>Different Types of Braces</span>
                 <ChevronUpIcon
                   className={`${
                     open ? 'rotate-180 transform' : ''
@@ -17,7 +17,8 @@ const Invisalign = () => {
                 />
               </Disclosure.Button>
               <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
-                <p>Have you ever wished for a straighter, healthier smile, but not looked forward to all the metal wires and bands that often go along with braces? Since <a className="text-blue-500 hover:text-indigo-500" href="https://www.invisalign.com">Invisalign</a> is nearly invisible, you can straighten your teeth without anyone knowing.</p>
+                <p>Thanks to today's advances in orthodontic technology, FreySmiles Orthodontics can provide our patients with more options than ever before when it comes to wearing different types of braces when undergoing treatment in Allentown, Bethlehem, Schnecksville and Lehighton PA areas.</p>
+                <p>As experts in various treatment types, our doctors will help you determine which treatment choice is right for you. Our goal is the best, most beautiful, healthy smile of your lifetime!</p>
               </Disclosure.Panel>
             </>
           )}
@@ -26,7 +27,7 @@ const Invisalign = () => {
           {({ open }) => (
             <>
               <Disclosure.Button className="flex w-full justify-between rounded-lg bg-purple-100 px-4 py-2 text-left text-sm font-medium text-purple-900 hover:bg-purple-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
-                <span>FreySmiles Orthodontics is one of the TOP 1% Providers in the US</span>
+                <span>Metal Braces</span>
                 <ChevronUpIcon
                   className={`${
                     open ? 'rotate-180 transform' : ''
@@ -34,7 +35,7 @@ const Invisalign = () => {
                 />
               </Disclosure.Button>
               <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
-                <p>Invisalign has worked for over a million smiles across the country. Some dentists and orthodontists may not feel comfortable recommending Invisalign to their patients, but as Diamond Plus providers of Invisalign and Invisalign Teen (top 1% of Invisalign providers in the US) we have the experience to deliver the smile you deserve. Dr. Gregg Frey and Dr. Daniel Frey have treated many hundreds of patients with this leading-edge appliance system. Their expertise shows in the smile results of their satisfied patients. The cost of Invisalign treatment is comparable to the cost of braces.</p>
+                <p>Damon Braces are tieless braces that don't need to be tightened and are gentle to the teeth and tissues. Other style braces use elastic ties or active clips to bind archwires in place, which can slow down tooth movement and cause pain and are more difficult to keep clean. Our braces system also uses titanium wires. These type light, memory-shape wires have excellent formability and great efficiency range for gentle tooth movement. As the leader in the area for Damon Braces, we can give you a great smile, in less time and with more comfort.</p>
               </Disclosure.Panel>
             </>
           )}
@@ -107,4 +108,4 @@ const Invisalign = () => {
   );
 };
 
-export default Invisalign;
+export default Braces;
