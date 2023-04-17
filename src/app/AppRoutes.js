@@ -8,6 +8,7 @@ import CaringForYourBraces from "../components/patient/CaringForYourBraces";
 import Emergency from "../components/patient/Emergency";
 import VirtualConsultation from "../components/patient/VirtualConsultation";
 import Invisalign from "../components/treatments/Invisalign";
+import Braces from "../components/treatments/Braces";
 
 const AppRoutes = () => {
   return (
@@ -21,6 +22,7 @@ const AppRoutes = () => {
       <Route path="/emergency" element={<Emergency />} />
       <Route path="/virtual-consultation" element={<VirtualConsultation />}/>
       <Route path="/invisalign" element={<Invisalign />} />
+      <Route path="/braces" element={<Braces />} />
     </Routes>
   );
 };
