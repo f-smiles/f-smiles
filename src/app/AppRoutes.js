@@ -8,6 +8,10 @@ import CaringForYourBraces from "../components/patient/CaringForYourBraces";
 import Emergency from "../components/patient/Emergency";
 import VirtualConsultation from "../components/patient/VirtualConsultation";
 import Invisalign from "../components/treatments/Invisalign";
+import Allentown from "../components/OurLocations/Allentown";
+import Bethlehem from "../components/OurLocations/Bethlehem";
+import Schnecksville from "../components/OurLocations/Schnecksville";
+import Lehighton from "../components/OurLocations/Lehighton";
 
 const AppRoutes = () => {
   return (
@@ -21,6 +25,10 @@ const AppRoutes = () => {
       <Route path="/emergency" element={<Emergency />} />
       <Route path="/virtual-consultation" element={<VirtualConsultation />}/>
       <Route path="/invisalign" element={<Invisalign />} />
+      <Route path="/allentown" element={<Allentown />} />
+      <Route path="/bethlehem" element={<Bethlehem />} />
+      <Route path="/schnecksville" element={<Schnecksville />} />
+      <Route path="/lehighton" element={<Lehighton />} />
     </Routes>
   );
 };
