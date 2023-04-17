@@ -4,7 +4,8 @@ import { ChevronUpIcon } from "@heroicons/react/20/solid";
 
 const AdultOrthodontics = () => {
   return (
-    <main>
+    <main className="w-full px-4 pt-16">
+      <div className="mx-auto w-full max-w-screen-lg rounded-2xl bg-white p-2">
        <Disclosure as="section" defaultOpen={true}>
           {({ open }) => (
             <>
@@ -92,6 +93,7 @@ const AdultOrthodontics = () => {
             </>
           )}
         </Disclosure>
+      </div>
     </main>
   );
 };
