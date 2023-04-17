@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import MobileNav from "./navbar/MobileNav";
 import DesktopNav from "./navbar/DesktopNav";
 
