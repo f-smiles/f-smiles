@@ -47,9 +47,9 @@ class VirtualConsultation extends Component {
     initTE({ Datepicker, Input });
   }
   render() {
-    const baseButtonClass = "text-white py-2 px-4 rounded-full";
+    const baseButtonClass = "text-slate-700 py-2 px-4 rounded-full";
     const activeButtonClass = "bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500";
-    const inactiveButtonClass = "text-slate-700 border-2 border-violet-400 hover:bg-violet-400 hover:text-white";
+    const inactiveButtonClass = "border-2 border-violet-400 hover:bg-violet-400 hover:text-white";
 
     return (
       <div className= " mx-auto justify-center w-1/3">

@@ -9,6 +9,8 @@ import Emergency from "../components/patient/Emergency";
 import VirtualConsultation from "../components/patient/VirtualConsultation";
 import Invisalign from "../components/treatments/Invisalign";
 import Braces from "../components/treatments/Braces";
+import EarlyOrthodontics from "../components/treatments/EarlyOrthodontics";
+import AdultOrthodontics from "../components/treatments/AdultOrthodontics";
 
 const AppRoutes = () => {
   return (
@@ -23,6 +25,8 @@ const AppRoutes = () => {
       <Route path="/virtual-consultation" element={<VirtualConsultation />}/>
       <Route path="/invisalign" element={<Invisalign />} />
       <Route path="/braces" element={<Braces />} />
+      <Route path="/early-orthodontics" element={<EarlyOrthodontics />} />
+      <Route path="adult-orthodontics" element={<AdultOrthodontics />} />
     </Routes>
   );
 };
