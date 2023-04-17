@@ -47,9 +47,9 @@ class VirtualConsultation extends Component {
     initTE({ Datepicker, Input });
   }
   render() {
-    const baseButtonClass = "text-white font-bold py-2 px-4 rounded";
-    const activeButtonClass = "bg-gradient-to-r from-pink-500 to-yellow-500";
-    const inactiveButtonClass = "bg-red-500 hover:bg-red-700";
+    const baseButtonClass = "text-white py-2 px-4 rounded-full";
+    const activeButtonClass = "bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500";
+    const inactiveButtonClass = "bg-slate-200 text-slate-700 border-2 border-slate-500 hover:bg-slate-400 hover:border-0 hover:text-white";
 
     return (
       <div className= " mx-auto justify-center w-1/3">
@@ -115,8 +115,8 @@ class VirtualConsultation extends Component {
       >Date of Birth</label>
       </div>
       <div className="flex justify-center flex-col">
-        Preferred Day(s)
-        <div className="justify-center py-2 flex space-x-4">
+        Preferred Day(s):
+        <div className="flex flex-wrap justify-start py-4 gap-4 ml-4">
         {this.state.days.map((button, index) => (
           <button
             key={button.day}
@@ -133,9 +133,9 @@ class VirtualConsultation extends Component {
         ))}      
         </div>
       </div>
-      <div className="py-2 flex space-x-4">
-        Preferred Time(s)
-        <div className="justify-center py-8 flex space-x-4">
+      <div className="py-2 space-x-4">
+        Preferred Time(s):
+        <div className="flex flex-wrap justify-start py-4 gap-4 ml-4">
         {this.state.times.map((button, index) => (
           <button
             key={button.time}
