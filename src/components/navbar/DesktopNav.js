@@ -45,11 +45,11 @@ const DesktopNav = () => {
           <ChevronDownIcon className="h-5 w-5 text-purple-500" aria-hidden="true" />
         </Menu.Button>
         {isOpen === 0 && (
-        <Menu.Items className="absolute right-0 w-full bg-white divide-y divide-gray-100 rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+        <Menu.Items className="absolute right-0 top-12 w-full bg-white divide-y divide-gray-100 rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
           <div className="px-4 py-2 text-sm text-gray-500">
             {about_us_links && about_us_links.map((link) => {
               return (
-                <Menu.Item key={link.name}>
+                <Menu.Item key={link.name} as="a">
                   {({ active }) => (
                     <Link to={link.href} className={`block ${active ? 'bg-purple-100 text-purple-900' : 'text-gray-900'}`}>
                       {link.name}
@@ -67,11 +67,11 @@ const DesktopNav = () => {
           <ChevronDownIcon className="h-5 w-5 text-purple-500" aria-hidden="true" />
         </Menu.Button>
         {isOpen === 1 && (
-        <Menu.Items className="absolute right-0 w-full bg-white divide-y divide-gray-100 rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+        <Menu.Items className="absolute right-0 top-12 w-full bg-white divide-y divide-gray-100 rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
           <div className="px-4 py-2 text-sm text-gray-500">
             {patient_links && patient_links.map((link) => {
               return (
-                <Menu.Item key={link.name}>
+                <Menu.Item key={link.name} as="a">
                   {({ active }) => (
                     <Link to={link.href} className={`block ${active ? 'bg-purple-100 text-purple-900' : 'text-gray-900'}`}>
                       {link.name}
@@ -89,11 +89,11 @@ const DesktopNav = () => {
           <ChevronDownIcon className="h-5 w-5 text-purple-500" aria-hidden="true" />
         </Menu.Button>
         {isOpen === 2 && (
-        <Menu.Items className="absolute right-0 w-full bg-white divide-y divide-gray-100 rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+        <Menu.Items className="absolute right-0 top-12 w-full bg-white divide-y divide-gray-100 rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
           <div className="px-4 py-2 text-sm text-gray-500">
             {treatments_links && treatments_links.map((link) => {
               return (
-                <Menu.Item key={link.name}>
+                <Menu.Item key={link.name} as="a">
                   {({ active }) => (
                     <Link to={link.href} className={`block ${active ? 'bg-purple-100 text-purple-900' : 'text-gray-900'}`}>
                       {link.name}
