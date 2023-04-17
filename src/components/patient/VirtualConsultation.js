@@ -9,23 +9,27 @@ import {
 class VirtualConsultation extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
-      buttonColor: "slate-100"
+      clicked: false,
     };
-  }
-  handleButtonClick = (color, time) => { 
-    if (time === "Morning") {
-      this.setState({ morningButton: color });
-    }
-    this.setState({ buttonColor: color });
+
+    this.handleClick = this.handleClick.bind(this);
   }
 
+  handleClick() {
+    this.setState({ clicked: !this.state.clicked });
+  }
 
   componentDidMount() {
     initTE({ Datepicker, Input });
   }
   render() {
-    const { buttonColor } = this.state;
+    const buttonStyle = {
+      background: this.state.clicked
+        ? "linear-gradient(90deg, #FFB6C1, #FF69B4)"
+        : "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded",
+    };
     return (
       <div className= " mx-auto justify-center w-1/3">
       <form>
@@ -92,34 +96,26 @@ class VirtualConsultation extends Component {
       <div className="flex justify-center flex-col">
         Preferred Day(s)
         <div className="justify-center py-2 flex space-x-4">
-        <button
-                className={buttonColor === "yellow" ? "bg-yellow-500 px-4 border rounded-full" : "px-4 border border-slate-900 rounded-full"}
-                onClick={() => this.handleButtonClick("yellow")}
-              >
-                Monday
-              </button>
-        <button className= " px-4 border border-slate-900 rounded-full">Tuesday</button>
-        <button className= " px-4 border border-slate-900 rounded-full">Wednesday</button>
+        <button type="button" className={this.state.clicked ? "bg-gradient-to-r from-pink-500 to-yellow-500 text-white font-bold py-2 px-4 rounded" : "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"} onClick={this.handleClick}>
+          Monday
+        </button>
+        <button type="button" className={this.state.clicked ? "bg-gradient-to-r from-pink-500 to-yellow-500 text-white font-bold py-2 px-4 rounded" : "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"} onClick={this.handleClick}>Tuesday</button>
+        <button type="button" className={this.state.clicked ? "bg-gradient-to-r from-pink-500 to-yellow-500 text-white font-bold py-2 px-4 rounded" : "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"} onClick={this.handleClick}>Wednesday</button>
         </div>
         <div className="justify-center py-2 flex space-x-4">
-        <button className= " px-4 border border-slate-900 rounded-full">Thursday</button>
-        <button className= " px-4 border border-slate-900 rounded-full">Friday</button>
-        <button className= " px-4 border border-slate-900 rounded-full">Saturday</button>
+        <button type="button" className={this.state.clicked ? "bg-gradient-to-r from-pink-500 to-yellow-500 text-white font-bold py-2 px-4 rounded" : "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"} onClick={this.handleClick}>Thursday</button>
+        <button type="button" className={this.state.clicked ? "bg-gradient-to-r from-pink-500 to-yellow-500 text-white font-bold py-2 px-4 rounded" : "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"} onClick={this.handleClick}>Friday</button>
+        <button type="button" className={this.state.clicked ? "bg-gradient-to-r from-pink-500 to-yellow-500 text-white font-bold py-2 px-4 rounded" : "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"} onClick={this.handleClick}>Saturday</button>
       </div>
       </div>
       <div className="py-2 flex space-x-4">
         Preferred Time(s)
         <div className="justify-center py-8 flex space-x-4">
-        <button
-  className={buttonColor === "yellow" ? "bg-yellow-500 px-4 border rounded-full" : "px-4 border border-slate-900 rounded-full"}
-  onClick={() => this.handleButtonClick("yellow", "morning")} 
->
-  Morning
-</button>
-            <button className="px-4 border border-slate-900 rounded-full hover:bg-gradient-to-r from-blue-500 to-purple-500 focus:bg-gradient-to-r from-blue-500 to-purple-500 focus:outline-none">
+        <button type="button" className={this.state.clicked ? "bg-gradient-to-r from-pink-500 to-yellow-500 text-white font-bold py-2 px-4 rounded" : "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"} onClick={this.handleClick}>Morning</button>
+            <button type="button" className={this.state.clicked ? "bg-gradient-to-r from-pink-500 to-yellow-500 text-white font-bold py-2 px-4 rounded" : "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"} onClick={this.handleClick}>
               Afternoon
             </button>
-            <button className="px-4 border border-slate-900 rounded-full hover:bg-gradient-to-r from-blue-500 to-purple-500 focus:bg-gradient-to-r from-blue-500 to-purple-500 focus:outline-none">
+            <button type="button" className={this.state.clicked ? "bg-gradient-to-r from-pink-500 to-yellow-500 text-white font-bold py-2 px-4 rounded" : "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"} onClick={this.handleClick}>
               Evening
             </button>
           </div>
