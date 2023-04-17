@@ -45,11 +45,13 @@ class VirtualConsultation extends Component {
     this.setState({ times });
   };
 
-  handleSubmit =(e) =>{
+  handleSubmit = (e) => {
     e.preventDefault();
     emailjs.sendForm(process.env.REACT_APP_SERVICE_ID, process.env.REACT_APP_TEMPLATE_ID, this.formRef.current, process.env.REACT_APP_PUBLIC_KEY)
     .then(function(response) {
        console.log('SUCCESS!', response.status, response.text);
+       // Reset the page after successful form submission
+       window.location.reload();
     }, function(error) {
        console.log('FAILED...', error);
     });
