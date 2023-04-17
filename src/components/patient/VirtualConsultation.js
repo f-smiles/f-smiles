@@ -48,7 +48,7 @@ class VirtualConsultation extends Component {
   }
   render() {
     const baseButtonClass = "text-slate-700 py-2 px-4 rounded-full";
-    const activeButtonClass = "bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500";
+    const activeButtonClass = "bg-gradient-to-r from-violet-100 via-violet-200 to-violet-300";
     const inactiveButtonClass = "border-2 border-violet-400 hover:bg-violet-400 hover:text-white";
 
     return (
@@ -153,6 +153,26 @@ class VirtualConsultation extends Component {
           </div>
         </div>
       </form>
+      <div class="max-w-lg rounded-lg shadow-md shadow-indigo-600/50">
+  <form action="" className="w-full p-4 my-8">
+    <div className="mb-2">
+      <label for="comment" className="text-lg text-gray-600">Inquiry</label>
+      <textarea
+        className="w-full h-20 p-2 border rounded focus:outline-none focus:ring-gray-300 focus:ring-1"
+        name="send"
+        placeholder=""></textarea>
+    </div>
+    <div className="space-x-2">
+      <button class="px-3 py-2 text-sm text-white bg-indigo-300 rounded-lg">
+        Send
+      </button>
+      <button
+        class="px-3 py-2 text-sm text-blue-600 border border-blue-100 rounded-lg">
+        Cancel
+      </button>
+    </div>
+  </form>
+</div>
     </div>
     );
   }
