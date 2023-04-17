@@ -49,7 +49,7 @@ class VirtualConsultation extends Component {
   render() {
     const baseButtonClass = "text-white py-2 px-4 rounded-full";
     const activeButtonClass = "bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500";
-    const inactiveButtonClass = "bg-slate-200 text-slate-700 border-2 border-slate-500 hover:bg-slate-400 hover:border-0 hover:text-white";
+    const inactiveButtonClass = "text-slate-700 border-2 border-violet-400 hover:bg-violet-400 hover:text-white";
 
     return (
       <div className= " mx-auto justify-center w-1/3">
