@@ -29,7 +29,7 @@ const VirtualConsultation = () => {
         guardian_name,
         phone_number,
         email,
-        date_of_birth,
+        date_of_birth: date_of_birth,
         message,
       };
 
