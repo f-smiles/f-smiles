@@ -9,10 +9,45 @@ const VirtualConsultation = () => {
   const [patient_name, setPatientName] = useState("");
   const [guardian_name, setGuardianName] = useState("");
   const [phone_number, setPhoneNumber] = useState("");
-  const [date_of_birth, setDateOfBirth] = useState("");
   const [email, setEmail] = useState("");
+  const dateOfBirthRef = useRef(""); 
+  const [preferred_day, setPreferredDay] = useState("");
+  const [preferred_time, setPreferredTime] = useState("");
   const [message, setMessage] = useState("");
   const [emailSent, setEmailSent] = useState(false);
+
+   const [days, setDays] = useState([
+    { day: "Monday", clicked: false },
+    { day: "Tuesday", clicked: false },
+    { day: "Wednesday", clicked: false },
+    { day: "Thursday", clicked: false },
+    { day: "Friday", clicked: false },
+    { day: "Saturday", clicked: false },
+    { day: "Sunday", clicked: false },
+  ]);
+
+   const [times, setTimes] = useState([
+    { time: "Morning", clicked: false },
+    { time: "Afternoon", clicked: false },
+    { time: "Evening", clicked: false },
+  ]);
+
+   const handleDayClick = (index) => {
+    const updatedDays = [...days];
+    updatedDays[index].clicked = !updatedDays[index].clicked;
+    setDays(updatedDays);
+    const selectedDays = updatedDays.filter(day => day.clicked).map(day => day.day);
+    setPreferredDay(selectedDays);
+  };
+
+  const handleTimeClick = (index) => {
+    const updatedTimes = [...times];
+    updatedTimes[index].clicked = !updatedTimes[index].clicked;
+    setTimes(updatedTimes);
+    const selectedTimes = updatedTimes.filter(time => time.clicked).map(time => time.time);
+    setPreferredTime(selectedTimes);
+  };
+
 
   useEffect(() => {
     initTE({ Datepicker, Input });
@@ -29,7 +64,9 @@ const VirtualConsultation = () => {
         guardian_name,
         phone_number,
         email,
-        date_of_birth: date_of_birth,
+        date_of_birth: dateOfBirthRef.current.value,
+        preferred_day,
+        preferred_time,
         message,
       };
 
@@ -50,10 +87,17 @@ const VirtualConsultation = () => {
       setGuardianName("");
       setPhoneNumber("");
       setEmail("");
-      setDateOfBirth("");
+      const date_of_birth = dateOfBirthRef.current;
+      setPreferredDay("");
+      setPreferredTime("");
       setMessage("");
       setEmailSent(true);
   };
+
+  const baseButtonClass = "text-slate-700 py-2 px-4 rounded-full";
+  const activeButtonClass = "bg-gradient-to-r from-violet-100 via-violet-200 to-violet-300";
+  const inactiveButtonClass = "border-2 border-violet-400 hover:bg-violet-400 hover:text-white";
+
 
   return (
     <div id="contact-form">
@@ -103,10 +147,49 @@ const VirtualConsultation = () => {
 
         <div className="my-4 relative mb-3" data-te-datepicker-init data-te-input-wrapper-init>
           <input required type="text" className="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:peer-focus:text-primary [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
-          placeholder="Select a date" value={date_of_birth} onChange={(e) => setDateOfBirth(e.target.value)}/>
+          placeholder="Select a date"  ref={dateOfBirthRef}/>
           <label htmlFor="floatingInput"
           className="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary"
           >Date of Birth</label>
+        </div>
+
+        <div className="flex justify-center flex-col">
+          Preferred Day(s):
+        <div className="flex flex-wrap justify-start py-4 gap-4 ml-4">
+        {days.map((button, index) => (
+          <button
+            key={button.day}
+            type="button"
+            className={
+              button.clicked
+                ? `${baseButtonClass} ${activeButtonClass}`
+                : `${baseButtonClass} ${inactiveButtonClass}`
+            }
+            onClick={() => handleDayClick(index)}
+          >
+            {button.day}
+          </button>
+        ))}      
+        </div>
+      </div>
+      <div className="py-2 space-x-4">
+        Preferred Time(s):
+        <div className="flex flex-wrap justify-start py-4 gap-4 ml-4">
+        {times.map((button, index) => (
+          <button
+            key={button.time}
+            type="button"
+            className={
+              button.clicked
+                ? `${baseButtonClass} ${activeButtonClass}`
+                : `${baseButtonClass} ${inactiveButtonClass}`
+            }
+            onClick={() => handleTimeClick(index)}
+          >
+            {button.time}
+          </button>
+        ))}
+          </div>
         </div>
 
         <div className="flex flex-col">
