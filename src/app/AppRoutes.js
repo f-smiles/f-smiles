@@ -15,6 +15,7 @@ import Allentown from "../components/OurLocations/Allentown";
 import Bethlehem from "../components/OurLocations/Bethlehem";
 import Schnecksville from "../components/OurLocations/Schnecksville";
 import Lehighton from "../components/OurLocations/Lehighton";
+import BookNow from "../components/BookNow";
 
 const AppRoutes = () => {
   return (
@@ -35,6 +36,7 @@ const AppRoutes = () => {
       <Route path="/bethlehem" element={<Bethlehem />} />
       <Route path="/schnecksville" element={<Schnecksville />} />
       <Route path="/lehighton" element={<Lehighton />} />
+      <Route path="/book-now" element={<BookNow />} />
     </Routes>
   );
 };

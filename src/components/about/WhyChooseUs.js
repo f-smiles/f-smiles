@@ -61,7 +61,7 @@ const WhyChooseUs = () => {
                   />
                 </svg>
               </td>
-              <td className="border border-black border-t">Column 3, Row 1</td>
+              <td className="border border-black border-t"></td>
             </tr>
             <tr className="border">
               <td className="border border-black border-l">
@@ -83,7 +83,7 @@ const WhyChooseUs = () => {
                   />
                 </svg>
               </td>
-              <td className="border border-black">Column 3, Row 2</td>
+              <td className="border border-black"></td>
             </tr>
             <tr className="border">
               <td className="border border-black border-l">
@@ -105,7 +105,7 @@ const WhyChooseUs = () => {
                   />
                 </svg>
               </td>
-              <td className="border border-black">Column 3, Row 3</td>
+              <td className="border border-black"></td>
             </tr>
             <tr className="border">
               <td className="border border-black border-l">ABO Certified</td>
@@ -125,7 +125,7 @@ const WhyChooseUs = () => {
                   />
                 </svg>
               </td>
-              <td className="border border-black">Column 3, Row 4</td>
+              <td className="border border-black"></td>
             </tr>
             <tr className="border">
               <td className="border border-black border-l">
@@ -147,7 +147,7 @@ const WhyChooseUs = () => {
                   />
                 </svg>
               </td>
-              <td className="border border-black">Column 3, Row 5</td>
+              <td className="border border-black"></td>
             </tr>
             <tr className="border">
               <td className="border border-black border-l">
