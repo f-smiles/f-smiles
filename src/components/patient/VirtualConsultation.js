@@ -101,7 +101,12 @@ const VirtualConsultation = () => {
 
   return (
     <div id="contact-form">
-      <form onSubmit={handleSubmit} className="flex flex-col">
+      {emailSent ? (
+        <span className={emailSent ? "block" : "hidden"}>
+        Thank you for your message, we will be in touch in no time!
+        </span>
+      ) : (
+        <form onSubmit={handleSubmit} className="flex flex-col">
         <label>
           First and Last Name
           <input
@@ -202,11 +207,9 @@ const VirtualConsultation = () => {
             ></textarea>
           </label>
           <button type="submit" onClick={handleSubmit}>Send Message</button>
-          <span className={emailSent ? "block" : "hidden"}>
-            Thank you for your message, we will be in touch in no time!
-          </span>
         </div>
       </form>
+      )}
     </div>
   );
 };
