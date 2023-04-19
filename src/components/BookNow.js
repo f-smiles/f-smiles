@@ -29,6 +29,13 @@ const BookNow = () => {
     { day: "Sunday", clicked: false },
   ]);
 
+  const [appointmentType, setAppointmentType] = useState([
+    { type: "Missed Appointment", clicked: false },
+    { type: "Request Consultation", clicked: false },
+    { type: "Need Elastics", clicked: false },
+    { type: "Emergency", clicked: false },
+  ]);
+
    const [times, setTimes] = useState([
     { time: "Morning", clicked: false },
     { time: "Afternoon", clicked: false },
@@ -43,6 +50,13 @@ const BookNow = () => {
     {location: "Schnecksville", clicked: false},
     {location:"Lehighton", clicked: false}
   ])
+
+
+const handleAppointmentClick = (index) => {
+  const updatedAppointmentType = [...appointmentType];
+  updatedAppointmentType[index].clicked = !updatedAppointmentType[index].clicked;
+  setAppointmentType(updatedAppointmentType)
+}
 
   const handleClick = (index) =>{
     const updatedLocations = [...locations];
@@ -102,14 +116,14 @@ const BookNow = () => {
           console.log('Failed...', error);
         });
 
-      setPatientName("");
-      setGuardianName("");
-      setPhoneNumber("");
-      setEmail("");
-      const date_of_birth = dateOfBirthRef.current;
-      setPreferredDay("");
-      setPreferredTime("");
-      setMessage("");
+      // setPatientName("");
+      // setGuardianName("");
+      // setPhoneNumber("");
+      // setEmail("");
+      // const date_of_birth = dateOfBirthRef.current;
+      // setPreferredDay("");
+      // setPreferredTime("");
+      // setMessage("");
       setEmailSent(true);
   };
 
@@ -122,7 +136,7 @@ const BookNow = () => {
     <div id="contact-form">
       {emailSent ? (
         <span className={emailSent ? "block" : "hidden"}>
-        Thank you for your message, we will be in touch in no time!
+        Thank you for your message, we will be in touch soon!
         </span>
       ) : (
         <form onSubmit={handleSubmit} className="flex flex-col">
@@ -169,12 +183,32 @@ const BookNow = () => {
                 />
               </Disclosure.Button>
               <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
-             Consultation Missed Appointment Need Elastics Emergency
+              {appointmentType.map((button, index) => (
+          <button
+            key={button.type}
+            type="button"
+        
+            onClick={() => handleAppointmentClick(index)}
+          >
+               {button.clicked ? (<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="purple" class="w-6 h-6">
+  <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z" clip-rule="evenodd" />
+</svg>
+
+
+) : (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+<path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+</svg>
+)}          
+            {button.type}
+          </button>
+        ))}      
               </Disclosure.Panel>
             </>
           )}
         </Disclosure>
+
         <Disclosure>
+          
           {({ open }) => (
             <>
               <Disclosure.Button className="flex w-full justify-between rounded-lg bg-purple-100 px-4 py-2 text-left text-sm font-medium text-purple-900 hover:bg-purple-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
@@ -203,11 +237,6 @@ const BookNow = () => {
             {button.location}
           </button>
         ))}      
-          
-
-
-
-
               </Disclosure.Panel>
             </>
           )}

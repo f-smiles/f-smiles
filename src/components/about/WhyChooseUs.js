@@ -25,7 +25,7 @@ const WhyChooseUs = () => {
         non-profit organization called More Than Smiles in 2011, providing
         orthodontic treatment to deserving young individuals who may not have
         access to world-class orthodontic care or cannot afford it. If you know
-        someone that could benefit of this gift, please visit the More Than
+        someone that could benefit from this gift, please visit the More Than
         Smiles website for the details on how to nominate a deserving
         individual. FreySmiles has four convenient locations in the Allentown,
         Bethlehem, Easton, Schnecksville, and Lehighton communities.
