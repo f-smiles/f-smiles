@@ -5,19 +5,21 @@ import { Datepicker, Input, initTE } from "tw-elements";
 import { init } from 'emailjs-com';
 import { Disclosure } from '@headlessui/react'
 import { ChevronUpIcon } from '@heroicons/react/20/solid'
-import Schnecksville from "./OurLocations/Schnecksville";
 init(process.env.REACT_APP_PUBLIC_KEY);
 
 const BookNow = () => {
   const [patient_name, setPatientName] = useState("");
   const [guardian_name, setGuardianName] = useState("");
   const [phone_number, setPhoneNumber] = useState("");
+  const [appointment_types, setAppointmentTypes] = useState("");
+  const [appointment_locations, setAppointmentLocations] = useState("");
   const [email, setEmail] = useState("");
   const dateOfBirthRef = useRef(""); 
   const [preferred_day, setPreferredDay] = useState("");
   const [preferred_time, setPreferredTime] = useState("");
   const [message, setMessage] = useState("");
   const [emailSent, setEmailSent] = useState(false);
+
 
    const [days, setDays] = useState([
     { day: "Monday", clicked: false },
@@ -42,28 +44,28 @@ const BookNow = () => {
     { time: "Evening", clicked: false },
   ]);
 
-  const [isOpen, setIsOpen] = useState(false);
-
   const [locations, setLocations] =useState([
     {location: "Allentown", clicked: false},
     {location: "Bethlehem", clicked: false},
     {location: "Schnecksville", clicked: false},
     {location:"Lehighton", clicked: false}
-  ])
+  ]);
 
-
-const handleAppointmentClick = (index) => {
-  const updatedAppointmentType = [...appointmentType];
-  updatedAppointmentType[index].clicked = !updatedAppointmentType[index].clicked;
-  setAppointmentType(updatedAppointmentType)
-}
+  const handleAppointmentClick = (index) => {
+    const updatedAppointmentType = [...appointmentType];
+    updatedAppointmentType[index].clicked = !updatedAppointmentType[index].clicked;
+    setAppointmentType(updatedAppointmentType)
+    const selectedTypes = updatedAppointmentType.filter(type => type.clicked).map(type => type.type);
+    setAppointmentTypes(selectedTypes);
+  };
 
   const handleClick = (index) =>{
     const updatedLocations = [...locations];
     updatedLocations[index].clicked = !updatedLocations[index].clicked;
     setLocations(updatedLocations);
-    // setIsOpen(!isOpen);
-  }
+    const selectedLocations = updatedLocations.filter(location => location.clicked).map(location => location.location);
+    setAppointmentLocations(selectedLocations);
+  };
 
    const handleDayClick = (index) => {
     const updatedDays = [...days];
@@ -86,6 +88,7 @@ const handleAppointmentClick = (index) => {
     initTE({ Datepicker, Input });
   }, []);
 
+
   const handleSubmit = () => {
     const emailRegex = /\S+@\S+\.\S+/;
     if (!emailRegex.test(email)) {
@@ -96,6 +99,8 @@ const handleAppointmentClick = (index) => {
         patient_name,
         guardian_name,
         phone_number,
+        appointment_types,
+        appointment_locations,
         email,
         date_of_birth: dateOfBirthRef.current.value,
         preferred_day,
@@ -106,7 +111,7 @@ const handleAppointmentClick = (index) => {
       emailjs
         .send(
           process.env.REACT_APP_SERVICE_ID,
-          process.env.REACT_APP_TEMPLATE_ID,
+          process.env.REACT_APP_BOOK_NOW_TEMPLATE_ID,
           templateParams,
           process.env.REACT_APP_PUBLIC_KEY
         )
@@ -115,17 +120,9 @@ const handleAppointmentClick = (index) => {
         }, function(error) {
           console.log('Failed...', error);
         });
-
-      // setPatientName("");
-      // setGuardianName("");
-      // setPhoneNumber("");
-      // setEmail("");
-      // const date_of_birth = dateOfBirthRef.current;
-      // setPreferredDay("");
-      // setPreferredTime("");
-      // setMessage("");
       setEmailSent(true);
   };
+
 
   const baseButtonClass = "text-slate-700 py-2 px-4 rounded-full";
   const activeButtonClass = "bg-gradient-to-r from-violet-100 via-violet-200 to-violet-300";
@@ -184,31 +181,29 @@ const handleAppointmentClick = (index) => {
               </Disclosure.Button>
               <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
               {appointmentType.map((button, index) => (
-          <button
-            key={button.type}
-            type="button"
-        
-            onClick={() => handleAppointmentClick(index)}
-          >
-               {button.clicked ? (<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="purple" class="w-6 h-6">
-  <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z" clip-rule="evenodd" />
-</svg>
-
-
-) : (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-<path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-</svg>
-)}          
-            {button.type}
-          </button>
-        ))}      
+                <button
+                  key={button.type}
+                  type="button"
+                  onClick={() => handleAppointmentClick(index)}
+                >
+                  {button.clicked ? (
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="purple" class="w-6 h-6">
+                    <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z" clip-rule="evenodd" />
+                    </svg>
+                  ) : (
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  )}          
+                  {button.type}
+                </button>
+              ))}      
               </Disclosure.Panel>
             </>
           )}
         </Disclosure>
 
         <Disclosure>
-          
           {({ open }) => (
             <>
               <Disclosure.Button className="flex w-full justify-between rounded-lg bg-purple-100 px-4 py-2 text-left text-sm font-medium text-purple-900 hover:bg-purple-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
@@ -221,22 +216,24 @@ const handleAppointmentClick = (index) => {
               </Disclosure.Button>
               <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
               {locations.map((button, index) => (
-          <button
-            key={button.location}
-            type="button"
-        
-            onClick={() => handleClick(index)}
-          >
-               {button.clicked ? (<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="indigo" className="w-6 h-6">
-  <path fillRule="evenodd" d="M11.54 22.351l.07.04.028.016a.76.76 0 00.723 0l.028-.015.071-.041a16.975 16.975 0 001.144-.742 19.58 19.58 0 002.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 00-16.5 0c0 3.846 2.02 6.837 3.963 8.827a19.58 19.58 0 002.682 2.282 16.975 16.975 0 001.145.742zM12 13.5a3 3 0 100-6 3 3 0 000 6z" clipRule="evenodd" />
-</svg>
-) : (<svg  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-<path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
-<path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
-</svg>)}          
-            {button.location}
-          </button>
-        ))}      
+                <button
+                  key={button.location}
+                  type="button"
+                  onClick={() => handleClick(index)}
+                >
+                  {button.clicked ? (
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="indigo" className="w-6 h-6">
+                    <path fillRule="evenodd" d="M11.54 22.351l.07.04.028.016a.76.76 0 00.723 0l.028-.015.071-.041a16.975 16.975 0 001.144-.742 19.58 19.58 0 002.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 00-16.5 0c0 3.846 2.02 6.837 3.963 8.827a19.58 19.58 0 002.682 2.282 16.975 16.975 0 001.145.742zM12 13.5a3 3 0 100-6 3 3 0 000 6z" clipRule="evenodd" />
+                    </svg>
+                  ) : (
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+                    </svg>
+                  )}          
+                  {button.location}
+                </button>
+              ))}      
               </Disclosure.Panel>
             </>
           )}
