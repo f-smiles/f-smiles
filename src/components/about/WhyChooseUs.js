@@ -25,7 +25,7 @@ const WhyChooseUs = () => {
         non-profit organization called More Than Smiles in 2011, providing
         orthodontic treatment to deserving young individuals who may not have
         access to world-class orthodontic care or cannot afford it. If you know
-        someone that could benefit of this gift, please visit the More Than
+        someone that could benefit from this gift, please visit the More Than
         Smiles website for the details on how to nominate a deserving
         individual. FreySmiles has four convenient locations in the Allentown,
         Bethlehem, Easton, Schnecksville, and Lehighton communities.
@@ -61,7 +61,7 @@ const WhyChooseUs = () => {
                   />
                 </svg>
               </td>
-              <td className="border border-black border-t">Column 3, Row 1</td>
+              <td className="border border-black border-t"></td>
             </tr>
             <tr className="border">
               <td className="border border-black border-l">
@@ -83,7 +83,7 @@ const WhyChooseUs = () => {
                   />
                 </svg>
               </td>
-              <td className="border border-black">Column 3, Row 2</td>
+              <td className="border border-black"></td>
             </tr>
             <tr className="border">
               <td className="border border-black border-l">
@@ -105,7 +105,7 @@ const WhyChooseUs = () => {
                   />
                 </svg>
               </td>
-              <td className="border border-black">Column 3, Row 3</td>
+              <td className="border border-black"></td>
             </tr>
             <tr className="border">
               <td className="border border-black border-l">ABO Certified</td>
@@ -125,7 +125,7 @@ const WhyChooseUs = () => {
                   />
                 </svg>
               </td>
-              <td className="border border-black">Column 3, Row 4</td>
+              <td className="border border-black"></td>
             </tr>
             <tr className="border">
               <td className="border border-black border-l">
@@ -147,7 +147,7 @@ const WhyChooseUs = () => {
                   />
                 </svg>
               </td>
-              <td className="border border-black">Column 3, Row 5</td>
+              <td className="border border-black"></td>
             </tr>
             <tr className="border">
               <td className="border border-black border-l">
