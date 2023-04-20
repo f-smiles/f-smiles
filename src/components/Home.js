@@ -56,7 +56,7 @@ animate();
         <div className="bg-[conic-gradient(at_top_right,_var(--tw-gradient-stops))] from-purple-100 via-slate-300 to-purple-100 rounded-tl-3xl rounded-tr-3xl rounded-bl-3xl width max-w-xs h-48 max-h-full p-12 flex justify-center items-center">
           <p>
             {" "}
-            <strong>Damon Braces</strong>
+            <strong>DAMON BRACES</strong>
             <p>
               {" "}
               Combining self-ligating braces with advanced archwires clinically proven to move teeth quickly and comfortably.
@@ -66,7 +66,7 @@ animate();
         <div className="bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-indigo-200 via-red-200 to-yellow-100 rounded-tl-3xl rounded-tr-3xl rounded-bl-3xl width max-w-xs h-48 max-h-full p-12 flex justify-center items-center">
           <p>
             {" "}
-            <strong>Invisalign</strong>
+            <strong>INVISALIGN</strong>
             <p>
               {" "}
               As part of the top 1% of Invisalign providers in the US, we have
@@ -77,7 +77,7 @@ animate();
         <div className="bg-[conic-gradient(at_top_right,_var(--tw-gradient-stops))] from-purple-100 via-slate-300 to-purple-100 rounded-tl-3xl rounded-tr-3xl rounded-bl-3xl width max-w-xs h-48 max-h-full p-12 flex justify-center items-center">
           <p>
             {" "}
-            <strong>Advanced Technology</strong>
+            <strong>ADVANCED TECHNOLOGY</strong>
             <p>
               {" "}
               We offer Invisalign without Impressions. Say goodbye to goopy
@@ -94,13 +94,13 @@ animate();
 
       <section className="flex gap-8 justify-center">
       <div className="flex flex-col justify-between bg-f7f5f2 rounded-bl-3xl rounded-br-3xl width h-48 max-h-full items-center">
-          <h1> <strong className="ml-8">Allentown</strong></h1>
+          <h1> <strong className="ml-8">ALLENTOWN</strong></h1>
           <h4 className="px-2 text-sm">1251 S Cedar Crest Blvd Suite 210</h4>
           <h4 className="text-sm">Allentown, PA 18103</h4>
           <button className="bg-stone-400 p-2 text-white hover:text-black px-4 py-2 w-full rounded-bl-3xl rounded-br-3xl">Book Now</button>
         </div>
         <div className="flex flex-col justify-between bg-f7f5f2 rounded-bl-3xl rounded-br-3xl width h-48 max-h-full items-center">
-          <h1><strong className="ml-8">Bethlehem</strong></h1>
+          <h1><strong className="ml-8">BETHLEHEM</strong></h1>
           <h4 className="px-2 text-sm">2901 Emrick Boulevard</h4>
           <h4 className="px-3 text-sm">Bethlehem, PA 18020</h4>
           <button className="bg-stone-400 p-2 text-white hover:text-black px-4 py-2 w-full rounded-bl-3xl rounded-br-3xl">Book Now</button>
