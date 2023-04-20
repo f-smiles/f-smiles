@@ -148,75 +148,102 @@ const BookNow = () => {
           Thank you for your message, we will be in touch soon!
         </span>
       ) : (
-        <form onSubmit={handleSubmit} className="space-y-8 flex flex-col">
-          <div className="">
-            <input
-              className="block p-2"
-              type="text"
-              value={patient_name}
-              onChange={(e) => setPatientName(e.target.value)}
-              required
-              style={{ borderRadius: "9999px", border: "1px solid gray" }}
-            />
-            <label className="absolute -mt-12  ml-4 bg-white px-2 text-xs">
-              First Name
-            </label>
-          </div>
+        <form onSubmit={handleSubmit} 
+        className="border-2 backdrop-blur-md bg-white/30 max-w-screen-sm mx-auto flex flex-col space-y-12 p-8 rounded-xl">
+<div className="flex flex-col items-center">
+  <div className="flex w-full gap-2">
+    <div className="relative flex-1 w-1/2">
+      <input
+        className="w-full block p-2"
+        type="text"
+        value={patient_name}
+        onChange={(e) => setPatientName(e.target.value)}
+        required
+        style={{ borderRadius: "9999px", border: "1px solid gray" }}
+      />
+      <label className="absolute -mt-12 ml-4 bg-white px-2 text-xs">
+        First Name
+      </label>
+    </div>
 
-          <div className="relative">
-            <label className="absolute -mt-2  ml-4 bg-white px-2 text-xs">
-              Last Name
-            </label>
-            <input
-              className="block p-2"
-              type="text"
-              value={patient_lastName}
-              onChange={(e) => setPatientLastName(e.target.value)}
-              required
-              style={{ borderRadius: "9999px", border: "1px solid gray" }}
-            />
-          </div>
+    <div className="w-1/2 relative">
+      <label className="absolute -mt-2 ml-4 bg-white px-2 text-xs">
+        Last Name
+      </label>
+      <input
+        className="w-full block p-2"
+        type="text"
+        value={patient_lastName}
+        onChange={(e) => setPatientLastName(e.target.value)}
+        required
+        style={{ borderRadius: "9999px", border: "1px solid gray" }}
+      />
+    </div>
+  </div>
 
-          <div className="relative">
-            <input
-              className="block p-2"
-              type="text"
-              value={patient_name}
-              onChange={(e) => setGuardianName(e.target.value)}
-              required
-              style={{ borderRadius: "9999px", border: "1px solid gray" }}
-            />
-            <label className="absolute -mt-12  ml-4 bg-white px-2 text-xs">
-              Parent/Guardian
-            </label>
-          </div>
+  <div className="relative pt-8 pb-4 w-full">
+    <input
+      className="block p-2 w-full"
+      type="text"
+      value={guardian_name}
+      onChange={(e) => setGuardianName(e.target.value)}
+      required
+      style={{ borderRadius: "9999px", border: "1px solid gray" }}
+    />
+    <label className="absolute -mt-12  ml-4 bg-white px-2 text-xs">
+      Parent/Guardian
+    </label>
+  </div>
 
-          <div className="relative">
-            <input
-              className="block p-2"
-              type="text"
-              value={patient_name}
-              onChange={(e) => setPhoneNumber(e.target.value)}
-              required
-              style={{ borderRadius: "9999px", border: "1px solid gray" }}
-            />
-            <label className="absolute -mt-12  ml-4 bg-white px-2 text-xs">
-              Phone Number
-            </label>
-          </div>
+<div className="w-full flex gap-2">
+  <div className="w-1/2 relative flex-1 py-4">
+    <input
+      className="w-full block p-2"
+      type="text"
+      value={phone_number}
+      onChange={(e) => setPhoneNumber(e.target.value)}
+      required
+      style={{ borderRadius: "9999px", border: "1px solid gray" }}
+    />
+    <label className="absolute -mt-12  ml-4 bg-white px-2 text-xs">
+      Phone Number
+    </label>
+  </div>
 
-          <div className="relative">
-            <label className="absolute -mt-2  ml-4 bg-white px-2 text-xs">
-              Email
-            </label>
+  <div className="w-1/2 relative flex-1 py-4">
+    <label className="absolute -mt-2  ml-4 bg-white px-2 text-xs">
+      Email
+    </label>
+    <input
+      className="w-full block p-2"
+      type="text"
+      value={email}
+      onChange={(e) => setEmail(e.target.value)}
+      required
+      style={{ borderRadius: "9999px", border: "1px solid gray" }}
+    />
+  </div>
+</div>
+</div>
+
+<div
+            className="my-4 relative mb-3"
+            data-te-datepicker-init
+            data-te-input-wrapper-init
+          >
             <input
-              className="block p-2"
-              type="text"
-              value={patient_lastName}
-              onChange={(e) => setEmail(e.target.value)}
               required
-              style={{ borderRadius: "9999px", border: "1px solid gray" }}
+              type="text"
+              className="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:peer-focus:text-primary [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+              placeholder="Select a date"
+              ref={dateOfBirthRef}
             />
+            <label
+              htmlFor="floatingInput"
+              className="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary"
+            >
+              Date of Birth
+            </label>
           </div>
           <Disclosure>
             {({ open }) => (
@@ -335,25 +362,6 @@ const BookNow = () => {
             )}
           </Disclosure>
 
-          <div
-            className="my-4 relative mb-3"
-            data-te-datepicker-init
-            data-te-input-wrapper-init
-          >
-            <input
-              required
-              type="text"
-              className="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:peer-focus:text-primary [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
-              placeholder="Select a date"
-              ref={dateOfBirthRef}
-            />
-            <label
-              htmlFor="floatingInput"
-              className="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary"
-            >
-              Date of Birth
-            </label>
-          </div>
 
           <div className="flex justify-center flex-col">
             Preferred Day(s):
@@ -394,7 +402,7 @@ const BookNow = () => {
             </div>
           </div>
 
-          <div className="flex flex-col">
+          <div className="border-2 flex flex-col">
             <label className="flex flex-col">
               Comments
               <textarea

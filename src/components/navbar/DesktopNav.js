@@ -41,7 +41,7 @@ const DesktopNav = () => {
   };
 
   return (
-    <Menu as="nav" className="top-0 left-0 right-0 max-w-7xl mx-auto">
+    <Menu as="nav" className="top-0 left-0 right-0 max-w-7xl mx-auto z-10">
       <div className="flex justify-between p-4 space-x-4">
         <div className="flex items-center">
           <Menu.Button className="flex justify-between rounded-lg bg-purple-100 px-4 py-2 text-left text-sm font-medium text-purple-900 hover:bg-purple-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
@@ -57,7 +57,7 @@ const DesktopNav = () => {
             <ChevronDownIcon className="h-5 w-5 text-purple-500" aria-hidden="true" />
           </Menu.Button>
           {isOpen === 0 && (
-          <Menu.Items className="w-64 absolute left-1/2 top-16 bg-white divide-y divide-gray-100 rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" style={{ transform: 'translateX(-150%)' }}>
+          <Menu.Items className="z-10 w-64 absolute left-1/2 top-16 bg-white divide-y divide-gray-100 rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" style={{ transform: 'translateX(-150%)' }}>
             <div className="px-4 py-2 text-sm text-gray-500">
               {about_us_links && about_us_links.map((link) => {
                 return (
@@ -79,7 +79,7 @@ const DesktopNav = () => {
             <ChevronDownIcon className="h-5 w-5 text-purple-500" aria-hidden="true" />
           </Menu.Button>
           {isOpen === 1 && (
-        <Menu.Items className="w-64 absolute left-1/2 top-16 bg-white divide-y divide-gray-100 rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" style={{ transform: 'translateX(-100%)' }}>
+        <Menu.Items className="z-10 w-64 absolute left-1/2 top-16 bg-white divide-y divide-gray-100 rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" style={{ transform: 'translateX(-100%)' }}>
             <div className="px-4 py-2 text-sm text-gray-500">
               {patient_links && patient_links.map((link) => {
                 return (
@@ -101,7 +101,7 @@ const DesktopNav = () => {
             <ChevronDownIcon className="h-5 w-5 text-purple-500" aria-hidden="true" />
           </Menu.Button>
           {isOpen === 2 && (
-           <Menu.Items className="w-64 absolute left-1/2 top-16 bg-white divide-y divide-gray-100 rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" style={{ transform: 'translateX(-60%)' }}>
+           <Menu.Items className="z-10 w-64 absolute left-1/2 top-16 bg-white divide-y divide-gray-100 rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" style={{ transform: 'translateX(-60%)' }}>
             <div className="px-4 py-2 text-sm text-gray-500">
               {treatments_links && treatments_links.map((link) => {
                 return (
@@ -127,7 +127,7 @@ const DesktopNav = () => {
             <ChevronDownIcon className="h-5 w-5 text-purple-500" aria-hidden="true" />
           </Menu.Button>
           {isOpen === 3 && (
-           <Menu.Items className="w-64 absolute right-1 top-16 bg-white divide-y divide-gray-100 rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+           <Menu.Items className="z-10 w-64 absolute right-1 top-16 bg-white divide-y divide-gray-100 rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
             <div className="px-4 py-2 text-sm text-gray-500">
               {locations_links && locations_links.map((link) => {
                 return (
