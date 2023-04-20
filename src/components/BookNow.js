@@ -2,10 +2,9 @@ import React, { useState, useRef, useEffect } from "react";
 import emailjs from "@emailjs/browser";
 import "tw-elements";
 import { Datepicker, Input, initTE } from "tw-elements";
-import { init } from "emailjs-com";
-import { Disclosure } from "@headlessui/react";
-import { ChevronUpIcon } from "@heroicons/react/20/solid";
-import Schnecksville from "./OurLocations/Schnecksville";
+import { init } from 'emailjs-com';
+import { Disclosure } from '@headlessui/react'
+import { ChevronUpIcon } from '@heroicons/react/20/solid'
 init(process.env.REACT_APP_PUBLIC_KEY);
 
 const BookNow = () => {
@@ -13,6 +12,8 @@ const BookNow = () => {
   const [patient_lastName, setPatientLastName] = useState("");
   const [guardian_name, setGuardianName] = useState("");
   const [phone_number, setPhoneNumber] = useState("");
+  const [appointment_types, setAppointmentTypes] = useState("");
+  const [appointment_locations, setAppointmentLocations] = useState("");
   const [email, setEmail] = useState("");
   const dateOfBirthRef = useRef("");
   const [preferred_day, setPreferredDay] = useState("");
@@ -20,7 +21,7 @@ const BookNow = () => {
   const [message, setMessage] = useState("");
   const [emailSent, setEmailSent] = useState(false);
 
-  const [days, setDays] = useState([
+   const [days, setDays] = useState([
     { day: "Monday", clicked: false },
     { day: "Tuesday", clicked: false },
     { day: "Wednesday", clicked: false },
@@ -43,27 +44,28 @@ const BookNow = () => {
     { time: "Evening", clicked: false },
   ]);
 
-  const [isOpen, setIsOpen] = useState(false);
-
   const [locations, setLocations] = useState([
     { location: "Allentown", clicked: false },
     { location: "Bethlehem", clicked: false },
     { location: "Schnecksville", clicked: false },
     { location: "Lehighton", clicked: false },
+
   ]);
 
   const handleAppointmentClick = (index) => {
     const updatedAppointmentType = [...appointmentType];
-    updatedAppointmentType[index].clicked =
-      !updatedAppointmentType[index].clicked;
-    setAppointmentType(updatedAppointmentType);
+    updatedAppointmentType[index].clicked = !updatedAppointmentType[index].clicked;
+    setAppointmentType(updatedAppointmentType)
+    const selectedTypes = updatedAppointmentType.filter(type => type.clicked).map(type => type.type);
+    setAppointmentTypes(selectedTypes);
   };
 
   const handleClick = (index) => {
     const updatedLocations = [...locations];
     updatedLocations[index].clicked = !updatedLocations[index].clicked;
     setLocations(updatedLocations);
-    // setIsOpen(!isOpen);
+    const selectedLocations = updatedLocations.filter(location => location.clicked).map(location => location.location);
+    setAppointmentLocations(selectedLocations);
   };
 
   const handleDayClick = (index) => {
@@ -90,6 +92,7 @@ const BookNow = () => {
     initTE({ Datepicker, Input });
   }, []);
 
+
   const handleSubmit = () => {
     const emailRegex = /\S+@\S+\.\S+/;
     if (!emailRegex.test(email)) {
@@ -101,17 +104,19 @@ const BookNow = () => {
       patient_lastName,
       guardian_name,
       phone_number,
-      email,
-      date_of_birth: dateOfBirthRef.current.value,
-      preferred_day,
-      preferred_time,
-      message,
+        appointment_types,
+        appointment_locations,
+        email,
+        date_of_birth: dateOfBirthRef.current.value,
+        preferred_day,
+        preferred_time,
+        message,
     };
 
     emailjs
       .send(
         process.env.REACT_APP_SERVICE_ID,
-        process.env.REACT_APP_TEMPLATE_ID,
+        process.env.REACT_APP_BOOK_NOW_TEMPLATE_ID,
         templateParams,
         process.env.REACT_APP_PUBLIC_KEY
       )
@@ -123,17 +128,9 @@ const BookNow = () => {
           console.log("Failed...", error);
         }
       );
-
-    // setPatientName("");
-    // setGuardianName("");
-    // setPhoneNumber("");
-    // setEmail("");
-    // const date_of_birth = dateOfBirthRef.current;
-    // setPreferredDay("");
-    // setPreferredTime("");
-    // setMessage("");
     setEmailSent(true);
   };
+
 
   const baseButtonClass = "text-slate-700 py-2 px-4 rounded-full";
   const activeButtonClass =
