@@ -133,10 +133,10 @@ export default function DesktopNavbar() {
               <Link to="/allentown" className="cursor-pointer block text-sm leading-3 tracking-normal px-3 font-normal">Our Locations</Link>
             </li>
           </ul>
-          <li className="cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-700 hover:text-white font-normal">
-            <button className="cursor-pointer bg-violet-300 rounded-full px-8 py-2 hover:text-indigo-700 transition duration-150 ease-in-out flex items-center text-sm text-white tracking-normal text-white hover:text-indigo-700">
+          <li className="cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-3 hover:text-white font-normal">
+            <Link to="/book-now" className="cursor-pointer bg-violet-300 rounded-full px-8 py-2 hover:text-indigo-700 transition duration-150 ease-in-out flex items-center text-sm text-white tracking-normal text-white hover:text-indigo-700">
               Book Now
-            </button>
+            </Link>
           </li>
         </ul>
       </nav>
@@ -412,13 +412,11 @@ export default function DesktopNavbar() {
                 </ul>
               </div>
               <div className="w-full py-8 my-4 px-10 border-t border-gray-700">
-                {/* <div className=""> */}
                   <div className="w-full flex items-center justify-between">
-                    <button className="rounded-full bg-violet-300 text-violet-900 p-4">
+                    <Link to="/book-now" type="button" className="rounded-full bg-violet-300 text-violet-900 p-4">
                       Book Now
-                    </button>
+                    </Link>
                   </div>
-                {/* </div> */}
               </div>
             </section>
         </div>
