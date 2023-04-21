@@ -219,7 +219,7 @@ export default function DesktopNavbar() {
                   </div>
                 </div>
                 <ul className="px-8 py-4">
-                  <Link className="cursor-pointer">
+                  <Link to="/" className="cursor-pointer">
                     <li className="text-white pt-10 flex items-center">
                       <p className="text-indigo-700 xl:text-base text-base ml-3">
                         Home
