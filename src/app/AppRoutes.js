@@ -12,9 +12,6 @@ import Braces from "../components/treatments/Braces";
 import EarlyOrthodontics from "../components/treatments/EarlyOrthodontics";
 import AdultOrthodontics from "../components/treatments/AdultOrthodontics";
 import Allentown from "../components/OurLocations/Allentown";
-import Bethlehem from "../components/OurLocations/Bethlehem";
-import Schnecksville from "../components/OurLocations/Schnecksville";
-import Lehighton from "../components/OurLocations/Lehighton";
 import BookNow from "../components/BookNow";
 
 const AppRoutes = () => {
@@ -33,9 +30,6 @@ const AppRoutes = () => {
       <Route path="/early-orthodontics" element={<EarlyOrthodontics />} />
       <Route path="adult-orthodontics" element={<AdultOrthodontics />} />
       <Route path="/allentown" element={<Allentown />} />
-      <Route path="/bethlehem" element={<Bethlehem />} />
-      <Route path="/schnecksville" element={<Schnecksville />} />
-      <Route path="/lehighton" element={<Lehighton />} />
       <Route path="/book-now" element={<BookNow />} />
     </Routes>
   );

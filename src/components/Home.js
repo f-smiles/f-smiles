@@ -106,13 +106,13 @@ animate();
           <button className="bg-stone-400 p-2 text-white hover:text-black px-4 py-2 w-full rounded-bl-3xl rounded-br-3xl">Book Now</button>
         </div>
         <div className="flex flex-col justify-between bg-f7f5f2 rounded-bl-3xl rounded-br-3xl width h-48 max-h-full items-center">
-          <h1><strong className="ml-8">Schnecksville</strong></h1>
+          <h1><strong className="ml-8">SCHNECKSVILLE</strong></h1>
           <h4 className= "px-2 text-sm">4155 Independence Drive</h4>
           <h4 className= "px-3 text-sm">Schnecksville, PA 18078</h4>
           <button className="bg-stone-400 p-2 text-white hover:text-black px-4 py-2 w-full rounded-bl-3xl rounded-br-3xl glassmorphism">Book Now</button>
         </div>
         <div className="flex flex-col justify-between bg-f7f5f2 rounded-bl-3xl rounded-br-3xl width h-48 max-h-full items-center">
-          <h1><strong className="ml-8">Lehighton</strong></h1>
+          <h1><strong className="ml-8">LEHIGHTON</strong></h1>
           <h4 className="px-2 text-sm">1080 Blakeslee Blvd Dr E</h4>
           <h4 className="px-3 text-sm">Lehighton, PA 18235</h4>
           <button className="bg-stone-400 p-2 text-white hover:text-black px-4 py-2 w-full rounded-bl-3xl rounded-br-3xl">Book Now</button>

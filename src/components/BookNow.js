@@ -5,7 +5,6 @@ import { Datepicker, Input, initTE } from "tw-elements";
 import { init } from "emailjs-com";
 import { Disclosure } from "@headlessui/react";
 import { ChevronUpIcon } from "@heroicons/react/20/solid";
-import Schnecksville from "./OurLocations/Schnecksville";
 init(process.env.REACT_APP_PUBLIC_KEY);
 
 const BookNow = () => {
