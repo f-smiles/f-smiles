@@ -29,7 +29,7 @@ export default function DesktopNavbar() {
   return (
     <>
       {/* Desktop Navbar */}
-      <nav id="desktop-nav" className="w-full h-full bg-gray-800 shadow xl:block hidden">
+      <nav id="desktop-nav" className="w-full h-full bg-stone-900 shadow xl:block hidden">
         <ul className="w-full p-2 max-w-screen-xl mx-auto flex justify-between items-center">
           <li><Link to="/"><img className="h-12" src="../../images/logo_full.png" alt="frey smiles orthodontics logo"/></Link></li>
           <ul className="xl:flex hidden gap-8 justify-evenly items-center">
