@@ -31,7 +31,7 @@ export default function DesktopNavbar() {
   return (
     <>
       {/* Desktop Navbar */}
-      <nav id="desktop-nav" className="w-full h-max fixed top-0 left-0 right-0 mx-auto bg-gray-800 shadow xl:block hidden z-40">
+      <nav id="desktop-nav" className="w-full h-max relative top-0 left-0 right-0 mx-auto bg-stone-300 shadow xl:block hidden z-40">
         <ul className="w-full p-2 max-w-screen-xl mx-auto flex justify-between items-center">
           <li>
             <NavLink to="/">
