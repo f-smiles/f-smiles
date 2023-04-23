@@ -8,7 +8,10 @@ module.exports = {
   theme: {
     extend: {  backgroundColor: {
       // 'e8e6df': '#e8e6df',
-      'f7f5f2': '#f7f5f2'
+      'f7f5f2': '#f7f5f2',
+      'f4eae4': '#f4eae4',
+      // '341924': '#341924',
+      // 'dec0ae': '#dec0ae',
     },},
   },
   plugins: [require("tw-elements/dist/plugin.cjs")],

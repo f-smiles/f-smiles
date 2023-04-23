@@ -3,41 +3,44 @@ import React from "react";
 const Footer = () => {
   return (
     <div className="bg-f7f5f2 py-10">
-      <div className="container mx-auto flex flex-wrap"></div>
-      <div className="w-full sm:w-1/2 md:w-1/4 lg:w-1/4 xl:w-1/4">
-    <a href="/" className="text-black hover:text-indigo-500 hover:underline">
-        <h1 className="text-sm">Home</h1>
-      </a>
-  <a href="/" className="text-black hover:text-indigo-500 hover:underline"> <h1 className="text-sm">About Us</h1></a>
-  <a href="/" className="text-black hover:text-indigo-500 hover:underline">
-  <h1 className="text-sm">Contact</h1>
-  </a>
-  <a href="/" className="text-black hover:text-indigo-500 hover:underline">
-  <h1 className="text-sm">Treatments</h1>
-  </a>
-  </div>
-  <div>
-  <a href="/" className="text-black hover:text-indigo-500 hover:underline">
-  <h1 className="text-sm">Patient Info</h1>
-  </a>
-  <a href="/" className="text-black hover:text-indigo-500 hover:underline">
-  <h1 className="text-sm">Patient Login</h1>
-  </a>
-  <a href="/" className="text-black hover:text-indigo-500 hover:underline">
-  <h1 className="text-sm">Sitemap</h1>
-  </a>
-  </div>
-  <div>
-  <a href="/" className="text-black hover:text-indigo-500 hover:underline">
-  <h1 className="text-sm">Anti-Spam Policy</h1>
-  </a>
-  <a href="/" className="text-black hover:text-indigo-500 hover:underline">
-  <h1 className="text-sm">Privacy Policy</h1>
-  </a>
-  <a href="/" className="text-black hover:text-indigo-500 hover:underline">
-  <h1 className="text-sm">Statement of Accessibility</h1>
-  </a>
-  </div>
+      <div className="container mx-auto flex flex-wrap">
+        <div className="w-full sm:w-1/3">
+          <a href="/" className="text-black hover:text-indigo-500 hover:underline">
+            <h1 className="text-sm">Home</h1>
+          </a>
+          <a href="/" className="text-black hover:text-indigo-500 hover:underline">
+            <h1 className="text-sm">About Us</h1>
+          </a>
+          <a href="/" className="text-black hover:text-indigo-500 hover:underline">
+            <h1 className="text-sm">Contact</h1>
+          </a>
+          <a href="/" className="text-black hover:text-indigo-500 hover:underline">
+            <h1 className="text-sm">Treatments</h1>
+          </a>
+        </div>
+        <div className="w-full sm:w-1/3">
+          <a href="/" className="text-black hover:text-indigo-500 hover:underline">
+            <h1 className="text-sm">Patient Info</h1>
+          </a>
+          <a href="/" className="text-black hover:text-indigo-500 hover:underline">
+            <h1 className="text-sm">Patient Login</h1>
+          </a>
+          <a href="/" className="text-black hover:text-indigo-500 hover:underline">
+            <h1 className="text-sm">Sitemap</h1>
+          </a>
+        </div>
+        <div className="w-full sm:w-1/3">
+          <a href="/" className="text-black hover:text-indigo-500 hover:underline">
+            <h1 className="text-sm">Anti-Spam Policy</h1>
+          </a>
+          <a href="/" className="text-black hover:text-indigo-500 hover:underline">
+            <h1 className="text-sm">Privacy Policy</h1>
+          </a>
+          <a href="/" className="text-black hover:text-indigo-500 hover:underline">
+            <h1 className="text-sm">Statement of Accessibility</h1>
+          </a>
+        </div>
+      </div>
   <section className="flex flex-col">
     <div className="flex space-x-4">
     <span className="border-2 border-slate-500 rounded-full p-2">
