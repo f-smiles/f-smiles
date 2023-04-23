@@ -4,8 +4,7 @@ const Allentown = () => {
   return (
     <>
       <div>
-        <h2>--</h2>
-        <p>
+        <p className="flex align-items py-4">
           Please fill out our appointment request form to schedule an
           appointment with a skilled Allentown orthodontist at FreySmiles.
           Virtual consultations are also available if you prefer. You may also
@@ -26,7 +25,7 @@ const Allentown = () => {
             <address className="text-sm">
               1251 South Cedar Crest Blvd, Suite 210 Allentown, PA 18103
               </address>
-              <div className="text-sm flex">
+              <div className="text-sm flex py-5">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
@@ -42,18 +41,18 @@ const Allentown = () => {
                 (610) 437-4748
               </div>
             
-            <h3>Find Us:</h3>
-            <p>google map</p>
+            <h3>Find Us</h3>
+           
+            <h3>Hours of Operation</h3>
+          <ul>
+            <li>Mon 11:00 am - 7:00 pm</li>
+            <li>Tue 11:00 am - 7:00 pm</li>
+            <li>Wed 8:00 am - 5:30 pm</li>
+            <li>Thu 7:00 am - 4:30 am</li>
+          </ul>
           </div>
         </div>
         <div>
-          <h3>Hours of Operation</h3>
-          <ul>
-            <li>Mon.: 11:00 AM - 7:00 PM</li>
-            <li>Tues.: 11:00 AM - 7:00 PM</li>
-            <li>Wed.: 8:00 AM - 5:30 PM</li>
-            <li>Thurs.: 7:00 AM - 4:30 PM</li>
-          </ul>
           <p>
             If you live in the Allentown area and are ready to finally get the
             smile of your dreams, please contact us at our conveniently located
@@ -92,10 +91,10 @@ const Allentown = () => {
             <p>google map</p>
             <h3>Hours of Operation</h3>
           <ul>
-            <li>Mon.: 11:00 AM - 7:00 PM</li>
-            <li>Tues.: 11:00 AM - 7:00 PM</li>
-            <li>Wed.: 8:00 AM - 5:30 PM</li>
-            <li>Thurs.: 7:00 AM - 4:30 PM</li>
+            <li>Mon 11:00 AM - 7:00 PM</li>
+            <li>Tues 11:00 AM - 7:00 PM</li>
+            <li>Wed 8:00 AM - 5:30 PM</li>
+            <li>Thurs 7:00 AM - 4:30 PM</li>
           </ul>
           </div>
           
@@ -140,10 +139,10 @@ const Allentown = () => {
             <p>google map</p>
             <h3>Hours of Operation</h3>
           <ul>
-            <li>Mon.: 11:00 AM - 7:00 PM</li>
-            <li>Tues.: 11:00 AM - 7:00 PM</li>
-            <li>Wed.: 8:00 AM - 5:30 PM</li>
-            <li>Thurs.: 7:00 AM - 4:30 PM</li>
+            <li>Mon 11:00 AM - 7:00 PM</li>
+            <li>Tues 11:00 AM - 7:00 PM</li>
+            <li>Wed 8:00 AM - 5:30 PM</li>
+            <li>Thurs 7:00 AM - 4:30 PM</li>
           </ul>
           </div>
          
@@ -193,10 +192,10 @@ const Allentown = () => {
             <p>google map</p>
             <h3>Hours of Operation</h3>
           <ul>
-            <li>Mon.: 11:00 AM - 7:00 PM</li>
-            <li>Tues.: 11:00 AM - 7:00 PM</li>
-            <li>Wed.: 8:00 AM - 5:30 PM</li>
-            <li>Thurs.: 7:00 AM - 4:30 PM</li>
+            <li>Mon 11:00 AM - 7:00 PM</li>
+            <li>Tues 11:00 AM - 7:00 PM</li>
+            <li>Wed 8:00 AM - 5:30 PM</li>
+            <li>Thurs 7:00 AM - 4:30 PM</li>
           </ul>
           </div>
         </div>
