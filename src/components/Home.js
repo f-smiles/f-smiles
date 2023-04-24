@@ -71,6 +71,9 @@ const Home = () => {
                 <div aria-hidden="true" className="absolute -z-10 h-full w-full md:w-40  lg:w-full top-5 left-0 md:left-10 lg:left-0 flex flex-col items-start">
                   <img className="h-96 md:h-auto" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/left_aligned_with_image_and_cta-SVG1.svg" alt="dot pattern" />
                 </div>
+                <div aria-hidden="true" className="absolute -z-10 h-full w-full md:w-40  lg:w-full top-5 left-0 md:left-10 lg:left-0 flex flex-col items-start">
+                  <img className="h-96 md:h-auto" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/left_aligned_with_image_and_cta-SVG1.svg" alt="dot pattern" />
+                </div>
               </div>
           </div>
         </section>
