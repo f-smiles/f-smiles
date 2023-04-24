@@ -76,8 +76,7 @@ footer a {
       from { transform: rotate(360deg); }
       to { transform: rotate(0); }
   }
-  
-=======
+
 @keyframes cascading-animation {
   from {
     opacity: 0;
