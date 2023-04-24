@@ -20,7 +20,6 @@ footer a {
   font-family: "CeraProRegular"
 }
 
-
   @keyframes circle {
     from { transform: rotate(0deg) translateX(24px) rotate(0deg); }
     to { transform: rotate(360deg) translateX(24px) rotate(-360deg); }
@@ -78,3 +77,27 @@ footer a {
       to { transform: rotate(0); }
   }
   
+=======
+@keyframes cascading-animation {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  /* 0% {
+    transform: translateY(-10px);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0);
+  } */
+}
+
+rect {
+  animation: cascading-animation 1s ease-in-out;
+}
