@@ -2,7 +2,7 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div className="bg-f7f5f2 py-10">
+    <footer className="bg-f7f5f2 py-10">
       <div className="container mx-auto flex flex-wrap">
         <div className="w-full sm:w-1/3">
           <a href="/" className="text-black hover:text-indigo-500 hover:underline">
@@ -58,7 +58,7 @@ const Footer = () => {
   <p className = "text-sm py-1">©Copyright FreySmiles 2023 - All Rights Reserved</p>
   </div>
   </section>
-  </div>
+  </footer>
   )
 };
 

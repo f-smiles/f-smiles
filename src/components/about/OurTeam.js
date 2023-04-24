@@ -42,7 +42,7 @@ const OurTeam = () => {
                   Daniel Frey, at FreySmiles Orthodontics.
                 </div>
 
-                <h2>Dr.Daniel Frey</h2>
+                <h2 className="text-lg font-medium">Dr. Daniel Frey</h2>
                 <img alt="Dr.Daniel Frey" src="" />
                 <div data-headlessui-state="open">
                   Raised in the Lehigh Valley, Dr. Daniel Frey had a passion for
