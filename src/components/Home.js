@@ -2,6 +2,10 @@ import React, { useRef, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import * as THREE from "three";
 import Map from "react-map-gl";
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // You can also use <link> for styles
+
+AOS.init();
 
 const Home = () => {
   //Create a scene, camera, renderer
@@ -79,15 +83,18 @@ const Home = () => {
         </section>
 
       <section className="flex gap-8 justify-center py-10 text-center">
-        <div className="bg-[conic-gradient(at_top_right,_var(--tw-gradient-stops))] from-purple-100 via-slate-300 to-purple-100 rounded-tl-3xl rounded-tr-3xl rounded-bl-3xl rounded-br-md max-w-xs max-h-full p-12 flex flex-col justify-center items-center">
+        <div data-aos="fade-up" data-aos-duration="750" data-aos-easing="linear" className="bg-gradient-to-tr from-violet-100 to-teal-50 rounded-tl-3xl rounded-tr-3xl rounded-bl-3xl rounded-br-md max-w-xs max-h-full px-12 pb-12 pt-20 flex flex-col justify-start items-center">
+          <img className="absolute -top-12 h-30 w-auto" src="../images/damon.png" alt="damon"/>
           <h3 className="uppercase mb-4">Damon Braces</h3>
           <p>Combining self-ligating braces with advanced archwires clinically proven to move teeth quickly and comfortably.</p>
         </div>
-        <div className="bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-indigo-200 via-red-200 to-yellow-100 rounded-tr-3xl rounded-bl-3xl rounded-tl-md rounded-br-md max-w-xs max-h-full p-12 flex flex-col justify-center items-center">
+        <div data-aos="fade-down" className="bg-gradient-to-bl from-violet-100 to-teal-50 rounded-tr-3xl rounded-bl-3xl rounded-tl-md rounded-br-md max-w-xs max-h-full px-12 pb-12 pt-20 flex flex-col justify-start items-center">
+          <img className="absolute -top-12 h-30 w-auto" src="../images/invisalign.png" alt="invisalign" />
           <h3 className="uppercase mb-4">Invisalign</h3>
           <p>As part of the top 1% of Invisalign providers in the US, we have the experience to deliver the smile you deserve.</p>
         </div>
-        <div className="bg-[conic-gradient(at_top_right,_var(--tw-gradient-stops))] from-purple-100 via-slate-300 to-purple-100 rounded-tl-3xl rounded-tr-3xl rounded-br-3xl rounded-bl-md max-w-xs max-h-full p-12 flex flex-col justify-center items-center">
+        <div data-aos="fade-right" data-aos-duration="750" className="bg-gradient-to-br bg-gradient-to-tr from-violet-100 to-teal-50 rounded-tl-3xl rounded-tr-3xl rounded-br-3xl rounded-bl-md max-w-xs max-h-full px-12 pb-12 pt-20 flex flex-col justify-start items-center">
+         <img className="absolute -top-12 h-30 w-auto" src= "../images/technology.png" alt="technology" />
           <h3 className="uppercase mb-4">Advanced 
           Technology</h3>
           <p>We offer Invisalign without Impressions. Say goodbye to goopy impressions with our iTero digital scanner.
