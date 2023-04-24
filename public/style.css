@@ -19,3 +19,27 @@ body {
 footer a {
   font-family: "CeraProRegular"
 }
+
+@keyframes cascading-animation {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  /* 0% {
+    transform: translateY(-10px);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0);
+  } */
+}
+
+rect {
+  animation: cascading-animation 1s ease-in-out;
+}

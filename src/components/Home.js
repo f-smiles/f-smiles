@@ -2,6 +2,7 @@ import React, { useRef, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import * as THREE from "three";
 import Map from "react-map-gl";
+import DotPattern from "./DotPattern";
 
 const Home = () => {
   //Create a scene, camera, renderer
@@ -42,7 +43,7 @@ const Home = () => {
   }, []);
   return (
     <>
-      <main className="pt-16 bg-f7f5f2">
+      <main className="pt-16 bg-f7f5f2 overflow-hidden">
         <section className="py-12 lg:px-4 xl:px-0">
           <div className="flex flex-col-reverse md:flex-row">
             <div className="mt-12 md:mt-0 flex flex-col lg:ml-10 xl:ml-32 2xl:ml-40 lg:w-6/12 xl:w-5/12 md:w-6/12 px-4 lg:px-0 justify-center">
@@ -64,30 +65,31 @@ const Home = () => {
                   </div>
                 </div>
               </div>
-              <div className="md:mt-0 md:w-1/2 relative lg:mt-0 pl-6 sm:pl-20 pt-10 flex justify-end sm:block">
-                <div className="ml-8 relative z-10 top-5 left-0 w-full h-full">
+              <div className="md:mt-0 md:w-1/2 relative lg:mt-0 pl-6 sm:pl-20 pt-10 flex justify-end sm:block mx-auto">
+                <div className="ml-4 lg:ml-8 relative z-10 top-5 left-0 w-full h-full z-20">
                   <img className="h-96 md:h-auto" src="../../images/hero_clip.png" alt="girl smiling" role="img" />
                 </div>
-                <div className="-ml-14 absolute z-10 bottom-0 left-0 w-full h-full">
-                  <img className="w-1/2 h-auto" src="../../images/blob_purple.png" alt="organic shape resembling a blob colorized by a purple shifting to indigo gradient" role="img" />
-                </div>
-                <div aria-hidden="true" className="absolute z-0 h-full w-full md:w-40  lg:w-full top-5 left-0 md:left-10 lg:left-0 flex flex-col items-start">
-                  <img className="h-96 md:h-auto" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/left_aligned_with_image_and_cta-SVG1.svg" alt="dot pattern" />
+                {/* <div aria-hidden="true" className="absolute z-10 h-full w-full md:w-40 lg:w-full top-1/2 left-0 md:left-10 lg:left-10 flex flex-col items-start">
+                  <img className="h-96 md:h-auto" src="../../images/blob_purple.png" alt="organic shape resembling a blob colorized by a purple shifting to indigo gradient" role="img" />
+                </div> */}
+                <div aria-hidden="true" className="absolute z-0 h-full w-full md:w-40 lg:w-full top-5 left-0 md:left-10 lg:left-10 flex flex-col items-start overflow-hidden">
+                  {/* <img className="h-96 md:h-auto" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/left_aligned_with_image_and_cta-SVG1.svg" alt="dot pattern" /> */}
+                  <DotPattern />
                 </div>
               </div>
           </div>
         </section>
 
-      <section className="flex gap-8 justify-center py-10 text-center">
-        <div className="bg-[conic-gradient(at_top_right,_var(--tw-gradient-stops))] from-purple-100 via-slate-300 to-purple-100 rounded-tl-3xl rounded-tr-3xl rounded-bl-3xl rounded-br-md max-w-xs max-h-full p-12 flex flex-col justify-center items-center">
+      <section className="flex flex-col md:flex-row gap-8 justify-center py-10 text-center">
+        <div className="bg-[conic-gradient(at_top_right,_var(--tw-gradient-stops))] from-purple-100 via-slate-300 to-purple-100 rounded-tl-3xl rounded-tr-3xl rounded-bl-3xl rounded-br-md max-w-xs max-h-full p-12 flex flex-col justify-center items-center mx-auto">
           <h3 className="uppercase mb-4">Damon Braces</h3>
           <p>Combining self-ligating braces with advanced archwires clinically proven to move teeth quickly and comfortably.</p>
         </div>
-        <div className="bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-indigo-200 via-red-200 to-yellow-100 rounded-tr-3xl rounded-bl-3xl rounded-tl-md rounded-br-md max-w-xs max-h-full p-12 flex flex-col justify-center items-center">
+        <div className="bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-indigo-200 via-red-200 to-yellow-100 rounded-tr-3xl rounded-bl-3xl rounded-tl-md rounded-br-md max-w-xs max-h-full p-12 flex flex-col justify-center items-center mx-auto">
           <h3 className="uppercase mb-4">Invisalign</h3>
           <p>As part of the top 1% of Invisalign providers in the US, we have the experience to deliver the smile you deserve.</p>
         </div>
-        <div className="bg-[conic-gradient(at_top_right,_var(--tw-gradient-stops))] from-purple-100 via-slate-300 to-purple-100 rounded-tl-3xl rounded-tr-3xl rounded-br-3xl rounded-bl-md max-w-xs max-h-full p-12 flex flex-col justify-center items-center">
+        <div className="bg-[conic-gradient(at_top_right,_var(--tw-gradient-stops))] from-purple-100 via-slate-300 to-purple-100 rounded-tl-3xl rounded-tr-3xl rounded-br-3xl rounded-bl-md max-w-xs max-h-full p-12 flex flex-col justify-center items-center mx-auto">
           <h3 className="uppercase mb-4">Advanced 
           Technology</h3>
           <p>We offer Invisalign without Impressions. Say goodbye to goopy impressions with our iTero digital scanner.
@@ -95,8 +97,8 @@ const Home = () => {
         </div>
       </section>
       {/* <img alt="doctors" src="../../images/Doctor-Photo-Homepage-1.jpg"></img> */}
-
-      <section className="flex gap-8 justify-center">
+      {/* TODO: Fix card size and overflow */}
+      <section className="flex gap-8 justify-center overflow-x-scroll">
         <div className="flex flex-col justify-between bg-f7f5f2 rounded-bl-3xl rounded-br-3xl items-center w-1/4 h-96">
           <Map
             initialViewState={{
