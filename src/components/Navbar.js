@@ -142,11 +142,10 @@ export default function DesktopNavbar() {
               </svg>
             </li>
             <div className={ 
-  treatments
-    ? "block absolute top-0 left-0 flex flex-row h-screen overflow-hidden translate-x-0 transition-all delay-600 transition-duration-1000"
-    : "absolute top-0 left-0 flex flex-row h-screen overflow-hidden translate-x-[-100%] transition-all delay-0 transition-duration-1000"
-}>
-
+              treatments
+                ? "block absolute top-0 left-0 flex flex-row h-screen overflow-hidden translate-x-0 transition-all ease-in-out delay-600 duration-1000"
+                : "absolute top-0 left-0 flex flex-row h-screen overflow-hidden translate-x-[-100%] transition-all delay-0 duration-1000"
+            }>
               <div className="flex h-screen w-screen backdrop-blur-sm bg-white/30">
                 <div className="bg-stone-400 w-1/3 flex">
                   <div className="overflow-y-auto">
@@ -290,8 +289,8 @@ export default function DesktopNavbar() {
           >
             <ul className="flex flex-col w-full px-8 py-4">
               <li className="text-white pt-10 flex items-center">
-                <NavLink to="/" className="cursor-pointer">
-                  <p className="text-indigo-700 xl:text-base text-base ml-3">
+                <NavLink to="/" className="cursor-pointer" onClick={() => setShow(false)}>
+                  <p className="xl:text-base text-base ml-3">
                     Home
                   </p>
                 </NavLink>
@@ -347,6 +346,7 @@ export default function DesktopNavbar() {
                               to={link.href}
                               key={link.name}
                               className="cursor-pointer block text-gray-600 text-sm leading-3 tracking-normal hover:text-white px-3 font-normal"
+                              onClick={() => setShow(false)}
                             >
                               {link.name}
                             </NavLink>
@@ -408,6 +408,7 @@ export default function DesktopNavbar() {
                                 to={link.href}
                                 key={link.name}
                                 className="cursor-pointer block text-gray-600 text-sm leading-3 tracking-normal hover:text-white px-3 font-normal"
+                                onClick={() => setShow(false)}
                               >
                                 {link.name}
                               </NavLink>
@@ -470,6 +471,7 @@ export default function DesktopNavbar() {
                                 to={link.href}
                                 key={link.name}
                                 className="cursor-pointer block text-gray-600 text-sm leading-3 tracking-normal hover:text-white px-3 font-normal"
+                                onClick={() => setShow(false)}
                               >
                                 {link.name}
                               </NavLink>
@@ -481,12 +483,12 @@ export default function DesktopNavbar() {
                 )}
               </li>
               <li className="text-white pt-8 flex items-center">
-                <NavLink to="/patient-login" className="cursor-pointer">
+                <NavLink to="/patient-login" className="cursor-pointer" onClick={() => setShow(false)}>
                   <p className="xl:text-base text-base ml-3">Patient Login</p>
                 </NavLink>
               </li>
               <li className="text-white pt-8 flex items-center">
-                <NavLink to="/allentown" className="cursor-pointer">
+                <NavLink to="/allentown" className="cursor-pointer" onClick={() => setShow(false)}>
                   <p className="xl:text-base text-base ml-3">Our Locations</p>
                 </NavLink>
               </li>
@@ -496,6 +498,7 @@ export default function DesktopNavbar() {
                 <NavLink
                   to="/book-now"
                   className="rounded-full bg-violet-300 text-violet-900 p-4"
+                  onClick={() => setShow(false)}
                 >
                   Book Now
                 </NavLink>
