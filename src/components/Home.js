@@ -2,6 +2,7 @@ import React, { useRef, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import * as THREE from "three";
 import Map from "react-map-gl";
+import DotPattern from "./DotPattern";
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // You can also use <link> for styles
 
@@ -46,7 +47,7 @@ const Home = () => {
   }, []);
   return (
     <>
-      <main className="mt-16">
+      <main className="pt-16 bg-f7f5f2 overflow-hidden">
         <section className="py-12 lg:px-4 xl:px-0">
           <div className="flex flex-col-reverse md:flex-row">
             <div className="mt-12 md:mt-0 flex flex-col lg:ml-10 xl:ml-32 2xl:ml-40 lg:w-6/12 xl:w-5/12 md:w-6/12 px-4 lg:px-0 justify-center">
@@ -68,15 +69,16 @@ const Home = () => {
                   </div>
                 </div>
               </div>
-              <div className="md:mt-0 md:w-1/2 relative lg:mt-0 pl-6 sm:pl-20 pt-10 flex justify-end sm:block">
-                <div className="ml-14 relative z-10  left-0 w-full h-full">
-                  <img className="inset-0 object-cover object-center xl:object-contain w-full h-full" src="../../images/blob_purple.png" alt="organic shape resembling a blob colorized by a purple shifting to indigo gradient" role="img" />
+              <div className="md:mt-0 md:w-1/2 relative lg:mt-0 pl-6 sm:pl-20 pt-10 flex justify-end sm:block mx-auto">
+                <div className="ml-4 lg:ml-8 relative z-10 top-5 left-0 w-full h-full z-20">
+                  <img className="h-96 md:h-auto" src="../../images/hero_clip.png" alt="girl smiling" role="img" />
                 </div>
-                <div aria-hidden="true" className="absolute -z-10 h-full w-full md:w-40  lg:w-full top-5 left-0 md:left-10 lg:left-0 flex flex-col items-start">
-                  <img className="h-96 md:h-auto" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/left_aligned_with_image_and_cta-SVG1.svg" alt="dot pattern" />
-                </div>
-                <div aria-hidden="true" className="absolute -z-10 h-full w-full md:w-40  lg:w-full top-5 left-0 md:left-10 lg:left-0 flex flex-col items-start">
-                  <img className="h-96 md:h-auto" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/left_aligned_with_image_and_cta-SVG1.svg" alt="dot pattern" />
+                {/* <div aria-hidden="true" className="absolute z-10 h-full w-full md:w-40 lg:w-full top-1/2 left-0 md:left-10 lg:left-10 flex flex-col items-start">
+                  <img className="h-96 md:h-auto" src="../../images/blob_purple.png" alt="organic shape resembling a blob colorized by a purple shifting to indigo gradient" role="img" />
+                </div> */}
+                <div aria-hidden="true" className="absolute z-0 h-full w-full md:w-40 lg:w-full top-5 left-0 md:left-10 lg:left-10 flex flex-col items-start overflow-hidden">
+                  {/* <img className="h-96 md:h-auto" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/left_aligned_with_image_and_cta-SVG1.svg" alt="dot pattern" /> */}
+                  <DotPattern />
                 </div>
               </div>
           </div>
@@ -102,8 +104,8 @@ const Home = () => {
         </div>
       </section>
       {/* <img alt="doctors" src="../../images/Doctor-Photo-Homepage-1.jpg"></img> */}
-
-      <section className="flex gap-8 justify-center">
+      {/* TODO: Fix card size and overflow */}
+      <section className="flex gap-8 justify-center overflow-x-scroll">
         <div className="flex flex-col justify-between bg-f7f5f2 rounded-bl-3xl rounded-br-3xl items-center w-1/4 h-96">
           <Map
             initialViewState={{
