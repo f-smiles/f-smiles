@@ -12,14 +12,14 @@ const Allentown = () => {
             <circle cx="150" cy="100" r="75" fill="none"/>
             <g>
               <use xlinkHref="#circlePath" fill="none"/>
-              <text fill="#000">
-                <textPath xlinkHref="#circlePath">Allentown Lehighton Schnecksville Bethlehem</textPath>
+              <text  fill="#000">
+                <textPath className="space-evenly" xlinkHref="#circlePath"> | Allentown | Lehighton | Schnecksville | Bethlehem   </textPath>
               </text>
             </g>
           </svg>
         </div>
       </div>
-      <div>
+      <div className="mt-12">
         <p className="flex align-items py-4">
           Please fill out our appointment request form to schedule an
           appointment with a skilled Allentown orthodontist at FreySmiles.
