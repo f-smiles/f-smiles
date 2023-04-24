@@ -143,8 +143,8 @@ export default function DesktopNavbar() {
             </li>
             <div className={ 
   treatments
-    ? "block absolute top-0 left-0 flex flex-row h-screen overflow-hidden translate-x-0 transition-all delay-600 transition-duration-1000"
-    : "absolute top-0 left-0 flex flex-row h-screen overflow-hidden translate-x-[-100%] transition-all delay-0 transition-duration-1000"
+    ? "block absolute top-0 left-0 flex flex-row h-screen overflow-hidden translate-x-0 transition-all delay-300 duration-500 ease-out"
+    : "absolute top-0 left-0 flex flex-row h-screen overflow-hidden translate-x-[-100%] transition-all delay-0 duration-500 ease-out"
 }>
 
               <div className="flex h-screen w-screen backdrop-blur-sm bg-white/30">
