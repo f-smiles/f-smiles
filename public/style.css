@@ -1,7 +1,17 @@
 @font-face {
-  font-family: "cerapro";
-  src: url(Fontspring-DEMO-cerapro-regular.otf);
+  font-family: "CeraProRegular";
+  src: url('fonts/cerapro_regular.woff2') format('woff2'), url('fonts/cerapro_regular.woff') format('woff');
 }
-h1,h2,h3,h4,h5,h6, body{
-  font-family: "cerapro";
+
+@font-face {
+  font-family: "CeraProBold";
+  src: url('fonts/cerapro_bold.woff2') format('woff2'), url('fonts/cerapro_bold.woff') format('woff');
+}
+
+body {
+  font-family: "CeraProRegular";
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "larken";
 }

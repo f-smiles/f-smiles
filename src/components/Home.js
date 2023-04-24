@@ -42,18 +42,40 @@ const Home = () => {
   }, []);
   return (
     <>
-      <main className="mt-32">
-        <section className="max-w-screen-sm mx-auto px-8">
-          <h2>Orthodontists Dr. Gregg Frey and Dr. Daniel Frey and the exceptional team at FreySmiles Orthodontics recognize that every smile is unique.</h2>
-          <h2>Our goal is to make your smile look best on YOU. It's an art, it's a science, and it is something we are very passionate about.</h2>
-          <ul>
-            <li>40 years of experience</li>
-            <li> Board Certified Orthodontists </li>
-            <li>Cutting Edge Technology Options that work for everyone</li>
-            <li>Traditional Brace</li>
-            <li>Damon Braces</li>
-            <li>Invisalign Aligners</li>
-          </ul>
+      <main className="mt-16">
+        <section className="py-12 lg:px-4 xl:px-0">
+          <div className="flex flex-col-reverse md:flex-row">
+            <div className="mt-12 md:mt-0 flex flex-col lg:ml-10 xl:ml-32 2xl:ml-40 lg:w-6/12 xl:w-5/12 md:w-6/12 px-4 lg:px-0 justify-center">
+              <h1 className="text-4xl  lg:text-6xl font-bold md:font-black leading-10 text-gray-700">Because every smile is unique</h1>
+              <p className="text-lg text-gray-600 font-light leading-relaxed pt-8 xl:hidden block">Our goal is to make your smile look best on YOU. It's an art, it's a science, and it is something orthodontists Dr. Gregg Frey and Dr. Daniel Frey and the exceptional team at FreySmiles Orthodontics recognize and are very passionate about.</p>
+              <p className="text-lg text-gray-600 font-light leading-relaxed pt-8 xl:block hidden w-4/5">
+              Our goal is to make your smile look best on YOU. It's an art, it's a science, and it is something orthodontists Dr. Gregg Frey and Dr. Daniel Frey and the exceptional team at FreySmiles Orthodontics recognize and are very passionate about.
+              </p>
+                <div className="mt-12 flex flex-wrap">
+                  <div className="mr-6 mt-5 sm:mt-0 md:mt-5 lg:mt-0">
+                    <button className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 bg-indigo-700 transition duration-150 ease-in-out hover:bg-indigo-600 rounded text-white px-8 py-4 text-base md:text-xl">
+                      <Link to="/book-now">Book Now</Link>
+                    </button>
+                  </div>
+                  <div className="mt-5 sm:mt-0 md:mt-5 lg:mt-0">
+                    <button className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600 transition duration-150 ease-in-out hover:bg-gray-200 rounded border border-indigo-600 text-indigo-600 px-8 py-4 text-base md:text-xl">
+                      <Link to="/our-team">Our Team</Link>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div className="md:mt-0 md:w-1/2 relative lg:mt-0 pl-6 sm:pl-20 pt-10 flex justify-end sm:block">
+                <div className="ml-14 relative z-10  left-0 w-full h-full">
+                  <img className="inset-0 object-cover object-center xl:object-contain w-full h-full" src="../../images/blob_purple.png" alt="organic shape resembling a blob colorized by a purple shifting to indigo gradient" role="img" />
+                </div>
+                <div aria-hidden="true" className="absolute -z-10 h-full w-full md:w-40  lg:w-full top-5 left-0 md:left-10 lg:left-0 flex flex-col items-start">
+                  <img className="h-96 md:h-auto" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/left_aligned_with_image_and_cta-SVG1.svg" alt="dot pattern" />
+                </div>
+                <div aria-hidden="true" className="absolute -z-10 h-full w-full md:w-40  lg:w-full top-5 left-0 md:left-10 lg:left-0 flex flex-col items-start">
+                  <img className="h-96 md:h-auto" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/left_aligned_with_image_and_cta-SVG1.svg" alt="dot pattern" />
+                </div>
+              </div>
+          </div>
         </section>
 
       <section className="flex gap-8 justify-center py-10 text-center">
