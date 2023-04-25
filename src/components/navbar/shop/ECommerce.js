@@ -10,6 +10,7 @@ const ECommerce = () => {
           title="VPro"
           description="VPro uses high-frequency vibrations to stimulate bone and gumline, accelerating tooth movement and improving bone regeneration. It works with braces or Invisalign, making it ideal for enhancing ongoing orthodontic treatment."
           buttonText="Add To Cart"
+         
         />
         <Card
           img="../images/VPro-mouthpiece.png"
@@ -49,8 +50,8 @@ const ECommerce = () => {
         />
           <Card
           img=""
-          title=""
-          description="The active ingredient in PolaDay 9.5 is hydrogen peroxide, a proven whitening agent. Hydrogen peroxide is both safe and effective, so you'll get whiter teeth without sacrificing comfort."
+          title="E-Gift Card"
+          description="Gift Card 50-500"
           buttonText="Add To Cart"
         />
       </section>
@@ -64,12 +65,17 @@ const Card = ({ img, title, description, buttonText }) => {
       data-aos="fade-up"
       data-aos-duration="750"
       data-aos-easing="linear"
-      className="bg-gradient-to-tr from-indigo-50 to-violet-50  max-w-xs px-12 pb-12 pt-20 flex flex-col"
+      className="bg-F1F1F0 max-w-xs px-12 pb-12 pt-20 flex flex-col"
+    
     >
-      <img className="absolute -top-6 h-40 w-auto" src={img} alt={title} />
-      <h3 className="uppercase mb-4">{title}</h3>
-      <p>{description}</p>
-      {buttonText && <button className="rounded-full text-sm px-8 py-2 border border-black">{buttonText}</button>}
+      <div className="grid grid-rows-2 gap-4">
+        <img className="h-32 mx-auto my-auto self-center" src={img} alt={title} />
+        <div>
+          <h3 className="uppercase mb-4">{title}</h3>
+          <p>{description}</p>
+          {buttonText && <button className="rounded-full text-sm px-8 py-2 border border-black">{buttonText}</button>}
+        </div>
+      </div>
     </div>
   );
 };
