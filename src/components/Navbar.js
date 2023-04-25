@@ -246,7 +246,7 @@ export default function DesktopNavbar() {
           </NavLink>
           <div
             id="menu"
-            className="cursor-pointer text-white"
+            className="cursor-pointer text-white z-0"
             onClick={() => setShow(!show)}
           >
             {show ? (
