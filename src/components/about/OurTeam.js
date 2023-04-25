@@ -5,23 +5,23 @@ import { ChevronUpIcon } from "@heroicons/react/20/solid";
 
 const OurTeam = () => {
   return (
-    <div className="w-full px-4 pt-16 ">
+    <main className="w-full px-4 pt-16">
       <div
         data-headlessui-state="open"
-        className="mx-auto w-full max-w-screen-lg rounded-2xl bg-white p-2"
+        className="mx-auto w-full max-w-screen-lg rounded-2xl bg-white p-2 mt-16"
       >
         <Disclosure defaultOpen={true}>
           {({ open }) => (
             <>
-              <Disclosure.Button className="flex w-full justify-between rounded-lg bg-purple-100 px-4 py-2 text-left text-sm font-medium text-purple-900 hover:bg-purple-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
+              <Disclosure.Button className="flex w-full justify-between px-4 py-2 text-left text-sm font-medium text-purple-900 hover:bg-purple-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75 border-l-4">
                 <span>Our Orthodontists</span>
                 <ChevronUpIcon
                   className={`${
                     open ? "rotate-180 transform" : ""
-                  } h-5 w-5 text-purple-500`}
+                  } h-5 w-5 text-purple-500 z-0`}
                 />
               </Disclosure.Button>
-              <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
+              <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500 border-l-4">
                 <h2 className="text-lg font-medium">Dr.Gregg Frey</h2>
                 <img alt="Dr.Gregg Frey" src="" />
                 <div data-headlessui-state="open">
@@ -98,7 +98,7 @@ const OurTeam = () => {
           )}
         </Disclosure>
       </div>
-    </div>
+    </main>
   );
 };
 
