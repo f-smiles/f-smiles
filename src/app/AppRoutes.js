@@ -13,6 +13,9 @@ import EarlyOrthodontics from "../components/treatments/EarlyOrthodontics";
 import AdultOrthodontics from "../components/treatments/AdultOrthodontics";
 import Allentown from "../components/OurLocations/Allentown";
 import BookNow from "../components/BookNow";
+import StripeCheckoutForm from "../components/stripe/StripeCheckoutForm";
+import ProductsPage from "../components/stripe/ProductsPage";
+import Cart from "../components/stripe/Cart";
 
 const AppRoutes = () => {
   return (
@@ -31,6 +34,9 @@ const AppRoutes = () => {
       <Route path="adult-orthodontics" element={<AdultOrthodontics />} />
       <Route path="/allentown" element={<Allentown />} />
       <Route path="/book-now" element={<BookNow />} />
+      <Route path="/stripe-checkout" element={<StripeCheckoutForm />} />
+      <Route path="/products" element={<ProductsPage />} />
+      <Route path="/cart" element={<Cart />} />
     </Routes>
   );
 };
