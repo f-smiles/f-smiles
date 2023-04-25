@@ -18,8 +18,8 @@ const Allentown = () => {
   >
     <defs>
       <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%">
-        <stop offset="0%" style={{ stopColor: '#8D92ED', stopOpacity: 1 }} />
-        <stop offset="100%" style={{stopColor: '#CBC3E3', stopOpacity: 1}} />
+        <stop offset="0%" style={{ stopColor: '#AA98A9', stopOpacity: 1 }} />
+        <stop offset="100%" style={{stopColor: '#D8BFD8', stopOpacity: 1}} />
       </linearGradient>
     </defs>
     <circle cx="50" cy="50" r="25" fill="url(#grad)" />
