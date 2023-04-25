@@ -51,7 +51,7 @@ const ECommerce = () => {
           <Card
           img=""
           title="E-Gift Card"
-          description="Gift Card 50-500"
+          description="E-Gift Card"
           buttonText="Add To Cart"
         />
       </section>
