@@ -78,25 +78,27 @@ footer a {
   }
 
 @keyframes cascading-animation {
-  from {
+  /* from {
     opacity: 0;
     transform: translateY(-10px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
-  }
-  /* 0% {
-    transform: translateY(-10px);
+  } */
+  0% {
+    transform: translateY(-2px);
   }
   50% {
-    transform: translateY(10px);
+    transform: translateY(5px);
   }
   100% {
-    transform: translateY(0);
-  } */
+    transform: translateY(0px);
+  }
 }
 
-rect {
+.rect-animate {
   animation: cascading-animation 1s ease-in-out;
+  /* animation: cascading-animation 1.5s cubic-bezier(0.445, 0.05, 0.55, 0.95); */
+
 }

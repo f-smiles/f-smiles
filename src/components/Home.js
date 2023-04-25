@@ -47,22 +47,23 @@ const Home = () => {
   }, []);
   return (
     <>
-      <main className="pt-16 bg-f7f5f2 overflow-hidden">
-        <section className="py-12 lg:px-4 xl:px-0">
+      <main className="pt-16 bg-f7f5f2 overflow-hidden w-full">
+        <div className="container max-w-screen-xl mx-auto">
+        <section className="border-4 py-12 lg:px-4 xl:px-0">
           <div className="flex flex-col-reverse md:flex-row">
-            <div className="mt-12 md:mt-0 flex flex-col lg:ml-10 xl:ml-32 2xl:ml-40 lg:w-6/12 xl:w-5/12 md:w-6/12 px-4 lg:px-0 justify-center">
-              <h1 className="text-4xl  lg:text-6xl font-bold md:font-black leading-10 text-gray-700">Because every smile is unique</h1>
+            <div className="mt-24 md:mt-0 flex flex-col lg:ml-10 xl:ml-32 2xl:ml-40 lg:w-6/12 xl:w-5/12 md:w-6/12 px-4 lg:px-0 justify-center">
+              <h1 className="text-4xl lg:text-6xl font-bold md:font-black leading-10 text-gray-700">Because every smile is unique</h1>
               <p className="text-lg text-gray-600 font-light leading-relaxed pt-8 xl:hidden block">Our goal is to make your smile look best on YOU. It's an art, it's a science, and it is something orthodontists Dr. Gregg Frey and Dr. Daniel Frey and the exceptional team at FreySmiles Orthodontics recognize and are very passionate about.</p>
               <p className="text-lg text-gray-600 font-light leading-relaxed pt-8 xl:block hidden w-4/5">
               Our goal is to make your smile look best on YOU. It's an art, it's a science, and it is something orthodontists Dr. Gregg Frey and Dr. Daniel Frey and the exceptional team at FreySmiles Orthodontics recognize and are very passionate about.
               </p>
                 <div className="mt-12 flex flex-wrap">
-                  <div className="mr-6 mt-5 sm:mt-0 md:mt-5 lg:mt-0">
+                  <div className="mr-6 sm:mt-0 md:mt-5 lg:mt-0">
                     <button className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 bg-indigo-700 transition duration-150 ease-in-out hover:bg-indigo-600 rounded text-white px-8 py-4 text-base md:text-xl">
                       <Link to="/book-now">Book Now</Link>
                     </button>
                   </div>
-                  <div className="mt-5 sm:mt-0 md:mt-5 lg:mt-0">
+                  <div className="sm:mt-0 md:mt-5 lg:mt-0">
                     <button className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600 transition duration-150 ease-in-out hover:bg-gray-200 rounded border border-indigo-600 text-indigo-600 px-8 py-4 text-base md:text-xl">
                       <Link to="/our-team">Our Team</Link>
                     </button>
@@ -70,7 +71,7 @@ const Home = () => {
                 </div>
               </div>
               <div className="md:mt-0 md:w-1/2 relative lg:mt-0 pl-6 sm:pl-20 pt-10 flex justify-end sm:block mx-auto">
-                <div className="ml-4 lg:ml-8 relative z-10 top-5 left-0 w-full h-full z-20">
+                <div className="ml-4 lg:ml-8 relative z-10 top-10 left-0 w-full h-full z-20">
                   <img className="h-96 md:h-auto" src="../../images/hero_clip.png" alt="girl smiling" role="img" />
                 </div>
                 {/* <div aria-hidden="true" className="absolute z-10 h-full w-full md:w-40 lg:w-full top-1/2 left-0 md:left-10 lg:left-10 flex flex-col items-start">
@@ -84,7 +85,7 @@ const Home = () => {
           </div>
         </section>
 
-      <section className="flex gap-8 justify-center py-10 text-center">
+      <section className="border-4 my-16 flex gap-8 justify-center py-10 text-center">
         <div data-aos="fade-up" data-aos-duration="750" data-aos-easing="linear" className="bg-gradient-to-tr from-violet-100 to-teal-50 rounded-tl-3xl rounded-tr-3xl rounded-bl-3xl rounded-br-md max-w-xs max-h-full px-12 pb-12 pt-20 flex flex-col justify-start items-center">
           <img className="absolute -top-12 h-30 w-auto" src="../images/damon.png" alt="damon"/>
           <h3 className="uppercase mb-4">Damon Braces</h3>
@@ -105,8 +106,10 @@ const Home = () => {
       </section>
       {/* <img alt="doctors" src="../../images/Doctor-Photo-Homepage-1.jpg"></img> */}
       {/* TODO: Fix card size and overflow */}
-      <section className="flex gap-8 justify-center overflow-x-scroll">
-        <div className="flex flex-col justify-between bg-f7f5f2 rounded-bl-3xl rounded-br-3xl items-center w-1/4 h-96">
+      <section className="border-4 flex flex-col gap-8 justify-center">
+        <h2 className="text-4xl">Our Locations</h2>
+        <div className="flex gap-8">
+        <div id="location-card" className="flex flex-col justify-between bg-f7f5f2 rounded-bl-3xl rounded-br-3xl items-center w-1/4 h-96">
           <Map
             initialViewState={{
               longitude: -75.517846,
@@ -182,7 +185,9 @@ const Home = () => {
             <Link to="/book-now">Book Now</Link>
           </button>
         </div>
+        </div>
       </section>
+      </div>
       </main>
     </>
   );

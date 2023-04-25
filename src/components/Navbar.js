@@ -4,6 +4,7 @@ import { Transition } from '@headlessui/react'
 
 export default function DesktopNavbar() {
   const [show, setShow] = useState(null);
+  const [hoverShow, setHoverShow] = useState(false);
   const [about, setAbout] = useState(false);
   const [patient, setPatient] = useState(false);
   const [treatments, setTreatments] = useState(false);
@@ -46,10 +47,13 @@ export default function DesktopNavbar() {
           </li>
           <ul className="xl:flex hidden gap-8 justify-evenly items-center">
             <li
-              className="cursor-pointer hover:text-indigo-700 transition duration-150 ease-in-out inline-flex items-center text-sm text-white tracking-normal relative text-white hover:text-indigo-700 gap-2"
-              onClick={() => setAbout(!about)}
+              className="h-full cursor-pointer hover:text-indigo-700 transition duration-150 ease-in-out inline-flex items-center text-sm text-white tracking-normal relative text-white hover:text-indigo-700 gap-2"
+              // onClick={() => setAbout(!about)}
+              onMouseEnter={() => setHoverShow(true)}
+              onMouseLeave={() => setHoverShow(false)}
             >
-              {about && (
+              {/* {about && ( */}
+              {hoverShow && (
                 <ul className="bg-white shadow rounded py-1 w-max left-0 mt-12 -ml-4 absolute top-0">
                   {about_us_links &&
                     about_us_links.map((link) => {
@@ -67,7 +71,7 @@ export default function DesktopNavbar() {
                     })}
                 </ul>
               )}
-              About Us
+              <p className="py-4">About Us</p>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
