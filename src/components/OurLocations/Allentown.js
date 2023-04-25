@@ -3,7 +3,6 @@ import React from "react";
 const Allentown = () => {
   return (
     <>
-   
       <a href="#" className="go-down-btn" title="Scroll down">
   <svg
     version="1.1"
@@ -17,7 +16,8 @@ const Allentown = () => {
     enableBackground="new 0 0 100 100"
     xmlSpace="preserve"
   >
-    <rect x="40" y="40" fill="#8D92ED" width="25%" height="25%" />
+    
+    <circle cx="50" cy="50" r="25" fill="indigo" />
        <image xlinkHref="../images/logo_short.png" x="40" y="40" width="25%" height="25%" />
    
     <path
@@ -40,6 +40,7 @@ const Allentown = () => {
       </textPath>
     </text>
   </svg>
+  
 </a>
    {/* <div id="container">
         <div id="circle">
