@@ -45,29 +45,35 @@ export default function DesktopNavbar() {
             </NavLink>
           </li>
           <ul className="xl:flex hidden gap-8 justify-evenly items-center">
-            <li
-              className="cursor-pointer hover:text-indigo-700 transition duration-150 ease-in-out inline-flex items-center text-sm text-white tracking-normal relative text-white hover:text-indigo-700 gap-2"
-              onClick={() => setAbout(!about)}
+          <li
+  className="cursor-pointer hover:text-indigo-700 transition duration-150 ease-in-out inline-flex items-center text-sm text-white tracking-normal relative text-white hover:text-indigo-700 gap-2"
+  onMouseEnter={() => setAbout(true)}
+  onMouseLeave={() => setAbout(false)}
+>
+{about && (
+  <ul
+    className="bg-white shadow rounded py-1 w-max left-0 mt-12 -ml-4 absolute top-0"
+    onMouseEnter={() => setAbout(true)}
+    onMouseLeave={() => setAbout(false)}
+  >
+    {about_us_links &&
+      about_us_links.map((link) => {
+        return (
+          <li className="py-2 cursor-pointer text-gray-600 text-sm leading-3 tracking-normal hover:bg-indigo-300 hover:text-white font-normal">
+            <NavLink
+              to={link.href}
+              key={link.name}
+              className="py-8 cursor-pointer block p-4 text-gray-600 text-sm leading-3 tracking-normal hover:text-white font-normal"
             >
-              {about && (
-                <ul className="bg-white shadow rounded py-1 w-max left-0 mt-12 -ml-4 absolute top-0">
-                  {about_us_links &&
-                    about_us_links.map((link) => {
-                      return (
-                        <li className="cursor-pointer text-gray-600 text-sm leading-3 tracking-normal hover:bg-indigo-300 hover:text-white font-normal">
-                          <NavLink
-                            to={link.href}
-                            key={link.name}
-                            className="cursor-pointer block p-4 text-gray-600 text-sm leading-3 tracking-normal hover:text-white font-normal"
-                          >
-                            {link.name}
-                          </NavLink>
-                        </li>
-                      );
-                    })}
-                </ul>
-              )}
-              About Us
+              {link.name}
+            </NavLink>
+          </li>
+        );
+      })}
+  </ul>
+)}
+  About Us
+
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -214,13 +220,15 @@ export default function DesktopNavbar() {
             </li>
           </ul>
           <li className="cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-3 hover:text-white font-normal">
-            <NavLink
-              to="/book-now"
-              className="cursor-pointer bg-violet-300 rounded-full px-8 py-2 hover:text-indigo-700 transition duration-300 ease-in-out flex items-center text-sm text-white tracking-normal text-white hover:text-indigo-700"
-            >
-              Book Now
-            </NavLink>
-          </li>
+  <NavLink
+    to="/book-now"
+    className="cursor-pointer bg-violet-300 rounded-full px-8 py-2 hover:text-indigo-700 transition duration-300 ease-in-out flex items-center text-sm text-white tracking-normal text-white hover:text-indigo-700 transform-gpu btn3 hover:shadow-md hover:shadow-violet-500/50"
+  >
+    <span className="transform-gpu transition duration-300 ease-in">
+      Book Now
+    </span>
+  </NavLink>
+</li>
         </ul>
       </nav>
       {/* Desktop Navbar end */}
