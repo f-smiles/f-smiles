@@ -27,7 +27,7 @@ footer a {
   
   #container { margin: 0%; }
 
-  #circle { position: relative; width: 100%; padding-bottom: 20%; overflow: hidden; }
+  #circle { position: relative;transform: translate(25%, 15%);  width: 100%; padding-bottom: 20%; overflow: hidden; }
   
   #circle text { font-family: 'CeraProRegular', Arial; font-size: 16px; font-weight: bold; }
   
