@@ -3,22 +3,87 @@ import React from "react";
 const Allentown = () => {
   return (
     <>
- <div id="container">
- <div id="circle">
-  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="300px" height="300px" viewBox="0 0 300 300" enableBackground="new 0 0 300 300" xmlSpace="preserve">
-    <defs>
-      <path id="circlePath" d="M 150, 150 m -60, 0 a 60,60 0 0,1 120,0 a 60,60 0 0,1 -120,0 "/>
-    </defs>
-    <circle cx="150" cy="100" r="75" fill="none"/>
-    <g>
-      <use xlinkHref="#circlePath" fill="none"/>
-      <text fill="#000">
-        <textPath className="space-evenly" xlinkHref="#circlePath"> | Allentown | Lehighton | Schnecksville | <tspan dx="-4">Bethlehem</tspan> </textPath>
-      </text>
-    </g>
+   
+      <a href="#" className="go-down-btn" title="Scroll down">
+  <svg
+    version="1.1"
+    xmlns="http://www.w3.org/2000/svg"
+    xmlnsXlink="http://www.w3.org/1999/xlink"
+    x="0px"
+    y="0px"
+    width="200px"
+    height="200px"
+    viewBox="0 0 100 100"
+    enableBackground="new 0 0 100 100"
+    xmlSpace="preserve"
+  >
+    <rect x="40" y="40" fill="#8D92ED" width="25%" height="25%" />
+       <image xlinkHref="../images/logo_short.png" x="40" y="40" width="25%" height="25%" />
+   
+    <path
+      id="textPath"
+      fill="none"
+      d="M89.322,50.197c0,22.09-17.91,40-40,40c-22.089,0-40-17.91-40-40 c0-22.089,17.911-40,40-40C71.412,10.197,89.322,28.108,89.322,50.197z"
+    />
+    <text style={{ fontSize: '9px' }}>
+      <textPath xlinkHref="#textPath">
+        <tspan x="10">Lehighton</tspan>
+        <tspan x="42" dx="30">
+          Bethlehem
+        </tspan>
+        <tspan x="72" dx="60">
+          Schnecksville
+        </tspan>
+        <tspan x="107" dx="90">
+          Allentown
+        </tspan>
+      </textPath>
+    </text>
   </svg>
-</div>
-      </div>
+</a>
+   {/* <div id="container">
+        <div id="circle">
+          <svg
+            version="1.1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlnsXlink="http://www.w3.org/1999/xlink"
+            x="0px"
+            y="0px"
+            width="300px"
+            height="300px"
+            viewBox="0 0 300 300"
+            enableBackground="new 0 0 300 300"
+            xmlSpace="preserve"
+          >
+            <defs>
+              <path
+                id="circlePath"
+                d="M 150, 150 m -60, 0 a 60,60 0 0,1 120,0 a 60,60 0 0,1 -120,0 "
+              />
+            </defs>
+            <g transform="rotate(30, 150, 150)">
+              <circle cx="150" cy="100" r="75" fill="none" />
+              <g>
+                <use xlinkHref="#circlePath" fill="none" />
+                <text fill="#000">
+                  <textPath
+                    className="space-evenly"
+                    xlinkHref="#circlePath"
+                  >
+                    | Allentown | Lehighton | Schnecksville |{" "}
+                    <tspan dx="-4">Bethlehem</tspan>{" "}
+                  </textPath>
+                </text>
+              </g>
+            </g>
+            <foreignObject x="125" y="125" width="50" height="50" >
+  <div className="bg-indigo-50">
+    <img className="w-full h-full object-contain" src="../images/logo_short.png" alt="logo"></img>
+  </div>
+</foreignObject>
+          </svg>
+        </div>
+      </div> */}
       <div className="mt-12">
         <p className="flex align-items py-4">
           Please fill out our appointment request form to schedule an

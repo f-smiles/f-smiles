@@ -13,6 +13,7 @@ import EarlyOrthodontics from "../components/treatments/EarlyOrthodontics";
 import AdultOrthodontics from "../components/treatments/AdultOrthodontics";
 import Allentown from "../components/OurLocations/Allentown";
 import BookNow from "../components/BookNow";
+import ECommerce from "../components/navbar/shop/ECommerce";
 
 const AppRoutes = () => {
   return (
@@ -31,6 +32,7 @@ const AppRoutes = () => {
       <Route path="adult-orthodontics" element={<AdultOrthodontics />} />
       <Route path="/allentown" element={<Allentown />} />
       <Route path="/book-now" element={<BookNow />} />
+      <Route path="shop" element={<ECommerce />} />
     </Routes>
   );
 };
