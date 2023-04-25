@@ -8,13 +8,18 @@
   src: url('fonts/cerapro_bold.woff2') format('woff2'), url('fonts/cerapro_bold.woff') format('woff');
 }
 
+@font-face {
+  font-family: "Larken";
+  src: url('fonts/Larken-Bold.otf') format('opentype');
+}
+
 body {
   font-family: "CeraProRegular";
 }
 
-/* h1, h2, h3, h4, h5, h6 {
-  font-family: "larken";
-} */
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Larken";
+}
 
 footer a {
   font-family: "CeraProRegular"

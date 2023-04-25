@@ -85,18 +85,18 @@ const Home = () => {
           </div>
         </section>
 
-      <section className="border-4 my-16 flex gap-8 justify-center py-10 text-center">
-        <div data-aos="fade-up" data-aos-duration="750" data-aos-easing="linear" className="bg-gradient-to-tr from-violet-100 to-teal-50 rounded-tl-3xl rounded-tr-3xl rounded-bl-3xl rounded-br-md max-w-xs max-h-full px-12 pb-12 pt-20 flex flex-col justify-start items-center">
+      <section className="border-4 my-16 md:flex gap-8 justify-center py-10 text-center space-y-24 md:space-y-0">
+        <div data-aos="fade-up" data-aos-duration="750" data-aos-easing="linear" className="bg-gradient-to-tr from-violet-100 to-teal-50 rounded-tl-3xl rounded-tr-3xl rounded-bl-3xl rounded-br-md md:max-w-xs max-h-full px-12 pb-12 pt-20 flex flex-col justify-start items-center">
           <img className="absolute -top-12 h-30 w-auto" src="../images/damon.png" alt="damon"/>
           <h3 className="uppercase mb-4">Damon Braces</h3>
           <p>Combining self-ligating braces with advanced archwires clinically proven to move teeth quickly and comfortably.</p>
         </div>
-        <div data-aos="fade-down" className="bg-gradient-to-bl from-violet-100 to-teal-50 rounded-tr-3xl rounded-bl-3xl rounded-tl-md rounded-br-md max-w-xs max-h-full px-12 pb-12 pt-20 flex flex-col justify-start items-center">
+        <div data-aos="fade-down" className="bg-gradient-to-bl from-violet-100 to-teal-50 rounded-tr-3xl rounded-bl-3xl rounded-tl-md rounded-br-md md:max-w-xs max-h-full px-12 pb-12 pt-20 flex flex-col justify-start items-center">
           <img className="absolute -top-12 h-30 w-auto" src="../images/invisalign.png" alt="invisalign" />
           <h3 className="uppercase mb-4">Invisalign</h3>
           <p>As part of the top 1% of Invisalign providers in the US, we have the experience to deliver the smile you deserve.</p>
         </div>
-        <div data-aos="fade-right" data-aos-duration="750" className="bg-gradient-to-br bg-gradient-to-tr from-violet-100 to-teal-50 rounded-tl-3xl rounded-tr-3xl rounded-br-3xl rounded-bl-md max-w-xs max-h-full px-12 pb-12 pt-20 flex flex-col justify-start items-center">
+        <div data-aos="fade-right" data-aos-duration="750" className="bg-gradient-to-br bg-gradient-to-tr from-violet-100 to-teal-50 rounded-tl-3xl rounded-tr-3xl rounded-br-3xl rounded-bl-md md:max-w-xs max-h-full px-12 pb-12 pt-20 flex flex-col justify-start items-center">
          <img className="absolute -top-12 h-30 w-auto" src= "../images/technology.png" alt="technology" />
           <h3 className="uppercase mb-4">Advanced 
           Technology</h3>
@@ -106,85 +106,85 @@ const Home = () => {
       </section>
       {/* <img alt="doctors" src="../../images/Doctor-Photo-Homepage-1.jpg"></img> */}
       {/* TODO: Fix card size and overflow */}
-      <section className="border-4 flex flex-col gap-8 justify-center">
-        <h2 className="text-4xl">Our Locations</h2>
-        <div className="flex gap-8">
-        <div id="location-card" className="flex flex-col justify-between bg-f7f5f2 rounded-bl-3xl rounded-br-3xl items-center w-1/4 h-96">
-          <Map
-            initialViewState={{
-              longitude: -75.517846,
-              latitude: 40.566356,
-              zoom: 14,
-            }}
-            className="w-full h-full"
-            mapStyle={`${process.env.REACT_APP_MAPBOX_STYLE_ALLENTOWN}`}
-          />
-          <figcaption className="p-4 text-center">
-            <h3 className="uppercase">Allentown</h3>
-            <p className="px-2 text-sm">1251 S Cedar Crest Blvd Suite 210</p>
-            <p className="text-sm">Allentown, PA 18103</p>
-          </figcaption>
-          <button className="p-4 bg-stone-400 text-white hover:text-stone-700 w-full rounded-bl-3xl rounded-br-3xl ease-in-out duration-500" type="button">
-            <Link to="/book-now">Book Now</Link>
-          </button>
-        </div>
-        <div className="flex flex-col justify-between bg-f7f5f2 rounded-bl-3xl rounded-br-3xl items-center w-1/4 h-96">
-          <Map
-            initialViewState={{
-              longitude: -75.296074, 
-              latitude: 40.660953,
-              zoom: 14,
-            }}
-            className="w-full h-full"
-            mapStyle={`${process.env.REACT_APP_MAPBOX_STYLE_BETHLEHEM}`}
-          />
-          <figcaption className="p-4 text-center">
-            <h3 className="uppercase">Bethlehem</h3>
-            <p className="text-sm">2901 Emrick Boulevard</p>
-            <p className="text-sm">Bethlehem, PA 18020</p>
-          </figcaption>
-          <button className="p-4 bg-stone-400 text-white hover:text-stone-700 w-full rounded-bl-3xl rounded-br-3xl ease-in-out duration-500" type="button">
-            <Link to="/book-now">Book Now</Link>
-          </button>
-        </div>
-        <div className="flex flex-col justify-between bg-f7f5f2 rounded-bl-3xl rounded-br-3xl items-center w-1/4 h-96">
-          <Map
-            initialViewState={{
-              longitude: -75.597906, 
-              latitude: 40.659477,
-              zoom: 14,
-            }}
-            className="w-full h-full"
-            mapStyle={`${process.env.REACT_APP_MAPBOX_STYLE_SCHNECKSVILLE}`}
-          />
-          <figcaption className="p-4 text-center">
-            <h3 className="uppercase">Schnecksville</h3>
-            <p className="text-sm">4155 Independence Drive</p>
-            <p className="text-sm">Schnecksville, PA 18078</p>
-          </figcaption>
-          <button className="p-4 bg-stone-400 text-white hover:text-stone-700 w-full rounded-bl-3xl rounded-br-3xl ease-in-out duration-500" type="button">
-            <Link to="/book-now">Book Now</Link>
-          </button>
-        </div>
-        <div className="flex flex-col justify-between bg-f7f5f2 rounded-bl-3xl rounded-br-3xl items-center w-1/4 h-96">
-          <Map
-            initialViewState={{
-              longitude: -75.730460,
-              latitude: 40.816100,
-              zoom: 14,
-            }}
-            className="w-full h-full"
-            mapStyle={`${process.env.REACT_APP_MAPBOX_STYLE_LEHIGHTON}`}
-          />
-          <figcaption className="p-4 text-center">
-            <h3 className="uppercase">Lehighton</h3>
-            <p className="text-sm">1080 Blakeslee Blvd Dr E</p>
-            <p className="text-sm">Lehighton, PA 18235</p>
-          </figcaption>
-          <button className="p-4 bg-stone-400 text-white hover:text-stone-700 w-full rounded-bl-3xl rounded-br-3xl ease-in-out duration-500" type="button">
-            <Link to="/book-now">Book Now</Link>
-          </button>
-        </div>
+      <section className="border-4 flex flex-col gap-8 justify-center px-4 py-8">
+        <h3 className="text-3xl lg:text-5xl font-bold md:font-black leading-10 text-gray-700">Our Locations</h3>
+        <div id="cards-container" className="md:grid md:grid-cols-2 lg:flex gap-8">
+          <div className="flex flex-col justify-between bg-f7f5f2 rounded-bl-3xl rounded-br-3xl items-center lg:w-1/4 h-96">
+            <Map
+              initialViewState={{
+                longitude: -75.517846,
+                latitude: 40.566356,
+                zoom: 14,
+              }}
+              className="w-full h-full"
+              mapStyle={`${process.env.REACT_APP_MAPBOX_STYLE_ALLENTOWN}`}
+            />
+            <figcaption className="p-4 text-center">
+              <h3 className="uppercase">Allentown</h3>
+              <p className="px-2 text-sm">1251 S Cedar Crest Blvd Suite 210</p>
+              <p className="text-sm">Allentown, PA 18103</p>
+            </figcaption>
+            <button className="p-4 bg-stone-400 text-white hover:text-stone-700 w-full rounded-bl-3xl rounded-br-3xl ease-in-out duration-500" type="button">
+              <Link to="/book-now">Book Now</Link>
+            </button>
+          </div>
+          <div className="flex flex-col justify-between bg-f7f5f2 rounded-bl-3xl rounded-br-3xl items-center lg:w-1/4 h-96">
+            <Map
+              initialViewState={{
+                longitude: -75.296074, 
+                latitude: 40.660953,
+                zoom: 14,
+              }}
+              className="w-full h-full"
+              mapStyle={`${process.env.REACT_APP_MAPBOX_STYLE_BETHLEHEM}`}
+            />
+            <figcaption className="p-4 text-center">
+              <h3 className="uppercase">Bethlehem</h3>
+              <p className="text-sm">2901 Emrick Boulevard</p>
+              <p className="text-sm">Bethlehem, PA 18020</p>
+            </figcaption>
+            <button className="p-4 bg-stone-400 text-white hover:text-stone-700 w-full rounded-bl-3xl rounded-br-3xl ease-in-out duration-500" type="button">
+              <Link to="/book-now">Book Now</Link>
+            </button>
+          </div>
+          <div className="flex flex-col justify-between bg-f7f5f2 rounded-bl-3xl rounded-br-3xl items-center lg:w-1/4 h-96">
+            <Map
+              initialViewState={{
+                longitude: -75.597906, 
+                latitude: 40.659477,
+                zoom: 14,
+              }}
+              className="w-full h-full"
+              mapStyle={`${process.env.REACT_APP_MAPBOX_STYLE_SCHNECKSVILLE}`}
+            />
+            <figcaption className="p-4 text-center">
+              <h3 className="uppercase">Schnecksville</h3>
+              <p className="text-sm">4155 Independence Drive</p>
+              <p className="text-sm">Schnecksville, PA 18078</p>
+            </figcaption>
+            <button className="p-4 bg-stone-400 text-white hover:text-stone-700 w-full rounded-bl-3xl rounded-br-3xl ease-in-out duration-500" type="button">
+              <Link to="/book-now">Book Now</Link>
+            </button>
+          </div>
+          <div className="flex flex-col justify-between bg-f7f5f2 rounded-bl-3xl rounded-br-3xl items-center lg:w-1/4 h-96">
+            <Map
+              initialViewState={{
+                longitude: -75.730460,
+                latitude: 40.816100,
+                zoom: 14,
+              }}
+              className="w-full h-full"
+              mapStyle={`${process.env.REACT_APP_MAPBOX_STYLE_LEHIGHTON}`}
+            />
+            <figcaption className="p-4 text-center">
+              <h3 className="uppercase">Lehighton</h3>
+              <p className="text-sm">1080 Blakeslee Blvd Dr E</p>
+              <p className="text-sm">Lehighton, PA 18235</p>
+            </figcaption>
+            <button className="p-4 bg-stone-400 text-white hover:text-stone-700 w-full rounded-bl-3xl rounded-br-3xl ease-in-out duration-500" type="button">
+              <Link to="/book-now">Book Now</Link>
+            </button>
+          </div>
         </div>
       </section>
       </div>
