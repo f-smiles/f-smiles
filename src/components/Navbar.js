@@ -4,6 +4,7 @@ import { Transition } from '@headlessui/react'
 
 export default function DesktopNavbar() {
   const [show, setShow] = useState(null);
+  const [hoverShow, setHoverShow] = useState(false);
   const [about, setAbout] = useState(false);
   const [patient, setPatient] = useState(false);
   const [treatments, setTreatments] = useState(false);
@@ -32,7 +33,7 @@ export default function DesktopNavbar() {
       {/* Desktop Navbar */}
       <nav
         id="desktop-nav"
-        className="w-full h-max relative top-0 left-0 right-0 mx-auto bg-stone-300 shadow xl:block hidden z-40"
+        className="w-full h-max fixed top-0 left-0 right-0 mx-auto bg-stone-300 shadow xl:block hidden z-40"
       >
         <ul className="w-full p-2 max-w-screen-xl mx-auto flex justify-between items-center">
           <li>
@@ -45,35 +46,32 @@ export default function DesktopNavbar() {
             </NavLink>
           </li>
           <ul className="xl:flex hidden gap-8 justify-evenly items-center">
-          <li
-  className="cursor-pointer hover:text-indigo-700 transition duration-150 ease-in-out inline-flex items-center text-sm text-white tracking-normal relative text-white hover:text-indigo-700 gap-2"
-  onMouseEnter={() => setAbout(true)}
-  onMouseLeave={() => setAbout(false)}
->
-{about && (
-  <ul
-    className="bg-white shadow rounded py-1 w-max left-0 mt-12 -ml-4 absolute top-0"
-    onMouseEnter={() => setAbout(true)}
-    onMouseLeave={() => setAbout(false)}
-  >
-    {about_us_links &&
-      about_us_links.map((link) => {
-        return (
-          <li className="py-2 cursor-pointer text-gray-600 text-sm leading-3 tracking-normal hover:bg-indigo-300 hover:text-white font-normal">
-            <NavLink
-              to={link.href}
-              key={link.name}
-              className="py-8 cursor-pointer block p-4 text-gray-600 text-sm leading-3 tracking-normal hover:text-white font-normal"
+            <li
+              className="h-full cursor-pointer hover:text-indigo-700 transition duration-150 ease-in-out inline-flex items-center text-sm text-white tracking-normal relative text-white hover:text-indigo-700 gap-2"
+              // onClick={() => setAbout(!about)}
+              onMouseEnter={() => setHoverShow(true)}
+              onMouseLeave={() => setHoverShow(false)}
             >
-              {link.name}
-            </NavLink>
-          </li>
-        );
-      })}
-  </ul>
-)}
-  About Us
-
+              {/* {about && ( */}
+              {hoverShow && (
+                <ul className="bg-white shadow rounded py-1 w-max left-0 mt-12 -ml-4 absolute top-0">
+                  {about_us_links &&
+                    about_us_links.map((link) => {
+                      return (
+                        <li className="cursor-pointer text-gray-600 text-sm leading-3 tracking-normal hover:bg-indigo-300 hover:text-white font-normal">
+                          <NavLink
+                            to={link.href}
+                            key={link.name}
+                            className="cursor-pointer block p-4 text-gray-600 text-sm leading-3 tracking-normal hover:text-white font-normal"
+                          >
+                            {link.name}
+                          </NavLink>
+                        </li>
+                      );
+                    })}
+                </ul>
+              )}
+              <p className="py-4">About Us</p>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -248,7 +246,7 @@ export default function DesktopNavbar() {
           </NavLink>
           <div
             id="menu"
-            className="cursor-pointer text-white"
+            className="cursor-pointer text-white z-0"
             onClick={() => setShow(!show)}
           >
             {show ? (
