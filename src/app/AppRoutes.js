@@ -15,6 +15,9 @@ import Allentown from "../components/OurLocations/Allentown";
 import BookNow from "../components/BookNow";
 import AllProducts from "../components/navbar/shop/ECommerce";
 import SingleProduct from "../components/navbar/shop/SingleProduct"
+import StripeCheckoutForm from "../components/stripe/StripeCheckoutForm";
+import ProductsPage from "../components/stripe/ProductsPage";
+import Cart from "../components/stripe/Cart";
 
 const AppRoutes = () => {
   return (
@@ -35,6 +38,9 @@ const AppRoutes = () => {
       <Route path="/book-now" element={<BookNow />} />
       <Route path="shop" element={<AllProducts />} />
       <Route path="single-product" element={<SingleProduct />} />
+      <Route path="/stripe-checkout" element={<StripeCheckoutForm />} />
+      <Route path="/products" element={<ProductsPage />} />
+      <Route path="/cart" element={<Cart />} />
     </Routes>
   );
 };
