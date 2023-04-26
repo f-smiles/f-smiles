@@ -98,7 +98,7 @@ const Home = () => {
         </div>
         <div data-aos="fade-right" data-aos-duration="750" className="bg-gradient-to-br bg-gradient-to-tr from-violet-100 to-teal-50 rounded-tl-3xl rounded-tr-3xl rounded-br-3xl rounded-bl-md md:max-w-xs max-h-full px-12 pb-12 pt-20 flex flex-col justify-start items-center">
          <img className="absolute -top-12 h-30 w-auto" src= "../images/technology.png" alt="technology" />
-          <h3 className="uppercase mb-4">Advanced 
+          <h3 className="uppercase mb-4">Advanced
           Technology</h3>
           <p>We offer Invisalign without Impressions. Say goodbye to goopy impressions with our iTero digital scanner.
           </p>
@@ -123,6 +123,7 @@ const Home = () => {
               <h3 className="uppercase">Allentown</h3>
               <p className="px-2 text-sm">1251 S Cedar Crest Blvd Suite 210</p>
               <p className="text-sm">Allentown, PA 18103</p>
+              <Link className="underline" to="https://goo.gl/maps/jeFprQaeMQwUzwPx8" target="_blank">Get Directions</Link>
             </figcaption>
             <button className="p-4 bg-stone-400 text-white hover:text-stone-700 w-full rounded-bl-3xl rounded-br-3xl ease-in-out duration-500" type="button">
               <Link to="/book-now">Book Now</Link>
@@ -131,7 +132,7 @@ const Home = () => {
           <div className="flex flex-col justify-between bg-f7f5f2 rounded-bl-3xl rounded-br-3xl items-center lg:w-1/4 h-96">
             <Map
               initialViewState={{
-                longitude: -75.296074, 
+                longitude: -75.296074,
                 latitude: 40.660953,
                 zoom: 14,
               }}
@@ -142,6 +143,7 @@ const Home = () => {
               <h3 className="uppercase">Bethlehem</h3>
               <p className="text-sm">2901 Emrick Boulevard</p>
               <p className="text-sm">Bethlehem, PA 18020</p>
+              <Link className="underline" to="https://goo.gl/maps/QjaBN2q5nmC7Vvmp8" target="_blank">Get Directions</Link>
             </figcaption>
             <button className="p-4 bg-stone-400 text-white hover:text-stone-700 w-full rounded-bl-3xl rounded-br-3xl ease-in-out duration-500" type="button">
               <Link to="/book-now">Book Now</Link>
@@ -150,7 +152,7 @@ const Home = () => {
           <div className="flex flex-col justify-between bg-f7f5f2 rounded-bl-3xl rounded-br-3xl items-center lg:w-1/4 h-96">
             <Map
               initialViewState={{
-                longitude: -75.597906, 
+                longitude: -75.597906,
                 latitude: 40.659477,
                 zoom: 14,
               }}
@@ -161,6 +163,7 @@ const Home = () => {
               <h3 className="uppercase">Schnecksville</h3>
               <p className="text-sm">4155 Independence Drive</p>
               <p className="text-sm">Schnecksville, PA 18078</p>
+              <Link className="underline" to="https://goo.gl/maps/Z7C7Z7BPzHgcJmUr6" target="_blank">Get Directions</Link>
             </figcaption>
             <button className="p-4 bg-stone-400 text-white hover:text-stone-700 w-full rounded-bl-3xl rounded-br-3xl ease-in-out duration-500" type="button">
               <Link to="/book-now">Book Now</Link>
@@ -180,6 +183,7 @@ const Home = () => {
               <h3 className="uppercase">Lehighton</h3>
               <p className="text-sm">1080 Blakeslee Blvd Dr E</p>
               <p className="text-sm">Lehighton, PA 18235</p>
+              <Link className="underline" to="https://goo.gl/maps/rcoLbjXmATgQn2t47" target="_blank">Get Directions</Link>
             </figcaption>
             <button className="p-4 bg-stone-400 text-white hover:text-stone-700 w-full rounded-bl-3xl rounded-br-3xl ease-in-out duration-500" type="button">
               <Link to="/book-now">Book Now</Link>
