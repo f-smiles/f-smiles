@@ -1,7 +1,7 @@
 import React from "react";
 import { products } from "../../../store/seed";
 
-const ECommerce = () => {
+const AllProducts = () => {
   return (
     <div>
       <section className="flex flex-wrap gap-4 justify-center py-20 text-center">
@@ -9,7 +9,8 @@ const ECommerce = () => {
           <Card
             name={product.name}
             image={product.image}
-            description={product.description}
+            price={product.price}
+            // description={product.description}
             buttonText="Add To Cart"
           />);
         })}
@@ -18,7 +19,7 @@ const ECommerce = () => {
   );
 };
 
-const Card = ({ image, name, description, buttonText }) => {
+const Card = ({ image, name, description, buttonText, price }) => {
   return (
     <div
       data-aos="fade-up"
@@ -34,6 +35,7 @@ const Card = ({ image, name, description, buttonText }) => {
         />
         <div>
           <h3 className="uppercase mb-4">{name}</h3>
+          <h3 className="uppercase mb-4">{price}</h3>
           <p>{description}</p>
           {buttonText && (
             <button className="rounded-full text-sm px-8 py-2 border border-black">
@@ -46,4 +48,4 @@ const Card = ({ image, name, description, buttonText }) => {
   );
 };
 
-export default ECommerce;
+export default AllProducts;
