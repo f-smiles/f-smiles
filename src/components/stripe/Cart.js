@@ -22,15 +22,15 @@ const Cart = ({ products, removeFromCart }) => {
       ))}
       <h3>Total: ${total.toFixed(2)}</h3>
       <StripeCheckout
-        stripeKey="pk_test_51N0UqcF1lRcn4KYhkhHSjyqn5evskdxdL3SUCblBPMzcr1ph2BXVCXH7mLeA3PL3JUq12RTAjKXLyymDGot9aj4x00JzbIrte1
-        "
+        stripeKey="pk_live_51N0UqcF1lRcn4KYhmkaGhYXNrMU9sMmAQnW4VKgjyacvg3j69Qfer276V8s9IyrFYJQzeoWPNi5CFlKXe5NHevKc00mEMElvoB"
         token={handleToken}
         amount={total * 100}
         name="My Store"
         description="Checkout"
+        total={total}
       >
         <button>Checkout</button>
-      </StripeCheckout>
+      </StripeCheckout >
     </div>
   );
 };
