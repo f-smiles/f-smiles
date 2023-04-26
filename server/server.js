@@ -25,19 +25,20 @@ app.get("/config", (req, res) => {
 
 app.post("/create-payment-intent", async (req, res) => {
   try {
-    const { amount } = req.body;
+    const { token_id, amount } = req.body;
 
-    const paymentIntent = await stripe.paymentIntents.create({
+    // Create a charge using the token and amount
+    await stripe.charges.create({
+      amount: amount,
       currency: "USD",
-      amount,
-      automatic_payment_methods: { enabled: true },
+      source: token_id,
+      description: "Charge for test@example.com",
     });
 
-    // Send publishable key and PaymentIntent details to client
-    res.send({
-      clientSecret: paymentIntent.client_secret,
-    });
+    // Send a success response to the client
+    res.send({ success: true });
   } catch (e) {
+    // Handle any errors and send an error response to the client
     return res.status(400).send({
       error: {
         message: e.message,
@@ -45,6 +46,8 @@ app.post("/create-payment-intent", async (req, res) => {
     });
   }
 });
+
+
 
 app.listen(3001, () =>
   console.log(`Node server listening at http://localhost:3001`)
