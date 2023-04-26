@@ -1,7 +1,6 @@
 const express = require("express");
 const app = express();
 const { resolve } = require("path");
-const cors = require("cors"); // Import cors middleware
 require("dotenv").config();
 
 const stripe = require("stripe")(process.env.REACT_APP_STRIPE_KEY, {
@@ -9,8 +8,6 @@ const stripe = require("stripe")(process.env.REACT_APP_STRIPE_KEY, {
 });
 
 app.use(express.static(process.env.STATIC_DIR));
-app.use(express.json()); // Parse JSON request bodies
-app.use(cors()); // Enable CORS
 
 app.get("/", (req, res) => {
   const path = resolve(process.env.STATIC_DIR + "/index.html");
@@ -25,14 +22,38 @@ app.get("/config", (req, res) => {
 
 app.post("/create-payment-intent", async (req, res) => {
   try {
-    const { token_id, amount } = req.body;
+    const { amount } = req.body;
 
-    // Create a charge using the token and amount
-    await stripe.charges.create({
-      amount: amount,
+    const paymentIntent = await stripe.paymentIntents.create({
       currency: "USD",
-      source: token_id,
-      description: "Charge for test@example.com",
+      amount,
+      automatic_payment_methods: { enabled: true },
+    });
+
+    // Send publishable key and PaymentIntent details to client
+    res.send({
+      clientSecret: paymentIntent.client_secret,
+    });
+  } catch (e) {
+    return res.status(400).send({
+      error: {
+        message: e.message,
+      },
+    });
+  }
+});
+
+app.post("/confirm-payment-intent", async (req, res) => {
+  try {
+    const { clientSecret } = req.body;
+
+    const paymentIntent = await stripe.paymentIntents.confirm(clientSecret);
+
+    // Charge the customer
+    await stripe.charges.create({
+      amount: paymentIntent.amount,
+      currency: paymentIntent.currency,
+      source: paymentIntent.payment_method,
     });
 
     // Send a success response to the client
@@ -47,9 +68,6 @@ app.post("/create-payment-intent", async (req, res) => {
   }
 });
 
-
-
 app.listen(3001, () =>
   console.log(`Node server listening at http://localhost:3001`)
 );
-
