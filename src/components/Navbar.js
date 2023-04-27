@@ -31,6 +31,7 @@ export default function DesktopNavbar() {
   return (
     <>
       {/* Desktop Navbar */}
+      {/* TODO: add focus to dropdown for accessibility */}
       <nav
         id="desktop-nav"
         className="w-full h-max fixed top-0 left-0 right-0 mx-auto bg-stone-300 shadow xl:block hidden z-40"
@@ -89,9 +90,12 @@ export default function DesktopNavbar() {
             </li>
             <li
               className="cursor-pointer hover:text-indigo-700 transition duration-150 ease-in-out inline-flex items-center text-sm text-white tracking-normal relative text-white hover:text-indigo-700 gap-2"
-              onClick={() => setPatient(!patient)}
+              // onClick={() => setPatient(!patient)}
+              onMouseEnter={() => setHoverShow(true)}
+              onMouseLeave={() => setHoverShow(false)}
             >
-              {patient && (
+              {/* {patient && ( */}
+              {hoverShow && (
                 <ul className="bg-white shadow rounded py-1 w-max left-0 mt-12 -ml-4 absolute top-0">
                   {patient_links &&
                     patient_links.map((link) => {
@@ -145,7 +149,7 @@ export default function DesktopNavbar() {
                 />
               </svg>
             </li>
-            <div className={ 
+            <div className={
               treatments
                 ? "block absolute top-0 left-0 flex flex-row h-screen overflow-hidden translate-x-0 transition-all delay-300 duration-500 ease-out"
                 : "absolute top-0 left-0 flex flex-row h-screen overflow-hidden translate-x-[-100%] transition-all delay-0 duration-500 ease-out"
@@ -172,7 +176,7 @@ export default function DesktopNavbar() {
                   </div>
                 </div>
                 <div className="flex flex-col overflow-hidden">
-                
+
                     <div className="flex items-center justify-between h-14 px-4">
                       <div className="flex items-center">
                         <button

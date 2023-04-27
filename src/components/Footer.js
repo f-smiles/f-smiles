@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -44,14 +45,14 @@ const Footer = () => {
   <section className="flex flex-col">
     <div className="flex space-x-4 justify-center">
     <span className="border-2 border-slate-500 rounded-full p-2">
-      <a className="hover:text-indigo-500" href="http://www.facebook.com">
+      <Link className="hover:text-indigo-500" href="http://www.facebook.com" target="_blank">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-facebook z-0"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
-      </a>
+      </Link>
     </span>
     <span className="border-2 border-slate-500 rounded-full p-2">
-      <a className="hover:text-indigo-500" href="http://www.instagram.com">
+      <Link className="hover:text-indigo-500" href="http://www.instagram.com" target="_blank">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-instagram z-0"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg>
-      </a>
+      </Link>
     </span>
     </div>
     <div>

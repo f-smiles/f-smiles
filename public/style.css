@@ -143,3 +143,69 @@ text {
 /* .btn3:hover span {
   transform: scale(1.1, 1.2);
 } */
+
+
+/* .collapsible-data-list-module--container--2Lk2y.collapsible-data-list-module--active--3rlZC::before {
+  background-color: red;
+}
+.collapsible-data-list-module--container--2Lk2y::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 4px;
+  background-color: pink;
+  border-radius: 2px;
+}
+.collapsible-data-list-module--container--2Lk2y {
+  cursor: pointer;
+  position: relative;
+  padding-left: var(--sm);
+} */
+
+.bar.active::before {
+  background-color: red;
+  border-radius: 0px;
+}
+.bar::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 4px;
+  background-color: pink;
+  border-radius: 2px;
+}
+
+.bar {
+  cursor: pointer;
+  position: relative;
+  padding-left: var(--sm);
+}
+
+/* .disclosure-button {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+.disclosure-button::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 2px;
+  height: 16px;
+  background-color: #000;
+}
+
+.disclosure-button.active::before {
+  background-color: #333;
+} */
