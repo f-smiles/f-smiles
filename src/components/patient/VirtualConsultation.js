@@ -103,7 +103,7 @@ const VirtualConsultation = () => {
 
 
   return (
-    <main id="contact-form" className="p-8">
+    <main id="contact-form" className="mt-20 p-8">
       {emailSent ? (
         <span className={emailSent ? "block" : "hidden"}>
         Thank you for your message, we will be in touch in no time!
