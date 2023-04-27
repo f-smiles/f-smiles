@@ -3,6 +3,7 @@ import React from "react";
 const Allentown = () => {
   return (
     <>
+    <main className="mt-20">
       <a href="#" className="go-down-btn" title="Scroll down">
   <svg
     version="1.1"
@@ -295,7 +296,9 @@ const Allentown = () => {
           </p>
         </div>
       </div>
+      </main>
     </>
+    
   );
 };
 
