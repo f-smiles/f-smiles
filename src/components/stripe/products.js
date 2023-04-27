@@ -1,11 +1,11 @@
 const ProductsArray = [
     {
-        id: "price_1N0rNGF1lRcn4KYhnzWs8nvv",
+        id: "prod_NmQEUfKHJOePim",
         name: "toothpaste",
         price: 2.00
     },
     {
-        id: "price_1N0rNxF1lRcn4KYheNZRpmAR",
+        id: "prod_NmQD0LB6E9QoDd",
         name: "toothbrush",
         price: 4.00
     },

@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import StripeCheckout from "react-stripe-checkout";
+import StripeCheckoutForm from "./StripeCheckoutForm";
 
 const Cart = ({ products, removeFromCart }) => {
   const total = products.reduce((acc, curr) => acc + curr.price, 0);
@@ -21,16 +22,16 @@ const Cart = ({ products, removeFromCart }) => {
         </div>
       ))}
       <h3>Total: ${total.toFixed(2)}</h3>
-      <StripeCheckout
+      <StripeCheckoutForm
         stripeKey="pk_live_51N0UqcF1lRcn4KYhmkaGhYXNrMU9sMmAQnW4VKgjyacvg3j69Qfer276V8s9IyrFYJQzeoWPNi5CFlKXe5NHevKc00mEMElvoB"
         token={handleToken}
         amount={total * 100}
         name="My Store"
         description="Checkout"
         total={total}
-      >
+      />
         <button>Checkout</button>
-      </StripeCheckout >
+      
     </div>
   );
 };
