@@ -9,7 +9,7 @@ const WhyChooseUs = () => {
         <Disclosure defaultOpen={true}>
           {({ open }) => (
             <>
-    
+
     <div className="bg-gradient-to-b from-violet-100 to-stone-50 py-4 border border-violet-100 rounded-lg px-4 pt-4 pb-2 space-y-4 text-sm text-gray-500 text-center">
   <h1 className=" px-4 py-2 mx-auto text-base font-large text-purple-900  focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
     Why Choose Us
@@ -28,7 +28,7 @@ const WhyChooseUs = () => {
                  Board certification is a voluntary achievement
                 that only one in three orthodontists choose to pursue, and it
                 requires a thorough evaluation of an orthodontist's knowledge
-                base and clinical skills. In addition, FreySmiles Orthodontics is the #1 provider of Invisalign and Invisalign Teen in the region. As Diamond Plus Invisalign providers, our doctors have achieved this level of experience through treating thousands of patients with Invisalign. Their care over the many years has contributed to the research and advancement of this specialized orthodontic treatment modality. 
+                base and clinical skills. In addition, FreySmiles Orthodontics is the #1 provider of Invisalign and Invisalign Teen in the region. As Diamond Plus Invisalign providers, our doctors have achieved this level of experience through treating thousands of patients with Invisalign. Their care over the many years has contributed to the research and advancement of this specialized orthodontic treatment modality.
 </p>
                 <p>
                 Experts in Invisalign, Damon Braces, Accelerated Orthodontic
@@ -70,7 +70,7 @@ const WhyChooseUs = () => {
                           viewBox="0 0 24 24"
                           strokeWidth={1.5}
                           stroke="#B17CFF"
-                          className="w-6 h-6 mx-auto"
+                          className="w-6 h-6 mx-auto z-0"
                         >
                           <path
                             strokeLinecap="round"
@@ -86,7 +86,7 @@ const WhyChooseUs = () => {
                           viewBox="0 0 24 24"
                           strokeWidth={1.5}
                           stroke="currentColor"
-                          className="w-6 h-6 mx-auto stroke-red-500"
+                          className="w-6 h-6 mx-auto stroke-red-500 z-0"
                         >
                           <path
                             strokeLinecap="round"
@@ -105,7 +105,7 @@ const WhyChooseUs = () => {
                           viewBox="0 0 24 24"
                           strokeWidth={1.5}
                           stroke="#B17CFF"
-                          className="w-6 h-6 mx-auto"
+                          className="w-6 h-6 mx-auto z-0"
                         >
                           <path
                             strokeLinecap="round"
@@ -121,7 +121,7 @@ const WhyChooseUs = () => {
                           viewBox="0 0 24 24"
                           strokeWidth={1.5}
                           stroke="currentColor"
-                          className="w-6 h-6 mx-auto stroke-red-500"
+                          className="w-6 h-6 mx-auto stroke-red-500 z-0"
                         >
                           <path
                             strokeLinecap="round"
@@ -140,7 +140,7 @@ const WhyChooseUs = () => {
                           viewBox="0 0 24 24"
                           strokeWidth={1.5}
                           stroke="#B17CFF"
-                          className="w-6 h-6 mx-auto"
+                          className="w-6 h-6 mx-auto z-0"
                         >
                           <path
                             strokeLinecap="round"
@@ -156,7 +156,7 @@ const WhyChooseUs = () => {
                           viewBox="0 0 24 24"
                           strokeWidth={1.5}
                           stroke="currentColor"
-                          className="w-6 h-6 mx-auto stroke-red-500"
+                          className="w-6 h-6 mx-auto stroke-red-500 z-0"
                         >
                           <path
                             strokeLinecap="round"
@@ -175,7 +175,7 @@ const WhyChooseUs = () => {
                           viewBox="0 0 24 24"
                           strokeWidth={1.5}
                           stroke="#B17CFF"
-                          className="w-6 h-6 mx-auto"
+                          className="w-6 h-6 mx-auto z-0"
                         >
                           <path
                             strokeLinecap="round"
@@ -191,7 +191,7 @@ const WhyChooseUs = () => {
                           viewBox="0 0 24 24"
                           strokeWidth={1.5}
                           stroke="currentColor"
-                          className="w-6 h-6 mx-auto stroke-red-500"
+                          className="w-6 h-6 mx-auto stroke-red-500 z-0"
                         >
                           <path
                             strokeLinecap="round"
@@ -210,7 +210,7 @@ const WhyChooseUs = () => {
                           viewBox="0 0 24 24"
                           strokeWidth={1.5}
                           stroke="#B17CFF"
-                          className="w-6 h-6 mx-auto"
+                          className="w-6 h-6 mx-auto z-0"
                         >
                           <path
                             strokeLinecap="round"
@@ -226,7 +226,7 @@ const WhyChooseUs = () => {
                           viewBox="0 0 24 24"
                           strokeWidth={1.5}
                           stroke="currentColor"
-                          className="w-6 h-6 mx-auto stroke-red-500"
+                          className="w-6 h-6 mx-auto stroke-red-500 z-0"
                         >
                           <path
                             strokeLinecap="round"
@@ -245,7 +245,7 @@ const WhyChooseUs = () => {
                           viewBox="0 0 24 24"
                           strokeWidth={1.5}
                           stroke="#B17CFF"
-                          className="w-6 h-6 mx-auto"
+                          className="w-6 h-6 mx-auto z-0"
                         >
                           <path
                             strokeLinecap="round"
@@ -261,7 +261,7 @@ const WhyChooseUs = () => {
                           viewBox="0 0 24 24"
                           strokeWidth={1.5}
                           stroke="#B17CFF"
-                          className="w-6 h-6 mx-auto"
+                          className="w-6 h-6 mx-auto z-0"
                         >
                           <path
                             strokeLinecap="round"
@@ -273,7 +273,7 @@ const WhyChooseUs = () => {
                     </tr>
                   </tbody>
                 </table>
-              
+
             </>
           )}
         </Disclosure>
