@@ -1,8 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+
 const Footer = () => {
   return (
+    
     <footer className="bg-f7f5f2 p-8">
       <div className="container max-w-screen-xl mx-auto flex flex-wrap">
         <div className="w-full sm:w-1/3">
@@ -60,6 +62,7 @@ const Footer = () => {
     </div>
   </section>
   </footer>
+  
   )
 };
 

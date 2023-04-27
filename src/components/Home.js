@@ -5,6 +5,7 @@ import Map from "react-map-gl";
 import DotPattern from "./DotPattern";
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // You can also use <link> for styles
+import MySketch from "./navbar/sketch";
 
 AOS.init();
 
@@ -102,6 +103,9 @@ const Home = () => {
           Technology</h3>
           <p>We offer Invisalign without Impressions. Say goodbye to goopy impressions with our iTero digital scanner.
           </p>
+          <div className="App">
+      <MySketch />
+    </div>
         </div>
       </section>
       {/* <img alt="doctors" src="../../images/Doctor-Photo-Homepage-1.jpg"></img> */}
