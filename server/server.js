@@ -8,6 +8,7 @@ const stripe = require("stripe")(process.env.REACT_APP_STRIPE_KEY, {
 });
 
 app.use(express.static(process.env.STATIC_DIR));
+app.use(express.json());
 
 app.get("/", (req, res) => {
   const path = resolve(process.env.STATIC_DIR + "/index.html");
@@ -49,15 +50,18 @@ app.post("/confirm-payment-intent", async (req, res) => {
 
     const paymentIntent = await stripe.paymentIntents.confirm(clientSecret);
 
-    // Charge the customer
-    await stripe.charges.create({
-      amount: paymentIntent.amount,
-      currency: paymentIntent.currency,
-      source: paymentIntent.payment_method,
-    });
-
-    // Send a success response to the client
-    res.send({ success: true });
+    // If the payment intent is successful, there's no need to create a charge
+    if (paymentIntent.status === "succeeded") {
+      // Send a success response to the client
+      res.send({ success: true });
+    } else {
+      // Handle any errors and send an error response to the client
+      return res.status(400).send({
+        error: {
+          message: "Payment intent not successful",
+        },
+      });
+    }
   } catch (e) {
     // Handle any errors and send an error response to the client
     return res.status(400).send({
@@ -68,6 +72,42 @@ app.post("/confirm-payment-intent", async (req, res) => {
   }
 });
 
-app.listen(3001, () =>
-  console.log(`Node server listening at http://localhost:3001`)
+
+// Add a webhook endpoint for the payment_intent.succeeded event
+app.post("/webhook", async (req, res) => {
+  const event = req.body;
+
+  try {
+    switch (event.type) {
+      case "payment_intent.succeeded":
+        // Handle successful payment
+        console.log("Payment succeeded:", event.data.object);
+        break;
+      default:
+        // Unexpected event type
+        console.log(`Unexpected event type: ${event.type}`);
+    }
+
+    // Send a 200 response to acknowledge receipt of the event
+    res.json({ received: true });
+  } catch (e) {
+    // Handle any errors and send an error response to Stripe
+    console.error(e);
+    res.status(500).end();
+  }
+});
+
+app.listen(3000, () =>
+  console.log(`Node server listening at http://localhost:3000`)
 );
+
+//IGNORE 
+// "scripts": {
+//   "start": "node server",
+//   "build": "react-scripts build",
+//   "test": "react-scripts test",
+//   "eject": "react-scripts eject",
+//   "start:dev": "npm run build:dev & npm run start-server",
+//   "build:dev": "npm run build -- --watch --mode=development",
+//   "start-server": "node server -e html,js,scss --ignore public --ignore client"
+// },
