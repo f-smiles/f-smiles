@@ -49,12 +49,12 @@ export default function DesktopNavbar() {
           <ul className="xl:flex hidden gap-8 justify-evenly items-center">
             <li
               className="h-full cursor-pointer hover:text-indigo-700 transition duration-150 ease-in-out inline-flex items-center text-sm text-white tracking-normal relative text-white hover:text-indigo-700 gap-2"
-              // onClick={() => setAbout(!about)}
-              onMouseEnter={() => setHoverShow(true)}
-              onMouseLeave={() => setHoverShow(false)}
+              onClick={() => setAbout(!about)}
+              // onMouseEnter={() => setHoverShow(true)}
+              // onMouseLeave={() => setHoverShow(false)}
             >
-              {/* {about && ( */}
-              {hoverShow && (
+              {about && (
+              // {/* {hoverShow && ( */}
                 <ul className="bg-white shadow rounded py-1 w-max left-0 mt-12 -ml-4 absolute top-0">
                   {about_us_links &&
                     about_us_links.map((link) => {
@@ -90,12 +90,12 @@ export default function DesktopNavbar() {
             </li>
             <li
               className="cursor-pointer hover:text-indigo-700 transition duration-150 ease-in-out inline-flex items-center text-sm text-white tracking-normal relative text-white hover:text-indigo-700 gap-2"
-              // onClick={() => setPatient(!patient)}
-              onMouseEnter={() => setHoverShow(true)}
-              onMouseLeave={() => setHoverShow(false)}
+              onClick={() => setPatient(!patient)}
+              // onMouseEnter={() => setHoverShow(true)}
+              // onMouseLeave={() => setHoverShow(false)}
             >
-              {/* {patient && ( */}
-              {hoverShow && (
+              {patient && (
+              // {hoverShow && (
                 <ul className="bg-white shadow rounded py-1 w-max left-0 mt-12 -ml-4 absolute top-0">
                   {patient_links &&
                     patient_links.map((link) => {
