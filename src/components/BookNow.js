@@ -139,6 +139,7 @@ const BookNow = () => {
     "border-2 border-violet-400 hover:bg-violet-400 hover:text-white";
 
   return (
+    <main className="mt-20 pt-10">
     <div id="contact-form">
       {emailSent ? (
         <span className={emailSent ? "block" : "hidden"}>
@@ -414,6 +415,7 @@ const BookNow = () => {
         </form>
       )}
     </div>
+    </main>
   );
 };
 

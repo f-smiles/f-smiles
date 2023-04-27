@@ -10,7 +10,7 @@ const StripeCheckoutForm = ({ total }) => {
   const handleToken = async (token) => {
     setLoading(true);
     try {
-      const response = await axios.post("/api/payment", {
+      const response = await axios.post("http://localhost:3000/api/payments", {
         token,
         amount: total * 100,
       });
