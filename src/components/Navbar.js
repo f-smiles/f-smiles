@@ -4,10 +4,20 @@ import { Transition } from '@headlessui/react'
 
 export default function DesktopNavbar() {
   const [show, setShow] = useState(null);
-  const [hoverShow, setHoverShow] = useState(false);
   const [about, setAbout] = useState(false);
   const [patient, setPatient] = useState(false);
   const [treatments, setTreatments] = useState(false);
+
+  const handleMouseOver = () => {
+    setTreatments(true);
+    clearTimeout(hideTimeoutId);
+  };
+
+  let hideTimeoutId = null;
+
+  const handleMouseLeave = () => {
+    hideTimeoutId = setTimeout(() => setTreatments(false), 2550000);
+  };
 
   const about_us_links = [
     { name: "Our Team", href: "/our-team" },
@@ -47,91 +57,103 @@ export default function DesktopNavbar() {
             </NavLink>
           </li>
           <ul className="xl:flex hidden gap-8 justify-evenly items-center">
+          <div
+  className="relative"
+  onMouseLeave={() => setShow(null)}
+>
+  <li
+    className="h-full cursor-pointer hover:text-indigo-700 transition duration-150 ease-in-out inline-flex items-center text-sm text-white tracking-normal relative text-white hover:text-indigo-700 gap-2"
+    onMouseOver={() => setShow("about")}
+    onClick={() => setShow("about")}
+  >
+    About Us
+  </li>
+  <Transition
+    show={show === "about"}
+    enter="transition duration-100 ease-out"
+    enterFrom="opacity-0"
+    enterTo="opacity-100"
+    leave="transition duration-75 ease-out"
+    leaveFrom="opacity-100"
+    leaveTo="opacity-0"
+  >
+    <div
+      onMouseOver={() => setShow("about")}
+      onMouseLeave={() => setShow(null)}
+      className="bg-white shadow rounded py-1 w-screen left-0 mt-12 absolute top-0 z-50"
+    >
+      {about_us_links &&
+        about_us_links.map((link) => {
+          return (
             <li
-              className="h-full cursor-pointer hover:text-indigo-700 transition duration-150 ease-in-out inline-flex items-center text-sm text-white tracking-normal relative text-white hover:text-indigo-700 gap-2"
-              onClick={() => setAbout(!about)}
-              // onMouseEnter={() => setHoverShow(true)}
-              // onMouseLeave={() => setHoverShow(false)}
+              className="cursor-pointer text-gray-600 text-sm leading-3 tracking-normal hover:bg-indigo-300 hover:text-white font-normal"
+              key={link.name}
             >
-              {about && (
-              // {/* {hoverShow && ( */}
-                <ul className="bg-white shadow rounded py-1 w-max left-0 mt-12 -ml-4 absolute top-0">
-                  {about_us_links &&
-                    about_us_links.map((link) => {
-                      return (
-                        <li className="cursor-pointer text-gray-600 text-sm leading-3 tracking-normal hover:bg-indigo-300 hover:text-white font-normal">
-                          <NavLink
-                            to={link.href}
-                            key={link.name}
-                            className="cursor-pointer block p-4 text-gray-600 text-sm leading-3 tracking-normal hover:text-white font-normal"
-                          >
-                            {link.name}
-                          </NavLink>
-                        </li>
-                      );
-                    })}
-                </ul>
-              )}
-              <p className="py-4">About Us</p>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="w-6 h-6"
+              <NavLink
+                to={link.href}
+                className="block p-4 text-gray-600 text-sm leading-3 tracking-normal hover:text-white font-normal"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-                />
-              </svg>
+                {link.name}
+              </NavLink>
             </li>
+          );
+        })}
+    </div>
+  </Transition>
+</div>
+<li
+  className="cursor-pointer hover:text-indigo-700 transition duration-150 ease-in-out inline-flex items-center text-sm text-white tracking-normal relative text-white hover:text-indigo-700 gap-2"
+  onMouseOver={() => setPatient(true)}
+  onMouseLeave={() => setPatient(false)}
+>
+  Patient
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 24 24"
+    strokeWidth={1.5}
+    stroke="currentColor"
+    className="w-6 h-6"
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+    />
+  </svg>
+  <Transition
+    show={patient}
+    enter="transition duration-100 ease-out"
+    enterFrom="opacity-0"
+    enterTo="opacity-100"
+    leave="transition duration-75 ease-out"
+    leaveFrom="opacity-100"
+    leaveTo="opacity-0"
+    className="bg-white shadow rounded py-1 w-max left-0 mt-12 -ml-4 absolute top-0"
+    onMouseOver={() => setPatient(true)}
+    onMouseLeave={() => setPatient(false)}
+  >
+    {patient_links &&
+      patient_links.map((link) => {
+        return (
+          <li className="cursor-pointer text-gray-600 text-sm leading-3 tracking-normal hover:bg-indigo-300 hover:text-white font-normal">
+            <NavLink
+              to={link.href}
+              key={link.name}
+              className="cursor-pointer block text-gray-600 text-sm leading-3 tracking-normal hover:text-white p-4 font-normal"
+            >
+              {link.name}
+            </NavLink>
+          </li>
+        );
+      })}
+  </Transition>
+</li>
             <li
               className="cursor-pointer hover:text-indigo-700 transition duration-150 ease-in-out inline-flex items-center text-sm text-white tracking-normal relative text-white hover:text-indigo-700 gap-2"
-              onClick={() => setPatient(!patient)}
-              // onMouseEnter={() => setHoverShow(true)}
-              // onMouseLeave={() => setHoverShow(false)}
-            >
-              {patient && (
-              // {hoverShow && (
-                <ul className="bg-white shadow rounded py-1 w-max left-0 mt-12 -ml-4 absolute top-0">
-                  {patient_links &&
-                    patient_links.map((link) => {
-                      return (
-                        <li className="cursor-pointer text-gray-600 text-sm leading-3 tracking-normal hover:bg-indigo-300 hover:text-white font-normal">
-                          <NavLink
-                            to={link.href}
-                            key={link.name}
-                            className="cursor-pointer block text-gray-600 text-sm leading-3 tracking-normal hover:text-white p-4 font-normal"
-                          >
-                            {link.name}
-                          </NavLink>
-                        </li>
-                      );
-                    })}
-                </ul>
-              )}
-              Patient
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="w-6 h-6"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-                />
-              </svg>
-            </li>
-            <li
-              className="cursor-pointer hover:text-indigo-700 transition duration-150 ease-in-out inline-flex items-center text-sm text-white tracking-normal relative text-white hover:text-indigo-700 gap-2"
-              onClick={() => setTreatments(!treatments)}
+              onMouseOver={handleMouseOver}
+              onMouseLeave={handleMouseLeave}
+              // onClick={() => setTreatments(!treatments)}
             >
               Treatments
               <svg

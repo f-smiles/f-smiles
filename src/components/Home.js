@@ -1,11 +1,11 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, {  useEffect } from "react";
 import { Link } from "react-router-dom";
 import * as THREE from "three";
 import Map from "react-map-gl";
 import DotPattern from "./DotPattern";
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // You can also use <link> for styles
-import MySketch from "./navbar/sketch";
+// import MySketch from "./navbar/sketch";
 
 AOS.init();
 
@@ -73,7 +73,7 @@ const Home = () => {
               </div>
               <div className="md:mt-0 md:w-1/2 relative lg:mt-0 pl-6 sm:pl-20 pt-10 flex justify-end sm:block mx-auto">
                 <div className="ml-4 lg:ml-8 relative z-10 top-10 left-0 w-full h-full z-20">
-                  <img className="h-96 md:h-auto" src="../../images/hero_clip.png" alt="girl smiling" role="img" />
+                  <img className="h-96 md:h-auto" src="../../images/hero_clip.png" alt="girl smiling" />
                 </div>
                 {/* <div aria-hidden="true" className="absolute z-10 h-full w-full md:w-40 lg:w-full top-1/2 left-0 md:left-10 lg:left-10 flex flex-col items-start">
                   <img className="h-96 md:h-auto" src="../../images/blob_purple.png" alt="organic shape resembling a blob colorized by a purple shifting to indigo gradient" role="img" />
@@ -104,7 +104,7 @@ const Home = () => {
           <p>We offer Invisalign without Impressions. Say goodbye to goopy impressions with our iTero digital scanner.
           </p>
           <div className="App">
-      <MySketch />
+      {/* <MySketch /> */}
     </div>
         </div>
       </section>
