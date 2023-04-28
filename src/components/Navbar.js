@@ -8,6 +8,17 @@ export default function DesktopNavbar() {
   const [patient, setPatient] = useState(false);
   const [treatments, setTreatments] = useState(false);
 
+  const handleMouseOver = () => {
+    setTreatments(true);
+    clearTimeout(hideTimeoutId);
+  };
+
+  let hideTimeoutId = null;
+
+  const handleMouseLeave = () => {
+    hideTimeoutId = setTimeout(() => setTreatments(false), 2550000);
+  };
+
   const about_us_links = [
     { name: "Our Team", href: "/our-team" },
     { name: "Why Choose Us", href: "/why-choose-us" },
@@ -140,7 +151,9 @@ export default function DesktopNavbar() {
 </li>
             <li
               className="cursor-pointer hover:text-indigo-700 transition duration-150 ease-in-out inline-flex items-center text-sm text-white tracking-normal relative text-white hover:text-indigo-700 gap-2"
-              onClick={() => setTreatments(!treatments)}
+              onMouseOver={handleMouseOver}
+              onMouseLeave={handleMouseLeave}
+              // onClick={() => setTreatments(!treatments)}
             >
               Treatments
               <svg
