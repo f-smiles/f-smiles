@@ -202,7 +202,7 @@ export default function DesktopNavbar() {
         })}
     </ul>
   </div>
-  <div className="absolute bottom-60 left-1/5 transform -translate-x-1/10">
+  <div className="absolute bottom-60 left-20">
   <Sphere style={{ transform: 'translate(-50%, -50%)', zIndex: -1 }} />
 </div>
 </div>
