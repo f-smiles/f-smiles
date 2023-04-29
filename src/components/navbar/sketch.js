@@ -1,37 +1,23 @@
 import React from 'react';
-import Sketch from 'react-p5';
 
-const MySketch = () => {
+const Sphere = () => {
+  const sphereSize = '45vmin';
+  const ringStyles = [];
 
-  const setup = (p5, canvasParentRef) => {
-    p5.createCanvas(400, 400).parent(canvasParentRef);
-  };
+  for (let i = 1; i <= 36; i++) {
+    ringStyles.push({
+      transform: `rotateY(${i * 2}deg) rotateX(${i * 2}deg) rotateZ(${i * 3}deg)`,
+      boxShadow: `0 0 ${1 + (i * 2)}px rgba(${255 - (i * 2)}, ${170 - Math.round(i * 0.5)}, ${45 * Math.round(i / 3)}, 0.1), inset 0 0 ${1 + (i * 2)}px rgba(${255 - (i * 2)}, ${170 - Math.round(i * 0.5)}, ${45 * Math.round(i / 3)}, 0.1)`,
+    });
+  }
 
-  const draw = (p5) => {
-    p5.background(255);
-    p5.translate(p5.width / 2, p5.height / 2);
-    p5.rotate(p5.frameCount * 0.01);
-    let radius = 100;
-    p5.noStroke();
-    for (let i = 0; i < 360; i += 10) {
-      let x = p5.cos(p5.radians(i)) * radius;
-      let y = p5.sin(p5.radians(i)) * radius;
-      let color1 = p5.color(255,232,213);
-      let color2 = p5.color(199,160,210);
-      
-      let lerpedColor = p5.lerpColor(color1, color2, i / 360);
-      p5.fill(lerpedColor);
-      p5.beginShape();
-      p5.vertex(x, y);
-      p5.vertex(0, 0);
-      let x2 = p5.cos(p5.radians(i + 10)) * radius;
-      let y2 = p5.sin(p5.radians(i + 10)) * radius;
-      p5.vertex(x2, y2);
-      p5.endShape(p5.CLOSE);
-    }
-  };
-
-  return <Sketch setup={setup} draw={draw} />;
+  return (
+    <div className="sphere" style={{position: 'absolute', top: 0, right: 0, bottom: 0, left: 0, margin: 'auto', width: sphereSize, height: sphereSize, transformStyle: 'preserve-3d', animation: 'spinSphere 20s infinite linear'}}>
+      {ringStyles.map((style, i) => (
+        <div key={i} className={`ring-${i + 1}`} style={{position: 'absolute', top: 0, right: 0, bottom: 0, left: 0, margin: 'auto', width: sphereSize, height: sphereSize, borderRadius: '50%', overflow: 'hidden', ...style}}></div>
+      ))}
+    </div>
+  );
 };
 
-export default MySketch;
+export default Sphere;

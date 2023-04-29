@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { Transition } from '@headlessui/react'
+import Sphere from "./navbar/sketch";
+
 
 export default function DesktopNavbar() {
   const [show, setShow] = useState(null);
@@ -176,6 +178,7 @@ export default function DesktopNavbar() {
                 ? "block absolute top-0 left-0 flex flex-row h-screen overflow-hidden translate-x-0 transition-all delay-300 duration-500 ease-out"
                 : "absolute top-0 left-0 flex flex-row h-screen overflow-hidden translate-x-[-100%] transition-all delay-0 duration-500 ease-out"
             }>
+{treatments && <Sphere />}
 
               <div className="flex h-screen w-screen backdrop-blur-sm bg-white/30">
                 <div className="bg-stone-400 w-1/3 flex">
@@ -255,6 +258,7 @@ export default function DesktopNavbar() {
 </li>
         </ul>
       </nav>
+   
       {/* Desktop Navbar end */}
 
       {/* Mobile Navbar */}
