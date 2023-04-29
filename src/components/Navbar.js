@@ -178,28 +178,42 @@ export default function DesktopNavbar() {
                 ? "block absolute top-0 left-0 flex flex-row h-screen overflow-hidden translate-x-0 transition-all delay-300 duration-500 ease-out"
                 : "absolute top-0 left-0 flex flex-row h-screen overflow-hidden translate-x-[-100%] transition-all delay-0 duration-500 ease-out"
             }>
-{treatments && <Sphere />}
 
               <div className="flex h-screen w-screen backdrop-blur-sm bg-white/30">
-                <div className="bg-stone-400 w-1/3 flex">
-                  <div className="overflow-y-auto">
-                    <ul className="p-8">
-                      {treatments_links &&
-                        treatments_links.map((link) => {
-                          return (
-                            <li
-                              className="py-4 cursor-pointer text-white text-xl hover:text-gray-200 text-sm p-2"
-                              key={link.name}
-                            >
-                              <NavLink to={link.href} className="block hover:translate-x-6 transition duration-500"  onClick={() => setTreatments(false)}>
-                                {link.name}
-                              </NavLink>
-                            </li>
-                          );
-                        })}
-                    </ul>
-                  </div>
-                </div>
+              <div className="bg-stone-200 w-1/3 flex">
+  <div className="overflow-y-auto">
+    <ul className="p-8">
+      {treatments_links &&
+        treatments_links.map((link) => {
+          return (
+            <li
+              className="py-4 cursor-pointer text-indigo text-xl hover:text-gray-500 text-sm p-2"
+              key={link.name}
+            >
+              <NavLink
+                to={link.href}
+                className="block hover:translate-x-6 transition duration-500"
+                onClick={() => setTreatments(false)}
+              >
+                {link.name}
+              </NavLink>
+            </li>
+          );
+        })}
+    </ul>
+  </div>
+  <div className="absolute bottom-60 left-1/5 transform -translate-x-1/10">
+  <Sphere style={{ transform: 'translate(-50%, -50%)', zIndex: -1 }} />
+</div>
+</div>
+
+
+
+
+
+
+
+
                 <div className="flex flex-col overflow-hidden">
 
                     <div className="flex items-center justify-between h-14 px-4">
