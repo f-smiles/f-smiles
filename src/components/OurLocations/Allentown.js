@@ -2,8 +2,7 @@ import React from "react";
 
 const Allentown = () => {
   return (
-    <>
-    <main className="mt-20">
+    <main className="max-w-screen-xl mx-auto md:px-8 mt-20">
       <a href="#" className="go-down-btn" title="Scroll down">
   <svg
     version="1.1"
@@ -47,7 +46,7 @@ const Allentown = () => {
     </text>
   </svg>
   
-</a>
+      </a>
    {/* <div id="container">
         <div id="circle">
           <svg
@@ -106,19 +105,18 @@ const Allentown = () => {
           orthodontists at FreySmiles are Diamond Plus Invisalign providers.
         </p>
       </div>
-      <div className="border grid grid-cols-3 gap-4 cursor-pointer hover:text-white hover:bg-stone-950 transition duration-150 ease-in-out">
+      <section className="p-8 border md:grid md:grid-cols-3 gap-4 cursor-pointer hover:bg-stone-200 transition duration-500 linear">
         <div>
           <h2 className="py-4">Allentown</h2>
-          <div className="py-4">
-            <address className="text-sm">
+            <address>
               1251 South Cedar Crest Blvd, Suite 210 Allentown, PA 18103
-              </address>
-              <div className="text-sm flex py-5">
+            </address>
+              <div className="flex py-4 gap-2 items-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                   fill="currentColor"
-                  className="w-4 h-4"
+                  className="w-4 h-4 z-0"
                 >
                   <path
                     fillRule="evenodd"
@@ -128,43 +126,40 @@ const Allentown = () => {
                 </svg>
                 (610) 437-4748
               </div>
-            
-            <h3>Find Us</h3>
-           
+
+              <div className="flex py-4 gap-2 items-center">
+                <h2>Get Directions</h2>
+              </div>
+
             <h3>Hours of Operation</h3>
-          <ul>
-            <li>Mon 11:00 am - 7:00 pm</li>
-            <li>Tue 11:00 am - 7:00 pm</li>
-            <li>Wed 8:00 am - 5:30 pm</li>
-            <li>Thu 7:00 am - 4:30 am</li>
-          </ul>
-          </div>
+            <ul>
+              <li>Mon 11:00 am - 7:00 pm</li>
+              <li>Tue 11:00 am - 7:00 pm</li>
+              <li>Wed 8:00 am - 5:30 pm</li>
+              <li>Thu 7:00 am - 4:30 am</li>
+            </ul>
+          
         </div>
         <div>
           <p>
-            If you live in the Allentown area and are ready to finally get the
-            smile of your dreams, please contact us at our conveniently located
-            Allentown office. Our dedicated staff works hard to ensure happy
-            smiles throughout the orthodontic journey.We can answer any general
-            questions or comments you may have for our FreySmiles Orthodontic
-            team.
+            If you live in the Allentown area and are ready to finally get the smile of your dreams, please contact us at our conveniently located Allentown office. Our dedicated staff works hard to ensure happy smiles throughout the orthodontic journey.We can answer any general questions or comments you may have for our FreySmiles Orthodontic team.
           </p>
          
         </div>
-      </div>
+      </section>
 
-      <div className="border grid grid-cols-3 gap-4 cursor-pointer hover:text-[#aa6b45] hover:bg-f4eae4 transition duration-150 ease-in-out">
+      <section className="p-8 border md:grid md:grid-cols-3 gap-4 cursor-pointer hover:bg-stone-200 transition duration-500 linear">
         <div>
           <h2 className="py-4">Lehighton</h2>
-          <div className="py-4">
-            <address className="text-sm">
+            <address>
               1080 Blakeslee Blvd Dr E Lehighton, PA 18235
-              <div className="flex">
+            </address>
+            <div className="flex py-4 gap-2 items-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                   fill="currentColor"
-                  className="w-4 h-4"
+                  className="w-4 h-4 z-0"
                 >
                   <path
                     fillRule="evenodd"
@@ -174,18 +169,13 @@ const Allentown = () => {
                 </svg>{" "}
                 (610) 437-4748
               </div>
-            </address>
-            <h3>Find Us:</h3>
-            <p>google map</p>
             <h3>Hours of Operation</h3>
-          <ul>
-            <li>Mon 11:00 AM - 7:00 PM</li>
-            <li>Tues 11:00 AM - 7:00 PM</li>
-            <li>Wed 8:00 AM - 5:30 PM</li>
-            <li>Thurs 7:00 AM - 4:30 PM</li>
-          </ul>
-          </div>
-          
+              <ul>
+                <li>Mon 11:00 AM - 7:00 PM</li>
+                <li>Tues 11:00 AM - 7:00 PM</li>
+                <li>Wed 8:00 AM - 5:30 PM</li>
+                <li>Thurs 7:00 AM - 4:30 PM</li>
+              </ul>      
         </div>
         <p>
             The experienced Lehighton orthodontists at FreySmiles have
@@ -199,20 +189,19 @@ const Allentown = () => {
          
           
         </div>
-      </div>
+      </section>
 
-      <div className="border grid grid-cols-3 gap-4 cursor-pointer hover:text-white hover:bg-stone-950 transition duration-150 ease-in-out">
+      <section className="p-8 border md:grid md:grid-cols-3 gap-4 cursor-pointer hover:bg-stone-200 transition duration-500 linear">
         <div>
           <h2 className="py-4">Bethlehem</h2>
-          <div className="py-4">
-            <address className="text-sm">
+            <address>
               2901 Emrick Boulevard Bethlehem, PA 18020
-              <div className="flex">
+              <div className="flex gap-2 py-4 items-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                   fill="currentColor"
-                  className="w-4 h-4"
+                  className="w-4 h-4 z-0"
                 >
                   <path
                     fillRule="evenodd"
@@ -223,16 +212,13 @@ const Allentown = () => {
                 (610) 437-4748
               </div>
             </address>
-            <h3>Find Us:</h3>
-            <p>google map</p>
             <h3>Hours of Operation</h3>
-          <ul>
-            <li>Mon 11:00 AM - 7:00 PM</li>
-            <li>Tues 11:00 AM - 7:00 PM</li>
-            <li>Wed 8:00 AM - 5:30 PM</li>
-            <li>Thurs 7:00 AM - 4:30 PM</li>
-          </ul>
-          </div>
+              <ul>
+                <li>Mon 11:00 AM - 7:00 PM</li>
+                <li>Tues 11:00 AM - 7:00 PM</li>
+                <li>Wed 8:00 AM - 5:30 PM</li>
+                <li>Thurs 7:00 AM - 4:30 PM</li>
+              </ul>
          
           <h3>Bethlehem Office Virtual Tour</h3>
         </div>
@@ -252,20 +238,19 @@ const Allentown = () => {
           </p>
         <div>
         </div>
-      </div>
+      </section>
 
-      <div className="border grid grid-cols-3 gap-4 cursor-pointer hover:text-white hover:bg-stone-950 transition duration-150 ease-in-out">
+      <section className="p-8 border md:grid md:grid-cols-3 gap-4 cursor-pointer hover:bg-stone-200 transition duration-500 linear">
         <div>
           <h2 className="py-4">Schnecksville</h2>
-          <div className="py-4">
-            <address className="text-sm">
+            <address>
               4155 Independence Drive Schnecksville, PA 18078
-              <div className="flex">
+              <div className="flex gap-2 py-4 items-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                   fill="currentColor"
-                  className="w-4 h-4"
+                  className="w-4 h-4 z-0"
                 >
                   <path
                     fillRule="evenodd"
@@ -276,16 +261,13 @@ const Allentown = () => {
                 (610) 437-4748
               </div>
             </address>
-            <h3>Find Us:</h3>
-            <p>google map</p>
             <h3>Hours of Operation</h3>
-          <ul>
-            <li>Mon 11:00 AM - 7:00 PM</li>
-            <li>Tues 11:00 AM - 7:00 PM</li>
-            <li>Wed 8:00 AM - 5:30 PM</li>
-            <li>Thurs 7:00 AM - 4:30 PM</li>
-          </ul>
-          </div>
+              <ul>
+                <li>Mon 11:00 AM - 7:00 PM</li>
+                <li>Tues 11:00 AM - 7:00 PM</li>
+                <li>Wed 8:00 AM - 5:30 PM</li>
+                <li>Thurs 7:00 AM - 4:30 PM</li>
+              </ul>
         </div>
         <div>
         <p>
@@ -295,10 +277,8 @@ const Allentown = () => {
             braces and Invisalign treatment.
           </p>
         </div>
-      </div>
+      </section>
       </main>
-    </>
-    
   );
 };
 
