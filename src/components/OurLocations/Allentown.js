@@ -204,12 +204,11 @@ const Allentown = () => {
           </div>   
           <div>
           <p>
-              The experienced Lehighton orthodontists at FreySmiles have
+             Our newly renovated office in Lehighton is conveniently located
+              minutes away from Jim Thorpe and Tamaqua. State of the art sterilization The experienced Lehighton orthodontists at FreySmiles have
               transformed thousands of happy smiles through orthodontic treatment.
               We are dedicated to providing our patients with the highest quality
-              braces and Invisalign treatment and beautiful results. Our
-              FreySmiles Orthodontic Office in Lehighton is conveniently located,
-              minutes away from Jim Thorpe and Tamaqua.
+              braces and Invisalign treatment and beautiful results.
           </p>   
           </div>
           <div>
@@ -338,7 +337,7 @@ const Allentown = () => {
           </div>
           <div>
             <figure className="h-full w-full">
-              <img className="object-cover w-full h-full" src="../../images/office_interior.jpg" alt="view of interior office" />
+              <img className="object-cover w-full h-full" src="../../images/sch.png" alt="view of interior office" />
             </figure>
           </div>
         </div>
