@@ -11,7 +11,7 @@ const SingleProductPage = () => {
   }
 
   return (
-    <div>
+    <div className="mt-40">
       <h1>{productData.name}</h1>
       <img src={productData.image} alt={productData.name} />
       <p>{productData.description}</p>

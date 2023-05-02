@@ -39,7 +39,7 @@ const ProductsPage = () => {
                   description={product.description}
                 />
               </Link>
-              <button onClick={() => addToCart(product.id)}>Add To Cart</button>
+              
             </div>
           );
         })}
@@ -50,7 +50,7 @@ const ProductsPage = () => {
   );
 };
 
-const Card = ({ image, name, description, price }) => {
+const Card = ({ image, name, description, price, onClick }) => {
   return (
     <div
       data-aos="fade-up"
@@ -68,6 +68,7 @@ const Card = ({ image, name, description, price }) => {
           <h3 className="uppercase mb-4">{name}</h3>
           <h3 className="uppercase mb-4">{price}</h3>
           <p>{description}</p>
+          <button className="border border-gray-900 text-gray-900 py-2 px-4 rounded-full" onClick={onClick}>Add To Cart</button>
         </div>
       </div>
     </div>
