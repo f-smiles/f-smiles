@@ -206,14 +206,6 @@ export default function DesktopNavbar() {
   <Sphere style={{ transform: 'translate(-50%, -50%)', zIndex: -1 }} />
 </div>
 </div>
-
-
-
-
-
-
-
-
                 <div className="flex flex-col overflow-hidden">
 
                     <div className="flex items-center justify-between h-14 px-4">
@@ -263,7 +255,7 @@ export default function DesktopNavbar() {
           <li className="cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-3 hover:text-white font-normal">
   <NavLink
     to="/book-now"
-    className="cursor-pointer bg-violet-300 rounded-full px-8 py-2 hover:text-indigo-700 transition duration-300 ease-in-out flex items-center text-sm text-white tracking-normal text-white hover:text-indigo-700 transform-gpu btn3 hover:shadow-md hover:shadow-violet-500/50"
+    className="cursor-pointer bg-violet-300 rounded-full px-8 py-2 hover:text-indigo-700 transition duration-300 ease-in-out flex items-center text-sm text-white tracking-normal text-white hover:text-indigo-700 transform-gpu btn3 hover:shadow-md hover:shadow-violet-400/50"
   >
     <span className="transform-gpu transition duration-300 ease-in">
       Book Now
