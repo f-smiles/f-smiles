@@ -50,6 +50,7 @@ app.post("/create-payment-intent", async (req, res) => {
 app.post("/api/payments", async (req, res) => {
   try {
     const { amount, token } = req.body;
+   
     const charge = await stripe.charges.create({
       amount: amount,
       currency: "USD",

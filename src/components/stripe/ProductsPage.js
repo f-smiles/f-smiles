@@ -31,15 +31,22 @@ const ProductsPage = () => {
         {ProductsArray.map((product) => {
           return (
             <div key={product.id}>
-              <Link to={`/products/${product.id}`} key={product.id}>
+              <div>
                 <Card
                   name={product.name}
                   image={product.image}
                   price={product.price}
                   description={product.description}
+                  addToCart={() => addToCart(product.id)}
                 />
-              </Link>
-              
+              </div>
+              <div>
+                <Link to={`/products/${product.id}`} key={product.id}>
+                  <button className="border border-gray-900 text-gray-900 py-2 px-4 rounded-full">
+                    View Product
+                  </button>
+                </Link>
+              </div>
             </div>
           );
         })}
@@ -50,7 +57,7 @@ const ProductsPage = () => {
   );
 };
 
-const Card = ({ image, name, description, price, onClick }) => {
+const Card = ({ image, name, description, price, addToCart }) => {
   return (
     <div
       data-aos="fade-up"
@@ -68,7 +75,7 @@ const Card = ({ image, name, description, price, onClick }) => {
           <h3 className="uppercase mb-4">{name}</h3>
           <h3 className="uppercase mb-4">{price}</h3>
           <p>{description}</p>
-          <button className="border border-gray-900 text-gray-900 py-2 px-4 rounded-full" onClick={onClick}>Add To Cart</button>
+          <button className="border border-gray-900 text-gray-900 py-2 px-4 rounded-full" onClick={addToCart}>Add To Cart</button>
         </div>
       </div>
     </div>

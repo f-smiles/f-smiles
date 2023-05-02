@@ -12,6 +12,7 @@ module.exports = {
       'f4eae4': '#f4eae4',
       // '341924': '#341924',
       // 'dec0ae': '#dec0ae',
+      'F0EFF2': '#F0EFF2',
       'F1F1F0': "#F1F1F0"
       
     },},
