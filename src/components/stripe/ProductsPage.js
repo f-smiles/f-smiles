@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { ProductsArray, getProductData } from "./products";
 import Cart from "./Cart";
 
@@ -29,14 +30,17 @@ const ProductsPage = () => {
         <h1>products</h1>
         {ProductsArray.map((product) => {
           return (
-            <Card
-              name={product.name}
-              image={product.image}
-              price={product.price}
-              description={product.description}
-              buttonText="Add To Cart"
-              addToCart={() => addToCart(product.id)}
-            />
+            <div key={product.id}>
+              <Link to={`/products/${product.id}`} key={product.id}>
+                <Card
+                  name={product.name}
+                  image={product.image}
+                  price={product.price}
+                  description={product.description}
+                />
+              </Link>
+              <button onClick={() => addToCart(product.id)}>Add To Cart</button>
+            </div>
           );
         })}
         <h2>Total: ${total.toFixed(2)}</h2>
@@ -46,7 +50,7 @@ const ProductsPage = () => {
   );
 };
 
-const Card = ({ image, name, description, buttonText, price, addToCart }) => {
+const Card = ({ image, name, description, price }) => {
   return (
     <div
       data-aos="fade-up"
@@ -64,14 +68,6 @@ const Card = ({ image, name, description, buttonText, price, addToCart }) => {
           <h3 className="uppercase mb-4">{name}</h3>
           <h3 className="uppercase mb-4">{price}</h3>
           <p>{description}</p>
-          {buttonText && (
-            <button
-              className="rounded-full text-sm px-8 py-2 border border-black"
-              onClick={() => addToCart()}
-            >
-              {buttonText}
-            </button>
-          )}
         </div>
       </div>
     </div>
@@ -79,6 +75,3 @@ const Card = ({ image, name, description, buttonText, price, addToCart }) => {
 };
 
 export default ProductsPage;
-
-
-
