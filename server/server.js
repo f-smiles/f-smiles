@@ -24,6 +24,28 @@ app.get("/config", (req, res) => {
   });
 });
 
+app.post('/api/payments', async (req, res) => {
+  try {
+    const { token, paymentIntent } = req.body;
+    const customer = await stripe.customers.create({
+      email: token.email,
+      source: token.id
+    });
+    const intent = await stripe.paymentIntents.confirm(paymentIntent, {
+      customer: customer.id,
+      payment_method: token.card.id
+    });
+    if (intent.status === "succeeded") {
+      res.sendStatus(200);
+    } else {
+      res.sendStatus(404);
+    }
+  } catch (error) {
+    console.error(error);
+    res.sendStatus(500);
+  }
+});
+
 app.post("/create-payment-intent", async (req, res) => {
   try {
     const { amount } = req.body;
@@ -47,22 +69,8 @@ app.post("/create-payment-intent", async (req, res) => {
 });
 
 
-app.post("/api/payments", async (req, res) => {
-  try {
-    const { amount, token } = req.body;
-   
-    const charge = await stripe.charges.create({
-      amount: amount,
-      currency: "USD",
-      source: token.id,
-    });
 
-    res.json({ message: "Payment processed successfully" });
-  } catch (e) {
 
-    res.status(500).json({ error: e.message });
-  }
-});
 
 app.post("/confirm-payment-intent", async (req, res) => {
   try {
