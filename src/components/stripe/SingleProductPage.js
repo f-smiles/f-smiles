@@ -1,7 +1,7 @@
 import React from "react";
 import { getProductData } from "./products";
 import { useParams } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const SingleProductPage = () => {
   const { id } = useParams();
@@ -9,17 +9,33 @@ const SingleProductPage = () => {
   const [cart, setCart] = useState([]);
   const [total, setTotal] = useState(0);
 
+
+  useEffect(() => {
+    const storedCart = localStorage.getItem('cart');
+    if (storedCart) {
+      setCart(JSON.parse(storedCart));
+    }
+    const storedTotal = localStorage.getItem('total');
+    if (storedTotal) {
+      setTotal(JSON.parse(storedTotal));
+    }
+  }, []);
+  
   if (!productData) {
     return <div>Product not found</div>;
   }
 
   const addToCart = (productId) => {
+    console.log('Adding product to cart:', productId);
     const productData = getProductData(productId);
     if (productData !== undefined) {
       setCart([...cart, productData]);
       setTotal(total + productData.price);
+      localStorage.setItem('cart', JSON.stringify([...cart, productData]));
+      localStorage.setItem('total', total+productData.price)
     }
   };
+
 
   return (
     <div className="mt-40">

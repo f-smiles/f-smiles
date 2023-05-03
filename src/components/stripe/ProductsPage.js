@@ -59,7 +59,7 @@ const ProductsPage = () => {
             </div>
           );
         })}
-        <h2>Total: ${total.toFixed(2)}</h2>
+       
         <Cart products={cart} removeFromCart={removeFromCart} />
       </section>
     </div>
@@ -85,7 +85,7 @@ const Card = ({id, image, name, description, price, addToCart }) => {
           />
           <div>
             <h3 className="uppercase mb-4">{name}</h3>
-            <h3 className="uppercase mb-4">{price}</h3>
+            <h3 className="uppercase mb-4">{price}.00 USD</h3>
             {/* <p>{description}</p> */}
           </div>
         </div>
