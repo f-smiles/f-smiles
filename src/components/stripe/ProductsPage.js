@@ -33,19 +33,16 @@ const ProductsPage = () => {
             <div key={product.id}>
               <div>
                 <Card
+                id={product.id}
                   name={product.name}
                   image={product.image}
                   price={product.price}
-                  description={product.description}
+                  // description={product.description}
                   addToCart={() => addToCart(product.id)}
                 />
               </div>
               <div>
-                <Link to={`/products/${product.id}`} key={product.id}>
-                  <button className="border border-gray-900 text-gray-900 py-2 px-4 rounded-full">
-                    View Product
-                  </button>
-                </Link>
+              
               </div>
             </div>
           );
@@ -57,8 +54,11 @@ const ProductsPage = () => {
   );
 };
 
-const Card = ({ image, name, description, price, addToCart }) => {
+const Card = ({id, image, name, description, price, addToCart }) => {
+  const [hover, setHover] = useState(false)
+  
   return (
+    <Link to={`/products/${id}`}>
     <div
       data-aos="fade-up"
       data-aos-duration="750"
@@ -74,11 +74,12 @@ const Card = ({ image, name, description, price, addToCart }) => {
         <div>
           <h3 className="uppercase mb-4">{name}</h3>
           <h3 className="uppercase mb-4">{price}</h3>
-          <p>{description}</p>
+          {/* <p>{description}</p> */}
           <button className="border border-gray-900 text-gray-900 py-2 px-4 rounded-full" onClick={addToCart}>Add To Cart</button>
         </div>
       </div>
     </div>
+    </Link>
   );
 };
 
