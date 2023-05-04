@@ -61,7 +61,7 @@ const Home = () => {
               </p>
                 <div className="mt-12 flex flex-wrap">
                   <div className="mr-6 sm:mt-0 md:mt-5 lg:mt-0">
-                    <button className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 bg-indigo-700 transition duration-150 ease-in-out hover:bg-indigo-600 rounded text-white px-8 py-4 text-base md:text-xl">
+                    <button className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 bg-B47EDE transition duration-150 ease-in-out hover:bg-indigo-600 rounded text-white px-8 py-4 text-base md:text-xl">
                       <Link to="/book-now">Book Now</Link>
                     </button>
                   </div>

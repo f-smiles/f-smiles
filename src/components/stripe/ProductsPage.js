@@ -74,7 +74,8 @@ const Card = ({id, image, name, description, price, addToCart }) => {
       data-aos="fade-up"
       data-aos-duration="750"
       data-aos-easing="linear"
-      className="bg-F1F1F0 max-w-xs px-12 pb-12 pt-20 flex flex-col"
+      className="bg-8F8EA0 bg-opacity-25 max-w-xs px-12 pb-12 pt-20 flex flex-col"
+      // bg-F1F1F0 
     >
       <Link to={`/products/${id}`}>
         <div className="grid grid-rows-2 gap-4">
