@@ -37,28 +37,30 @@ const OurTeam = () => {
         </h1>
         <dl className="space-y-8 overflow-hidden h-96">
           {teamMembers.map((member, index) => (
-            <div key={index} className="overflow-hidden">
+            <div key={index} >
               <dt
                 className="text-lg font-medium text-purple-900 cursor-pointer relative pl-4 focus:outline-none"
                 onClick={() => toggleAccordion(index)}
               >
-                <ChevronUpIcon
-                  className={`${
-                    activeAccordion === index ? "transform rotate-180" : ""
-                  } h-5 w-5 text-purple-500 mr-2`}
-                />
+               <ChevronUpIcon
+  className={`${
+    activeAccordion === index
+      ? "transform rotate-180 transition-transform duration-500"
+      : "transition-transform duration-500"
+  } h-5 w-5 text-purple-500 mr-2`}
+/>
                 <span className="bg-red-500 h-full w-1 absolute top-0 left-0"></span>
                 {member.name}
               </dt>
 
               <Transition
                 show={activeAccordion === index}
-                enter="transition-opacity duration-400"
-                enterFrom="opacity-0"
-                enterTo="opacity-100"
-                leave="transition-opacity duration-500"
-                leaveFrom="opacity-100"
-                leaveTo="opacity-0"
+                enter="transition-all duration-800"
+                enterFrom="-mt-10 opacity-0"
+                enterTo="mt-0 opacity-100"
+                leave="transition-all duration-700"
+                leaveFrom="mt-0 opacity-100"
+                leaveTo="-mt-10 opacity-0"
               >
                 <dd className="text-sm text-gray-500 mt-2 pl-7">
                   {member.bio}
@@ -73,6 +75,7 @@ const OurTeam = () => {
 };
 
 export default OurTeam;
+
 
 
 
