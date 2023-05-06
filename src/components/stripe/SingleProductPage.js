@@ -36,8 +36,8 @@ const SingleProductPage = () => {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen">
-      <div className="max-w-2xl bg-white shadow-lg rounded-lg overflow-hidden flex">
+    <div className="flex justify-center items-center h-screen bg-gradient-to-r from-violet-100 to-violet-50">
+       <div className="max-w-2xl bg-white bg-opacity-20 backdrop-blur-md shadow-lg rounded-lg overflow-hidden flex">
         <div
           className="w-1/3 h-64 bg-cover bg-center bg-no-repeat"
           style={{
