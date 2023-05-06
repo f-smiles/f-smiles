@@ -103,7 +103,11 @@ const VirtualConsultation = () => {
 
 
   return (
-    <main id="contact-form" className="mt-20 p-8">
+    <main id="contact-form" className="mt-20 p-8" style={{ backgroundImage: `url("../../images/wavyline.png")`,
+    backgroundSize: "50%",
+    backgroundPosition: "top left",
+    backgroundRepeat: "no-repeat",
+    }}>
       {emailSent ? (
         <span className={emailSent ? "block" : "hidden"}>
         Thank you for your message, we will be in touch in no time!
