@@ -20,7 +20,7 @@ const SingleProductPage = () => {
       setTotal(JSON.parse(storedTotal));
     }
   }, []);
-  
+
   if (!productData) {
     return <div>Product not found</div>;
   }
@@ -39,13 +39,18 @@ const SingleProductPage = () => {
 
   return (
     <div className="mt-40">
-      <div key={productData.id} className="grid grid-cols-2 gap-4">
-      <h1>{productData.name}</h1>
-      <img src={productData.image} alt={productData.name} />
-      <p>{productData.description}</p>
-      <p>{productData.price}</p>
-      <button onClick={() => addToCart(productData.id)}>Add to cart</button>
-    </div>
+      <div key={productData.id} className="grid grid-cols-4 gap-4">
+        <h4>{productData.name}</h4>
+        <div className="flex flex-col justify-start items-center">
+          <img className="bg-FAFAF8 md:max-w-xs max-h-full px-12 pb-12 pt-20" src={productData.image} alt={productData.name} />
+       
+        </div>
+        <div className="flex flex-col justify-start">
+        <p className="md:max-w-xs max-h-full px-12 pb-12 pt-20">{productData.description}</p>
+          <p>{productData.price} USD</p>
+          <button onClick={() => addToCart(productData.id)} className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700">Add to cart</button>
+        </div>
+      </div>
     </div>
   );
 };

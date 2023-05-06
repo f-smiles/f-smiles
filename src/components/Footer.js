@@ -17,11 +17,15 @@ const Footer = () => {
           <a href="/" className="text-black hover:text-indigo-500 hover:underline">
             <h1 className="text-sm">Contact</h1>
           </a>
+        
           <a href="/" className="text-black hover:text-indigo-500 hover:underline">
             <h1 className="text-sm">Treatments</h1>
           </a>
         </div>
         <div className="w-full sm:w-1/3">
+        <a href="/" className="text-black hover:text-indigo-500 hover:underline">
+            <h1 className="text-sm">Opportunities</h1>
+          </a>
           <a href="/" className="text-black hover:text-indigo-500 hover:underline">
             <h1 className="text-sm">Patient Info</h1>
           </a>

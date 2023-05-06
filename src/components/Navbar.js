@@ -21,6 +21,8 @@ export default function DesktopNavbar() {
     hideTimeoutId = setTimeout(() => setTreatments(false), 2550000);
   };
 
+  
+
   const about_us_links = [
     { name: "Our Team", href: "/our-team" },
     { name: "Why Choose Us", href: "/why-choose-us" },

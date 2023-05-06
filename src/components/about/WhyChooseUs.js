@@ -52,7 +52,7 @@ const WhyChooseUs = () => {
         <Disclosure as="div" className="mt-2">
           {({ open }) => (
             <>
-                <table className="mx-auto">
+                <table className="mx-auto" style={{ width: '100%', borderCollapse: 'collapse' }}>
                   <tbody>
                     <tr>
                       <td className="p-2"></td>
