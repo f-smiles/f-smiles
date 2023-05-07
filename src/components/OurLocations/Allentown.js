@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 
 const Allentown = () => {
   return (
-<main className="w-full mt-20 relative" style={{ backgroundImage: `url("../../images/landscape.png")`, backgroundSize: "50%", backgroundPosition: "top left", backgroundRepeat: "no-repeat" }}>
+<main className="w-full mt-20 relative" style={{ backgroundImage: `url("../../images/landscape.png")`, backgroundSize: "75%", backgroundPosition: "top left", backgroundRepeat: "no-repeat" }}>
   <a href="#" className="go-down-btn" title="Scroll down">
-    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1050px" height="200px" viewBox="0 0 100 100" enableBackground="new 0 0 100 100" xmlSpace="preserve" className="z-10"> {/* Added z-10 class */}
+  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1600px" height="200px" viewBox="0 0 100 100" enableBackground="new 0 0 100 100" xmlSpace="preserve" className="z-10" style={{ position: 'relative', top: '90px' }}>
       <defs>
         <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%">
           <stop offset="0%" style={{ stopColor: '#AA98A9', stopOpacity: 1 }} />
@@ -73,7 +73,7 @@ const Allentown = () => {
         </div>
       </div> */}
       <div className="mb-10">
-        <p className="flex align-items py-4 mt-20">
+        <p className="flex align-items py-4 mt-40">
           Please fill out our appointment request form to schedule an
           appointment with a skilled Allentown orthodontist at FreySmiles.
           Virtual consultations are also available if you prefer. You may also
