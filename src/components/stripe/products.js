@@ -25,6 +25,7 @@ const ProductsArray = [
     },
     {
         id: "prod_Nmt9kenhlCe0dX",
+        name: "Ember Light",
         description:
         "Ember light therapy uses low-level light to stimulate gum and bone cells, accelerating tooth movement for faster and more comfortable teeth straightening. Used in conjunction with braces or Invisalign® to reduce discomfort and speed up treatment.",
         image: "../images/ember.png",
@@ -32,6 +33,7 @@ const ProductsArray = [
     },
     {
         id: "prod_NmtB65dcTRTUTK",
+        name: "VPro",
         description:
         "VPro uses high-frequency vibrations to stimulate bone and gumline, accelerating tooth movement and improving bone regeneration. It works with braces or Invisalign, making it ideal for enhancing ongoing orthodontic treatment.",
         image: "../images/VPro-device.png",
@@ -55,7 +57,8 @@ const ProductsArray = [
     },
     {
         id: "prod_NmtEFTNbbKKR1k",
-        name: "CocoFloss Dental Floss", description: "CocoFloss Dental Floss", image: "../images/coco-floss.png",
+        name: "CocoFloss Dental Floss",
+        description: "CocoFloss Dental Floss", image: "../images/coco-floss.png",
         price: 6 
     },
     // { name: "E-Gift Card", description: "E-Gift Card" },

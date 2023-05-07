@@ -3,50 +3,32 @@ import { Link } from "react-router-dom";
 
 const Allentown = () => {
   return (
-    <main className="w-full">
-      <a href="#" className="go-down-btn" title="Scroll down">
-        <svg
-          version="1.1"
-          xmlns="http://www.w3.org/2000/svg"
-          xmlnsXlink="http://www.w3.org/1999/xlink"
-          x="0px"
-          y="0px"
-          width="200px"
-          height="200px"
-          viewBox="0 0 100 100"
-          enableBackground="new 0 0 100 100"
-          xmlSpace="preserve"
-        >
-          <defs>
-            <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" style={{ stopColor: '#AA98A9', stopOpacity: 1 }} />
-              <stop offset="100%" style={{stopColor: '#D8BFD8', stopOpacity: 1}} />
-            </linearGradient>
-          </defs>
-          <circle cx="50" cy="50" r="25" fill="url(#grad)" />
-            <image xlinkHref="../images/logo_short.png" x="40" y="40" width="25%" height="25%" />
-        
-          <path
-            id="textPath"
-            fill="none"
-            d="M89.322,50.197c0,22.09-17.91,40-40,40c-22.089,0-40-17.91-40-40 c0-22.089,17.911-40,40-40C71.412,10.197,89.322,28.108,89.322,50.197z"
-          />
-          <text style={{ fontSize: '9px' }}>
-            <textPath xlinkHref="#textPath">
-              <tspan x="10">Lehighton</tspan>
-              <tspan x="42" dx="30">
-                Bethlehem
-              </tspan>
-              <tspan x="72" dx="60">
-                Schnecksville
-              </tspan>
-              <tspan x="107" dx="90">
-                Allentown
-              </tspan>
-            </textPath>
-          </text>
-        </svg>
-      </a>
+<main className="w-full mt-20 relative" style={{ backgroundImage: `url("../../images/landscape.png")`, backgroundSize: "75%", backgroundPosition: "top left", backgroundRepeat: "no-repeat" }}>
+  <a href="#" className="go-down-btn" title="Scroll down">
+  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1600px" height="200px" viewBox="0 0 100 100" enableBackground="new 0 0 100 100" xmlSpace="preserve" className="z-10" style={{ position: 'relative', top: '90px' }}>
+      <defs>
+        <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" style={{ stopColor: '#AA98A9', stopOpacity: 1 }} />
+          <stop offset="100%" style={{stopColor: '#D8BFD8', stopOpacity: 1}} />
+        </linearGradient>
+      </defs>
+      <circle cx="50" cy="50" r="25" fill="url(#grad)" />
+      <image xlinkHref="../images/logo_short.png" x="40" y="40" width="25%" height="25%" />
+      
+      <path id="textPath" fill="none" d="M89.322,50.197c0,22.09-17.91,40-40,40c-22.089,0-40-17.91-40-40 c0-22.089,17.911-40,40-40C71.412,10.197,89.322,28.108,89.322,50.197z" />
+      <text style={{ fontSize: '9px' }}>
+        <textPath xlinkHref="#textPath">
+          <tspan x="10">Lehighton</tspan>
+          <tspan x="42" dx="30">Bethlehem</tspan>
+          <tspan x="72" dx="60">Schnecksville</tspan>
+          <tspan x="107" dx="90">Allentown</tspan>
+        </textPath>
+      </text>
+    </svg>
+  </a>
+
+
+
    {/* <div id="container">
         <div id="circle">
           <svg
@@ -90,8 +72,8 @@ const Allentown = () => {
           </svg>
         </div>
       </div> */}
-      <div className="mt-12">
-        <p className="flex align-items py-4">
+      <div className="mb-10">
+        <p className="flex align-items py-4 mt-40">
           Please fill out our appointment request form to schedule an
           appointment with a skilled Allentown orthodontist at FreySmiles.
           Virtual consultations are also available if you prefer. You may also
@@ -205,7 +187,7 @@ const Allentown = () => {
           <div>
           <p>
              Our newly renovated office in Lehighton is conveniently located
-              minutes away from Jim Thorpe and Tamaqua. State of the art sterilization The experienced Lehighton orthodontists at FreySmiles have
+              minutes away from Jim Thorpe and Tamaqua. State of the art sterilization  The experienced Lehighton orthodontists at FreySmiles have
               transformed thousands of happy smiles through orthodontic treatment.
               We are dedicated to providing our patients with the highest quality
               braces and Invisalign treatment and beautiful results.
@@ -281,7 +263,7 @@ const Allentown = () => {
           </div>
           <div>
             <figure className="h-full w-full">
-              <img className="object-cover w-full h-full" src="../../images/office_interior.jpg" alt="view of interior office" />
+              <img className="object-cover w-full h-full" src="../../images/beth.heic" alt="view of interior office" />
             </figure>
           </div>
         </div>

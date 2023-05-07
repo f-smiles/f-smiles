@@ -9,13 +9,12 @@ const SingleProductPage = () => {
   const [cart, setCart] = useState([]);
   const [total, setTotal] = useState(0);
 
-
   useEffect(() => {
-    const storedCart = localStorage.getItem('cart');
+    const storedCart = localStorage.getItem("cart");
     if (storedCart) {
       setCart(JSON.parse(storedCart));
     }
-    const storedTotal = localStorage.getItem('total');
+    const storedTotal = localStorage.getItem("total");
     if (storedTotal) {
       setTotal(JSON.parse(storedTotal));
     }
@@ -26,29 +25,46 @@ const SingleProductPage = () => {
   }
 
   const addToCart = (productId) => {
-    console.log('Adding product to cart:', productId);
+    console.log("Adding product to cart:", productId);
     const productData = getProductData(productId);
     if (productData !== undefined) {
       setCart([...cart, productData]);
       setTotal(total + productData.price);
-      localStorage.setItem('cart', JSON.stringify([...cart, productData]));
-      localStorage.setItem('total', total+productData.price)
+      localStorage.setItem("cart", JSON.stringify([...cart, productData]));
+      localStorage.setItem("total", total + productData.price);
     }
   };
 
-
   return (
-    <div className="mt-40">
-      <div key={productData.id} className="grid grid-cols-4 gap-4">
-        <h4>{productData.name}</h4>
-        <div className="flex flex-col justify-start items-center">
-          <img className="bg-FAFAF8 md:max-w-xs max-h-full px-12 pb-12 pt-20" src={productData.image} alt={productData.name} />
-       
-        </div>
-        <div className="flex flex-col justify-start">
-        <p className="md:max-w-xs max-h-full px-12 pb-12 pt-20">{productData.description}</p>
-          <p>{productData.price} USD</p>
-          <button onClick={() => addToCart(productData.id)} className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700">Add to cart</button>
+    <div className="flex justify-center items-center h-screen bg-gradient-to-r from-violet-100 to-violet-50">
+       <div className="max-w-2xl bg-white bg-opacity-20 backdrop-blur-md shadow-lg rounded-lg overflow-hidden flex">
+        <div
+          className="w-1/3 h-64 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: `url(${productData.image})`,
+          }}
+        ></div>
+        <div className="w-2/3 p-4">
+          <h1 className="text-gray-900 font-bold text-2xl">
+            {productData.name}
+          </h1>
+          <p className="mt-2 text-gray-600 text-sm">
+            {productData.description}
+          </p>
+          <div className="flex items-center mt-2">
+            {/* Rating Stars */}
+          </div>
+          <div className="flex items-center justify-between mt-3">
+            <h1 className="text-gray-700 font-bold text-xl">
+              {productData.price} USD
+            </h1>
+            <button
+              onClick={() => addToCart(productData.id)}
+              className="px-4 py-2 bg-cyan-500 text-white text-sm font-bold uppercase rounded"
+            >
+              Add to Bag
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -56,3 +72,22 @@ const SingleProductPage = () => {
 };
 
 export default SingleProductPage;
+
+
+// <div className="container mx-auto">
+//   <div className="flex flex-wrap items-center">
+//     <div className="w-full md:w-1/2">
+//       <img style={{ maxWidth: "400px" }} className="h-auto" src={productData.image} alt={productData.name} />
+//     </div>
+//     <div className="mt-20 w-full md:w-1/2 pl-4">
+//       <h1 className="text-lg">{productData.name}</h1>
+//       <h2 className="text-tan">{productData.price} USD</h2>
+//       <p className="desc text-rose mt-2">{productData.description}</p>
+//       <div className="buttons mt-4">
+//         <button onClick={() => addToCart(productData.id)} className="rounded-full px-4 py-2 bg-rose-200 text-white rounded hover:bg-blue-700">Add to bag</button>
+//       </div>
+//     </div>
+//   </div>
+// </div>
+//   );
+// };
