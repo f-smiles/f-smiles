@@ -22,9 +22,23 @@ const ProductsPage = () => {
   const addToCart = (productId) => {
     const productData = getProductData(productId);
     if (productData !== undefined) {
-      const updatedCart = [...cart, productData];
-      setCart(updatedCart);
-      localStorage.setItem("cart", JSON.stringify(updatedCart));
+      const existingProductIndex = cart.findIndex(
+        (product) => product.id === productId
+      );
+  
+      if (existingProductIndex !== -1) {
+      
+        const updatedCart = [...cart];
+        updatedCart[existingProductIndex].count += 1;
+        setCart(updatedCart);
+        localStorage.setItem("cart", JSON.stringify(updatedCart));
+      } else {
+       
+        const updatedCart = [...cart, { ...productData, count: 1 }];
+        setCart(updatedCart);
+        localStorage.setItem("cart", JSON.stringify(updatedCart));
+      }
+  
       setTotal((prevTotal) => prevTotal + productData.price);
     }
   };
