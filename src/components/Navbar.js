@@ -14,23 +14,32 @@ export default function DesktopNavbar() {
   const [cartItemCount, setCartItemCount] = useState(0); 
   const addToCart = (product) => {
     const updatedCart = [...cart, product];
-    setCart(updatedCart);
+    const updatedTotal = total + product.price;
+    setCart((prevCart) => [...prevCart, product]);
+    setTotal(updatedTotal);
     setCartItemCount(updatedCart.length);
-    setTotal((prevTotal) => prevTotal + product.price); // Update the total using the previous total
     localStorage.setItem("cart", JSON.stringify(updatedCart));
-    localStorage.setItem("total", JSON.stringify(total + product.price));
+    localStorage.setItem("total", JSON.stringify(updatedTotal));
+  };
+
+  const removeFromCart = (product) => {
+    const updatedCart = cart.filter((item) => item !== product);
+    const updatedTotal = total - product.price;
+    setCart(updatedCart);
+    setTotal(updatedTotal);
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
+    localStorage.setItem("total", JSON.stringify(updatedTotal));
   };
   
 
   useEffect(() => {
-    const savedCart = localStorage.getItem("cart");
-    const savedTotal = localStorage.getItem("total");
-    if (savedCart) {
-      setCart(JSON.parse(savedCart));
-      setCartItemCount(JSON.parse(savedCart).length);
-    }
-    if (savedTotal) {
-      setTotal(JSON.parse(savedTotal));
+    const storedCart = JSON.parse(localStorage.getItem("cart"));
+    const storedTotal = JSON.parse(localStorage.getItem("total"));
+  
+    if (storedCart && storedTotal) {
+      setCart(storedCart);
+      setTotal(storedTotal);
+      setCartItemCount(storedCart.length);
     }
   }, []);
 
