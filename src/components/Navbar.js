@@ -262,7 +262,7 @@ export default function DesktopNavbar() {
             </li>
             <li className="cursor-pointer flex hover:text-indigo-700 transition duration-150 ease-in-out flex items-center text-sm text-white tracking-normal text-white hover:text-indigo-700">
               <NavLink
-                to="/allentown"
+                to="/locations"
                 className="cursor-pointer block text-sm leading-3 tracking-normal px-3 font-normal"
               >
                 Our Locations
@@ -563,7 +563,7 @@ export default function DesktopNavbar() {
                 </NavLink>
               </li>
               <li className="text-white pt-8 flex items-center">
-                <NavLink to="/allentown" className="cursor-pointer" onClick={() => setShow(false)}>
+                <NavLink to="/locations" className="cursor-pointer" onClick={() => setShow(false)}>
                   <p className="xl:text-base text-base ml-3">Our Locations</p>
                 </NavLink>
               </li>

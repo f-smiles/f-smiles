@@ -11,7 +11,7 @@ import Invisalign from "../components/treatments/Invisalign";
 import Braces from "../components/treatments/Braces";
 import EarlyOrthodontics from "../components/treatments/EarlyOrthodontics";
 import AdultOrthodontics from "../components/treatments/AdultOrthodontics";
-import Allentown from "../components/OurLocations/Allentown";
+import Locations from "../components/OurLocations/Locations";
 import BookNow from "../components/BookNow";
 import StripeCheckoutForm from "../components/stripe/StripeCheckoutForm";
 import ProductsPage from "../components/stripe/ProductsPage";
@@ -33,8 +33,8 @@ const AppRoutes = () => {
       <Route path="/invisalign" element={<Invisalign />} />
       <Route path="/braces" element={<Braces />} />
       <Route path="/early-orthodontics" element={<EarlyOrthodontics />} />
-      <Route path="adult-orthodontics" element={<AdultOrthodontics />} />
-      <Route path="/allentown" element={<Allentown />} />
+      <Route path="/adult-orthodontics" element={<AdultOrthodontics />} />
+      <Route path="/locations" element={<Locations />} />
       <Route path="/book-now" element={<BookNow />} />
       <Route path="/stripe-checkout" element={<StripeCheckoutForm />} />
       <Route path="/products" element={<ProductsPage />} />
