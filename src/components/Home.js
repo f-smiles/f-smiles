@@ -51,7 +51,7 @@ const Home = () => {
     <>
       <main className="pt-16 bg-f7f5f2 overflow-hidden w-full">
         <div className="container max-w-screen-xl mx-auto">
-        <section className="border-4 py-12 lg:px-4 xl:px-0">
+        <section className="py-12 lg:px-4 xl:px-0">
           <div className="flex flex-col-reverse md:flex-row">
             <div className="mt-24 md:mt-0 flex flex-col lg:ml-10 xl:ml-32 2xl:ml-40 lg:w-6/12 xl:w-5/12 md:w-6/12 px-4 lg:px-0 justify-center">
               <h1 className="text-4xl lg:text-6xl font-bold md:font-black leading-10 text-gray-700">Because every smile is unique</h1>
@@ -87,7 +87,7 @@ const Home = () => {
           </div>
         </section>
 
-      <section className="border-4 my-16 md:flex gap-8 justify-center py-10 text-center space-y-24 md:space-y-0">
+      <section className="my-16 md:flex gap-8 justify-center py-10 text-center space-y-24 md:space-y-0">
         <div data-aos="fade-up" data-aos-duration="750" data-aos-easing="linear" className="bg-gradient-to-tr from-violet-100 to-teal-50 rounded-tl-3xl rounded-tr-3xl rounded-bl-3xl rounded-br-md md:max-w-xs max-h-full px-12 pb-12 pt-20 flex flex-col justify-start items-center">
           <img className="absolute -top-12 h-30 w-auto" src="../images/damon.png" alt="damon"/>
           <h3 className="uppercase mb-4">Damon Braces</h3>
@@ -110,8 +110,7 @@ const Home = () => {
         </div>
       </section>
       {/* <img alt="doctors" src="../../images/Doctor-Photo-Homepage-1.jpg"></img> */}
-      {/* TODO: Fix card size and overflow */}
-      <section className="border-4 flex flex-col gap-8 justify-center px-4 py-8">
+      <section className="flex flex-col gap-8 justify-center px-4 py-8">
         <h3 className="text-3xl lg:text-5xl font-bold md:font-black leading-10 text-gray-700">Our Locations</h3>
         <div id="cards-container" className="md:grid md:grid-cols-2 lg:flex gap-8">
           <div className="flex flex-col justify-between bg-f7f5f2 rounded-bl-3xl rounded-br-3xl items-center lg:w-1/4 h-96">
