@@ -6,9 +6,18 @@ import Sphere from "./navbar/sketch";
 
 export default function DesktopNavbar() {
   const [show, setShow] = useState(null);
+  const [cart, setCart] = useState([]);
   const [about, setAbout] = useState(false);
   const [patient, setPatient] = useState(false);
   const [treatments, setTreatments] = useState(false);
+  const [total, setTotal] = useState(0);
+  const cartItemCount = cart.length; 
+  const addToCart = (product) => {
+    const updatedCart = [...cart, product];
+    setCart(updatedCart);
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
+    setTotal(total + product.price);
+  };
 
   const handleMouseOver = () => {
     setTreatments(true);
@@ -258,6 +267,16 @@ export default function DesktopNavbar() {
               >
                 Our Locations
               </NavLink>
+            </li>
+            <li className=" z-10">
+              <NavLink 
+              to="/checkout"
+              className="cursor-pointer block text-sm leading-3 tracking-normal px-3 font-normal">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+  <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+</svg>
+<span className="ml-1">{cartItemCount}</span>
+</NavLink>
             </li>
           </ul>
           <li className="cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-3 hover:text-white font-normal">

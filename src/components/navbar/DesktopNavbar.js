@@ -9,7 +9,7 @@ export default function DesktopNavbar() {
 
   const about_us_links = [
     { name: "Our Team", href: "/our-team" },
-    { name: "Why Choose Us", href: "/why-choose-us" },
+    { name: "Why Choose us", href: "/why-choose-us" },
   ];
 
   const patient_links = [
@@ -174,8 +174,8 @@ export default function DesktopNavbar() {
                 Our Locations
               </Link>
             </li>
+    
           </ul>
-       
           <li className="cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-700 hover:text-white font-normal">
             <button className="cursor-pointer bg-violet-300 rounded-full px-8 py-2 hover:text-indigo-700 transition duration-150 ease-in-out flex items-center text-sm text-white tracking-normal text-white hover:text-indigo-700">
               Book Now
