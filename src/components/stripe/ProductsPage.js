@@ -60,7 +60,7 @@ const ProductsPage = () => {
           );
         })}
        
-        <Cart products={cart} removeFromCart={removeFromCart} />
+        {/* <Cart products={cart} removeFromCart={removeFromCart} /> */}
       </section>
     </div>
   );

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import Cart from "./Cart";
 
@@ -6,6 +6,19 @@ const Checkout = () => {
   const [cart, setCart] = useState([]);
   const [total, setTotal] = useState(0);
 
+
+  useEffect(() => {
+    const savedCart = JSON.parse(localStorage.getItem("cart"));
+    if (savedCart) {
+      setCart(savedCart);
+      const savedTotal = savedCart.reduce(
+        (accumulator, current) => accumulator + current.price,
+        0
+      );
+      setTotal(savedTotal);
+    }
+  }, []);
+  
   const removeFromCart = (productId) => {
     const updatedCart = cart.filter((product) => product.id !== productId);
     const removedProduct = cart.find((product) => product.id === productId);
@@ -17,7 +30,7 @@ const Checkout = () => {
   };
 
   return (
-    <div>
+    <div className="mt-20">
       <h1>Checkout</h1>
       <Cart products={cart} removeFromCart={removeFromCart} />
       
