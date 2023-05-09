@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { Transition } from '@headlessui/react'
 import Sphere from "./navbar/sketch";
@@ -11,13 +11,35 @@ export default function DesktopNavbar() {
   const [patient, setPatient] = useState(false);
   const [treatments, setTreatments] = useState(false);
   const [total, setTotal] = useState(0);
-  const cartItemCount = cart.length; 
+  const [cartItemCount, setCartItemCount] = useState(0); 
   const addToCart = (product) => {
     const updatedCart = [...cart, product];
     setCart(updatedCart);
+    setCartItemCount(updatedCart.length);
+    setTotal((prevTotal) => prevTotal + product.price); // Update the total using the previous total
     localStorage.setItem("cart", JSON.stringify(updatedCart));
-    setTotal(total + product.price);
+    localStorage.setItem("total", JSON.stringify(total + product.price));
   };
+  
+
+  useEffect(() => {
+    const savedCart = localStorage.getItem("cart");
+    const savedTotal = localStorage.getItem("total");
+    if (savedCart) {
+      setCart(JSON.parse(savedCart));
+      setCartItemCount(JSON.parse(savedCart).length);
+    }
+    if (savedTotal) {
+      setTotal(JSON.parse(savedTotal));
+    }
+  }, []);
+
+
+  useEffect(() => {
+    setCartItemCount(cart.length);
+    document.title = `(${cart.length})`;
+  }, [cart]);
+
 
   const handleMouseOver = () => {
     setTreatments(true);
@@ -268,12 +290,23 @@ export default function DesktopNavbar() {
                 Our Locations
               </NavLink>
             </li>
+            <li className="cursor-pointer flex hover:text-indigo-700 transition duration-150 ease-in-out flex items-center text-sm text-white tracking-normal text-white hover:text-indigo-700">
+              <NavLink
+                to="/products"
+                className="cursor-pointer block text-sm leading-3 tracking-normal px-3 font-normal"
+              >
+                Shop
+              </NavLink>
+            </li>
           </ul>
           <div className="flex items-center">
             <li className="z-10">
+          
               <NavLink 
                 to="/checkout"
-                className="cursor-pointer block text-sm leading-3 tracking-normal px-3 font-normal hover:text-violet-500 transition duration-500 ease-in-out">
+                className="cursor-pointer block text-sm leading-3 tracking-normal px-3 font-normal hover:text-violet-500 transition duration-500 ease-in-out"
+                >
+                   
                 <span className="flex items-center gap-1">
                   Bag
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">

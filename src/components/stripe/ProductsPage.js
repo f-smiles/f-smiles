@@ -25,7 +25,7 @@ const ProductsPage = () => {
       const updatedCart = [...cart, productData];
       setCart(updatedCart);
       localStorage.setItem("cart", JSON.stringify(updatedCart));
-      setTotal(total + productData.price);
+      setTotal((prevTotal) => prevTotal + productData.price);
     }
   };
 
