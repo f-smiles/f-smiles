@@ -268,6 +268,14 @@ export default function DesktopNavbar() {
                 Our Locations
               </NavLink>
             </li>
+            <li className="cursor-pointer flex hover:text-indigo-700 transition duration-150 ease-in-out flex items-center text-sm text-white tracking-normal text-white hover:text-indigo-700">
+              <NavLink
+                to="/products"
+                className="cursor-pointer block text-sm leading-3 tracking-normal px-3 font-normal"
+              >
+                Shop Products
+              </NavLink>
+            </li>
           </ul>
           <div className="flex items-center">
             <li className="z-10">
@@ -565,6 +573,11 @@ export default function DesktopNavbar() {
               <li className="text-white pt-8 flex items-center">
                 <NavLink to="/locations" className="cursor-pointer" onClick={() => setShow(false)}>
                   <p className="xl:text-base text-base ml-3">Our Locations</p>
+                </NavLink>
+              </li>
+              <li className="text-white pt-8 flex items-center">
+                <NavLink to="/products" className="cursor-pointer" onClick={() => setShow(false)}>
+                  <p className="xl:text-base text-base ml-3">Shop Products</p>
                 </NavLink>
               </li>
             </ul>
