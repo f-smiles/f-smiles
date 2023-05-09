@@ -32,7 +32,6 @@ const OurTeam = () => {
     <main className="w-full px-4 pt-16">
       <div className="mx-auto w-full max-w-screen-lg rounded-2xl bg-white p-2 mt-16">
         <h1 className="text-xl font-bold text-purple-900 relative mb-4">
-          <span className="pl- -ml-3 bg-red-500 h-full w-1 absolute top-0 left-0"></span>
           Our Team
         </h1>
         <dl className="space-y-8 overflow-hidden h-96">
