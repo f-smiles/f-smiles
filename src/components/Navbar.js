@@ -113,7 +113,7 @@ export default function DesktopNavbar() {
         })}
     </div>
   </Transition>
-</div>
+          </div>
 <li
   className="cursor-pointer hover:text-indigo-700 transition duration-150 ease-in-out inline-flex items-center text-sm text-white tracking-normal relative text-white hover:text-indigo-700 gap-2"
   onMouseOver={() => setPatient(true)}
@@ -268,27 +268,32 @@ export default function DesktopNavbar() {
                 Our Locations
               </NavLink>
             </li>
-            <li className=" z-10">
-              <NavLink 
-              to="/checkout"
-              className="cursor-pointer block text-sm leading-3 tracking-normal px-3 font-normal">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-  <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
-</svg>
-<span className="ml-1">{cartItemCount}</span>
-</NavLink>
-            </li>
           </ul>
-          <li className="cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-3 hover:text-white font-normal">
-  <NavLink
-    to="/book-now"
-    className="cursor-pointer bg-violet-300 rounded-full px-8 py-2 hover:text-indigo-700 transition duration-300 ease-in-out flex items-center text-sm text-white tracking-normal text-white hover:text-indigo-700 transform-gpu btn3 hover:shadow-md hover:shadow-violet-400/50"
-  >
-    <span className="transform-gpu transition duration-300 ease-in">
-      Book Now
-    </span>
-  </NavLink>
-</li>
+          <div className="flex items-center">
+            <li className="z-10">
+              <NavLink 
+                to="/checkout"
+                className="cursor-pointer block text-sm leading-3 tracking-normal px-3 font-normal hover:text-violet-500 transition duration-500 ease-in-out">
+                <span className="flex items-center gap-1">
+                  Bag
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+                  </svg>
+                  {cartItemCount}
+                </span>
+              </NavLink>
+            </li>
+            <li className="cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-3 hover:text-white font-normal">
+    <NavLink
+      to="/book-now"
+      className="cursor-pointer bg-violet-300 rounded-full px-8 py-2 hover:text-indigo-700 transition duration-300 ease-in-out flex items-center text-sm text-white tracking-normal text-white hover:text-indigo-700 transform-gpu btn3 hover:shadow-md hover:shadow-violet-400/50"
+    >
+      <span className="transform-gpu transition duration-300 ease-in">
+        Book Now
+      </span>
+    </NavLink>
+            </li>
+          </div>
         </ul>
       </nav>
    
@@ -300,7 +305,7 @@ export default function DesktopNavbar() {
           id="mobile-menu-header"
           className="py-4 px-6 w-full flex xl:hidden justify-between items-center bg-gray-800"
         >
-          <NavLink to="/" className="cursor-pointer">
+          <NavLink to="/" className="cursor-pointer" onClick={() => setShow(false)}>
             <img
               src="../../images/logo_full.png"
               className="h-8"
@@ -572,6 +577,18 @@ export default function DesktopNavbar() {
                 >
                   Book Now
                 </NavLink>
+                <NavLink 
+                to="/checkout"
+                onClick={() => setShow(false)}
+                className="cursor-pointer block text-sm leading-3 tracking-normal px-3 font-normal text-white">
+                <span className="flex items-center gap-1">
+                  Bag
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+                  </svg>
+                  {cartItemCount}
+                </span>
+              </NavLink>
               </div>
             </div>
           </div>
