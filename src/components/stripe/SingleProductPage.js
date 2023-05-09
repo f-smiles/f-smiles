@@ -37,30 +37,38 @@ const SingleProductPage = () => {
 
   return (
     <div className="flex justify-center items-center h-screen bg-gradient-to-r from-violet-100 to-violet-50">
-       <div className="max-w-2xl bg-white bg-opacity-20 backdrop-blur-md shadow-lg rounded-lg overflow-hidden flex">
+      <div className="max-w-4xl bg-white bg-opacity-20 backdrop-blur-md shadow-lg rounded-lg overflow-hidden flex"style={{ height: "400px" }}>
         <div
-          className="w-1/3 h-64 bg-cover bg-center bg-no-repeat"
+          className="w-1/3 h-64 bg-cover bg-center bg-no-repeat flex-shrink-0"
           style={{
             backgroundImage: `url(${productData.image})`,
           }}
         ></div>
-        <div className="w-2/3 p-4">
-          <h1 className="text-gray-900 font-bold text-2xl">
+          <div
+            className="absolute top-0 left-0 w-full h-full bg-cover bg-center bg-no-repeat"
+            style={{
+              backgroundImage: `url(../../images/product.png)`, 
+              opacity: 0.9,
+              backgroundSize: "50%", 
+              backgroundPosition: "left",
+            }}
+          ></div>
+        <div className="w-2/3 p-4 flex flex-col justify-center">
+          <h1 className="text-gray-900 font-bold text-2xl mb-2">
             {productData.name}
           </h1>
-          <p className="mt-2 text-gray-600 text-sm">
+          <p className="text-gray-600 text-sm mb-10">
             {productData.description}
           </p>
-          <div className="flex items-center mt-2">
-            {/* Rating Stars */}
+          <div className="flex items-center mb-2">
           </div>
-          <div className="flex items-center justify-between mt-3">
+          <div className="flex items-center justify-between">
             <h1 className="text-gray-700 font-bold text-xl">
               {productData.price} USD
             </h1>
             <button
               onClick={() => addToCart(productData.id)}
-              className="px-4 py-2 bg-cyan-500 text-white text-sm font-bold uppercase rounded"
+              className="hover:bg-gray-600 px-4 py-2 bg-cyan-500 text-white text-sm font-bold uppercase rounded z-10"
             >
               Add to Bag
             </button>
@@ -72,6 +80,7 @@ const SingleProductPage = () => {
 };
 
 export default SingleProductPage;
+
 
 
 // <div className="container mx-auto">
