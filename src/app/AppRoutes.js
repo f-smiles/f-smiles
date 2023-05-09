@@ -17,6 +17,7 @@ import StripeCheckoutForm from "../components/stripe/StripeCheckoutForm";
 import ProductsPage from "../components/stripe/ProductsPage";
 import Cart from "../components/stripe/Cart";
 import SingleProductPage from "../components/stripe/SingleProductPage";
+import Checkout from "../components/stripe/checkout";
 
 const AppRoutes = () => {
   return (
@@ -39,6 +40,7 @@ const AppRoutes = () => {
       <Route path="/products" element={<ProductsPage />} />
       <Route path="/cart" element={<Cart />} />
       <Route path="/products/:id" element={<SingleProductPage />} />
+      <Route path="/checkout" element={<Checkout />} />
     </Routes>
   );
 };

@@ -91,7 +91,7 @@ const Card = ({id, image, name, description, price, addToCart }) => {
           </div>
         </div>
       </Link>
-      <button className="border border-gray-900 text-gray-900 py-2 px-4 rounded-full" onClick={addToCart}>Add To Cart</button>
+      <button className="hover:text-gray-200 hover:bg-stone-900 border border-gray-900 text-gray-900 py-2 px-4 rounded-full" onClick={addToCart}>Add To Cart</button>
     </div>
   );
 };

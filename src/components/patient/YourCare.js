@@ -8,7 +8,7 @@ const YourCare = () => {
   };
 
   return (
-    <div className="max-w-2xl mx-auto">
+    <div className="mt-20 max-w-2xl mx-auto">
       <div className="flex flex-col">
         <div
           className={`border-t-2 border-gray-300 py-3 px-4 flex justify-between items-center cursor-pointer select-none ${
