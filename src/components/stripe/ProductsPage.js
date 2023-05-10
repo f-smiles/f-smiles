@@ -92,7 +92,7 @@ const ProductsPage = ({updateCartCount}) => {
             </div>
           );
         })}
-        <Cart products={cart} removeFromCart={removeFromCart} />
+        {/* <Cart products={cart} removeFromCart={removeFromCart} /> */}
       </section>
     </div>
   );

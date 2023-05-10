@@ -28,12 +28,30 @@ const SingleProductPage = () => {
     console.log("Adding product to cart:", productId);
     const productData = getProductData(productId);
     if (productData !== undefined) {
-      setCart([...cart, productData]);
-      setTotal(total + productData.price);
-      localStorage.setItem("cart", JSON.stringify([...cart, productData]));
+      const existingProductIndex = cart.findIndex(
+        (product) => product.id === productId
+      );
+  
+      if (existingProductIndex !== -1) {
+        const updatedCart = [...cart];
+        updatedCart[existingProductIndex].count += 1;
+        setCart(updatedCart);
+        localStorage.setItem("cart", JSON.stringify(updatedCart));
+      } else {
+        const updatedProductData = {
+          ...productData,
+          count: 1,
+        };
+        const updatedCart = [...cart, updatedProductData];
+        setCart(updatedCart);
+        localStorage.setItem("cart", JSON.stringify(updatedCart));
+      }
+  
+      setTotal((prevTotal) => prevTotal + productData.price);
       localStorage.setItem("total", total + productData.price);
     }
   };
+  
 
   return (
     <div className="flex justify-center items-center h-screen bg-gradient-to-r from-violet-100 to-violet-50">
