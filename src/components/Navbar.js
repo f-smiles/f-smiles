@@ -4,24 +4,24 @@ import { Transition } from '@headlessui/react'
 import Sphere from "./navbar/sketch";
 
 
-export default function DesktopNavbar() {
+export default function DesktopNavbar({cartCount}) {
   const [show, setShow] = useState(null);
   const [cart, setCart] = useState([]);
   const [about, setAbout] = useState(false);
   const [patient, setPatient] = useState(false);
   const [treatments, setTreatments] = useState(false);
   const [total, setTotal] = useState(0);
-  const [cartItemCount, setCartItemCount] = useState(0); 
+
   const addToCart = (product) => {
     const updatedCart = [...cart, product];
     const updatedTotal = total + product.price;
-    setCart((prevCart) => [...prevCart, product]);
+    setCart(updatedCart);
     setTotal(updatedTotal);
-    setCartItemCount(updatedCart.length);
+  
     localStorage.setItem("cart", JSON.stringify(updatedCart));
     localStorage.setItem("total", JSON.stringify(updatedTotal));
   };
-
+  
   const removeFromCart = (product) => {
     const updatedCart = cart.filter((item) => item !== product);
     const updatedTotal = total - product.price;
@@ -31,24 +31,15 @@ export default function DesktopNavbar() {
     localStorage.setItem("total", JSON.stringify(updatedTotal));
   };
   
-
   useEffect(() => {
     const storedCart = JSON.parse(localStorage.getItem("cart"));
     const storedTotal = JSON.parse(localStorage.getItem("total"));
-  
+
     if (storedCart && storedTotal) {
       setCart(storedCart);
       setTotal(storedTotal);
-      setCartItemCount(storedCart.length);
     }
   }, []);
-
-
-  useEffect(() => {
-    setCartItemCount(cart.length);
-    document.title = `(${cart.length})`;
-  }, [cart]);
-
 
   const handleMouseOver = () => {
     setTreatments(true);
@@ -60,8 +51,6 @@ export default function DesktopNavbar() {
   const handleMouseLeave = () => {
     hideTimeoutId = setTimeout(() => setTreatments(false), 2550000);
   };
-
-  
 
   const about_us_links = [
     { name: "Our Team", href: "/our-team" },
@@ -321,7 +310,7 @@ export default function DesktopNavbar() {
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
                   </svg>
-                  {cartItemCount}
+                  {cartCount}
                 </span>
               </NavLink>
             </li>
@@ -628,7 +617,7 @@ export default function DesktopNavbar() {
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
                   </svg>
-                  {cartItemCount}
+                  {cartCount}
                 </span>
               </NavLink>
               </div>

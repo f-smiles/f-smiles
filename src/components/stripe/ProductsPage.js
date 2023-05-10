@@ -7,6 +7,7 @@ import Navbar from "../Navbar";
 const ProductsPage = () => {
   const [cart, setCart] = useState([]);
   const [total, setTotal] = useState(0);
+  const [cartCount, setCartCount] = useState(0);
 
   useEffect(() => {
     const savedCart = JSON.parse(localStorage.getItem("cart"));
@@ -17,11 +18,13 @@ const ProductsPage = () => {
         0
       );
       setTotal(savedTotal);
+      setCartCount(getCartCount(savedCart));
     }
   }, []);
 
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
+    setCartCount(getCartCount(cart));
   }, [cart]);
 
   const addToCart = (productId) => {
@@ -30,7 +33,7 @@ const ProductsPage = () => {
       const existingProductIndex = cart.findIndex(
         (product) => product.id === productId
       );
-  
+
       if (existingProductIndex !== -1) {
         const updatedCart = [...cart];
         updatedCart[existingProductIndex].count += 1;
@@ -45,11 +48,11 @@ const ProductsPage = () => {
         setCart(updatedCart);
         localStorage.setItem("cart", JSON.stringify(updatedCart));
       }
-  
+
       setTotal((prevTotal) => prevTotal + productData.price);
+      setCartCount(getCartCount(cart));
     }
   };
-  
 
   const removeFromCart = (productId) => {
     const updatedCart = cart.filter((product) => product.id !== productId);
@@ -58,26 +61,17 @@ const ProductsPage = () => {
       setCart(updatedCart);
       localStorage.setItem("cart", JSON.stringify(updatedCart));
       setTotal(total - removedProduct.price);
+      setCartCount(getCartCount(updatedCart));
     }
   };
 
-  const getCartCount = () => {
-    return cart.reduce((count, product) => count + product.count, 0);
+  const getCartCount = (cartItems) => {
+    return cartItems.reduce((count, product) => count + product.count, 0);
   };
-
-  // Update cart count whenever the cart state changes
-  useEffect(() => {
-    const count = getCartCount();
-    // Update the count in the navbar
-    const navbarCartCount = document.getElementById("navbar-cart-count");
-    if (navbarCartCount) {
-      navbarCartCount.textContent = count.toString();
-    }
-  }, [cart]);
 
   return (
     <div>
-      <Navbar cartCount={getCartCount()} />
+      <Navbar cartCount={cartCount} />
       <section className="flex flex-wrap gap-4 justify-center py-20 text-center">
         <h1>products</h1>
         {ProductsArray.map((product) => {
@@ -96,7 +90,7 @@ const ProductsPage = () => {
             </div>
           );
         })}
-        {/* <Cart products={cart} removeFromCart={removeFromCart} /> */}
+        <Cart products={cart} removeFromCart={removeFromCart} />
       </section>
     </div>
   );
