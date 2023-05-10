@@ -280,7 +280,7 @@ export default function DesktopNavbar() {
           <div className="flex items-center">
             <li className="z-10">
               <NavLink 
-                to="/checkout"
+                to="/cart"
                 className="cursor-pointer block text-sm leading-3 tracking-normal px-3 font-normal hover:text-violet-500 transition duration-500 ease-in-out">
                 <span className="flex items-center gap-1">
                   Bag
@@ -591,7 +591,7 @@ export default function DesktopNavbar() {
                   Book Now
                 </NavLink>
                 <NavLink 
-                to="/checkout"
+                to="/cart"
                 onClick={() => setShow(false)}
                 className="cursor-pointer block text-sm leading-3 tracking-normal px-3 font-normal text-white">
                 <span className="flex items-center gap-1">
