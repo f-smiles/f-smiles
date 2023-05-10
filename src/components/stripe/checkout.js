@@ -10,6 +10,18 @@ const Checkout = () => {
   const [cartItemCount, setCartItemCount] = useState(0);
   const productData = getProductData(id);
 
+  const updateCart = (productId, newQuantity) => {
+    const updatedCart = cart.map((product) => {
+      if (product.id === productId) {
+        return { ...product, count: newQuantity };
+      }
+      return product;
+    });
+  
+    setCart(updatedCart);
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
+  };
+
   useEffect(() => {
     const savedCart = JSON.parse(localStorage.getItem("cart"));
     if (savedCart) {
@@ -69,7 +81,7 @@ const Checkout = () => {
       <Cart
         products={cart}
         removeFromCart={removeFromCart}
-        updateCart={addToCart} 
+        updateCart={updateCart} 
       />
       <button onClick={clearCart}>Clear Cart</button>
       <li className="z-10">

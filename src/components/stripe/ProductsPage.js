@@ -4,7 +4,8 @@ import { ProductsArray, getProductData } from "./products";
 import Cart from "./Cart";
 import Navbar from "../Navbar";
 
-const ProductsPage = () => {
+
+const ProductsPage = ({updateCartCount}) => {
   const [cart, setCart] = useState([]);
   const [total, setTotal] = useState(0);
   const [cartCount, setCartCount] = useState(0);
@@ -19,6 +20,7 @@ const ProductsPage = () => {
       );
       setTotal(savedTotal);
       setCartCount(getCartCount(savedCart));
+      
     }
   }, []);
 

@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import StripeCheckout from "react-stripe-checkout";
 import StripeCheckoutForm from "./StripeCheckoutForm";
 
 const Cart = ({ products, removeFromCart, updateCart }) => {
@@ -35,8 +34,8 @@ const Cart = ({ products, removeFromCart, updateCart }) => {
           </h3>
           <p>Price: ${product.price.toFixed(2)}</p>
           <p>Count: {product.count}</p>
-          <button onClick={() => handleIncrement(product)}>+</button>
-          <button onClick={() => handleDecrement(product)}>-</button>
+          <button className="bg-indigo-300 rounded-full px-3 py-2 mr-3" onClick={() => handleIncrement(product)}>+</button>
+          <button className="bg-gray-300 rounded-full px-3 py-2 mr-3" onClick={() => handleDecrement(product)}>-</button>
           <button onClick={() => removeFromCart(product.id)}>Remove</button>
         </div>
       ))}
@@ -49,10 +48,10 @@ const Cart = ({ products, removeFromCart, updateCart }) => {
         description="Checkout"
         total={total}
       />
+    
       <button>Checkout</button>
     </div>
   );
 };
 
 export default Cart;
-
