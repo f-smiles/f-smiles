@@ -1,56 +1,75 @@
-import React, { useState } from 'react';
-import StripeCheckout from 'react-stripe-checkout';
-import axios from 'axios';
-import stripe from "stripe";
-
-const stripeInstance = stripe(process.env.REACT_APP_STRIPE_KEY);
+import React, { useState } from "react";
+import StripeCheckout from "react-stripe-checkout";
+import axios from "axios";
+// import stripe from "stripe";
+const stripe = require("stripe")(process.env.REACT_APP_STRIPE_KEY);
 
 const StripeCheckoutForm = ({ total }) => {
   const [loading, setLoading] = useState(false);
 
   const createCustomer = async (token) => {
     try {
-      const customer = await stripeInstance.customers.create({
+      const customer = await stripe.customers.create({
         email: token.email,
-        source: token.id
+        source: token.id,
+      });
+      await stripe.paymentMethods.attach(token.card.id, {
+        customer: customer.id,
       });
       console.log("Customer created: ", customer);
       return customer.id;
     } catch (error) {
-      console.log(error);
       return null;
     }
   };
-
   const handleToken = async (token) => {
     setLoading(true);
     try {
-      const customerId = await createCustomer(token);
-      const paymentIntent = await stripeInstance.paymentIntents.create({
-        currency: "USD",
+      const customer = await createCustomer(token);
+      const paymentMethod = await stripe.paymentMethods.attach(token.card.id, {
+        customer: customer,
+      });
+      const paymentIntent = await stripe.paymentIntents.create({
+        currency: "usd",
         amount: total * 100,
-        customer: customerId,
+        customer: customer,
+        payment_method_types: ["card"],
+        payment_method: paymentMethod.id,
+        payment_method_options: {
+          card: {
+            request_three_d_secure: "automatic",
+          },
+        },
         setup_future_usage: "off_session",
       });
-      const response = await axios.post("/api/payments", {
-        token,
-        paymentIntent: paymentIntent.client_secret,
+      const confirmPaymentIntent = await stripe.paymentIntents.confirm(paymentIntent.id, {
+        payment_method: paymentMethod.id,
       });
-      if (response.status === 200) {
-        console.log("Payment successful!");
-        setLoading(false);
-      } else if (response.status === 404) {
-        console.log("Payment failed: 404 Not Found");
-        setLoading(false);
-      } else {
-        console.log("Payment failed!");
-        setLoading(false);
+
+      if (confirmPaymentIntent.status === "succeeded") {
+        const response = await axios.post("/api/payments", {
+          token,
+          paymentIntent: paymentIntent.id,
+          customer: customer,
+        });
+        if (response.status === 200) {
+          console.log("Payment successful!");
+          setLoading(false);
+        } else if (response.status === 404) {
+          console.log("Payment failed: 404 Not Found");
+          setLoading(false);
+        } else {
+          console.log("Payment failed!");
+          setLoading(false);
+        }
       }
     } catch (error) {
       console.log(error);
       setLoading(false);
     }
   };
+  
+  
 
   return (
     <div>
@@ -58,22 +77,17 @@ const StripeCheckoutForm = ({ total }) => {
       <h2>Total: ${total}</h2>
       <StripeCheckout
         token={handleToken}
-        stripeKey="pk_live_51N0UqcF1lRcn4KYhmkaGhYXNrMU9sMmAQnW4VKgjyacvg3j69Qfer276V8s9IyrFYJQzeoWPNi5CFlKXe5NHevKc00mEMElvoB"
-        amount={total * 100}
-        currency="USD"
-        name="My E-commerce Store"
-        description="Payment for My E-commerce Store"
-        image="https://www.example.com/logo.png"
+        stripeKey={process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY}
+        // amount={total * 100}
+        // currency="USD"
+        // name="My E-commerce Store"
+        // description="Payment for My E-commerce Store"
+        // image="https://www.example.com/logo.png"
       />
-    
+
       {loading && <p>Loading...</p>}
     </div>
   );
 };
 
 export default StripeCheckoutForm;
-
-
-
-
-
