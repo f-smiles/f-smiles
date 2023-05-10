@@ -5,14 +5,16 @@ import StripeCheckoutForm from "./StripeCheckoutForm";
 
 const Cart = ({ products, removeFromCart, updateCart }) => {
   const handleIncrement = (product) => {
-    updateCart(product.id); 
+    const updatedQuantity = product.count + 1;
+    updateCart(product.id, updatedQuantity);
   };
 
   const handleDecrement = (product) => {
     if (product.count > 1) {
-      updateCart(product.id); 
+      const updatedQuantity = product.count - 1;
+      updateCart(product.id, updatedQuantity);
     } else {
-      removeFromCart(product.id); 
+      removeFromCart(product.id);
     }
   };
 
@@ -32,9 +34,9 @@ const Cart = ({ products, removeFromCart, updateCart }) => {
             <Link to={`/products/${product.id}`}>{product.name}</Link>
           </h3>
           <p>Price: ${product.price.toFixed(2)}</p>
-          <p>Count: {product.count}</p> {/* Display the count of the product */}
-          <button onClick={() => handleIncrement(product)}>+</button> {/* Call handleIncrement on button click */}
-          <button onClick={() => handleDecrement(product)}>-</button> {/* Call handleDecrement on button click */}
+          <p>Count: {product.count}</p>
+          <button onClick={() => handleIncrement(product)}>+</button>
+          <button onClick={() => handleDecrement(product)}>-</button>
           <button onClick={() => removeFromCart(product.id)}>Remove</button>
         </div>
       ))}
@@ -58,3 +60,4 @@ const Cart = ({ products, removeFromCart, updateCart }) => {
 };
 
 export default Cart;
+
