@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ProductsArray, getProductData } from "./products";
 import Cart from "./Cart";
+import Navbar from "../Navbar";
 
 const ProductsPage = () => {
   const [cart, setCart] = useState([]);
@@ -19,6 +20,10 @@ const ProductsPage = () => {
     }
   }, []);
 
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
+
   const addToCart = (productId) => {
     const productData = getProductData(productId);
     if (productData !== undefined) {
@@ -27,14 +32,16 @@ const ProductsPage = () => {
       );
   
       if (existingProductIndex !== -1) {
-      
         const updatedCart = [...cart];
         updatedCart[existingProductIndex].count += 1;
         setCart(updatedCart);
         localStorage.setItem("cart", JSON.stringify(updatedCart));
       } else {
-       
-        const updatedCart = [...cart, { ...productData, count: 1 }];
+        const updatedProductData = {
+          ...productData,
+          count: 1,
+        };
+        const updatedCart = [...cart, updatedProductData];
         setCart(updatedCart);
         localStorage.setItem("cart", JSON.stringify(updatedCart));
       }
@@ -42,6 +49,7 @@ const ProductsPage = () => {
       setTotal((prevTotal) => prevTotal + productData.price);
     }
   };
+  
 
   const removeFromCart = (productId) => {
     const updatedCart = cart.filter((product) => product.id !== productId);
@@ -53,8 +61,23 @@ const ProductsPage = () => {
     }
   };
 
+  const getCartCount = () => {
+    return cart.reduce((count, product) => count + product.count, 0);
+  };
+
+  // Update cart count whenever the cart state changes
+  useEffect(() => {
+    const count = getCartCount();
+    // Update the count in the navbar
+    const navbarCartCount = document.getElementById("navbar-cart-count");
+    if (navbarCartCount) {
+      navbarCartCount.textContent = count.toString();
+    }
+  }, [cart]);
+
   return (
     <div>
+      <Navbar cartCount={getCartCount()} />
       <section className="flex flex-wrap gap-4 justify-center py-20 text-center">
         <h1>products</h1>
         {ProductsArray.map((product) => {
@@ -73,7 +96,6 @@ const ProductsPage = () => {
             </div>
           );
         })}
-       
         {/* <Cart products={cart} removeFromCart={removeFromCart} /> */}
       </section>
     </div>
