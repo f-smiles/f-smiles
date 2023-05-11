@@ -18,8 +18,7 @@ const OurTeam = () => {
     {
       name: "Dr. Daniel Frey",
       img: "",
-      bio: "Raised in the Lehigh Valley, Dr. Daniel Frey had a passion for youth soccer and explored his creative interests in music and film production during his adolescence. He graduated from Blair Academy in Blairstown, NJ in 2005. He then pursued his pre-dental requisites at the University of Pittsburgh,majoring in Biology. Dr. Frey excelled in his studies and was admitted to Temple University's dental school, graduating at the top of his class with the prestigious Summa Cum Laude designation.Continuing his education, Dr. Frey was admitted to the esteemed orthodontic residency program at the University of the Pacific in San Francisco, CA, where he worked with faculty from around the world and utilized cutting-edge orthodontic techniques. During his time in San Francisco, he conducted research in three-dimensional craniofacial analysis and earned his Master of Science degree. Dr. Frey is a member of the American Association of Orthodontists and the American Dental Association. In his leisure time, he enjoys staying active outdoors, camping, playing music, cooking, and spending time with loved ones.",
-    },
+      bio: "Raised in the Lehigh Valley, Dr. Daniel Frey had a passion for youth soccer and explored his creative interests in music and film production during his adolescence. He graduated from Blair Academy in Blairstown, NJ in 2005. He then pursued his pre-dental requisites at the University of Pittsburgh,majoring in Biology. Dr. Frey excelled in his studies and was admitted to Temple University's dental school, graduating at the top of his class with the prestigious Summa Cum Laude designation.Continuing his education, Dr. Frey was admitted to the esteemed orthodontic residency program at the University of the Pacific in San Francisco, CA, where he worked with faculty from around the world and utilized cutting-edge orthodontic techniques. During his time in San Francisco, he conducted research in three-dimensional craniofacial analysis and earned his Master of Science degree. Dr. Frey is a member of the American Association of Orthodontists and the American Dental Association. In his leisure time, he enjoys staying active outdoors, camping, playing music, cooking, and spending time with loved ones.",},
   ];
 
   return (
@@ -33,7 +32,7 @@ const OurTeam = () => {
             <div key={index}>
               <span className="relative">
                 <span
-                  className={`bg-purple-500 opacity-50 h-full w-1 absolute left-0 top-0 transition-all duration-700 ${
+                  className={`bg-purple-500 h-full w-1 absolute left-0 top-0 transition-all duration-700 ${
                     activeAccordion === index ? "h-full" : "h-0"
                   } rounded-full`}
                 ></span>
@@ -60,7 +59,9 @@ const OurTeam = () => {
                     leaveFrom="opacity-100 max-h-[500px]"
                     leaveTo="opacity-0 max-h-0"
                   >
-                    <dd className="text-sm text-gray-500 pl-7 mt-2">{member.bio}</dd>
+                    <dd className="text-sm text-gray-500 pl-7">
+                      {member.bio}
+                    </dd>
                   </Transition>
                 </dt>
               </span>
@@ -73,6 +74,7 @@ const OurTeam = () => {
 };
 
 export default OurTeam;
+
 
 // import { ChevronUpIcon } from "@heroicons/react/20/solid";
 // import { Transition } from "@headlessui/react";
@@ -168,25 +170,25 @@ export default OurTeam;
 //                   <h2 className="text-lg font-medium">Dr. Daniel Frey</h2>
 //                   <img alt="Dr.Daniel Frey" src="" />
 //                   <div data-headlessui-state="open">
-// Raised in the Lehigh Valley, Dr. Daniel Frey had a passion for
-// youth soccer and explored his creative interests in music and
-// film production during his adolescence. He graduated from
-// Blair Academy in Blairstown, NJ in 2005. He then pursued his
-// pre-dental requisites at the University of Pittsburgh,
-// majoring in Biology. Dr. Frey excelled in his studies and was
-// admitted to Temple University's dental school, graduating at
-// the top of his class with the prestigious Summa Cum Laude
-// designation.Continuing his education, Dr. Frey was admitted to
-// the esteemed orthodontic residency program at the University
-// of the Pacific in San Francisco, CA, where he worked with
-// faculty from around the world and utilized cutting-edge
-// orthodontic techniques. During his time in San Francisco, he
-// conducted research in three-dimensional craniofacial analysis
-// and earned his Master of Science degree. Dr. Frey is a member
-// of the American Association of Orthodontists and the American
-// Dental Association. In his leisure time, he enjoys staying
-// active outdoors, camping, playing music, cooking, and spending
-// time with loved ones.
+                    // Raised in the Lehigh Valley, Dr. Daniel Frey had a passion for
+                    // youth soccer and explored his creative interests in music and
+                    // film production during his adolescence. He graduated from
+                    // Blair Academy in Blairstown, NJ in 2005. He then pursued his
+                    // pre-dental requisites at the University of Pittsburgh,
+                    // majoring in Biology. Dr. Frey excelled in his studies and was
+                    // admitted to Temple University's dental school, graduating at
+                    // the top of his class with the prestigious Summa Cum Laude
+                    // designation.Continuing his education, Dr. Frey was admitted to
+                    // the esteemed orthodontic residency program at the University
+                    // of the Pacific in San Francisco, CA, where he worked with
+                    // faculty from around the world and utilized cutting-edge
+                    // orthodontic techniques. During his time in San Francisco, he
+                    // conducted research in three-dimensional craniofacial analysis
+                    // and earned his Master of Science degree. Dr. Frey is a member
+                    // of the American Association of Orthodontists and the American
+                    // Dental Association. In his leisure time, he enjoys staying
+                    // active outdoors, camping, playing music, cooking, and spending
+                    // time with loved ones.
 //                   </div>
 //                 </Disclosure.Panel>
 //               </Transition>
@@ -250,3 +252,4 @@ export default OurTeam;
 // };
 
 // export default OurTeam;
+
