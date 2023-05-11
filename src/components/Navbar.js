@@ -6,7 +6,6 @@ import CartContext from "../app/CartContext";
 
 export default function DesktopNavbar() {
   const { cartCount, updateCartCount } = useContext(CartContext);
-  
   const [show, setShow] = useState(null);
   // const [cartCount, setCartCount] = useState(0);
   // const [cart, setCart] = useState([]);

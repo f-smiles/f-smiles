@@ -1,4 +1,4 @@
-import { ChevronUpIcon } from "@heroicons/react/20/solid";
+import { ChevronUpIcon, ChevronDownIcon } from "@heroicons/react/20/solid";
 import { Fragment, useState } from "react";
 import { Transition } from "@headlessui/react";
 
@@ -6,11 +6,7 @@ const OurTeam = () => {
   const [activeAccordion, setActiveAccordion] = useState(null);
 
   const toggleAccordion = (index) => {
-    if (activeAccordion === index) {
-      setActiveAccordion(null);
-    } else {
-      setActiveAccordion(index);
-    }
+    setActiveAccordion((prevIndex) => (prevIndex === index ? null : index));
   };
 
   const teamMembers = [
@@ -18,7 +14,7 @@ const OurTeam = () => {
       name: "Dr.Gregg Frey",
       img: "",
       bio:
-        "Dr. Gregg Frey is an orthodontist based in Pennsylvania,who graduated from Temple University School of Dentistry with honors and served in the U.S. Navy Dental Corps before establishing his practice in the Lehigh Valley. He is a Diplomat of the American Board of Orthodontics and has.",
+        "Dr. Gregg Frey is an orthodontist based in Pennsylvania, who graduated from Temple University School of Dentistry with honors and served in the U.S. Navy Dental Corps before establishing his practice in the Lehigh Valley. He is a Diplomat of the American Board of Orthodontics and has.",
     },
     {
       name: "Dr. Daniel Frey",
@@ -31,50 +27,56 @@ const OurTeam = () => {
   return (
     <main className="w-full px-4 pt-16">
       <div className="mx-auto w-full max-w-screen-lg rounded-2xl bg-white p-2 mt-16">
-        <h1 className="border text-xl font-bold text-purple-900 relative mb-4">
+        <h1 className="text-xl font-bold text-purple-900 relative mb-4">
           Our Team
         </h1>
         <dl className="border space-y-8 overflow-hidden h-96">
-  {teamMembers.map((member, index) => (
-    <div className="border" key={index}>
-      <dt
-        className="text-lg font-medium text-purple-900 cursor-pointer relative pl-4 focus:outline-none"
-        onClick={() => toggleAccordion(index)}
-      >
-        {/* <ChevronUpIcon
-          className={`${
-            activeAccordion === index ? "transform rotate-180" : ""
-          } h-5 w-5 text-purple-500 mr-2`}
-        /> */}
-        <span
-          className= {`p-0 border bg-red-500 h-full w-1 absolute top-0 left-0 }`}
-        ></span>
-        {member.name}
-      </dt>
-
-      <Transition className="border"
-        show={activeAccordion === index}
-        enter="transition-all duration-700"
-        enterFrom="-mt-10 opacity-0"
-        enterTo="mt-0 opacity-100"
-        leave="transition-all duration-700"
-        leaveFrom="mt-0 opacity-100"
-        leaveTo="-mt-10 opacity-0"
-      >
-        <dd className="border text-sm text-gray-500 pl-7">
-          {member.bio}
-        </dd>
-      </Transition>
-    </div>
-  ))}
-</dl>
-
+          {teamMembers.map((member, index) => (
+            <div key={index}>
+              <span className="relative">
+                <span
+                  className={`bg-purple-500 h-full w-1 absolute left-0 top-0 transition-all duration-500 ${
+                    activeAccordion === index ? "h-full" : "h-0"
+                  }`}
+                ></span>
+                <dt
+                  className="text-lg font-medium text-purple-900 cursor-pointer relative pl-4 focus:outline-none"
+                  onClick={() => toggleAccordion(index)}
+                >
+                  <div className="flex items-start">
+                    <span className="pl-2">{member.name}</span>
+                    {activeAccordion === index ? (
+                      <ChevronUpIcon className="h-5 w-5" />
+                    ) : (
+                      <ChevronDownIcon className="h-5 w-5" />
+                    )}
+                  </div>
+                  <Transition
+                    show={activeAccordion === index}
+                    enter="transition-all duration-500"
+                    enterFrom="opacity-0 max-h-0"
+                    enterTo="opacity-100 max-h-[500px]"
+                    leave="transition-all duration-500"
+                    leaveFrom="opacity-100 max-h-[500px]"
+                    leaveTo="opacity-0 max-h-0"
+                  >
+                    <dd className="border text-sm text-gray-500 pl-7">
+                      {member.bio}
+                    </dd>
+                  </Transition>
+                </dt>
+              </span>
+            </div>
+          ))}
+        </dl>
       </div>
     </main>
   );
 };
 
 export default OurTeam;
+
+
 
 
 
