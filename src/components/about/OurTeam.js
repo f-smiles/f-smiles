@@ -31,48 +31,43 @@ const OurTeam = () => {
   return (
     <main className="w-full px-4 pt-16">
       <div className="mx-auto w-full max-w-screen-lg rounded-2xl bg-white p-2 mt-16">
-        <h1 className="text-xl font-bold text-purple-900 relative mb-4">
+        <h1 className="border text-xl font-bold text-purple-900 relative mb-4">
           Our Team
         </h1>
-        <dl className="space-y-8 overflow-hidden h-96">
+        <dl className="border space-y-8 overflow-hidden h-96">
   {teamMembers.map((member, index) => (
-    <div key={index}>
+    <div className="border" key={index}>
       <dt
         className="text-lg font-medium text-purple-900 cursor-pointer relative pl-4 focus:outline-none"
         onClick={() => toggleAccordion(index)}
       >
-        <ChevronUpIcon
+        {/* <ChevronUpIcon
           className={`${
             activeAccordion === index ? "transform rotate-180" : ""
           } h-5 w-5 text-purple-500 mr-2`}
-        />
+        /> */}
         <span
-          className={`bg-red-500 h-full w-1 absolute top-0 left-0 transition-all duration-500 ${
-            activeAccordion === index ? "h-full" : "h-0"
-          }`}
+          className= {`p-0 border bg-red-500 h-full w-1 absolute top-0 left-0 }`}
         ></span>
         {member.name}
       </dt>
 
-      <Transition
+      <Transition className="border"
         show={activeAccordion === index}
-        enter="transition-all duration-500"
+        enter="transition-all duration-700"
         enterFrom="-mt-10 opacity-0"
         enterTo="mt-0 opacity-100"
-        leave="transition-all duration-500"
+        leave="transition-all duration-700"
         leaveFrom="mt-0 opacity-100"
         leaveTo="-mt-10 opacity-0"
       >
-        <dd className="text-sm text-gray-500 mt-2 pl-7">
+        <dd className="border text-sm text-gray-500 pl-7">
           {member.bio}
         </dd>
       </Transition>
     </div>
   ))}
 </dl>
-
-
-
 
       </div>
     </main>

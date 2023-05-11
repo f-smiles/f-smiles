@@ -1,39 +1,23 @@
-// import AppRoutes from './AppRoutes';
-// import Navbar from '../components/Navbar';
-// import Footer from '../components/Footer';
-
-// function App() {
-//   return (
-//     <>
-//     <Navbar />
-//     <AppRoutes />
-//     <Footer />
-//     </>
-//   );
-// }
-
-// export default App;
-
-import React, { useState } from 'react';
-import AppRoutes from './AppRoutes';
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import ProductsPage from '../components/stripe/ProductsPage';
+import AppRoutes from './AppRoutes';
+import CartProvider from './CartProvider';
 
 function App() {
-  const [cartCount, setCartCount] = useState(0);
-
-
-  const updateCartCount = (count) => {
-    setCartCount(count);
-  };
-
   return (
     <>
-      <Navbar cartCount={cartCount} />
-      <AppRoutes cartCount={cartCount} updateCartCount={updateCartCount} />
-      <Footer />
+      <CartProvider>
+        <Navbar />
+        <AppRoutes />
+        <Footer />
+      </CartProvider>
     </>
   );
 }
 
 export default App;
+
+
