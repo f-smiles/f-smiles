@@ -32,16 +32,18 @@ const OurTeam = () => {
             <div key={index}>
               <span className="relative">
                 <span
-                  className={`bg-purple-500 h-full w-1 absolute left-0 top-0 transition-all duration-500 ${
+                  className={`bg-purple-500 h-full w-1 absolute left-0 top-0 transition-all duration-700 ${
                     activeAccordion === index ? "h-full" : "h-0"
-                  }`}
+                  } rounded-full`}
                 ></span>
                 <dt
-                  className="text-lg font-medium text-purple-900 cursor-pointer relative pl-4 focus:outline-none"
+                  className={`text-lg font-medium text-purple-900 cursor-pointer relative pl-4 focus:outline-none ${
+                    activeAccordion === index ? "mb-2" : ""
+                  }`}
                   onClick={() => toggleAccordion(index)}
                 >
                   <div className="flex items-start">
-                    <span className="pl-2">{member.name}</span>
+                    <span className="pl-2 text-xl">{member.name}</span>
                     {activeAccordion === index ? (
                       <ChevronUpIcon className="h-5 w-5" />
                     ) : (
@@ -50,10 +52,10 @@ const OurTeam = () => {
                   </div>
                   <Transition
                     show={activeAccordion === index}
-                    enter="transition-all duration-500"
+                    enter="transition-all duration-700"
                     enterFrom="opacity-0 max-h-0"
                     enterTo="opacity-100 max-h-[500px]"
-                    leave="transition-all duration-500"
+                    leave="transition-all duration-700"
                     leaveFrom="opacity-100 max-h-[500px]"
                     leaveTo="opacity-0 max-h-0"
                   >
@@ -73,8 +75,7 @@ const OurTeam = () => {
 
 export default OurTeam;
 
-// import { React, Fragment, useState, useRef } from "react";
-// import { Disclosure } from "@headlessui/react";
+
 // import { ChevronUpIcon } from "@heroicons/react/20/solid";
 // import { Transition } from "@headlessui/react";
 
@@ -251,3 +252,4 @@ export default OurTeam;
 // };
 
 // export default OurTeam;
+
