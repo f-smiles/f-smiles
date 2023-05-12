@@ -34,7 +34,7 @@ const OurTeam = () => {
       <div className=" mx-auto w-full max-w-screen-lg rounded-2xl bg-stone p-2 mt-16">
       <div className="mx-auto w-full max-w-screen-lg rounded-2xl p-2 mt-16 backdrop-blur-md bg-opacity-70 bg-gradient-conic from-fuchsia-300 via-green-400 to-rose-700">
         <h1 className="text-xl font-bold text-purple-900 relative mb-4">
-          Our Team
+          Our Doctors
         </h1>
         <dl className="space-y-8 overflow-hidden h-96">
           {Doctors.map((member, index) => (
@@ -72,6 +72,9 @@ const OurTeam = () => {
             </div>
           ))}
         </dl>
+        <h1 className="text-xl font-bold text-purple-900 relative mb-4">
+          Our Team
+        </h1>
       </div>
       </div>
     </main>
