@@ -4,11 +4,20 @@ import { ProductsArray, getProductData } from "./products";
 import Cart from "./Cart";
 import Navbar from "../Navbar";
 
+
+const getCartCount = (cartItems) => {
+  return cartItems.reduce((count, product) => count + product.count, 0);
+};
+
 const ProductsPage = () => {
   const [cart, setCart] = useState([]);
   const [total, setTotal] = useState(0);
   const [cartCount, setCartCount] = useState(0);
 
+
+  // const updateCartCount = (count) => {
+  //   setCartCount(count); // Update cartCount state
+  // };
   useEffect(() => {
     const savedCart = JSON.parse(localStorage.getItem("cart"));
     if (savedCart) {
@@ -20,7 +29,7 @@ const ProductsPage = () => {
       setTotal(savedTotal);
       setCartCount(getCartCount(savedCart));
     }
-  }, []);
+  },[]);
 
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
@@ -51,6 +60,7 @@ const ProductsPage = () => {
 
       setTotal((prevTotal) => prevTotal + productData.price);
       setCartCount(getCartCount(cart));
+      // updateCartCount(getCartCount(cart));
     }
   };
 
@@ -62,12 +72,11 @@ const ProductsPage = () => {
       localStorage.setItem("cart", JSON.stringify(updatedCart));
       setTotal(total - removedProduct.price);
       setCartCount(getCartCount(updatedCart));
+      // updateCartCount(getCartCount(updatedCart));
     }
   };
 
-  const getCartCount = (cartItems) => {
-    return cartItems.reduce((count, product) => count + product.count, 0);
-  };
+
 
   return (
     <div>
@@ -90,21 +99,24 @@ const ProductsPage = () => {
             </div>
           );
         })}
-        <Cart products={cart} removeFromCart={removeFromCart} />
+        {/* <Cart products={cart} removeFromCart={removeFromCart} /> */}
       </section>
     </div>
   );
 };
 
-const Card = ({id, image, name, description, price, addToCart }) => {
-  const [hover, setHover] = useState(false)
+const Card = ({ id, image, name, description, price, addToCart }) => {
+  const [hover, setHover] = useState(false);
+
+ 
+
   
   return (
     <div
       data-aos="fade-up"
       data-aos-duration="750"
       data-aos-easing="linear"
-      className="bg-8F8EA0 bg-opacity-25 max-w-xs px-12 pb-12 pt-20 flex flex-col"
+      className="bg-gradient-to-br from-violet-100 to-violet-300 bg-opacity-50 max-w-xs px-12 pb-12 pt-20 flex flex-col"
       // bg-F1F1F0 
     >
       <Link to={`/products/${id}`}>

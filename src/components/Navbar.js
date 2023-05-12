@@ -1,45 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { Transition } from '@headlessui/react'
 import Sphere from "./navbar/sketch";
+import CartContext from "../app/CartContext";
 
-
-export default function DesktopNavbar({cartCount}) {
+export default function DesktopNavbar() {
+  const { cartCount, updateCartCount } = useContext(CartContext);
   const [show, setShow] = useState(null);
-  const [cart, setCart] = useState([]);
+  // const [cartCount, setCartCount] = useState(0);
+  // const [cart, setCart] = useState([]);
   const [about, setAbout] = useState(false);
   const [patient, setPatient] = useState(false);
   const [treatments, setTreatments] = useState(false);
   const [total, setTotal] = useState(0);
 
-  const addToCart = (product) => {
-    const updatedCart = [...cart, product];
-    const updatedTotal = total + product.price;
-    setCart(updatedCart);
-    setTotal(updatedTotal);
-  
-    localStorage.setItem("cart", JSON.stringify(updatedCart));
-    localStorage.setItem("total", JSON.stringify(updatedTotal));
-  };
-  
-  const removeFromCart = (product) => {
-    const updatedCart = cart.filter((item) => item !== product);
-    const updatedTotal = total - product.price;
-    setCart(updatedCart);
-    setTotal(updatedTotal);
-    localStorage.setItem("cart", JSON.stringify(updatedCart));
-    localStorage.setItem("total", JSON.stringify(updatedTotal));
-  };
-  
-  useEffect(() => {
-    const storedCart = JSON.parse(localStorage.getItem("cart"));
-    const storedTotal = JSON.parse(localStorage.getItem("total"));
-
-    if (storedCart && storedTotal) {
-      setCart(storedCart);
-      setTotal(storedTotal);
-    }
-  }, []);
 
   const handleMouseOver = () => {
     setTreatments(true);
@@ -273,12 +247,12 @@ export default function DesktopNavbar({cartCount}) {
               </div>
             </div>
             <li className="cursor-pointer flex hover:text-indigo-700 transition duration-150 ease-in-out flex items-center text-sm text-white tracking-normal text-white hover:text-indigo-700">
-              <NavLink
-                to="/patient-login"
-                className="cursor-pointer block text-sm leading-3 tracking-normal px-3 font-normal"
-              >
-                Patient Login
-              </NavLink>
+            <a
+  href="https://my.orthoblink.com/bLink/Login"
+  className="cursor-pointer block text-sm leading-3 tracking-normal px-3 font-normal"
+>
+  Patient Login
+</a>
             </li>
             <li className="cursor-pointer flex hover:text-indigo-700 transition duration-150 ease-in-out flex items-center text-sm text-white tracking-normal text-white hover:text-indigo-700">
               <NavLink
@@ -298,22 +272,19 @@ export default function DesktopNavbar({cartCount}) {
             </li>
           </ul>
           <div className="flex items-center">
-            <li className="z-10">
-          
-              <NavLink 
-                to="/checkout"
-                className="cursor-pointer block text-sm leading-3 tracking-normal px-3 font-normal hover:text-violet-500 transition duration-500 ease-in-out"
-                >
-                   
-                <span className="flex items-center gap-1">
-                  Bag
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
-                  </svg>
-                  {cartCount}
-                </span>
-              </NavLink>
-            </li>
+          <li className="z-10">
+            
+  <NavLink to="/checkout" className="cursor-pointer block text-sm leading-3 tracking-normal px-3 font-normal hover:text-violet-500 transition duration-500 ease-in-out">
+    <span className="flex items-center gap-1">
+      Bag
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" fillRule="evenodd" viewBox="0 0 22 24" stroke="purple" className="w-8 h-5">
+        <path className="bag-path-static text-gray-700" d="M17.54 5.424a.47.47 0 0 1 .46.474v17.627a.47.47 0 0 1-.46.475H.46a.47.47 0 0 1-.46-.475V5.898a.47.47 0 0 1 .46-.474h4.795v-1.56C5.255 1.733 6.935 0 9 0c2.065 0 3.745 1.733 3.745 3.864v1.56zm-11.365 0h5.64v-1.56c0-1.608-1.264-2.915-2.82-2.915-1.555 0-2.82 1.307-2.82 2.915zm10.905.949h-4.335V8.61a.47.47 0 0 1-.46.475.47.47 0 0 1-.46-.475V6.373h-5.65V8.61a.47.47 0 0 1-.46.475.47.47 0 0 1-.46-.475V6.373H.92V23.05h16.16z" strokeWidth="1"></path>
+        <text x="6" y="18" fill="black" fontSize="12">{cartCount}</text>
+      </svg>
+    </span>
+  </NavLink>
+</li>
+
             <li className="cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-3 hover:text-white font-normal">
     <NavLink
       to="/book-now"
@@ -629,3 +600,4 @@ export default function DesktopNavbar({cartCount}) {
     </>
   );
 }
+
