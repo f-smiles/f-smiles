@@ -66,4 +66,3 @@ const CartProvider = ({ children }) => {
 };
 
 export default CartProvider;
-
