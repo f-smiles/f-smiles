@@ -1,4 +1,3 @@
-
 import { ChevronUpIcon, ChevronDownIcon } from "@heroicons/react/20/solid";
 import { Fragment, useState } from "react";
 import { Transition } from "@headlessui/react";
@@ -12,69 +11,106 @@ const OurTeam = () => {
 
   const Doctors = [
     {
-      name: "Dr.Gregg Frey",
+      name: "Gregg Frey, DDS",
       img: "",
       bio: "Dr. Gregg Frey is an orthodontist based in Pennsylvania, who graduated from Temple University School of Dentistry with honors and served in the U.S. Navy Dental Corps before establishing his practice in the Lehigh Valley. He is a Diplomat of the American Board of Orthodontics and has received numerous distinctions, accreditations, and honors,including being named one of America's Top Orthodontists by the Consumer Review Council of America. This distinction is held by fewer than 25% of orthodontists nationwide. ABO certification represents the culmination of 5-10 years of written and oral examinations and independent expert review of actual treated patients. Recently Dr. Frey voluntarily re-certified. Dr. Frey enjoys coaching soccer, vintage car racing, and playing the drums. He is joined by his son, Dr Daniel Frey, at FreySmiles Orthodontics.",
     },
     {
-      name: "Dr. Daniel Frey",
+      name: "Daniel Frey, DMD, MSD",
       img: "",
       bio: "Raised in the Lehigh Valley, Dr. Daniel Frey had a passion for youth soccer and explored his creative interests in music and film production during his adolescence. He graduated from Blair Academy in Blairstown, NJ in 2005. He then pursued his pre-dental requisites at the University of Pittsburgh,majoring in Biology. Dr. Frey excelled in his studies and was admitted to Temple University's dental school, graduating at the top of his class with the prestigious Summa Cum Laude designation.Continuing his education, Dr. Frey was admitted to the esteemed orthodontic residency program at the University of the Pacific in San Francisco, CA, where he worked with faculty from around the world and utilized cutting-edge orthodontic techniques. During his time in San Francisco, he conducted research in three-dimensional craniofacial analysis and earned his Master of Science degree. Dr. Frey is a member of the American Association of Orthodontists and the American Dental Association. In his leisure time, he enjoys staying active outdoors, camping, playing music, cooking, and spending time with loved ones.",},
   ];
 
+  const Members = [
+    {
+      name: "Alyssa",
+      role: "Treatment Coordinator",
+      img: "../../images/team_members/Alyssa.jpg",
+    },
+    {
+      name: "Lexi",
+      role: "Treatment Coordinator",
+      img: "../../images/team_members/Lexi.jpg",
+    },
+    {
+      name: "Alicia",
+      role: "Specialized Orthodontic Assistant",
+      img: "../../images/team_members/Alicia.jpg",
+    },
+    {
+      name: "Dana",
+      role: "Marketing Coordinator",
+      img: "../../images/team_members/Dana.jpg",
+    },
+    {
+      name: "Lizzie",
+      role: "Patient Services",
+      img: "../../images/team_members/Lizzie.jpg",
+    },
+    {
+      name: "Kayli",
+      role: "Financial Coordinator",
+      img: "../../images/team_members/Kayli.jpg",
+    },
+    {
+      name: "Adriana",
+      role: "Insurance Coordinator",
+      img: "../../images/team_members/Adriana.jpg",
+    },
+    {
+      name: "Ibis",
+      role: "Lab Manager",
+      img: "../../images/team_members/Ibis.jpg",
+    },
+    {
+      name: "Aleah",
+      role: "Specialized Orthodontic Assistant",
+      img: "../../images/team_members/Aleah.jpg",
+    },
+    {
+      name: "Nicolle",
+      role: "Specialized Orthodontic Assistant",
+      img: "../../images/team_members/Nicolle.jpg",
+    },
+    {
+      name: "Grace",
+      role: "Specialized Orthodontic Assistant",
+      img: "../../images/team_members/Grace.jpg"
+    },
+    {
+      name: "Samantha",
+      role: "Patient Services",
+      img: "../../images/team_members/Samantha.jpg",
+    },
+    {
+      name: "Elizabeth",
+      role: "Patient Services",
+      img: "../../images/team_members/Elizabeth.jpg",
+    },
+  ]
+
   return (
-    <main className="w-full px-4 pt-16">
-      <div className="mx-auto w-full max-w-screen-lg rounded-2xl bg-white p-2 mt-16">
+    <main   className="custom-background"
+      style={{
+        backgroundColor: 'rgb(237, 234, 232)',
+        backgroundImage:
+          'linear-gradient(#ddbb99 2px, transparent 2px), linear-gradient(90deg, #ddbb99 2px, transparent 2px), linear-gradient(rgba(153,221,187,.3) 1px, transparent 1px), linear-gradient(90deg, rgba(153,221,187,.3) 1px, transparent 1px)',
+        backgroundSize: '100px 100px, 100px',
+        backgroundPosition: '-2px -2px, -2px -2px, -1px -1px, -1px -1px',
+      }}>
+    
+      {/* <div className=" mx-auto w-full max-w-screen-lg rounded-2xl bg-stone p-2 mt-16"> */}
+      <section className="mx-auto w-full max-w-screen-lg rounded-2xl p-2 mt-16 backdrop-blur-md bg-opacity-70 bg-gradient-conic from-fuchsia-300 via-green-400 to-rose-700">
         <h1 className="text-xl font-bold text-purple-900 relative mb-4">
-          Our Team
+          Our Doctors
         </h1>
-
-        <dl className="space-y-4 overflow-hidden h-96">
-          {teamMembers.map((member, index) => (
-            <div key={index}>
-              <dt
-                className="text-lg font-medium text-purple-900 cursor-pointer relative pl-4 focus:outline-none content-center"
-                onClick={() => toggleAccordion(index)}
-              >
-                {/* <ChevronUpIcon
-                  className={`${
-                    activeAccordion === index ? "transform rotate-180" : ""
-                  } h-5 w-5 text-purple-500 mr-2`}
-                /> */}
-                <span
-                  className={`bg-violet-300 h-full w-1 absolute top-0 left-0 transition-all duration-500 ${
-                    activeAccordion === index ? "bg-violet-500 h-full" : "h-0"
-                  }`}
-                ></span>
-                <p className="py-4">{member.name}</p>
-              </dt>
-
-              <Transition
-                show={activeAccordion === index}
-                enter="transition-all duration-500"
-                enterFrom="-mt-10 opacity-0"
-                enterTo="mt-0 opacity-100"
-                leave="transition-all duration-500"
-                leaveFrom="mt-0 opacity-100"
-                leaveTo="-mt-10 opacity-0"
-              >
-                <dd className="relative text-sm text-gray-500 pl-7">
-                  <span
-                    className={`bg-violet-300 h-full w-1 absolute top-0 left-0 transition-all duration-500 ${
-                      activeAccordion === index ? "bg-violet-500 h-full" : "h-0"
-                    }`}
-                  ></span>
-                  <p>{member.bio}</p>
-                </dd>
-              </Transition>
-
         <dl className="space-y-8 overflow-hidden h-96">
           {Doctors.map((member, index) => (
             <div key={index}>
               <span className="relative">
                 <span
-                  className={`bg-purple-500 h-full w-1 absolute left-0 top-0 transition-all duration-700 ${
-                    activeAccordion === index ? "h-full" : "h-0"
+                  className={`bg-purple-300 h-full w-1 absolute left-0 top-0 transition-all duration-700 ${
+                    activeAccordion === index ? "bg-purple-500 h-full" : "h-0"
                   } rounded-full`}
                 ></span>
                 <dt
@@ -85,11 +121,6 @@ const OurTeam = () => {
                 >
                   <div className="flex items-start">
                     <span className="pl-2 text-xl">{member.name}</span>
-                    {activeAccordion === index ? (
-                      <ChevronUpIcon className="h-5 w-5" />
-                    ) : (
-                      <ChevronDownIcon className="h-5 w-5" />
-                    )}
                   </div>
                   <Transition
                     show={activeAccordion === index}
@@ -106,11 +137,53 @@ const OurTeam = () => {
                   </Transition>
                 </dt>
               </span>
-
             </div>
           ))}
         </dl>
-      </div>
+      </section>
+      <section className="mx-auto w-full max-w-screen-lg rounded-2xl p-2 mt-16 backdrop-blur-md bg-opacity-70 bg-gradient-conic from-fuchsia-300 via-green-400 to-rose-700">
+        <h1 className="text-xl font-bold text-purple-900 relative mb-4">
+          Our Team
+        </h1>
+      <dl className="space-y-4 overflow-hidden">
+          {Members.map((member, index) => (
+            <div key={index}>
+              <dt
+                className="text-lg font-medium text-purple-900 cursor-pointer relative pl-4 focus:outline-none content-center"
+                onClick={() => toggleAccordion(index)}
+              >
+                <span
+                  className={`bg-violet-300 h-full w-1 absolute top-0 left-0 transition-all duration-500 ${
+                    activeAccordion === index ? "bg-violet-500 rounded-t-full h-full" : "h-0"
+                  }`}
+                ></span>
+                <p className="py-4">{member.name} - {member.role}</p>
+              </dt>
+
+              <Transition
+                show={activeAccordion === index}
+                enter="transition-all duration-500"
+                enterFrom="-mt-10 opacity-0"
+                enterTo="mt-0 opacity-100"
+                leave="transition-all duration-500"
+                leaveFrom="mt-0 opacity-100"
+                leaveTo="-mt-10 opacity-0"
+              >
+                <dd className="relative text-sm text-gray-500 pl-7">
+                  <span
+                    className={`bg-violet-300 h-full w-1 absolute top-0 left-0 transition-all duration-500 ${
+                      activeAccordion === index ? "bg-violet-500 rounded-b-full h-full" : "h-0"
+                    }`}
+                  ></span>
+                  <img src={member.img} />
+                  <caption className="w-max">{member.role}</caption>
+                </dd>
+              </Transition>
+      
+            </div>
+          ))}
+        </dl>
+      </section>
     </main>
   );
 };
@@ -294,4 +367,3 @@ export default OurTeam;
 // };
 
 // export default OurTeam;
-
