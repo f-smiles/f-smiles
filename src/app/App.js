@@ -1,19 +1,23 @@
-import { useState } from 'react';
-import AppRoutes from './AppRoutes';
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import ProductsPage from '../components/stripe/ProductsPage';
+import AppRoutes from './AppRoutes';
+import CartProvider from './CartProvider';
 
 function App() {
-  const [cartCount, setCartCount] = useState(0);
-
   return (
     <>
-      <Navbar cartCount={cartCount} />
-      <AppRoutes setCartCount={setCartCount} />
-      <Footer />
+      <CartProvider>
+        <Navbar />
+        <AppRoutes />
+        <Footer />
+      </CartProvider>
     </>
   );
 }
 
 export default App;
+
 

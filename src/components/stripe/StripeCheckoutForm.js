@@ -74,7 +74,7 @@ const StripeCheckoutForm = ({ total }) => {
   return (
     <div>
       <h1>Checkout</h1>
-      <h2>Total: ${total}</h2>
+      {/* <h2>Total: ${total}</h2> */}
       <StripeCheckout
         token={handleToken}
         stripeKey={process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY}

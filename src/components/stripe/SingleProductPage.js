@@ -8,6 +8,7 @@ const SingleProductPage = () => {
   const productData = getProductData(id);
   const [cart, setCart] = useState([]);
   const [total, setTotal] = useState(0);
+  const [quantity, setQuantity] = useState(1);
 
   useEffect(() => {
     const storedCart = localStorage.getItem("cart");
@@ -28,10 +29,40 @@ const SingleProductPage = () => {
     console.log("Adding product to cart:", productId);
     const productData = getProductData(productId);
     if (productData !== undefined) {
-      setCart([...cart, productData]);
-      setTotal(total + productData.price);
-      localStorage.setItem("cart", JSON.stringify([...cart, productData]));
-      localStorage.setItem("total", total + productData.price);
+      const existingProductIndex = cart.findIndex(
+        (product) => product.id === productId
+      );
+  
+      const quantityToAdd = quantity; 
+  
+      if (existingProductIndex !== -1) {
+        const updatedCart = [...cart];
+        updatedCart[existingProductIndex].count += quantityToAdd;
+        setCart(updatedCart);
+        localStorage.setItem("cart", JSON.stringify(updatedCart));
+      } else {
+        const updatedProductData = {
+          ...productData,
+          count: quantityToAdd, 
+        };
+        const updatedCart = [...cart, updatedProductData];
+        setCart(updatedCart);
+        localStorage.setItem("cart", JSON.stringify(updatedCart));
+      }
+  
+      setTotal((prevTotal) => prevTotal + productData.price * quantityToAdd); 
+      localStorage.setItem("total", total + productData.price * quantityToAdd);
+    }
+  };
+  
+
+  const handleIncrement = () => {
+    setQuantity(quantity + 1);
+  };
+
+  const handleDecrement = () => {
+    if (quantity > 1) {
+      setQuantity(quantity - 1);
     }
   };
 
@@ -51,6 +82,7 @@ const SingleProductPage = () => {
               opacity: 0.9,
               backgroundSize: "50%", 
               backgroundPosition: "left",
+              zIndex:-1,
             }}
           ></div>
         <div className="w-2/3 p-4 flex flex-col justify-center">
@@ -61,11 +93,31 @@ const SingleProductPage = () => {
             {productData.description}
           </p>
           <div className="flex items-center mb-2">
+         
           </div>
+          
           <div className="flex items-center justify-between">
             <h1 className="text-gray-700 font-bold text-xl">
               {productData.price} USD
             </h1>
+            
+            <div className="flex items-center">
+              <button
+                onClick={handleDecrement}
+                className="px-2 py-1 bg-gray-200 text-gray-700 rounded"
+                style={{ zIndex: 10 }}
+              >
+                -
+              </button>
+              <span className="px-4 text-gray-700">{quantity}</span>
+              <button
+                onClick={handleIncrement}
+                className="px-2 py-1 bg-gray-200 text-gray-700 rounded"
+                style={{ zIndex: 10 }}
+              >
+                +
+              </button>
+            </div>
             <button
               onClick={() => addToCart(productData.id)}
               className="hover:bg-gray-600 px-4 py-2 bg-cyan-500 text-white text-sm font-bold uppercase rounded z-10"
