@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Allentown = () => {
+const Locations = () => {
   return (
 <main className="w-full mt-20 relative" style={{ backgroundImage: `url("../../images/landscape.png")`, backgroundSize: "75%", backgroundPosition: "top left", backgroundRepeat: "no-repeat" }}>
   <a href="#" className="go-down-btn" title="Scroll down">
@@ -328,4 +328,4 @@ const Allentown = () => {
   );
 };
 
-export default Allentown;
+export default Locations;

@@ -1,5 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
+
+import { Link, NavLink } from "react-router-dom";
+import StripeCheckout from "react-stripe-checkout";
+
+
+
 import StripeCheckoutForm from "./StripeCheckoutForm";
 
 const Cart = ({ products, removeFromCart, updateCart }) => {
@@ -48,8 +53,17 @@ const Cart = ({ products, removeFromCart, updateCart }) => {
         description="Checkout"
         total={total}
       />
+
+        <button type="button">
+          <NavLink to="/checkout">
+            Checkout
+          </NavLink>
+        </button>
+      
+
     
       <button>Checkout</button>
+
     </div>
   );
 };
