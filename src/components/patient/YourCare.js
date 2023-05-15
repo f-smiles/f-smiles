@@ -9,15 +9,15 @@ const YourCare = () => {
     );
   };
   return (
-    <div className="mt-20 max-w-xl">
+    <div className="mt-20 max-w-xl" style={{ paddingTop: '30px' }} >
       <div className="flex flex-col justify-start">
         <div
-          className={`border-t-2 border-gray-300 py-3 px-4 flex justify-between items-center cursor-pointer select-none ${
+          className={`border-t-2 border-indigo-300 py-3 px-4 flex justify-between items-center cursor-pointer select-none ${
             activeAccordion[0] ? "bg-white" : ""
           }`}
           onClick={() => toggleAccordion(0)}
         >
-          <h2 className="text-lg font-medium">Who You'll Be Meeting</h2>
+          <h2 className="text-lg font-medium">Your First Visit</h2>
           <svg
             className={`h-6 w-6 transform ${
               activeAccordion[0] ? "rotate-180" : ""
@@ -40,7 +40,7 @@ const YourCare = () => {
           }`}
         >
           <p>
-            During your first visit you’ll get to know some of the friendly
+            During your initial visit you’ll get to know some of the friendly
             faces of the FreySmiles orthodontic team and see what makes us
             unique. We are always excited about meeting new patients. Your first
             appointment will consist of a thorough orthodontic examination
@@ -50,7 +50,7 @@ const YourCare = () => {
           </p>
         </div>
         <div
-          className={`border-t-2 border-gray-300 py-3 px-4 flex justify-between items-center cursor-pointer select-none ${
+          className={`border-t-2 border-indigo-300 py-3 px-4 flex justify-between items-center cursor-pointer select-none ${
             activeAccordion[1]  ? "bg-white" : ""
           }`}
           onClick={() => toggleAccordion(1)}
@@ -84,7 +84,7 @@ const YourCare = () => {
           </p>
         </div>
         <div
-          className={`border-t-2 border-gray-300 py-3 px-4 flex justify-between items-center cursor-pointer select-none ${
+          className={`border-t-2 border-indigo-300 py-3 px-4 flex justify-between items-center cursor-pointer select-none ${
             activeAccordion[2]  ? "bg-white" : ""
           }`}
           onClick={() => toggleAccordion(2)}
@@ -124,7 +124,7 @@ const YourCare = () => {
           </p>
         </div>
         <div
-          className={`border-t-2 border-gray-300 py-3 px-4 flex justify-between items-center cursor-pointer select-none ${
+          className={`border-t-2 border-indigo-300 py-3 px-4 flex justify-between items-center cursor-pointer select-none ${
             activeAccordion[3] ? "bg-white" : ""
           }`}
           onClick={() => toggleAccordion(3)}
@@ -151,7 +151,7 @@ const YourCare = () => {
             activeAccordion[3] ? "max-h-96" : "max-h-0"
           }`}
         >
-          <p>
+          <p >
             {" "}
             Since treatment plans and payment options may be discussed, we ask
             that a parent or guardian be present for the first visit. Including
