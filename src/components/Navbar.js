@@ -1,20 +1,23 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { Transition } from '@headlessui/react'
 import Sphere from "./navbar/sketch";
 import CartContext from "../app/CartContext";
 
 export default function DesktopNavbar() {
-  const { cartCount } = useContext(CartContext);
+  const { cartCount, total } = useContext(CartContext);
   const [show, setShow] = useState(null);
   // const [cartCount, setCartCount] = useState(0);
   // const [cart, setCart] = useState([]);
   const [about, setAbout] = useState(false);
   const [patient, setPatient] = useState(false);
   const [treatments, setTreatments] = useState(false);
-  const [total, setTotal] = useState(0);
 
 
+  useEffect(() => {
+    // Any logic you want to perform when cartCount changes
+    console.log("cartCount has changed:", cartCount);
+  }, [cartCount]);
   const handleMouseOver = () => {
     setTreatments(true);
     clearTimeout(hideTimeoutId);

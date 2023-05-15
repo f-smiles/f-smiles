@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect} from "react";
 import CartContext from "./CartContext";
 
 const CartProvider = ({ children }) => {
@@ -6,10 +6,6 @@ const CartProvider = ({ children }) => {
   const [total, setTotal] = useState(0);
   const [cartCount, setCartCount] = useState(0);
 
-
-  const updateCartCount = (count) => {
-    setCartCount(count);
-  };
 
   useEffect(() => {
     const storedCart = JSON.parse(localStorage.getItem("cart"));
@@ -20,13 +16,9 @@ const CartProvider = ({ children }) => {
       setCart(storedCart);
       setTotal(storedTotal);
     }
-  }, [cart,total]);
+  }, []);
 
-  useEffect(() => {
-    const count = cart.reduce((totalCount, item) => totalCount + item.count, 0);
-    setCartCount(count);
-  }, [cart, total]);
-  
+
 
   const addToCart = (product) => {
     const updatedCart = [...cart, product];
@@ -35,10 +27,9 @@ const CartProvider = ({ children }) => {
     setTotal(updatedTotal);
     localStorage.setItem("cart", JSON.stringify(updatedCart));
     localStorage.setItem("total", JSON.stringify(updatedTotal));
-    updateCartCount(cartCount + 1);
-    
+    setCartCount((prevCount) => prevCount + 1);
   };
-
+  
   const removeFromCart = (product) => {
     const updatedCart = cart.filter((item) => item !== product);
     const updatedTotal = total - product.price;
@@ -46,9 +37,8 @@ const CartProvider = ({ children }) => {
     setTotal(updatedTotal);
     localStorage.setItem("cart", JSON.stringify(updatedCart));
     localStorage.setItem("total", JSON.stringify(updatedTotal));
-    updateCartCount(cartCount - 1);
+    setCartCount(cartCount - 1); // Update cartCount directly
   };
-
 
   const value = {
     cart,
