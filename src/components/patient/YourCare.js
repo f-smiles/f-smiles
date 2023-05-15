@@ -9,11 +9,11 @@ const YourCare = () => {
     );
   };
   return (
-    <div className="mt-20 max-w-2xl mx-auto">
-      <div className="flex flex-col">
+    <div className="mt-20 max-w-xl">
+      <div className="flex flex-col justify-start">
         <div
           className={`border-t-2 border-gray-300 py-3 px-4 flex justify-between items-center cursor-pointer select-none ${
-            activeAccordion[0] ? "bg-gray-100" : ""
+            activeAccordion[0] ? "bg-white" : ""
           }`}
           onClick={() => toggleAccordion(0)}
         >
@@ -51,7 +51,7 @@ const YourCare = () => {
         </div>
         <div
           className={`border-t-2 border-gray-300 py-3 px-4 flex justify-between items-center cursor-pointer select-none ${
-            activeAccordion[1]  ? "bg-gray-100" : ""
+            activeAccordion[1]  ? "bg-white" : ""
           }`}
           onClick={() => toggleAccordion(1)}
         >
@@ -85,7 +85,7 @@ const YourCare = () => {
         </div>
         <div
           className={`border-t-2 border-gray-300 py-3 px-4 flex justify-between items-center cursor-pointer select-none ${
-            activeAccordion[2]  ? "bg-gray-100" : ""
+            activeAccordion[2]  ? "bg-white" : ""
           }`}
           onClick={() => toggleAccordion(2)}
         >
@@ -125,7 +125,7 @@ const YourCare = () => {
         </div>
         <div
           className={`border-t-2 border-gray-300 py-3 px-4 flex justify-between items-center cursor-pointer select-none ${
-            activeAccordion[3] ? "bg-gray-100" : ""
+            activeAccordion[3] ? "bg-white" : ""
           }`}
           onClick={() => toggleAccordion(3)}
         >
