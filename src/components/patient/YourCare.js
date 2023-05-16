@@ -348,8 +348,8 @@ const YourCare = () => {
           </div>
         </div>
         <div className="flex-1 flex justify-end">
-        <div className="max-h-96 overflow-hidden">
-            <img src="../../images/scan.jpg" alt="scan" />
+        <div className=" max-h-96 overflow-hidden">
+        <img className="w-full h-auto" src="../../images/chair.jpg" alt="scan" style={{ maxWidth: '100%', maxHeight: '100%' }} />
           </div>
 
         </div>
