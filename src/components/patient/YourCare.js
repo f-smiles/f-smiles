@@ -5,19 +5,19 @@ const YourCare = () => {
 
   const toggleAccordion = (index) => {
     setActiveAccordion((prevState) =>
-      prevState.map((isActive, i) => (i === index ? !isActive : isActive))
+      prevState.map((isActive, i) => (i === index ? !isActive : false))
     );
   };
   return (
     <div className="mt-20 max-w-xl" style={{ paddingTop: '30px' }} >
       <div className="flex flex-col justify-start">
         <div
-          className={`border-t-2 border-indigo-300 py-3 px-4 flex justify-between items-center cursor-pointer select-none ${
+          className={` py-3 px-4 flex justify-between items-center cursor-pointer select-none ${
             activeAccordion[0] ? "bg-white" : ""
           }`}
           onClick={() => toggleAccordion(0)}
         >
-          <h2 className="text-lg font-medium">Your First Visit</h2>
+          <h2 className="flex text-lg font-medium ml-16 text-indigo-700 ">Your First Visit</h2>
           <svg
             className={`h-6 w-6 transform ${
               activeAccordion[0] ? "rotate-180" : ""
@@ -39,6 +39,7 @@ const YourCare = () => {
             activeAccordion[0] ? "max-h-96" : "max-h-0"
           }`}
         >
+     
           <p>
             During your initial visit you’ll get to know some of the friendly
             faces of the FreySmiles orthodontic team and see what makes us
@@ -50,12 +51,12 @@ const YourCare = () => {
           </p>
         </div>
         <div
-          className={`border-t-2 border-indigo-300 py-3 px-4 flex justify-between items-center cursor-pointer select-none ${
+          className={`border-t border-indigo-300 border-t-1 border-indigo-300 py-3 px-4 flex justify-between items-center cursor-pointer select-none ${
             activeAccordion[1]  ? "bg-white" : ""
           }`}
           onClick={() => toggleAccordion(1)}
         >
-          <h2 className="text-lg font-medium">Accordion Item #2</h2>
+          <h2 className="text-lg font-medium ml-16">Accordion Item #2</h2>
           <svg
             className={`h-6 w-6 transform ${
               activeAccordion[1]  ? "rotate-180" : ""
@@ -84,12 +85,12 @@ const YourCare = () => {
           </p>
         </div>
         <div
-          className={`border-t-2 border-indigo-300 py-3 px-4 flex justify-between items-center cursor-pointer select-none ${
+          className={`border-t border-indigo-300 py-3 px-4 flex justify-between items-center cursor-pointer select-none ${
             activeAccordion[2]  ? "bg-white" : ""
           }`}
           onClick={() => toggleAccordion(2)}
         >
-          <h2 className="text-lg font-medium">Growth And Guidance</h2>
+          <h2 className="text-lg font-medium ml-16 text-indigo-700">Growth And Guidance</h2>
           <svg
             className={`h-6 w-6 transform ${
               activeAccordion[2]  ? "rotate-180" : ""
@@ -124,12 +125,12 @@ const YourCare = () => {
           </p>
         </div>
         <div
-          className={`border-t-2 border-indigo-300 py-3 px-4 flex justify-between items-center cursor-pointer select-none ${
+          className={`border-t border-indigo-300 py-3 px-4 flex justify-between items-center cursor-pointer select-none ${
             activeAccordion[3] ? "bg-white" : ""
           }`}
           onClick={() => toggleAccordion(3)}
         >
-          <h2 className="text-lg font-medium">What To Bring</h2>
+          <h2 className="text-lg font-medium ml-16 text-indigo-700">What To Bring</h2>
           <svg
             className={`h-6 w-6 transform ${
               activeAccordion[3]  ? "rotate-180" : ""
@@ -163,10 +164,89 @@ const YourCare = () => {
             hesitate to ask questions.
           </p>
         </div>
+        
       </div>
+      <img src="../../images/scan.jpg" alt="scan"  />
     </div>
   );
 };
 
 export default YourCare;
 
+// import React, { useState } from "react";
+
+// const YourCare = () => {
+//   const [activeAccordion, setActiveAccordion] = useState([
+//     false,
+//     false,
+//     false,
+//     false,
+//   ]);
+
+//   const toggleAccordion = (index) => {
+//     setActiveAccordion((prevState) =>
+//       prevState.map((isActive, i) => (i === index ? !isActive : false))
+//     );
+//   };
+
+//   return (
+//     <div className="mt-20 max-w-xl" style={{ paddingTop: '30px' }} >
+//       <div className="flex flex-col justify-start">
+//         <div
+//           className={` py-3 px-4 flex justify-between items-center cursor-pointer select-none ${
+//             activeAccordion[0] ? "bg-white" : ""
+//           }`}
+//           onClick={() => toggleAccordion(0)}
+//         >
+//           <div className="flex items-center">
+//             <h2 className="flex text-lg font-medium ml-16 text-indigo-700 ">Your First Visit</h2>
+//             <svg
+//               className={`h-6 w-6 transform ${
+//                 activeAccordion[0] ? "rotate-180" : ""
+//               }`}
+//               fill="none"
+//               viewBox="0 0 24 24"
+//               stroke="currentColor"
+//             >
+//               <path
+//                 strokeLinecap="round"
+//                 strokeLinejoin="round"
+//                 strokeWidth={2}
+//                 d={activeAccordion[0] ? "M5 15l7-7 7 7" : "M19 9l-7 7-7-7"}
+//               />
+//             </svg>
+//           </div>
+//         </div>
+//         <div
+//           className={`overflow-hidden transition-all duration-1000 ${
+//             activeAccordion[0] ? "max-h-96" : "max-h-0"
+//           }`}
+//         >
+//           <p>
+//             During your initial visit you’ll get to know some of the friendly
+//             faces of the FreySmiles orthodontic team and see what makes us
+//             unique. We are always excited about meeting new patients. Your first
+//             appointment will consist of a thorough orthodontic examination
+//             including photos, a digital radiograph of your teeth, and a
+//             discussion of your options. This important 60-90 minute visit will
+//             give us a picture of your orthodontic needs.
+//           </p>
+//           <p>
+//             Second paragraph text...
+//           </p>
+//           <p>
+//             Third paragraph text...
+//           </p>
+//           <p>
+//             Fourth paragraph text...
+//           </p>
+//         </div>
+//       </div>
+//       <div className="flex justify-end">
+//         <img src="../../images/scan.jpg" alt="scan" className="ml-4" />
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default YourCare;
