@@ -110,7 +110,7 @@ const VirtualConsultation = () => {
     }}>
       {emailSent ? (
         <span className={emailSent ? "block" : "hidden"}>
-        Thank you for your message, we will be in touch in no time!
+        Thank you for your message, we will be in touch soon!
         </span>
       ) : (
         <>

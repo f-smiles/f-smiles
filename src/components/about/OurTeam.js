@@ -114,8 +114,13 @@ const OurTeam = () => {
   ];
 
   return (
-    <main className="w-full px-4 pt-16">
-      <div className="mx-auto w-full max-w-screen-lg rounded-2xl bg-white p-2 mt-16">
+    <main id="contact-form" className="mt-20 p-8" style={{ backgroundImage: `url("../../images/logo.png")`,
+    backgroundSize: "110%",
+    backgroundPositionX: "-290%",
+    backgroundPositionY: "center",
+    backgroundRepeat: "no-repeat",
+    }}>
+      <div className=" opacity-50 mx-auto w-full max-w-screen-lg rounded-2xl bg-white p-2 mt-16">
         <h1 className="text-xl font-bold text-purple-900 relative mb-4">
           Our Team
         </h1>
