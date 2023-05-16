@@ -349,7 +349,7 @@ const YourCare = () => {
         </div>
         <div className="flex-1 flex justify-end">
         <div className=" max-h-96 overflow-hidden">
-        <img className="opacity-90 w-full h-auto" src="../../images/chair.jpg" alt="scan" style={{ maxWidth: '100%', maxHeight: '100%' }} />
+        <img className="opacity-90 w-full h-auto" src="../../images/itero.png" alt="scan" style={{ maxWidth: '100%', maxHeight: '100%' }} />
           </div>
 
         </div>

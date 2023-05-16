@@ -15,7 +15,6 @@ export default function DesktopNavbar() {
 
 
   useEffect(() => {
-    // Any logic you want to perform when cartCount changes
     console.log("cartCount has changed:", cartCount);
   }, [cartCount]);
   const handleMouseOver = () => {
