@@ -190,8 +190,8 @@ const YourCare = () => {
   };
 
   return (
-    <div className="mt-20 flex justify-center items-start">
-      <div className="max-w-screen-xl flex">
+    <div className="my-60 flex justify-center items-start">
+      <div className="max-w-screen-xl flex mx-4">
         <div className="flex-1">
           <div className="flex flex-col justify-start">
             <div
@@ -349,7 +349,7 @@ const YourCare = () => {
         </div>
         <div className="flex-1 flex justify-end">
         <div className=" max-h-96 overflow-hidden">
-        <img className="w-full h-auto" src="../../images/chair.jpg" alt="scan" style={{ maxWidth: '100%', maxHeight: '100%' }} />
+        <img className="opacity-90 w-full h-auto" src="../../images/chair.jpg" alt="scan" style={{ maxWidth: '100%', maxHeight: '100%' }} />
           </div>
 
         </div>
