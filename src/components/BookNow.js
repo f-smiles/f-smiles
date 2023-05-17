@@ -136,7 +136,7 @@ const BookNow = () => {
   const activeButtonClass =
     "bg-gradient-to-r from-violet-100 via-violet-200 to-violet-300";
   const inactiveButtonClass =
-    "border-2 border-violet-400 hover:bg-violet-400 hover:text-white";
+    "border border-violet-400 hover:bg-violet-400 hover:text-white";
 
   return (
     <main className="mt-20 pt-10">
@@ -149,6 +149,7 @@ const BookNow = () => {
         <form onSubmit={handleSubmit} 
         className="border-2 backdrop-blur-md bg-white/30 max-w-screen-sm mx-auto flex flex-col space-y-12 p-8 rounded-xl">
 <div className="flex flex-col items-center">
+<h1 className="text-center text-xl text-indigo-700 mb-10">Request Appointment</h1>
   <div className="flex w-full gap-2">
     <div className="relative flex-1 w-1/2">
       <input

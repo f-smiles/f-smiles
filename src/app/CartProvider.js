@@ -1,69 +1,74 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useMemo, useCallback } from "react";
 import CartContext from "./CartContext";
 
+// Step 2: Create a cart provider component
 const CartProvider = ({ children }) => {
-  const [cart, setCart] = useState([]);
-  const [total, setTotal] = useState(0);
+  const [show, setShow] = useState(null);
   const [cartCount, setCartCount] = useState(0);
+  const [cart, setCart] = useState([]);
+  const [about, setAbout] = useState(false);
+  const [patient, setPatient] = useState(false);
+  const [treatments, setTreatments] = useState(false);
+  const [total, setTotal] = useState(0);
 
+  const calculatedCartCount = useMemo(() => {
+    let count = 0;
+    cart.forEach((item) => {
+      count += item.count;
+    });
+    return count;
+  }, [cart]);
+  
+  const updateCartCount = useCallback(() => {
+    setCartCount(calculatedCartCount);
+  }, [calculatedCartCount]);
+  
 
-  const updateCartCount = (count) => {
-    setCartCount(count);
-  };
-
+  
+    useEffect(() => {
+    updateCartCount();
+  }, [cart, total]);
+  
+ 
+  
   useEffect(() => {
     const storedCart = JSON.parse(localStorage.getItem("cart"));
     const storedTotal = JSON.parse(localStorage.getItem("total"));
-    
-
+  
     if (storedCart && storedTotal) {
       setCart(storedCart);
       setTotal(storedTotal);
+      const savedCartItems = storedCart.reduce((count, product) => count + product.count, 0);
+      setCartCount(savedCartItems);
     }
-  }, [cart,total]);
-
-  useEffect(() => {
-    const count = cart.reduce((totalCount, item) => totalCount + item.count, 0);
-    setCartCount(count);
   }, [cart, total]);
   
-
-  const addToCart = (product) => {
-    const updatedCart = [...cart, product];
-    const updatedTotal = total + product.price;
-    setCart(updatedCart);
-    setTotal(updatedTotal);
-    localStorage.setItem("cart", JSON.stringify(updatedCart));
-    localStorage.setItem("total", JSON.stringify(updatedTotal));
-    updateCartCount(cartCount + 1);
-    
-  };
-
+ 
   const removeFromCart = (product) => {
     const updatedCart = cart.filter((item) => item !== product);
     const updatedTotal = total - product.price;
     setCart(updatedCart);
     setTotal(updatedTotal);
+
+  updateCartCount(updatedCart.length);
     localStorage.setItem("cart", JSON.stringify(updatedCart));
     localStorage.setItem("total", JSON.stringify(updatedTotal));
-    updateCartCount(cartCount - 1);
   };
 
-
-  const value = {
-    cart,
-    total,
-    cartCount,
-    addToCart,
-    removeFromCart,
-  };
 
   return (
-    <CartContext.Provider value={value}>
+  <CartContext.Provider
+      value={{
+        cart,
+        total,
+        cartCount,
+        removeFromCart,
+       
+      }}
+    >
       {children}
     </CartContext.Provider>
   );
 };
 
 export default CartProvider;
-
