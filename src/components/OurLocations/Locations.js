@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Locations = () => {
   return (
-<main className="w-full mt-20 relative" style={{ backgroundImage: `url("../../images/landscape.png")`, backgroundSize: "75%", backgroundPosition: "top left", backgroundRepeat: "no-repeat" }}>
+<main className="w-full mt-20 relative" style={{ backgroundImage: `url("../../images/landscape.png")`, backgroundSize: "100%", backgroundPosition: "top center", backgroundRepeat: "no-repeat" }}>
   <a href="#" className="go-down-btn" title="Scroll down">
   <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1600px" height="200px" viewBox="0 0 100 100" enableBackground="new 0 0 100 100" xmlSpace="preserve" className="z-10" style={{ position: 'relative', top: '90px' }}>
       <defs>
