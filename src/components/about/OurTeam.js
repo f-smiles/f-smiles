@@ -1,5 +1,6 @@
-import { ChevronUpIcon, ChevronDownIcon } from "@heroicons/react/20/solid";
-import { Fragment, useState } from "react";
+// import { ChevronUpIcon, ChevronDownIcon } from "@heroicons/react/20/solid";
+// import { Fragment, useState } from "react";
+import { useState } from "react";
 import { Transition } from "@headlessui/react";
 
 const OurTeam = () => {
@@ -141,6 +142,7 @@ const OurTeam = () => {
           ))}
         </dl>
       </section>
+      {/* TODO: fix 1st and 2nd index opens Doctors AND Members */}
       <section className="mx-auto w-full max-w-screen-lg rounded-2xl p-2 mt-16 backdrop-blur-md bg-opacity-70 bg-gradient-conic from-fuchsia-300 via-green-400 to-rose-700">
         <h1 className="text-xl font-bold text-purple-900 relative mb-4">
           Our Team
@@ -175,8 +177,16 @@ const OurTeam = () => {
                       activeAccordion === index ? "bg-violet-500 rounded-b-full h-full" : "h-0"
                     }`}
                   ></span>
-                  <img src={member.img} />
-                  <caption className="w-max">{member.role}</caption>
+                  {/* <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <clipPath id="blob1">
+                    <path d="M60,-35.3C71.5,-14.6,70.5,12.8,58.4,35.3C46.3,57.9,23.1,75.7,-2,76.9C-27.2,78.1,-54.4,62.6,-68.4,38.9C-82.5,15.1,-83.4,-16.8,-69.8,-38.6C-56.2,-60.5,-28.1,-72.2,-2,-71.1C24.2,-69.9,48.4,-55.9,60,-35.3Z" transform="translate(100 100)" />
+                    </clipPath>
+                  </svg> */}
+
+                  <figure>
+                    <img src={member.img} className="clip-svg" alt={member.name} />
+                    <caption className="w-max">{member.role}</caption>
+                  </figure>
                 </dd>
               </Transition>
       
