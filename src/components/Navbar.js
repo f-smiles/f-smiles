@@ -17,8 +17,8 @@ export default function DesktopNavbar() {
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.pageYOffset;
-      const threshold = 10; 
-
+      const threshold = 5;
+   
       if (scrollTop > threshold) {
         setNavbarTransparent(false);
       } else {
@@ -28,7 +28,6 @@ export default function DesktopNavbar() {
 
     window.addEventListener("scroll", handleScroll);
 
-  
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
@@ -70,12 +69,14 @@ export default function DesktopNavbar() {
 
   return (
     <>
+   
       {/* Desktop Navbar */}
       {/* TODO: add focus to dropdown for accessibility */}
       <nav
+
         id="desktop-nav"
         className={`w-full h-max fixed top-0 left-0 right-0 mx-auto shadow xl:block hidden z-40 ${
-          navbarTransparent ? "bg-stone-300" : "bg-stone-400/70"
+          navbarTransparent ? "bg-stone-300" : "bg-stone-400/30"
         }`}
       >
         <ul className="w-full p-2 max-w-screen-xl mx-auto flex justify-between items-center">
