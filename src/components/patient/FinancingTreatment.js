@@ -4,8 +4,8 @@ import { ChevronUpIcon } from "@heroicons/react/20/solid";
 
 const FinancingTreatment = () => {
   return (
-    <div className="w-full px-4 pt-16 ">
-      <h2>Financing Treatments</h2>
+    <div className="mt-20 w-full px-4 pt-16 ">
+      <h2 className="">Financing Treatments</h2>
       <div
         data-headlessui-state="open"
         className="mx-auto w-full max-w-screen-lg rounded-2xl bg-white p-2"

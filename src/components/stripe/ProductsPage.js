@@ -81,8 +81,10 @@ const ProductsPage = () => {
   return (
     <div>
       <Navbar cartCount={cartCount} />
+      <div className="mt-10 h-[20vh] flex justify-center items-center ">
+  <h1 className="text-2xl">Products</h1>
+</div>
       <section className="flex flex-wrap gap-4 justify-center py-20 text-center">
-        <h1>products</h1>
         {ProductsArray.map((product) => {
           return (
             <div key={product.id}>
@@ -113,9 +115,9 @@ const Card = ({ id, image, name, description, price, addToCart }) => {
   
   return (
     <div
-      data-aos="fade-up"
-      data-aos-duration="750"
-      data-aos-easing="linear"
+      // data-aos="fade-up"
+      // data-aos-duration="750"
+      // data-aos-easing="linear"
       className="bg-gradient-to-br from-violet-100 to-violet-300 bg-opacity-50 max-w-xs px-12 pb-12 pt-20 flex flex-col"
       // bg-F1F1F0 
     >
@@ -128,12 +130,24 @@ const Card = ({ id, image, name, description, price, addToCart }) => {
           />
           <div>
             <h3 className="uppercase mb-4">{name}</h3>
-            <h3 className="uppercase mb-4">{price}.00 USD</h3>
+            
             {/* <p>{description}</p> */}
           </div>
         </div>
       </Link>
-      <button className="hover:text-gray-200 hover:bg-stone-900 border border-gray-900 text-gray-900 py-2 px-4 rounded-full" onClick={addToCart}>Add To Cart</button>
+      <button className="flex items-center hover:text-gray-200 hover:bg-stone-900 border border-gray-900 text-gray-900 py-2 px-4 rounded-full" onClick={addToCart}>
+      <span className="ml-4 mr-6">
+    Add To Cart
+  </span>
+  <span className="mr-1 w-px bg-indigo-900 h-6"></span> 
+  <span className="mr-4">
+    <h3 className="uppercase">{price} $</h3>
+  </span>
+  
+</button>
+
+
+  
     </div>
   );
 };

@@ -77,7 +77,7 @@ const Checkout = () => {
 
   return (
     <div className="mt-20">
-      <h1>Checkout</h1>
+      <h1 className="text-xl">Checkout</h1>
       <Cart
         products={cart}
         removeFromCart={removeFromCart}
