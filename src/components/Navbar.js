@@ -19,7 +19,6 @@ export default function DesktopNavbar() {
       const scrollTop = window.pageYOffset;
       const threshold = 10; 
 
-
       if (scrollTop > threshold) {
         setNavbarTransparent(false);
       } else {
