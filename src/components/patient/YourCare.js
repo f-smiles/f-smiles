@@ -12,7 +12,7 @@ const YourCare = () => {
           data-aos="fade-up"
           data-aos-duration="750"
           data-aos-easing="linear"
-          className="bg-stone-100 rounded-tl-3xl rounded-tr-3xl rounded-bl-3xl rounded-br-md md:flex  max-h-full px-12 pb-12 pt-20"
+          className="bg-gradient-to-tr from-stone-50 to-violet-100 rounded-tl-3xl rounded-tr-3xl rounded-bl-3xl rounded-br-md md:flex  max-h-full px-12 pb-12 pt-20"
         >
           <div className="md:w-1/2">
             <h3 className="text-2xl text-lime-900 uppercase mb-14 mt-20">Your First Visit</h3>
@@ -37,7 +37,7 @@ const YourCare = () => {
         </div>
         <div
           data-aos="fade-up"
-          data-aos-duration="550"
+          data-aos-duration="750"
           data-aos-easing="linear"
           className="brounded-tl-3xl rounded-tr-3xl rounded-bl-3xl rounded-br-md md:flex  max-h-full px-12 pb-12 pt-20"
         >
