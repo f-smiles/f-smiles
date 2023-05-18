@@ -189,28 +189,25 @@ const VirtualConsultation = () => {
               >Date of Birth</label>
             </div>
 
-            <section className="flex justify-center flex-col">
+            <section className="text-indigo-700 flex justify-center flex-col">
               Preferred Day(s):
-            <div className="flex flex-wrap justify-start py-4 gap-4 ml-4">
+            <div className="text-indigo-700 flex flex-wrap justify-start py-4 gap-4 ml-4">
             {days.map((button, index) => (
-              <button
-                key={button.day}
-                type="button"
-                className={
-                  button.clicked
-                    ? `${baseButtonClass} ${activeButtonClass}`
-                    : `${baseButtonClass} ${inactiveButtonClass}`
-                }
-                onClick={() => handleDayClick(index)}
-              >
-                {button.day}
-              </button>
+            <button
+            key={button.day}
+            type="button"
+            className={`${baseButtonClass} ${button.clicked ? activeButtonClass : inactiveButtonClass} text-violet-800`}
+            onClick={() => handleDayClick(index)}
+          >
+            {button.day}
+          </button>
+          
             ))}      
             </div>
             </section>
-            <section>
+            <section className="text-indigo-700">
             Preferred Time(s):
-            <div className="flex flex-wrap justify-start py-4 gap-4 ml-4">
+            <div className=" flex flex-wrap justify-start py-4 gap-4 ml-4">
             {times.map((button, index) => (
               <button
                 key={button.time}
@@ -218,7 +215,7 @@ const VirtualConsultation = () => {
                 className={
                   button.clicked
                     ? `${baseButtonClass} ${activeButtonClass}`
-                    : `${baseButtonClass} ${inactiveButtonClass}`
+                    : `${baseButtonClass} ${inactiveButtonClass} text-violet-800`
                 }
                 onClick={() => handleTimeClick(index)}
               >
