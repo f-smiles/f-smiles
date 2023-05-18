@@ -99,7 +99,7 @@ const VirtualConsultation = () => {
 
   const baseButtonClass = "text-slate-700 py-2 px-4 rounded-full";
   const activeButtonClass = "bg-gradient-to-r from-violet-100 via-violet-200 to-violet-300";
-  const inactiveButtonClass = "border border-violet-400 hover:bg-violet-400 hover:text-white";
+  const inactiveButtonClass = "border border-violet-400 hover:bg-violet-400 hover:text-white text-violet-700";
 
 
   return (
@@ -215,7 +215,7 @@ const VirtualConsultation = () => {
                 className={
                   button.clicked
                     ? `${baseButtonClass} ${activeButtonClass}`
-                    : `${baseButtonClass} ${inactiveButtonClass} text-violet-800`
+                    : `${baseButtonClass} ${inactiveButtonClass}`
                 }
                 onClick={() => handleTimeClick(index)}
               >
