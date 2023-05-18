@@ -37,7 +37,7 @@ const YourCare = () => {
         </div>
         <div
           data-aos="fade-up"
-          data-aos-duration="950"
+          data-aos-duration="1050"
           data-aos-easing="linear"
           className="brounded-tl-3xl rounded-tr-3xl rounded-bl-3xl rounded-br-md md:flex  max-h-full px-12 pb-12 pt-20"
         >

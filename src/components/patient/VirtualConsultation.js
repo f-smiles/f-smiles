@@ -103,7 +103,7 @@ const VirtualConsultation = () => {
 
 
   return (
-    <main id="contact-form" className="mt-20 p-8" style={{ backgroundImage: `url("../../images/wavyline.png")`,
+    <main id="contact-form" className="mt-20 p-8" style={{ backgroundImage: `url("../../images/wavylinepurple.png")`,
     backgroundSize: "50%",
     backgroundPosition: "-10% center",
     backgroundRepeat: "no-repeat",
