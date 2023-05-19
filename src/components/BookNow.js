@@ -136,10 +136,11 @@ const BookNow = () => {
   const activeButtonClass =
     "bg-gradient-to-r from-violet-100 via-violet-200 to-violet-300";
   const inactiveButtonClass =
-    "border border-violet-400 hover:bg-violet-400 hover:text-white";
+    "border border-violet-400 hover:bg-violet-400 hover:text-white text-indigo-700";
 
   return (
     <main className="mt-20 pt-10">
+     
     <div id="contact-form">
       {emailSent ? (
         <span className={emailSent ? "block" : "hidden"}>
@@ -160,13 +161,13 @@ const BookNow = () => {
         required
         style={{ borderRadius: "9999px", border: "1px solid gray" }}
       />
-      <label className="absolute -mt-12 ml-4 bg-white px-2 text-xs">
+      <label className="text-indigo-700 absolute -mt-12 ml-4 bg-white px-2 text-xs">
         First Name
       </label>
     </div>
 
     <div className="w-1/2 relative">
-      <label className="absolute -mt-2 ml-4 bg-white px-2 text-xs">
+      <label className="text-indigo-700 absolute -mt-2 ml-4 bg-white px-2 text-xs">
         Last Name
       </label>
       <input
@@ -189,7 +190,7 @@ const BookNow = () => {
       required
       style={{ borderRadius: "9999px", border: "1px solid gray" }}
     />
-    <label className="absolute -mt-12  ml-4 bg-white px-2 text-xs">
+    <label className="text-indigo-700 absolute -mt-12  ml-4 bg-white px-2 text-xs">
       Parent/Guardian
     </label>
   </div>
@@ -204,13 +205,13 @@ const BookNow = () => {
       required
       style={{ borderRadius: "9999px", border: "1px solid gray" }}
     />
-    <label className="absolute -mt-12  ml-4 bg-white px-2 text-xs">
+    <label className="text-indigo-700 absolute -mt-12  ml-4 bg-white px-2 text-xs">
       Phone Number
     </label>
   </div>
 
   <div className="w-1/2 relative flex-1 py-4">
-    <label className="absolute -mt-2  ml-4 bg-white px-2 text-xs">
+    <label className="text-indigo-700 absolute -mt-2  ml-4 bg-white px-2 text-xs">
       Email
     </label>
     <input
@@ -239,7 +240,7 @@ const BookNow = () => {
             />
             <label
               htmlFor="floatingInput"
-              className="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary"
+              className="text-indigo-300 pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6]  transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary"
             >
               Date of Birth
             </label>
@@ -357,7 +358,7 @@ const BookNow = () => {
           </Disclosure>
 
 
-          <div className="flex justify-center flex-col">
+          <div className="text-indigo-700 flex justify-center flex-col">
             Preferred Day(s):
             <div className="flex flex-wrap justify-start py-4 gap-4 ml-4">
               {days.map((button, index) => (
@@ -366,8 +367,8 @@ const BookNow = () => {
                   type="button"
                   className={
                     button.clicked
-                      ? `${baseButtonClass} ${activeButtonClass}`
-                      : `${baseButtonClass} ${inactiveButtonClass}`
+                      ? `${baseButtonClass} ${activeButtonClass} `
+                      : `${baseButtonClass} ${inactiveButtonClass}  `
                   }
                   onClick={() => handleDayClick(index)}
                 >
@@ -376,7 +377,7 @@ const BookNow = () => {
               ))}
             </div>
           </div>
-          <div className="py-2 space-x-4">
+          <div className="text-indigo-700 py-2 space-x-4">
             Preferred Time(s):
             <div className="flex flex-wrap justify-start py-4 gap-4 ml-4">
               {times.map((button, index) => (
@@ -396,23 +397,25 @@ const BookNow = () => {
             </div>
           </div>
 
-          <div className="border-2 flex flex-col">
-            <label className="flex flex-col">
-              Comments
-              <textarea
-                placeholder="Your message"
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-              ></textarea>
-            </label>
-            <button
-              className="bg-indigo-100"
-              type="submit"
-              onClick={handleSubmit}
-            >
-              Send Message
-            </button>
-          </div>
+          <div className="border-2 h-32 border-indigo-100 flex flex-col">
+  <label className="flex flex-col">
+    <textarea
+      placeholder="Your message"
+      value={message}
+      onChange={(e) => setMessage(e.target.value)}
+    ></textarea>
+  </label>
+</div>
+<div className="flex justify-center">
+  <button
+    className="text-white rounded-full px-4 py-2 bg-indigo-300 max-w-max -mt-3"
+    type="submit"
+    onClick={handleSubmit}
+  >
+    Send Message
+  </button>
+</div>
+
         </form>
       )}
     </div>

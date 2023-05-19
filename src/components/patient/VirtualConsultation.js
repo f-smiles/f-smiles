@@ -99,11 +99,11 @@ const VirtualConsultation = () => {
 
   const baseButtonClass = "text-slate-700 py-2 px-4 rounded-full";
   const activeButtonClass = "bg-gradient-to-r from-violet-100 via-violet-200 to-violet-300";
-  const inactiveButtonClass = "border border-violet-400 hover:bg-violet-400 hover:text-white";
+  const inactiveButtonClass = "border border-violet-400 hover:bg-violet-400 hover:text-white text-violet-700";
 
 
   return (
-    <main id="contact-form" className="mt-20 p-8" style={{ backgroundImage: `url("../../images/wavyline.png")`,
+    <main id="contact-form" className="mt-20 p-8" style={{ backgroundImage: `url("../../images/wavylinepurple.png")`,
     backgroundSize: "50%",
     backgroundPosition: "-10% center",
     backgroundRepeat: "no-repeat",
@@ -189,28 +189,25 @@ const VirtualConsultation = () => {
               >Date of Birth</label>
             </div>
 
-            <section className="flex justify-center flex-col">
+            <section className="text-indigo-700 flex justify-center flex-col">
               Preferred Day(s):
-            <div className="flex flex-wrap justify-start py-4 gap-4 ml-4">
+            <div className="text-indigo-700 flex flex-wrap justify-start py-4 gap-4 ml-4">
             {days.map((button, index) => (
-              <button
-                key={button.day}
-                type="button"
-                className={
-                  button.clicked
-                    ? `${baseButtonClass} ${activeButtonClass}`
-                    : `${baseButtonClass} ${inactiveButtonClass}`
-                }
-                onClick={() => handleDayClick(index)}
-              >
-                {button.day}
-              </button>
+            <button
+            key={button.day}
+            type="button"
+            className={`${baseButtonClass} ${button.clicked ? activeButtonClass : inactiveButtonClass} text-violet-800`}
+            onClick={() => handleDayClick(index)}
+          >
+            {button.day}
+          </button>
+          
             ))}      
             </div>
             </section>
-            <section>
+            <section className="text-indigo-700">
             Preferred Time(s):
-            <div className="flex flex-wrap justify-start py-4 gap-4 ml-4">
+            <div className=" flex flex-wrap justify-start py-4 gap-4 ml-4">
             {times.map((button, index) => (
               <button
                 key={button.time}

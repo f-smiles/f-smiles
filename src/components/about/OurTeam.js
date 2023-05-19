@@ -131,11 +131,6 @@ const OurTeam = () => {
                 className="text-lg font-medium text-purple-900 cursor-pointer relative pl-4 focus:outline-none content-center"
                 onClick={() => toggleAccordion(index)}
               >
-                {/* <ChevronUpIcon
-                  className={`${
-                    activeAccordion === index ? "transform rotate-180" : ""
-                  } h-5 w-5 text-purple-500 mr-2`}
-                /> */}
                 <span
                   className={`bg-violet-300 h-full w-1 absolute top-0 left-0 transition-all duration-500 ${
                     activeAccordion === index ? "bg-violet-500 h-full" : "h-0"
