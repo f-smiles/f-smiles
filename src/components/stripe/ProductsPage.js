@@ -38,6 +38,7 @@ const ProductsPage = () => {
 
   const addToCart = (productId) => {
     const productData = getProductData(productId);
+
     if (productData !== undefined) {
       const existingProductIndex = cart.findIndex(
         (product) => product.id === productId
@@ -61,6 +62,7 @@ const ProductsPage = () => {
       setTotal((prevTotal) => prevTotal + productData.price);
       setCartCount(getCartCount(cart));
       // updateCartCount(getCartCount(cart));
+      
     }
   };
 
@@ -135,7 +137,7 @@ const Card = ({ id, image, name, description, price, addToCart }) => {
           </div>
         </div>
       </Link>
-      <button className="flex items-center hover:text-gray-200 hover:bg-stone-900 border border-gray-900 text-gray-900 py-2 px-4 rounded-full" onClick={addToCart}>
+      <button className="flex items-center hover:text-gray-200 hover:bg-stone-900 border border-gray-900 text-gray-900 py-2 px-4 rounded-full" onClick={() => addToCart(id)}>
       <span className="ml-4 mr-6">
     Add To Cart
   </span>

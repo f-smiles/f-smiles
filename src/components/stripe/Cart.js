@@ -1,10 +1,6 @@
 import React from "react";
-
 import { Link, NavLink } from "react-router-dom";
 import StripeCheckout from "react-stripe-checkout";
-
-
-
 import StripeCheckoutForm from "./StripeCheckoutForm";
 
 const Cart = ({ products, removeFromCart, updateCart }) => {
@@ -28,19 +24,34 @@ const Cart = ({ products, removeFromCart, updateCart }) => {
     console.log(token);
     // Send token to backend to process payment
   };
-
+  
   return (
     <div>
+
       <h2>Cart</h2>
       {products.map((product) => (
         <div key={product.id}>
           <h3 className="underline">
             <Link to={`/products/${product.id}`}>{product.name}</Link>
           </h3>
+          <img src={product.image} alt="Product"
+          style={{ maxWidth: '100%', maxHeight: '100px' }} /> 
+          
           <p>Price: ${product.price.toFixed(2)}</p>
           <p>Count: {product.count}</p>
-          <button className="bg-indigo-300 rounded-full px-3 py-2 mr-3" onClick={() => handleIncrement(product)}>+</button>
-          <button className="bg-gray-300 rounded-full px-3 py-2 mr-3" onClick={() => handleDecrement(product)}>-</button>
+         
+          <button
+            className="bg-indigo-300 rounded-full px-3 py-2 mr-3"
+            onClick={() => handleIncrement(product)}
+          >
+            +
+          </button>
+          <button
+            className="bg-gray-300 rounded-full px-3 py-2 mr-3"
+            onClick={() => handleDecrement(product)}
+          >
+            -
+          </button>
           <button onClick={() => removeFromCart(product.id)}>Remove</button>
         </div>
       ))}
@@ -54,18 +65,12 @@ const Cart = ({ products, removeFromCart, updateCart }) => {
         total={total}
       />
 
-        <button type="button">
-          <NavLink to="/checkout">
-            Checkout
-          </NavLink>
-        </button>
-      
-
-    
-      <button>Checkout</button>
-
+      <button type="button">
+        <NavLink to="/checkout">Checkout</NavLink>
+      </button>
     </div>
   );
+
 };
 
 export default Cart;

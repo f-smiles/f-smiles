@@ -8,7 +8,7 @@ const Checkout = () => {
   const [total, setTotal] = useState(0);
   const { id } = useParams();
   const [cartItemCount, setCartItemCount] = useState(0);
-  const productData = getProductData(id);
+  const [productData, setProductData] = useState(null);
 
   const updateCart = (productId, newQuantity) => {
     const updatedCart = cart.map((product) => {
@@ -17,7 +17,7 @@ const Checkout = () => {
       }
       return product;
     });
-  
+
     setCart(updatedCart);
     localStorage.setItem("cart", JSON.stringify(updatedCart));
   };
@@ -28,7 +28,14 @@ const Checkout = () => {
       setCart(savedCart);
       setCartItemCount(savedCart.length);
     }
-  }, []);
+
+    const fetchData = async () => {
+      const data = await getProductData(id);
+      setProductData(data);
+    };
+
+    fetchData();
+  }, [id]);
 
   useEffect(() => {
     const updatedTotal = cart.reduce(
@@ -38,9 +45,11 @@ const Checkout = () => {
     setTotal(updatedTotal);
   }, [cart]);
 
-  const addToCart = (productId) => {
-    const productData = getProductData(productId);
-    console.log(productData)
+  const addToCart = async (productId, event) => {
+    event.preventDefault();
+
+    const productData = await getProductData(productId);
+
     if (productData !== undefined) {
       const existingProduct = cart.find((product) => product.id === productId);
       if (existingProduct) {
@@ -75,27 +84,29 @@ const Checkout = () => {
     setCartItemCount(0);
     localStorage.removeItem("cart");
   };
-console.log(id)
   return (
-    <div className="mt-20">
-      <h1 className="text-xl">Checkout</h1>
-      <Cart
-        products={cart}
-        removeFromCart={removeFromCart}
-        updateCart={updateCart} 
-      />
-      <button onClick={clearCart}>Clear Cart</button>
-      <li className="z-10">
-        <NavLink
-          to="/checkout"
-          className="cursor-pointer block text-sm leading-3 tracking-normal px-3 font-normal"
-        ></NavLink>
-      </li>
-      <div>
-         {/* <img src={productData.image} alt={productData.name} /> */}
-        {/* <h2>Total: ${total.toFixed(2)}</h2> */}
+    <>
+      <div className="mt-20">
+        <h1 className="text-xl">Checkout</h1>
+        <Cart
+          products={cart}
+          removeFromCart={removeFromCart}
+          updateCart={updateCart}
+          productData={productData}
+        />
+        <button onClick={clearCart}>Clear Cart</button>
+        <li className="z-10">
+          <NavLink
+            to="/checkout"
+            className="cursor-pointer block text-sm leading-3 tracking-normal px-3 font-normal"
+            onClick={(event) => addToCart(id, event)}
+          ></NavLink>
+        </li>
+        <div>
+     
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
