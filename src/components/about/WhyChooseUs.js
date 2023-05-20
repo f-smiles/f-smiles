@@ -67,14 +67,15 @@ const WhyChooseUs = () => {
         <Disclosure as="div" className="mt-2">
           {({ open }) => (
             <>
-              <table
-                className="mx-auto"
-                style={{ width: "100%", borderCollapse: "collapse" }}
-              >
+              <div className="bg-center bg-cover" style={{ backgroundImage: "url(../../images/purple.png)",
+             backgroundSize: "60%", backgroundRepeat: "no-repeat",  backgroundPositionX: "60%", backgroundPosition: "center",}}>
+  <table className="mx-auto" style={{ width: "100%", borderCollapse: "collapse" }}>
                 <tbody>
                   <tr>
+                 
                     <td className="p-2"></td>
                     <td className="p-2 text-center">FreySmiles Orthodontics</td>
+                    
                     <td className="p-2 text-center">Other Practitioners</td>
                   </tr>
                   <tr>
@@ -319,6 +320,7 @@ const WhyChooseUs = () => {
                   </tr>
                 </tbody>
               </table>
+              </div>
             </>
           )}
         </Disclosure>

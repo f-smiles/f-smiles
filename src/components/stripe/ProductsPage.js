@@ -118,7 +118,7 @@ const Card = ({ id, image, name, description, price, addToCart }) => {
       // data-aos="fade-up"
       // data-aos-duration="750"
       // data-aos-easing="linear"
-      className="bg-gradient-to-br from-violet-100 to-violet-300 bg-opacity-50 max-w-xs px-12 pb-12 pt-20 flex flex-col"
+      className="rounded-3xl bg-F2F1F6 max-w-xs px-12 pb-12 pt-20 flex flex-col"
       // bg-F1F1F0 
     >
       <Link to={`/products/${id}`}>

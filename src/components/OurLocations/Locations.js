@@ -268,7 +268,7 @@ const Locations = () => {
           </div>
           <div>
             <figure className="h-full w-full">
-              <img className="object-cover w-full h-full" src="../../images/beth.heic" alt="view of interior office" />
+              <img className="object-cover w-full h-full opacity-90" src="../../images/beth.jpeg" alt="view of interior office" />
             </figure>
           </div>
         </div>
@@ -332,5 +332,6 @@ const Locations = () => {
     </main>
   );
 };
+console.log('\x1Bc')
 
 export default Locations;

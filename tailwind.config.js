@@ -19,7 +19,8 @@ module.exports = {
       'FAFAF8': "FAFAF8",
       // 'E6E6FA': '#E6E6FA',
       'F0EFF2': '#F0EFF2',
-      'F1F1F0': "#F1F1F0"
+      'F1F1F0': "#F1F1F0",
+      'F2F1F6': "#F2F1F6",
       
     },},
   },

@@ -40,6 +40,7 @@ const Checkout = () => {
 
   const addToCart = (productId) => {
     const productData = getProductData(productId);
+    console.log(productData)
     if (productData !== undefined) {
       const existingProduct = cart.find((product) => product.id === productId);
       if (existingProduct) {
@@ -74,7 +75,7 @@ const Checkout = () => {
     setCartItemCount(0);
     localStorage.removeItem("cart");
   };
-
+console.log(id)
   return (
     <div className="mt-20">
       <h1 className="text-xl">Checkout</h1>
@@ -91,6 +92,7 @@ const Checkout = () => {
         ></NavLink>
       </li>
       <div>
+         {/* <img src={productData.image} alt={productData.name} /> */}
         {/* <h2>Total: ${total.toFixed(2)}</h2> */}
       </div>
     </div>
