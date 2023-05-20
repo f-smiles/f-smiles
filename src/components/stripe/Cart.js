@@ -31,11 +31,19 @@ const Cart = ({ products, removeFromCart, updateCart }) => {
       <h2>Cart</h2>
       {products.map((product) => (
         <div key={product.id}>
-          <h3 className="underline">
-            <Link to={`/products/${product.id}`}>{product.name}</Link>
-          </h3>
-          <img src={product.image} alt="Product"
-          style={{ maxWidth: '100%', maxHeight: '100px' }} /> 
+      <div style={{ display: 'flex', alignItems: 'center' }}>
+            {/* Product name */}
+            <h3 className="underline">
+              <Link to={`/products/${product.id}`}>{product.name}</Link>
+            </h3>
+
+            {/* Image */}
+            <img
+              src={product.image}
+              alt="Product"
+              style={{ maxWidth: '100%', maxHeight: '100px', marginLeft: '10px' }}
+            />
+          </div>
           
           <p>Price: ${product.price.toFixed(2)}</p>
           <p>Count: {product.count}</p>
