@@ -28,39 +28,67 @@ const Cart = ({ products, removeFromCart, updateCart }) => {
   return (
     <div>
 
-      <h2>Cart</h2>
+      <h2>Your Cart</h2>
       {products.map((product) => (
         <div key={product.id}>
       <div style={{ display: 'flex', alignItems: 'center' }}>
-            {/* Product name */}
+      <div
+            style={{
+              border: '1px solid black',
+              borderRadius: '5px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              width: 'fit-content',
+              padding: '5px'
+            }}
+          >
+            <button
+              className="px-4 mr-1"
+              onClick={() => handleIncrement(product)}
+            >
+              +
+            </button>
+            <p>{product.count}</p>
+            <button
+              className="px-4"
+              onClick={() => handleDecrement(product)}
+            >
+              -
+            </button>
+          </div>
+         
+          <div style={{ position: 'relative' }}>
+  <img
+    src={product.image}
+    alt="Product"
+    style={{ maxWidth: '100%', maxHeight: '100px', marginLeft: '10px' }}
+  />
+  <button
+    onClick={() => removeFromCart(product.id)}
+    style={{
+      position: 'absolute',
+      top: '0',
+      right: '0',
+    }}
+  >
+    x
+  </button>
+</div>
             <h3 className="underline">
               <Link to={`/products/${product.id}`}>{product.name}</Link>
+              
             </h3>
-
-            {/* Image */}
-            <img
-              src={product.image}
-              alt="Product"
-              style={{ maxWidth: '100%', maxHeight: '100px', marginLeft: '10px' }}
-            />
+           
+        
+           
           </div>
           
           <p>Price: ${product.price.toFixed(2)}</p>
-          <p>Count: {product.count}</p>
          
-          <button
-            className="bg-indigo-300 rounded-full px-3 py-2 mr-3"
-            onClick={() => handleIncrement(product)}
-          >
-            +
-          </button>
-          <button
-            className="bg-gray-300 rounded-full px-3 py-2 mr-3"
-            onClick={() => handleDecrement(product)}
-          >
-            -
-          </button>
-          <button onClick={() => removeFromCart(product.id)}>Remove</button>
+         
+         
+         
         </div>
       ))}
       <h3>Total: ${total.toFixed(2)}</h3>
@@ -73,9 +101,6 @@ const Cart = ({ products, removeFromCart, updateCart }) => {
         total={total}
       />
 
-      <button type="button">
-        <NavLink to="/checkout">Checkout</NavLink>
-      </button>
     </div>
   );
 

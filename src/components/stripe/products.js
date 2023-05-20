@@ -3,7 +3,7 @@
 const ProductsArray = [
     {
         id: "prod_NmQD0LB6E9QoDd",
-        name: "toothbrush",
+        name: "Toothbrush",
         price: 4.00,
         image: "/images/ember.png",
         count: 1,
@@ -55,7 +55,7 @@ const ProductsArray = [
     },
     {
         id: "prod_NmtDKMLyW2OyqB",
-        name: "Invisalign aligner/retainer case",
+        name: "Invisalign Aligner/Retainer Case",
         description:
         "This aligner case is made of safe, medical-grade thermoplastic material that won't release harmful chemicals into your Invisalign aligners. It's ideal for sensitive mouths and doesn't contain natural rubber latex. The compact design and magnetic closure make it convenient for on-the-go storage of Invisalign aligners and retainers.",
         image: "/images/invisalign-aligners-case.png",

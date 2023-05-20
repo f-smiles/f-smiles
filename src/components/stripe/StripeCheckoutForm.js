@@ -73,7 +73,7 @@ const StripeCheckoutForm = ({ total }) => {
 
   return (
     <div>
-      <h1>Checkout</h1>
+      {/* <h1>Checkout</h1> */}
       {/* <h2>Total: ${total}</h2> */}
       <StripeCheckout
         token={handleToken}
