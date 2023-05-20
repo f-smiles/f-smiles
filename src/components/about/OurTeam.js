@@ -2,6 +2,9 @@
 // import { Fragment, useState } from "react";
 import { useState } from "react";
 import { Transition } from "@headlessui/react";
+// import BlazeSlider from 'blaze-slider'
+import { useBlazeSlider } from 'react-blaze-slider'
+import 'blaze-slider/dist/blaze.css'
 
 const OurTeam = () => {
   const [activeAccordion, setActiveAccordion] = useState(null);
@@ -9,6 +12,12 @@ const OurTeam = () => {
   const toggleAccordion = (index) => {
     setActiveAccordion((prevIndex) => (prevIndex === index ? null : index));
   };
+
+  const ref = useBlazeSlider({
+    all: {
+      slidesToShow: 3,
+    },
+  })
 
   const Doctors = [
     {
@@ -147,52 +156,26 @@ const OurTeam = () => {
         <h1 className="text-xl font-bold text-purple-900 relative mb-4">
           Our Team
         </h1>
-      <dl className="space-y-4 overflow-hidden">
-          {Members.map((member, index) => (
-            <div key={index}>
-              <dt
-                className="text-lg font-medium text-purple-900 cursor-pointer relative pl-4 focus:outline-none content-center"
-                onClick={() => toggleAccordion(index)}
-              >
-                <span
-                  className={`bg-violet-300 h-full w-1 absolute top-0 left-0 transition-all duration-500 ${
-                    activeAccordion === index ? "bg-violet-500 rounded-t-full h-full" : "h-0"
-                  }`}
-                ></span>
-                <p className="py-4">{member.name} - {member.role}</p>
-              </dt>
-
-              <Transition
-                show={activeAccordion === index}
-                enter="transition-all duration-500"
-                enterFrom="-mt-10 opacity-0"
-                enterTo="mt-0 opacity-100"
-                leave="transition-all duration-500"
-                leaveFrom="mt-0 opacity-100"
-                leaveTo="-mt-10 opacity-0"
-              >
-                <dd className="relative text-sm text-gray-500 pl-7">
-                  <span
-                    className={`bg-violet-300 h-full w-1 absolute top-0 left-0 transition-all duration-500 ${
-                      activeAccordion === index ? "bg-violet-500 rounded-b-full h-full" : "h-0"
-                    }`}
-                  ></span>
-                  {/* <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                    <clipPath id="blob1">
-                    <path d="M60,-35.3C71.5,-14.6,70.5,12.8,58.4,35.3C46.3,57.9,23.1,75.7,-2,76.9C-27.2,78.1,-54.4,62.6,-68.4,38.9C-82.5,15.1,-83.4,-16.8,-69.8,-38.6C-56.2,-60.5,-28.1,-72.2,-2,-71.1C24.2,-69.9,48.4,-55.9,60,-35.3Z" transform="translate(100 100)" />
-                    </clipPath>
-                  </svg> */}
-
-                  <figure>
+        <div className="blaze-slider" ref={ref}>
+          <div className="blaze-container">
+            <div className="blaze-track-container">
+              <div className="blaze-track">
+                {Members.map((member, index) => (
+                  <figure key={index}>
                     <img src={member.img} className="clip-svg" alt={member.name} />
                     <caption className="w-max">{member.role}</caption>
                   </figure>
-                </dd>
-              </Transition>
-      
+                ))}
+              </div>
+              <div class="my-structure">
+                <button class="blaze-prev" aria-label="Go to previous slide">Prev</button>
+                {/* <div class="blaze-pagination"></div> */}
+                <button class="blaze-next" aria-label="Go to next slide">Next</button>
+              </div>
             </div>
-          ))}
-        </dl>
+          </div>
+      </div>
+      
       </section>
     </main>
   );
