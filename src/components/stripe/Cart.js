@@ -79,12 +79,12 @@ const Cart = ({ products, removeFromCart, updateCart }) => {
               <Link to={`/products/${product.id}`}>{product.name}</Link>
               
             </h3>
-           
+            <p>Price: ${product.price.toFixed(2)*product.count}.00</p>
         
            
           </div>
           
-          <p>Price: ${product.price.toFixed(2)}</p>
+        
          
          
          
