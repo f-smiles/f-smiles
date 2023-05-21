@@ -219,12 +219,14 @@ const Bag = ({ productData, isOpen }) => {
           </div>
         ))}
       </div>
-      <h3>Total: ${total.toFixed(2)}</h3>
+      <h3 className="mb-2">Total: ${total.toFixed(2)}</h3>
       <section className="z-10"> 
+      <button className="mb-5 rounded-full bg-indigo-200 text-md px-2 py-2">
           <NavLink 
             to="/checkout"
-            className="cursor-pointer block text-sm leading-3 tracking-normal px-3 font-normal"
-          >Go To Checkout</NavLink>
+            className="cursor-pointer block text-sm leading-3 tracking-normal px-3 font-normal text-white"
+          >Checkout</NavLink>
+          </button>
         </section>
      
     </div>
