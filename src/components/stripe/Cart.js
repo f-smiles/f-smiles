@@ -18,78 +18,82 @@ const Cart = ({ products, removeFromCart, updateCart }) => {
     }
   };
 
-  const total = products.reduce((acc, curr) => acc + curr.price * curr.count, 0);
+  const total = products.reduce(
+    (acc, curr) => acc + curr.price * curr.count,
+    0
+  );
 
   const handleToken = (token) => {
     console.log(token);
     // Send token to backend to process payment
   };
-  
+
   return (
     <div>
-
-      <h2>Your Cart</h2>
-      {products.map((product) => (
-        <div key={product.id}>
-      <div style={{ display: 'flex', alignItems: 'center' }}>
-      <div
-            style={{
-              border: '1px solid black',
-              borderRadius: '5px',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              width: 'fit-content',
-              padding: '5px'
-            }}
-          >
-            <button
-              className="px-4 mr-1"
-              onClick={() => handleIncrement(product)}
-            >
-              +
-            </button>
-            <p>{product.count}</p>
-            <button
-              className="px-4"
-              onClick={() => handleDecrement(product)}
-            >
-              -
-            </button>
-          </div>
-         
-          <div style={{ position: 'relative' }}>
-  <img
-    src={product.image}
-    alt="Product"
-    style={{ maxWidth: '100%', maxHeight: '100px', marginLeft: '10px' }}
-  />
-  <button
-    onClick={() => removeFromCart(product.id)}
-    style={{
-      position: 'absolute',
-      top: '0',
-      right: '0',
-    }}
+  <h2 className="mb-10">Your Cart</h2>
+{products.map((product) => (
+  <div
+    key={product.id}
+    style={{ marginBottom: "10px", paddingBottom: "10px", borderBottom: "1px solid #ccc" }}
   >
-    x
-  </button>
-</div>
-            <h3 className="underline">
-              <Link to={`/products/${product.id}`}>{product.name}</Link>
-              
-            </h3>
-            <p>Price: ${product.price.toFixed(2)*product.count}.00</p>
-        
-           
-          </div>
-          
-        
-         
-         
-         
-         
+    <div style={{ display: "flex", alignItems: "center" }}>
+      <div style={{ position: "relative" }}>
+        <img
+          src={product.image}
+          alt="Product"
+          style={{
+            maxWidth: "100%",
+            width: "100px",
+            maxHeight: "100px",
+          }}
+        />
+        <button
+          onClick={() => removeFromCart(product.id)}
+          style={{
+            position: "absolute",
+            top: "5px",
+            right: "-5px",
+            background: "white",
+            borderRadius: "50%",
+            padding: "2px",
+          }}
+        >
+          x
+        </button>
+      </div>
+      <div style={{ marginLeft: "10px" }}>
+        <h3 className="underline">
+          <Link to={`/products/${product.id}`}>{product.name.toUpperCase()}</Link>
+        </h3>
+        <div
+          style={{
+            border: "1px solid #ccc",
+            borderRadius: "5px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            width: "fit-content",
+            padding: "5px",
+          }}
+        >
+          <button
+            className="text-violet-700 px-4 mr-1"
+            onClick={() => handleIncrement(product)}
+          >
+            +
+          </button>
+          <p className="text-violet-700">{product.count}</p>
+          <button
+            className="text-violet-700 px-4"
+            onClick={() => handleDecrement(product)}
+          >
+            -
+          </button>
         </div>
+        <p>${(product.price * product.count).toFixed(2)}</p>
+      </div>
+    </div>
+  </div>
       ))}
       <h3>Total: ${total.toFixed(2)}</h3>
       <StripeCheckoutForm
@@ -100,10 +104,8 @@ const Cart = ({ products, removeFromCart, updateCart }) => {
         description="Checkout"
         total={total}
       />
-
     </div>
   );
-
 };
 
 export default Cart;
