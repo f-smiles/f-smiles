@@ -75,16 +75,18 @@ const StripeCheckoutForm = ({ total }) => {
     <div>
       {/* <h1>Checkout</h1> */}
       {/* <h2>Total: ${total}</h2> */}
+      <div className="bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded">
       <StripeCheckout
         token={handleToken}
         stripeKey={process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY}
+        
         // amount={total * 100}
         // currency="USD"
         // name="My E-commerce Store"
         // description="Payment for My E-commerce Store"
         // image="https://www.example.com/logo.png"
       />
-
+</div>
       {loading && <p>Loading...</p>}
     </div>
   );
