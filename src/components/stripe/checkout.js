@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { NavLink, useParams } from "react-router-dom";
-import Cart from "./Cart";
+import Bag from "./Bag";
 import { getProductData } from "./products";
+import StripeCheckoutForm from "./StripeCheckoutForm";
 
 const Checkout = () => {
   const [cart, setCart] = useState([]);
@@ -10,6 +11,11 @@ const Checkout = () => {
   const [cartItemCount, setCartItemCount] = useState(0);
   const [productData, setProductData] = useState(null);
 
+  const handleToken = (token) => {
+    console.log(token);
+    // Send token to backend to process payment
+  };
+  
   const updateCart = (productId, newQuantity) => {
     const updatedCart = cart.map((product) => {
       if (product.id === productId) {
@@ -45,29 +51,7 @@ const Checkout = () => {
     setTotal(updatedTotal);
   }, [cart]);
 
-  const addToCart = async (productId, event) => {
-    event.preventDefault();
 
-    const productData = await getProductData(productId);
-
-    if (productData !== undefined) {
-      const existingProduct = cart.find((product) => product.id === productId);
-      if (existingProduct) {
-        const updatedCart = cart.map((product) =>
-          product.id === productId
-            ? { ...product, count: product.count + 1 }
-            : product
-        );
-        setCart(updatedCart);
-        localStorage.setItem("cart", JSON.stringify(updatedCart));
-      } else {
-        const updatedCart = [...cart, { ...productData, count: 1 }];
-        setCart(updatedCart);
-        localStorage.setItem("cart", JSON.stringify(updatedCart));
-        setCartItemCount(cartItemCount + 1);
-      }
-    }
-  };
 
   const removeFromCart = (productId) => {
     const removedProduct = cart.find((product) => product.id === productId);
@@ -88,20 +72,22 @@ const Checkout = () => {
     <>
       <div className="mt-20">
         <h1 className="text-xl">Checkout</h1>
-        <Cart
+        <Bag
           products={cart}
           removeFromCart={removeFromCart}
           updateCart={updateCart}
           productData={productData}
         />
+         <StripeCheckoutForm
+        stripeKey="pk_live_51N0UqcF1lRcn4KYhmkaGhYXNrMU9sMmAQnW4VKgjyacvg3j69Qfer276V8s9IyrFYJQzeoWPNi5CFlKXe5NHevKc00mEMElvoB"
+        token={handleToken}
+        amount={total * 100}
+        name="My Store"
+        description="Checkout"
+        total={total}
+      />
         <button onClick={clearCart}>Clear Cart</button>
-        <li className="z-10">
-          <NavLink
-            to="/checkout"
-            className="cursor-pointer block text-sm leading-3 tracking-normal px-3 font-normal"
-            onClick={(event) => addToCart(id, event)}
-          ></NavLink>
-        </li>
+       
         <div>
      
         </div>

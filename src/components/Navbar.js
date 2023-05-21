@@ -3,8 +3,10 @@ import { NavLink } from "react-router-dom";
 import { Transition } from '@headlessui/react'
 import Sphere from "./navbar/sketch";
 import CartContext from "../app/CartContext";
+import Bag from "./stripe/Bag";
 
 export default function DesktopNavbar() {
+  const [isBagOpen, setIsBagOpen] = useState(false);
   const { cartCount, total } = useContext(CartContext);
   const [show, setShow] = useState(null);
   // const [cartCount, setCartCount] = useState(0);
@@ -14,6 +16,10 @@ export default function DesktopNavbar() {
   const [treatments, setTreatments] = useState(false);
   const [navbarTransparent, setNavbarTransparent] = useState(true);
 
+  const handleToggleBag = () => {
+    setIsBagOpen(!isBagOpen);
+  };
+  
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.pageYOffset;
@@ -300,7 +306,7 @@ export default function DesktopNavbar() {
           <div className="flex items-center">
           <li className="z-10">
             
-  <NavLink to="/cart" className="cursor-pointer block text-sm leading-3 tracking-normal px-3 font-normal hover:text-violet-500 transition duration-500 ease-in-out">
+  <NavLink to="/bag" className="cursor-pointer block text-sm leading-3 tracking-normal px-3 font-normal hover:text-violet-500 transition duration-500 ease-in-out">
     {cartCount > 0 && (
     <span className="flex items-center gap-1">
       Bag
@@ -613,7 +619,7 @@ export default function DesktopNavbar() {
                   Book Now
                 </NavLink>
                 <NavLink 
-                to="/cart"
+                to="/bag"
                 onClick={() => setShow(false)}
                 className="cursor-pointer block text-sm leading-3 tracking-normal px-3 font-normal text-white">
                 <span className="flex items-center gap-1">

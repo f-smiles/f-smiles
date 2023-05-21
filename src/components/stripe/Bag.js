@@ -1,10 +1,27 @@
-import React, { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, NavLink, useParams } from "react-router-dom";
 import StripeCheckout from "react-stripe-checkout";
 import StripeCheckoutForm from "./StripeCheckoutForm";
+import { getProductData } from "./products";
 
-const Cart = ({ products, removeFromCart, updateCart }) => {
+const Bag = ({ productData, isOpen }) => {
+  const [cart, setCart] = useState([]);
   const [editedCounts, setEditedCounts] = useState({});
+  const [cartItemCount, setCartItemCount] = useState(0);
+  const { id } = useParams();
+  
+
+  useEffect(() => {
+    const savedCart = JSON.parse(localStorage.getItem("cart"));
+    if (savedCart) {
+      setCart(savedCart);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
+
   const handleIncrement = (product) => {
     const updatedQuantity = product.count + 1;
     updateCart(product.id, updatedQuantity);
@@ -18,10 +35,6 @@ const Cart = ({ products, removeFromCart, updateCart }) => {
       removeFromCart(product.id);
     }
   };
-
-  const total = products
-    ? products.reduce((acc, curr) => acc + curr.price * curr.count, 0)
-    : 0;
 
   const handleToken = (token) => {
     console.log(token);
@@ -40,12 +53,58 @@ const Cart = ({ products, removeFromCart, updateCart }) => {
     }
   };
 
+  const updateCart = (productId, newQuantity) => {
+    const updatedCart = cart.map((product) => {
+      if (product.id === productId) {
+        return { ...product, count: newQuantity };
+      }
+      return product;
+    });
+
+    setCart(updatedCart);
+  };
+  const addToCart = async (productId, event) => {
+    event.preventDefault();
+
+    const productData = await getProductData(productId);
+
+    if (productData !== undefined) {
+      const existingProduct = cart.find((product) => product.id === productId);
+      if (existingProduct) {
+        const updatedCart = cart.map((product) =>
+          product.id === productId
+            ? { ...product, count: product.count + 1 }
+            : product
+        );
+        setCart(updatedCart);
+        localStorage.setItem("cart", JSON.stringify(updatedCart));
+      } else {
+        const updatedCart = [...cart, { ...productData, count: 1 }];
+        setCart(updatedCart);
+        localStorage.setItem("cart", JSON.stringify(updatedCart));
+        setCartItemCount(cartItemCount + 1);
+      }
+    }
+  };
+  const removeFromCart = (productId) => {
+    const updatedCart = cart.filter((product) => product.id !== productId);
+    setCart(updatedCart);
+  };
+
+  const clearCart = () => {
+    setCart([]);
+  };
+
+  const total = cart
+    ? cart.reduce((acc, curr) => acc + curr.price * curr.count, 0)
+    : 0;
+
   return (
+    
     <div className="mt-20 flex flex-col items-center">
-      
       <h2 className="mb-10 text-2xl">Your Bag</h2>
       <div className="w-full max-w-2xl">
-        {products?.map((product) => (
+        {cart?.map((product) => (
           <div
             key={product.id}
             className="flex items-center mb-4 py-2 px-4 border-b border-gray-300"
@@ -161,16 +220,15 @@ const Cart = ({ products, removeFromCart, updateCart }) => {
         ))}
       </div>
       <h3>Total: ${total.toFixed(2)}</h3>
-      <StripeCheckoutForm
-        stripeKey="pk_live_51N0UqcF1lRcn4KYhmkaGhYXNrMU9sMmAQnW4VKgjyacvg3j69Qfer276V8s9IyrFYJQzeoWPNi5CFlKXe5NHevKc00mEMElvoB"
-        token={handleToken}
-        amount={total * 100}
-        name="My Store"
-        description="Checkout"
-        total={total}
-      />
+      <section className="z-10"> 
+          <NavLink 
+            to="/checkout"
+            className="cursor-pointer block text-sm leading-3 tracking-normal px-3 font-normal"
+          >Go To Checkout</NavLink>
+        </section>
+     
     </div>
   );
 };
 
-export default Cart;
+export default Bag;

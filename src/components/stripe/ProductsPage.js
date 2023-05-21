@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ProductsArray, getProductData } from "./products";
-import Cart from "./Cart";
+import Cart from "./Bag";
 import Navbar from "../Navbar";
 
 
