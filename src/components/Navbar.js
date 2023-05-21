@@ -301,6 +301,7 @@ export default function DesktopNavbar() {
           <li className="z-10">
             
   <NavLink to="/checkout" className="cursor-pointer block text-sm leading-3 tracking-normal px-3 font-normal hover:text-violet-500 transition duration-500 ease-in-out">
+    {cartCount > 0 && (
     <span className="flex items-center gap-1">
       Bag
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" fillRule="evenodd" viewBox="0 0 22 24" stroke="purple" className="w-8 h-5">
@@ -308,6 +309,7 @@ export default function DesktopNavbar() {
         <text x="6" y="18" fill="black" fontSize="12">{cartCount}</text>
       </svg>
     </span>
+    )}
   </NavLink>
 </li>
 
