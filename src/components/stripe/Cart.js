@@ -84,17 +84,22 @@ const Cart = ({ products, removeFromCart, updateCart }) => {
       ? editedCounts[product.id]
       : product.count
   }
-  onChange={(event) => handleCountChange(event, product)}
-  onKeyDown={(event) => {
-
+  onChange={(event) => {
     const currentValue = event.target.value;
-    const isValidKey = /[0-9]/.test(event.key);
-    const isMaxLengthReached = currentValue.length >= 2;
+    const numericValue = parseInt(currentValue, 10);
   
-    if (!isValidKey || isMaxLengthReached) {
-      event.preventDefault();
+    if (isNaN(numericValue) || numericValue > 99) {
+      const validValue = Math.min(99, product.count);
+      event.target.value = currentValue !== "" ? validValue : 0;
+      handleCountChange(event, product);
+    } else if (currentValue === "" || numericValue === 0) {
+      removeFromCart(product.id);
+    } else {
+      event.target.value = currentValue !== "" ? numericValue : 0;
+      handleCountChange(event, product);
     }
   }}
+
   onBlur={(event) => {
     const currentValue = event.target.value;
     const numericValue = parseInt(currentValue, 10);
@@ -102,12 +107,21 @@ const Cart = ({ products, removeFromCart, updateCart }) => {
   
     if (isNaN(numericValue) || numericValue > maxDoubleDigit) {
       const validValue = Math.min(maxDoubleDigit, product.count);
-      event.target.value = validValue;
+      event.target.value = currentValue !== "" ? validValue : 0;
+      handleCountChange(event, product);
+    } else if (currentValue === "" || numericValue === 0) {
+      removeFromCart(product.id);
+    } else {
+      event.target.value = currentValue !== "" ? numericValue : 0;
       handleCountChange(event, product);
     }
   }}
   
+  
 />
+
+
+
 
                 <button
                   className="text-violet-700 px-4 focus:outline-none"
