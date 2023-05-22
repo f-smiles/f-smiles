@@ -15,7 +15,7 @@ import Locations from "../components/OurLocations/Locations";
 import BookNow from "../components/BookNow";
 import StripeCheckoutForm from "../components/stripe/StripeCheckoutForm";
 import ProductsPage from "../components/stripe/ProductsPage";
-import Cart from "../components/stripe/Cart";
+import Bag from "../components/stripe/Bag";
 import SingleProductPage from "../components/stripe/SingleProductPage";
 import Checkout from "../components/stripe/checkout";
 
@@ -38,7 +38,7 @@ const AppRoutes = () => {
       <Route path="/book-now" element={<BookNow />} />
       <Route path="/stripe-checkout" element={<StripeCheckoutForm />} />
       <Route path="/products" element={<ProductsPage />} />
-      <Route path="/cart" element={<Cart />} />
+      <Route path="/bag" element={<Bag />} />
       <Route path="/products/:id" element={<SingleProductPage />} />
       <Route path="/checkout" element={<Checkout />} />
     </Routes>

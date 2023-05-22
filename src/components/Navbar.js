@@ -3,8 +3,10 @@ import { NavLink } from "react-router-dom";
 import { Transition } from '@headlessui/react'
 import Sphere from "./navbar/sketch";
 import CartContext from "../app/CartContext";
+import Bag from "./stripe/Bag";
 
 export default function DesktopNavbar() {
+  const [isBagOpen, setIsBagOpen] = useState(false);
   const { cartCount, total } = useContext(CartContext);
   const [show, setShow] = useState(null);
   // const [cartCount, setCartCount] = useState(0);
@@ -14,6 +16,10 @@ export default function DesktopNavbar() {
   const [treatments, setTreatments] = useState(false);
   const [navbarTransparent, setNavbarTransparent] = useState(true);
 
+  const handleToggleBag = () => {
+    setIsBagOpen(!isBagOpen);
+  };
+  
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.pageYOffset;
@@ -75,8 +81,8 @@ export default function DesktopNavbar() {
       <nav
 
         id="desktop-nav"
-        className={`w-full h-max fixed top-0 left-0 right-0 mx-auto shadow xl:block hidden z-40 ${
-          navbarTransparent ? "bg-stone-300" : "bg-stone-400/30"
+        className={`w-full h-max fixed top-0 left-0 right-0 mx-auto  xl:block hidden z-40 ${
+          navbarTransparent ? "bg-#f7f5f2" : "bg-stone-400/30"
         }`}
       >
         <ul className="w-full p-2 max-w-screen-xl mx-auto flex justify-between items-center">
@@ -95,7 +101,7 @@ export default function DesktopNavbar() {
   onMouseLeave={() => setShow(null)}
 >
   <li
-    className="h-full cursor-pointer hover:text-indigo-700 transition duration-150 ease-in-out inline-flex items-center text-sm text-white tracking-normal relative text-white hover:text-indigo-700 gap-2"
+    className="h-full cursor-pointer hover:text-indigo-700 transition duration-150 ease-in-out inline-flex items-center text-sm text-stone-900 tracking-normal relative text-white font-black hover:text-indigo-700 gap-2"
     onMouseOver={() => setShow("about")}
     onClick={() => setShow("about")}
   >
@@ -135,7 +141,7 @@ export default function DesktopNavbar() {
   </Transition>
           </div>
 <li
-  className="cursor-pointer hover:text-indigo-700 transition duration-150 ease-in-out inline-flex items-center text-sm text-white tracking-normal relative text-white hover:text-indigo-700 gap-2"
+  className="cursor-pointer hover:text-indigo-700 transition duration-150 ease-in-out inline-flex items-center text-sm text-white tracking-normal relative text-stone-900 hover:text-indigo-700 gap-2"
   onMouseOver={() => setPatient(true)}
   onMouseLeave={() => setPatient(false)}
 >
@@ -183,7 +189,7 @@ export default function DesktopNavbar() {
   </Transition>
 </li>
             <li
-              className="cursor-pointer hover:text-indigo-700 transition duration-150 ease-in-out inline-flex items-center text-sm text-white tracking-normal relative text-white hover:text-indigo-700 gap-2"
+              className="cursor-pointer hover:text-indigo-700 transition duration-150 ease-in-out inline-flex items-center text-sm text-stone-900 tracking-normal relative text-white hover:text-indigo-700 gap-2"
               onMouseOver={handleMouseOver}
               onMouseLeave={handleMouseLeave}
               // onClick={() => setTreatments(!treatments)}
@@ -272,7 +278,7 @@ export default function DesktopNavbar() {
                 </div>
               </div>
             </div>
-            <li className="cursor-pointer flex hover:text-indigo-700 transition duration-150 ease-in-out flex items-center text-sm text-white tracking-normal text-white hover:text-indigo-700">
+            <li className="cursor-pointer flex hover:text-indigo-700 transition duration-150 ease-in-out flex items-center text-sm text-stone-900 tracking-normal text-white hover:text-indigo-700">
             <a
   href="https://my.orthoblink.com/bLink/Login"
   className="cursor-pointer block text-sm leading-3 tracking-normal px-3 font-normal"
@@ -280,7 +286,7 @@ export default function DesktopNavbar() {
   Patient Login
 </a>
             </li>
-            <li className="cursor-pointer flex hover:text-indigo-700 transition duration-150 ease-in-out flex items-center text-sm text-white tracking-normal text-white hover:text-indigo-700">
+            <li className="cursor-pointer flex hover:text-indigo-700 transition duration-150 ease-in-out flex items-center text-sm text-stone-900 tracking-normal text-white hover:text-indigo-700">
               <NavLink
                 to="/locations"
                 className="cursor-pointer block text-sm leading-3 tracking-normal px-3 font-normal"
@@ -288,7 +294,7 @@ export default function DesktopNavbar() {
                 Our Locations
               </NavLink>
             </li>
-            <li className="cursor-pointer flex hover:text-indigo-700 transition duration-150 ease-in-out flex items-center text-sm text-white tracking-normal text-white hover:text-indigo-700">
+            <li className="cursor-pointer flex hover:text-indigo-700 transition duration-150 ease-in-out flex items-center text-sm text-stone-900 tracking-normal text-white hover:text-indigo-700">
               <NavLink
                 to="/products"
                 className="cursor-pointer block text-sm leading-3 tracking-normal px-3 font-normal"
@@ -300,7 +306,8 @@ export default function DesktopNavbar() {
           <div className="flex items-center">
           <li className="z-10">
             
-  <NavLink to="/checkout" className="cursor-pointer block text-sm leading-3 tracking-normal px-3 font-normal hover:text-violet-500 transition duration-500 ease-in-out">
+  <NavLink to="/bag" className="cursor-pointer block text-sm leading-3 tracking-normal px-3 font-normal hover:text-violet-500 transition duration-500 ease-in-out">
+    {cartCount > 0 && (
     <span className="flex items-center gap-1">
       Bag
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" fillRule="evenodd" viewBox="0 0 22 24" stroke="purple" className="w-8 h-5">
@@ -308,6 +315,7 @@ export default function DesktopNavbar() {
         <text x="6" y="18" fill="black" fontSize="12">{cartCount}</text>
       </svg>
     </span>
+    )}
   </NavLink>
 </li>
 
@@ -611,7 +619,7 @@ export default function DesktopNavbar() {
                   Book Now
                 </NavLink>
                 <NavLink 
-                to="/cart"
+                to="/bag"
                 onClick={() => setShow(false)}
                 className="cursor-pointer block text-sm leading-3 tracking-normal px-3 font-normal text-white">
                 <span className="flex items-center gap-1">
