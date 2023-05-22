@@ -137,20 +137,23 @@ const FinancingTreatment = () => {
   return (
     <div className="mt-20 w-full px-4 pt-16">
       <div className="grid grid-cols-3 mt-4">
-        <div className="col-span-1 text-purple-900  px-4 py-20 border border-purple-200">
+      <div className="col-span-1 text-purple-900 px-4 py-20 border border-purple-200 flex flex-col justify-center items-center">
           <span className="text-3xl">FSA/HSA</span>
-          <img src="/images/twohalves.svg" alt="halfcircles" className="w-10 h-10" />
-
+          <img
+            src="/images/twohalves.svg"
+            alt="halfcircles"
+            className="w-10 h-10"
+          />
           <p>
             {" "}
             We strive to help you maximize your lifetime orthodontic insurance
-            benefits, and if you have an FSA (Flexible Spending Account), we can
-            assist you in planning and utilizing reimbursements for orthodontic
-            care to achieve your desired smile.
+            benefits, and if you have an FSA we can assist you in planning and
+            utilizing reimbursements for orthodontic care to achieve your
+            desired smile.
           </p>
         </div>
-        <div className="col-span-1 text-purple-900  px-4 py-20 border border-purple-200">
-          <span>Payment Options For Your Budget</span>
+        <div className="col-span-1 text-purple-900 px-4 py-20 border border-purple-200 flex flex-col justify-center items-center">
+          <span className="text-3xl">Payment Options For Your Budget</span>
         </div>
         <div className="col-span-1 text-purple-900  px-4 py-20 border border-purple-200">
           <span>Easy Payments & No Hidden Costs</span>
