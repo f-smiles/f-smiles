@@ -224,7 +224,7 @@ const Bag = ({ productData, isOpen }) => {
       <button className="mb-5 rounded-full bg-indigo-200 text-md px-2 py-2">
           <NavLink 
             to="/checkout"
-            className="cursor-pointer block text-sm leading-3 tracking-normal px-3 font-normal text-white"
+            className="cursor-pointer block text-sm leading-3 tracking-normal px-3 font-normal text0wi"
           >Checkout</NavLink>
           </button>
         </section>
