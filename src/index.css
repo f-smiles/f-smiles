@@ -19,6 +19,12 @@ backdrop-filter: blur(15px);
   }
 }
 
+@layer utilities {
+  .clip-svg {
+    clip-path: ;
+  }
+}
+
 /* .clip-svg {
   clip-path: url(#blob1);
   width: 100%;
@@ -27,7 +33,12 @@ backdrop-filter: blur(15px);
 } */
 
 .clip-svg {
-  width: 400px;
-  height: 400px;
-  clip-path: url("#blob1");
+  /* width: 400px;
+  height: 400px; */
+  /* clip-path: url("#blob1"); */
+  width: 600px;
+  height: 600px;
+  clip-path: path(
+    'M139.5,35.8c11.5,20.7,10.5,48.1-1.6,70.6c-12.1,22.6-35.3,40.4-60.4,41.6c-25.2,1.2-52.4-14.3-66.4-38   C-3,86.2-3.9,54.3,9.7,32.5C23.3,10.6,51.4-1.1,77.5,0C103.7,1.2,127.9,15.2,139.5,35.8z'
+  );
 }

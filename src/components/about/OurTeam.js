@@ -1,10 +1,31 @@
 // import { ChevronUpIcon, ChevronDownIcon } from "@heroicons/react/20/solid";
 // import { Fragment, useState } from "react";
-import { useState } from "react";
+import React, { useRef, useState } from "react";
 import { Transition } from "@headlessui/react";
+
+/* blaze slider */
 // import BlazeSlider from 'blaze-slider'
 import { useBlazeSlider } from 'react-blaze-slider'
 import 'blaze-slider/dist/blaze.css'
+
+/*
+  Swiper js
+
+// Import Swiper React components
+import { Swiper, SwiperSlide } from "swiper/react";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+
+// import "./styles.css";
+
+// import required modules
+import { Keyboard, Pagination, Navigation } from "swiper";
+
+*/
+
 
 const OurTeam = () => {
   const [activeAccordion, setActiveAccordion] = useState(null);
@@ -151,31 +172,65 @@ const OurTeam = () => {
           ))}
         </dl>
       </section>
-      {/* TODO: fix 1st and 2nd index opens Doctors AND Members */}
-      <section className="mx-auto w-full max-w-screen-lg rounded-2xl p-2 mt-16 backdrop-blur-md bg-opacity-70 bg-gradient-conic from-fuchsia-300 via-green-400 to-rose-700">
+      <section className="mx-auto w-full max-w-screen-lg rounded-2xl p-2 mt-16 backdrop-blur-md bg-opacity-70 bg-gradient-conic from-fuchsia-300 via-green-400 to-rose-700 py-8">
         <h1 className="text-xl font-bold text-purple-900 relative mb-4">
           Our Team
         </h1>
         <div className="blaze-slider" ref={ref}>
-          <div className="blaze-container">
+          <div className="blaze-container px-8">
             <div className="blaze-track-container">
               <div className="blaze-track">
                 {Members.map((member, index) => (
-                  <figure key={index}>
-                    <img src={member.img} className="clip-svg" alt={member.name} />
-                    <caption className="w-max">{member.role}</caption>
-                  </figure>
+                  <picture key={index} className="space-y-4">
+                    {/* make an id for svg clip and ref the id */}
+                    <img src={member.img} alt={member.name} />
+                    <caption className="px-4">
+                      <h2 className="text-left">{member.name}</h2>
+                      <p className="w-max">{member.role}</p>
+                    </caption>
+                  </picture>
                 ))}
               </div>
-              <div class="my-structure">
-                <button class="blaze-prev" aria-label="Go to previous slide">Prev</button>
-                {/* <div class="blaze-pagination"></div> */}
-                <button class="blaze-next" aria-label="Go to next slide">Next</button>
+              <div className="absolute top-1/2 left-0 flex justify-between w-full z-0">
+                <button className="blaze-prev" aria-label="Go to previous slide">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                  </svg>
+                </button>
+                {/* <div className="blaze-pagination"></div> */}
+                <button className="blaze-next" aria-label="Go to next slide">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                </svg>
+                </button>
               </div>
             </div>
           </div>
       </div>
       
+      {/* <Swiper
+        slidesPerView={1}
+        spaceBetween={30}
+        keyboard={{
+          enabled: true,
+        }}
+        pagination={{
+          clickable: true,
+        }}
+        navigation={true}
+        modules={[Keyboard, Pagination, Navigation]}
+        className="mySwiper"
+      >
+        {Members.map((member, index) => (
+        <SwiperSlide>
+          <figure key={member.id}>
+            <img src={member.img} className="clip-svg" alt={member.name} />
+            <caption className="w-max">{member.role}</caption>
+          </figure>
+        </SwiperSlide>
+        ))}
+      </Swiper> */}
+
       </section>
     </main>
   );
