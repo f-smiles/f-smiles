@@ -101,7 +101,7 @@ export default function DesktopNavbar() {
   onMouseLeave={() => setShow(null)}
 >
   <li
-    className="h-full cursor-pointer hover:text-indigo-700 transition duration-150 ease-in-out inline-flex items-center text-sm text-stone-900 tracking-normal relative text-white font-black hover:text-indigo-700 gap-2"
+    className=" h-full cursor-pointer hover:text-indigo-900 transition duration-150 ease-in-out inline-flex items-center text-sm text-stone-900 tracking-normal relative  font-black hover:text-indigo-700 gap-2"
     onMouseOver={() => setShow("about")}
     onClick={() => setShow("about")}
   >
@@ -141,7 +141,7 @@ export default function DesktopNavbar() {
   </Transition>
           </div>
 <li
-  className="cursor-pointer hover:text-indigo-700 transition duration-150 ease-in-out inline-flex items-center text-sm text-white tracking-normal relative text-stone-900 hover:text-indigo-700 gap-2"
+  className="cursor-pointer hover:text-indigo-700 transition duration-150 ease-in-out inline-flex items-center text-sm tracking-normal relative text-stone-900 hover:text-indigo-700 gap-2"
   onMouseOver={() => setPatient(true)}
   onMouseLeave={() => setPatient(false)}
 >
@@ -189,7 +189,7 @@ export default function DesktopNavbar() {
   </Transition>
 </li>
             <li
-              className="cursor-pointer hover:text-indigo-700 transition duration-150 ease-in-out inline-flex items-center text-sm text-stone-900 tracking-normal relative text-white hover:text-indigo-700 gap-2"
+              className="cursor-pointer hover:text-indigo-700 transition duration-150 ease-in-out inline-flex items-center text-sm text-stone-900 tracking-normal relative hover:text-indigo-700 gap-2"
               onMouseOver={handleMouseOver}
               onMouseLeave={handleMouseLeave}
               // onClick={() => setTreatments(!treatments)}
@@ -278,7 +278,7 @@ export default function DesktopNavbar() {
                 </div>
               </div>
             </div>
-            <li className="cursor-pointer flex hover:text-indigo-700 transition duration-150 ease-in-out flex items-center text-sm text-stone-900 tracking-normal text-white hover:text-indigo-700">
+            <li className="cursor-pointer flex hover:text-indigo-700 transition duration-150 ease-in-out flex items-center text-sm text-stone-900 tracking-normal hover:text-indigo-700">
             <a
   href="https://my.orthoblink.com/bLink/Login"
   className="cursor-pointer block text-sm leading-3 tracking-normal px-3 font-normal"
@@ -286,7 +286,7 @@ export default function DesktopNavbar() {
   Patient Login
 </a>
             </li>
-            <li className="cursor-pointer flex hover:text-indigo-700 transition duration-150 ease-in-out flex items-center text-sm text-stone-900 tracking-normal text-white hover:text-indigo-700">
+            <li className="cursor-pointer flex hover:text-indigo-700 transition duration-150 ease-in-out flex items-center text-sm text-stone-900 tracking-normal  hover:text-indigo-700">
               <NavLink
                 to="/locations"
                 className="cursor-pointer block text-sm leading-3 tracking-normal px-3 font-normal"
@@ -294,7 +294,7 @@ export default function DesktopNavbar() {
                 Our Locations
               </NavLink>
             </li>
-            <li className="cursor-pointer flex hover:text-indigo-700 transition duration-150 ease-in-out flex items-center text-sm text-stone-900 tracking-normal text-white hover:text-indigo-700">
+            <li className="cursor-pointer flex hover:text-indigo-700 transition duration-150 ease-in-out flex items-center text-sm text-stone-900 tracking-normal  hover:text-indigo-700">
               <NavLink
                 to="/products"
                 className="cursor-pointer block text-sm leading-3 tracking-normal px-3 font-normal"
@@ -308,13 +308,14 @@ export default function DesktopNavbar() {
             
   <NavLink to="/bag" className="cursor-pointer block text-sm leading-3 tracking-normal px-3 font-normal hover:text-violet-500 transition duration-500 ease-in-out">
     {cartCount > 0 && (
-    <span className="flex items-center gap-1">
-      Bag
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" fillRule="evenodd" viewBox="0 0 22 24" stroke="purple" className="w-8 h-5">
-        <path className="bag-path-static text-gray-700" d="M17.54 5.424a.47.47 0 0 1 .46.474v17.627a.47.47 0 0 1-.46.475H.46a.47.47 0 0 1-.46-.475V5.898a.47.47 0 0 1 .46-.474h4.795v-1.56C5.255 1.733 6.935 0 9 0c2.065 0 3.745 1.733 3.745 3.864v1.56zm-11.365 0h5.64v-1.56c0-1.608-1.264-2.915-2.82-2.915-1.555 0-2.82 1.307-2.82 2.915zm10.905.949h-4.335V8.61a.47.47 0 0 1-.46.475.47.47 0 0 1-.46-.475V6.373h-5.65V8.61a.47.47 0 0 1-.46.475.47.47 0 0 1-.46-.475V6.373H.92V23.05h16.16z" strokeWidth="1"></path>
-        <text x="6" y="18" fill="black" fontSize="12">{cartCount}</text>
-      </svg>
-    </span>
+   <span className="flex items-center gap-1">
+   Bag
+   <svg xmlns="http://www.w3.org/2000/svg" fill="none" fillRule="evenodd" viewBox="0 0 22 24" className="w-8 h-5">
+     <path className="bag-path-static text-gray-700 stroke-black stroke-opacity-90 stroke-0.3" d="M17.54 5.424a.47.47 0 0 1 .46.474v17.627a.47.47 0 0 1-.46.475H.46a.47.47 0 0 1-.46-.475V5.898a.47.47 0 0 1 .46-.474h4.795v-1.56C5.255 1.733 6.935 0 9 0c2.065 0 3.745 1.733 3.745 3.864v1.56zm-11.365 0h5.64v-1.56c0-1.608-1.264-2.915-2.82-2.915-1.555 0-2.82 1.307-2.82 2.915zm10.905.949h-4.335V8.61a.47.47 0 0 1-.46.475.47.47 0 0 1-.46-.475V6.373h-5.65V8.61a.47.47 0 0 1-.46.475.47.47 0 0 1-.46-.475V6.373H.92V23.05h16.16z"></path>
+     <text x="6" y="18" fill="black" fontSize="12">{cartCount}</text>
+   </svg>
+ </span>
+ 
     )}
   </NavLink>
 </li>

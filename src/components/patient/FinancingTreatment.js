@@ -147,16 +147,25 @@ const FinancingTreatment = () => {
           <p>
             {" "}
             We strive to help you maximize your lifetime orthodontic insurance
-            benefits, and if you have an FSA we can assist you in planning and
-            utilizing reimbursements for orthodontic care to achieve your
-            desired smile.
+            benefits. If you have an FSA we can assist you in planning and
+            utilizing reimbursements for orthodontic care.
           </p>
         </div>
         <div className="col-span-1 text-purple-900 px-4 py-20 border border-purple-200 flex flex-col justify-center items-center">
-          <span className="text-3xl">Payment Options For Your Budget</span>
+          <span className="text-3xl">Loyalty Discounts</span>
+          <img
+            src="/images/organicshapes.svg"
+            alt="halfcircles"
+            className="w-20 h-20 transform -rotate-90"
+          />
         </div>
         <div className="col-span-1 text-purple-900  px-4 py-20 border border-purple-200">
           <span>Easy Payments & No Hidden Costs</span>
+          <img
+            src="/images/half.png"
+            alt="halfcircles"
+            className="w-10 h-10 transform transform rotate-270"
+          />
         </div>
       </div>
       <div className="mt-4"></div>
