@@ -135,7 +135,7 @@ import { ChevronUpIcon } from "@heroicons/react/20/solid";
 
 const FinancingTreatment = () => {
   return (
-    <div className="mt-20 w-full px-4 pt-16">
+    <div className="bg-rose-50 mt-20 w-full px-4 pt-16">
       <div className="grid grid-cols-3 mt-4">
       <div className="col-span-1 text-purple-900 px-4 py-20 border border-purple-200 flex flex-col justify-center items-center">
           <span className="text-3xl">FSA/HSA</span>
