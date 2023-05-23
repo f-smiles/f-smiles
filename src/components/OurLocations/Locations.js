@@ -3,29 +3,33 @@ import { Link } from "react-router-dom";
 
 const Locations = () => {
   return (
-<main className="w-full mt-20 relative" style={{ backgroundImage: `url("../../images/landscape.png")`, backgroundSize: "75%", backgroundPosition: "top left", backgroundRepeat: "no-repeat" }}>
-  <a href="#" className="go-down-btn" title="Scroll down">
-  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1600px" height="200px" viewBox="0 0 100 100" enableBackground="new 0 0 100 100" xmlSpace="preserve" className="z-10" style={{ position: 'relative', top: '90px' }}>
-      <defs>
-        <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" style={{ stopColor: '#AA98A9', stopOpacity: 1 }} />
-          <stop offset="100%" style={{stopColor: '#D8BFD8', stopOpacity: 1}} />
-        </linearGradient>
-      </defs>
-      <circle cx="50" cy="50" r="25" fill="url(#grad)" />
-      <image xlinkHref="../images/logo_short.png" x="40" y="40" width="25%" height="25%" />
-      
-      <path id="textPath" fill="none" d="M89.322,50.197c0,22.09-17.91,40-40,40c-22.089,0-40-17.91-40-40 c0-22.089,17.911-40,40-40C71.412,10.197,89.322,28.108,89.322,50.197z" />
-      <text style={{ fontSize: '9px' }}>
-        <textPath xlinkHref="#textPath">
-          <tspan x="10">Lehighton</tspan>
-          <tspan x="42" dx="30">Bethlehem</tspan>
-          <tspan x="72" dx="60">Schnecksville</tspan>
-          <tspan x="107" dx="90">Allentown</tspan>
-        </textPath>
-      </text>
-    </svg>
-  </a>
+<main className="w-full mt-20 relative" style={{ backgroundImage: `url("../../images/landscape.png")`, backgroundSize: "100%", backgroundPosition: "top center", backgroundRepeat: "no-repeat" }}>
+  <section className="mt-32">
+    <a href="#" className="max-w-screen-sm h-auto go-down-btn inline-block flex flex-col justify-center items-center mx-auto" title="Scroll down">
+    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100" enableBackground="new 0 0 100 100" xmlSpace="preserve" className="w-64 h-64 z-10" style={{ position: 'relative', margin: "auto", 
+    // transform: "translate(0, 50%)"
+     }}>
+        <defs>
+          <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style={{ stopColor: '#AA98A9', stopOpacity: 1 }} />
+            <stop offset="100%" style={{stopColor: '#D8BFD8', stopOpacity: 1}} />
+          </linearGradient>
+        </defs>
+        <circle cx="50" cy="50" r="25" fill="url(#grad)" />
+        <image xlinkHref="../images/logo_short.png" x="38" y="38" width="25%" height="25%" />
+        
+        <path id="textPath" fill="none" d="M89.322,50.197c0,22.09-17.91,40-40,40c-22.089,0-40-17.91-40-40 c0-22.089,17.911-40,40-40C71.412,10.197,89.322,28.108,89.322,50.197z" />
+        <text style={{ fontSize: '9px' }}>
+          <textPath xlinkHref="#textPath">
+            <tspan x="10">Lehighton</tspan>
+            <tspan x="42" dx="30">Bethlehem</tspan>
+            <tspan x="72" dx="60">Schnecksville</tspan>
+            <tspan x="107" dx="90">Allentown</tspan>
+          </textPath>
+        </text>
+      </svg>
+    </a>
+  </section>
 
 
 
@@ -72,8 +76,8 @@ const Locations = () => {
           </svg>
         </div>
       </div> */}
-      <div className="mb-10">
-        <p className="flex align-items py-4 mt-40">
+      <div className="max-w-screen-lg mx-auto py-4 my-32">
+        <p>
           Please fill out our appointment request form to schedule an
           appointment with a skilled Allentown orthodontist at FreySmiles.
           Virtual consultations are also available if you prefer. You may also
@@ -87,6 +91,7 @@ const Locations = () => {
           orthodontists at FreySmiles are Diamond Plus Invisalign providers.
         </p>
       </div>
+      
       <section className="w-full p-8 cursor-pointer hover:bg-stone-200 transition-all duration-500 linear">
         <div className="max-w-screen-xl mx-auto md:px-8 md:grid md:grid-cols-3 gap-4 space-y-4">
           <div>
