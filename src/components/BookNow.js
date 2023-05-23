@@ -403,6 +403,7 @@ const BookNow = () => {
       placeholder="Your message"
       value={message}
       onChange={(e) => setMessage(e.target.value)}
+      style={{ fontStyle: "italic" }}
     ></textarea>
   </label>
 </div>
