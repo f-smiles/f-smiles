@@ -19,12 +19,6 @@ backdrop-filter: blur(15px);
   }
 }
 
-@layer utilities {
-  .clip-svg {
-    clip-path: ;
-  }
-}
-
 /* .clip-svg {
   clip-path: url(#blob1);
   width: 100%;
