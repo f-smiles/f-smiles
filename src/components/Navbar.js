@@ -3,11 +3,11 @@ import { NavLink } from "react-router-dom";
 import { Transition } from '@headlessui/react'
 import Sphere from "./navbar/sketch";
 import CartContext from "../app/CartContext";
-import Bag from "./stripe/Bag";
+
 
 export default function DesktopNavbar() {
   const [isBagOpen, setIsBagOpen] = useState(false);
-  const { cartCount, total } = useContext(CartContext);
+  const {  cartCount } = useContext(CartContext);
   const [show, setShow] = useState(null);
   // const [cartCount, setCartCount] = useState(0);
   // const [cart, setCart] = useState([]);
@@ -41,7 +41,7 @@ export default function DesktopNavbar() {
 
 
   useEffect(() => {
-    console.log("cartCount has changed:", cartCount);
+
   }, [cartCount]);
   const handleMouseOver = () => {
     setTreatments(true);
@@ -304,21 +304,31 @@ export default function DesktopNavbar() {
             </li>
           </ul>
           <div className="flex items-center">
-          <li className="z-10">
+        
             
-  <NavLink to="/bag" className="cursor-pointer block text-sm leading-3 tracking-normal px-3 font-normal hover:text-violet-500 transition duration-500 ease-in-out">
-    {cartCount > 0 && (
-   <span className="flex items-center gap-1">
-   Bag
-   <svg xmlns="http://www.w3.org/2000/svg" fill="none" fillRule="evenodd" viewBox="0 0 22 24" className="w-8 h-5">
-     <path className="bag-path-static text-gray-700 stroke-black stroke-opacity-90 stroke-0.3" d="M17.54 5.424a.47.47 0 0 1 .46.474v17.627a.47.47 0 0 1-.46.475H.46a.47.47 0 0 1-.46-.475V5.898a.47.47 0 0 1 .46-.474h4.795v-1.56C5.255 1.733 6.935 0 9 0c2.065 0 3.745 1.733 3.745 3.864v1.56zm-11.365 0h5.64v-1.56c0-1.608-1.264-2.915-2.82-2.915-1.555 0-2.82 1.307-2.82 2.915zm10.905.949h-4.335V8.61a.47.47 0 0 1-.46.475.47.47 0 0 1-.46-.475V6.373h-5.65V8.61a.47.47 0 0 1-.46.475.47.47 0 0 1-.46-.475V6.373H.92V23.05h16.16z"></path>
-     <text x="6" y="18" fill="black" fontSize="12">{cartCount}</text>
-   </svg>
- </span>
- 
-    )}
-  </NavLink>
+
+          <li className="z-10">
+  {cartCount > 0 ? (
+    <NavLink to="/bag" className="cursor-pointer block text-sm leading-3 tracking-normal px-3 font-normal hover:text-violet-500 transition duration-500 ease-in-out">
+      <span className="flex items-center gap-1">
+        Bag
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 22 24" stroke="purple" className="w-8 h-5">
+          <path className="bag-path-static text-gray-700" d="M17.54 5.424a.47.47 0 0 1 .46.474v17.627a.47.47 0 0 1-.46.475H.46a.47.47 0 0 1-.46-.475V5.898a.47.47 0 0 1 .46-.474h4.795v-1.56C5.255 1.733 6.935 0 9 0c2.065 0 3.745 1.733 3.745 3.864v1.56zm-11.365 0h5.64v-1.56c0-1.608-1.264-2.915-2.82-2.915-1.555 0-2.82 1.307-2.82 2.915zm10.905.949h-4.335V8.61a.47.47 0 0 1-.46.475.47.47 0 0 1-.46-.475V6.373h-5.65V8.61a.47.47 0 0 1-.46.475.47.47 0 0 1-.46-.475V6.373H.92V23.05h16.16z" strokeWidth="1"></path>
+          <text x="6" y="18" fill="black" fontSize="12">{cartCount}</text>
+        </svg>
+      </span>
+    </NavLink>
+  ) : (
+    <NavLink to="/bag" className="cursor-pointer block text-sm leading-3 tracking-normal px-3 font-normal hover:text-violet-500 transition duration-500 ease-in-out">
+   
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 22 24" stroke="purple" className="w-8 h-5">
+          <path className="bag-path-static text-gray-700" d="M17.54 5.424a.47.47 0 0 1 .46.474v17.627a.47.47 0 0 1-.46.475H.46a.47.47 0 0 1-.46-.475V5.898a.47.47 0 0 1 .46-.474h4.795v-1.56C5.255 1.733 6.935 0 9 0c2.065 0 3.745 1.733 3.745 3.864v1.56zm-11.365 0h5.64v-1.56c0-1.608-1.264-2.915-2.82-2.915-1.555 0-2.82 1.307-2.82 2.915zm10.905.949h-4.335V8.61a.47.47 0 0 1-.46.475.47.47 0 0 1-.46-.475V6.373h-5.65V8.61a.47.47 0 0 1-.46.475.47.47 0 0 1-.46-.475V6.373H.92V23.05h16.16z" strokeWidth="1"></path>
+          <text x="6" y="18" fill="black" fontSize="12">{cartCount}</text>
+        </svg>
+    </NavLink>
+  )}
 </li>
+
 
             <li className="cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-3 hover:text-white font-normal">
     <NavLink
