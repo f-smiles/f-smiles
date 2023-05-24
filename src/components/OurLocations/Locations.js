@@ -6,6 +6,8 @@ const Locations = () => {
 <main className="w-full mt-20 relative" style={{ backgroundImage: `url("../../images/landscape.png")`, backgroundSize: "100%", backgroundPosition: "top center", backgroundRepeat: "no-repeat" }}>
   <section className="mt-32">
     <a href="#" className="max-w-screen-sm h-auto go-down-btn inline-block flex flex-col justify-center items-center mx-auto" title="Scroll down">
+
+      
     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100" enableBackground="new 0 0 100 100" xmlSpace="preserve" className="w-64 h-64 z-10" style={{ position: 'relative', margin: "auto", 
     // transform: "translate(0, 50%)"
      }}>
@@ -77,7 +79,7 @@ const Locations = () => {
         </div>
       </div> */}
       <div className="max-w-screen-lg mx-auto py-4 my-32">
-        <p>
+      <p className="flex text-center  text-teal-600 bg-white bg-opacity-30 p-4 rounded-md backdrop-filter backdrop-blur-lg">
           Please fill out our appointment request form to schedule an
           appointment with a skilled Allentown orthodontist at FreySmiles.
           Virtual consultations are also available if you prefer. You may also

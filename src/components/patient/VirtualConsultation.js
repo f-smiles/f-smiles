@@ -105,7 +105,7 @@ const VirtualConsultation = () => {
 
   const baseButtonClass = "text-slate-700 py-2 px-4 rounded-full";
   const activeButtonClass =
-    "bg-gradient-to-r from-violet-100 via-violet-200 to-violet-300";
+    "bg-indigo-100";
   const inactiveButtonClass =
     "border border-violet-400 hover:bg-violet-400 hover:text-white text-violet-700";
 
@@ -144,7 +144,7 @@ const VirtualConsultation = () => {
                   htmlFor="first name"
                   className="absolute -mt-2 ml-4 px-2 block mb-2 text-sm font-medium text-indigo-700 dark:text-white bg-white rounded"
                 >
-                  First Name
+                  First Name*
                 </label>
                 <input
                   type="text"
@@ -159,7 +159,7 @@ const VirtualConsultation = () => {
                   htmlFor="last name"
                   className="absolute -mt-2 ml-4 px-2 block mb-2 text-sm font-medium text-indigo-700 dark:text-white bg-white rounded"
                 >
-                  Last Name
+                  Last Name*
                 </label>
                 <input
                   type="text"
@@ -191,7 +191,7 @@ const VirtualConsultation = () => {
                   htmlFor="guardian_name"
                   className="absolute -mt-3 ml-4 px-2 block mb-2 text-sm font-medium text-indigo-700 dark:text-white bg-white rounded"
                 >
-                  Phone Number
+                  Phone Number*
                 </label>
                 <input
                   type="tel"
@@ -206,7 +206,7 @@ const VirtualConsultation = () => {
                   htmlFor="guardian_name"
                   className="absolute -mt-3 ml-4 px-2 block mb-2 text-sm font-medium text-indigo-700 dark:text-white bg-white rounded"
                 >
-                  Email address
+                  Email address*
                 </label>
                 <input
                   type="email"
@@ -234,7 +234,7 @@ const VirtualConsultation = () => {
                 htmlFor="floatingInput"
                 className="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-indigo-300 text-sm transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary"
               >
-                Date of Birth
+                Date of Birth*
               </label>
             </div>
 

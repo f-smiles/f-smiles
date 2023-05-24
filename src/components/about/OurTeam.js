@@ -43,7 +43,7 @@ const OurTeam = () => {
   const Doctors = [
     {
       name: "Gregg Frey, DDS",
-      img: "",
+      img: "../../images/team_members/GreggFrey.jpg",
       bio: "Dr. Gregg Frey is an orthodontist based in Pennsylvania, who graduated from Temple University School of Dentistry with honors and served in the U.S. Navy Dental Corps before establishing his practice in the Lehigh Valley. He is a Diplomat of the American Board of Orthodontics and has received numerous distinctions, accreditations, and honors,including being named one of America's Top Orthodontists by the Consumer Review Council of America. This distinction is held by fewer than 25% of orthodontists nationwide. ABO certification represents the culmination of 5-10 years of written and oral examinations and independent expert review of actual treated patients. Recently Dr. Frey voluntarily re-certified. Dr. Frey enjoys coaching soccer, vintage car racing, and playing the drums. He is joined by his son, Dr Daniel Frey, at FreySmiles Orthodontics.",
     },
     {
@@ -122,56 +122,62 @@ const OurTeam = () => {
 
   return (
     <main   className="custom-background"
-      style={{
-        backgroundColor: 'rgb(237, 234, 232)',
-        backgroundImage:
-          'linear-gradient(#ddbb99 2px, transparent 2px), linear-gradient(90deg, #ddbb99 2px, transparent 2px), linear-gradient(rgba(153,221,187,.3) 1px, transparent 1px), linear-gradient(90deg, rgba(153,221,187,.3) 1px, transparent 1px)',
-        backgroundSize: '100px 100px, 100px',
-        backgroundPosition: '-2px -2px, -2px -2px, -1px -1px, -1px -1px',
-      }}>
+    // style={{
+    //   backgroundColor: 'rgb(237, 234, 232)',
+    //   backgroundImage:
+    //     'linear-gradient(#ddbb99 2px, transparent 2px), linear-gradient(90deg, #ddbb99 2px, transparent 2px), linear-gradient(rgba(153,221,187,.3) 1px, transparent 1px), linear-gradient(90deg, rgba(153,221,187,.3) 1px, transparent 1px)',
+    //   backgroundSize: '100px 100px, 100px',
+    //   backgroundPosition: '-2px -2px, -2px -2px, -1px -1px, -1px -1px',
+    // }}>
+  >
+    {/* <div className=" mx-auto w-full max-w-screen-lg rounded-2xl bg-stone p-2 mt-16"> */}
+    <section className="justify-center mx-auto w-full max-w-screen-lg rounded-2xl p-2 mt-16 backdrop-blur-md bg-opacity-70 bg-gradient-conic from-fuchsia-300 via-green-400 to-rose-700">
+  <h1 className="mb-10 flex text-center text-3xl font-bold text-purple-900 mb-4">
+    Our Doctors
+  </h1>
+  <div className="flex">
     
-      {/* <div className=" mx-auto w-full max-w-screen-lg rounded-2xl bg-stone p-2 mt-16"> */}
-      <section className="mx-auto w-full max-w-screen-lg rounded-2xl p-2 mt-16 backdrop-blur-md bg-opacity-70 bg-gradient-conic from-fuchsia-300 via-green-400 to-rose-700">
-        <h1 className="text-xl font-bold text-purple-900 relative mb-4">
-          Our Doctors
-        </h1>
-        <dl className="space-y-8 overflow-hidden h-96">
-          {Doctors.map((member, index) => (
-            <div key={index}>
-              <span className="relative">
-                <span
-                  className={`bg-purple-300 h-full w-1 absolute left-0 top-0 transition-all duration-700 ${
-                    activeAccordion === index ? "bg-purple-500 h-full" : "h-0"
-                  } rounded-full`}
-                ></span>
-                <dt
-                  className={`text-lg font-medium text-purple-900 cursor-pointer relative pl-4 focus:outline-none ${
-                    activeAccordion === index ? "mb-2" : ""
-                  }`}
-                  onClick={() => toggleAccordion(index)}
-                >
-                  <div className="flex items-start">
-                    <span className="pl-2 text-xl">{member.name}</span>
-                  </div>
-                  <Transition
-                    show={activeAccordion === index}
-                    enter="transition-all duration-700"
-                    enterFrom="opacity-0 max-h-0"
-                    enterTo="opacity-100 max-h-[500px]"
-                    leave="transition-all duration-700"
-                    leaveFrom="opacity-100 max-h-[500px]"
-                    leaveTo="opacity-0 max-h-0"
-                  >
-                    <dd className="text-sm text-gray-500 pl-7">
-                      {member.bio}
-                    </dd>
-                  </Transition>
-                </dt>
-              </span>
-            </div>
-          ))}
-        </dl>
-      </section>
+    <dl className="space-y-8 overflow-hidden h-96">
+      
+      {Doctors.map((member, index) => (
+        <div key={index} className="flex">
+          <span className="relative">
+            <span
+              className={`bg-purple-300 h-full w-1 absolute left-0 top-0 transition-all duration-700 ${
+                activeAccordion === index ? "bg-purple-500 h-full" : "h-0"
+              } rounded-full`}
+            ></span>
+            <dt
+              className={`text-lg font-medium text-purple-900 cursor-pointer relative pl-4 focus:outline-none ${
+                activeAccordion === index ? "mb-2" : ""
+              }`}
+              onClick={() => toggleAccordion(index)}
+            >
+              <div className="flex items-start">
+                <span className="pl-2 text-xl">{member.name}</span>
+              </div>
+            </dt>
+            <Transition
+              show={activeAccordion === index}
+              enter="transition-all duration-700"
+              enterFrom="opacity-0 max-h-0"
+              enterTo="opacity-100 max-h-[500px]"
+              leave="transition-all duration-700"
+              leaveFrom="opacity-100 max-h-[500px]"
+              leaveTo="opacity-0 max-h-0"
+            >
+              <dd className="text-sm text-gray-500 pl-7">
+                {member.bio}
+              </dd>
+            </Transition>
+          </span>
+        </div>
+      ))}
+    </dl>
+
+  </div>
+</section>
+
       <section className="mx-auto w-full max-w-screen-lg rounded-2xl p-2 mt-16 backdrop-blur-md bg-opacity-70 bg-gradient-conic from-fuchsia-300 via-green-400 to-rose-700 py-8">
         <h1 className="text-xl font-bold text-purple-900 relative mb-4">
           Our Team
