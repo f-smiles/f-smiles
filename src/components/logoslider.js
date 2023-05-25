@@ -5,23 +5,22 @@ const LogoSlider = () => {
   const maxImageSize = "100px";
 
   const logoSliderStyle = {
- 
-    padding: "20px",
     overflow: "hidden",
-    maxWidth: "900px",
-    width: "100%",
+    width: "100vw",
     margin: "0 auto",
     position: "relative",
     display: "flex",
-    animation: "marquee 10s linear infinite"
+    animation: "marquee 10s linear infinite",
+    lineHeight: "0"
   };
 
   const imgStyle = {
     display: "block",
     minWidth: `var(--image-size, ${maxImageSize})`,
+    height: "200px",
     objectFit: "contain",
     margin: "0 1vw",
-
+    boxSizing: "border-box"
   };
 
   const afterStyle = {
