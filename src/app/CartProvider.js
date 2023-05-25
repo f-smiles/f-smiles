@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useMemo, useCallback } from "react";
 import CartContext from "./CartContext";
 
-// Step 2: Create a cart provider component
 const CartProvider = ({ children }) => {
   const [show, setShow] = useState(null);
   const [cartCount, setCartCount] = useState(0);

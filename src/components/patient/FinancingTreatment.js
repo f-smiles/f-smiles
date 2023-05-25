@@ -131,13 +131,13 @@
 
 import React from "react";
 import { Disclosure } from "@headlessui/react";
-import { ChevronUpIcon } from "@heroicons/react/20/solid";
+
 
 const FinancingTreatment = () => {
   return (
-    <div className="mt-20 w-full px-4 pt-16">
+    <div className="bg-rose-50 mt-20 w-full px-4 pt-16">
       <div className="grid grid-cols-3 mt-4">
-      <div className="col-span-1 text-purple-900 px-4 py-20 border border-purple-200 flex flex-col justify-center items-center">
+        <div className="col-span-1 text-purple-900 px-4 py-20 border border-purple-200 flex flex-col justify-center items-center">
           <span className="text-3xl">FSA/HSA</span>
           <img
             src="/images/twohalves.svg"
@@ -145,23 +145,30 @@ const FinancingTreatment = () => {
             className="w-10 h-10"
           />
           <p>
-            {" "}
             We strive to help you maximize your lifetime orthodontic insurance
-            benefits, and if you have an FSA we can assist you in planning and
-            utilizing reimbursements for orthodontic care to achieve your
-            desired smile.
+            benefits. If you have an FSA, we can assist you in planning and
+            utilizing reimbursements for orthodontic care.
           </p>
         </div>
-        <div className="col-span-1 text-purple-900 px-4 py-20 border border-purple-200 flex flex-col justify-center items-center">
-          <span className="text-3xl">Payment Options For Your Budget</span>
+        <div className="col-span-1 text-purple-900 px-4 py-20 border-t border-b border-purple-200 flex flex-col justify-center items-center">
+          <span className="text-3xl">Loyalty Discounts</span>
+          <img
+            src="/images/organicshapes.svg"
+            alt="halfcircles"
+            className="w-20 h-20 transform -rotate-90"
+          />
         </div>
-        <div className="col-span-1 text-purple-900  px-4 py-20 border border-purple-200">
+        <div className="col-span-1 text-purple-900 px-4 py-20 border border-purple-200">
           <span>Easy Payments & No Hidden Costs</span>
+          <img
+            src="/images/half.png"
+            alt="halfcircles"
+            className="w-10 h-10 transform rotate-270"
+          />
         </div>
       </div>
       <div className="mt-4"></div>
     </div>
   );
 };
-
 export default FinancingTreatment;

@@ -132,9 +132,9 @@ const BookNow = () => {
   };
 
 
-  const baseButtonClass = "text-slate-700 py-2 px-4 rounded-full";
+  const baseButtonClass = "text-indigo-700 py-2 px-4 rounded-full";
   const activeButtonClass =
-    "bg-gradient-to-r from-violet-100 via-violet-200 to-violet-300";
+    "bg-violet-100";
   const inactiveButtonClass =
     "border border-violet-400 hover:bg-violet-400 hover:text-white text-indigo-700";
 
@@ -148,9 +148,9 @@ const BookNow = () => {
         </span>
       ) : (
         <form onSubmit={handleSubmit} 
-        className="border-2 backdrop-blur-md bg-white/30 max-w-screen-sm mx-auto flex flex-col space-y-12 p-8 rounded-xl">
+        className=" backdrop-blur-md bg-white/30 max-w-screen-sm mx-auto flex flex-col space-y-12 p-8 rounded-xl">
 <div className="flex flex-col items-center">
-<h1 className="text-center text-xl text-indigo-700 mb-10">Request Appointment</h1>
+<h1 className="text-center text-3xl text-indigo-700 mb-12">Request Appointment</h1>
   <div className="flex w-full gap-2">
     <div className="relative flex-1 w-1/2">
       <input
@@ -248,12 +248,12 @@ const BookNow = () => {
           <Disclosure>
             {({ open }) => (
               <>
-                <Disclosure.Button className="flex w-full justify-between rounded-lg bg-purple-100 px-4 py-2 text-left text-sm font-medium text-purple-900 hover:bg-purple-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
+                <Disclosure.Button className="flex w-full justify-between rounded-lg  px-4 py-2 text-left text-md font-medium text-indigo-700  focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
                   <span>Type Of Appointment</span>
                   <ChevronUpIcon
                     className={`${
                       open ? "rotate-180 transform" : ""
-                    } h-5 w-5 text-purple-500`}
+                    } h-5 w-5 text-indigo-700`}
                   />
                 </Disclosure.Button>
                 <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
@@ -304,12 +304,12 @@ const BookNow = () => {
           <Disclosure>
             {({ open }) => (
               <>
-                <Disclosure.Button className="flex w-full justify-between rounded-lg bg-purple-100 px-4 py-2 text-left text-sm font-medium text-purple-900 hover:bg-purple-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
-                  <span>Choose Locations</span>
+                <Disclosure.Button className="flex w-full justify-between rounded-lg px-4 py-2 text-left text-md font-medium text-indigo-700 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
+                  <span>Choose Location</span>
                   <ChevronUpIcon
                     className={`${
                       open ? "rotate-180 transform" : ""
-                    } h-5 w-5 text-purple-500`}
+                    } h-5 w-5 text-indigo-700`}
                   />
                 </Disclosure.Button>
                 <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
@@ -398,15 +398,16 @@ const BookNow = () => {
           </div>
 
           <div className="border-2 h-32 border-indigo-100 flex flex-col">
-  <label className="flex flex-col">
+  <label className="flex flex-col" style={{ height: "100%" }}>
     <textarea
       placeholder="Your message"
       value={message}
       onChange={(e) => setMessage(e.target.value)}
-      style={{ fontStyle: "italic" }}
+      style={{ fontStyle: "italic", color: "blue", height: "100%" }}
     ></textarea>
   </label>
 </div>
+
 <div className="flex justify-center">
   <button
     className="text-white rounded-full px-4 py-2 bg-indigo-300 max-w-max -mt-3"
