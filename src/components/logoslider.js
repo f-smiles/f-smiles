@@ -10,7 +10,7 @@ const LogoSlider = () => {
     margin: "0 auto",
     position: "relative",
     display: "flex",
-    animation: "marquee 10s linear infinite",
+    animation: "marquee 20s linear infinite",
     lineHeight: "0"
   };
 
@@ -39,7 +39,7 @@ const LogoSlider = () => {
   };
 
   return (
-    <div className="mt-20 bg-rose-100" style={logoSliderStyle}>
+    <div className="mt-20 bg-rose-200" style={logoSliderStyle}>
       <img src="../../images/movingbannerfiles/damonlogo.png" style={imgStyle} alt="Image" />
       <img src="../../images/movingbannerfiles/invis-logo.png" style={imgStyle} alt="Image" />
       <img src="../../images/movingbannerfiles/invis.png" style={imgStyle} alt="Image" />
@@ -47,6 +47,8 @@ const LogoSlider = () => {
       <img src="../../images/movingbannerfiles/Top-Dentist.png" style={imgStyle} alt="Image" />
       <img src="../../images/movingbannerfiles/aao.png" style={imgStyle} alt="Image" />
       <img src="../../images/movingbannerfiles/ABO.png" style={imgStyle} alt="Image" />
+      <img src="../../images/movingbannerfiles/valley.jpg" style={imgStyle} alt="Image" />
+      <img src="../../images/movingbannerfiles/top-dentists.png" style={imgStyle} alt="Image" />
     </div>
   );
 };
