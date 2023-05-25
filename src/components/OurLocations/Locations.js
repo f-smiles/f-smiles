@@ -80,14 +80,11 @@ const Locations = () => {
       </div> */}
       <div className="max-w-screen-lg mx-auto py-4 my-32">
       <p className="flex text-center  text-teal-600 bg-white bg-opacity-30 p-4 rounded-md backdrop-filter backdrop-blur-lg">
-          Please fill out our appointment request form to schedule an
-          appointment with a skilled Allentown orthodontist at FreySmiles.
+          Request an appointment with one of our orthodontists at FreySmiles.
           Virtual consultations are also available if you prefer. You may also
-          use the form to request a Smile Evaluation if this is your first trip
+          request a Smile Evaluation if this is your first trip
           to the orthodontist. During this no-obligation consultation, we can
-          determine whether braces or Invisalign would be best for you. If you
-          happen to reach us after hours, we will follow up with you the next
-          business day.During this consultation, one of our award-winning
+          determine whether braces or Invisalign would be best for you. During this consultation, one of our award-winning
           orthodontists will talk to you about your lifestyle, examine your
           smile, and make recommendations for orthodontic treatment. The
           orthodontists at FreySmiles are Diamond Plus Invisalign providers.
