@@ -11,9 +11,9 @@ const WhyChooseUs = () => {
           {({ open }) => (
             <>
               <div className="mt-10  bg-gradient-to-b from-violet-100 to-stone-50 py-4 border border-violet-100 rounded-lg px-4 pt-4 pb-2 space-y-4 text-gray-500 text-center">
-                <h1 className=" px-4 py-2 mx-auto text-base text-xl text-purple-900  focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
+                <h1 className=" px-4 py-2 mx-auto text-3xl text-purple-900  focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
                   Why Choose Us
-                </h1>
+                  </h1>
                 <p>
                   FreySmiles Orthodontics is a family-owned practice providing
                   unparalleled orthodontic experience to the Lehigh Valley
@@ -67,23 +67,24 @@ const WhyChooseUs = () => {
         <Disclosure as="div" className="mt-2">
           {({ open }) => (
             <>
-              <div className="bg-center bg-cover" style={{ backgroundImage: "url(../../images/purple.png)",
-             backgroundSize: "60%", backgroundRepeat: "no-repeat",  backgroundPositionX: "60%", backgroundPosition: "center",}}>
+              <div className="bg-center bg-cover ">
+
   <table className="mx-auto" style={{ width: "100%", borderCollapse: "collapse" }}>
                 <tbody>
                   <tr>
                  
                     <td className="p-2"></td>
-                    <td className="p-2 text-center">FreySmiles Orthodontics</td>
-                    
-                    <td className="p-2 text-center">Other Practitioners</td>
+                    <td className="p-2 text-lg text-indigo-700 text-center">
+                    <div className="border border-indigo-700">FreySmiles Orthodontics</div>
+                    </td>
+                    <td className="p-2 text-lg text-indigo-700 text-center">Other Practitioners</td>
                   </tr>
                   <tr>
                     <td
-                      className="p-2 text-center"
+                      className="p-2 py-8 text-violet-700 text-center"
                       style={{ border: "1px solid purple" }}
                     >
-                      Cutting-Edge Technology
+                      CUTTING-EDGE TECHNOLOGY
                     </td>
                     <td className="mb-2" style={{ border: "1px solid purple" }}>
                       <svg
@@ -120,10 +121,10 @@ const WhyChooseUs = () => {
                   </tr>
                   <tr>
                     <td
-                      className="p-2 text-center"
+                      className="p-2 py-8 text-center"
                       style={{ border: "1px solid purple" }}
                     >
-                      Leaders in the Industry
+                      LEADERS IN THE INDUSTRY
                     </td>
                     <td className="mb-2" style={{ border: "1px solid purple" }}>
                       <svg
@@ -160,10 +161,10 @@ const WhyChooseUs = () => {
                   </tr>
                   <tr>
                     <td
-                      className="p-2 text-center"
+                      className="p-2 py-8 text-center"
                       style={{ border: "1px solid purple" }}
                     >
-                      Individualized Care
+                      INDIVIDUALIZE CARE
                     </td>
                     <td className="mb-2" style={{ border: "1px solid purple" }}>
                       <svg
@@ -200,10 +201,10 @@ const WhyChooseUs = () => {
                   </tr>
                   <tr>
                     <td
-                      className="p-2 text-center"
+                      className="p-2 py-8 text-center"
                       style={{ border: "1px solid purple" }}
                     >
-                      ABO Certified
+                      ABO CERTIFIED
                     </td>
                     <td className="mb-2" style={{ border: "1px solid purple" }}>
                       <svg
@@ -240,10 +241,10 @@ const WhyChooseUs = () => {
                   </tr>
                   <tr>
                     <td
-                      className="p-2 text-center"
+                      className="p-2 py-8 text-center"
                       style={{ border: "1px solid purple" }}
                     >
-                      Over 45 years of experience
+                      OVER 45+ YEARS OF EXPERIENCE
                     </td>
                     <td className="mb-2" style={{ border: "1px solid purple" }}>
                       <svg
@@ -280,10 +281,10 @@ const WhyChooseUs = () => {
                   </tr>
                   <tr>
                     <td
-                      className="p-2 text-center"
+                      className="p-2 py-8 text-center"
                       style={{ border: "1px solid purple" }}
                     >
-                      Financial Options
+                      FINANCIAL OPTIONS
                     </td>
                     <td className="mb-2" style={{ border: "1px solid purple" }}>
                       <svg

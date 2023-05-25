@@ -5,6 +5,7 @@ import Map from "react-map-gl";
 import DotPattern from "./DotPattern";
 import AOS from "aos";
 import "aos/dist/aos.css"; 
+import LogoSlider from "./logoslider";
 
 // import ShapeMorph from "./navbar/sketch";
 
@@ -154,9 +155,10 @@ const Home = () => {
                 We offer Invisalign without Impressions. Say goodbye to goopy
                 impressions with our iTero digital scanner.
               </p>
-              <div className="App">{/* <ShapeMorph /> */}</div>
+
             </div>
           </section>
+          <div className="mt-20">  <LogoSlider style={{ transform: 'translate(-50%, -50%)', zIndex: -1 }} /></div>
           {/* <img alt="doctors" src="../../images/Doctor-Photo-Homepage-1.jpg"></img> */}
           <section className="flex flex-col gap-8 justify-center px-4 py-8">
             <h3 className="text-3xl lg:text-5xl font-bold md:font-black leading-10 text-gray-700">
