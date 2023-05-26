@@ -1,68 +1,52 @@
 import React, { useState, useEffect, useMemo, useCallback } from "react";
 import CartContext from "./CartContext";
 
-const CartProvider = ({ children }) => {
-  const [show, setShow] = useState(null);
-  const [cartCount, setCartCount] = useState(0);
-  const [cart, setCart] = useState([]);
-  const [about, setAbout] = useState(false);
-  const [patient, setPatient] = useState(false);
-  const [treatments, setTreatments] = useState(false);
-  const [total, setTotal] = useState(0);
+const useLocalStorage = (key, initialValue) => {
+  const [value, setValue] = useState(() => {
+    const storedValue = JSON.parse(localStorage.getItem(key));
+    return storedValue !== null ? storedValue : initialValue;
+  });
 
-  const calculatedCartCount = useMemo(() => {
+  useEffect(() => {
+    localStorage.setItem(key, JSON.stringify(value));
+  }, [key, value]);
+
+  return [value, setValue];
+};
+
+const CartProvider = ({ children }) => {
+  const [cart, setCart] = useLocalStorage("cart", []);
+  const [total, setTotal] = useLocalStorage("total", 0);
+  const [cartCount, setCartCount] = useState(0);
+
+  const updateCartCount = useCallback(() => {
     let count = 0;
     cart.forEach((item) => {
       count += item.count;
     });
-    return count;
+    setCartCount(count);
   }, [cart]);
-  
-  const updateCartCount = useCallback(() => {
-    setCartCount(calculatedCartCount);
-  }, [calculatedCartCount]);
-  
 
-  
-    useEffect(() => {
-    updateCartCount();
-  }, [cart, total]);
-  
- 
-  
-  useEffect(() => {
-    const storedCart = JSON.parse(localStorage.getItem("cart"));
-    const storedTotal = JSON.parse(localStorage.getItem("total"));
-  
-    if (storedCart && storedTotal) {
-      setCart(storedCart);
-      setTotal(storedTotal);
-      const savedCartItems = storedCart.reduce((count, product) => count + product.count, 0);
-      setCartCount(savedCartItems);
-    }
-  }, [cart, total]);
-  
- 
   const removeFromCart = (product) => {
     const updatedCart = cart.filter((item) => item !== product);
     const updatedTotal = total - product.price;
     setCart(updatedCart);
     setTotal(updatedTotal);
-
-  updateCartCount(updatedCart.length);
-    localStorage.setItem("cart", JSON.stringify(updatedCart));
-    localStorage.setItem("total", JSON.stringify(updatedTotal));
+    updateCartCount();
   };
 
+  useEffect(() => {
+    updateCartCount();
+  }, [updateCartCount]);
 
   return (
-  <CartContext.Provider
+    <CartContext.Provider
       value={{
         cart,
+        setCart, // Added setCart function
         total,
         cartCount,
         removeFromCart,
-       
       }}
     >
       {children}

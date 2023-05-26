@@ -9,8 +9,6 @@ export default function DesktopNavbar() {
   const [isBagOpen, setIsBagOpen] = useState(false);
   const {  cartCount } = useContext(CartContext);
   const [show, setShow] = useState(null);
-  // const [cartCount, setCartCount] = useState(0);
-  // const [cart, setCart] = useState([]);
   const [about, setAbout] = useState(false);
   const [patient, setPatient] = useState(false);
   const [treatments, setTreatments] = useState(false);
@@ -40,9 +38,6 @@ export default function DesktopNavbar() {
   }, []);
 
 
-  useEffect(() => {
-
-  }, [cartCount]);
   const handleMouseOver = () => {
     setTreatments(true);
     clearTimeout(hideTimeoutId);
@@ -57,6 +52,7 @@ export default function DesktopNavbar() {
   const about_us_links = [
     { name: "Our Team", href: "/our-team" },
     { name: "Why Choose Us", href: "/why-choose-us" },
+    { name: "Testimonials", href: "/testimonials" },
   ];
 
   const patient_links = [
@@ -86,26 +82,18 @@ export default function DesktopNavbar() {
         }`}
       >
         <ul className="w-full p-2 max-w-screen-xl mx-auto flex justify-between items-center">
-          <li>
-            <NavLink to="/">
-              <img
-                className="h-12"
-                src="../../images/logo_full.png"
-                alt="frey smiles orthodontics logo"
-              />
-            </NavLink>
-          </li>
+       
           <ul className="xl:flex hidden gap-8 justify-evenly items-center">
           <div
   className="relative"
   onMouseLeave={() => setShow(null)}
 >
   <li
-    className=" h-full cursor-pointer hover:text-indigo-900 transition duration-150 ease-in-out inline-flex items-center text-sm text-stone-900 tracking-normal relative  font-black hover:text-indigo-700 gap-2"
+    className=" h-full cursor-pointer hover:text-indigo-900 transition duration-150 ease-in-out inline-flex items-center text-md text-stone-900 tracking-normal relative  font-black hover:text-indigo-700 gap-2"
     onMouseOver={() => setShow("about")}
     onClick={() => setShow("about")}
   >
-    About Us
+    About 
   </li>
   <Transition
     show={show === "about"}
@@ -141,25 +129,12 @@ export default function DesktopNavbar() {
   </Transition>
           </div>
 <li
-  className="cursor-pointer hover:text-indigo-700 transition duration-150 ease-in-out inline-flex items-center text-sm tracking-normal relative text-stone-900 hover:text-indigo-700 gap-2"
+  className="cursor-pointer hover:text-indigo-700 transition duration-150 ease-in-out inline-flex items-center text-md tracking-normal relative text-stone-900 hover:text-indigo-700 gap-2"
   onMouseOver={() => setPatient(true)}
   onMouseLeave={() => setPatient(false)}
 >
   Patient
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    fill="none"
-    viewBox="0 0 24 24"
-    strokeWidth={1.5}
-    stroke="currentColor"
-    className="w-6 h-6"
-  >
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-    />
-  </svg>
+
   <Transition
     show={patient}
     enter="transition duration-100 ease-out"
@@ -189,26 +164,13 @@ export default function DesktopNavbar() {
   </Transition>
 </li>
             <li
-              className="cursor-pointer hover:text-indigo-700 transition duration-150 ease-in-out inline-flex items-center text-sm text-stone-900 tracking-normal relative hover:text-indigo-700 gap-2"
+              className="cursor-pointer hover:text-indigo-700 transition duration-150 ease-in-out inline-flex items-center text-md text-stone-900 tracking-normal relative hover:text-indigo-700 gap-2"
               onMouseOver={handleMouseOver}
               onMouseLeave={handleMouseLeave}
               // onClick={() => setTreatments(!treatments)}
             >
               Treatments
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="w-6 h-6"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-                />
-              </svg>
+          
             </li>
             <div className={
               treatments
@@ -276,9 +238,19 @@ export default function DesktopNavbar() {
                       </div>
                     </div>
                 </div>
+                
               </div>
             </div>
-            <li className="cursor-pointer flex hover:text-indigo-700 transition duration-150 ease-in-out flex items-center text-sm text-stone-900 tracking-normal hover:text-indigo-700">
+            <li>
+            <NavLink to="/">
+              <img
+                className="h-12"
+                src="../../images/logo_full.png"
+                alt="frey smiles orthodontics logo"
+              />
+            </NavLink>
+          </li>
+            <li className="cursor-pointer flex hover:text-indigo-700 transition duration-150 ease-in-out flex items-center text-md text-stone-900 tracking-normal hover:text-indigo-700">
             <a
   href="https://my.orthoblink.com/bLink/Login"
   className="cursor-pointer block text-sm leading-3 tracking-normal px-3 font-normal"
@@ -286,18 +258,18 @@ export default function DesktopNavbar() {
   Patient Login
 </a>
             </li>
-            <li className="cursor-pointer flex hover:text-indigo-700 transition duration-150 ease-in-out flex items-center text-sm text-stone-900 tracking-normal  hover:text-indigo-700">
+            <li className="cursor-pointer flex hover:text-indigo-700 transition duration-150 ease-in-out flex items-center text-md text-stone-900 tracking-normal  hover:text-indigo-700">
               <NavLink
                 to="/locations"
-                className="cursor-pointer block text-sm leading-3 tracking-normal px-3 font-normal"
+                className="cursor-pointer block text-md leading-3 tracking-normal px-3 font-normal"
               >
                 Our Locations
               </NavLink>
             </li>
-            <li className="cursor-pointer flex hover:text-indigo-700 transition duration-150 ease-in-out flex items-center text-sm text-stone-900 tracking-normal  hover:text-indigo-700">
+            <li className="cursor-pointer flex hover:text-indigo-700 transition duration-150 ease-in-out flex items-center text-md text-stone-900 tracking-normal  hover:text-indigo-700">
               <NavLink
                 to="/products"
-                className="cursor-pointer block text-sm leading-3 tracking-normal px-3 font-normal"
+                className="cursor-pointer block text-md leading-3 tracking-normal px-3 font-normal"
               >
                 Shop
               </NavLink>
