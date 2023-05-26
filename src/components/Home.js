@@ -163,9 +163,10 @@ const Home = () => {
 
 
 
-<div className="mt-10 mb-60">
+          <div className="mt-10 mb-60">
   <LogoSlider style={{ transform: 'translate(-50%, -50%)' }} />
 </div>
+
 <div className="relative">
   <div className="absolute -top-60 right-0 z-10">
     <img
@@ -174,20 +175,23 @@ const Home = () => {
       alt="technology"
     />
   </div>
-  <p className="text-stone-500 text-center absolute -top-20 right-0 left-auto md:left-auto md:right-0 z-10" style={{ maxWidth: "300px", overflow: "hidden", textOverflow: "ellipsis" }}>
-    I have never been to a doctor's office that is anything like Dr. Frey's.
-    Dr. Frey goes above and beyond to create the best smiles and has by far
-    the nicest staff around.
-  </p>
+  <p className="text-teal-500 text-center absolute -bottom-10  md:right-20 z-10" style={{ maxWidth: "300px", overflow: "hidden", textOverflow: "ellipsis" }}>
+  I have never been to a doctor's office that is anything like Dr. Frey's.
+  Dr. Frey goes above and beyond to create the best smiles and has by far
+  the nicest staff around.
+</p>
+<h1 className="text-teal-500 text-xl text-right absolute -bottom-40 md:right-60 z-10">-Rebecca M.</h1>
+
 </div>
 
 <section className="flex flex-col gap-8 justify-center px-4 py-8 relative z-1">
+  <div className="mt-36"> 
   <h3 className="text-3xl lg:text-5xl font-bold md:font-black leading-10 text-gray-700">
     Our Locations
   </h3>
             <div
               id="cards-container"
-              className="md:grid md:grid-cols-2 lg:flex gap-8"
+              className="md:grid md:grid-cols-2 lg:flex gap-8 mt-16 "
             >
               <div className="flex flex-col justify-between bg-f7f5f2 rounded-bl-3xl rounded-br-3xl items-center lg:w-1/4 h-96">
                 <Map
@@ -307,6 +311,7 @@ const Home = () => {
                   <Link to="/book-now">Book Now</Link>
                 </button>
               </div>
+            </div>
             </div>
           </section>
         </div>
