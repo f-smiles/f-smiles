@@ -18,6 +18,7 @@ import ProductsPage from "../components/stripe/ProductsPage";
 import Bag from "../components/stripe/Bag";
 import SingleProductPage from "../components/stripe/SingleProductPage";
 import Checkout from "../components/stripe/checkout";
+import LogoSlider from "../components/logoslider";
 
 const AppRoutes = () => {
   return (
@@ -41,6 +42,7 @@ const AppRoutes = () => {
       <Route path="/bag" element={<Bag />} />
       <Route path="/products/:id" element={<SingleProductPage />} />
       <Route path="/checkout" element={<Checkout />} />
+      <Route path="/slider" element={<LogoSlider />} />
     </Routes>
   );
 };
