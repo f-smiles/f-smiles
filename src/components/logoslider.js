@@ -61,12 +61,7 @@ const LogoSlider = () => {
         alt="damon"
       />
       <img
-        src="../../images/movingbannerfiles/invis-logo.png"
-        style={imgStyle}
-        alt="invisalign"
-      />
-      <img
-        src="../../images/movingbannerfiles/invis.png"
+        src="../../images/movingbannerfiles/invisalign_invert.png"
         style={imgStyle}
         alt="invisalign"
       />
@@ -81,12 +76,12 @@ const LogoSlider = () => {
         alt="top-dentist"
       />
       <img
-        src="../../images/movingbannerfiles/aao.png"
+        src="../../images/movingbannerfiles/aao_invert.png"
         style={imgStyle}
         alt="aao"
       />
       <img
-        src="../../images/movingbannerfiles/ABO.png"
+        src="../../images/movingbannerfiles/ABO_invert.png"
         style={imgStyle}
         alt="ABO"
       />
