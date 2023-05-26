@@ -10,7 +10,7 @@ const LogoSlider = () => {
     margin: "0 auto",
     position: "relative",
     display: "flex",
-    animation: "marquee 20s linear infinite",
+    animation: "marquee 10s linear infinite",
     lineHeight: "0"
   };
 

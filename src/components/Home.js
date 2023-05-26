@@ -50,7 +50,7 @@ const Home = () => {
   }, []);
   return (
     <>
-      <main className="pt-16 bg-f7f5f2 overflow-hidden w-full">
+      <main className="pt-16 bg-fFFFDFD overflow-hidden w-full">
         <div className="container max-w-screen-xl mx-auto">
           <section className="py-12 lg:px-4 xl:px-0">
             <div className="flex flex-col-reverse md:flex-row">
@@ -125,6 +125,7 @@ const Home = () => {
                 clinically proven to move teeth quickly and comfortably.
               </p>
             </div>
+       
             <div
               data-aos="fade-down"
               className="bg-gradient-to-bl from-violet-100 to-teal-50 rounded-tr-3xl rounded-bl-3xl rounded-tl-md rounded-br-md md:max-w-xs max-h-full px-12 pb-12 pt-20 flex flex-col justify-start items-center"
@@ -155,15 +156,35 @@ const Home = () => {
                 We offer Invisalign without Impressions. Say goodbye to goopy
                 impressions with our iTero digital scanner.
               </p>
-
+           
             </div>
+       
           </section>
-          <div className="mt-20">  <LogoSlider style={{ transform: 'translate(-50%, -50%)', zIndex: -1 }} /></div>
-          {/* <img alt="doctors" src="../../images/Doctor-Photo-Homepage-1.jpg"></img> */}
-          <section className="flex flex-col gap-8 justify-center px-4 py-8">
-            <h3 className="text-3xl lg:text-5xl font-bold md:font-black leading-10 text-gray-700">
-              Our Locations
-            </h3>
+
+
+
+<div className="mt-10 mb-60">
+  <LogoSlider style={{ transform: 'translate(-50%, -50%)' }} />
+</div>
+<div className="relative">
+  <div className="absolute -top-60 right-0 z-10">
+    <img
+      style={{ height: "500px", width: "auto" }}
+      src="../images/bubble.svg"
+      alt="technology"
+    />
+  </div>
+  <p className="text-stone-500 text-center absolute -top-20 right-0 left-auto md:left-auto md:right-0 z-10" style={{ maxWidth: "300px", overflow: "hidden", textOverflow: "ellipsis" }}>
+    I have never been to a doctor's office that is anything like Dr. Frey's.
+    Dr. Frey goes above and beyond to create the best smiles and has by far
+    the nicest staff around.
+  </p>
+</div>
+
+<section className="flex flex-col gap-8 justify-center px-4 py-8 relative z-1">
+  <h3 className="text-3xl lg:text-5xl font-bold md:font-black leading-10 text-gray-700">
+    Our Locations
+  </h3>
             <div
               id="cards-container"
               className="md:grid md:grid-cols-2 lg:flex gap-8"
