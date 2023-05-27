@@ -7,6 +7,7 @@ import CartContext from "../app/CartContext";
 
 export default function DesktopNavbar() {
   const [isBagOpen, setIsBagOpen] = useState(false);
+  
   const {  cartCount } = useContext(CartContext);
   const [show, setShow] = useState(null);
   const [about, setAbout] = useState(false);
@@ -89,7 +90,7 @@ export default function DesktopNavbar() {
   onMouseLeave={() => setShow(null)}
 >
   <li
-    className=" h-full cursor-pointer hover:text-indigo-900 transition duration-150 ease-in-out inline-flex items-center text-md text-stone-900 tracking-normal relative  font-black hover:text-indigo-700 gap-2"
+    className=" h-full cursor-pointer hover:text-indigo-900 transition duration-150 ease-in-out inline-flex items-center text-sm text-stone-900 tracking-normal relative  font-black hover:text-indigo-700 gap-2 mr-4"
     onMouseOver={() => setShow("about")}
     onClick={() => setShow("about")}
   >
@@ -129,7 +130,7 @@ export default function DesktopNavbar() {
   </Transition>
           </div>
 <li
-  className="cursor-pointer hover:text-indigo-700 transition duration-150 ease-in-out inline-flex items-center text-md tracking-normal relative text-stone-900 hover:text-indigo-700 gap-2"
+  className="cursor-pointer hover:text-indigo-700 transition duration-150 ease-in-out inline-flex items-center text-sm tracking-normal relative text-stone-900 hover:text-indigo-700 gap-2 mr-4"
   onMouseOver={() => setPatient(true)}
   onMouseLeave={() => setPatient(false)}
 >
@@ -164,7 +165,7 @@ export default function DesktopNavbar() {
   </Transition>
 </li>
             <li
-              className="cursor-pointer hover:text-indigo-700 transition duration-150 ease-in-out inline-flex items-center text-md text-stone-900 tracking-normal relative hover:text-indigo-700 gap-2"
+              className="cursor-pointer hover:text-indigo-700 transition duration-150 ease-in-out inline-flex items-center text-sm text-stone-900 tracking-normal relative hover:text-indigo-700 gap-2 mr-4"
               onMouseOver={handleMouseOver}
               onMouseLeave={handleMouseLeave}
               // onClick={() => setTreatments(!treatments)}
@@ -244,32 +245,32 @@ export default function DesktopNavbar() {
             <li>
             <NavLink to="/">
               <img
-                className="h-12"
+                className="h-12 ml-10 mr-10"
                 src="../../images/logo_full.png"
                 alt="frey smiles orthodontics logo"
               />
             </NavLink>
           </li>
-            <li className="cursor-pointer flex hover:text-indigo-700 transition duration-150 ease-in-out flex items-center text-md text-stone-900 tracking-normal hover:text-indigo-700">
+            <li className="cursor-pointer flex hover:text-indigo-700 transition duration-150 ease-in-out flex items-center text-sm text-stone-900 tracking-normal hover:text-indigo-700">
             <a
   href="https://my.orthoblink.com/bLink/Login"
-  className="cursor-pointer block text-sm leading-3 tracking-normal px-3 font-normal"
+  className="cursor-pointer block text-sm leading-3 tracking-normal px-3 font-normal mr-4"
 >
   Patient Login
 </a>
             </li>
-            <li className="cursor-pointer flex hover:text-indigo-700 transition duration-150 ease-in-out flex items-center text-md text-stone-900 tracking-normal  hover:text-indigo-700">
+            <li className="cursor-pointer flex hover:text-indigo-700 transition duration-150 ease-in-out flex items-center text-sm text-stone-900 tracking-normal  hover:text-indigo-700">
               <NavLink
                 to="/locations"
-                className="cursor-pointer block text-md leading-3 tracking-normal px-3 font-normal"
+                className="cursor-pointer block text-sm leading-3 tracking-normal px-3 font-normal"
               >
                 Our Locations
               </NavLink>
             </li>
-            <li className="cursor-pointer flex hover:text-indigo-700 transition duration-150 ease-in-out flex items-center text-md text-stone-900 tracking-normal  hover:text-indigo-700">
+            <li className="cursor-pointer flex hover:text-indigo-700 transition duration-150 ease-in-out flex items-center text-sm text-stone-900 tracking-normal  hover:text-indigo-700">
               <NavLink
                 to="/products"
-                className="cursor-pointer block text-md leading-3 tracking-normal px-3 font-normal"
+                className="cursor-pointer block text-sm leading-3 tracking-normal px-3 font-normal"
               >
                 Shop
               </NavLink>
