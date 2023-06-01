@@ -114,12 +114,12 @@ export default function DesktopNavbar() {
         about_us_links.map((link) => {
           return (
             <li
-              className="cursor-pointer text-gray-600 text-sm leading-3 tracking-normal hover:bg-indigo-300 hover:text-white font-normal"
+              className="cursor-pointer text-gray-600 text-sm leading-3 tracking-normal  hover:text-white font-normal"
               key={link.name}
             >
               <NavLink
                 to={link.href}
-                className="block p-4 text-gray-600 text-sm leading-3 tracking-normal hover:text-white font-normal"
+                className="block p-4 text-gray-600 text-sm leading-3 tracking-normal hover:text-indigo-400 font-normal"
               >
                 {link.name}
               </NavLink>
@@ -151,11 +151,11 @@ export default function DesktopNavbar() {
     {patient_links &&
       patient_links.map((link) => {
         return (
-          <li className="cursor-pointer text-gray-600 text-sm leading-3 tracking-normal hover:bg-indigo-300 hover:text-white font-normal">
+          <li className="cursor-pointer text-gray-600 text-sm leading-3 tracking-normal hover:text-white font-normal">
             <NavLink
               to={link.href}
               key={link.name}
-              className="cursor-pointer block text-gray-600 text-sm leading-3 tracking-normal hover:text-white p-4 font-normal"
+              className="cursor-pointer block text-gray-600 text-sm leading-3 tracking-normal hover:text-indigo-400 p-4 font-normal"
             >
               {link.name}
             </NavLink>

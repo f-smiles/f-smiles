@@ -287,6 +287,7 @@ const VirtualConsultation = () => {
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                   className="border-2 border-violet-200 rounded-lg px-2 py-4 bg-white"
+           
                 ></textarea>
               </div>
               <button
