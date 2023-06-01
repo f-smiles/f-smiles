@@ -209,3 +209,29 @@ text {
 .disclosure-button.active::before {
   background-color: #333;
 } */
+
+.animate-spin-custom {
+  animation: spin-custom 5s linear infinite;
+}
+
+@keyframes spinSphere {
+  from {
+    transform: rotateZ(0deg) rotateX(0deg) rotateY(0deg);
+  }
+  to {
+    transform: rotateZ(360deg) rotateX(-360deg) rotateZ(360deg);
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  50% {
+    transform: translateX(-25%);
+  }
+  
+  100% {
+    transform: translateX(-50%);
+  }
+}

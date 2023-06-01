@@ -11,14 +11,14 @@ import Invisalign from "../components/treatments/Invisalign";
 import Braces from "../components/treatments/Braces";
 import EarlyOrthodontics from "../components/treatments/EarlyOrthodontics";
 import AdultOrthodontics from "../components/treatments/AdultOrthodontics";
-import PatientLogin from "../components/PatientLogin";
-import Allentown from "../components/OurLocations/Allentown";
+import Locations from "../components/OurLocations/Locations";
 import BookNow from "../components/BookNow";
-import AllProducts from "../components/navbar/shop/ECommerce";
-import SingleProduct from "../components/navbar/shop/SingleProduct"
 import StripeCheckoutForm from "../components/stripe/StripeCheckoutForm";
 import ProductsPage from "../components/stripe/ProductsPage";
-import Cart from "../components/stripe/Cart";
+import Bag from "../components/stripe/Bag";
+import SingleProductPage from "../components/stripe/SingleProductPage";
+import Checkout from "../components/stripe/checkout";
+import LogoSlider from "../components/logoslider";
 
 const AppRoutes = () => {
   return (
@@ -34,16 +34,15 @@ const AppRoutes = () => {
       <Route path="/invisalign" element={<Invisalign />} />
       <Route path="/braces" element={<Braces />} />
       <Route path="/early-orthodontics" element={<EarlyOrthodontics />} />
-      <Route path="adult-orthodontics" element={<AdultOrthodontics />} />
-
-      <Route path="/allentown" element={<Allentown />} />
-      <Route path="/patient-login" element={<PatientLogin />} />
+      <Route path="/adult-orthodontics" element={<AdultOrthodontics />} />
+      <Route path="/locations" element={<Locations />} />
       <Route path="/book-now" element={<BookNow />} />
-      <Route path="shop" element={<AllProducts />} />
-      <Route path="single-product" element={<SingleProduct />} />
       <Route path="/stripe-checkout" element={<StripeCheckoutForm />} />
       <Route path="/products" element={<ProductsPage />} />
-      <Route path="/cart" element={<Cart />} />
+      <Route path="/bag" element={<Bag />} />
+      <Route path="/products/:id" element={<SingleProductPage />} />
+      <Route path="/checkout" element={<Checkout />} />
+      <Route path="/slider" element={<LogoSlider />} />
     </Routes>
   );
 };

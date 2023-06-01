@@ -132,14 +132,15 @@ const BookNow = () => {
   };
 
 
-  const baseButtonClass = "text-slate-700 py-2 px-4 rounded-full";
+  const baseButtonClass = "text-indigo-700 py-2 px-4 rounded-full";
   const activeButtonClass =
-    "bg-gradient-to-r from-violet-100 via-violet-200 to-violet-300";
+    "bg-violet-100";
   const inactiveButtonClass =
-    "border-2 border-violet-400 hover:bg-violet-400 hover:text-white";
+    "border border-violet-400 hover:bg-violet-400 hover:text-white text-indigo-700";
 
   return (
     <main className="mt-20 pt-10">
+     
     <div id="contact-form">
       {emailSent ? (
         <span className={emailSent ? "block" : "hidden"}>
@@ -147,8 +148,9 @@ const BookNow = () => {
         </span>
       ) : (
         <form onSubmit={handleSubmit} 
-        className="border-2 backdrop-blur-md bg-white/30 max-w-screen-sm mx-auto flex flex-col space-y-12 p-8 rounded-xl">
+        className=" backdrop-blur-md bg-white/30 max-w-screen-sm mx-auto flex flex-col space-y-12 p-8 rounded-xl">
 <div className="flex flex-col items-center">
+<h1 className="text-center text-3xl text-indigo-700 mb-12">Request Appointment</h1>
   <div className="flex w-full gap-2">
     <div className="relative flex-1 w-1/2">
       <input
@@ -159,14 +161,14 @@ const BookNow = () => {
         required
         style={{ borderRadius: "9999px", border: "1px solid gray" }}
       />
-      <label className="absolute -mt-12 ml-4 bg-white px-2 text-xs">
-        First Name
+      <label className="text-indigo-700 absolute -mt-12 ml-4 bg-white px-2 text-xs">
+        First Name*
       </label>
     </div>
 
     <div className="w-1/2 relative">
-      <label className="absolute -mt-2 ml-4 bg-white px-2 text-xs">
-        Last Name
+      <label className="text-indigo-700 absolute -mt-2 ml-4 bg-white px-2 text-xs">
+        Last Name*
       </label>
       <input
         className="w-full block p-2"
@@ -188,7 +190,7 @@ const BookNow = () => {
       required
       style={{ borderRadius: "9999px", border: "1px solid gray" }}
     />
-    <label className="absolute -mt-12  ml-4 bg-white px-2 text-xs">
+    <label className="text-indigo-700 absolute -mt-12  ml-4 bg-white px-2 text-xs">
       Parent/Guardian
     </label>
   </div>
@@ -203,14 +205,14 @@ const BookNow = () => {
       required
       style={{ borderRadius: "9999px", border: "1px solid gray" }}
     />
-    <label className="absolute -mt-12  ml-4 bg-white px-2 text-xs">
-      Phone Number
+    <label className="text-indigo-700 absolute -mt-12  ml-4 bg-white px-2 text-xs">
+      Phone Number*
     </label>
   </div>
 
   <div className="w-1/2 relative flex-1 py-4">
-    <label className="absolute -mt-2  ml-4 bg-white px-2 text-xs">
-      Email
+    <label className="text-indigo-700 absolute -mt-2  ml-4 bg-white px-2 text-xs">
+      Email*
     </label>
     <input
       className="w-full block p-2"
@@ -238,20 +240,20 @@ const BookNow = () => {
             />
             <label
               htmlFor="floatingInput"
-              className="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary"
+              className="text-indigo-300 pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6]  transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary"
             >
-              Date of Birth
+              Date of Birth*
             </label>
           </div>
           <Disclosure>
             {({ open }) => (
               <>
-                <Disclosure.Button className="flex w-full justify-between rounded-lg bg-purple-100 px-4 py-2 text-left text-sm font-medium text-purple-900 hover:bg-purple-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
-                  <span>Type Of Appointment</span>
+                <Disclosure.Button className="flex w-full justify-between rounded-lg  px-4 py-2 text-left text-md font-medium text-indigo-700  focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
+                  <span>Type Of Appointment*</span>
                   <ChevronUpIcon
                     className={`${
                       open ? "rotate-180 transform" : ""
-                    } h-5 w-5 text-purple-500`}
+                    } h-5 w-5 text-indigo-700`}
                   />
                 </Disclosure.Button>
                 <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
@@ -302,12 +304,12 @@ const BookNow = () => {
           <Disclosure>
             {({ open }) => (
               <>
-                <Disclosure.Button className="flex w-full justify-between rounded-lg bg-purple-100 px-4 py-2 text-left text-sm font-medium text-purple-900 hover:bg-purple-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
-                  <span>Choose Locations</span>
+                <Disclosure.Button className="flex w-full justify-between rounded-lg px-4 py-2 text-left text-md font-medium text-indigo-700 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
+                  <span>Choose Location</span>
                   <ChevronUpIcon
                     className={`${
                       open ? "rotate-180 transform" : ""
-                    } h-5 w-5 text-purple-500`}
+                    } h-5 w-5 text-indigo-700`}
                   />
                 </Disclosure.Button>
                 <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
@@ -356,7 +358,7 @@ const BookNow = () => {
           </Disclosure>
 
 
-          <div className="flex justify-center flex-col">
+          <div className="text-indigo-700 flex justify-center flex-col">
             Preferred Day(s):
             <div className="flex flex-wrap justify-start py-4 gap-4 ml-4">
               {days.map((button, index) => (
@@ -365,8 +367,8 @@ const BookNow = () => {
                   type="button"
                   className={
                     button.clicked
-                      ? `${baseButtonClass} ${activeButtonClass}`
-                      : `${baseButtonClass} ${inactiveButtonClass}`
+                      ? `${baseButtonClass} ${activeButtonClass} `
+                      : `${baseButtonClass} ${inactiveButtonClass}  `
                   }
                   onClick={() => handleDayClick(index)}
                 >
@@ -375,7 +377,7 @@ const BookNow = () => {
               ))}
             </div>
           </div>
-          <div className="py-2 space-x-4">
+          <div className="text-indigo-700 py-2 space-x-4">
             Preferred Time(s):
             <div className="flex flex-wrap justify-start py-4 gap-4 ml-4">
               {times.map((button, index) => (
@@ -395,23 +397,27 @@ const BookNow = () => {
             </div>
           </div>
 
-          <div className="border-2 flex flex-col">
-            <label className="flex flex-col">
-              Comments
-              <textarea
-                placeholder="Your message"
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-              ></textarea>
-            </label>
-            <button
-              className="bg-indigo-100"
-              type="submit"
-              onClick={handleSubmit}
-            >
-              Send Message
-            </button>
-          </div>
+          <div className="border-2 h-32 border-indigo-100 flex flex-col">
+  <label className="flex flex-col" style={{ height: "100%" }}>
+    <textarea
+      placeholder="Your message"
+      value={message}
+      onChange={(e) => setMessage(e.target.value)}
+      style={{ fontStyle: "italic", color: "blue", height: "100%" }}
+    ></textarea>
+  </label>
+</div>
+
+<div className="flex justify-center">
+  <button
+    className="text-white rounded-full px-4 py-2 bg-indigo-300 max-w-max -mt-3"
+    type="submit"
+    onClick={handleSubmit}
+  >
+    Send Message
+  </button>
+</div>
+
         </form>
       )}
     </div>
