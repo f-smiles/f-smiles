@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import { ProductsArray, getProductData } from "./products";
 import Cart from "./Bag";
 import Navbar from "../Navbar";
+import CartContext from "../../app/CartContext";
 
 
 const getCartCount = (cartItems) => {
@@ -10,14 +11,11 @@ const getCartCount = (cartItems) => {
 };
 
 const ProductsPage = () => {
-  const [cart, setCart] = useState([]);
+  const { cart, setCart } = useContext(CartContext);
+
   const [total, setTotal] = useState(0);
   const [cartCount, setCartCount] = useState(0);
 
-
-  // const updateCartCount = (count) => {
-  //   setCartCount(count); // Update cartCount state
-  // };
   useEffect(() => {
     const savedCart = JSON.parse(localStorage.getItem("cart"));
     if (savedCart) {
@@ -29,7 +27,7 @@ const ProductsPage = () => {
       setTotal(savedTotal);
       setCartCount(getCartCount(savedCart));
     }
-  },[]);
+  },[setCart]);
 
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
@@ -61,7 +59,7 @@ const ProductsPage = () => {
 
       setTotal((prevTotal) => prevTotal + productData.price);
       setCartCount(getCartCount(cart));
-      // updateCartCount(getCartCount(cart));
+
       
     }
   };
@@ -74,7 +72,7 @@ const ProductsPage = () => {
       localStorage.setItem("cart", JSON.stringify(updatedCart));
       setTotal(total - removedProduct.price);
       setCartCount(getCartCount(updatedCart));
-      // updateCartCount(getCartCount(updatedCart));
+
     }
   };
 

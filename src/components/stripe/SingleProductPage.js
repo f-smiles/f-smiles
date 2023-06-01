@@ -1,12 +1,13 @@
-import React from "react";
+import React, {useContext} from "react";
 import { getProductData } from "./products";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
+import CartContext from "../../app/CartContext";
 
 const SingleProductPage = () => {
   const { id } = useParams();
   const productData = getProductData(id);
-  const [cart, setCart] = useState([]);
+  const { cart, setCart } = useContext(CartContext);
   const [total, setTotal] = useState(0);
   const [quantity, setQuantity] = useState(1);
 

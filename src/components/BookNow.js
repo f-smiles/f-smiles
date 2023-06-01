@@ -162,13 +162,13 @@ const BookNow = () => {
         style={{ borderRadius: "9999px", border: "1px solid gray" }}
       />
       <label className="text-indigo-700 absolute -mt-12 ml-4 bg-white px-2 text-xs">
-        First Name
+        First Name*
       </label>
     </div>
 
     <div className="w-1/2 relative">
       <label className="text-indigo-700 absolute -mt-2 ml-4 bg-white px-2 text-xs">
-        Last Name
+        Last Name*
       </label>
       <input
         className="w-full block p-2"
@@ -206,13 +206,13 @@ const BookNow = () => {
       style={{ borderRadius: "9999px", border: "1px solid gray" }}
     />
     <label className="text-indigo-700 absolute -mt-12  ml-4 bg-white px-2 text-xs">
-      Phone Number
+      Phone Number*
     </label>
   </div>
 
   <div className="w-1/2 relative flex-1 py-4">
     <label className="text-indigo-700 absolute -mt-2  ml-4 bg-white px-2 text-xs">
-      Email
+      Email*
     </label>
     <input
       className="w-full block p-2"
@@ -242,14 +242,14 @@ const BookNow = () => {
               htmlFor="floatingInput"
               className="text-indigo-300 pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6]  transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary"
             >
-              Date of Birth
+              Date of Birth*
             </label>
           </div>
           <Disclosure>
             {({ open }) => (
               <>
                 <Disclosure.Button className="flex w-full justify-between rounded-lg  px-4 py-2 text-left text-md font-medium text-indigo-700  focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
-                  <span>Type Of Appointment</span>
+                  <span>Type Of Appointment*</span>
                   <ChevronUpIcon
                     className={`${
                       open ? "rotate-180 transform" : ""

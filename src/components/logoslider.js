@@ -7,7 +7,7 @@ const LogoSlider = () => {
 
   const logoSliderStyle = {
     overflow: "hidden",
-    width: "100vw",
+    width: "200vw",
     margin: "0 auto",
     position: "relative",
     display: "flex",
@@ -55,51 +55,55 @@ const LogoSlider = () => {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <img
-        src="../../images/movingbannerfiles/damonlogo.png"
-        style={imgStyle}
-        alt="damon"
-      />
-      <img
-        src="../../images/movingbannerfiles/invis-logo.png"
-        style={imgStyle}
-        alt="invisalign"
-      />
-      <img
-        src="../../images/movingbannerfiles/invis.png"
-        style={imgStyle}
-        alt="invisalign"
-      />
-      <img
-        src="../../images/movingbannerfiles/readers.png"
-        style={imgStyle}
-        alt="readers choice"
-      />
-      <img
-        src="../../images/movingbannerfiles/Top-Dentist.png"
-        style={imgStyle}
-        alt="top-dentist"
-      />
-      <img
-        src="../../images/movingbannerfiles/aao.png"
-        style={imgStyle}
-        alt="aao"
-      />
-      <img
-        src="../../images/movingbannerfiles/ABO.png"
-        style={imgStyle}
-        alt="ABO"
-      />
-      <img
-        src="../../images/movingbannerfiles/valley.jpg"
-        style={imgStyle}
-        alt="valley"
-      />
-      <img
-        src="../../images/movingbannerfiles/top-dentists.png"
-        style={imgStyle}
-        alt="dentists"
-      />
+      {[...Array(2)].map((_, index) => (
+        <React.Fragment key={index}>
+          <img
+            src="../../images/movingbannerfiles/damonlogo.png"
+            style={imgStyle}
+            alt="damon"
+          />
+          <img
+            src="../../images/movingbannerfiles/invis-logo.png"
+            style={imgStyle}
+            alt="invisalign"
+          />
+          <img
+            src="../../images/movingbannerfiles/invis.png"
+            style={imgStyle}
+            alt="invisalign"
+          />
+          <img
+            src="../../images/movingbannerfiles/readers.png"
+            style={imgStyle}
+            alt="readers choice"
+          />
+          <img
+            src="../../images/movingbannerfiles/Top-Dentist.png"
+            style={imgStyle}
+            alt="top-dentist"
+          />
+          <img
+            src="../../images/movingbannerfiles/aao.png"
+            style={imgStyle}
+            alt="Image"
+          />
+          <img
+            src="../../images/movingbannerfiles/ABO.png"
+            style={imgStyle}
+            alt="ABO"
+          />
+          <img
+            src="../../images/movingbannerfiles/valley.jpg"
+            style={imgStyle}
+            alt="valley"
+          />
+          <img
+            src="../../images/movingbannerfiles/top-dentists.png"
+            style={imgStyle}
+            alt="dentists"
+          />
+        </React.Fragment>
+      ))}
     </div>
   );
 };

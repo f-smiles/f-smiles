@@ -1,22 +1,20 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link, NavLink, useParams } from "react-router-dom";
-import StripeCheckout from "react-stripe-checkout";
-import StripeCheckoutForm from "./StripeCheckoutForm";
 import { getProductData } from "./products";
+import CartContext from "../../app/CartContext";
 
 const Bag = ({ productData, isOpen }) => {
-  const [cart, setCart] = useState([]);
+  const { cart, setCart } = useContext(CartContext);
   const [editedCounts, setEditedCounts] = useState({});
   const [cartItemCount, setCartItemCount] = useState(0);
   const { id } = useParams();
-  
 
   useEffect(() => {
     const savedCart = JSON.parse(localStorage.getItem("cart"));
     if (savedCart) {
       setCart(savedCart);
     }
-  }, []);
+  }, [setCart]);
 
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
@@ -63,6 +61,7 @@ const Bag = ({ productData, isOpen }) => {
 
     setCart(updatedCart);
   };
+
   const addToCart = async (productId, event) => {
     event.preventDefault();
 
@@ -82,10 +81,11 @@ const Bag = ({ productData, isOpen }) => {
         const updatedCart = [...cart, { ...productData, count: 1 }];
         setCart(updatedCart);
         localStorage.setItem("cart", JSON.stringify(updatedCart));
-        setCartItemCount(cartItemCount + 1);
+        setCartItemCount((prevCount) => prevCount + 1);
       }
     }
   };
+
   const removeFromCart = (productId) => {
     const updatedCart = cart.filter((product) => product.id !== productId);
     setCart(updatedCart);
@@ -98,6 +98,7 @@ const Bag = ({ productData, isOpen }) => {
   const total = cart
     ? cart.reduce((acc, curr) => acc + curr.price * curr.count, 0)
     : 0;
+
 
   return (
     

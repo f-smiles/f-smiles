@@ -58,14 +58,14 @@ const Home = () => {
                 <h1 className="text-4xl lg:text-6xl font-bold md:font-black leading-10 text-gray-700">
                   Because every smile is unique
                 </h1>
-                <p className="text-lg text-gray-600 font-light leading-relaxed pt-8 xl:hidden block">
+                <p className=" text-lg text-gray-600 font-light leading-relaxed pt-8 xl:hidden block">
                   Our goal is to make your smile look best on YOU. It's an art,
                   it's a science, and it is something orthodontists Dr. Gregg
                   Frey and Dr. Daniel Frey and the exceptional team at
                   FreySmiles Orthodontics recognize and are very passionate
                   about.
                 </p>
-                <p className="text-lg text-gray-600 font-light leading-relaxed pt-8 xl:block hidden w-4/5">
+                <p className="text-center text-lg text-gray-600 font-light leading-relaxed pt-8 xl:block hidden w-4/5">
                   Our goal is to make your smile look best on YOU. It's an art,
                   it's a science, and it is something orthodontists Dr. Gregg
                   Frey and Dr. Daniel Frey and the exceptional team at
