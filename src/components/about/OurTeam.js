@@ -128,12 +128,12 @@ const OurTeam = () => {
         <div className="w-1/2">
           {Doctors.map((doctor, index) => (
             <div key={index} className="mb-4">         
-<img
-  src={doctor.img}
-  alt={doctor.name}
-  className="block mx-auto max-w-full h-auto mt-20"
-  style={{ maxWidth: '100%', maxHeight: '300px' }}
-/>
+              <img
+                src={doctor.img}
+                alt={doctor.name}
+                className="block mx-auto max-w-full h-auto mt-20"
+                style={{ maxWidth: '100%', maxHeight: '300px' }}
+              />
             </div>
           ))}
         </div>
