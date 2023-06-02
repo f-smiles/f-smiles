@@ -68,44 +68,28 @@ const SingleProductPage = () => {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen bg-gradient-to-r from-violet-100 to-violet-50">
-      <div className="max-w-4xl bg-white bg-opacity-20 backdrop-blur-md shadow-lg rounded-lg overflow-hidden flex"style={{ height: "400px" }}>
-        <div
-          className="w-1/3 h-64 bg-cover bg-center bg-no-repeat flex-shrink-0"
-          style={{
-            backgroundImage: `url(${productData.image})`,
-          }}
-        ></div>
-          <div
-            className="absolute top-0 left-0 w-full h-full bg-cover bg-center bg-no-repeat"
-            style={{
-              backgroundImage: `url(../../images/product.png)`, 
-              opacity: 0.9,
-              backgroundSize: "50%", 
-              backgroundPosition: "left",
-              zIndex:-1,
-            }}
-          ></div>
-        <div className="w-2/3 p-4 flex flex-col justify-center">
-          <h1 className="text-gray-900 font-bold text-2xl mb-2">
-            {productData.name}
-          </h1>
-          <p className="text-gray-600 text-sm mb-10">
-            {productData.description}
-          </p>
-          <div className="flex items-center mb-2">
-         
+    <div className="flex justify-center items-center h-screen">
+      <div className="  bg-white bg-opacity-20 backdrop-blur-md  rounded-lg ">
+        <div className="grid grid-cols-1 sm:grid-cols-2">
+          <div className="bg-cover bg-center bg-no-repeat h-96">
+            <img src={productData.image} alt={productData.name} className="w-full h-full object-cover" />
           </div>
-          
-          <div className="flex items-center justify-between">
-            <h1 className="text-gray-700 font-bold text-xl">
-              {productData.price} USD
+          <div className="p-4 flex flex-col justify-center">
+            <h1 className="text-gray-900 font-bold text-2xl mb-2">
+              {productData.name}
             </h1>
-            
-            <div className="flex items-center">
-              <button
+            <p className="text-gray-600 text-sm mb-10">
+              {productData.description}
+            </p>
+            <div className="flex items-center justify-between">
+            {productData.price} USD
+            </div>
+            <div className="flex items-center mb-2">
+              
+            <div className="border border-gray-300 rounded flex items-center">
+            <button
                 onClick={handleDecrement}
-                className="px-2 py-1 bg-gray-200 text-gray-700 rounded"
+                className="px-2 py-1  text-gray-700 rounded"
                 style={{ zIndex: 10 }}
               >
                 -
@@ -113,23 +97,89 @@ const SingleProductPage = () => {
               <span className="px-4 text-gray-700">{quantity}</span>
               <button
                 onClick={handleIncrement}
-                className="px-2 py-1 bg-gray-200 text-gray-700 rounded"
+                className="px-2 py-1  text-gray-700 rounded"
                 style={{ zIndex: 10 }}
               >
                 +
               </button>
-            </div>
-            <button
+              </div>
+              <button
               onClick={() => addToCart(productData.id)}
               className="hover:bg-gray-600 px-4 py-2 bg-cyan-500 text-white text-sm font-bold uppercase rounded z-10"
             >
               Add to Bag
             </button>
+            </div>
+       
           </div>
         </div>
       </div>
     </div>
   );
+  
+  // return (
+  //   <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 justify-center flex justify-center items-center h-screen bg-gradient-to-r from-violet-100 to-violet-50">
+  //     <div className="max-w-4xl bg-white bg-opacity-20 backdrop-blur-md shadow-lg rounded-lg overflow-hidden flex"style={{ height: "400px" }}>
+  //       <div
+  //         className="w-1/3 h-64 bg-cover bg-center bg-no-repeat flex-shrink-0"
+  //         style={{
+  //           backgroundImage: `url(${productData.image})`,
+  //         }}
+  //       ></div>
+  //         <div
+  //           className="absolute top-0 left-0 w-full h-full bg-cover bg-center bg-no-repeat"
+  //           style={{
+  //             backgroundImage: `url(../../images/product.png)`, 
+  //             opacity: 0.9,
+  //             backgroundSize: "50%", 
+  //             backgroundPosition: "left",
+  //             zIndex:-1,
+  //           }}
+  //         ></div>
+  //       <div className="w-2/3 p-4 flex flex-col justify-center">
+  //         <h1 className="text-gray-900 font-bold text-2xl mb-2">
+  //           {productData.name}
+  //         </h1>
+  //         <p className="text-gray-600 text-sm mb-10">
+  //           {productData.description}
+  //         </p>
+  //         <div className="flex items-center mb-2">
+         
+  //         </div>
+          
+  //         <div className="flex items-center justify-between">
+  //           <h1 className="text-gray-700 font-bold text-xl">
+  //             {productData.price} USD
+  //           </h1>
+            
+  //           <div className="flex items-center">
+  //             <button
+  //               onClick={handleDecrement}
+  //               className="px-2 py-1 bg-gray-200 text-gray-700 rounded"
+  //               style={{ zIndex: 10 }}
+  //             >
+  //               -
+  //             </button>
+  //             <span className="px-4 text-gray-700">{quantity}</span>
+  //             <button
+  //               onClick={handleIncrement}
+  //               className="px-2 py-1 bg-gray-200 text-gray-700 rounded"
+  //               style={{ zIndex: 10 }}
+  //             >
+  //               +
+  //             </button>
+  //           </div>
+  //           <button
+  //             onClick={() => addToCart(productData.id)}
+  //             className="hover:bg-gray-600 px-4 py-2 bg-cyan-500 text-white text-sm font-bold uppercase rounded z-10"
+  //           >
+  //             Add to Bag
+  //           </button>
+  //         </div>
+  //       </div>
+  //     </div>
+  //   </div>
+  // );
 };
 
 export default SingleProductPage;
