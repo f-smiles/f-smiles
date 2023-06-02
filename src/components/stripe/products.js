@@ -70,6 +70,13 @@ const ProductsArray = [
         price: 6,
         count: 1,
     },
+    {
+        id: "prod_NmQD0LB6E9QoDd",
+        name: "E-Gift Card",
+        price: "Enter Total",
+        image: "/images/ember.png",
+        count: 1,
+    },
     // { name: "E-Gift Card", description: "E-Gift Card" },
 
 ];
