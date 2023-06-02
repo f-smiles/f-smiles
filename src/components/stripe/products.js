@@ -69,6 +69,7 @@ const ProductsArray = [
         image: "/images/coco-floss.png",
         price: 6,
         count: 1,
+        thumbnail: ["/images/strawberry.png"],
     },
     {
         id: "prod_NmQD0LB6E9QoDd",
@@ -76,6 +77,7 @@ const ProductsArray = [
         price: "Enter Total",
         image: "/images/ember.png",
         count: 1,
+       
     },
     // { name: "E-Gift Card", description: "E-Gift Card" },
 
