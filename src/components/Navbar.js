@@ -7,7 +7,7 @@ import CartContext from "../app/CartContext";
 
 export default function DesktopNavbar() {
   const [isBagOpen, setIsBagOpen] = useState(false);
-  
+
   const {  cartCount } = useContext(CartContext);
   const [show, setShow] = useState(null);
   const [about, setAbout] = useState(false);
@@ -18,12 +18,12 @@ export default function DesktopNavbar() {
   const handleToggleBag = () => {
     setIsBagOpen(!isBagOpen);
   };
-  
+
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.pageYOffset;
       const threshold = 5;
-   
+
       if (scrollTop > threshold) {
         setNavbarTransparent(false);
       } else {
@@ -72,7 +72,7 @@ export default function DesktopNavbar() {
 
   return (
     <>
-   
+
       {/* Desktop Navbar */}
       {/* TODO: add focus to dropdown for accessibility */}
       <nav
@@ -83,7 +83,7 @@ export default function DesktopNavbar() {
         }`}
       >
         <ul className="w-full p-2 max-w-screen-xl mx-auto flex justify-between items-center">
-       
+
           <ul className="xl:flex hidden gap-8 justify-evenly items-center">
           <div
   className="relative "
@@ -94,7 +94,7 @@ export default function DesktopNavbar() {
     onMouseOver={() => setShow("about")}
     onClick={() => setShow("about")}
   >
-    About 
+    About
   </li>
   <Transition
     show={show === "about"}
@@ -171,7 +171,7 @@ export default function DesktopNavbar() {
               // onClick={() => setTreatments(!treatments)}
             >
               Treatments
-          
+
             </li>
             <div className={
               treatments
@@ -239,7 +239,7 @@ export default function DesktopNavbar() {
                       </div>
                     </div>
                 </div>
-                
+
               </div>
             </div>
             <li>
@@ -277,15 +277,15 @@ export default function DesktopNavbar() {
             </li>
           </ul>
           <div className="flex items-center">
-        
-            
+
+
 
           <li className="z-10">
   {cartCount > 0 && (
     <NavLink to="/bag" className="cursor-pointer block text-sm leading-3 tracking-normal px-3 font-normal">
       <span className="flex items-center gap-1 hover:text-violet-500">
-        <span>Bag</span>
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 22 24" stroke="black" className="w-8 h-5">
+        Bag
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 24" stroke="currentColor" className="w-8 h-5 bag-icon">
           <path className="bag-path-static" d="M17.54 5.424a.47.47 0 0 1 .46.474v17.627a.47.47 0 0 1-.46.475H.46a.47.47 0 0 1-.46-.475V5.898a.47.47 0 0 1 .46-.474h4.795v-1.56C5.255 1.733 6.935 0 9 0c2.065 0 3.745 1.733 3.745 3.864v1.56zm-11.365 0h5.64v-1.56c0-1.608-1.264-2.915-2.82-2.915-1.555 0-2.82 1.307-2.82 2.915zm10.905.949h-4.335V8.61a.47.47 0 0 1-.46.475.47.47 0 0 1-.46-.475V6.373h-5.65V8.61a.47.47 0 0 1-.46.475.47.47 0 0 1-.46-.475V6.373H.92V23.05h16.16z" strokeWidth="1"></path>
           <text x="6" y="18" fill="black" fontSize="12">{cartCount}</text>
         </svg>
@@ -309,7 +309,7 @@ export default function DesktopNavbar() {
           </div>
         </ul>
       </nav>
-   
+
       {/* Desktop Navbar end */}
 
       {/* Mobile Navbar */}
@@ -595,7 +595,7 @@ export default function DesktopNavbar() {
                 >
                   Book Now
                 </NavLink>
-                <NavLink 
+                <NavLink
                 to="/bag"
                 onClick={() => setShow(false)}
                 className="cursor-pointer block text-sm leading-3 tracking-normal px-3 font-normal text-white">
