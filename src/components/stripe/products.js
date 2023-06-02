@@ -65,11 +65,12 @@ const ProductsArray = [
     {
         id: "prod_NmtEFTNbbKKR1k",
         name: "CocoFloss Dental Floss",
-        description: "CocoFloss Dental Floss", 
+        description: "(33 yards; 2-month supply) Cocofloss single, a super-cleansing, soft, textured dental floss to refresh your smile. Infused with coconut oil, vegan wax. Cleanly spun from recycled water bottles Free of BPA, parabens, SLS, and PFAS. Certified cruelty-free.", 
         image: "/images/coco-floss.png",
         price: 6,
         count: 1,
-        thumbnail: ["/images/strawberry.png"],
+        thumbnail: ["/images/coco-floss.png", "/images/strawberry.png",
+        "/images/caracara.png"],
     },
     {
         id: "prod_NmQD0LB6E9QoDd",

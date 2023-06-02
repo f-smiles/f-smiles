@@ -1,8 +1,16 @@
-import React, {useContext} from "react";
+import React, { useContext } from "react";
 import { getProductData } from "./products";
 import { useParams } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, Fragment } from "react";
 import CartContext from "../../app/CartContext";
+import { Disclosure } from "@headlessui/react";
+import { ChevronUpIcon } from "@heroicons/react/20/solid";
+
+import {
+  Accordion,
+  AccordionHeader,
+  AccordionBody,
+} from "@material-tailwind/react";
 
 const SingleProductPage = () => {
   const [mainImage, setMainImage] = useState("");
@@ -11,6 +19,16 @@ const SingleProductPage = () => {
   const { cart, setCart } = useContext(CartContext);
   const [total, setTotal] = useState(0);
   const [quantity, setQuantity] = useState(1);
+  const [open, setOpen] = useState(0);
+
+  const handleOpen = (value) => {
+    setOpen(open === value ? 0 : value);
+  };
+
+  const customAnimation = {
+    mount: { scale: 1 },
+    unmount: { scale: 0.9 },
+  };
 
   useEffect(() => {
     const storedCart = localStorage.getItem("cart");
@@ -34,9 +52,9 @@ const SingleProductPage = () => {
       const existingProductIndex = cart.findIndex(
         (product) => product.id === productId
       );
-  
-      const quantityToAdd = quantity; 
-  
+
+      const quantityToAdd = quantity;
+
       if (existingProductIndex !== -1) {
         const updatedCart = [...cart];
         updatedCart[existingProductIndex].count += quantityToAdd;
@@ -45,18 +63,17 @@ const SingleProductPage = () => {
       } else {
         const updatedProductData = {
           ...productData,
-          count: quantityToAdd, 
+          count: quantityToAdd,
         };
         const updatedCart = [...cart, updatedProductData];
         setCart(updatedCart);
         localStorage.setItem("cart", JSON.stringify(updatedCart));
       }
-  
-      setTotal((prevTotal) => prevTotal + productData.price * quantityToAdd); 
+
+      setTotal((prevTotal) => prevTotal + productData.price * quantityToAdd);
       localStorage.setItem("total", total + productData.price * quantityToAdd);
     }
   };
-  
 
   const handleIncrement = () => {
     setQuantity(quantity + 1);
@@ -78,15 +95,16 @@ const SingleProductPage = () => {
       <div className="bg-white bg-opacity-20 backdrop-blur-md rounded-lg">
         <div className="grid grid-cols-3">
           <div className="col-span-1 flex flex-col items-center">
-            {productData?.thumbnail && productData.thumbnail.map((thumbnail, index) => (
-              <img
-                key={index}
-                src={thumbnail}
-                alt={`Thumbnail ${index}`}
-                className="w-16 h-auto cursor-pointer"
-                onClick={() => handleThumbnailClick(thumbnail)}
-              />
-            ))}
+            {productData?.thumbnail &&
+              productData.thumbnail.map((thumbnail, index) => (
+                <img
+                  key={index}
+                  src={thumbnail}
+                  alt={`Thumbnail ${index}`}
+                  className="w-16 h-auto cursor-pointer"
+                  onClick={() => handleThumbnailClick(thumbnail)}
+                />
+              ))}
           </div>
           <div className="col-span-1">
             <div className="bg-cover bg-center bg-no-repeat h-96">
@@ -101,9 +119,15 @@ const SingleProductPage = () => {
             <h1 className="text-gray-900 font-bold text-2xl mb-2">
               {productData.name}
             </h1>
-            <p className="text-gray-600 text-sm mb-10">
-              {productData.description}
-            </p>
+            <Fragment>
+              <Accordion open={open === 1} animate={customAnimation}>
+                <AccordionHeader onClick={() => handleOpen(1)}>
+                  Description
+                  <span>+</span>
+                </AccordionHeader>
+                <AccordionBody>{productData.description}</AccordionBody>
+              </Accordion>
+            </Fragment>
             <div className="flex items-center justify-between">
               {productData.price} USD
             </div>
@@ -137,77 +161,72 @@ const SingleProductPage = () => {
       </div>
     </div>
   );
-  
 };
 
- export default SingleProductPage;
+export default SingleProductPage;
 
-  //   <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 justify-center flex justify-center items-center h-screen bg-gradient-to-r from-violet-100 to-violet-50">
-  //     <div className="max-w-4xl bg-white bg-opacity-20 backdrop-blur-md shadow-lg rounded-lg overflow-hidden flex"style={{ height: "400px" }}>
-  //       <div
-  //         className="w-1/3 h-64 bg-cover bg-center bg-no-repeat flex-shrink-0"
-  //         style={{
-  //           backgroundImage: `url(${productData.image})`,
-  //         }}
-  //       ></div>
-  //         <div
-  //           className="absolute top-0 left-0 w-full h-full bg-cover bg-center bg-no-repeat"
-  //           style={{
-  //             backgroundImage: `url(../../images/product.png)`, 
-  //             opacity: 0.9,
-  //             backgroundSize: "50%", 
-  //             backgroundPosition: "left",
-  //             zIndex:-1,
-  //           }}
-  //         ></div>
-  //       <div className="w-2/3 p-4 flex flex-col justify-center">
-  //         <h1 className="text-gray-900 font-bold text-2xl mb-2">
-  //           {productData.name}
-  //         </h1>
-  //         <p className="text-gray-600 text-sm mb-10">
-  //           {productData.description}
-  //         </p>
-  //         <div className="flex items-center mb-2">
-         
-  //         </div>
-          
-  //         <div className="flex items-center justify-between">
-  //           <h1 className="text-gray-700 font-bold text-xl">
-  //             {productData.price} USD
-  //           </h1>
-            
-  //           <div className="flex items-center">
-  //             <button
-  //               onClick={handleDecrement}
-  //               className="px-2 py-1 bg-gray-200 text-gray-700 rounded"
-  //               style={{ zIndex: 10 }}
-  //             >
-  //               -
-  //             </button>
-  //             <span className="px-4 text-gray-700">{quantity}</span>
-  //             <button
-  //               onClick={handleIncrement}
-  //               className="px-2 py-1 bg-gray-200 text-gray-700 rounded"
-  //               style={{ zIndex: 10 }}
-  //             >
-  //               +
-  //             </button>
-  //           </div>
-  //           <button
-  //             onClick={() => addToCart(productData.id)}
-  //             className="hover:bg-gray-600 px-4 py-2 bg-cyan-500 text-white text-sm font-bold uppercase rounded z-10"
-  //           >
-  //             Add to Bag
-  //           </button>
-  //         </div>
-  //       </div>
-  //     </div>
-  //   </div>
-  // );
+//   <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 justify-center flex justify-center items-center h-screen bg-gradient-to-r from-violet-100 to-violet-50">
+//     <div className="max-w-4xl bg-white bg-opacity-20 backdrop-blur-md shadow-lg rounded-lg overflow-hidden flex"style={{ height: "400px" }}>
+//       <div
+//         className="w-1/3 h-64 bg-cover bg-center bg-no-repeat flex-shrink-0"
+//         style={{
+//           backgroundImage: `url(${productData.image})`,
+//         }}
+//       ></div>
+//         <div
+//           className="absolute top-0 left-0 w-full h-full bg-cover bg-center bg-no-repeat"
+//           style={{
+//             backgroundImage: `url(../../images/product.png)`,
+//             opacity: 0.9,
+//             backgroundSize: "50%",
+//             backgroundPosition: "left",
+//             zIndex:-1,
+//           }}
+//         ></div>
+//       <div className="w-2/3 p-4 flex flex-col justify-center">
+//         <h1 className="text-gray-900 font-bold text-2xl mb-2">
+//           {productData.name}
+//         </h1>
+//         <p className="text-gray-600 text-sm mb-10">
+//           {productData.description}
+//         </p>
+//         <div className="flex items-center mb-2">
 
+//         </div>
 
+//         <div className="flex items-center justify-between">
+//           <h1 className="text-gray-700 font-bold text-xl">
+//             {productData.price} USD
+//           </h1>
 
-
+//           <div className="flex items-center">
+//             <button
+//               onClick={handleDecrement}
+//               className="px-2 py-1 bg-gray-200 text-gray-700 rounded"
+//               style={{ zIndex: 10 }}
+//             >
+//               -
+//             </button>
+//             <span className="px-4 text-gray-700">{quantity}</span>
+//             <button
+//               onClick={handleIncrement}
+//               className="px-2 py-1 bg-gray-200 text-gray-700 rounded"
+//               style={{ zIndex: 10 }}
+//             >
+//               +
+//             </button>
+//           </div>
+//           <button
+//             onClick={() => addToCart(productData.id)}
+//             className="hover:bg-gray-600 px-4 py-2 bg-cyan-500 text-white text-sm font-bold uppercase rounded z-10"
+//           >
+//             Add to Bag
+//           </button>
+//         </div>
+//       </div>
+//     </div>
+//   </div>
+// );
 
 // <div className="container mx-auto">
 //   <div className="flex flex-wrap items-center">
