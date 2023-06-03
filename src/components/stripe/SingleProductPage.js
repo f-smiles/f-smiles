@@ -102,7 +102,7 @@ const SingleProductPage = () => {
                   key={index}
                   src={thumbnail}
                   alt={`Thumbnail ${index}`}
-                  className="w-16 h-auto cursor-pointer"
+                  className="w-16 h-auto cursor-pointer rounded-full mb-2"
                   onClick={() => handleThumbnailClick(thumbnail)}
                 />
               ))}
