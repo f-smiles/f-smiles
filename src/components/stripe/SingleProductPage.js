@@ -86,9 +86,11 @@ const SingleProductPage = () => {
   };
 
   const handleThumbnailClick = (thumbnail) => {
-    // Update the main image with the clicked thumbnail
     setMainImage(thumbnail);
   };
+
+  const accordionContentStyle =open ? {} : { display: "none" };
+
 
   return (
     <div className="flex justify-center items-center h-screen">
@@ -154,36 +156,47 @@ const SingleProductPage = () => {
     </button>
   </div>
 </div>
-
-
-
-
-            <div className="overflow-hidden">
-              <Accordion open={open === 1} animate={customAnimation}>
-                <AccordionHeader
-                  onClick={() => handleOpen(1)}
-                  className="text-sm cursor-pointer"
-                >
-                  Description
-                  <span>+</span>
-                </AccordionHeader>
-                <AccordionBody>{productData.description}</AccordionBody>
-              </Accordion>
-              <Accordion open={open === 2} animate={customAnimation}>
-                <AccordionHeader
-                  onClick={() => handleOpen(2)}
-                  className="text-sm cursor-pointer"
-                >
-                  How To Use
-                  <span>+</span>
-                </AccordionHeader>
-                <AccordionBody>{productData.description}</AccordionBody>
-              </Accordion>
-            </div>
-          </div>
-        </div>
+<div style={{ height: "200px", overflow: "hidden" }}>
+        <Accordion open={open === 1} animate={customAnimation}>
+          <AccordionHeader
+            onClick={() => handleOpen(1)}
+            className="text-sm cursor-pointer"
+          >
+            Description
+            <ChevronUpIcon
+              className={`${
+                open === 1 ? "transform rotate-180" : ""
+              } w-4 h-4 inline-block ml-1 transition-transform duration-200`}
+            />
+          </AccordionHeader>
+          <AccordionBody style={accordionContentStyle}>
+            <div>{productData.description}</div>
+          </AccordionBody>
+        </Accordion>
+        <Accordion open={open === 2} animate={customAnimation}>
+          <AccordionHeader
+            onClick={() => handleOpen(2)}
+            className="text-sm cursor-pointer"
+          >
+            How To Use
+            <ChevronUpIcon
+              className={`${
+                open === 2 ? "transform rotate-180" : ""
+              } w-4 h-4 inline-block ml-1 transition-transform duration-200`}
+            />
+          </AccordionHeader>
+          <AccordionBody style={accordionContentStyle}>
+            <div>{productData.description}</div>
+          </AccordionBody>
+        </Accordion>
       </div>
     </div>
+    </div>
+    </div>
+    </div>
+         
+   
+   
   );
 };
 
