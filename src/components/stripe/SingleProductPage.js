@@ -92,7 +92,7 @@ const SingleProductPage = () => {
 
   return (
     <div className="flex justify-center items-center h-screen">
-      <div className="bg-white bg-opacity-20 backdrop-blur-md rounded-lg">
+      <div className="bg-white bg-opacity-20 backdrop-blur-md rounded-lg ">
         <div className="grid grid-cols-3">
           <div className="col-span-1 flex flex-col items-center">
             {productData?.thumbnail &&
@@ -119,42 +119,66 @@ const SingleProductPage = () => {
             <h1 className="text-gray-900 font-bold text-2xl mb-2">
               {productData.name}
             </h1>
-            <Fragment>
+            <div className="text-indigo-700 mb-5 flex items-center justify-between">
+              ${productData.price}
+            </div>
+            <div className="flex items-center mb-2">
+  <div className="rounded border-indigo-700 border flex items-center" style={{ padding: "2px", width: "74px" }}>
+    <button
+      onClick={handleDecrement}
+      className="px-2 py-1 text-gray-700 rounded"
+      style={{ zIndex: 10, marginRight: "-1px" }}
+    >
+      -
+    </button>
+    <span
+      className="px-2 py-1 text-indigo-700 rounded"
+      style={{ minWidth: "24px", textAlign: "center" }}
+    >
+      {quantity}
+    </span>
+    <button
+      onClick={handleIncrement}
+      className="px-2 py-1 text-gray-700 rounded"
+      style={{ zIndex: 10, marginLeft: "-1px" }}
+    >
+      +
+    </button>
+  </div>
+  <div className="ml-2 col-span-2 sm:col-auto">
+    <button
+      onClick={() => addToCart(productData.id)}
+      className="px-4 py-2 border-indigo-700 text-indigo-700 border text-sm uppercase rounded z-10"
+    >
+      Add to Bag
+    </button>
+  </div>
+</div>
+
+
+
+
+            <div className="overflow-hidden">
               <Accordion open={open === 1} animate={customAnimation}>
-                <AccordionHeader onClick={() => handleOpen(1)}>
+                <AccordionHeader
+                  onClick={() => handleOpen(1)}
+                  className="text-sm cursor-pointer"
+                >
                   Description
                   <span>+</span>
                 </AccordionHeader>
                 <AccordionBody>{productData.description}</AccordionBody>
               </Accordion>
-            </Fragment>
-            <div className="flex items-center justify-between">
-              {productData.price} USD
-            </div>
-            <div className="flex items-center mb-2">
-              <div className="border border-gray-300 rounded flex items-center">
-                <button
-                  onClick={handleDecrement}
-                  className="px-2 py-1  text-gray-700 rounded"
-                  style={{ zIndex: 10 }}
+              <Accordion open={open === 2} animate={customAnimation}>
+                <AccordionHeader
+                  onClick={() => handleOpen(2)}
+                  className="text-sm cursor-pointer"
                 >
-                  -
-                </button>
-                <span className="px-4 text-gray-700">{quantity}</span>
-                <button
-                  onClick={handleIncrement}
-                  className="px-2 py-1  text-gray-700 rounded"
-                  style={{ zIndex: 10 }}
-                >
-                  +
-                </button>
-              </div>
-              <button
-                onClick={() => addToCart(productData.id)}
-                className="hover:bg-gray-600 px-4 py-2 bg-cyan-500 text-white text-sm font-bold uppercase rounded z-10"
-              >
-                Add to Bag
-              </button>
+                  How To Use
+                  <span>+</span>
+                </AccordionHeader>
+                <AccordionBody>{productData.description}</AccordionBody>
+              </Accordion>
             </div>
           </div>
         </div>
