@@ -89,8 +89,7 @@ const SingleProductPage = () => {
     setMainImage(thumbnail);
   };
 
-  const accordionContentStyle =open ? {} : { display: "none" };
-
+  const accordionContentStyle = open ? {} : { display: "none" };
 
   return (
     <div className="flex justify-center items-center h-screen">
@@ -113,7 +112,7 @@ const SingleProductPage = () => {
               <img
                 src={mainImage || productData?.image}
                 alt={productData?.name}
-                className="w-full h-full object-cover"
+                className="max-w-full max-h-full"
               />
             </div>
           </div>
@@ -125,160 +124,79 @@ const SingleProductPage = () => {
               ${productData.price}
             </div>
             <div className="flex items-center mb-2">
-  <div className="rounded border-indigo-700 border flex items-center" style={{ padding: "2px", width: "74px" }}>
-    <button
-      onClick={handleDecrement}
-      className="px-2 py-1 text-gray-700 rounded"
-      style={{ zIndex: 10, marginRight: "-1px" }}
-    >
-      -
-    </button>
-    <span
-      className="px-2 py-1 text-indigo-700 rounded"
-      style={{ minWidth: "24px", textAlign: "center" }}
-    >
-      {quantity}
-    </span>
-    <button
-      onClick={handleIncrement}
-      className="px-2 py-1 text-gray-700 rounded"
-      style={{ zIndex: 10, marginLeft: "-1px" }}
-    >
-      +
-    </button>
-  </div>
-  <div className="ml-2 col-span-2 sm:col-auto">
-    <button
-      onClick={() => addToCart(productData.id)}
-      className="px-4 py-2 border-indigo-700 text-indigo-700 border text-sm uppercase rounded z-10"
-    >
-      Add to Bag
-    </button>
-  </div>
-</div>
-<div style={{ height: "200px", overflow: "hidden" }}>
-        <Accordion open={open === 1} animate={customAnimation}>
-          <AccordionHeader
-            onClick={() => handleOpen(1)}
-            className="text-sm cursor-pointer"
-          >
-            Description
-            <ChevronUpIcon
-              className={`${
-                open === 1 ? "transform rotate-180" : ""
-              } w-4 h-4 inline-block ml-1 transition-transform duration-200`}
-            />
-          </AccordionHeader>
-          <AccordionBody style={accordionContentStyle}>
-            <div>{productData.description}</div>
-          </AccordionBody>
-        </Accordion>
-        <Accordion open={open === 2} animate={customAnimation}>
-          <AccordionHeader
-            onClick={() => handleOpen(2)}
-            className="text-sm cursor-pointer"
-          >
-            How To Use
-            <ChevronUpIcon
-              className={`${
-                open === 2 ? "transform rotate-180" : ""
-              } w-4 h-4 inline-block ml-1 transition-transform duration-200`}
-            />
-          </AccordionHeader>
-          <AccordionBody style={accordionContentStyle}>
-            <div>{productData.description}</div>
-          </AccordionBody>
-        </Accordion>
+              <div
+                className="rounded border-indigo-700 border flex items-center"
+                style={{ padding: "2px", width: "74px" }}
+              >
+                <button
+                  onClick={handleDecrement}
+                  className="px-2 py-1 text-gray-700 rounded"
+                  style={{ zIndex: 10, marginRight: "-1px" }}
+                >
+                  -
+                </button>
+                <span
+                  className="px-2 py-1 text-indigo-700 rounded"
+                  style={{ minWidth: "24px", textAlign: "center" }}
+                >
+                  {quantity}
+                </span>
+                <button
+                  onClick={handleIncrement}
+                  className="px-2 py-1 text-gray-700 rounded"
+                  style={{ zIndex: 10, marginLeft: "-1px" }}
+                >
+                  +
+                </button>
+              </div>
+              <div className="ml-2 col-span-2 sm:col-auto">
+                <button
+                  onClick={() => addToCart(productData.id)}
+                  className="px-4 py-2 border-indigo-700 text-indigo-700 border text-sm uppercase rounded z-10"
+                >
+                  Add to Bag
+                </button>
+              </div>
+            </div>
+            <div style={{ height: "200px", overflowY: "auto" }}>
+              <Accordion open={open === 1} animate={customAnimation}>
+                <AccordionHeader
+                  onClick={() => handleOpen(1)}
+                  className="text-sm cursor-pointer"
+                >
+                  Description
+                  <ChevronUpIcon
+                    className={`${
+                      open === 1 ? "transform rotate-180" : ""
+                    } w-4 h-4 inline-block ml-1 transition-transform duration-200`}
+                  />
+                </AccordionHeader>
+                <AccordionBody style={{ width: "100%" }}>
+                  <div>{productData.description}</div>
+                </AccordionBody>
+              </Accordion>
+              <Accordion open={open === 2} animate={customAnimation}>
+                <AccordionHeader
+                  onClick={() => handleOpen(2)}
+                  className="text-sm cursor-pointer"
+                >
+                  How To Use
+                  <ChevronUpIcon
+                    className={`${
+                      open === 2 ? "transform rotate-180" : ""
+                    } w-4 h-4 inline-block ml-1 transition-transform duration-200`}
+                  />
+                </AccordionHeader>
+                <AccordionBody style={accordionContentStyle}>
+                  <div>{productData.description}</div>
+                </AccordionBody>
+              </Accordion>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    </div>
-    </div>
-    </div>
-         
-   
-   
   );
 };
 
 export default SingleProductPage;
-
-//   <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 justify-center flex justify-center items-center h-screen bg-gradient-to-r from-violet-100 to-violet-50">
-//     <div className="max-w-4xl bg-white bg-opacity-20 backdrop-blur-md shadow-lg rounded-lg overflow-hidden flex"style={{ height: "400px" }}>
-//       <div
-//         className="w-1/3 h-64 bg-cover bg-center bg-no-repeat flex-shrink-0"
-//         style={{
-//           backgroundImage: `url(${productData.image})`,
-//         }}
-//       ></div>
-//         <div
-//           className="absolute top-0 left-0 w-full h-full bg-cover bg-center bg-no-repeat"
-//           style={{
-//             backgroundImage: `url(../../images/product.png)`,
-//             opacity: 0.9,
-//             backgroundSize: "50%",
-//             backgroundPosition: "left",
-//             zIndex:-1,
-//           }}
-//         ></div>
-//       <div className="w-2/3 p-4 flex flex-col justify-center">
-//         <h1 className="text-gray-900 font-bold text-2xl mb-2">
-//           {productData.name}
-//         </h1>
-//         <p className="text-gray-600 text-sm mb-10">
-//           {productData.description}
-//         </p>
-//         <div className="flex items-center mb-2">
-
-//         </div>
-
-//         <div className="flex items-center justify-between">
-//           <h1 className="text-gray-700 font-bold text-xl">
-//             {productData.price} USD
-//           </h1>
-
-//           <div className="flex items-center">
-//             <button
-//               onClick={handleDecrement}
-//               className="px-2 py-1 bg-gray-200 text-gray-700 rounded"
-//               style={{ zIndex: 10 }}
-//             >
-//               -
-//             </button>
-//             <span className="px-4 text-gray-700">{quantity}</span>
-//             <button
-//               onClick={handleIncrement}
-//               className="px-2 py-1 bg-gray-200 text-gray-700 rounded"
-//               style={{ zIndex: 10 }}
-//             >
-//               +
-//             </button>
-//           </div>
-//           <button
-//             onClick={() => addToCart(productData.id)}
-//             className="hover:bg-gray-600 px-4 py-2 bg-cyan-500 text-white text-sm font-bold uppercase rounded z-10"
-//           >
-//             Add to Bag
-//           </button>
-//         </div>
-//       </div>
-//     </div>
-//   </div>
-// );
-
-// <div className="container mx-auto">
-//   <div className="flex flex-wrap items-center">
-//     <div className="w-full md:w-1/2">
-//       <img style={{ maxWidth: "400px" }} className="h-auto" src={productData.image} alt={productData.name} />
-//     </div>
-//     <div className="mt-20 w-full md:w-1/2 pl-4">
-//       <h1 className="text-lg">{productData.name}</h1>
-//       <h2 className="text-tan">{productData.price} USD</h2>
-//       <p className="desc text-rose mt-2">{productData.description}</p>
-//       <div className="buttons mt-4">
-//         <button onClick={() => addToCart(productData.id)} className="rounded-full px-4 py-2 bg-rose-200 text-white rounded hover:bg-blue-700">Add to bag</button>
-//       </div>
-//     </div>
-//   </div>
-// </div>
-//   );
-// };
