@@ -130,7 +130,7 @@ const SingleProductPage = () => {
               >
                 <button
                   onClick={handleDecrement}
-                  className="px-2 py-1 text-gray-700 rounded"
+                  className="px-2 py-1 text-indigo-700 rounded"
                   style={{ zIndex: 10, marginRight: "-1px" }}
                 >
                   -
@@ -143,7 +143,7 @@ const SingleProductPage = () => {
                 </span>
                 <button
                   onClick={handleIncrement}
-                  className="px-2 py-1 text-gray-700 rounded"
+                  className="px-2 py-1 text-indigo-700 rounded"
                   style={{ zIndex: 10, marginLeft: "-1px" }}
                 >
                   +
@@ -191,6 +191,7 @@ const SingleProductPage = () => {
                   <div>{productData.description}</div>
                 </AccordionBody>
               </Accordion>
+              
             </div>
           </div>
         </div>
