@@ -107,7 +107,7 @@ const Card = ({ id, image, name, description, price, addToCart }) => {
         <div className="grid grid-rows-2 gap-4">
           <img className="h-32 mx-auto my-auto self-center" src={image} alt={name} />
           <div>
-            <h3 className="uppercase mb-4">{name}</h3>
+            <h3 className="mb-4">{name}</h3>
             {/* <p>{description}</p> */}
           </div>
         </div>

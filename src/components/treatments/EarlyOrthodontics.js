@@ -4,8 +4,27 @@ import { ChevronUpIcon } from "@heroicons/react/20/solid";
 
 const EarlyOrthodontics = () => {
   return (
+    
     <main className="w-full px-4 pt-16">
+      
       <div className="mx-auto w-full max-w-screen-lg rounded-2xl bg-white p-2">
+      <img
+  src="../../images/redhalf.svg"
+  alt="invisalign"
+  style={{
+    maxWidth: "60%",
+    maxHeight: "60%",
+    transform: "rotate(270deg)",
+    float: "left",
+    position: "relative",
+    marginLeft: "-200px",
+    opacity: 0,
+    transition: "opacity 4s ease-in-out",
+  }}
+  onLoad={(event) => {
+    event.target.style.opacity = 1;
+  }}
+/>
         <Disclosure as="section" defaultOpen={true}>
           {({ open }) => (
             <>

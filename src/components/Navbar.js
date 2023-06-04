@@ -79,7 +79,7 @@ export default function DesktopNavbar() {
 
         id="desktop-nav"
         className={`w-full h-max fixed top-0 left-0 right-0 mx-auto  xl:block hidden z-40 ${
-          navbarTransparent ? "bg-#f7f5f2" : "bg-stone-400/30"
+          navbarTransparent ? "bg-#f4eae4" : "bg-stone-700/30"
         }`}
       >
         <ul className="w-full p-2 max-w-screen-xl mx-auto flex justify-between items-center">

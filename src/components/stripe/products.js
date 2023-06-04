@@ -87,7 +87,7 @@ const ProductsArray = [
     {
         id: "prod_NmQD0LB6E9QoDd",
         name: "E-Gift Card",
-        price: "Enter Amount",
+        price: "",
         image: "/images/ember.png",
         count: 1,
        
