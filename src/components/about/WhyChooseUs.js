@@ -20,11 +20,11 @@ const WhyChooseUs = () => {
         }}
       />
 
-      <div className=" rounded-lg px-4 pt-4 pb-2 space-y-4 text-gray-500 text-center relative z-10">
+      <div className=" relative rounded-lg px-4 pt-4 pb-2 space-y-4 text-gray-500 text-center relative z-10">
         <h1 className="mt-10 px-4 py-2 mx-auto text-5xl text-stone-50 mb-10">
           Why Choose Us
         </h1>
-   
+ 
       </div>
       <div className="mx-auto w-full max-w-screen-lg rounded-2xl p-2">
         <div className="relative">
@@ -52,12 +52,7 @@ const WhyChooseUs = () => {
             the highest standards for our records, ensuring accuracy and
             precision throughout the treatment process.
           </p>
-          <NavLink
-  to="/virtual-consultation"
-  className="curspor-pointerpx-5 py-5 cursor-pointer bg-teal-600 rounded-full px-8 py-2 hover:bg-teal-800  text-xl text-white tracking-normal text-white hover:text-white"
->
-  <button>Schedule a Consultation</button>
-</NavLink>
+  
           <p className="mb-10 ml-10 mr-10 text-center px-4 py-2 mx-auto text-md text-amber-600 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75 whitespace-[60ch]">
             Our office is the #1 provider of Invisalign and Invisalign Teen in
             the region.{" "}
@@ -68,8 +63,14 @@ const WhyChooseUs = () => {
             advancement of this specialized orthodontic treatment modality.
           </p>
         </div>
-        
-        <p className="mt-10">
+        <NavLink
+  to="/virtual-consultation"
+  className="-ml-10 mt-20 curspor-pointer px-5 py-5 cursor-pointer bg-teal-600 rounded-full px-8 py-2 hover:bg-teal-800 text-xl text-white tracking-normal text-white hover:text-white z-20 relative"
+  style={{ zIndex: "20" }}
+>
+  <button>Schedule a Consultation</button>
+</NavLink>
+        <p className="mt-10 relative"  style={{ zIndex: "20" }}>
           Experts in Invisalign, Damon Braces, Accelerated Orthodontic
           Treatment, and low-dose 3D Digital Radiographs, FreySmiles also
           believes in accessible orthodontic care for everyone and offers
@@ -93,7 +94,7 @@ const WhyChooseUs = () => {
           communities.
         </p>
 
-        
+   
           <table
             className="mx-auto"
             style={{ width: "100%", borderCollapse: "collapse" }}
