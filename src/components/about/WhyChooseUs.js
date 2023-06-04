@@ -35,9 +35,30 @@ const WhyChooseUs = () => {
         }}
       />
       <div className=" relative rounded-lg px-4 pt-4 pb-2 space-y-4 text-gray-500 text-center relative z-10">
-        <h1 className="mt-10 px-4 py-2 mx-auto text-5xl text-stone-50 mb-10">
-          Why Choose Us
-        </h1>
+        <div>
+        <h1 className="mt-10 mb-10 text-white text-5xl relative">
+    <span className="mr-4 -ml-80 ">
+      Experts in
+    </span>{" "}
+    <span className="absolute top-0 ">
+      {words.map((word, index) => (
+        <span
+          key={index}
+          className={`transition-opacity duration-1000 ${
+            index === currentWordIndex ? "opacity-100 text-violet-700" : "opacity-0"
+          }`}
+          style={{
+            position: "relative",
+            marginRight: "1rem", // Adjust the spacing between words as needed
+            display: index === currentWordIndex ? "inline" : "none",
+          }}
+        >
+          {word}
+        </span>
+      ))}
+    </span>
+  </h1>
+  </div>
       </div>
       <div className="mx-auto w-full max-w-screen-lg rounded-2xl p-2">
         <div className="relative">
@@ -75,30 +96,14 @@ const WhyChooseUs = () => {
             advancement of this specialized orthodontic treatment modality.
           </p>
         </div>
-        <NavLink
+       
+      <NavLink
           to="/virtual-consultation"
           className="-ml-20 mt-10 curspor-pointer px-5 py-5 cursor-pointer bg-teal-800 rounded-full px-8 py-2 hover:bg-teal-500 text-lg text-white tracking-normal text-white hover:text-white z-20 relative"
           style={{ zIndex: "20" }}
         >
-          <button className="mt-5">Schedule a Consultation</button>
+          <button className="mt-20">Schedule a Consultation</button>
         </NavLink>
-        <h1 className="mt-10 text-5xl relative transition-opacity duration-1000">
-        Experts in{" "}
-        {words.map((word, index) => (
-           <span
-           key={index}
-           className={`absolute top-0 left-0 right-0 transition-opacity duration-1000 ${
-             index === currentWordIndex ? "opacity-100 text-violet-700" : "opacity-0"
-           }`}
-           style={{
-             zIndex: index === currentWordIndex ? 2 : 1,
-             position: "relative"
-           }}
-         >
-           {index === currentWordIndex ? word : ""}
-         </span>
-      ))}
-      </h1>
         <div
           style={{
             display: "flex",
