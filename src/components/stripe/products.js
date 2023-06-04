@@ -14,17 +14,27 @@ const ProductsArray = [
         description:
           "The active ingredient in PolaDay 9.5 is hydrogen peroxide, a proven whitening agent. Hydrogen peroxide is both safe and effective, so you'll get whiter teeth without sacrificing comfort.",
           price: 25,
-          image: "/images/ember.png",
+          image: "/images/pola-9.5.jpg",
           count: 1,
+          thumbnail: ["/images/pola-9.5.jpg","/images/pola9.5sing.jpg"],
     },
     {
        id: "prod_Nmt817CmDaC5o9",
        name: "PolaDay Whitening Gel 35%",
        description:
-       "The active ingredient in PolaDay 9.5 is hydrogen peroxide, a proven whitening agent. Hydrogen peroxide is both safe and effective, so you'll get whiter teeth without sacrificing comfort.",
-       price: 45,
-       image: "/images/ember.png",
+       "4 syringes per pack. The active ingredient in PolaDay 9.5 is hydrogen peroxide, a proven whitening agent. Hydrogen peroxide is both safe and effective, so you'll get whiter teeth without sacrificing comfort.",
+       price: 30,
+       image: "/images/pola35.jpg",
        count: 1,
+       thumbnail: ["/images/pola35.jpg","/images/pola35zoom.jpg"],
+    //    howtouse: "1. Place a small drop of gel into every compartment of the tray
+    //    for the teeth undergoing treatment.
+    //    2. Seat the tray, with the gel around the teeth.
+    //    3. 	 Wipe away excess gel in mouth with a tissue or dry soft brush.
+    //    4. After 15 minutes of treatment, remove tray. Rinse tray and
+    //    mouth with lukewarm water.
+    //    Note: Treatment time can be up to 30 minutes if required.
+    //    5. Brush teeth. "
     },
     {
         id: "prod_Nmt9kenhlCe0dX",
@@ -43,6 +53,7 @@ const ProductsArray = [
         image: "../images/VPro-device.png",
         price: 585,
         count: 1,
+         thumbnail: ["../images/VPro-device.png","/images/vproplus.png", "/images/vprokit.png" ],
     },
     {
         id: "prod_NmtCEQ0q2Sio1t",
@@ -52,6 +63,7 @@ const ProductsArray = [
           image: "/images/VPro-mouthpiece.png",
           price: 35,
           count: 1, 
+          thumbnail: ["/images/VPro-mouthpiece.png","/images/vprohands.png" ],
     },
     {
         id: "prod_NmtDKMLyW2OyqB",
@@ -65,10 +77,20 @@ const ProductsArray = [
     {
         id: "prod_NmtEFTNbbKKR1k",
         name: "CocoFloss Dental Floss",
-        description: "CocoFloss Dental Floss", 
-        image: "/images/coco-floss.png",
+        description: "(33 yards; 2-month supply) Cocofloss single, a super-cleansing, soft, textured dental floss to refresh your smile. Infused with coconut oil, vegan wax. Cleanly spun from recycled water bottles Free of BPA, parabens, SLS, and PFAS. Certified cruelty-free.", 
+        image: "/images/coco_orange.png",
         price: 6,
         count: 1,
+        thumbnail: ["/images/coco_orange.png", "/images/coco-floss.png", "/images/strawberry.png",
+        "/images/caracara.png"],
+    },
+    {
+        id: "prod_NmQD0LB6E9QoDd",
+        name: "E-Gift Card",
+        price: "",
+        image: "/images/ember.png",
+        count: 1,
+       
     },
     // { name: "E-Gift Card", description: "E-Gift Card" },
 
