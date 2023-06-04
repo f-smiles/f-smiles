@@ -79,7 +79,7 @@ export default function DesktopNavbar() {
 
         id="desktop-nav"
         className={`w-full h-max fixed top-0 left-0 right-0 mx-auto  xl:block hidden z-40 ${
-          navbarTransparent ? "bg-#f7f5f2" : "bg-stone-400/30"
+          navbarTransparent ? "bg-#f4eae4" : "bg-stone-700/30"
         }`}
       >
         <ul className="w-full p-2 max-w-screen-xl mx-auto flex justify-between items-center">
@@ -114,12 +114,12 @@ export default function DesktopNavbar() {
         about_us_links.map((link) => {
           return (
             <li
-              className="cursor-pointer text-gray-600 text-sm leading-3 tracking-normal hover:bg-indigo-300 hover:text-white font-normal"
+              className="cursor-pointer text-gray-600 text-sm leading-3 tracking-normal  hover:text-white font-normal"
               key={link.name}
             >
               <NavLink
                 to={link.href}
-                className="block p-4 text-gray-600 text-sm leading-3 tracking-normal hover:text-white font-normal"
+                className="block p-4 text-gray-600 text-sm leading-3 tracking-normal hover:text-indigo-400 font-normal"
               >
                 {link.name}
               </NavLink>
@@ -151,11 +151,11 @@ export default function DesktopNavbar() {
     {patient_links &&
       patient_links.map((link) => {
         return (
-          <li className="cursor-pointer text-gray-600 text-sm leading-3 tracking-normal hover:bg-indigo-300 hover:text-white font-normal">
+          <li className="cursor-pointer text-gray-600 text-sm leading-3 tracking-normal hover:text-white font-normal">
             <NavLink
               to={link.href}
               key={link.name}
-              className="cursor-pointer block text-gray-600 text-sm leading-3 tracking-normal hover:text-white p-4 font-normal"
+              className="cursor-pointer block text-gray-600 text-sm leading-3 tracking-normal hover:text-indigo-400 p-4 font-normal"
             >
               {link.name}
             </NavLink>

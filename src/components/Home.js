@@ -66,7 +66,7 @@ const Home = () => {
                   about.
                 </p>
                 <p className="text-center text-lg text-gray-600 font-light leading-relaxed pt-8 xl:block hidden w-4/5">
-                  Our goal is to make your smile look best on YOU. It's an art,
+                  Our goal is to make your smile look best on <strong className="font-bold">YOU</strong>. It's an art,
                   it's a science, and it is something orthodontists Dr. Gregg
                   Frey and Dr. Daniel Frey and the exceptional team at
                   FreySmiles Orthodontics recognize and are very passionate

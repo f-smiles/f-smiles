@@ -10,6 +10,7 @@ module.exports = {
       // 'e8e6df': '#e8e6df',
       'f7f5f2': '#f7f5f2',
       'f4eae4': '#f4eae4',
+      '#c75b18': '#c75b18',
       // '341924': '#341924',
       'dec0ae': '#dec0ae',
       'BDB5D5': '#BDB5D5',
