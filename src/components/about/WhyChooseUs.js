@@ -19,6 +19,7 @@ const WhyChooseUs = () => {
     return () => clearInterval(interval);
   }, [words.length]);
 
+  
   return (
     
     <div className="bg-indigo-50 py-4  w-full px-4 pt-16">
@@ -31,33 +32,36 @@ const WhyChooseUs = () => {
           height: "auto",
           objectFit: "cover",
           objectPosition: "right",
-          filter: "hue-rotate(60deg)",
+          filter: "hue-rotate(290deg)",
         }}
       />
       <div className=" relative rounded-lg px-4 pt-4 pb-2 space-y-4 text-gray-500 text-center relative z-10">
         <div>
-        <h1 className="mt-10 mb-10 text-white text-5xl relative">
-    <span className="mr-4 -ml-80 ">
-      Experts in
-    </span>{" "}
-    <span className="absolute top-0 ">
-      {words.map((word, index) => (
-        <span
-          key={index}
-          className={`transition-opacity duration-1000 ${
-            index === currentWordIndex ? "opacity-100 text-violet-700" : "opacity-0"
-          }`}
-          style={{
-            position: "relative",
-            marginRight: "1rem", // Adjust the spacing between words as needed
-            display: index === currentWordIndex ? "inline" : "none",
-          }}
-        >
-          {word}
-        </span>
-      ))}
-    </span>
-  </h1>
+        <h1 className="mt-20 mb-20 text-white text-5xl relative">
+            <span className="mr-4 justify-start -ml-80">Experts in</span>{" "}
+            <span className="relative">
+              {words.map((word, index) => (
+                <span
+                  key={index}
+                  className={`transition-opacity duration-1000 ${
+                    index === currentWordIndex ? "opacity-100 text-violet-700" : "opacity-0 text-violet-700"
+                  }`}
+                  style={{
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    width: "100%",
+                    whiteSpace: "nowrap",
+                    display: "inline-block",
+                    animation: `morphAnimation ${words.length * 3}s infinite`,
+                    animationDelay: `${index * 2}s`,
+                  }}
+                >
+                  {word}
+                </span>
+              ))}
+            </span>
+          </h1>
   </div>
       </div>
       <div className="mx-auto w-full max-w-screen-lg rounded-2xl p-2">
@@ -65,7 +69,7 @@ const WhyChooseUs = () => {
           <div className="absolute inset-0 flex justify-center items-center"></div>
         </div>
         <div className="rounded-full relative bg-gradient-to-b from-stone-50 to-stone-50 overflow-hidden">
-          <p className="mt-8 text-center px-12 py-8 mx-auto text-md text-amber-600 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
+          <p className="mt-8 text-center px-12 py-8 mx-auto text-md text-amber-500 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
             FreySmiles Orthodontics is a family-owned practice providing
             unparalleled orthodontic experience to the Lehigh Valley community
             for over four decades.{" "}
