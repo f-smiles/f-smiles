@@ -25,6 +25,7 @@ const EarlyOrthodontics = () => {
     event.target.style.opacity = 1;
   }}
 />
+<h1>Our doctors are top provideers and full picture of your health and prescribe a plan for long-term healing.</h1>
         <Disclosure as="section" defaultOpen={true}>
           {({ open }) => (
             <>

@@ -118,7 +118,7 @@ const WhyChooseUs = () => {
             <span className="text-2xl">
               As Diamond Plus Invisalign providers,
             </span>{" "}
-            their care over the many years has contributed to the research and
+            our care over the many years has contributed to the research and
             advancement of this specialized orthodontic treatment modality.
           </p>
         </div>
@@ -188,9 +188,18 @@ const WhyChooseUs = () => {
     />
   </div>
 </div>
-
+<div className="flex">
+<img
+      src="../../images/rainbow.svg"
+      alt="invisalign"
+      className="opacity-90 mt-4"
+      style={{
+        width: "20%",
+        height: "auto",
+      }}
+    />
         <p
-          className="bg-stone-100 text-violet-800  text-lg mt-10 mr-20 relative text-center"
+          className="text-violet-800  text-lg mt-10 mr-20 relative text-center"
           style={{ zIndex: "20", flex: "1" }}
         >
           FreySmiles believes in accessible orthodontic care for everyone and
@@ -202,7 +211,7 @@ const WhyChooseUs = () => {
               href="https://morethansmiles.org/"
               className="underline cursor-pointer text-indigo-500 hover:text-indigo-700"
             >
-              More Than Smiles
+             <strong> More Than Smiles</strong>
             </a>{" "}
           </span>{" "}
           in 2011, providing orthodontic treatment to deserving young
@@ -211,7 +220,7 @@ const WhyChooseUs = () => {
           gift, please visit the website for details on how to nominate a
           deserving individual.
         </p>
-
+        </div>
         <div className="px-4 py-2 mx-auto text-xl text-stone-800">
           <p className="mt-1 relative" style={{ zIndex: "20" }}></p>
         </div>
@@ -223,12 +232,14 @@ const WhyChooseUs = () => {
           <tbody>
             <tr>
               <td className="p-2"></td>
+              
               <td
                 className="p-2 py-8 text-violet-700 text-center"
                 style={{
-                  borderLeft: "1px solid green",
-                  borderRight: "1px solid green",
-                  borderBottom: "1px solid green",
+                  borderLeft: "1px solid purple",
+                  borderRight: "1px solid purple",
+                  borderBottom: "1px solid purple",
+                  fontSize: "20px" ,
                 }}
               >
                 FreySmiles Orthodontics
@@ -236,9 +247,10 @@ const WhyChooseUs = () => {
               <td
                 className="p-2 py-8 text-violet-700 text-center"
                 style={{
-                  borderLeft: "1px solid green",
-                  borderRight: "1px solid green",
-                  borderBottom: "1px solid green",
+                  borderLeft: "1px solid purple",
+                  borderRight: "1px solid purple",
+                  borderBottom: "1px solid purple",
+                  fontSize: "20px" ,
                 }}
               >
                 Other Practitioners
@@ -246,19 +258,19 @@ const WhyChooseUs = () => {
             </tr>
             <tr>
               <td
-                className="p-2 py-8 text-green-700 text-center"
-                style={{ border: "1px solid green" }}
+                className="text-lg p-2 py-8 text-center"
+                style={{ border: "1px solid purple" }}
               >
                 4 convenient locations
               </td>
-              <td className="mb-2" style={{ border: "1px solid green" }}>
+              <td className="mb-2" style={{ border: "1px solid purple" }}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
                   strokeWidth={1.5}
                   stroke="#B17CFF"
-                  className="w-6 h-6 mx-auto z-0"
+                  className="w-8 h-8 mx-auto z-0"
                 >
                   <path
                     strokeLinecap="round"
@@ -267,14 +279,14 @@ const WhyChooseUs = () => {
                   />
                 </svg>
               </td>
-              <td className="mb-2" style={{ border: "1px solid green" }}>
+              <td className="mb-2" style={{ border: "1px solid purple" }}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
                   strokeWidth={1.5}
                   stroke="currentColor"
-                  className="w-6 h-6 mx-auto stroke-red-500 z-0"
+                  className="w-8 h-8 mx-auto stroke-red-500 z-0"
                 >
                   <path
                     strokeLinecap="round"
@@ -286,19 +298,19 @@ const WhyChooseUs = () => {
             </tr>
             <tr>
               <td
-                className="p-2 py-8 text-center"
-                style={{ border: "1px solid green" }}
+                className="text-lg p-2 py-8 text-center"
+                style={{ border: "1px solid purple" }}
               >
                 Leaders in the industry
               </td>
-              <td className="mb-2" style={{ border: "1px solid green" }}>
-                <svg
+              <td className="mb-2" style={{ border: "1px solid purple" }}>
+              <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
                   strokeWidth={1.5}
                   stroke="#B17CFF"
-                  className="w-6 h-6 mx-auto z-0"
+                  className="w-8 h-8 mx-auto z-0"
                 >
                   <path
                     strokeLinecap="round"
@@ -307,14 +319,14 @@ const WhyChooseUs = () => {
                   />
                 </svg>
               </td>
-              <td className="mb-2" style={{ border: "1px solid green" }}>
+              <td className="mb-2" style={{ border: "1px solid purple" }}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
                   strokeWidth={1.5}
                   stroke="currentColor"
-                  className="w-6 h-6 mx-auto stroke-red-500 z-0"
+                  className="w-8 h-8 mx-auto stroke-red-500 z-0"
                 >
                   <path
                     strokeLinecap="round"
@@ -326,19 +338,19 @@ const WhyChooseUs = () => {
             </tr>
             <tr>
               <td
-                className="p-2 py-8 text-center"
-                style={{ border: "1px solid green" }}
+                className="text-lg p-2 py-8 text-center"
+                style={{ border: "1px solid purple" }}
               >
                 Modern office settings
               </td>
-              <td className="mb-2" style={{ border: "1px solid green" }}>
-                <svg
+              <td className="mb-2" style={{ border: "1px solid purple" }}>
+              <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
                   strokeWidth={1.5}
                   stroke="#B17CFF"
-                  className="w-6 h-6 mx-auto z-0"
+                  className="w-8 h-8 mx-auto z-0"
                 >
                   <path
                     strokeLinecap="round"
@@ -347,14 +359,14 @@ const WhyChooseUs = () => {
                   />
                 </svg>
               </td>
-              <td className="mb-2" style={{ border: "1px solid green" }}>
+              <td className="mb-2" style={{ border: "1px solid purple" }}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
                   strokeWidth={1.5}
                   stroke="currentColor"
-                  className="w-6 h-6 mx-auto stroke-red-500 z-0"
+                  className="w-8 h-8 mx-auto stroke-red-500 z-0"
                 >
                   <path
                     strokeLinecap="round"
@@ -366,19 +378,19 @@ const WhyChooseUs = () => {
             </tr>
             <tr>
               <td
-                className="p-2 py-8 text-center"
-                style={{ border: "1px solid green" }}
+                className="text-lg p-2 py-8 text-center"
+                style={{ border: "1px solid purple" }}
               >
                 ABO certified
               </td>
-              <td className="mb-2" style={{ border: "1px solid green" }}>
-                <svg
+              <td className="mb-2" style={{ border: "1px solid purple" }}>
+              <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
                   strokeWidth={1.5}
                   stroke="#B17CFF"
-                  className="w-6 h-6 mx-auto z-0"
+                  className="w-8 h-8 mx-auto z-0"
                 >
                   <path
                     strokeLinecap="round"
@@ -387,14 +399,14 @@ const WhyChooseUs = () => {
                   />
                 </svg>
               </td>
-              <td className="mb-2" style={{ border: "1px solid green" }}>
+              <td className="mb-2" style={{ border: "1px solid purple" }}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
                   strokeWidth={1.5}
                   stroke="currentColor"
-                  className="w-6 h-6 mx-auto stroke-red-500 z-0"
+                  className="w-8 h-8 mx-auto stroke-red-500 z-0"
                 >
                   <path
                     strokeLinecap="round"
@@ -406,19 +418,19 @@ const WhyChooseUs = () => {
             </tr>
             <tr>
               <td
-                className="p-2 py-8 text-center"
-                style={{ border: "1px solid green" }}
+                className="text-lg p-2 py-8 text-center"
+                style={{ border: "1px solid purple" }}
               >
                 Over 50+ years of experience
               </td>
-              <td className="mb-2" style={{ border: "1px solid green" }}>
-                <svg
+              <td className="mb-2" style={{ border: "1px solid purple" }}>
+              <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
                   strokeWidth={1.5}
                   stroke="#B17CFF"
-                  className="w-6 h-6 mx-auto z-0"
+                  className="w-8 h-8 mx-auto z-0"
                 >
                   <path
                     strokeLinecap="round"
@@ -427,14 +439,14 @@ const WhyChooseUs = () => {
                   />
                 </svg>
               </td>
-              <td className="mb-2" style={{ border: "1px solid green" }}>
+              <td className="mb-2" style={{ border: "1px solid purple" }}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
                   strokeWidth={1.5}
                   stroke="currentColor"
-                  className="w-6 h-6 mx-auto stroke-red-500 z-0"
+                  className="w-8 h-8 mx-auto stroke-red-500 z-0"
                 >
                   <path
                     strokeLinecap="round"
@@ -446,19 +458,19 @@ const WhyChooseUs = () => {
             </tr>
             <tr>
               <td
-                className="p-2 py-8 text-center"
-                style={{ border: "1px solid green" }}
+                className="text-lg p-2 py-8 text-center"
+                style={{ border: "1px solid purple" }}
               >
                 Financial options
               </td>
-              <td className="mb-2" style={{ border: "1px solid green" }}>
-                <svg
+              <td className="mb-2" style={{ border: "1px solid purple" }}>
+              <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
                   strokeWidth={1.5}
                   stroke="#B17CFF"
-                  className="w-6 h-6 mx-auto z-0"
+                  className="w-8 h-8 mx-auto z-0"
                 >
                   <path
                     strokeLinecap="round"
@@ -467,14 +479,14 @@ const WhyChooseUs = () => {
                   />
                 </svg>
               </td>
-              <td className="mb-2" style={{ border: "1px solid green" }}>
-                <svg
+              <td className="mb-2" style={{ border: "1px solid purple" }}>
+              <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
                   strokeWidth={1.5}
                   stroke="#B17CFF"
-                  className="w-6 h-6 mx-auto z-0"
+                  className="w-8 h-8 mx-auto z-0"
                 >
                   <path
                     strokeLinecap="round"
