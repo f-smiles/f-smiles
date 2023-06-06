@@ -1,8 +1,50 @@
 import React from "react";
 import { Disclosure } from "@headlessui/react";
 import { ChevronUpIcon } from "@heroicons/react/20/solid";
+import { useTrail, animated } from "react-spring";
+
+const words = [
+  "E",
+  "x",
+  "p",
+  "e",
+  "r",
+  "t",
+  " ",
+  "C",
+  "a",
+  "r",
+  "e",
+  " ",
+  "R",
+  "o",
+  "o",
+  "t",
+  "e",
+  "d",
+  " ",
+  "i",
+  "n",
+  " ",
+  "E",
+  "x",
+  "c",
+  "e",
+  "l",
+  "l",
+  "e",
+  "n",
+  "c",
+  "e",
+];
 
 const EarlyOrthodontics = () => {
+  const trail = useTrail(words.length, {
+    from: { opacity: 0 },
+    to: { opacity: 1 },
+    delay: 500,
+    config: { duration: 1000 },
+  });
   return (
     
     <main className="w-full px-4 pt-16">
@@ -25,7 +67,16 @@ const EarlyOrthodontics = () => {
     event.target.style.opacity = 1;
   }}
 />
-<h1>Our doctors are top provideers and full picture of your health and prescribe a plan for long-term healing.</h1>
+<h1 className="text-4xl text-indigo-200">
+    {" "}
+    <span className="text-indigo-500">
+            {trail.map((props, index) => (
+              <animated.span key={index} style={props}>
+                {words[index]}
+              </animated.span>
+            ))}
+          </span>
+    </h1>
         <Disclosure as="section" defaultOpen={true}>
           {({ open }) => (
             <>

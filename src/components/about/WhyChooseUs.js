@@ -131,123 +131,152 @@ const WhyChooseUs = () => {
           <button className="mt-20">Schedule a Consultation</button>
         </NavLink>
         <div style={{ display: "flex", alignItems: "flex-start" }}>
-  <div style={{ display: "flex", flexDirection: "column" }} className="mt-10 -ml-10 text-violet-800">
+          <div
+            style={{ display: "flex", flexDirection: "column" }}
+            className="mt-10 -ml-10 text-violet-800"
+          >
+            <Fragment>
+              <Accordion open={open === 1}>
+                <h1>
+                  <img
+                    src="../../images/glasses.png"
+                    alt="invisalign"
+                    className="absolute inset-0 z-0 opacity-90"
+                    style={{
+                      width: "20%",
+                      height: "auto",
+                      left: "-30%",
+                    }}
+                  />
+                  <AccordionHeader
+                    onClick={() => handleOpen(1)}
+                    className="text-3xl border-b-0"
+                  >
+                    <span style={{ whiteSpace: "nowrap" }}>
+                      + Meet Our Doctors
+                    </span>
+                  </AccordionHeader>
+                </h1>
+                <AccordionBody>
+                  <ul>
+                    <li className="mb-5">
+                      <a
+                        className=" text-xl  cursor-pointer text-emerald-700 hover:text-indigo-700"
+                        href="/our-team"
+                      >
+                        Dr. Gregg Frey
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        className="text-xl text-center cursor-pointer text-emerald-700 hover:text-indigo-700"
+                        href="/our-team"
+                      >
+                        Dr. Daniel Frey
+                      </a>
+                    </li>
+                  </ul>
+                </AccordionBody>
+              </Accordion>
 
-    <Fragment>
- 
-      <Accordion open={open === 1}>
-
-        <h1>
-        <img
-        src="../../images/glasses.png"
-        alt="invisalign"
-        className="absolute inset-0 z-0 opacity-90"
-        style={{
-          width: "20%",
-          height: "auto",
-          left: "-30%",
-
-        }}
-      />
-        <AccordionHeader onClick={() => handleOpen(1)} className="text-3xl border-b-0">
-        <span style={{ whiteSpace: "nowrap" }}>+ Meet Our Doctors</span> 
-        </AccordionHeader>
-        </h1>
-        <AccordionBody>
-          
-        <ul>
-    <li>
-      <a className="text-lg underline cursor-pointer text-indigo-500 hover:text-indigo-700" href="/our-team">Dr. Gregg Frey</a>
-    </li>
-    <li>
-      <a className="text-lg underline cursor-pointer text-indigo-500 hover:text-indigo-700" href="/our-team">Dr. Daniel Frey</a>
-    </li>
-  </ul>
-        </AccordionBody>
-      </Accordion>
-
-      <Accordion open={open === 2}>
-        <h1>
-        <img
-        src="../../images/pin.png"
-        alt="pin"
-        className="ml-2 absolute inset-0 z-0 opacity-90 bounce-animation transform-gpu transition-transform hover:animate-bounce transition-all duration-400"
-        style={{
-          width: "12%",
-          height: "auto",
-          left: "-30%",
-          transition: "transform 0.7s ease-out",
-        }}
-      />
-    
-
-        <AccordionHeader onClick={() => handleOpen(2)} className="text-3xl border-b-0">
-        <span style={{ whiteSpace: "nowrap" }}>+ 4 Locations</span> 
-        </AccordionHeader>
-        </h1>
-        <AccordionBody>
-        <ul>
-    <li>
-      <a className="text-lg underline cursor-pointer text-indigo-500 hover:text-indigo-700" href="/locations">Allentown</a>
-    </li>
-    <li>
-      <a className="text-lg underline cursor-pointer text-indigo-500 hover:text-indigo-700" href="/locations">Bethlehem</a>
-    </li>
-    <li>
-      <a className="text-lg underline cursor-pointer text-indigo-500 hover:text-indigo-700" href="/locations">Lehigton</a>
-    </li>
-    <li>
-      <a className="text-lg underline cursor-pointer text-indigo-500 hover:text-indigo-700" href="/locations">Schnecksville</a>
-    </li>
-  </ul>
-        </AccordionBody>
-      </Accordion>
-    </Fragment>
-  </div>
-  <div style={{ display: "flex", justifyContent: "flex-end", alignItems: "flex-end" }}>
-    <img
-      src="../../images/drfreyperfecting.jpg"
-      alt="invisalign"
-      className="opacity-90 mt-4"
-      style={{
-        width: "50%",
-        height: "auto",
-      }}
-    />
-  </div>
-</div>
-<div className="flex">
-<img
-      src="../../images/rainbow.svg"
-      alt="invisalign"
-      className="opacity-90 mt-4"
-      style={{
-        width: "20%",
-        height: "auto",
-      }}
-    />
-        <p
-          className="text-violet-800  text-lg mt-10 mr-20 relative text-center"
-          style={{ zIndex: "20", flex: "1" }}
-        >
-          FreySmiles believes in accessible orthodontic care for everyone and
-          offers flexible payment options. They established a non-profit
-          organization called{" "}
-          <span>
-            {" "}
-            <a
-              href="https://morethansmiles.org/"
-              className="underline cursor-pointer text-indigo-500 hover:text-indigo-700"
-            >
-             <strong> More Than Smiles</strong>
-            </a>{" "}
-          </span>{" "}
-          in 2011, providing orthodontic treatment to deserving young
-          individuals who may not have access to world-class orthodontic care or
-          cannot afford it. If you know someone that could benefit from this
-          gift, please visit the website for details on how to nominate a
-          deserving individual.
-        </p>
+              <Accordion open={open === 2}>
+                <h1>
+                  <AccordionHeader
+                    onClick={() => handleOpen(2)}
+                    className="text-3xl border-b-0"
+                  >
+                    <span style={{ whiteSpace: "nowrap" }}>+ 4 Locations</span>
+                  </AccordionHeader>
+                </h1>
+                <AccordionBody>
+                  <ul>
+                    <li>
+                      <a
+                        className="text-lg underline cursor-pointer text-indigo-500 hover:text-indigo-700"
+                        href="/locations"
+                      >
+                        Allentown
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        className="text-lg underline cursor-pointer text-indigo-500 hover:text-indigo-700"
+                        href="/locations"
+                      >
+                        Bethlehem
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        className="text-lg underline cursor-pointer text-indigo-500 hover:text-indigo-700"
+                        href="/locations"
+                      >
+                        Lehigton
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        className="text-lg underline cursor-pointer text-indigo-500 hover:text-indigo-700"
+                        href="/locations"
+                      >
+                        Schnecksville
+                      </a>
+                    </li>
+                  </ul>
+                </AccordionBody>
+              </Accordion>
+            </Fragment>
+          </div>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "flex-end",
+              alignItems: "flex-end",
+            }}
+          >
+            <img
+              src="../../images/drfreyperfecting.jpg"
+              alt="invisalign"
+              className="opacity-90 mt-4"
+              style={{
+                width: "50%",
+                height: "auto",
+              }}
+            />
+          </div>
+        </div>
+        <div className="flex">
+          <img
+            src="../../images/rainbow.svg"
+            alt="invisalign"
+            className="opacity-90 mt-4"
+            style={{
+              width: "20%",
+              height: "auto",
+            }}
+          />
+          <p
+            className="text-violet-800  text-lg mt-10 mr-20 relative text-center"
+            style={{ zIndex: "20", flex: "1" }}
+          >
+            FreySmiles believes in accessible orthodontic care for everyone and
+            offers flexible payment options. They established a non-profit
+            organization called{" "}
+            <span>
+              {" "}
+              <a
+                href="https://morethansmiles.org/"
+                className="underline cursor-pointer text-indigo-500 hover:text-indigo-700"
+              >
+                <strong> More Than Smiles</strong>
+              </a>{" "}
+            </span>{" "}
+            in 2011, providing orthodontic treatment to deserving young
+            individuals who may not have access to world-class orthodontic care
+            or cannot afford it. If you know someone that could benefit from
+            this gift, please visit the website for details on how to nominate a
+            deserving individual.
+          </p>
         </div>
         <div className="px-4 py-2 mx-auto text-xl text-stone-800">
           <p className="mt-1 relative" style={{ zIndex: "20" }}></p>
@@ -260,25 +289,22 @@ const WhyChooseUs = () => {
           <tbody>
             <tr>
               <td className="p-2"></td>
-     
+
               <td
-                className="p-2 py-8 text-violet-700 text-center"
+                className="bg-gradient-to-r from-rose-50 to-violet-200 p-2 py-8 text-violet-700 text-center"
                 style={{
-                  borderLeft: "1px solid purple",
-                  borderRight: "1px solid purple",
-                  borderBottom: "1px solid purple",
-                  fontSize: "20px" ,
+                  borderTopLeftRadius: "40px",
+                  fontSize: "20px",
                 }}
               >
                 FreySmiles Orthodontics
               </td>
               <td
-                className="p-2 py-8 text-violet-700 text-center"
+                className="bg-gradient-to-r from-violet-200 to-violet-300 p-2 py-8 text-violet-700 text-center"
                 style={{
-                  borderLeft: "1px solid purple",
-                  borderRight: "1px solid purple",
-                  borderBottom: "1px solid purple",
-                  fontSize: "20px" ,
+                  borderTopRightRadius: "40px",
+
+                  fontSize: "20px",
                 }}
               >
                 Other Practitioners
@@ -286,12 +312,14 @@ const WhyChooseUs = () => {
             </tr>
             <tr>
               <td
-                className="text-lg p-2 py-8 text-center"
-                style={{ border: "1px solid purple" }}
+                className="bg-gradient-to-r from-stone-50 to-rose-50 text-lg text-neutral-500 p-2 py-8 text-center"
+                style={{
+                  borderTopLeftRadius: "40px",
+                }}
               >
                 4 convenient locations
               </td>
-              <td className="mb-2" style={{ border: "1px solid purple" }}>
+              <td className="mb-2 bg-gradient-to-r from-rose-50 to-violet-200">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -307,7 +335,7 @@ const WhyChooseUs = () => {
                   />
                 </svg>
               </td>
-              <td className="mb-2" style={{ border: "1px solid purple" }}>
+              <td className="mb-2 bg-gradient-to-r from-violet-200 to-violet-300">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -325,14 +353,11 @@ const WhyChooseUs = () => {
               </td>
             </tr>
             <tr>
-              <td
-                className="text-lg p-2 py-8 text-center"
-                style={{ border: "1px solid purple" }}
-              >
+              <td className="bg-gradient-to-r from-stone-50 to-rose-50 text-neutral-500 text-lg p-2 py-8 text-center">
                 Leaders in the industry
               </td>
-              <td className="mb-2" style={{ border: "1px solid purple" }}>
-              <svg
+              <td className="mb-2 bg-gradient-to-r from-rose-50 to-violet-200">
+                <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
@@ -347,7 +372,7 @@ const WhyChooseUs = () => {
                   />
                 </svg>
               </td>
-              <td className="mb-2" style={{ border: "1px solid purple" }}>
+              <td className="mb-2 bg-gradient-to-r from-violet-200 to-violet-300">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -365,14 +390,11 @@ const WhyChooseUs = () => {
               </td>
             </tr>
             <tr>
-              <td
-                className="text-lg p-2 py-8 text-center"
-                style={{ border: "1px solid purple" }}
-              >
+              <td className="bg-gradient-to-r from-stone-50 to-rose-50 text-neutral-500 text-lg p-2 py-8 text-center">
                 Modern office settings
               </td>
-              <td className="mb-2" style={{ border: "1px solid purple" }}>
-              <svg
+              <td className="mb-2 bg-gradient-to-r from-rose-50 to-violet-200">
+                <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
@@ -387,7 +409,7 @@ const WhyChooseUs = () => {
                   />
                 </svg>
               </td>
-              <td className="mb-2" style={{ border: "1px solid purple" }}>
+              <td className="mb-2 bg-gradient-to-r from-violet-200 to-violet-300">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -404,55 +426,13 @@ const WhyChooseUs = () => {
                 </svg>
               </td>
             </tr>
+            <tr></tr>
             <tr>
-              <td
-                className="text-lg p-2 py-8 text-center"
-                style={{ border: "1px solid purple" }}
-              >
-                ABO certified
-              </td>
-              <td className="mb-2" style={{ border: "1px solid purple" }}>
-              <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="#B17CFF"
-                  className="w-8 h-8 mx-auto z-0"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
-              </td>
-              <td className="mb-2" style={{ border: "1px solid purple" }}>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                  className="w-8 h-8 mx-auto stroke-red-500 z-0"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
-              </td>
-            </tr>
-            <tr>
-              <td
-                className="text-lg p-2 py-8 text-center"
-                style={{ border: "1px solid purple" }}
-              >
+              <td className="text-lg p-2 py-8 text-center bg-gradient-to-r from-stone-50 to-rose-50 text-neutral-500">
                 Over 50+ years of experience
               </td>
-              <td className="mb-2" style={{ border: "1px solid purple" }}>
-              <svg
+              <td className="mb-2 bg-gradient-to-r from-rose-50 to-violet-200">
+                <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
@@ -467,7 +447,7 @@ const WhyChooseUs = () => {
                   />
                 </svg>
               </td>
-              <td className="mb-2" style={{ border: "1px solid purple" }}>
+              <td className="mb-2 bg-gradient-to-r from-violet-200 to-violet-300">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -486,13 +466,15 @@ const WhyChooseUs = () => {
             </tr>
             <tr>
               <td
-                className="text-lg p-2 py-8 text-center"
-                style={{ border: "1px solid purple" }}
+                className="text-lg p-2 py-8 text-center bg-gradient-to-r from-stone-50 to-rose-50 text-neutral-500"
+                style={{
+                  borderBottomLeftRadius: "40px",
+                }}
               >
                 Financial options
               </td>
-              <td className="mb-2" style={{ border: "1px solid purple" }}>
-              <svg
+              <td className="mb-2 bg-gradient-to-r from-rose-50 to-violet-200">
+                <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
@@ -507,8 +489,13 @@ const WhyChooseUs = () => {
                   />
                 </svg>
               </td>
-              <td className="mb-2" style={{ border: "1px solid purple" }}>
-              <svg
+              <td
+                className="mb-2 bg-gradient-to-r from-violet-200 to-violet-300"
+                style={{
+                  borderBottomRightRadius: "40px",
+                }}
+              >
+                <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"

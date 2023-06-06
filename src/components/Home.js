@@ -1,56 +1,22 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import * as THREE from "three";
+
 import Map from "react-map-gl";
 import DotPattern from "./DotPattern";
 import AOS from "aos";
 import "aos/dist/aos.css"; 
 import LogoSlider from "./logoslider";
 
-// import ShapeMorph from "./navbar/sketch";
+
 
 AOS.init();
 
 const Home = () => {
-  //Create a scene, camera, renderer
-  useEffect(() => {
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(
-      75,
-      window.innerWidth / window.innerHeight,
-      0.1,
-      1000
-    );
-    camera.position.z = 5;
-    const renderer = new THREE.WebGLRenderer();
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    document.body.appendChild(renderer.domElement);
 
-    const geometry = new THREE.TorusGeometry(1, 0.3, 16, 100);
-    const material = new THREE.MeshPhongMaterial({ color: 999999 });
-    const ambientLight = new THREE.AmbientLight("violet", 2);
-    const directionalLight = new THREE.DirectionalLight(0xffffff, 2);
-    //  mesh with torus geometry and material
-    const torus = new THREE.Mesh(geometry, material);
-
-    scene.add(torus, directionalLight, ambientLight);
-
-    function animate() {
-      requestAnimationFrame(animate);
-
-      // rotate torus
-      torus.rotation.x += 0.005;
-      torus.rotation.y += 0.005;
-
-      // render scene w/ camera
-      renderer.render(scene, camera);
-    }
-
-    animate();
-  }, []);
   return (
     <>
-      <main className="pt-16 bg-fFFFDFD overflow-hidden w-full">
+      <main className="pt-16 bg-#fFFFDFD overflow-hidden w-full">
+  
         <div className="container max-w-screen-xl mx-auto">
           <section className="py-12 lg:px-4 xl:px-0">
             <div className="flex flex-col-reverse md:flex-row">
@@ -180,15 +146,30 @@ const Home = () => {
   Dr. Frey goes above and beyond to create the best smiles and has by far
   the nicest staff around.
 </p>
+
 <h1 className="text-teal-500 text-xl text-right absolute -bottom-40 md:right-60 z-10">-Rebecca M.</h1>
 
 </div>
 
 <section className="flex flex-col gap-8 justify-center px-4 py-8 relative z-1">
   <div className="mt-36"> 
-  <h3 className="text-3xl lg:text-5xl font-bold md:font-black leading-10 text-gray-700">
+  <div className="relative">
+  <h3 className="text-3xl lg:text-5xl font-bold md:font-black leading-10 text-gray-700 flex ">
     Our Locations
+    <img
+        src="../../images/pin.svg"
+        alt="pin"
+        className="flex ml-2  inset-0 z-0 opacity-90 bounce-animation transform-gpu transition-transform hover:animate-bounce transition-all duration-400"
+        style={{
+          width: "3%",
+          height: "auto",
+          left: "-30%",
+          transition: "transform 0.7s ease-out",
+        }}
+      />
   </h3>
+  </div>
+
             <div
               id="cards-container"
               className="md:grid md:grid-cols-2 lg:flex gap-8 mt-16 "
