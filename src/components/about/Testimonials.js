@@ -4,10 +4,12 @@ import React from "react";
 const Testimonials = () => {
   return (
     <div className="relative">
- 
+
        <h1 className="mt-20 text-4xl text-indigo-900">
       What Our Patients Are Saying
       </h1>
+ 
+     
       <img
       src="../../images/wavybg.jpg"
       alt="invisalign"

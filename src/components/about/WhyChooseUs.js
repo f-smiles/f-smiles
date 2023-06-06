@@ -84,19 +84,20 @@ const WhyChooseUs = () => {
           <div className="absolute inset-0 flex justify-center items-center"></div>
         </div>
         <div className="rounded-full relative bg-gradient-to-r from-rose-50 to-neutral-50 to-violet-50 to-teal-50 overflow-hidden">
-          <p className="mt-16 text-center px-12 py-8 mx-auto text-md text-violet-800 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
-            FreySmiles Orthodontics is a family-owned practice providing
-            unparalleled orthodontic experience to the Lehigh Valley community
-            for over four decades.{" "}
-            <span className="text-2xl">
+          <p className="mt-14 text-center px-12 py-8 mx-auto text-md text-violet-800 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
+          <span className="clamp-8">
+    FreySmiles Orthodontics is a family-owned practice providing unparalleled orthodontic experience to 
+  </span>{" "}{" "}
+  <p>the Lehigh Valley community for over four decades. <span className="text-violet-500 text-2xl">
               {" "}
               Our office holds the distinction of being the longest-standing,
               active board-certified orthodontic office in the area.{" "}
-            </span>{" "}
+            </span>{" "}</p>
+           
             <p className="mt-7">
               {" "}
               We strive to attain finished results consistent with the
-              <span className="text-2xl">
+              <span className="text-2xl text-violet-500">
                 {" "}
                 American Board of Orthodontics (ABO){" "}
               </span>{" "}
@@ -112,10 +113,10 @@ const WhyChooseUs = () => {
             </p>
           </p>
 
-          <p className="mb-14 ml-10 mr-10 text-center px-4 py-2 mx-auto text-md text-violet-800 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75 whitespace-[60ch]">
+          <p className="mb-16 ml-10 mr-10 text-center px-4 py-2 mx-auto text-md text-violet-800 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75 whitespace-[60ch]">
             Our office is the #1 provider of Invisalign and Invisalign Teen in
             the region.{" "}
-            <span className="text-2xl">
+            <span className="text-violet-500 text-2xl">
               As Diamond Plus Invisalign providers,
             </span>{" "}
             our care over the many years has contributed to the research and
@@ -294,6 +295,7 @@ const WhyChooseUs = () => {
                 className="bg-gradient-to-r from-rose-50 to-violet-200 p-2 py-8 text-violet-700 text-center"
                 style={{
                   borderTopLeftRadius: "40px",
+                  borderBottomLeftRadius: "40px",
                   fontSize: "20px",
                 }}
               >
@@ -315,11 +317,13 @@ const WhyChooseUs = () => {
                 className="bg-gradient-to-r from-stone-50 to-rose-50 text-lg text-neutral-500 p-2 py-8 text-center"
                 style={{
                   borderTopLeftRadius: "40px",
+                
                 }}
               >
                 4 convenient locations
               </td>
-              <td className="mb-2 bg-gradient-to-r from-rose-50 to-violet-200">
+              <td className="mb-2 bg-gradient-to-r from-rose-50 to-violet-200"
+                >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
