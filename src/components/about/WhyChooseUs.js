@@ -132,11 +132,25 @@ const WhyChooseUs = () => {
         </NavLink>
         <div style={{ display: "flex", alignItems: "flex-start" }}>
   <div style={{ display: "flex", flexDirection: "column" }} className="mt-10 -ml-10 text-violet-800">
+
     <Fragment>
+ 
       <Accordion open={open === 1}>
+
         <h1>
+        <img
+        src="../../images/glasses.png"
+        alt="invisalign"
+        className="absolute inset-0 z-0 opacity-90"
+        style={{
+          width: "20%",
+          height: "auto",
+          left: "-30%",
+
+        }}
+      />
         <AccordionHeader onClick={() => handleOpen(1)} className="text-3xl border-b-0">
-        <span style={{ whiteSpace: "nowrap" }}>Meet Our Doctors</span> +
+        <span style={{ whiteSpace: "nowrap" }}>+ Meet Our Doctors</span> 
         </AccordionHeader>
         </h1>
         <AccordionBody>
@@ -151,10 +165,24 @@ const WhyChooseUs = () => {
   </ul>
         </AccordionBody>
       </Accordion>
+
       <Accordion open={open === 2}>
         <h1>
+        <img
+        src="../../images/pin.png"
+        alt="pin"
+        className="ml-2 absolute inset-0 z-0 opacity-90 bounce-animation transform-gpu transition-transform hover:animate-bounce transition-all duration-400"
+        style={{
+          width: "12%",
+          height: "auto",
+          left: "-30%",
+          transition: "transform 0.7s ease-out",
+        }}
+      />
+    
+
         <AccordionHeader onClick={() => handleOpen(2)} className="text-3xl border-b-0">
-        <span style={{ whiteSpace: "nowrap" }}>4 Locations</span> +
+        <span style={{ whiteSpace: "nowrap" }}>+ 4 Locations</span> 
         </AccordionHeader>
         </h1>
         <AccordionBody>
@@ -232,7 +260,7 @@ const WhyChooseUs = () => {
           <tbody>
             <tr>
               <td className="p-2"></td>
-              
+     
               <td
                 className="p-2 py-8 text-violet-700 text-center"
                 style={{
