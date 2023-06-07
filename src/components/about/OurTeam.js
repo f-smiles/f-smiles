@@ -8,23 +8,19 @@ import { Transition } from "@headlessui/react";
 import { useBlazeSlider } from "react-blaze-slider";
 import "blaze-slider/dist/blaze.css";
 
-/*
-  Swiper js
-
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
 import "swiper/css";
-import "swiper/css/pagination";
+import "swiper/css/scrollbar";
 import "swiper/css/navigation";
+import "swiper/css/pagination";
 
-// import "./styles.css";
+// import "../..index.css";
 
 // import required modules
-import { Keyboard, Pagination, Navigation } from "swiper";
-
-*/
+import { Keyboard, Scrollbar, Navigation, Pagination } from "swiper";
 
 const OurTeam = () => {
   const [activeAccordion, setActiveAccordion] = useState(0);
@@ -60,52 +56,52 @@ const OurTeam = () => {
     {
       name: "Dana",
       role: "Marketing Coordinator",
-      img: "../../images/team_members/Dana.jpg",
+      img: "../../images/team_members/Dana_blob.png",
     },
     {
       name: "Lizzie",
       role: "Patient Services",
-      img: "../../images/team_members/Lizzie.jpg",
+      img: "../../images/team_members/Lizzie_blob.png",
     },
     {
       name: "Kayli",
       role: "Financial Coordinator",
-      img: "../../images/team_members/Kayli.jpg",
+      img: "../../images/team_members/Kayli_blob.png",
     },
     {
       name: "Adriana",
       role: "Insurance Coordinator",
-      img: "../../images/team_members/Adriana.jpg",
+      img: "../../images/team_members/Adriana_blob.png",
     },
     {
       name: "Ibis",
       role: "Lab Manager",
-      img: "../../images/team_members/Ibis.jpg",
+      img: "../../images/team_members/Ibis_blob.png",
     },
     {
       name: "Aleah",
       role: "Specialized Orthodontic Assistant",
-      img: "../../images/team_members/Aleah.jpg",
+      img: "../../images/team_members/Aleah_blob.png",
     },
     {
       name: "Nicolle",
       role: "Specialized Orthodontic Assistant",
-      img: "../../images/team_members/Nicolle.jpg",
+      img: "../../images/team_members/Nicolle_blob.png",
     },
     {
       name: "Grace",
       role: "Specialized Orthodontic Assistant",
-      img: "../../images/team_members/Grace.jpg",
+      img: "../../images/team_members/Grace_blob.png"
     },
     {
       name: "Samantha",
       role: "Patient Services",
-      img: "../../images/team_members/Samantha.jpg",
+      img: "../../images/team_members/Samantha_blob.png",
     },
     {
       name: "Elizabeth",
       role: "Patient Services",
-      img: "../../images/team_members/Elizabeth.jpg",
+      img: "../../images/team_members/Elizabeth_blob.png",
     },
   ];
 
@@ -145,7 +141,7 @@ const OurTeam = () => {
               style={{ maxWidth: "100%", maxHeight: "300px", zIndex: 1 }}
             />
           </div>
-          
+
           ))}
         </div>
         <div className="w-1/2">
@@ -195,7 +191,41 @@ const OurTeam = () => {
         </div>
       </div>
 
-      <section className="mx-auto w-full max-w-screen-lg rounded-2xl p-2 mt-16 backdrop-blur-md bg-opacity-70 bg-gradient-conic from-fuchsia-300 via-green-400 to-rose-700 py-8">
+      <>
+      <Swiper
+        slidesPerView={3}
+        centeredSlides={false}
+        slidesPerGroupSkip={2}
+        grabCursor={true}
+        keyboard={{
+          enabled: true,
+        }}
+        breakpoints={{
+          769: {
+            slidesPerView: 2,
+            slidesPerGroup: 2,
+          },
+        }}
+        scrollbar={true}
+        navigation={true}
+        pagination={{
+          clickable: true,
+        }}
+        modules={[Keyboard, Scrollbar, Navigation, Pagination]}
+        className="max-w-screen-lg"
+      >
+        {Members.map((member, index) => (
+          <SwiperSlide>
+              <img src={member.img} alt={member.name} />
+              <caption className="px-4 mt-8">
+                <h2 className="text-left">{member.name}</h2>
+                <p className="w-max">{member.role}</p>
+              </caption>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </>
+    <section className="mx-auto w-full max-w-screen-lg rounded-2xl p-2 mt-16 backdrop-blur-md bg-opacity-70 bg-gradient-conic from-fuchsia-300 via-green-400 to-rose-700 py-8">
         <h1 className="text-3xl text-center font-bold text-purple-900 relative mb-4">
           Our Team
         </h1>
