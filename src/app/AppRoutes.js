@@ -19,6 +19,7 @@ import Bag from "../components/stripe/Bag";
 import SingleProductPage from "../components/stripe/SingleProductPage";
 import Checkout from "../components/stripe/checkout";
 import LogoSlider from "../components/logoslider";
+import Testimonials from "../components/about/Testimonials";
 
 const AppRoutes = () => {
   return (
@@ -43,6 +44,7 @@ const AppRoutes = () => {
       <Route path="/products/:id" element={<SingleProductPage />} />
       <Route path="/checkout" element={<Checkout />} />
       <Route path="/slider" element={<LogoSlider />} />
+      <Route path="/testimonials" element={<Testimonials />} />
     </Routes>
   );
 };
