@@ -152,7 +152,7 @@ const SingleProductPage = () => {
               <div className="ml-2 col-span-2 sm:col-auto">
                 <button
                   onClick={() => addToCart(productData.id)}
-                  className="px-4 py-2 border-indigo-700 text-indigo-700 border text-sm uppercase rounded z-10"
+                  className="px-4 py-2 border-indigo-700 text-indigo-700 border text-sm uppercase rounded z-10 hover:bg-indigo-700 hover:text-white transition-colors duration-300"
                 >
                   Add to Bag
                 </button>

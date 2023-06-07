@@ -5,8 +5,8 @@ import { Transition } from "@headlessui/react";
 
 /* blaze slider */
 // import BlazeSlider from 'blaze-slider'
-import { useBlazeSlider } from 'react-blaze-slider'
-import 'blaze-slider/dist/blaze.css'
+import { useBlazeSlider } from "react-blaze-slider";
+import "blaze-slider/dist/blaze.css";
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -22,7 +22,6 @@ import "swiper/css/pagination";
 // import required modules
 import { Keyboard, Scrollbar, Navigation, Pagination } from "swiper";
 
-
 const OurTeam = () => {
   const [activeAccordion, setActiveAccordion] = useState(0);
 
@@ -34,21 +33,9 @@ const OurTeam = () => {
     all: {
       slidesToShow: 3,
     },
-  })
+  });
 
-  const Doctors = [
-    {
-      name: "Gregg Frey, DDS",
-      // img: "../../images/team_members/GreggFrey_blog.jpg",
-      img: "../../images/team_members/GreggFrey_blob.png",
-      bio: "Dr. Gregg Frey is an orthodontist based in Pennsylvania, who graduated from Temple University School of Dentistry with honors and served in the U.S. Navy Dental Corps before establishing his practice in the Lehigh Valley. He is a Diplomat of the American Board of Orthodontics and has received numerous distinctions, accreditations, and honors,including being named one of America's Top Orthodontists by the Consumer Review Council of America. This distinction is held by fewer than 25% of orthodontists nationwide. ABO certification represents the culmination of 5-10 years of written and oral examinations and independent expert review of actual treated patients. Recently Dr. Frey voluntarily re-certified. Dr. Frey enjoys coaching soccer, vintage car racing, and playing the drums. He is joined by his son, Dr Daniel Frey, at FreySmiles Orthodontics.",
-    },
-    {
-      name: "Daniel Frey, DMD, MSD",
-      // img: "../../images/team_members/DanFrey.jpg",
-      img: "../../images/team_members/DanFrey_blob.png",
-      bio: "Raised in the Lehigh Valley, Dr. Daniel Frey had a passion for youth soccer and explored his creative interests in music and film production during his adolescence. He graduated from Blair Academy in Blairstown, NJ in 2005. He then pursued his pre-dental requisites at the University of Pittsburgh,majoring in Biology. Dr. Frey excelled in his studies and was admitted to Temple University's dental school, graduating at the top of his class with the prestigious Summa Cum Laude designation.Continuing his education, Dr. Frey was admitted to the esteemed orthodontic residency program at the University of the Pacific in San Francisco, CA, where he worked with faculty from around the world and utilized cutting-edge orthodontic techniques. During his time in San Francisco, he conducted research in three-dimensional craniofacial analysis and earned his Master of Science degree. Dr. Frey is a member of the American Association of Orthodontists and the American Dental Association. In his leisure time, he enjoys staying active outdoors, camping, playing music, cooking, and spending time with loved ones.",},
-  ];
+
 
   const Members = [
     {
@@ -116,21 +103,45 @@ const OurTeam = () => {
       role: "Patient Services",
       img: "../../images/team_members/Elizabeth_blob.png",
     },
-  ]
+  ];
+
+  const Doctors = [
+    {
+      name: "Gregg Frey, DDS",
+      // img: "../../images/team_members/GreggFrey_blog.jpg",
+      img: "../../images/team_members/GreggFrey_blob.png",
+      bio: "Dr. Gregg Frey is an orthodontist based in Pennsylvania, who graduated from Temple University School of Dentistry with honors and served in the U.S. Navy Dental Corps before establishing his practice in the Lehigh Valley. He is a Diplomat of the American Board of Orthodontics and has received numerous distinctions, accreditations, and honors,including being named one of America's Top Orthodontists by the Consumer Review Council of America. This distinction is held by fewer than 25% of orthodontists nationwide. ABO certification represents the culmination of 5-10 years of written and oral examinations and independent expert review of actual treated patients. Recently Dr. Frey voluntarily re-certified. Dr. Frey enjoys coaching soccer, vintage car racing, and playing the drums.",
+      backgroundImg:"../../images/royalblue.svg",
+    },
+    {
+      name: "Daniel Frey, DMD, MSD",
+      // img: "../../images/team_members/DanFrey.jpg",
+      img: "../../images/team_members/DanFrey_blob.png",
+      bio: "Dr. Daniel Frey graduated from Blair Academy in Blairstown, NJ in 2005. He then pursued his pre-dental requisites at the University of Pittsburgh,majoring in Biology. Dr. Frey excelled in his studies and was admitted to Temple University's dental school, graduating at the top of his class with the prestigious Summa Cum Laude designation.Continuing his education, Dr. Frey was admitted to the esteemed orthodontic residency program at the University of the Pacific in San Francisco, CA, where he worked with faculty from around the world and utilized cutting-edge orthodontic techniques. During his time in San Francisco, he conducted research in three-dimensional craniofacial analysis and earned his Master of Science degree. Dr. Frey is a member of the American Association of Orthodontists and the American Dental Association. In his leisure time, he enjoys staying active outdoors, camping, playing music, cooking, and spending time with loved ones.",
+      backgroundImg: "../../images/gray.svg",
+    },
+  ];
 
   return (
     <main className="bg-indigo-50 custom-background">
       <div className="flex">
         <div className="w-1/2">
           {Doctors.map((doctor, index) => (
-            <div key={index} className="mb-4">
-              <img
-                src={doctor.img}
-                alt={doctor.name}
-                className="block mx-auto max-w-full h-auto mt-20"
-                style={{ maxWidth: '100%', maxHeight: '300px' }}
-              />
-            </div>
+            <div key={index} className="mb-4 relative">
+            <img
+             src={doctor.backgroundImg}
+              alt="lilac blob"
+              className="opacity-100 -mt-20 absolute top-0 left-0 w-full h-auto"
+              style={{ maxWidth: "70%" }}
+            />
+            <img
+              src={doctor.img}
+              alt={doctor.name}
+              className="block mx-auto max-w-full mr-15 h-auto mt-20 relative"
+              style={{ maxWidth: "100%", maxHeight: "300px", zIndex: 1 }}
+            />
+          </div>
+
           ))}
         </div>
         <div className="w-1/2">
@@ -144,7 +155,9 @@ const OurTeam = () => {
                   <span className="relative">
                     <span
                       className={`bg-purple-300 h-full w-1 absolute left-0 top-0 transition-all duration-700 ${
-                        activeAccordion === index ? "bg-purple-500 h-full" : "h-0"
+                        activeAccordion === index
+                          ? "bg-purple-500 h-full"
+                          : "h-0"
                       } rounded-full`}
                     ></span>
                     <dt
@@ -166,7 +179,9 @@ const OurTeam = () => {
                       leaveFrom="opacity-100 max-h-[500px]"
                       leaveTo="opacity-0 max-h-0"
                     >
-                      <dd className="text-md text-center text-gray-500 pl-7">{member.bio}</dd>
+                      <dd className="text-md text-center text-gray-500 pl-7">
+                        {member.bio}
+                      </dd>
                     </Transition>
                   </span>
                 </div>
@@ -230,30 +245,52 @@ const OurTeam = () => {
                 ))}
               </div>
               <div className="absolute top-1/2 left-0 flex justify-between w-full z-0">
-                <button className="blaze-prev" aria-label="Go to previous slide">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                <button
+                  className="blaze-prev"
+                  aria-label="Go to previous slide"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1.5}
+                    stroke="currentColor"
+                    className="w-6 h-6"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M15.75 19.5L8.25 12l7.5-7.5"
+                    />
                   </svg>
                 </button>
                 {/* <div className="blaze-pagination"></div> */}
                 <button className="blaze-next" aria-label="Go to next slide">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-                </svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1.5}
+                    stroke="currentColor"
+                    className="w-6 h-6"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                    />
+                  </svg>
                 </button>
               </div>
             </div>
           </div>
-      </div>
-
-
+        </div>
       </section>
     </main>
   );
 };
 
 export default OurTeam;
-
 
 // import { ChevronUpIcon } from "@heroicons/react/20/solid";
 // import { Transition } from "@headlessui/react";
@@ -349,25 +386,25 @@ export default OurTeam;
 //                   <h2 className="text-lg font-medium">Dr. Daniel Frey</h2>
 //                   <img alt="Dr.Daniel Frey" src="" />
 //                   <div data-headlessui-state="open">
-                    // Raised in the Lehigh Valley, Dr. Daniel Frey had a passion for
-                    // youth soccer and explored his creative interests in music and
-                    // film production during his adolescence. He graduated from
-                    // Blair Academy in Blairstown, NJ in 2005. He then pursued his
-                    // pre-dental requisites at the University of Pittsburgh,
-                    // majoring in Biology. Dr. Frey excelled in his studies and was
-                    // admitted to Temple University's dental school, graduating at
-                    // the top of his class with the prestigious Summa Cum Laude
-                    // designation.Continuing his education, Dr. Frey was admitted to
-                    // the esteemed orthodontic residency program at the University
-                    // of the Pacific in San Francisco, CA, where he worked with
-                    // faculty from around the world and utilized cutting-edge
-                    // orthodontic techniques. During his time in San Francisco, he
-                    // conducted research in three-dimensional craniofacial analysis
-                    // and earned his Master of Science degree. Dr. Frey is a member
-                    // of the American Association of Orthodontists and the American
-                    // Dental Association. In his leisure time, he enjoys staying
-                    // active outdoors, camping, playing music, cooking, and spending
-                    // time with loved ones.
+// Raised in the Lehigh Valley, Dr. Daniel Frey had a passion for
+// youth soccer and explored his creative interests in music and
+// film production during his adolescence. He graduated from
+// Blair Academy in Blairstown, NJ in 2005. He then pursued his
+// pre-dental requisites at the University of Pittsburgh,
+// majoring in Biology. Dr. Frey excelled in his studies and was
+// admitted to Temple University's dental school, graduating at
+// the top of his class with the prestigious Summa Cum Laude
+// designation.Continuing his education, Dr. Frey was admitted to
+// the esteemed orthodontic residency program at the University
+// of the Pacific in San Francisco, CA, where he worked with
+// faculty from around the world and utilized cutting-edge
+// orthodontic techniques. During his time in San Francisco, he
+// conducted research in three-dimensional craniofacial analysis
+// and earned his Master of Science degree. Dr. Frey is a member
+// of the American Association of Orthodontists and the American
+// Dental Association. In his leisure time, he enjoys staying
+// active outdoors, camping, playing music, cooking, and spending
+// time with loved ones.
 //                   </div>
 //                 </Disclosure.Panel>
 //               </Transition>

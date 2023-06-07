@@ -1,60 +1,67 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import * as THREE from "three";
+
 import Map from "react-map-gl";
 import DotPattern from "./DotPattern";
 import AOS from "aos";
-import "aos/dist/aos.css"; 
+import "aos/dist/aos.css";
 import LogoSlider from "./logoslider";
-
-// import ShapeMorph from "./navbar/sketch";
 
 AOS.init();
 
 const Home = () => {
-  //Create a scene, camera, renderer
   useEffect(() => {
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(
-      75,
-      window.innerWidth / window.innerHeight,
-      0.1,
-      1000
-    );
-    camera.position.z = 5;
-    const renderer = new THREE.WebGLRenderer();
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    document.body.appendChild(renderer.domElement);
+    const handleScroll = () => {
+      const invisalignSection = document.getElementById("invisalign-section");
+      const damonSection = document.getElementById("damon-section");
+      const technologySection = document.getElementById("technology-section");
+      const scrollPosition = window.scrollY;
 
-    const geometry = new THREE.TorusGeometry(1, 0.3, 16, 100);
-    const material = new THREE.MeshPhongMaterial({ color: 999999 });
-    const ambientLight = new THREE.AmbientLight("violet", 2);
-    const directionalLight = new THREE.DirectionalLight(0xffffff, 2);
-    //  mesh with torus geometry and material
-    const torus = new THREE.Mesh(geometry, material);
+      if (scrollPosition > 200) {
+        invisalignSection.style.opacity = "1";
+        invisalignSection.style.pointerEvents = "auto";
+      } else {
+        invisalignSection.style.opacity = "0";
+        invisalignSection.style.pointerEvents = "none";
+      }
 
-    scene.add(torus, directionalLight, ambientLight);
+      if (scrollPosition > 200) {
+        damonSection.style.opacity = "1";
+        damonSection.style.pointerEvents = "auto";
+      } else {
+        damonSection.style.opacity = "0";
+        damonSection.style.pointerEvents = "none";
+      }
 
-    function animate() {
-      requestAnimationFrame(animate);
+      if (scrollPosition > 200) {
+        technologySection.style.opacity = "1";
+        technologySection.style.pointerEvents = "auto";
+      } else {
+        technologySection.style.opacity = "0";
+        technologySection.style.pointerEvents = "none";
+      }
 
-      // rotate torus
-      torus.rotation.x += 0.005;
-      torus.rotation.y += 0.005;
+    };
 
-      // render scene w/ camera
-      renderer.render(scene, camera);
-    }
+    window.addEventListener("scroll", handleScroll);
 
-    animate();
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
+
   return (
     <>
-      <main className="pt-16 bg-fFFFDFD overflow-hidden w-full">
+      <main className="pt-16 bg-#fFFFDFD overflow-hidden w-full">
         <div className="container max-w-screen-xl mx-auto">
           <section className="py-12 lg:px-4 xl:px-0">
             <div className="flex flex-col-reverse md:flex-row">
               <div className="mt-24 md:mt-0 flex flex-col lg:ml-10 xl:ml-32 2xl:ml-40 lg:w-6/12 xl:w-5/12 md:w-6/12 px-4 lg:px-0 justify-center">
+                <img
+                  className="h-96 md:h-auto"
+                  src="../../images/fadedblob.svg"
+                  alt="girl smiling"
+                />
                 <h1 className="text-4xl lg:text-6xl font-bold md:font-black leading-10 text-gray-700">
                   Because every smile is unique
                 </h1>
@@ -66,11 +73,11 @@ const Home = () => {
                   about.
                 </p>
                 <p className="text-center text-lg text-gray-600 font-light leading-relaxed pt-8 xl:block hidden w-4/5">
-                  Our goal is to make your smile look best on <strong className="font-bold">YOU</strong>. It's an art,
-                  it's a science, and it is something orthodontists Dr. Gregg
-                  Frey and Dr. Daniel Frey and the exceptional team at
-                  FreySmiles Orthodontics recognize and are very passionate
-                  about.
+                  Our goal is to make your smile look best on{" "}
+                  <strong className="font-bold">YOU</strong>. It's an art, it's
+                  a science, and it is something orthodontists Dr. Gregg Frey
+                  and Dr. Daniel Frey and the exceptional team at FreySmiles
+                  Orthodontics recognize and are very passionate about.
                 </p>
                 <div className="mt-12 flex flex-wrap">
                   <div className="mr-6 sm:mt-0 md:mt-5 lg:mt-0">
@@ -107,211 +114,275 @@ const Home = () => {
             </div>
           </section>
 
-          <section className="my-16 md:flex gap-8 justify-center py-10 text-center space-y-24 md:space-y-0">
+          <section>
             <div
+              id="invisalign-section"
+              data-aos="fade-up"
+              data-aos-duration="1750"
+              data-aos-easing="linear"
+              className="mr-auto relative rounded-tl-3xl rounded-tr-3xl rounded-bl-3xl rounded-br-3xl md:max-w-lg max-h-full h-[500px] px-12 md:px-14 pb-12 pt-20 flex flex-col justify-start items-center"
+              style={{ opacity: "0", pointerEvents: "none" }}
+            >
+              <div className="relative" style={{ zIndex: "-1" }}>
+                <img
+                  className="h-100 w-auto"
+                  src="../images/girlwithinvisalign.jpg"
+                  alt="invs"
+                />
+                <div className="absolute top-0 transform translate-x-full -right-40">
+                  <div className="rounded-full bg-gradient-to-bl from-violet-100 to-teal-50 flex flex-col justify-center items-center p-4">
+                    <img
+                      className="h-60 w-80 object-contain -mb-10"
+                      src="../images/invisalign.png"
+                      alt="invisalign"
+                    />
+                    <h3 className="uppercase">Invisalign</h3>
+                    <p className="mb-10">
+                    As part of the top 1% of Invisalign providers in the US, we have
+                the experience to deliver the smile you deserve.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section>
+            <div
+              id="damon-section"
               data-aos="fade-up"
               data-aos-duration="750"
               data-aos-easing="linear"
-              className="bg-gradient-to-tr from-violet-100 to-teal-50 rounded-tl-3xl rounded-tr-3xl rounded-bl-3xl rounded-br-md md:max-w-xs max-h-full px-12 pb-12 pt-20 flex flex-col justify-start items-center"
+              className="mr-auto relative rounded-tl-3xl rounded-tr-3xl rounded-bl-3xl rounded-br-3xl md:max-w-lg max-h-full h-[500px] px-12 md:px-14 pb-12 pt-20 flex flex-col justify-start items-center"
+              style={{ opacity: "0", pointerEvents: "none" }}
             >
-              <img
-                className="absolute -top-12 h-30 w-auto"
-                src="../images/damon.png"
-                alt="damon"
-              />
-              <h3 className="uppercase mb-4">Damon Braces</h3>
-              <p>
-                Combining self-ligating braces with advanced archwires
-                clinically proven to move teeth quickly and comfortably.
-              </p>
+              <div className="relative" style={{ zIndex: "-1" }}>
+                <img
+                  className="h-100 w-auto"
+                  src="../images/monse.jpg"
+                  alt="damon"
+                />
+                <div className="absolute top-0 transform translate-x-full -right-40">
+                  <div className="rounded-full bg-gradient-to-bl from-violet-100 to-teal-50 flex flex-col justify-center items-center p-4">
+                    <img
+                      className="h-60 w-80 object-contain -mb-10"
+                      src="../images/damon.png"
+                      alt="damon"
+                    />
+                    <h3 className="uppercase">Damon Braces</h3>
+                    <p className="mb-10">
+                      Combining self-ligating braces with advanced archwires
+                      clinically proven to move teeth quickly and comfortably.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
-       
+          </section>
+          <section>
             <div
-              data-aos="fade-down"
-              className="bg-gradient-to-bl from-violet-100 to-teal-50 rounded-tr-3xl rounded-bl-3xl rounded-tl-md rounded-br-md md:max-w-xs max-h-full px-12 pb-12 pt-20 flex flex-col justify-start items-center"
-            >
-              <img
-                className="absolute -top-12 h-30 w-auto"
-                src="../images/invisalign.png"
-                alt="invisalign"
-              />
-              <h3 className="uppercase mb-4">Invisalign</h3>
-              <p>
-                As part of the top 1% of Invisalign providers in the US, we have
-                the experience to deliver the smile you deserve.
-              </p>
-            </div>
-            <div
-              data-aos="fade-right"
+              id="technology-section"
+              data-aos="fade-up"
               data-aos-duration="750"
-              className="bg-gradient-to-br bg-gradient-to-tr from-violet-100 to-teal-50 rounded-tl-3xl rounded-tr-3xl rounded-br-3xl rounded-bl-md md:max-w-xs max-h-full px-12 pb-12 pt-20 flex flex-col justify-start items-center"
+              data-aos-easing="linear"
+              className="mr-auto relative rounded-tl-3xl rounded-tr-3xl rounded-bl-3xl rounded-br-3xl md:max-w-lg max-h-full h-[500px] px-12 md:px-14 pb-12 pt-20 flex flex-col justify-start items-center"
+              style={{ opacity: "0", pointerEvents: "none" }}
             >
+              <div className="relative" style={{ zIndex: "-1" }}>
+                <img
+                  className="h-100 w-auto"
+                  src="../images/iter.jpg"
+                  alt="iter"
+                />
+                <div className="absolute top-0 transform translate-x-full -right-40">
+                  <div className="rounded-full bg-gradient-to-bl from-violet-100 to-teal-50 flex flex-col justify-center items-center p-4">
+                    <img
+                      className="h-60 w-80 object-contain -mb-10"
+                      src="../images/technology.png"
+                      alt="tero"
+                    />
+                    <h3 className="uppercase">Advanced Technology</h3>
+                    <p className="mb-10">
+                    We offer Invisalign without Impressions. Say goodbye to goopy
+                impressions with our iTero digital scanner.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <div className="mt-10 mb-60">
+            <LogoSlider style={{ transform: "translate(-50%, -50%)" }} />
+          </div>
+
+          <div className="relative">
+            <div className=" absolute -top-60 right-0 z-10">
               <img
-                className="absolute -top-12 h-30 w-auto"
-                src="../images/technology.png"
+                className="mt-20 opacity-20"
+                style={{ height: "280px", width: "auto" }}
+                src="../images/chat.png"
                 alt="technology"
               />
-              <h3 className="uppercase mb-4">Advanced Technology</h3>
-              <p>
-                We offer Invisalign without Impressions. Say goodbye to goopy
-                impressions with our iTero digital scanner.
-              </p>
-           
             </div>
-       
-          </section>
-
-
-
-          <div className="mt-10 mb-60">
-  <LogoSlider style={{ transform: 'translate(-50%, -50%)' }} />
-</div>
-
-<div className="relative">
-  <div className="absolute -top-60 right-0 z-10">
-    <img
-      style={{ height: "500px", width: "auto" }}
-      src="../images/bubble.svg"
-      alt="technology"
-    />
-  </div>
-  <p className="text-teal-500 text-center absolute -bottom-10  md:right-20 z-10" style={{ maxWidth: "300px", overflow: "hidden", textOverflow: "ellipsis" }}>
-  I have never been to a doctor's office that is anything like Dr. Frey's.
-  Dr. Frey goes above and beyond to create the best smiles and has by far
-  the nicest staff around.
-</p>
-<h1 className="text-teal-500 text-xl text-right absolute -bottom-40 md:right-60 z-10">-Rebecca M.</h1>
-
-</div>
-
-<section className="flex flex-col gap-8 justify-center px-4 py-8 relative z-1">
-  <div className="mt-36"> 
-  <h3 className="text-3xl lg:text-5xl font-bold md:font-black leading-10 text-gray-700">
-    Our Locations
-  </h3>
-            <div
-              id="cards-container"
-              className="md:grid md:grid-cols-2 lg:flex gap-8 mt-16 "
+            <p
+              className=" text-teal-500 text-center absolute -bottom-3  md:right-12 z-10"
+              style={{
+                maxWidth: "300px",
+                overflow: "hidden",
+                textOverflow: "ellipsis",
+              }}
             >
-              <div className="flex flex-col justify-between bg-f7f5f2 rounded-bl-3xl rounded-br-3xl items-center lg:w-1/4 h-96">
-                <Map
-                  initialViewState={{
-                    longitude: -75.517846,
-                    latitude: 40.566356,
-                    zoom: 14,
-                  }}
-                  className="w-full h-full"
-                  mapStyle={`${process.env.REACT_APP_MAPBOX_STYLE_ALLENTOWN}`}
-                />
-                <figcaption className="p-4 text-center">
-                  <h3 className="uppercase">Allentown</h3>
-                  <p className="px-2 text-sm">
-                    1251 S Cedar Crest Blvd Suite 210
-                  </p>
-                  <p className="text-sm">Allentown, PA 18103</p>
-                  <Link
-                    className="underline"
-                    to="https://goo.gl/maps/jeFprQaeMQwUzwPx8"
-                    target="_blank"
-                  >
-                    Get Directions
-                  </Link>
-                </figcaption>
-                <button
-                  className="p-4 bg-stone-400 text-white hover:text-stone-700 w-full rounded-bl-3xl rounded-br-3xl ease-in-out duration-500"
-                  type="button"
-                >
-                  <Link to="/book-now">Book Now</Link>
-                </button>
+              I have never been to a doctor's office that is anything like Dr.
+              Frey's. Dr. Frey goes above and beyond to create the best smiles
+              and has by far the nicest staff around.
+            </p>
+
+            <h1 className="text-teal-500 text-xl text-right absolute -bottom-40 md:right-60 z-10">
+              Rebecca M.
+            </h1>
+          </div>
+
+          <section className="flex flex-col gap-8 justify-center px-4 py-8 relative z-1">
+            <div className="mt-36">
+              <div className="relative">
+                <h3 className="text-3xl lg:text-5xl font-bold md:font-black leading-10 text-gray-700 flex ">
+                  Our Locations
+                  <img
+                    src="../../images/pin.svg"
+                    alt="pin"
+                    className="flex ml-2  inset-0 z-0 opacity-90 bounce-animation transform-gpu transition-transform hover:animate-bounce transition-all duration-400"
+                    style={{
+                      width: "3%",
+                      height: "auto",
+                      left: "-30%",
+                      transition: "transform 0.7s ease-out",
+                    }}
+                  />
+                </h3>
               </div>
-              <div className="flex flex-col justify-between bg-f7f5f2 rounded-bl-3xl rounded-br-3xl items-center lg:w-1/4 h-96">
-                <Map
-                  initialViewState={{
-                    longitude: -75.296074,
-                    latitude: 40.660953,
-                    zoom: 14,
-                  }}
-                  className="w-full h-full"
-                  mapStyle={`${process.env.REACT_APP_MAPBOX_STYLE_BETHLEHEM}`}
-                />
-                <figcaption className="p-4 text-center">
-                  <h3 className="uppercase">Bethlehem</h3>
-                  <p className="text-sm">2901 Emrick Boulevard</p>
-                  <p className="text-sm">Bethlehem, PA 18020</p>
-                  <Link
-                    className="underline"
-                    to="https://goo.gl/maps/QjaBN2q5nmC7Vvmp8"
-                    target="_blank"
+
+              <div
+                id="cards-container"
+                className="md:grid md:grid-cols-2 lg:flex gap-8 mt-16 "
+              >
+                <div className="flex flex-col justify-between bg-f7f5f2 rounded-bl-3xl rounded-br-3xl items-center lg:w-1/4 h-96">
+                  <Map
+                    initialViewState={{
+                      longitude: -75.517846,
+                      latitude: 40.566356,
+                      zoom: 14,
+                    }}
+                    className="w-full h-full"
+                    mapStyle={`${process.env.REACT_APP_MAPBOX_STYLE_ALLENTOWN}`}
+                  />
+                  <figcaption className="p-4 text-center">
+                    <h3 className="uppercase">Allentown</h3>
+                    <p className="px-2 text-sm">
+                      1251 S Cedar Crest Blvd Suite 210
+                    </p>
+                    <p className="text-sm">Allentown, PA 18103</p>
+                    <Link
+                      className="underline"
+                      to="https://goo.gl/maps/jeFprQaeMQwUzwPx8"
+                      target="_blank"
+                    >
+                      Get Directions
+                    </Link>
+                  </figcaption>
+                  <button
+                    className="p-4 bg-stone-400 text-white hover:text-stone-700 w-full rounded-bl-3xl rounded-br-3xl ease-in-out duration-500"
+                    type="button"
                   >
-                    Get Directions
-                  </Link>
-                </figcaption>
-                <button
-                  className="p-4 bg-stone-400 text-white hover:text-stone-700 w-full rounded-bl-3xl rounded-br-3xl ease-in-out duration-500"
-                  type="button"
-                >
-                  <Link to="/book-now">Book Now</Link>
-                </button>
-              </div>
-              <div className="flex flex-col justify-between bg-f7f5f2 rounded-bl-3xl rounded-br-3xl items-center lg:w-1/4 h-96">
-                <Map
-                  initialViewState={{
-                    longitude: -75.597906,
-                    latitude: 40.659477,
-                    zoom: 14,
-                  }}
-                  className="w-full h-full"
-                  mapStyle={`${process.env.REACT_APP_MAPBOX_STYLE_SCHNECKSVILLE}`}
-                />
-                <figcaption className="p-4 text-center">
-                  <h3 className="uppercase">Schnecksville</h3>
-                  <p className="text-sm">4155 Independence Drive</p>
-                  <p className="text-sm">Schnecksville, PA 18078</p>
-                  <Link
-                    className="underline"
-                    to="https://goo.gl/maps/Z7C7Z7BPzHgcJmUr6"
-                    target="_blank"
+                    <Link to="/book-now">Book Now</Link>
+                  </button>
+                </div>
+                <div className="flex flex-col justify-between bg-f7f5f2 rounded-bl-3xl rounded-br-3xl items-center lg:w-1/4 h-96">
+                  <Map
+                    initialViewState={{
+                      longitude: -75.296074,
+                      latitude: 40.660953,
+                      zoom: 14,
+                    }}
+                    className="w-full h-full"
+                    mapStyle={`${process.env.REACT_APP_MAPBOX_STYLE_BETHLEHEM}`}
+                  />
+                  <figcaption className="p-4 text-center">
+                    <h3 className="uppercase">Bethlehem</h3>
+                    <p className="text-sm">2901 Emrick Boulevard</p>
+                    <p className="text-sm">Bethlehem, PA 18020</p>
+                    <Link
+                      className="underline"
+                      to="https://goo.gl/maps/QjaBN2q5nmC7Vvmp8"
+                      target="_blank"
+                    >
+                      Get Directions
+                    </Link>
+                  </figcaption>
+                  <button
+                    className="p-4 bg-stone-400 text-white hover:text-stone-700 w-full rounded-bl-3xl rounded-br-3xl ease-in-out duration-500"
+                    type="button"
                   >
-                    Get Directions
-                  </Link>
-                </figcaption>
-                <button
-                  className="p-4 bg-stone-400 text-white hover:text-stone-700 w-full rounded-bl-3xl rounded-br-3xl ease-in-out duration-500"
-                  type="button"
-                >
-                  <Link to="/book-now">Book Now</Link>
-                </button>
-              </div>
-              <div className="flex flex-col justify-between bg-f7f5f2 rounded-bl-3xl rounded-br-3xl items-center lg:w-1/4 h-96">
-                <Map
-                  initialViewState={{
-                    longitude: -75.73046,
-                    latitude: 40.8161,
-                    zoom: 14,
-                  }}
-                  className="w-full h-full"
-                  mapStyle={`${process.env.REACT_APP_MAPBOX_STYLE_LEHIGHTON}`}
-                />
-                <figcaption className="p-4 text-center">
-                  <h3 className="uppercase">Lehighton</h3>
-                  <p className="text-sm">1080 Blakeslee Blvd Dr E</p>
-                  <p className="text-sm">Lehighton, PA 18235</p>
-                  <Link
-                    className="underline"
-                    to="https://goo.gl/maps/rcoLbjXmATgQn2t47"
-                    target="_blank"
+                    <Link to="/book-now">Book Now</Link>
+                  </button>
+                </div>
+                <div className="flex flex-col justify-between bg-f7f5f2 rounded-bl-3xl rounded-br-3xl items-center lg:w-1/4 h-96">
+                  <Map
+                    initialViewState={{
+                      longitude: -75.597906,
+                      latitude: 40.659477,
+                      zoom: 14,
+                    }}
+                    className="w-full h-full"
+                    mapStyle={`${process.env.REACT_APP_MAPBOX_STYLE_SCHNECKSVILLE}`}
+                  />
+                  <figcaption className="p-4 text-center">
+                    <h3 className="uppercase">Schnecksville</h3>
+                    <p className="text-sm">4155 Independence Drive</p>
+                    <p className="text-sm">Schnecksville, PA 18078</p>
+                    <Link
+                      className="underline"
+                      to="https://goo.gl/maps/Z7C7Z7BPzHgcJmUr6"
+                      target="_blank"
+                    >
+                      Get Directions
+                    </Link>
+                  </figcaption>
+                  <button
+                    className="p-4 bg-stone-400 text-white hover:text-stone-700 w-full rounded-bl-3xl rounded-br-3xl ease-in-out duration-500"
+                    type="button"
                   >
-                    Get Directions
-                  </Link>
-                </figcaption>
-                <button
-                  className="p-4 bg-stone-400 text-white hover:text-stone-700 w-full rounded-bl-3xl rounded-br-3xl ease-in-out duration-500"
-                  type="button"
-                >
-                  <Link to="/book-now">Book Now</Link>
-                </button>
+                    <Link to="/book-now">Book Now</Link>
+                  </button>
+                </div>
+                <div className="flex flex-col justify-between bg-f7f5f2 rounded-bl-3xl rounded-br-3xl items-center lg:w-1/4 h-96">
+                  <Map
+                    initialViewState={{
+                      longitude: -75.73046,
+                      latitude: 40.8161,
+                      zoom: 14,
+                    }}
+                    className="w-full h-full"
+                    mapStyle={`${process.env.REACT_APP_MAPBOX_STYLE_LEHIGHTON}`}
+                  />
+                  <figcaption className="p-4 text-center">
+                    <h3 className="uppercase">Lehighton</h3>
+                    <p className="text-sm">1080 Blakeslee Blvd Dr E</p>
+                    <p className="text-sm">Lehighton, PA 18235</p>
+                    <Link
+                      className="underline"
+                      to="https://goo.gl/maps/rcoLbjXmATgQn2t47"
+                      target="_blank"
+                    >
+                      Get Directions
+                    </Link>
+                  </figcaption>
+                  <button
+                    className="p-4 bg-stone-400 text-white hover:text-stone-700 w-full rounded-bl-3xl rounded-br-3xl ease-in-out duration-500"
+                    type="button"
+                  >
+                    <Link to="/book-now">Book Now</Link>
+                  </button>
+                </div>
               </div>
-            </div>
             </div>
           </section>
         </div>

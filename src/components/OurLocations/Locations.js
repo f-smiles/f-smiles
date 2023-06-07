@@ -18,8 +18,8 @@ const Locations = () => {
           </linearGradient>
         </defs>
         <circle cx="50" cy="50" r="25" fill="url(#grad)" />
-        <image xlinkHref="../images/logo_short.png" x="38" y="38" width="25%" height="25%" />
-        
+        <image xlinkHref="../images/logo.png" x="-20" y="-20" width="140" height="140" />
+        <image xlinkHref="../images/logo_short.png" x="38" y="38" width="50%" height="25%" />
         <path id="textPath" fill="none" d="M89.322,50.197c0,22.09-17.91,40-40,40c-22.089,0-40-17.91-40-40 c0-22.089,17.911-40,40-40C71.412,10.197,89.322,28.108,89.322,50.197z" />
         <text style={{ fontSize: '9px' }}>
           <textPath xlinkHref="#textPath">
@@ -32,7 +32,7 @@ const Locations = () => {
       </svg>
     </a>
   </section>
-
+ 
 
 
    {/* <div id="container">
@@ -90,7 +90,7 @@ const Locations = () => {
           orthodontists at FreySmiles are Diamond Plus Invisalign providers.
         </p>
       </div>
-      
+     
       <section className="w-full p-8 cursor-pointer hover:bg-stone-200 transition-all duration-500 linear">
         <div className="max-w-screen-xl mx-auto md:px-8 md:grid md:grid-cols-3 gap-4 space-y-4">
           <div>

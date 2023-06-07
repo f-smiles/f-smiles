@@ -23,8 +23,6 @@ const VirtualConsultation = () => {
     { day: "Wednesday", clicked: false },
     { day: "Thursday", clicked: false },
     { day: "Friday", clicked: false },
-    { day: "Saturday", clicked: false },
-    { day: "Sunday", clicked: false },
   ]);
 
   const [times, setTimes] = useState([
@@ -105,9 +103,9 @@ const VirtualConsultation = () => {
 
   const baseButtonClass = "text-slate-700 py-2 px-4 rounded-full";
   const activeButtonClass =
-    "bg-indigo-100";
+    "bg-violet-700 text-white"; 
   const inactiveButtonClass =
-    "border border-violet-400 hover:bg-violet-400 hover:text-white text-violet-700";
+    "border border-violet-400 hover:bg-violet-700 hover:text-white text-violet-700";
 
   return (
     <main

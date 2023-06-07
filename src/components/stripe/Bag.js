@@ -108,7 +108,7 @@ const Bag = ({ productData, isOpen }) => {
         {cart?.map((product) => (
           <div
             key={product.id}
-            className="flex items-center mb-4 py-2 px-4 border-b border-gray-300"
+            className="hover:text-indigo-700  flex items-center mb-4 py-2 px-4 border-b border-gray-300"
           >
             <div className="mr-4">
               <img
@@ -123,7 +123,7 @@ const Bag = ({ productData, isOpen }) => {
               />
             </div>
             <div>
-              <h3>
+              <h3 className="hover:underline">
                 <Link to={`/products/${product.id}`}>
                   {product.name.toUpperCase()}
                 </Link>
@@ -222,10 +222,10 @@ const Bag = ({ productData, isOpen }) => {
       </div>
       <h3 className="mb-2">Total: ${total.toFixed(2)}</h3>
       <section className="z-10"> 
-      <button className="mb-5 rounded-full bg-indigo-200 text-md px-2 py-2">
+      <button className="mb-5 rounded bg-violet-700 text-md px-10 py-4 hover:bg-violet-400 ">
           <NavLink 
             to="/checkout"
-            className="cursor-pointer block text-sm leading-3 tracking-normal px-3 font-normal text0wi"
+            className="cursor-pointer block text-lg leading-3 tracking-normal px-3 font-normal text-white "
           >Checkout</NavLink>
           </button>
         </section>

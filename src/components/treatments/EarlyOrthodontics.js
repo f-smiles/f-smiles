@@ -1,13 +1,55 @@
 import React from "react";
 import { Disclosure } from "@headlessui/react";
 import { ChevronUpIcon } from "@heroicons/react/20/solid";
+import { useTrail, animated } from "react-spring";
+
+const words = [
+  "E",
+  "x",
+  "p",
+  "e",
+  "r",
+  "t",
+  " ",
+  "C",
+  "a",
+  "r",
+  "e",
+  " ",
+  "R",
+  "o",
+  "o",
+  "t",
+  "e",
+  "d",
+  " ",
+  "i",
+  "n",
+  " ",
+  "E",
+  "x",
+  "c",
+  "e",
+  "l",
+  "l",
+  "e",
+  "n",
+  "c",
+  "e",
+];
 
 const EarlyOrthodontics = () => {
+  const trail = useTrail(words.length, {
+    from: { opacity: 0 },
+    to: { opacity: 1 },
+    delay: 500,
+    config: { duration: 1000 },
+  });
   return (
     
-    <main className="w-full px-4 pt-16">
+    <main className="bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-fuchsia-300 via-green-400 to-rose-700 w-full px-4 pt-16">
       
-      <div className="mx-auto w-full max-w-screen-lg rounded-2xl bg-white p-2">
+      <div className="mt-10 mx-auto w-full max-w-screen-lg rounded-full bg-gradient-to-r from-yellow-200 to-yellow-500  p-2">
       <img
   src="../../images/redhalf.svg"
   alt="invisalign"
@@ -25,6 +67,17 @@ const EarlyOrthodontics = () => {
     event.target.style.opacity = 1;
   }}
 />
+
+<h1 className="mt-10 ml-10 text-4xl text-indigo-200" style={{marginLeft:"10px"}}>
+    {" "}
+    <span className="text-indigo-500">
+            {trail.map((props, index) => (
+              <animated.span key={index} style={props}>
+                {words[index]}
+              </animated.span>
+            ))}
+          </span>
+    </h1>
         <Disclosure as="section" defaultOpen={true}>
           {({ open }) => (
             <>

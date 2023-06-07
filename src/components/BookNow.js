@@ -140,7 +140,7 @@ const BookNow = () => {
 
   return (
     <main className="mt-20 pt-10">
-     
+      
     <div id="contact-form">
       {emailSent ? (
         <span className={emailSent ? "block" : "hidden"}>
