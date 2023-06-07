@@ -349,7 +349,7 @@ export default function DesktopNavbar() {
       <nav id="mobile-nav" className="fixed top-0 left-0 right-0 mx-auto z-40">
         <section
           id="mobile-menu-header"
-          className="py-4 px-6 w-full flex xl:hidden justify-between items-center bg-gray-800"
+          className="py-4 px-6 w-full flex xl:hidden justify-between items-center bg-stone-900"
         >
           <NavLink
             to="/"

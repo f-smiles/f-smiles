@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import Map from "react-map-gl";
@@ -10,6 +10,7 @@ import LogoSlider from "./logoslider";
 AOS.init();
 
 const Home = () => {
+  const [isCardHovered, setIsCardHovered] = useState(false);
   useEffect(() => {
     const handleScroll = () => {
       const invisalignSection = document.getElementById("invisalign-section");
@@ -114,30 +115,30 @@ const Home = () => {
             </div>
           </section>
 
-          <section>
+          <section className="bg-gradient-to-bl from-violet-100 to-teal-50">
             <div
               id="invisalign-section"
               data-aos="fade-up"
               data-aos-duration="1750"
               data-aos-easing="linear"
-              className="mr-auto relative rounded-tl-3xl rounded-tr-3xl rounded-bl-3xl rounded-br-3xl md:max-w-lg max-h-full h-[500px] px-12 md:px-14 pb-12 pt-20 flex flex-col justify-start items-center"
+              className="  mr-auto relative rounded-tl-3xl rounded-tr-3xl rounded-bl-3xl rounded-br-3xl md:max-w-lg max-h-full h-[500px] px-12 md:px-14 pb-12 pt-20 flex flex-col justify-start items-center"
               style={{ opacity: "0", pointerEvents: "none" }}
             >
               <div className="relative" style={{ zIndex: "-1" }}>
                 <img
                   className="h-100 w-auto"
                   src="../images/girlwithinvisalign.jpg"
-                  alt="invs"
+                  alt="invis"
                 />
                 <div className="absolute top-0 transform translate-x-full -right-40">
-                  <div className="rounded-full bg-gradient-to-bl from-violet-100 to-teal-50 flex flex-col justify-center items-center p-4">
+                  <div className="rounded-full flex flex-col justify-center items-center p-4">
                     <img
                       className="h-60 w-80 object-contain -mb-10"
                       src="../images/invisalign.png"
                       alt="invisalign"
                     />
-                    <h3 className="uppercase">Invisalign</h3>
-                    <p className="mb-10">
+                    <h3 className="text-2xl mb-4">Invisalign</h3>
+                    <p className="text-center mb-10">
                     As part of the top 1% of Invisalign providers in the US, we have
                 the experience to deliver the smile you deserve.
                     </p>
@@ -146,45 +147,46 @@ const Home = () => {
               </div>
             </div>
           </section>
-          <section>
-            <div
-              id="damon-section"
-              data-aos="fade-up"
-              data-aos-duration="750"
-              data-aos-easing="linear"
-              className="mr-auto relative rounded-tl-3xl rounded-tr-3xl rounded-bl-3xl rounded-br-3xl md:max-w-lg max-h-full h-[500px] px-12 md:px-14 pb-12 pt-20 flex flex-col justify-start items-center"
-              style={{ opacity: "0", pointerEvents: "none" }}
-            >
-              <div className="relative" style={{ zIndex: "-1" }}>
-                <img
-                  className="h-100 w-auto"
-                  src="../images/monse.jpg"
-                  alt="damon"
-                />
-                <div className="absolute top-0 transform translate-x-full -right-40">
-                  <div className="rounded-full bg-gradient-to-bl from-violet-100 to-teal-50 flex flex-col justify-center items-center p-4">
-                    <img
+          <section className="bg-gradient-to-bl from-violet-100 to-teal-50">
+  <div
+    id="damon-section"
+    data-aos="fade-up"
+    data-aos-duration="1750"
+    data-aos-easing="linear"
+    className="mr-auto relative rounded-tl-3xl rounded-tr-3xl rounded-bl-3xl rounded-br-3xl md:max-w-lg max-h-full h-[500px] px-12 md:px-14 pb-12 pt-20 flex flex-col justify-start items-center"
+    style={{ opacity: "0", pointerEvents: "none" }}
+  >
+    <div className="relative" style={{ zIndex: "-1" }}>
+      <div className="absolute top-0 left-14">
+        <div className="rounded-full flex flex-col justify-center items-center p-4">
+        <img
                       className="h-60 w-80 object-contain -mb-10"
                       src="../images/damon.png"
                       alt="damon"
                     />
-                    <h3 className="uppercase">Damon Braces</h3>
-                    <p className="mb-10">
-                      Combining self-ligating braces with advanced archwires
-                      clinically proven to move teeth quickly and comfortably.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
+          <h3 className="text-2xl mb-4">Damon Braces</h3>
+          <p className="text-center mb-10">
+            Combining self-ligating braces with advanced archwires clinically
+            proven to move teeth quickly and comfortably.
+          </p>
+        </div>
+      </div>
+      <img
+        className="h-100 w-auto ml-auto"
+        src="../images/monse.jpg"
+        alt="damon"
+      />
+    </div>
+  </div>
+</section>
+
           <section>
             <div
               id="technology-section"
               data-aos="fade-up"
-              data-aos-duration="750"
+              data-aos-duration="2750"
               data-aos-easing="linear"
-              className="mr-auto relative rounded-tl-3xl rounded-tr-3xl rounded-bl-3xl rounded-br-3xl md:max-w-lg max-h-full h-[500px] px-12 md:px-14 pb-12 pt-20 flex flex-col justify-start items-center"
+              className="mt-10 bg-gradient-to-bl from-violet-100 to-teal-50  mr-auto relative rounded-tl-3xl rounded-tr-3xl rounded-bl-3xl rounded-br-3xl md:max-w-lg max-h-full h-[500px] px-12 md:px-14 pb-12 pt-20 flex flex-col justify-start items-center"
               style={{ opacity: "0", pointerEvents: "none" }}
             >
               <div className="relative" style={{ zIndex: "-1" }}>
@@ -194,14 +196,14 @@ const Home = () => {
                   alt="iter"
                 />
                 <div className="absolute top-0 transform translate-x-full -right-40">
-                  <div className="rounded-full bg-gradient-to-bl from-violet-100 to-teal-50 flex flex-col justify-center items-center p-4">
+                  <div className="rounded-full flex flex-col justify-center items-center p-4">
                     <img
                       className="h-60 w-80 object-contain -mb-10"
                       src="../images/technology.png"
                       alt="tero"
                     />
-                    <h3 className="uppercase">Advanced Technology</h3>
-                    <p className="mb-10">
+                    <h3 className="text-2xl mb-4">Advanced Technology</h3>
+                    <p className="text-center mb-10">
                     We offer Invisalign without Impressions. Say goodbye to goopy
                 impressions with our iTero digital scanner.
                     </p>
@@ -264,12 +266,16 @@ const Home = () => {
                 id="cards-container"
                 className="md:grid md:grid-cols-2 lg:flex gap-8 mt-16 "
               >
-                <div className="flex flex-col justify-between bg-f7f5f2 rounded-bl-3xl rounded-br-3xl items-center lg:w-1/4 h-96">
+<div
+  className="flex flex-col justify-between bg-f7f5f2 rounded-bl-3xl rounded-br-3xl items-center lg:w-1/4 h-96"
+  onMouseEnter={() => setIsCardHovered(true)}
+  onMouseLeave={() => setIsCardHovered(false)}
+>
                   <Map
                     initialViewState={{
                       longitude: -75.517846,
                       latitude: 40.566356,
-                      zoom: 14,
+                       zoom: isCardHovered ? 14 : 12, 
                     }}
                     className="w-full h-full"
                     mapStyle={`${process.env.REACT_APP_MAPBOX_STYLE_ALLENTOWN}`}
