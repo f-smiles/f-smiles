@@ -21,12 +21,12 @@ const Locations = () => {
         <image xlinkHref="../images/logo.png" x="-20" y="-20" width="140" height="140" />
         <image xlinkHref="../images/logo_short.png" x="38" y="38" width="50%" height="25%" />
         <path id="textPath" fill="none" d="M89.322,50.197c0,22.09-17.91,40-40,40c-22.089,0-40-17.91-40-40 c0-22.089,17.911-40,40-40C71.412,10.197,89.322,28.108,89.322,50.197z" />
-        <text style={{ fontSize: '9px' }}>
+        <text  style={{ fontSize: '6px' }}>
           <textPath xlinkHref="#textPath">
-            <tspan x="10">Lehighton</tspan>
-            <tspan x="42" dx="30">Bethlehem</tspan>
-            <tspan x="72" dx="60">Schnecksville</tspan>
-            <tspan x="107" dx="90">Allentown</tspan>
+            <tspan     style={{ letterSpacing: '1px' }}  x="10">Lehighton</tspan>
+            <tspan     style={{ letterSpacing: '1px' }}  x="42" dx="30">Bethlehem</tspan>
+            <tspan     style={{ letterSpacing: '1px' }}  x="72" dx="60">Schnecksville</tspan>
+            <tspan     style={{ letterSpacing: '1px' }}  x="107" dx="90">Allentown</tspan>
           </textPath>
         </text>
       </svg>
