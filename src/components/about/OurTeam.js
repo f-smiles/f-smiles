@@ -29,11 +29,11 @@ const OurTeam = () => {
     setActiveAccordion((prevIndex) => (prevIndex === index ? null : index));
   };
 
-  const ref = useBlazeSlider({
-    all: {
-      slidesToShow: 3,
-    },
-  });
+  // const ref = useBlazeSlider({
+  //   all: {
+  //     slidesToShow: 3,
+  //   },
+  // });
 
 
 
@@ -99,9 +99,19 @@ const OurTeam = () => {
       img: "../../images/team_members/Samantha_blob.png",
     },
     {
+      name: "",
+      role: "",
+      img: "",
+    },
+    {
       name: "Elizabeth",
       role: "Patient Services",
       img: "../../images/team_members/Elizabeth_blob.png",
+    },
+    {
+      name: "",
+      role: "",
+      img: "",
     },
   ];
 
@@ -124,166 +134,59 @@ const OurTeam = () => {
 
   return (
     <main className="bg-indigo-50 custom-background">
-      <div className="flex">
-        <div className="w-1/2">
-          {Doctors.map((doctor, index) => (
-            <div key={index} className="mb-4 relative">
-            <img
-             src={doctor.backgroundImg}
-              alt="lilac blob"
-              className="opacity-100 -mt-20 absolute top-0 left-0 w-full h-auto"
-              style={{ maxWidth: "70%" }}
-            />
-            <img
-              src={doctor.img}
-              alt={doctor.name}
-              className="block mx-auto max-w-full mr-15 h-auto mt-20 relative"
-              style={{ maxWidth: "100%", maxHeight: "300px", zIndex: 1 }}
-            />
-          </div>
-
-          ))}
-        </div>
-        <div className="w-1/2">
-          <section className="justify-center mx-auto w-full max-w-screen-lg rounded-2xl p-2 mt-16 backdrop-blur-md bg-opacity-70 bg-gradient-conic from-fuchsia-300 via-green-400 to-rose-700">
-            <h1 className="mb-10 flex text-center text-3xl font-bold text-purple-900 mb-4">
-              Our Doctors
-            </h1>
-            <dl className="space-y-8 overflow-hidden h-full">
-              {Doctors.map((member, index) => (
-                <div key={index} className="flex">
-                  <span className="relative">
-                    <span
-                      className={`bg-purple-300 h-full w-1 absolute left-0 top-0 transition-all duration-700 ${
-                        activeAccordion === index
-                          ? "bg-purple-500 h-full"
-                          : "h-0"
-                      } rounded-full`}
-                    ></span>
-                    <dt
-                      className={`text-lg font-medium text-purple-900 cursor-pointer relative pl-4 focus:outline-none ${
-                        activeAccordion === index ? "mb-2" : ""
-                      }`}
-                      onClick={() => toggleAccordion(index)}
-                    >
-                      <div className="flex items-start">
-                        <span className="pl-2 text-2xl">{member.name}</span>
-                      </div>
-                    </dt>
-                    <Transition
-                      show={activeAccordion === index}
-                      enter="transition-all duration-700"
-                      enterFrom="opacity-0 max-h-0"
-                      enterTo="opacity-100 max-h-[500px]"
-                      leave="transition-all duration-700"
-                      leaveFrom="opacity-100 max-h-[500px]"
-                      leaveTo="opacity-0 max-h-0"
-                    >
-                      <dd className="text-md text-center text-gray-500 pl-7">
-                        {member.bio}
-                      </dd>
-                    </Transition>
-                  </span>
-                </div>
-              ))}
-            </dl>
-          </section>
-        </div>
-      </div>
-
-      <>
-      <Swiper
-        slidesPerView={3}
-        centeredSlides={false}
-        slidesPerGroupSkip={2}
-        grabCursor={true}
-        keyboard={{
-          enabled: true,
-        }}
-        breakpoints={{
-          769: {
-            slidesPerView: 2,
-            slidesPerGroup: 2,
-          },
-        }}
-        scrollbar={true}
-        navigation={true}
-        pagination={{
-          clickable: true,
-        }}
-        modules={[Keyboard, Scrollbar, Navigation, Pagination]}
-        className="max-w-screen-lg"
-      >
-        {Members.map((member, index) => (
-          <SwiperSlide>
-              <img src={member.img} alt={member.name} />
-              <caption className="px-4 mt-8">
-                <h2 className="text-left">{member.name}</h2>
-                <p className="w-max">{member.role}</p>
-              </caption>
-          </SwiperSlide>
-        ))}
-      </Swiper>
-    </>
-    <section className="mx-auto w-full max-w-screen-lg rounded-2xl p-2 mt-16 backdrop-blur-md bg-opacity-70 bg-gradient-conic from-fuchsia-300 via-green-400 to-rose-700 py-8">
-        <h1 className="text-3xl text-center font-bold text-purple-900 relative mb-4">
-          Our Team
+      <section className="justify-center mx-auto w-full max-w-screen-lg rounded-2xl p-2 mt-16 backdrop-blur-md bg-opacity-70 bg-gradient-conic from-fuchsia-300 via-green-400 to-rose-700">
+        <h1 className="mb-10 flex text-center text-3xl font-bold text-purple-900 mb-4">
+          Our Doctors
         </h1>
-        <div className="blaze-slider" ref={ref}>
-          <div className="blaze-container px-8">
-            <div className="blaze-track-container">
-              <div className="blaze-track">
-                {Members.map((member, index) => (
-                  <picture key={index} className="space-y-4">
-                    {/* make an id for svg clip and ref the id */}
-                    <img src={member.img} alt={member.name} />
-                    <caption className="px-4">
-                      <h2 className="text-left">{member.name}</h2>
-                      <p className="w-max">{member.role}</p>
-                    </caption>
-                  </picture>
-                ))}
-              </div>
-              <div className="absolute top-1/2 left-0 flex justify-between w-full z-0">
-                <button
-                  className="blaze-prev"
-                  aria-label="Go to previous slide"
+
+        <dl className="max-w-screen-lg mx-auto space-y-8 overflow-hidden grid grid-cols-2 gap-4 grid-rows-2">
+          {Doctors.map((doctor, index) => (
+            <>
+              <dt
+                className="text-lg font-medium text-purple-900 cursor-pointer relative pl-4 focus:outline-none content-center"
+                onClick={() => toggleAccordion(index)}
+              >
+                <img src={doctor.backgroundImg} alt={doctor.name} className="opacity-100 mt-20 absolute top-0 left-0 w-full h-auto" style={{ maxWidth: "70%" }} />
+                <img src={doctor.img} alt={doctor.name} className="block mx-auto max-w-full mr-15 h-auto relative" style={{ maxWidth: "100%", maxHeight: "300px", zIndex: 1 }} />
+                <span
+                  className={`bg-violet-300 h-full w-1 absolute top-0 left-0 transition-all duration-500 ${
+                    activeAccordion === index ? "bg-violet-500 h-full" : "h-0"
+                  }`}
+                ></span>
+                <span className="pl-2 text-2xl ">{doctor.name}</span>
+                <Transition
+                  show={activeAccordion === index}
+                  enter="transition-all duration-500"
+                  enterFrom="-mt-10 opacity-0"
+                  enterTo="mt-0 opacity-100"
+                  leave="transition-all duration-500"
+                  leaveFrom="mt-0 opacity-100"
+                  leaveTo="-mt-10 opacity-0"
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth={1.5}
-                    stroke="currentColor"
-                    className="w-6 h-6"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M15.75 19.5L8.25 12l7.5-7.5"
-                    />
-                  </svg>
-                </button>
-                {/* <div className="blaze-pagination"></div> */}
-                <button className="blaze-next" aria-label="Go to next slide">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth={1.5}
-                    stroke="currentColor"
-                    className="w-6 h-6"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M8.25 4.5l7.5 7.5-7.5 7.5"
-                    />
-                  </svg>
-                </button>
-              </div>
+                  <dd className="relative text-sm text-gray-500 pl-7">
+                    {/* <span className={`bg-violet-300 h-full w-1 absolute top-0 left-0 transition-all duration-500 ${ activeAccordion === index ? "bg-violet-500 h-full" : "h-0" }`}></span> */}
+                    <p>{doctor.bio}</p>
+                  </dd>
+                </Transition>
+              </dt>
+            </>
+          ))}
+            </dl>
+      </section>
+      <section className="max-w-screen-xl mx-auto ">
+        <div className="member-heading w-full text-center">
+          <h2 className="text-3xl mb-8">Our Team</h2>
+        </div>
+        <div className="member-container grid gap-8 grid-cols-3">
+          {Members && Members.map((member, index) => (
+            <div className="member-card">
+              <img className="mx-auto h-72 w-auto" src={member.img} alt={member.name} />
+                <caption className="w-full py-4">
+                  <h6 className="text-2xl">{member.name}</h6>
+                  <span className="text-sm">{member.role}</span>
+                </caption>
             </div>
-          </div>
+          ))}
         </div>
       </section>
     </main>
