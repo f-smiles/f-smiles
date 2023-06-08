@@ -115,9 +115,11 @@ className={
           {about_us_links &&
             about_us_links.map((link) => {
               return (
+                <h1>
                 <li
-                  className="py-4 cursor-pointer text-indigo text-xl hover:text-gray-500 text-sm p-2"
+                  className="py-4 cursor-pointer text-indigo text-xl hover:text-violet-400 text-sm p-2"
                   key={link.name}
+                  style={{ letterSpacing: '.75px' }}
                 >
                   <NavLink
                     to={link.href}
@@ -127,6 +129,7 @@ className={
                     {link.name}
                   </NavLink>
                 </li>
+                </h1>
               );
             })}
         </ul>
@@ -177,12 +180,15 @@ className={
                 <div className="bg-stone-200 w-1/3 flex">
                   <div className="overflow-y-auto">
                     <ul className="p-8">
+                      
                       {patient_links &&
                         patient_links.map((link) => {
                           return (
+                            <h1>
                             <li
                               className="py-4 cursor-pointer text-indigo text-xl hover:text-gray-500 text-sm p-2"
                               key={link.name}
+                              style={{ letterSpacing: '.75px' }} 
                             >
                               <NavLink
                                 to={link.href}
@@ -192,6 +198,7 @@ className={
                                 {link.name}
                               </NavLink>
                             </li>
+                            </h1>
                           );
                         })}
                     </ul>
@@ -254,7 +261,7 @@ className={
             {!treatments && (
   <li
     className={`hover:underline cursor-pointer hover:text-indigo-700 transition duration-150 ease-in-out inline-flex items-center text-sm tracking-normal relative text-stone-900 hover:text-indigo-700 gap-2 mr-4 ${about ? 'hidden' : ''} ${treatments ? 'hidden' : ''}${patient ? 'hidden' : ''}`}
-    onClick={() => handleMouseClickPatient(true)}
+    onClick={() => handleMouseClick(true)}
     style={{ letterSpacing: '1.5px' }} 
   >
     TREATMENT
@@ -274,9 +281,11 @@ className={
                       {treatments_links &&
                         treatments_links.map((link) => {
                           return (
+                            <h1>
                             <li
                               className="py-4 cursor-pointer text-indigo text-xl hover:text-gray-500 text-sm p-2"
                               key={link.name}
+                              style={{ letterSpacing: '.75px' }} 
                             >
                               <NavLink
                                 to={link.href}
@@ -286,6 +295,7 @@ className={
                                 {link.name}
                               </NavLink>
                             </li>
+                            </h1>
                           );
                         })}
                     </ul>
