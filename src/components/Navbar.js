@@ -85,13 +85,13 @@ export default function DesktopNavbar() {
       {/* Desktop Navbar */}
       {/* TODO: add focus to dropdown for accessibility */}
       <nav
-        id="desktop-nav"
-        className={`w-screen h-max fixed top-0 left-0 right-0 xl:block hidden z-40 ${
-          navbarTransparent ? "bg-#f4eae4" : "bg-stone-700 bg-opactiy-30"
-        }`}
-      >
-        <ul className="w-screen p-2  flex justify-between items-center">
-          <ul className="xl:flex hidden gap-8 justify-evenly items-center">
+  id="desktop-nav"
+  className={`w-screen h-max fixed top-0 left-0 right-0 xl:block hidden z-40 ${
+    navbarTransparent ? "bg-#f4eae4" : "bg-stone-700 bg-opactiy-30"
+  }`}
+>
+  <ul className="w-full p-2 flex justify-between items-center">
+    <ul className="xl:flex hidden gap-8 justify-evenly items-center">
        
           {!about && (
   <li
@@ -101,13 +101,12 @@ export default function DesktopNavbar() {
   >
     ABOUT
   </li>
-)}
-      <div
-  className={
-    about
-      ? "block fixed top-0 left-0 flex flex-row h-screen translate-x-0 transition-all delay-300 duration-500 ease-out"
-      : "fixed top-0 left-0 flex flex-row h-screen  translate-x-[-100%] transition-all delay-0 duration-500 ease-out"
-  }
+)}<div
+className={
+  about
+    ? "block absolute top-0 left-0 flex flex-row h-screen overflow-hidden transition-all delay-300 duration-500 ease-out"
+    : "hidden"
+}
 >
   <div className="flex h-screen w-screen backdrop-blur-sm bg-white/30">
     <div className="bg-stone-200 w-1/3 flex">
@@ -389,7 +388,7 @@ export default function DesktopNavbar() {
       </span>
         <div className="relative w-full h-full">
           <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg" width="18" height="24"><g><path d="M17.54 5.424a.47.47 0 0 1 .46.474v17.627a.47.47 0 0 1-.46.475H.46a.47.47 0 0 1-.46-.475V5.898a.47.47 0 0 1 .46-.474h4.795v-1.56C5.255 1.733 6.935 0 9 0c2.065 0 3.745 1.733 3.745 3.864v1.56zm-11.365 0h5.64v-1.56c0-1.608-1.264-2.915-2.82-2.915-1.555 0-2.82 1.307-2.82 2.915zm10.905.949h-4.335V8.61a.47.47 0 0 1-.46.475.47.47 0 0 1-.46-.475V6.373h-5.65V8.61a.47.47 0 0 1-.46.475.47.47 0 0 1-.46-.475V6.373H.92V23.05h16.16z"></path></g></svg>
-          <span className="absolute top-3 mx-auto w-full h-full text-center">{cartCount}</span>
+          <span className="-mt-1 absolute top-3 mx-auto w-full h-full text-center">{cartCount}</span>
         </div>
     </NavLink>
   )}
