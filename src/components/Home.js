@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-
 import Map from "react-map-gl";
 import DotPattern from "./DotPattern";
 import AOS from "aos";
@@ -15,6 +14,31 @@ const Home = () => {
   const [isTransition, setIsTransition] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
   const threshold = 400;
+  const cardRef = useRef(null);
+
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+          }
+        });
+      },
+      { threshold: 0.5 } 
+    );
+
+    observer.observe(cardRef.current);
+
+    return () => observer.disconnect();
+  }, []);
+
+  const cardStyle = {
+    opacity: isVisible ? '1' : '0',
+    transform: isVisible ? 'translateX(0)' : 'translateX(-100%)',
+    transition: 'opacity 0.8s ease-in-out, transform 1.2s ease-in-out', 
+  };
   useEffect(() => {
     const handleScroll = () => {
       setTimeout(() => {
@@ -37,50 +61,7 @@ const Home = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-  const blurredStyle = {
-    opacity: isVisible ? "1" : "0.3",
-    filter: scrollPosition > threshold ? "none" : "blur(8px)",
-    transition: "opacity 0.3s, filter 0.5s",
-  };
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const invisalignSection = document.getElementById("invisalign-section");
-
-      const damonSection = document.getElementById("damon-section");
-      const technologySection = document.getElementById("technology-section");
-      const scrollPosition = window.scrollY;
-
-      if (scrollPosition > 200) {
-        invisalignSection.style.opacity = "1";
-        invisalignSection.style.pointerEvents = "auto";
-      } else {
-        invisalignSection.style.opacity = "0";
-        invisalignSection.style.pointerEvents = "none";
-      }
-
-      if (scrollPosition > 200) {
-        damonSection.style.opacity = "1";
-        damonSection.style.pointerEvents = "auto";
-      } else {
-        damonSection.style.opacity = "0";
-        damonSection.style.pointerEvents = "none";
-      }
-
-      if (scrollPosition > 200) {
-        technologySection.style.opacity = "1";
-        technologySection.style.pointerEvents = "auto";
-      } else {
-        technologySection.style.opacity = "0";
-        technologySection.style.pointerEvents = "none";
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
 
   return (
     <>
@@ -152,81 +133,83 @@ const Home = () => {
             </div>
           </section>
 
-          <section className="w-full bg-gradient-to-bl from-violet-100 to-teal-50">
-            <div
-              id="invisalign-section"
-              className={`mr-auto relative rounded-tl-3xl rounded-tr-3xl rounded-bl-3xl rounded-br-3xl md:max-w-lg max-h-full h-[500px] px-12 md:px-14 pb-12 pt-20 flex flex-col justify-start items-center`}
-              style={blurredStyle}
-              data-aos="fade-up"
-              data-aos-duration="1750"
-              data-aos-easing="linear"
-              data-aos-anchor="#invisalign-section"
-            >
-              <div className="relative" style={{ zIndex: "-1" }}>
-                <img
-                  className="h-100 w-full"
-                  src="../images/girlwithinvisalign.jpg"
-                  alt="invis"
-                />
-                <div className="absolute top-0 transform translate-x-full -right-40">
-                  <div className="rounded-full flex flex-col justify-center items-center p-4">
-                    <img
-                      className="h-60 w-80 object-contain -mb-10"
-                      src="../images/invisalign.png"
-                      alt="invisalign"
-                    />
-                    <h3 className="text-2xl mb-4">Invisalign</h3>
-                    <p className="text-center mb-10">
-                      As part of the top 1% of Invisalign providers in the US,
-                      we have the experience to deliver the smile you deserve.
-                    </p>
-                  </div>
-                </div>
-              </div>
+          <section 
+          // className="w-full bg-gradient-to-bl from-violet-100 to-teal-50"
+          >
+      <div
+        id="invisalign-section"
+        className={`mr-auto relative rounded-tl-3xl rounded-tr-3xl rounded-bl-3xl rounded-br-3xl md:max-w-lg max-h-full h-[500px] px-12 md:px-14 pb-12 pt-20 flex flex-col justify-start items-center`}
+        // data-aos="fade-up"
+        // data-aos-duration="1750"
+        // data-aos-easing="linear"
+        data-aos-anchor="#invisalign-section"
+        style={cardStyle}
+        ref={cardRef}
+      >
+        <div className="relative" style={{ zIndex: '-1' }}>
+          <img
+            className="h-100 w-full"
+            src="../images/girlwithinvisalign.jpg"
+            alt="invis"
+          />
+          <div className="absolute top-0 transform translate-x-full -right-40">
+            <div className="rounded-full flex flex-col justify-center items-center p-4">
+              <img
+                className="h-60 w-80 object-contain -mb-10"
+                src="../images/invisalign.png"
+                alt="invisalign"
+              />
+              <h3 className="text-2xl mb-4">Invisalign</h3>
+              <p className="text-center mb-10">
+                As part of the top 1% of Invisalign providers in the US, we have the experience to deliver
+                the smile you deserve.
+              </p>
             </div>
-          </section>
-<section className="w-full bg-gradient-to-bl from-violet-100 to-teal-50">
+          </div>
+        </div>
+      </div>
+    </section>
+          <section 
+          // className=" bg-gradient-to-bl from-violet-100 to-teal-50"
+          >
   <div
     id="damon-section"
-    className="mr-auto relative rounded-tl-3xl rounded-tr-3xl rounded-bl-3xl rounded-br-3xl md:max-w-lg max-h-full h-[500px] px-12 md:px-14 pb-12 pt-20 flex flex-row justify-start items-start"
-    style={blurredStyle}
+    className={`mr-auto relative rounded-tl-3xl rounded-tr-3xl rounded-bl-3xl rounded-br-3xl md:max-w-lg max-h-full h-[500px] px-12 md:px-14 pb-12 pt-20 flex flex-col justify-start items-center`}
+
     data-aos="fade-up"
-    data-aos-duration="1750"
+    data-aos-duration="6750"
     data-aos-easing="linear"
     data-aos-anchor="#damon-section"
   >
-  
-    <div className="flex flex-col items-center">
-    <div className="absolute -ml-80 top-0 h-full ">
-        <img
-          className="h-full w-full object-contain"
+    <div className="flex flex-row items-start justify-end w-full">
+      <div className="flex flex-col items-center">
+      <div className="absolute top-0 transform translate-x-full -right-40">
+                  <div className="rounded-full flex flex-col justify-center items-center p-4">
+                  <img
+          className="mt-10 h-96 w-auto object-contain"
           src="../images/monse.jpg"
           alt="monse"
         />
-      </div>
-      <div className="rounded-full p-4">
-   
+                  </div>
+                </div>
+        <div className="flex flex-col items-center">
         <img
-          className="h-100 w-auto ml-auto"
-          src="../images/damon.png"
-          alt="damon"
-        />
-      </div>
-    
-      <div className="flex flex-col items-center">
-        <h3 className="text-2xl mb-4">Damon Braces</h3>
-        <p className="text-center mb-10">
-          Combining self-ligating braces with advanced archwires clinically proven to move teeth quickly and comfortably.
-        </p>
+                      className="h-60 w-80 object-contain -mb-10"
+                      src="../images/damon.png"
+                      alt="damon"
+                    />
+          <h3 className="text-2xl mb-4">Damon Braces</h3>
+          <p className="text-center mb-10">
+            Combining self-ligating braces with advanced archwires clinically proven to move teeth quickly and comfortably.
+          </p>
+        </div>
       </div>
     </div>
  
-  
   </div>
+     <div className="relative top-0 ">
+      </div>
 </section>
-
-
-
           <section>
             <div
               id="technology-section"
@@ -249,7 +232,8 @@ const Home = () => {
                       src="../images/technology.png"
                       alt="tero"
                     />
-                    <h3 className="text-2xl mb-4">Advanced Technology</h3>
+                    <h3 className="text-2xl mb-4"
+                     style={{ letterSpacing: '.5px' }} >Advanced Technology</h3>
                     <p className="text-center mb-10">
                       We offer Invisalign without Impressions. Say goodbye to
                       goopy impressions with our iTero digital scanner.
@@ -328,7 +312,7 @@ const Home = () => {
                     mapStyle={`${process.env.REACT_APP_MAPBOX_STYLE_ALLENTOWN}`}
                   />
                   <figcaption className="p-4 text-center">
-                    <h3 className="uppercase">Allentown</h3>
+                    <h3 className="uppercase"  style={{ letterSpacing: '1px' }}>Allentown</h3>
                     <p className="px-2 text-sm">
                       1251 S Cedar Crest Blvd Suite 210
                     </p>
@@ -342,7 +326,7 @@ const Home = () => {
                     </Link>
                   </figcaption>
                   <button
-                    className="p-4 bg-stone-400 text-white hover:text-stone-700 w-full rounded-bl-3xl rounded-br-3xl ease-in-out duration-500"
+                    className="p-4 bg-stone-900 text-white hover:text-stone-900 hover:bg-stone-100 w-full rounded-bl-3xl rounded-br-3xl ease-in-out duration-500"
                     type="button"
                   >
                     <Link to="/book-now">Book Now</Link>
@@ -359,7 +343,8 @@ const Home = () => {
                     mapStyle={`${process.env.REACT_APP_MAPBOX_STYLE_BETHLEHEM}`}
                   />
                   <figcaption className="p-4 text-center">
-                    <h3 className="uppercase">Bethlehem</h3>
+                    <h3 className="uppercase"
+                     style={{ letterSpacing: '1px' }}>Bethlehem</h3>
                     <p className="text-sm">2901 Emrick Boulevard</p>
                     <p className="text-sm">Bethlehem, PA 18020</p>
                     <Link
@@ -371,7 +356,7 @@ const Home = () => {
                     </Link>
                   </figcaption>
                   <button
-                    className="p-4 bg-stone-400 text-white hover:text-stone-700 w-full rounded-bl-3xl rounded-br-3xl ease-in-out duration-500"
+                    className="p-4 bg-stone-900 text-white hover:text-stone-100 w-full rounded-bl-3xl rounded-br-3xl ease-in-out duration-500"
                     type="button"
                   >
                     <Link to="/book-now">Book Now</Link>
@@ -388,7 +373,7 @@ const Home = () => {
                     mapStyle={`${process.env.REACT_APP_MAPBOX_STYLE_SCHNECKSVILLE}`}
                   />
                   <figcaption className="p-4 text-center">
-                    <h3 className="uppercase">Schnecksville</h3>
+                    <h3 className="uppercase" style={{ letterSpacing: '1px' }}>Schnecksville</h3>
                     <p className="text-sm">4155 Independence Drive</p>
                     <p className="text-sm">Schnecksville, PA 18078</p>
                     <Link
@@ -400,7 +385,7 @@ const Home = () => {
                     </Link>
                   </figcaption>
                   <button
-                    className="p-4 bg-stone-400 text-white hover:text-stone-700 w-full rounded-bl-3xl rounded-br-3xl ease-in-out duration-500"
+                    className="p-4 bg-stone-900 text-white hover:text-stone-700 w-full rounded-bl-3xl rounded-br-3xl ease-in-out duration-500"
                     type="button"
                   >
                     <Link to="/book-now">Book Now</Link>
@@ -417,7 +402,7 @@ const Home = () => {
                     mapStyle={`${process.env.REACT_APP_MAPBOX_STYLE_LEHIGHTON}`}
                   />
                   <figcaption className="p-4 text-center">
-                    <h3 className="uppercase">Lehighton</h3>
+                    <h3 className="uppercase" style={{ letterSpacing: '1px' }}>Lehighton</h3>
                     <p className="text-sm">1080 Blakeslee Blvd Dr E</p>
                     <p className="text-sm">Lehighton, PA 18235</p>
                     <Link
@@ -429,8 +414,9 @@ const Home = () => {
                     </Link>
                   </figcaption>
                   <button
-                    className="p-4 bg-stone-400 text-white hover:text-stone-700 w-full rounded-bl-3xl rounded-br-3xl ease-in-out duration-500"
+                    className="p-4 bg-stone-900 text-white hover:text-stone-700 w-full rounded-bl-3xl rounded-br-3xl ease-in-out duration-500"
                     type="button"
+                   
                   >
                     <Link to="/book-now">Book Now</Link>
                   </button>

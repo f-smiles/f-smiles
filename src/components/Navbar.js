@@ -87,8 +87,8 @@ export default function DesktopNavbar() {
       <nav
   id="desktop-nav"
   className={`w-screen h-max fixed top-0 left-0 right-0 xl:block hidden z-40 ${
-    navbarTransparent ? "bg-#f4eae4" : "bg-stone-700 bg-opactiy-30"
-  }`}
+    navbarTransparent ? "bg-#f4eae4" : "bg-gradient-to-r from-stone-200 via-stoe-400 to-stone-200 bg-opacity-90"
+  } `}
 >
   <ul className="w-full p-2 flex justify-between items-center">
     <ul className="xl:flex hidden gap-8 justify-evenly items-center">
@@ -411,7 +411,7 @@ className={
             <li className="cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-3 hover:text-white font-normal">
               <NavLink
                 to="/book-now"
-                className="mr-10 cursor-pointer bg-violet-300 rounded px-6 py-2 hover:text-indigo-700 transition duration-300 ease-in-out flex items-center text-sm text-white tracking-normal text-white hover:text-indigo-700 transform-gpu btn3 hover:shadow-md hover:shadow-violet-400/50"
+                className="mr-10 cursor-pointer bg-B47EDE rounded px-6 py-2 hover:text-indigo-700 transition duration-300 ease-in-out flex items-center text-sm text-white tracking-normal text-white hover:text-stone-100 transform-gpu btn3 hover:shadow-md hover:shadow-violet-400/50"
               >
                 <span className="transform-gpu transition duration-300 ease-in">
                   Book Now
