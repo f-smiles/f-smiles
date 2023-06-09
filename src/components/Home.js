@@ -14,8 +14,11 @@ const Home = () => {
   const [isTransition, setIsTransition] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
   const threshold = 400;
-  const cardRef = useRef(null);
-
+  const InvisalignRef = useRef(null);
+  const damonRef = useRef(null)
+  const techRef = useRef(null)
+  const [isDamonVisible, setIsDamonVisible]=useState(false)
+const [isTechVisible, setIsTechVisible] = useState(false)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -29,10 +32,52 @@ const Home = () => {
       { threshold: 0.5 } 
     );
 
-    observer.observe(cardRef.current);
+    observer.observe(InvisalignRef.current);
+    const damonObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsDamonVisible(true);
+          }
+        });
+      },
+      { threshold: .3 }
+    );
+  
+    damonObserver.observe(damonRef.current);
 
-    return () => observer.disconnect();
+    observer.observe(InvisalignRef.current);
+
+    const techObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsTechVisible(true);
+          }
+        });
+      },
+      { threshold: .1 }
+    );
+  
+    techObserver.observe(techRef.current);
+    return () => {
+      observer.disconnect();
+      damonObserver.disconnect();
+      techObserver.disconnect();
+    };
   }, []);
+
+  
+  const techStyle = {
+    opacity: isTechVisible ? "1" : "0",
+    transform: isTechVisible ? "translateX(0)" : "translateX(-100%)",
+    transition: "opacity 0.8s ease-in-out, transform 1.2s ease-in-out",
+  };
+  const damonStyle = {
+    opacity: isDamonVisible ? "1" : "0",
+    transform: isDamonVisible ? "translateX(0)" : "translateX(100%)",
+    transition: "opacity 0.8s ease-in-out, transform 1.2s ease-in-out",
+  };
 
   const cardStyle = {
     opacity: isVisible ? '1' : '0',
@@ -144,7 +189,7 @@ const Home = () => {
         // data-aos-easing="linear"
         data-aos-anchor="#invisalign-section"
         style={cardStyle}
-        ref={cardRef}
+        ref={InvisalignRef}
       >
         <div className="relative" style={{ zIndex: '-1' }}>
           <img
@@ -175,7 +220,8 @@ const Home = () => {
   <div
     id="damon-section"
     className={`mr-auto relative rounded-tl-3xl rounded-tr-3xl rounded-bl-3xl rounded-br-3xl md:max-w-lg max-h-full h-[500px] px-12 md:px-14 pb-12 pt-20 flex flex-col justify-start items-center`}
-
+    style={damonStyle}
+    ref={damonRef}
     data-aos="fade-up"
     data-aos-duration="6750"
     data-aos-easing="linear"
@@ -214,10 +260,12 @@ const Home = () => {
             <div
               id="technology-section"
               data-aos="fade-up"
+              
               data-aos-duration="2750"
               data-aos-easing="linear"
               className="mt-10 bg-gradient-to-bl from-violet-100 to-teal-50  mr-auto relative rounded-tl-3xl rounded-tr-3xl rounded-bl-3xl rounded-br-3xl md:max-w-lg max-h-full h-[500px] px-12 md:px-14 pb-12 pt-20 flex flex-col justify-start items-center"
-              style={{ opacity: "0", pointerEvents: "none" }}
+              style={techStyle}
+              ref={techRef}
             >
               <div className="relative" style={{ zIndex: "-1" }}>
                 <img
