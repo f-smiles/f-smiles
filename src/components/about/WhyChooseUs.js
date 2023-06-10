@@ -45,7 +45,7 @@ const WhyChooseUs = () => {
           height: "auto",
           objectFit: "cover",
           objectPosition: "right",
-          filter: "hue-rotate(290deg)",
+          filter: "hue-rotate(640deg)",
         }}
       />
       <div className=" relative rounded-lg px-4 pt-4 pb-2 space-y-4 text-gray-500 text-center relative z-10">
@@ -83,7 +83,7 @@ const WhyChooseUs = () => {
         <div className="relative">
           <div className="absolute inset-0 flex justify-center items-center"></div>
         </div>
-        <div className="rounded-full relative bg-gradient-to-r from-rose-50 to-neutral-50 to-violet-50 to-teal-50 overflow-hidden">
+        <div className="rounded-full relative bg-white bg-opacity-40 backdrop-filter backdrop-blur-xl absolute inset-0 overflow-hidden">
           <p className="mt-14 text-center px-12 py-8 mx-auto text-md text-violet-800 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
           <span className="clamp-8"     style={{ letterSpacing: '.2px' }} >
     FreySmiles Orthodontics is a family-owned practice providing unparalleled orthodontic experience to 

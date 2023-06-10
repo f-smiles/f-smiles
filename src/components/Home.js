@@ -111,7 +111,7 @@ const [isTechVisible, setIsTechVisible] = useState(false)
   return (
     <>
       <main className="pt-16 bg-#fFFFDFD overflow-hidden w-full">
-        <div className="container max-w-screen-xl mx-auto">
+        <div className=" max-w-screen-xl mx-auto">
           <section className="py-12 lg:px-4 xl:px-0">
             <div className="flex flex-col-reverse md:flex-row">
               <div className="mt-24 md:mt-0 flex flex-col lg:ml-10 xl:ml-32 2xl:ml-40 lg:w-6/12 xl:w-5/12 md:w-6/12 px-4 lg:px-0 justify-center">
@@ -177,7 +177,8 @@ const [isTechVisible, setIsTechVisible] = useState(false)
               </div>
             </div>
           </section>
-
+         <div>
+<section className="bg-indigo-50">
           <section 
           // className="w-full bg-gradient-to-bl from-violet-100 to-teal-50"
           >
@@ -223,7 +224,7 @@ const [isTechVisible, setIsTechVisible] = useState(false)
     style={damonStyle}
     ref={damonRef}
     data-aos="fade-up"
-    data-aos-duration="6750"
+    data-aos-duration="1750"
     data-aos-easing="linear"
     data-aos-anchor="#damon-section"
   >
@@ -259,11 +260,8 @@ const [isTechVisible, setIsTechVisible] = useState(false)
           <section>
             <div
               id="technology-section"
-              data-aos="fade-up"
-              
-              data-aos-duration="2750"
-              data-aos-easing="linear"
-              className="mt-10 bg-gradient-to-bl from-violet-100 to-teal-50  mr-auto relative rounded-tl-3xl rounded-tr-3xl rounded-bl-3xl rounded-br-3xl md:max-w-lg max-h-full h-[500px] px-12 md:px-14 pb-12 pt-20 flex flex-col justify-start items-center"
+           
+              className=" relative  md:max-w-lg  px-12 md:px-14 pb-12 pt-20  items-center"
               style={techStyle}
               ref={techRef}
             >
@@ -291,6 +289,9 @@ const [isTechVisible, setIsTechVisible] = useState(false)
               </div>
             </div>
           </section>
+
+          </section>
+          </div>   
           <div className="mt-10 mb-60">
             <LogoSlider style={{ transform: "translate(-50%, -50%)" }} />
           </div>
@@ -472,7 +473,7 @@ const [isTechVisible, setIsTechVisible] = useState(false)
               </div>
             </div>
           </section>
-        </div>
+          </div>
       </main>
     </>
   );

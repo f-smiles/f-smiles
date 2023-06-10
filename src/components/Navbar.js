@@ -43,8 +43,8 @@ export default function DesktopNavbar() {
   };
 
   const handleMouseClickPatient = () => {
-    setPatient((prevPatient) => !prevPatient);
-    setTreatments(false); 
+    setPatient(true);
+   
   };
 
   const handleMouseClickAbout = () => {
@@ -52,13 +52,7 @@ export default function DesktopNavbar() {
   };
 
 
-  const handleDropdownMouseEnter = () => {
-    setIsDropdownOpen(true);
-  };
 
-  const handleDropdownMouseLeave = () => {
-    setIsDropdownOpen(false);
-  };
   const about_us_links = [
     { name: "Our Team", href: "/our-team", image: "../../images/doctors.jpg" },
     { name: "Why Choose Us", href: "/why-choose-us", image: "" },
@@ -87,11 +81,11 @@ export default function DesktopNavbar() {
       <nav
   id="desktop-nav"
   className={`w-screen h-max fixed top-0 left-0 right-0 xl:block hidden z-40 ${
-    navbarTransparent ? "bg-#f4eae4" : "bg-gradient-to-r from-stone-200 via-stoe-400 to-stone-200 bg-opacity-90"
+    navbarTransparent ? "bg-#f4eae4" : "bg-gradient-to-r from-stone-200 via-stone-400 to-stone-200 bg-opacity-90"
   } `}
 >
-  <ul className="w-full p-2 flex justify-between items-center">
-    <ul className="xl:flex hidden gap-8 justify-evenly items-center">
+  <ul className="w-full p-2 flex justify-center items-center">
+    <ul className="xl:flex hidden gap-8  items-center">
        
           {!about && (
   <li
@@ -104,18 +98,18 @@ export default function DesktopNavbar() {
 )}<div
 className={
   about
-    ? "block absolute top-0 left-0 flex flex-row h-screen overflow-hidden transition-all delay-300 duration-500 ease-out"
+    ? "fixed top-0 left-0 flex flex-row h-screen overflow-hidden transition-all delay-300 duration-500 ease-out"
     : "hidden"
 }
 >
   <div className="flex h-screen w-screen backdrop-blur-sm bg-white/30">
-    <div className="bg-stone-200 w-1/3 flex">
+    <div className="bg-stone-200 w-1/3 ">
       <div className="overflow-y-auto">
         <ul className="p-8">
           {about_us_links &&
             about_us_links.map((link) => {
               return (
-                <h1>
+              
                 <li
                   className="py-4 cursor-pointer text-indigo text-xl hover:text-violet-400 text-sm p-2"
                   key={link.name}
@@ -129,7 +123,7 @@ className={
                     {link.name}
                   </NavLink>
                 </li>
-                </h1>
+                
               );
             })}
         </ul>
@@ -390,28 +384,30 @@ className={
               </NavLink>
             </li>
 
-          <li className="z-10">
+            <li className="">
   {cartCount > 0 && (
     <NavLink to="/bag" className="flex flex-row items-center gap-2  cursor-pointer block text-xs leading-3 tracking-normal px-3 font-normal">
       <span className="hover:text-violet-500">
         Bag
       </span>
-        <div className="relative w-full h-full">
-          <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg" width="18" height="24"><g><path d="M17.54 5.424a.47.47 0 0 1 .46.474v17.627a.47.47 0 0 1-.46.475H.46a.47.47 0 0 1-.46-.475V5.898a.47.47 0 0 1 .46-.474h4.795v-1.56C5.255 1.733 6.935 0 9 0c2.065 0 3.745 1.733 3.745 3.864v1.56zm-11.365 0h5.64v-1.56c0-1.608-1.264-2.915-2.82-2.915-1.555 0-2.82 1.307-2.82 2.915zm10.905.949h-4.335V8.61a.47.47 0 0 1-.46.475.47.47 0 0 1-.46-.475V6.373h-5.65V8.61a.47.47 0 0 1-.46.475.47.47 0 0 1-.46-.475V6.373H.92V23.05h16.16z"></path></g></svg>
-          <span className="-mt-1 absolute top-3 mx-auto w-full h-full text-center">{cartCount}</span>
-        </div>
+      <div className="relative w-full h-full">
+        <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg" width="18" height="24">
+          <g>
+            <path d="M17.54 5.424a.47.47 0 0 1 .46.474v17.627a.47.47 0 0 1-.46.475H.46a.47.47 0 0 1-.46-.475V5.898a.47.47 0 0 1 .46-.474h4.795v-1.56C5.255 1.733 6.935 0 9 0c2.065 0 3.745 1.733 3.745 3.864v1.56zm-11.365 0h5.64v-1.56c0-1.608-1.264-2.915-2.82-2.915-1.555 0-2.82 1.307-2.82 2.915zm10.905.949h-4.335V8.61a.47.47 0 0 1-.46.475.47.47 0 0 1-.46-.475V6.373h-5.65V8.61a.47.47 0 0 1-.46.475.47.47 0 0 1-.46-.475V6.373H.92V23.05h16.16z"></path>
+          </g>
+        </svg>
+        <span className="-mt-1 absolute top-3 mx-auto w-full h-full text-center">{cartCount}</span>
+      </div>
     </NavLink>
   )}
 </li>
+
           </ul>
           <div className="flex items-center">
-
-
-
             <li className="cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-3 hover:text-white font-normal">
               <NavLink
                 to="/book-now"
-                className="mr-10 cursor-pointer bg-B47EDE rounded px-6 py-2 hover:text-indigo-700 transition duration-300 ease-in-out flex items-center text-sm text-white tracking-normal text-white hover:text-stone-100 transform-gpu btn3 hover:shadow-md hover:shadow-violet-400/50"
+                className="mr-10 cursor-pointer bg-B47EDE rounded px-6 py-2 hover:text-indigo-700 transition duration-300 ease-in-out flex items-center text-sm text-white tracking-normal text-white hover:text-stone-100 transform-gpu  hover:shadow-md hover:shadow-violet-400/50"
               >
                 <span className="transform-gpu transition duration-300 ease-in">
                   Book Now
