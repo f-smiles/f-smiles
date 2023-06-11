@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext, useEffect, useRef } from "react";
 import { NavLink } from "react-router-dom";
 import { Transition } from "@headlessui/react";
 import Sphere from "./navbar/sketch";
@@ -16,6 +16,27 @@ export default function DesktopNavbar() {
   const [treatments, setTreatments] = useState(false);
   const [navbarTransparent, setNavbarTransparent] = useState(true);
   const [showSidebar, setShowSidebar] = useState(false);
+  const sidebarRef = useRef(null);
+
+  const handleClickOutside = (event) => {
+    if (sidebarRef.current && !sidebarRef.current.contains(event.target)) {
+      setShowSidebar(false);
+    }
+  };
+
+  const handleToggleSidebar = () => {
+    setShowSidebar(!showSidebar);
+  };
+
+  useEffect(() => {
+    if (showSidebar) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [showSidebar]);
   const handleToggleBag = () => {
     setIsBagOpen(!isBagOpen);
   };
@@ -393,52 +414,50 @@ className={
                 Shop
               </NavLink>
             </li>
-
-  
-<li className="">
+            <li className="">
   {showSidebar ? (
     <button
-      className="flex text-4xl text-white items-center cursor-pointer fixed right-10 top-6 z-50"
-      onClick={() => setShowSidebar(!showSidebar)}
+      className="flex text-3xl text-black items-center cursor-pointer fixed right-10 top-6 z-50"
+      onClick={handleToggleSidebar}
     >
       x
     </button>
   ) : (
-    <div
-      className="flex flex-row items-center gap-2 cursor-pointer block text-xs leading-3 tracking-normal px-3 font-normal"
-      onClick={() => setShowSidebar(!showSidebar)}
-    >
-      <span className="hover:text-violet-500">
-        Bag
-      </span>
+    <>
       {cartCount > 0 && (
-        <div className="relative w-full h-full">
-          <svg
-            className="w-full h-full"
-            xmlns="http://www.w3.org/2000/svg"
-            width="18"
-            height="24"
-          >
-            <g>
+        <div
+          className="flex flex-row items-center gap-2 cursor-pointer block text-xs leading-3 tracking-normal px-3 font-normal"
+          onClick={handleToggleSidebar}
+        >
+          <span className="hover:text-violet-500">Bag</span>
+          <div className="relative flex items-center">
+            <svg
+              className="w-5 h-5"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+            >
               <path d="M17.54 5.424a.47.47 0 0 1 .46.474v17.627a.47.47 0 0 1-.46.475H.46a.47.47 0 0 1-.46-.475V5.898a.47.47 0 0 1 .46-.474h4.795v-1.56C5.255 1.733 6.935 0 9 0c2.065 0 3.745 1.733 3.745 3.864v1.56zm-11.365 0h5.64v-1.56c0-1.608-1.264-2.915-2.82-2.915-1.555 0-2.82 1.307-2.82 2.915zm10.905.949h-4.335V8.61a.47.47 0 0 1-.46.475.47.47 0 0 1-.46-.475V6.373h-5.65V8.61a.47.47 0 0 1-.46.475.47.47 0 0 1-.46-.475V6.373H.92V23.05h16.16z"></path>
-            </g>
-          </svg>
-          <span className="-mt-1 absolute top-3 mx-auto w-full h-full text-center">
-            {cartCount}
-          </span>
+            </svg>
+            <span className="absolute top-0 right-0 text-black text-xs px-1 rounded-full mt-2 mr-2">
+              {cartCount}
+            </span>
+          </div>
         </div>
       )}
-    </div>
+    </>
   )}
 
   <div
-    className={`top-0 right-0 w-[35vw] bg-stone-300 p-10 pl-20 text-white fixed h-full z-40 ease-in-out duration-300 ${
+    ref={sidebarRef}
+    className={`top-0 right-0 w-[35vw] bg-white p-10 pl-20 text-white fixed h-full z-40 ease-in-out duration-700 ${
       showSidebar ? "translate-x-0" : "translate-x-full"
     }`}
   >
     <Bag />
   </div>
 </li>
+
+
 
 
 
