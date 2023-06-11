@@ -3,8 +3,9 @@ import { NavLink } from "react-router-dom";
 import { Transition } from "@headlessui/react";
 import Sphere from "./navbar/sketch";
 import CartContext from "../app/CartContext";
-
+import Bag from "./stripe/Bag";
 export default function DesktopNavbar() {
+  
   const [isBagOpen, setIsBagOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
@@ -14,7 +15,7 @@ export default function DesktopNavbar() {
   const [patient, setPatient] = useState(false);
   const [treatments, setTreatments] = useState(false);
   const [navbarTransparent, setNavbarTransparent] = useState(true);
-
+  const [showSidebar, setShowSidebar] = useState(false);
   const handleToggleBag = () => {
     setIsBagOpen(!isBagOpen);
   };
@@ -44,7 +45,7 @@ export default function DesktopNavbar() {
 
   const handleMouseClickPatient = () => {
     setPatient(true);
-   
+    setTreatments(false);
   };
 
   const handleMouseClickAbout = () => {
@@ -52,7 +53,13 @@ export default function DesktopNavbar() {
   };
 
 
+  const handleDropdownMouseEnter = () => {
+    setIsDropdownOpen(true);
+  };
 
+  const handleDropdownMouseLeave = () => {
+    setIsDropdownOpen(false);
+  };
   const about_us_links = [
     { name: "Our Team", href: "/our-team", image: "../../images/doctors.jpg" },
     { name: "Why Choose Us", href: "/why-choose-us", image: "" },
@@ -80,22 +87,25 @@ export default function DesktopNavbar() {
       {/* TODO: add focus to dropdown for accessibility */}
       <nav
   id="desktop-nav"
-  className={`w-screen h-max fixed top-0 left-0 right-0 xl:block hidden z-40 ${
+  className={` h-max fixed top-0 left-0 right-0 xl:block hidden z-40 ${
     navbarTransparent ? "bg-#f4eae4" : "bg-gradient-to-r from-stone-200 via-stone-400 to-stone-200 bg-opacity-90"
   } `}
 >
+
   <ul className="w-full p-2 flex justify-center items-center">
     <ul className="xl:flex hidden gap-8  items-center">
        
           {!about && (
   <li
-    className="hover:underline ml-6 h-full cursor-pointer hover:text-indigo-900 transition duration-150 ease-in-out inline-flex items-center text-sm text-stone-900 tracking-normal relative hover:text-indigo-700 gap-2"
+    className="hover:underline ml-6 h-full cursor-pointer hover:text-indigo-900 transition duration-150 ease-in-out items-center text-sm text-stone-900 tracking-normal relative hover:text-indigo-700 gap-2"
     onClick={handleMouseClickAbout}
     style={{ letterSpacing: '1.5px' }} 
   >
     ABOUT
   </li>
-)}<div
+)}
+
+<div
 className={
   about
     ? "fixed top-0 left-0 flex flex-row h-screen overflow-hidden transition-all delay-300 duration-500 ease-out"
@@ -112,7 +122,7 @@ className={
               
                 <li
                   className="py-4 cursor-pointer text-indigo text-xl hover:text-violet-400 text-sm p-2"
-                  key={link.name}
+                  key={link.href}
                   style={{ letterSpacing: '.75px' }}
                 >
                   <NavLink
@@ -156,7 +166,7 @@ className={
 
 {!patient && (
   <li
-    className={`hover:underline cursor-pointer hover:text-indigo-700 transition duration-150 ease-in-out inline-flex items-center text-sm tracking-normal relative text-stone-900 hover:text-indigo-700 gap-2 mr-4 ${about ? 'hidden' : ''}`}
+    className={`hover:underline cursor-pointer hover:text-indigo-700 transition duration-150 ease-in-out items-center text-sm tracking-normal relative text-stone-900 hover:text-indigo-700 gap-2 mr-4 ${about ? 'hidden' : ''}`}
     onClick={() => handleMouseClickPatient(true)}
     style={{ letterSpacing: '1.5px' }} 
   >
@@ -254,7 +264,7 @@ className={
            
             {!treatments && (
   <li
-    className={`hover:underline cursor-pointer hover:text-indigo-700 transition duration-150 ease-in-out inline-flex items-center text-sm tracking-normal relative text-stone-900 hover:text-indigo-700 gap-2 mr-4 ${about ? 'hidden' : ''} ${treatments ? 'hidden' : ''}${patient ? 'hidden' : ''}`}
+    className={`hover:underline cursor-pointer hover:text-indigo-700 transition duration-150 ease-in-out items-center text-sm tracking-normal relative text-stone-900 hover:text-indigo-700 gap-2 mr-4 ${about ? 'hidden' : ''} ${treatments ? 'hidden' : ''}${patient ? 'hidden' : ''}`}
     onClick={() => handleMouseClick(true)}
     style={{ letterSpacing: '1.5px' }} 
   >
@@ -401,6 +411,43 @@ className={
     </NavLink>
   )}
 </li>
+<li className="">
+  {  showSidebar ? (
+    <button
+      className="flex text-4xl text-white items-center cursor-pointer fixed right-10 top-6 z-50"
+      onClick={() => setShowSidebar(!showSidebar)}
+    >
+      x
+    </button>
+  ) : (
+    <>
+    <span className="hover:text-violet-500">
+    Bag
+  </span>
+    <svg
+      onClick={() => setShowSidebar(!showSidebar)}
+      className="fixed z-30 flex items-center cursor-pointer right-10 top-6"
+      xmlns="http://www.w3.org/2000/svg"
+      width="18"
+      height="24"
+      viewBox="0 0 18 24"
+    >
+      <g>
+        <path d="M17.54 5.424a.47.47 0 0 1 .46.474v17.627a.47.47 0 0 1-.46.475H.46a.47.47 0 0 1-.46-.475V5.898a.47.47 0 0 1 .46-.474h4.795v-1.56C5.255 1.733 6.935 0 9 0c2.065 0 3.745 1.733 3.745 3.864v1.56zm-11.365 0h5.64v-1.56c0-1.608-1.264-2.915-2.82-2.915-1.555 0-2.82 1.307-2.82 2.915zm10.905.949h-4.335V8.61a.47.47 0 0 1-.46.475.47.47 0 0 1-.46-.475V6.373h-5.65V8.61a.47.47 0 0 1-.46.475.47.47 0 0 1-.46-.475V6.373H.92V23.05h16.16z"></path>
+      </g>
+    </svg>
+    </>
+  )}
+
+  <div
+    className={`top-0 right-0 w-[35vw] bg-stone-300 p-10 pl-20 text-white fixed h-full z-40 ease-in-out duration-300 ${
+      showSidebar ? "translate-x-0" : "translate-x-full"
+    }`}
+  >
+    <Bag />
+  </div>
+</li>
+
 
           </ul>
           <div className="flex items-center">

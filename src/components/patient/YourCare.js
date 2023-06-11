@@ -7,12 +7,12 @@ AOS.init();
 const YourCare = () => {
   return (
     <>
-      <section className="my-16 text-center space-y-24">
+      <section className="my-16  space-y-24">
         <div
           data-aos="fade-up"
           data-aos-duration="750"
           data-aos-easing="linear"
-          className="bg-gradient-to-tr from-stone-50 to-violet-100 rounded-tl-3xl rounded-tr-3xl rounded-bl-3xl rounded-br-md md:flex  max-h-full px-12 pb-12 pt-20"
+          className="bg-stone-900 rounded-tl-3xl rounded-tr-3xl rounded-bl-3xl rounded-br-md md:flex  max-h-full px-12 pb-12 pt-20"
         >
           <div >
             <h3 className="text-2xl text-lime-900 uppercase mb-14 mt-20">Your First Visit</h3>

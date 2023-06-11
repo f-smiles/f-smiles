@@ -210,6 +210,7 @@ const [isTechVisible, setIsTechVisible] = useState(false)
                 As part of the top 1% of Invisalign providers in the US, we have the experience to deliver
                 the smile you deserve.
               </p>
+              <button className="rounded border border: bg-white border:  px-6 py-4"> <Link to="/invisalign">How Invisalign Works</Link></button>
             </div>
           </div>
         </div>
@@ -249,6 +250,7 @@ const [isTechVisible, setIsTechVisible] = useState(false)
           <p className="text-center mb-10">
             Combining self-ligating braces with advanced archwires clinically proven to move teeth quickly and comfortably.
           </p>
+          <button className="rounded border border: bg-white border:  px-6 py-4"> <Link to="/braces">How Damon Braces Works</Link></button>
         </div>
       </div>
     </div>
@@ -284,6 +286,7 @@ const [isTechVisible, setIsTechVisible] = useState(false)
                       We offer Invisalign without Impressions. Say goodbye to
                       goopy impressions with our iTero digital scanner.
                     </p>
+                    <button className="rounded border border: bg-white border:  px-6 py-4"> <Link to="/invisalign">Learn More</Link></button>
                   </div>
                 </div>
               </div>
