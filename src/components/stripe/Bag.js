@@ -103,7 +103,7 @@ const Bag = ({ productData, isOpen }) => {
   return (
     
     <div className="mt-20 flex flex-col items-center">
-      <h2 className="mb-10 text-2xl">Your Bag</h2>
+      <h2 className="mb-10 text-black text-2xl">Your Bag</h2>
       <div className="w-full max-w-2xl">
         {cart?.map((product) => (
           <div
@@ -123,7 +123,7 @@ const Bag = ({ productData, isOpen }) => {
               />
             </div>
             <div>
-              <h3 className="hover:underline">
+              <h3 className="text-black hover:underline">
                 <Link to={`/products/${product.id}`}>
                   {product.name.toUpperCase()}
                 </Link>
@@ -198,11 +198,11 @@ const Bag = ({ productData, isOpen }) => {
                   </button>
                 </div>
               </div>
-              <p>${(product.price * product.count).toFixed(2)}</p>
+              <p className="text-black">${(product.price * product.count).toFixed(2)}</p>
             </div>
             <button
               onClick={() => removeFromCart(product.id)}
-              className="ml-auto"
+              className="text-black ml-auto"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -220,9 +220,9 @@ const Bag = ({ productData, isOpen }) => {
           </div>
         ))}
       </div>
-      <h3 className="mb-2">Total: ${total.toFixed(2)}</h3>
+      <h3 className="text-black mb-2">Total: ${total.toFixed(2)}</h3>
       <section className="z-10"> 
-      <button className="mb-5 rounded bg-violet-700 text-md px-10 py-4 hover:bg-violet-400 ">
+      <button className="mb-5 rounded bg-black text-md px-10 py-4 hover:bg-violet-400 ">
           <NavLink 
             to="/checkout"
             className="cursor-pointer block text-lg leading-3 tracking-normal px-3 font-normal text-white "

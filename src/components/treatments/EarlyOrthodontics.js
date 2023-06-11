@@ -49,7 +49,7 @@ const EarlyOrthodontics = () => {
     
     <main className="bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-fuchsia-300 via-green-400 to-rose-700 w-full px-4 pt-16">
       
-      <div className="mt-10 mx-auto w-full max-w-screen-lg rounded-full bg-gradient-to-r from-yellow-200 to-yellow-500  p-2">
+      <div className="mt-10 mx-auto w-full max-w-screen-lg rounded-full  p-2">
       <img
   src="../../images/redhalf.svg"
   alt="invisalign"

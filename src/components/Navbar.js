@@ -1,10 +1,11 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext, useEffect, useRef } from "react";
 import { NavLink } from "react-router-dom";
 import { Transition } from "@headlessui/react";
 import Sphere from "./navbar/sketch";
 import CartContext from "../app/CartContext";
-
+import Bag from "./stripe/Bag";
 export default function DesktopNavbar() {
+  
   const [isBagOpen, setIsBagOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
@@ -14,7 +15,28 @@ export default function DesktopNavbar() {
   const [patient, setPatient] = useState(false);
   const [treatments, setTreatments] = useState(false);
   const [navbarTransparent, setNavbarTransparent] = useState(true);
+  const [showSidebar, setShowSidebar] = useState(false);
+  const sidebarRef = useRef(null);
 
+  const handleClickOutside = (event) => {
+    if (sidebarRef.current && !sidebarRef.current.contains(event.target)) {
+      setShowSidebar(false);
+    }
+  };
+
+  const handleToggleSidebar = () => {
+    setShowSidebar(!showSidebar);
+  };
+
+  useEffect(() => {
+    if (showSidebar) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [showSidebar]);
   const handleToggleBag = () => {
     setIsBagOpen(!isBagOpen);
   };
@@ -38,23 +60,19 @@ export default function DesktopNavbar() {
     };
   }, []);
 
-  const handleMouseOver = () => {
+  const handleMouseClick = () => {
     setTreatments(true);
-    clearTimeout(hideTimeoutId);
   };
 
-  let hideTimeoutId = null;
-
-  const handleMouseLeave = () => {
-    hideTimeoutId = setTimeout(() => setTreatments(false), 2550000);
-  };
-  const handleMouseEnter = () => {
-    setIsDropdownOpen(true);
+  const handleMouseClickPatient = () => {
+    setPatient(true);
+    setTreatments(false);
   };
 
-  const handleMouseLeaver = () => {
-    setIsDropdownOpen(false);
+  const handleMouseClickAbout = () => {
+    setAbout((prevAbout) => !prevAbout);
   };
+
 
   const handleDropdownMouseEnter = () => {
     setIsDropdownOpen(true);
@@ -89,100 +107,191 @@ export default function DesktopNavbar() {
       {/* Desktop Navbar */}
       {/* TODO: add focus to dropdown for accessibility */}
       <nav
-        id="desktop-nav"
-        className={`w-screen h-max fixed top-0 left-0 right-0 xl:block hidden z-40 ${
-          navbarTransparent ? "bg-#f4eae4" : "bg-stone-700/30"
-        }`}
-      >
-        <ul className="w-screen p-2  flex justify-between items-center">
-          <ul className="xl:flex hidden gap-8 justify-evenly items-center">
-          <div className="relative " onMouseLeaver={handleMouseLeaver}>
-      <li
-        className="ml-6 h-full cursor-pointer hover:text-indigo-900 transition duration-150 ease-in-out inline-flex items-center text-sm text-stone-900 tracking-normal relative font-black hover:text-indigo-700 gap-2 "
-        onMouseEnter={handleMouseEnter}
-      >
-        About
-      </li>
-      <Transition
-        show={isDropdownOpen}
-        enter="transition duration-100 ease-out"
-        enterFrom="opacity-0"
-        enterTo="opacity-100"
-        leave="transition duration-75 ease-out"
-        leaveFrom="opacity-100"
-        leaveTo="opacity-0"
-        onMouseEnter={handleDropdownMouseEnter}
-        onMouseLeave={handleDropdownMouseLeave}
-      >
-        <div className="bg-white py-1 w-screen left-0 right-0 mt-12 absolute top-0 z-50">
-          <div className="flex items-center">
-            {about_us_links &&
-              about_us_links.map((link) => (
-                <div key={link.name} className="text-center">
-                  <img
-                    src={link.image}
-                    alt={link.name}
-                    className="z-10 mx-auto"
-                    style={{
-                      width: "50%",
-                      height: "auto",
-                    }}
-                  />
+  id="desktop-nav"
+  className={` h-max fixed top-0 left-0 right-0 xl:block hidden z-40 ${
+    navbarTransparent ? "bg-#f4eae4" : "bg-gradient-to-r from-stone-200 via-stone-400 to-stone-200 bg-opacity-90"
+  } `}
+>
+
+  <ul className="w-full p-2 flex justify-center items-center">
+    <ul className="xl:flex hidden gap-8  items-center">
+       
+          {!about && (
+  <li
+    className="hover:underline ml-6 h-full cursor-pointer hover:text-indigo-900 transition duration-150 ease-in-out items-center text-sm text-stone-900 tracking-normal relative hover:text-indigo-700 gap-2"
+    onClick={handleMouseClickAbout}
+    style={{ letterSpacing: '1.5px' }} 
+  >
+    ABOUT
+  </li>
+)}
+
+<div
+className={
+  about
+    ? "fixed top-0 left-0 flex flex-row h-screen overflow-hidden transition-all delay-300 duration-500 ease-out"
+    : "hidden"
+}
+>
+  <div className="flex h-screen w-screen backdrop-blur-sm bg-white/30">
+    <div className="bg-stone-200 w-1/3 ">
+      <div className="overflow-y-auto">
+        <ul className="p-8">
+          {about_us_links &&
+            about_us_links.map((link) => {
+              return (
+              
+                <li
+                  className="py-4 cursor-pointer text-indigo text-xl hover:text-violet-400 text-sm p-2"
+                  key={link.href}
+                  style={{ letterSpacing: '.75px' }}
+                >
                   <NavLink
                     to={link.href}
-                    className="block mt-2 text-gray-600 text-md leading-3 tracking-normal hover:text-indigo-400 mt-2"
+                    className="block hover:translate-x-6 transition duration-500"
+                    onClick={handleMouseClickAbout}
                   >
                     {link.name}
                   </NavLink>
-                </div>
-              ))}
-          </div>
-        </div>
-      </Transition>
+                </li>
+                
+              );
+            })}
+        </ul>
+      </div>
     </div>
+    <button
+        onClick={() => setAbout(false)}
+        className="text-gray-500 hover:text-gray-600 focus:outline-none focus:text-gray-600"
+        aria-label="Toggle sidebar"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth={1.5}
+          stroke="currentColor"
+          className="w-6 h-6"
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    <div className="absolute top-4 right-4 z-10">
+   
+    </div>
+    <div className="absolute bottom-60 left-20">
+      <Sphere style={{ transform: "translate(-50%, -50%)", zIndex: -1 }} />
+    </div>
+  </div>
+</div>
 
-            <li
-              className="cursor-pointer hover:text-indigo-700 transition duration-150 ease-in-out inline-flex items-center text-sm tracking-normal relative text-stone-900 hover:text-indigo-700 gap-2 mr-4"
-              onMouseOver={() => setPatient(true)}
-              onMouseLeave={() => setPatient(false)}
+{!patient && (
+  <li
+    className={`hover:underline cursor-pointer hover:text-indigo-700 transition duration-150 ease-in-out items-center text-sm tracking-normal relative text-stone-900 hover:text-indigo-700 gap-2 mr-4 ${about ? 'hidden' : ''}`}
+    onClick={() => handleMouseClickPatient(true)}
+    style={{ letterSpacing: '1.5px' }} 
+  >
+    PATIENT
+  </li>
+)}
+              <div
+              className={
+                patient
+                  ? "block absolute top-0 left-0 flex flex-row h-screen overflow-hidden translate-x-0 transition-all delay-300 duration-500 ease-out"
+                  : "absolute top-0 left-0 flex flex-row h-screen overflow-hidden translate-x-[-100%] transition-all delay-0 duration-500 ease-out"
+              }
             >
-              Patient
-              <Transition
-                show={patient}
-                enter="transition duration-100 ease-out"
-                enterFrom="opacity-0"
-                enterTo="opacity-100"
-                leave="transition duration-75 ease-out"
-                leaveFrom="opacity-100"
-                leaveTo="opacity-0"
-                className="bg-white shadow rounded py-1 w-max left-0 mt-12 -ml-4 absolute top-0"
-                onMouseOver={() => setPatient(true)}
-                onMouseLeave={() => setPatient(false)}
-              >
-                {patient_links &&
-                  patient_links.map((link) => {
-                    return (
-                      <li className="cursor-pointer text-gray-600 text-sm leading-3 tracking-normal hover:text-white font-normal">
-                        <NavLink
-                          to={link.href}
-                          key={link.name}
-                          className="cursor-pointer block text-gray-600 text-sm leading-3 tracking-normal hover:text-indigo-400 p-4 font-normal"
+              <div className="flex h-screen w-screen backdrop-blur-sm bg-white/30">
+                <div className="bg-stone-200 w-1/3 flex">
+                  <div className="overflow-y-auto">
+                    <ul className="p-8">
+                      
+                      {patient_links &&
+                        patient_links.map((link) => {
+                          return (
+                            <h1>
+                            <li
+                              className="py-4 cursor-pointer text-indigo text-xl hover:text-gray-500 text-sm p-2"
+                              key={link.name}
+                              style={{ letterSpacing: '.75px' }} 
+                            >
+                              <NavLink
+                                to={link.href}
+                                className="block hover:translate-x-6 transition duration-500"
+                                onClick={() => setPatient(false)}
+                              >
+                                {link.name}
+                              </NavLink>
+                            </li>
+                            </h1>
+                          );
+                        })}
+                    </ul>
+                  </div>
+
+                  <div
+                    style={{ transform: "translate(-50%, -50%)",  }}
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth={1.5}
+                      stroke="currentColor"
+                      className="w-6 h-6"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
+                      />
+                    </svg>
+                  </div>
+                  <div className="absolute bottom-60 left-20">
+                    <Sphere
+                      style={{ transform: "translate(-50%, -50%)", zIndex: -1 }}
+                    />
+                  </div>
+                </div>
+                <div className="flex flex-col overflow-hidden">
+                  <div className="flex items-center justify-between h-14 px-4">
+                    <div className="flex items-center">
+                      <button
+                        onClick={() => setPatient(false)}
+                        className="text-gray-500 hover:text-gray-600 focus:outline-none focus:text-gray-600"
+                        aria-label="Toggle sidebar"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          strokeWidth={1.5}
+                          stroke="currentColor"
+                          className="w-6 h-6"
                         >
-                          {link.name}
-                        </NavLink>
-                      </li>
-                    );
-                  })}
-              </Transition>
-            </li>
-            <li
-              className="cursor-pointer hover:text-indigo-700 transition duration-150 ease-in-out inline-flex items-center text-sm text-stone-900 tracking-normal relative hover:text-indigo-700 gap-2 mr-4"
-              onMouseOver={handleMouseOver}
-              onMouseLeave={handleMouseLeave}
-              // onClick={() => setTreatments(!treatments)}
-            >
-              Treatments
-            </li>
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M6 18L18 6M6 6l12 12"
+                          />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        
+           
+            {!treatments && (
+  <li
+    className={`hover:underline cursor-pointer hover:text-indigo-700 transition duration-150 ease-in-out items-center text-sm tracking-normal relative text-stone-900 hover:text-indigo-700 gap-2 mr-4 ${about ? 'hidden' : ''} ${treatments ? 'hidden' : ''}${patient ? 'hidden' : ''}`}
+    onClick={() => handleMouseClick(true)}
+    style={{ letterSpacing: '1.5px' }} 
+  >
+    TREATMENT
+  </li>
+)}
             <div
               className={
                 treatments
@@ -197,9 +306,11 @@ export default function DesktopNavbar() {
                       {treatments_links &&
                         treatments_links.map((link) => {
                           return (
+                            <h1>
                             <li
                               className="py-4 cursor-pointer text-indigo text-xl hover:text-gray-500 text-sm p-2"
                               key={link.name}
+                              style={{ letterSpacing: '.75px' }} 
                             >
                               <NavLink
                                 to={link.href}
@@ -209,6 +320,7 @@ export default function DesktopNavbar() {
                                 {link.name}
                               </NavLink>
                             </li>
+                            </h1>
                           );
                         })}
                     </ul>
@@ -275,60 +387,86 @@ export default function DesktopNavbar() {
                 />
               </NavLink>
             </li>
-            <li className="cursor-pointer flex hover:text-indigo-700 transition duration-150 ease-in-out flex items-center text-sm text-stone-900 tracking-normal hover:text-indigo-700">
+            <li className="ml-40 hover:underline text-xs cursor-pointer flex hover:text-indigo-700 transition duration-150 ease-in-out flex items-center tracking-normal hover:text-indigo-700">
               <a
                 href="https://my.orthoblink.com/bLink/Login"
-                className="cursor-pointer block text-sm leading-3 tracking-normal px-3 font-normal mr-4"
+                className="cursor-pointer block leading-3 tracking-normal px-3 font-normal "
+                style={{ letterSpacing: '1px' }} 
               >
                 Patient Login
               </a>
             </li>
-            <li className="cursor-pointer flex hover:text-indigo-700 transition duration-150 ease-in-out flex items-center text-sm text-stone-900 tracking-normal  hover:text-indigo-700">
+            <li className="hover:underline cursor-pointer flex hover:text-indigo-700 transition duration-150 ease-in-out flex items-center text-xs text-stone-900 tracking-normal  hover:text-indigo-700">
               <NavLink
                 to="/locations"
-                className="cursor-pointer block text-sm leading-3 tracking-normal px-3 font-normal"
+                className="cursor-pointer block leading-3 tracking-normal px-3 font-normal"
+                style={{ letterSpacing: '1px' }} 
               >
                 Our Locations
               </NavLink>
             </li>
-            <li className="cursor-pointer flex hover:text-indigo-700 transition duration-150 ease-in-out flex items-center text-sm text-stone-900 tracking-normal  hover:text-indigo-700">
+            <li className="hover:underline cursor-pointer flex hover:text-indigo-700 transition duration-150 ease-in-out flex items-center text-xs text-stone-900 tracking-normal  hover:text-indigo-700">
               <NavLink
                 to="/products"
-                className="cursor-pointer block text-sm leading-3 tracking-normal px-3 font-normal"
+                className="cursor-pointer block leading-3 tracking-normal px-3 font-normal"
+                style={{ letterSpacing: '1px' }} 
               >
                 Shop
               </NavLink>
             </li>
-          </ul>
-          <div className="flex items-center">
-
-
-
-          <li className="z-10">
-  {cartCount > 0 && (
-    <NavLink to="/bag" className="flex flex-row items-center gap-2  cursor-pointer block text-sm leading-3 tracking-normal px-3 font-normal">
-      <span className="hover:text-violet-500">
-        Bag
-      </span>
-        {/* <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 24" stroke="currentColor" className="w-8 h-5 bag-icon">
-          <path className="bag-path-static" d="M17.54 5.424a.47.47 0 0 1 .46.474v17.627a.47.47 0 0 1-.46.475H.46a.47.47 0 0 1-.46-.475V5.898a.47.47 0 0 1 .46-.474h4.795v-1.56C5.255 1.733 6.935 0 9 0c2.065 0 3.745 1.733 3.745 3.864v1.56zm-11.365 0h5.64v-1.56c0-1.608-1.264-2.915-2.82-2.915-1.555 0-2.82 1.307-2.82 2.915zm10.905.949h-4.335V8.61a.47.47 0 0 1-.46.475.47.47 0 0 1-.46-.475V6.373h-5.65V8.61a.47.47 0 0 1-.46.475.47.47 0 0 1-.46-.475V6.373H.92V23.05h16.16z" strokeWidth="1"></path>
-          <text x="6" y="18" fill="black" fontSize="12">{cartCount}</text>
-        </svg> */}
-        <div className="relative w-full h-full">
-          <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg" width="18" height="24"><g><path d="M17.54 5.424a.47.47 0 0 1 .46.474v17.627a.47.47 0 0 1-.46.475H.46a.47.47 0 0 1-.46-.475V5.898a.47.47 0 0 1 .46-.474h4.795v-1.56C5.255 1.733 6.935 0 9 0c2.065 0 3.745 1.733 3.745 3.864v1.56zm-11.365 0h5.64v-1.56c0-1.608-1.264-2.915-2.82-2.915-1.555 0-2.82 1.307-2.82 2.915zm10.905.949h-4.335V8.61a.47.47 0 0 1-.46.475.47.47 0 0 1-.46-.475V6.373h-5.65V8.61a.47.47 0 0 1-.46.475.47.47 0 0 1-.46-.475V6.373H.92V23.05h16.16z"></path></g></svg>
-          <span className="absolute top-3 mx-auto w-full h-full text-center">{cartCount}</span>
-
+            <li className="">
+  {showSidebar ? (
+    <button
+      className="flex text-3xl text-black items-center cursor-pointer fixed right-10 top-6 z-50"
+      onClick={handleToggleSidebar}
+    >
+      x
+    </button>
+  ) : (
+    <>
+      {cartCount > 0 && (
+        <div
+          className="flex flex-row items-center gap-2 cursor-pointer block text-xs leading-3 tracking-normal px-3 font-normal"
+          onClick={handleToggleSidebar}
+        >
+          <span className="hover:text-violet-500">Bag</span>
+          <div className="relative flex items-center">
+            <svg
+              className="w-5 h-5"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+            >
+              <path d="M17.54 5.424a.47.47 0 0 1 .46.474v17.627a.47.47 0 0 1-.46.475H.46a.47.47 0 0 1-.46-.475V5.898a.47.47 0 0 1 .46-.474h4.795v-1.56C5.255 1.733 6.935 0 9 0c2.065 0 3.745 1.733 3.745 3.864v1.56zm-11.365 0h5.64v-1.56c0-1.608-1.264-2.915-2.82-2.915-1.555 0-2.82 1.307-2.82 2.915zm10.905.949h-4.335V8.61a.47.47 0 0 1-.46.475.47.47 0 0 1-.46-.475V6.373h-5.65V8.61a.47.47 0 0 1-.46.475.47.47 0 0 1-.46-.475V6.373H.92V23.05h16.16z"></path>
+            </svg>
+            <span className="absolute top-0 right-0 text-black text-xs px-1 rounded-full mt-2 mr-2">
+              {cartCount}
+            </span>
+          </div>
         </div>
-    </NavLink>
+      )}
+    </>
   )}
+
+  <div
+    ref={sidebarRef}
+    className={`top-0 right-0 w-[35vw] bg-white p-10 pl-20 text-white fixed h-full z-40 ease-in-out duration-700 ${
+      showSidebar ? "translate-x-0" : "translate-x-full"
+    }`}
+  >
+    <Bag />
+  </div>
 </li>
 
 
 
+
+
+          </ul>
+          <div className="flex items-center">
             <li className="cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-3 hover:text-white font-normal">
               <NavLink
                 to="/book-now"
-                className="cursor-pointer bg-violet-300 rounded px-6 py-2 hover:text-indigo-700 transition duration-300 ease-in-out flex items-center text-sm text-white tracking-normal text-white hover:text-indigo-700 transform-gpu btn3 hover:shadow-md hover:shadow-violet-400/50"
+                className="mr-10 cursor-pointer bg-B47EDE rounded px-6 py-2 hover:text-indigo-700 transition duration-300 ease-in-out flex items-center text-sm text-white tracking-normal text-white hover:text-stone-100 transform-gpu  hover:shadow-md hover:shadow-violet-400/50"
               >
                 <span className="transform-gpu transition duration-300 ease-in">
                   Book Now
@@ -345,7 +483,7 @@ export default function DesktopNavbar() {
       <nav id="mobile-nav" className="fixed top-0 left-0 right-0 mx-auto z-40">
         <section
           id="mobile-menu-header"
-          className="py-4 px-6 w-full flex xl:hidden justify-between items-center bg-gray-800"
+          className="py-4 px-6 w-full flex xl:hidden justify-between items-center bg-stone-900"
         >
           <NavLink
             to="/"
