@@ -49,11 +49,6 @@ const OurTeam = () => {
       img: "../../images/team_members/Lexi_blob.png",
     },
     {
-      name: "Alicia",
-      role: "Specialized Orthodontic Assistant",
-      img: "../../images/team_members/Alicia_blob.png",
-    },
-    {
       name: "Dana",
       role: "Marketing Coordinator",
       img: "../../images/team_members/Dana_blob.png",
