@@ -8,7 +8,7 @@ export default function DesktopNavbar() {
   
   const [isBagOpen, setIsBagOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-
+  const [showCheckout, setShowCheckout] = useState(false);
   const { cartCount } = useContext(CartContext);
   const [show, setShow] = useState(null);
   const [about, setAbout] = useState(false);
@@ -17,6 +17,10 @@ export default function DesktopNavbar() {
   const [navbarTransparent, setNavbarTransparent] = useState(true);
   const [showSidebar, setShowSidebar] = useState(false);
   const sidebarRef = useRef(null);
+
+  const handleCheckout = () => {
+    setShowCheckout(true);
+  };
 
   const handleClickOutside = (event) => {
     if (sidebarRef.current && !sidebarRef.current.contains(event.target)) {

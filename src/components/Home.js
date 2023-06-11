@@ -408,7 +408,7 @@ const [isTechVisible, setIsTechVisible] = useState(false)
                     </Link>
                   </figcaption>
                   <button
-                    className="p-4 bg-stone-900 text-white hover:text-stone-100 w-full rounded-bl-3xl rounded-br-3xl ease-in-out duration-500"
+                    className="p-4 bg-stone-900 text-white hover:text-stone-900 hover:bg-stone-100 w-full rounded-bl-3xl rounded-br-3xl ease-in-out duration-500"
                     type="button"
                   >
                     <Link to="/book-now">Book Now</Link>
@@ -437,7 +437,7 @@ const [isTechVisible, setIsTechVisible] = useState(false)
                     </Link>
                   </figcaption>
                   <button
-                    className="p-4 bg-stone-900 text-white hover:text-stone-700 w-full rounded-bl-3xl rounded-br-3xl ease-in-out duration-500"
+                    className="p-4 bg-stone-900 text-white hover:text-stone-900 hover:bg-stone-100 w-full rounded-bl-3xl rounded-br-3xl ease-in-out duration-500"
                     type="button"
                   >
                     <Link to="/book-now">Book Now</Link>
@@ -466,9 +466,8 @@ const [isTechVisible, setIsTechVisible] = useState(false)
                     </Link>
                   </figcaption>
                   <button
-                    className="p-4 bg-stone-900 text-white hover:text-stone-700 w-full rounded-bl-3xl rounded-br-3xl ease-in-out duration-500"
+                    className="p-4 bg-stone-900 text-white hover:text-stone-900 hover:bg-stone-100 w-full rounded-bl-3xl rounded-br-3xl ease-in-out duration-500"
                     type="button"
-                   
                   >
                     <Link to="/book-now">Book Now</Link>
                   </button>

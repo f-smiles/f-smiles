@@ -4,7 +4,11 @@ import { ChevronUpIcon } from "@heroicons/react/20/solid";
 
 const AdultOrthodontics = () => {
   return (
-    <main className="w-full px-4 pt-16">
+    <main className=" pt-20">
+      <h1 className="py-40 bg-indigo-100 text-6xl">How Does Invisalign Work</h1>
+            <div className="flex justify-center items-center">
+            <img src="../../images/invisalignlady.jpg" alt="invisalign" style={{ maxWidth: "60%", maxHeight: "60%" }}/>
+            </div>
       <div className="mx-auto w-full max-w-screen-lg rounded-2xl bg-white p-2">
        <Disclosure as="section" defaultOpen={true}>
           {({ open }) => (
