@@ -1,4 +1,4 @@
-import { ChevronUpIcon, ChevronDownIcon } from "@heroicons/react/24/solid";
+import { PlusIcon, MinusIcon } from "@heroicons/react/24/solid";
 import React, { useRef, useState } from "react";
 import { Transition } from "@headlessui/react";
 
@@ -68,19 +68,9 @@ const OurTeam = () => {
       img: "../../images/team_members/Samantha_blob.png",
     },
     {
-      name: "",
-      role: "",
-      img: "",
-    },
-    {
       name: "Elizabeth",
       role: "Patient Services",
       img: "../../images/team_members/Elizabeth_blob.png",
-    },
-    {
-      name: "",
-      role: "",
-      img: "",
     },
   ];
 
@@ -113,9 +103,9 @@ const OurTeam = () => {
                   <div className="flex justify-between items-center p-8">
                     <h2 className="text-2xl">{doctor.name}</h2>
                     {activeAccordion === index ?
-                      <ChevronUpIcon className="w-6 h-6" />
+                      <MinusIcon className="w-6 h-6" />
                       :
-                      <ChevronDownIcon className="w-6 h-6" />
+                      <PlusIcon className="w-6 h-6" />
                       }
                   </div>
                 </dt>
