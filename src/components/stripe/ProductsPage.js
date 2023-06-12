@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import { ProductsArray, getProductData } from "./products";
 import Cart from "./Bag";
-import Navbar from "../Navbar";
+import Navbar from "../navbar/Navbar";
 import CartContext from "../../app/CartContext";
 
 const getCartCount = (cartItems) => {
