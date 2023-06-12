@@ -5,6 +5,8 @@ import DotPattern from "./DotPattern";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import LogoSlider from "./logoslider";
+import { ChevronDownIcon } from "@heroicons/react/24/solid";
+
 
 AOS.init();
 
@@ -20,54 +22,54 @@ const Home = () => {
   const [isDamonVisible, setIsDamonVisible]=useState(false)
 const [isTechVisible, setIsTechVisible] = useState(false)
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsVisible(true);
-          }
-        });
-      },
-      { threshold: 0.5 } 
-    );
+  // useEffect(() => {
+  //   const observer = new IntersectionObserver(
+  //     (entries) => {
+  //       entries.forEach((entry) => {
+  //         if (entry.isIntersecting) {
+  //           setIsVisible(true);
+  //         }
+  //       });
+  //     },
+  //     { threshold: 0.5 }
+  //   );
 
-    observer.observe(InvisalignRef.current);
-    const damonObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsDamonVisible(true);
-          }
-        });
-      },
-      { threshold: .3 }
-    );
-  
-    damonObserver.observe(damonRef.current);
+  //   observer.observe(InvisalignRef.current);
+  //   const damonObserver = new IntersectionObserver(
+  //     (entries) => {
+  //       entries.forEach((entry) => {
+  //         if (entry.isIntersecting) {
+  //           setIsDamonVisible(true);
+  //         }
+  //       });
+  //     },
+  //     { threshold: .3 }
+  //   );
 
-    observer.observe(InvisalignRef.current);
+  //   damonObserver.observe(damonRef.current);
 
-    const techObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsTechVisible(true);
-          }
-        });
-      },
-      { threshold: .1 }
-    );
-  
-    techObserver.observe(techRef.current);
-    return () => {
-      observer.disconnect();
-      damonObserver.disconnect();
-      techObserver.disconnect();
-    };
-  }, []);
+  //   observer.observe(InvisalignRef.current);
 
-  
+  //   const techObserver = new IntersectionObserver(
+  //     (entries) => {
+  //       entries.forEach((entry) => {
+  //         if (entry.isIntersecting) {
+  //           setIsTechVisible(true);
+  //         }
+  //       });
+  //     },
+  //     { threshold: .1 }
+  //   );
+
+  //   techObserver.observe(techRef.current);
+  //   return () => {
+  //     observer.disconnect();
+  //     damonObserver.disconnect();
+  //     techObserver.disconnect();
+  //   };
+  // }, []);
+
+
   const techStyle = {
     opacity: isTechVisible ? "1" : "0",
     transform: isTechVisible ? "translateX(0)" : "translateX(-100%)",
@@ -82,7 +84,7 @@ const [isTechVisible, setIsTechVisible] = useState(false)
   const cardStyle = {
     opacity: isVisible ? '1' : '0',
     transform: isVisible ? 'translateX(0)' : 'translateX(-100%)',
-    transition: 'opacity 0.8s ease-in-out, transform 1.2s ease-in-out', 
+    transition: 'opacity 0.8s ease-in-out, transform 1.2s ease-in-out',
   };
   useEffect(() => {
     const handleScroll = () => {
@@ -107,26 +109,25 @@ const [isTechVisible, setIsTechVisible] = useState(false)
     };
   }, []);
 
+  const handleClickScroll = () => {
+    const jumpToSection = document.querySelector("#invisalign-damon");
+    if (jumpToSection) {
+      jumpToSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
 
   return (
     <>
       <main className="pt-16 bg-#fFFFDFD overflow-hidden w-full">
-        <div className=" max-w-screen-xl mx-auto">
-          <section className="py-12 lg:px-4 xl:px-0">
+          <section id="hero-section" className="max-w-screen-2xl mx-auto py-8 lg:px-4 xl:px-0">
             <div className="flex flex-col-reverse md:flex-row">
               <div className="mt-24 md:mt-0 flex flex-col lg:ml-10 xl:ml-32 2xl:ml-40 lg:w-6/12 xl:w-5/12 md:w-6/12 px-4 lg:px-0 justify-center">
-                <div className="relative">
-                  <h1 className="mt-40 text-4xl lg:text-6xl font-bold md:font-black leading-10 text-gray-700 absolute top-0 left-0 right-0">
+                <div className="relative p-8 lg:p-0">
+                  <h1 className="md:mt-40 text-4xl lg:text-6xl font-bold md:font-black leading-10 text-gray-700">
                     Because every smile is unique
                   </h1>
-                  <p className="text-lg text-gray-600 font-light leading-relaxed pt-8 xl:hidden block absolute top-0 left-0 right-0">
-                    Our goal is to make your smile look best on YOU. It's an
-                    art, it's a science, and it is something orthodontists Dr.
-                    Gregg Frey and Dr. Daniel Frey and the exceptional team at
-                    FreySmiles Orthodontics recognize and are very passionate
-                    about.
-                  </p>
-                  <p className="mt-60 text-center text-lg text-gray-600 font-light leading-relaxed pt-8 xl:block hidden w-4/5 absolute top-0 left-0 right-0">
+                  <p className="text-lg text-gray-600 font-light leading-relaxed pt-8 w-4/5">
                     Our goal is to make your smile look best on{" "}
                     <strong className="font-bold">YOU</strong>. It's an art,
                     it's a science, and it is something orthodontists Dr. Gregg
@@ -134,14 +135,14 @@ const [isTechVisible, setIsTechVisible] = useState(false)
                     FreySmiles Orthodontics recognize and are very passionate
                     about.
                   </p>
-                  <div className="relative">
+                  {/* <div className="absolute top-2/3 right-2/3 border border-black w-1/2">
                     <img
-                      className="md:w-auto h-120 md:h-full  transform -translate-x-60 -translate-y-10"
+                      className="w-full h-full"
                       src="../../images/fadedblob.svg"
                       alt="blue blob"
                     />
-                  </div>
-                  <div className="mt-12 flex flex-wrap">
+                  </div> */}
+                  <div className="mt-12 flex flex-wrap z-100">
                     <div className="mr-6 sm:mt-0 md:mt-5 lg:mt-0">
                       <button className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 bg-B47EDE transition duration-150 ease-in-out hover:bg-indigo-600 rounded text-white px-8 py-4 text-base md:text-xl">
                         <Link to="/book-now">Book Now</Link>
@@ -156,7 +157,7 @@ const [isTechVisible, setIsTechVisible] = useState(false)
                 </div>
               </div>
 
-              <div className="md:mt-0 md:w-1/2 relative lg:mt-0 pl-6 sm:pl-20 pt-10 flex justify-end sm:block mx-auto">
+              <div className="mx-auto md:mt-0 md:mb-16 md:w-1/2 relative lg:mt-0 pl-6 sm:pl-20 pt-10 flex justify-end sm:block ">
                 <div className="ml-4 lg:ml-8 relative z-10 top-10 left-0 w-full h-full z-20">
                   <img
                     className="h-96 md:h-auto"
@@ -176,125 +177,56 @@ const [isTechVisible, setIsTechVisible] = useState(false)
                 </div>
               </div>
             </div>
-          </section>
-         <div>
-<section className="bg-indigo-50">
-          <section 
-          // className="w-full bg-gradient-to-bl from-violet-100 to-teal-50"
-          >
-      <div
-        id="invisalign-section"
-        className={`mr-auto relative rounded-tl-3xl rounded-tr-3xl rounded-bl-3xl rounded-br-3xl md:max-w-lg max-h-full h-[500px] px-12 md:px-14 pb-12 pt-20 flex flex-col justify-start items-center`}
-        // data-aos="fade-up"
-        // data-aos-duration="1750"
-        // data-aos-easing="linear"
-        data-aos-anchor="#invisalign-section"
-        style={cardStyle}
-        ref={InvisalignRef}
-      >
-        <div className="relative" style={{ zIndex: '-1' }}>
-          <img
-            className="h-100 w-full"
-            src="../images/girlwithinvisalign.jpg"
-            alt="invis"
-          />
-          <div className="absolute top-0 transform translate-x-full -right-40">
-            <div className="rounded-full flex flex-col justify-center items-center p-4">
-              <img
-                className="h-60 w-80 object-contain -mb-10"
-                src="../images/invisalign.png"
-                alt="invisalign"
-              />
-              <h3 className="text-2xl mb-4">Invisalign</h3>
-              <p className="text-center mb-10">
-                As part of the top 1% of Invisalign providers in the US, we have the experience to deliver
-                the smile you deserve.
-              </p>
-              <button className="rounded border border: bg-white border:  px-6 py-4"> <Link to="/invisalign">How Invisalign Works</Link></button>
+            <div className="scroll-down-btn flex flex-col justify-center items-center mt-8 md:mt-0">
+              <button className="animate-bounce flex flex-col justify-center items-center" type="button" onClick={handleClickScroll}>
+                <h6 className="text-violet-500">Scroll Down</h6>
+                <ChevronDownIcon className="w-6 h-6 text-violet-500" />
+              </button>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
-          <section 
-          // className=" bg-gradient-to-bl from-violet-100 to-teal-50"
-          >
-  <div
-    id="damon-section"
-    className={`mr-auto relative rounded-tl-3xl rounded-tr-3xl rounded-bl-3xl rounded-br-3xl md:max-w-lg max-h-full h-[500px] px-12 md:px-14 pb-12 pt-20 flex flex-col justify-start items-center`}
-    style={damonStyle}
-    ref={damonRef}
-    data-aos="fade-up"
-    data-aos-duration="1750"
-    data-aos-easing="linear"
-    data-aos-anchor="#damon-section"
-  >
-    <div className="flex flex-row items-start justify-end w-full">
-      <div className="flex flex-col items-center">
-      <div className="absolute top-0 transform translate-x-full -right-40">
-                  <div className="rounded-full flex flex-col justify-center items-center p-4">
-                  <img
-          className="mt-10 h-96 w-auto object-contain"
-          src="../images/monse.jpg"
-          alt="monse"
-        />
-                  </div>
+          </section>
+
+          <section id="invisalign-damon" className="bg-indigo-50 my-8">
+            <div className="container max-w-screen-lg mx-auto py-16">
+              <div
+                data-aos="fade-right"
+                data-aos-duration="1000"
+                data-aos-easing="ease-in-sine"
+                data-aos-anchor="#hero-section"
+                data-aos-anchor-placement="top-top"
+                className="flex flex-col gap-8 md:flex-row md:gap-0 justify-start items-center my-16"
+              >
+                <img className="h-96 w-auto self-center mx-auto" src="../images/girlwithinvisalign.jpg" alt="invis" />
+                <div className="text-center flex flex-col gap-6 justify-center items-center w-1/2">
+                  <img src="../images/invisalign.png" alt="invisalign" />
+                  <h3 className="text-2xl">Invisalign</h3>
+                  <p className="md:px-8">As part of the top 1% of Invisalign providers in the US, we have the experience to deliver the smile you deserve.</p>
+                  <button className="rounded bg-violet-200 px-6 py-4">
+                    <Link to="/invisalign">How Invisalign Works</Link>
+                  </button>
                 </div>
-        <div className="flex flex-col items-center">
-        <img
-                      className="h-60 w-80 object-contain -mb-10"
-                      src="../images/damon.png"
-                      alt="damon"
-                    />
-          <h3 className="text-2xl mb-4">Damon Braces</h3>
-          <p className="text-center mb-10">
-            Combining self-ligating braces with advanced archwires clinically proven to move teeth quickly and comfortably.
-          </p>
-          <button className="rounded border border: bg-white border:  px-6 py-4"> <Link to="/braces">How Damon Braces Works</Link></button>
-        </div>
-      </div>
-    </div>
- 
-  </div>
-     <div className="relative top-0 ">
-      </div>
-</section>
-          <section>
-            <div
-              id="technology-section"
-           
-              className=" relative  md:max-w-lg  px-12 md:px-14 pb-12 pt-20  items-center"
-              style={techStyle}
-              ref={techRef}
-            >
-              <div className="relative" style={{ zIndex: "-1" }}>
-                <img
-                  className="h-100 w-auto"
-                  src="../images/boytero.jpg"
-                  alt="iter"
-                />
-                <div className="absolute top-0 transform translate-x-full -right-40">
-                  <div className="rounded-full flex flex-col justify-center items-center p-4">
-                    <img
-                      className="h-60 w-80 object-contain -mb-10"
-                      src="../images/technology.png"
-                      alt="tero"
-                    />
-                    <h3 className="text-2xl mb-4"
-                     style={{ letterSpacing: '.5px' }} >Advanced Technology</h3>
-                    <p className="text-center mb-10">
-                      We offer Invisalign without Impressions. Say goodbye to
-                      goopy impressions with our iTero digital scanner.
-                    </p>
-                    <button className="rounded border border: bg-white border:  px-6 py-4"> <Link to="/invisalign">Learn More</Link></button>
-                  </div>
+              </div>
+              <div
+                data-aos="fade-left"
+                data-aos-duration="1000"
+                data-aos-easing="ease-in-sine"
+                data-aos-anchor="#invisalign-damon"
+                data-aos-anchor-placement="top-top"
+                className="flex flex-col gap-8 md:flex-row md:flex-row-reverse md:gap-0 justify-end items-center my-16"
+              >
+                <img className="h-96 w-auto self-center mx-auto" src="../images/monse.jpg" alt="invis" />
+                <div className="text-center flex flex-col gap-6 justify-center items-center w-1/2">
+                  <img src="../images/damon.png" alt="damon braces" />
+                  <h3 className="text-2xl">Damon Braces</h3>
+                  <p className="md:px-8">Combining self-ligating braces with advanced archwires clinically proven to move teeth quickly and comfortably.</p>
+                  <button className="rounded bg-violet-200 px-6 py-4">
+                    <Link to="/braces">How Damon Braces Work</Link>
+                  </button>
                 </div>
               </div>
             </div>
           </section>
 
-          </section>
-          </div>   
+
           <div className="mt-10 mb-60">
             <LogoSlider style={{ transform: "translate(-50%, -50%)" }} />
           </div>
@@ -468,7 +400,7 @@ const [isTechVisible, setIsTechVisible] = useState(false)
                   <button
                     className="p-4 bg-stone-900 text-white hover:text-stone-700 w-full rounded-bl-3xl rounded-br-3xl ease-in-out duration-500"
                     type="button"
-                   
+
                   >
                     <Link to="/book-now">Book Now</Link>
                   </button>
@@ -476,7 +408,6 @@ const [isTechVisible, setIsTechVisible] = useState(false)
               </div>
             </div>
           </section>
-          </div>
       </main>
     </>
   );
