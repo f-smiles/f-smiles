@@ -248,7 +248,12 @@ const Testimonial = () => {
     
   ]
   return (
-    <div className="bg-gradient-to-r from-rose-100 to-teal-100 relative">
+    <div
+    className="bg-gradient-to-r from-pink-100 to-purple-300"
+    style={{
+      background: "linear-gradient(315deg, #f3e6e8 0%, #d5d0e5 74%)",
+    }}
+  >
       <h1 className="text-center mt-20 text-5xl text-indigo-900">
         We're Blushing
       </h1>

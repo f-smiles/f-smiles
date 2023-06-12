@@ -187,6 +187,7 @@ const [isTechVisible, setIsTechVisible] = useState(false)
 
           <section id="invisalign-damon" className="bg-indigo-50 my-8">
             <div className="container max-w-screen-lg mx-auto py-16">
+           
               <div
                 data-aos="fade-right"
                 data-aos-duration="1000"
@@ -220,6 +221,25 @@ const [isTechVisible, setIsTechVisible] = useState(false)
                   <p className="md:px-8">Combining self-ligating braces with advanced archwires clinically proven to move teeth quickly and comfortably.</p>
                   <button className="rounded bg-violet-200 px-6 py-4">
                     <Link to="/braces">How Damon Braces Work</Link>
+                  </button>
+                </div>
+              </div>
+              <div
+                data-aos="fade-right"
+                data-aos-duration="1000"
+                data-aos-easing="ease-in-sine"
+                data-aos-anchor="#hero-section"
+                data-aos-anchor-placement="top-top"
+                className="flex flex-col gap-8 md:flex-row md:gap-0 justify-start items-center my-16"
+              >
+                <img className="h-96 w-auto self-center mx-auto" src="../images/boytero.jpg" alt="invis" />
+                <div className="text-center flex flex-col gap-6 justify-center items-center w-1/2">
+                  <img src="../images/technology.png" alt="itero" />
+                  <h3 className="text-2xl">Advanced Technology</h3>
+                  <p className="md:px-8"> We offer Invisalign without Impressions. Say goodbye to
+                      goopy impressions with our iTero digital scanner.</p>
+                  <button className="rounded bg-violet-200 px-6 py-4">
+                    <Link to="/invisalign">Learn More</Link>
                   </button>
                 </div>
               </div>
