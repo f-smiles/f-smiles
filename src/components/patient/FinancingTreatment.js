@@ -56,14 +56,15 @@ const FinancingTreatment = () => {
     { id: 3, label: "No Hidden Costs", description: 'Fees for diagnostic records, treatment visits, appliances' },
     { id: 3, label: "One Year Post-Treatment Follow Up", description: 'Retainers and retention visits for one year post-treatment included' },
   ];
-  const isDotVisible = (index) => {
-    if (showLine) {
-      const linePosition = scrollPosition - dots[0].id * 100;
-      const dotPosition = (index + 1) * 100;
-      return linePosition >= 0 && linePosition >= dotPosition;
-    }
-    return false;
-  };
+const isDotVisible = (index) => {
+  if (showLine) {
+    const linePosition = scrollPosition - dots[0].id * 100;
+    const dotPosition = index * 100;
+    return linePosition >= 0 && linePosition >= dotPosition;
+  }
+  return false;
+};
+
   
   
   useEffect(() => {
@@ -80,42 +81,45 @@ const FinancingTreatment = () => {
 
   return (
     <>
-    <div className="bg-stone-50 mt-20 w-full px-4 pt-16">
-      <div className="flex">
-        <div className="flex-1">
+    <div className="bg-stone-50 mt-20 w-full px-4 pt-20">
+      <div className="relative">
+        <div className="relative inset-0 mt-20 w-full min-h-screen md:fixed md:w-7/12">
           <img
             src="../../images/firstmeeting.jpg"
             alt="invisalign"
-            style={{ maxWidth: '100%', maxHeight: '100%' }}
+            style={{ maxWidth: '80%', maxHeight: '100%' }}
           />
         </div>
         <div className="flex-1">
+         
+          <div class="w-full ml-auto md:w-5/12">
           <h1 className="text-center text-4xl">Investing In Your Health and Appearance</h1>
-          <p className="px-4 text-lg mt-10 ">
+          <p className="px-4 text-lg mt-12 ">
             While cost may be a factor in choosing an orthodontist, it's crucial to prioritize finding
             one who can achieve the best treatment result for you or your child.
           </p>
-          <div className="flex flex-col relative">
+          <div className="-mt-28 flex flex-col relative justify-center h-screen"style={{ marginLeft: '100px' }}>
           {dots.map((dot, index) => (
-  <div key={dot.id} className="flex items-center my-16">
-    <div
-      className={`h-4 w-4 rounded-full border-2 border-purple-400 ${
-        isDotVisible(index) ? 'bg-purple-400' : 'bg-transparent'
-      }`}
-    ></div>
+  <div key={dot.id} className="flex items-center my-8">
+      <div
+                    className={`h-3 w-3 rounded-full border-2 border-purple-400 ${
+                      isDotVisible(index) ? 'bg-purple-400 h-4 w-4' : 'bg-transparent'
+                    }`}
+                    style={{ marginRight: '18px' }}
+                  ></div>
     <h1
-      className={`text-xl ml-2 ${isDotVisible(index) ? 'text-black' : 'text-gray-400'}`}
+      className={`text-2xl ml-2 ${isDotVisible(index) ? 'text-black' : 'text-gray-400'}`}
     >
       {dot.label}
-      <section className="text-sm">{dot.description}</section> 
+      <section className="justify-start 
+      text-sm">{dot.description}</section> 
             
     </h1>
   </div>
 ))}
-
             {showLine && (
               <div
-                className="absolute top-24 bottom-0 left-2 bg-purple-400"
+                className="absolute top-56 bottom-0 left-2 bg-purple-400"
                 style={{
                   width: '1px',
                   height: `${Math.max(scrollPosition - dots[0].id * 100, 0)}px`,
@@ -123,7 +127,7 @@ const FinancingTreatment = () => {
               ></div>
             )}
           </div>
-        
+        </div>
         </div>
       </div>
     </div>
