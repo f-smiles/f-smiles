@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import { ProductsArray, getProductData } from "./products";
 import Cart from "./Bag";
-import Navbar from "../Navbar";
+import Navbar from "../navbar/Navbar";
 import CartContext from "../../app/CartContext";
 
 const getCartCount = (cartItems) => {
@@ -115,7 +115,7 @@ const Card = ({ id, image, name, description, price, addToCart }) => {
       <button className="flex items-center hover:text-gray-200 hover:bg-stone-900 border border-gray-900 text-gray-900 py-2 px-4 rounded-full" onClick={() => addToCart(id)}>
         <span className="ml-4 mr-6">Add To Bag</span>
         <span className="mr-1 w-px bg-indigo-900 h-6"></span>
-        <span className="mr-4">
+        <span className="ml-4">
           <h3 className="uppercase">{price} $</h3>
         </span>
       </button>

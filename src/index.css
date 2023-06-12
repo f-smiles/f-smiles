@@ -91,3 +91,19 @@ backdrop-filter: blur(15px);
     transform: translateX(-55%);
   }
 }
+
+details summary::before {
+  float: right;
+  font-size: 1rem;
+  content:"+";
+  color: red;
+  /* you can style it however you want, use background-image for example */
+}
+
+details[open] summary::before {
+  content:"-";
+  color: red
+}
+
+summary {list-style: none}
+summary::-webkit-details-marker {display: none; }
