@@ -1,77 +1,3 @@
-// import { Disclosure } from "@headlessui/react";
-// import React, { useEffect, useState } from 'react';
-
-// const FinancingTreatment = ({ active }) => {
-//   const [scrollPosition, setScrollPosition] = useState(0);
-//   const [showLine, setShowLine] = useState(false);
-
-//     const dots = [
-//     { id: 1, label: "Complimentary Consultation" },
-//     { id: 2, label: "Dot 2" },
-//     { id: 3, label: "Dot 3" }, 
-//      { id: 4, label: "Dot 4" },
-
-//   ];
-
-//   useEffect(() => {
-//     const handleScroll = () => {
-//       setScrollPosition(window.scrollY);
-//       setShowLine(true);
-//     };
-
-//     window.addEventListener('scroll', handleScroll);
-//     return () => {
-//       window.removeEventListener('scroll', handleScroll);
-//     };
-//   }, []);
-//   return (
-//     <div className="bg-stone-50 mt-20 w-full px-4 pt-16">
-//       <div className="flex">
-//         <div className="flex-1">
-//           <img
-//             src="../../images/firstmeeting.jpg"
-//             alt="invisalign"
-//             style={{ maxWidth: "100%", maxHeight: "100%" }}
-//           />
-//         </div>
-//         <div className="flex-1">
-//           <h1 className="text-center text-4xl">Investing In Your Health and Appearance</h1>
-//           <p className="px-4 text-md mt-10 text-center">While cost may be
-//             a factor in choosing an orthodontist, it's crucial to prioritize finding
-//             one who can achieve the best treatment result for you or your child.</p>
-//             <div className="flex flex-col relative">
-//             {dots.map((dot, index) => (
-//               <div
-//                 key={dot.id}
-//                 className={` h-4 w-4 rounded-full border-2 border-purple-400 my-20 ${
-//                   showLine && scrollPosition >= index * 100 ? "bg-purple-400" : "bg-transparent"
-//                 }`}
-//               ></div>
-//             ))}
-//             {showLine && (
-//               <div
-//                 className="absolute top-20 h-full left-2 bg-purple-400"
-//                 style={{
-//                   width: '1px',
-//                   height: `${Math.max(scrollPosition - dots[0].id * 100, 0)}px`,
-//                 }}
-//               ></div>
-//             )}
-//           </div>
-//           <ul>
-//             <li className="text-2xl">Complimentary Consultation</li>
-//             <section>Initial consultations are always free of charge</section>
-//             <li className="text-2xl">Payment Plans Are Available</li>
-//             <section>We offer a variety of payment plans at no interest</section>
-//             <li className="text-2xl">No Hidden Costs</li>
-//             <section>Fees for diagnostic records, treatment visits, appliances</section>
-//             <li className="text-2xl">One Year Post-Treatment Follow Up</li>
-//             <section>Retainers and retention visits for one year post-treatment included</section>
-//           </ul>
-//         </div>
-//       </div>
-    
-
 
 
 //       {/* <img
@@ -116,42 +42,7 @@
 //         your desired smile.
 //       </div>
 
-    //   <div className="grid grid-cols-3 mt-4">
-    //     <div className="col-span-1 text-purple-900 px-4 py-20 border border-purple-200 flex flex-col justify-center items-center">
-    //       <span className="text-3xl">FSA/HSA</span>
-    //       <img
-    //         src="/images/twohalves.svg"
-    //         alt="halfcircles"
-    //         className="w-10 h-10"
-    //       />
-    //       <p>
-    //         We strive to help you maximize your lifetime orthodontic insurance
-    //         benefits. If you have an FSA, we can assist you in planning and
-    //         utilizing reimbursements for orthodontic care.
-    //       </p>
-    //     </div>
-    //     <div className="col-span-1 text-purple-900 px-4 py-20 border-t border-b border-purple-200 flex flex-col justify-center items-center">
-    //       <span className="text-3xl">Loyalty Discounts</span>
-    //       <img
-    //         src="/images/organicshapes.svg"
-    //         alt="halfcircles"
-    //         className="w-20 h-20 transform -rotate-90"
-    //       />
-    //     </div>
-    //     <div className="col-span-1 text-purple-900 px-4 py-20 border border-purple-200">
-    //       <span>Easy Payments & No Hidden Costs</span>
-    //       <img
-    //         src="/images/half.png"
-    //         alt="halfcircles"
-    //         className="w-10 h-10 transform rotate-270"
-    //       />
-    //     </div>
-    //   </div>
-    //   <div className="mt-4"></div>
-    // </div>
-//   );
-// };
-// export default FinancingTreatment;
+       
 
 import { useEffect, useState } from 'react';
 
@@ -160,10 +51,10 @@ const FinancingTreatment = () => {
   const [showLine, setShowLine] = useState(false);
 
   const dots = [
-    { id: 1, label: 'Complimentary Consultation', description: 'Complimentary Consultation' },
-    { id: 2, label: 'Payment Plans Are Available', description: 'Dot 2' },
-    { id: 3, label: "No Hidden Costs", description: 'Dot 3' },
-    { id: 3, label: "One Year Post-Treatment Follow Up", description: 'Dot 4' },
+    { id: 1, label: 'Complimentary Consultation', description: 'Initial consultations are always free of charge' },
+    { id: 2, label: 'Payment Plans Are Available', description: 'We offer a variety of payment plans at no interest' },
+    { id: 3, label: "No Hidden Costs", description: 'Fees for diagnostic records, treatment visits, appliances' },
+    { id: 3, label: "One Year Post-Treatment Follow Up", description: 'Retainers and retention visits for one year post-treatment included' },
   ];
   const isDotVisible = (index) => {
     if (showLine) {
@@ -188,6 +79,7 @@ const FinancingTreatment = () => {
   }, []);
 
   return (
+    <>
     <div className="bg-stone-50 mt-20 w-full px-4 pt-16">
       <div className="flex">
         <div className="flex-1">
@@ -199,13 +91,13 @@ const FinancingTreatment = () => {
         </div>
         <div className="flex-1">
           <h1 className="text-center text-4xl">Investing In Your Health and Appearance</h1>
-          <p className="px-4 text-md mt-10 text-center">
+          <p className="px-4 text-lg mt-10 ">
             While cost may be a factor in choosing an orthodontist, it's crucial to prioritize finding
             one who can achieve the best treatment result for you or your child.
           </p>
           <div className="flex flex-col relative">
           {dots.map((dot, index) => (
-  <div key={dot.id} className="flex items-center my-24">
+  <div key={dot.id} className="flex items-center my-16">
     <div
       className={`h-4 w-4 rounded-full border-2 border-purple-400 ${
         isDotVisible(index) ? 'bg-purple-400' : 'bg-transparent'
@@ -215,6 +107,8 @@ const FinancingTreatment = () => {
       className={`text-xl ml-2 ${isDotVisible(index) ? 'text-black' : 'text-gray-400'}`}
     >
       {dot.label}
+      <section className="text-sm">{dot.description}</section> 
+            
     </h1>
   </div>
 ))}
@@ -229,18 +123,42 @@ const FinancingTreatment = () => {
               ></div>
             )}
           </div>
-          <ul>
-            {dots.map((dot) => (
-              <li key={dot.id} className={`text-2xl ${isDotVisible(dot.id - 1) ? 'text-black' : 'text-gray-400'}`}>
-                {dot.label}
-                <section>{dot.description}</section>
-              </li>
-            ))}
-          </ul>
+        
         </div>
       </div>
     </div>
-    
+     <div className="grid grid-cols-3 mt-4">
+      <div className="col-span-1 text-purple-900 px-4 py-20 border border-purple-200 flex flex-col justify-center items-center">
+      <span className="text-3xl">FSA/HSA</span>
+        <img
+             src="/images/twohalves.svg"
+             alt="halfcircles"
+             className="w-10 h-10"
+           />
+           <p>
+             We strive to help you maximize your lifetime orthodontic insurance
+             benefits. If you have an FSA, we can assist you in planning and
+             utilizing reimbursements for orthodontic care.
+           </p>
+         </div>
+         <div className="col-span-1 text-purple-900 px-4 py-20 border-t border-b border-purple-200 flex flex-col justify-center items-center">
+           <span className="text-3xl">Loyalty Discounts</span>
+           <img
+             src="/images/organicshapes.svg"
+             alt="halfcircles"
+             className="w-20 h-20 transform -rotate-90"
+           />
+         </div>
+         <div className="col-span-1 text-purple-900 px-4 py-20 border border-purple-200">
+           <span>Easy Payments & No Hidden Costs</span>
+           <img
+             src="/images/half.png"
+             alt="halfcircles"
+             className="w-10 h-10 transform rotate-270"
+           />
+         </div>
+       </div>
+       </>
   );
 };
 
