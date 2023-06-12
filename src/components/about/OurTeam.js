@@ -169,10 +169,26 @@ const OurTeam = () => {
         </dl>
       </section>
 
-      <section className="bg-violet-200 py-24">
+      <section className=" py-24"    style={{
+    background: '#C4AEAD',
+    backgroundImage:
+      'linear-gradient(to bottom, #C4AEAD 0%, #B59F9E 100%)',
+    WebkitBackgroundImage:
+      '-webkit-linear-gradient(top, #C4AEAD 0%, #B59F9E 100%)',
+    MozBackgroundImage:
+      '-moz-linear-gradient(top, #C4AEAD 0%, #B59F9E 100%)',
+    OBackgroundImage:
+      '-o-linear-gradient(top, #C4AEAD 0%, #B59F9E 100%)',
+    msBackgroundImage:
+      '-ms-linear-gradient(top, #C4AEAD 0%, #B59F9E 100%)',
+    WebkitBoxShadow: 'inset 0 1px 0 #D3BDBC',
+    MozBoxShadow: 'inset 0 1px 0 #D3BDBC',
+    border: '1px solid #A6908F',
+  }}>
+    {/* {//alternative green color* style={{ backgroundImage: 'url("/../../images/greenblue.jpg")', backgroundSize: 'cover', backgroundPosition: 'center', backgroundColor: '#8B5CF6' }}> */} 
         <div className="container max-w-screen-xl mx-auto">
           <div className="member-heading w-full text-center">
-            <h2 className="text-5xl font-bold pb-16 text-indigo-500">
+            <h2 className="text-5xl font-bold pb-16 text-white">
               Our Team
             </h2>
           </div>
@@ -196,11 +212,12 @@ const OurTeam = () => {
       opacity: inViewElements[index] ? 1 : 0,
       transform: inViewElements[index] ? "scale(1)" : "scale(0.8)",
       transition: `opacity ${transitionDuration}ms ease-in-out, transform ${transitionDuration}ms ease-in-out`, 
+      
     }}
   />
                 <figcaption className="w-full py-8 text-center">
-                  <h6 className="text-3xl text-rose-500">{member.name}</h6>
-                  <span className="text-md">{member.role}</span>
+                  <h3 className="text-3xl text-white">{member.name}</h3>
+                  <span className="text-white text-md">{member.role}</span>
                 </figcaption>
               </figure>
             ))}
