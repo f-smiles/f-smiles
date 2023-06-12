@@ -1,15 +1,37 @@
 import { PlusIcon, MinusIcon } from "@heroicons/react/24/solid";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Transition } from "@headlessui/react";
-
-
 
 const OurTeam = () => {
   const [activeAccordion, setActiveAccordion] = useState(0);
-
+  const [inViewElements, setInViewElements] = useState([]);
   const toggleAccordion = (index) => {
     setActiveAccordion((prevIndex) => (prevIndex === index ? null : index));
   };
+  const membersRef = useRef([]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop =
+        window.pageYOffset ||
+        document.documentElement.scrollTop ||
+        document.body.scrollTop ||
+        0;
+
+      const inView = membersRef.current.map((element, index) => {
+        const rect = element.getBoundingClientRect();
+        return rect.top < window.innerHeight && rect.bottom >= 0;
+      });
+
+      setInViewElements(inView);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+  const transitionDuration = 2000;
 
   const Members = [
     {
@@ -60,7 +82,7 @@ const OurTeam = () => {
     {
       name: "Grace",
       role: "Specialized Orthodontic Assistant",
-      img: "../../images/team_members/Grace_blob.png"
+      img: "../../images/team_members/Grace_blob.png",
     },
     {
       name: "Samantha",
@@ -91,22 +113,35 @@ const OurTeam = () => {
 
   return (
     <main className="custom-background">
-
       <section className="doctors-section max-w-screen-xl mx-auto pt-32 p-16 md:mt-32 md:pt-0">
-          <h1 className="text-center text-5xl font-bold text-violet-700 pt-8">Our Doctors</h1>
-          <dl className="doctors-list flex flex-col space-y-12 md:space-y-0 md:flex-row my-12">
-            {Doctors && Doctors.map((doctor, index) => (
+        <h1 className="text-center text-5xl font-bold text-violet-700 pt-8">
+          Our Doctors
+        </h1>
+        <dl className="doctors-list flex flex-col space-y-12 md:space-y-0 md:flex-row my-12">
+          {Doctors &&
+            Doctors.map((doctor, index) => (
               <div className="doctors-list-container" key={index}>
-                <dt className="static relative w-full text-lg font-medium text-violet-700 cursor-pointer focus:outline-none content-center" onClick={() => toggleAccordion(index)}>
-                  <span className={`absolute top-0 left-0 h-full w-1 bg-violet-300 transition-all duration-500 ${activeAccordion === index ? "bg-violet-500 h-full" : "h-0"}`}></span>
-                  <img src={doctor.img} className="inline-block mx-auto w-3/4 h-auto" alt={doctor.name} />
+                <dt
+                  className="static relative w-full text-lg font-medium text-violet-700 cursor-pointer focus:outline-none content-center"
+                  onClick={() => toggleAccordion(index)}
+                >
+                  <span
+                    className={`absolute top-0 left-0 h-full w-1 bg-violet-300 transition-all duration-500 ${
+                      activeAccordion === index ? "bg-violet-500 h-full" : "h-0"
+                    }`}
+                  ></span>
+                  <img
+                    src={doctor.img}
+                    className="inline-block mx-auto w-3/4 h-auto"
+                    alt={doctor.name}
+                  />
                   <div className="flex justify-between items-center p-8">
                     <h2 className="text-2xl">{doctor.name}</h2>
-                    {activeAccordion === index ?
+                    {activeAccordion === index ? (
                       <MinusIcon className="w-6 h-6" />
-                      :
+                    ) : (
                       <PlusIcon className="w-6 h-6" />
-                      }
+                    )}
                   </div>
                 </dt>
                 <Transition
@@ -119,28 +154,54 @@ const OurTeam = () => {
                   leaveTo="-mt-10 opacity-0"
                 >
                   <dd className="max-w-screen-sm pt-4 px-8 pb-8 relative h-full">
-                    <span className={`absolute top-0 left-0 h-full w-1 bg-violet-300 transition-all duration-500 ${activeAccordion === index ? "bg-violet-500 h-full" : "h-0"}`}></span>
+                    <span
+                      className={`absolute top-0 left-0 h-full w-1 bg-violet-300 transition-all duration-500 ${
+                        activeAccordion === index
+                          ? "bg-violet-500 h-full"
+                          : "h-0"
+                      }`}
+                    ></span>
                     {doctor.bio}
                   </dd>
                 </Transition>
               </div>
             ))}
-          </dl>
+        </dl>
       </section>
 
       <section className="bg-violet-200 py-24">
         <div className="container max-w-screen-xl mx-auto">
           <div className="member-heading w-full text-center">
-            <h2 className="text-5xl font-bold pb-16 text-indigo-500">Our Team</h2>
+            <h2 className="text-5xl font-bold pb-16 text-indigo-500">
+              Our Team
+            </h2>
           </div>
           <div className="member-container grid gap-16 grid-cols-3">
-            {Members && Members.map((member, index) => (
-              <figure key={index} className="member-card">
-                <img className="mx-auto h-72 w-auto" src={member.img} alt={member.name} />
-                  <figcaption className="w-full py-8 text-center">
-                    <h6 className="text-3xl text-rose-500">{member.name}</h6>
-                    <span className="text-md">{member.role}</span>
-                  </figcaption>
+            {Members.map((member, index) => (
+              <figure
+                key={index}
+                className={`member-card ${
+                  inViewElements[index] ? "in-view" : ""
+                }`}
+                ref={(element) => (membersRef.current[index] = element)}
+                style={{
+                  transitionDuration: `${transitionDuration}ms`, 
+                }}
+              >
+                <img
+    className={`mx-auto h-72 w-auto ${inViewElements[index] ? "blur-in" : "blur-out"}`}
+    src={member.img}
+    alt={member.name}
+    style={{
+      opacity: inViewElements[index] ? 1 : 0,
+      transform: inViewElements[index] ? "scale(1)" : "scale(0.8)",
+      transition: `opacity ${transitionDuration}ms ease-in-out, transform ${transitionDuration}ms ease-in-out`, 
+    }}
+  />
+                <figcaption className="w-full py-8 text-center">
+                  <h6 className="text-3xl text-rose-500">{member.name}</h6>
+                  <span className="text-md">{member.role}</span>
+                </figcaption>
               </figure>
             ))}
           </div>
