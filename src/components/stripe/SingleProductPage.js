@@ -158,7 +158,6 @@ const SingleProductPage = () => {
                 </button>
               </div>
             </div>
-            <div style={{ height: "200px", overflowY: "auto" }}>
               <Accordion open={open === 1} animate={customAnimation}>
                 <AccordionHeader
                   onClick={() => handleOpen(1)}
@@ -191,8 +190,6 @@ const SingleProductPage = () => {
                   <div>{productData.description}</div>
                 </AccordionBody>
               </Accordion>
-              
-            </div>
           </div>
         </div>
       </div>

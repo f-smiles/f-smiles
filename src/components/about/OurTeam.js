@@ -1,26 +1,8 @@
-// import { ChevronUpIcon, ChevronDownIcon } from "@heroicons/react/20/solid";
-// import { Fragment, useState } from "react";
+import { PlusIcon, MinusIcon } from "@heroicons/react/24/solid";
 import React, { useRef, useState } from "react";
 import { Transition } from "@headlessui/react";
 
-/* blaze slider */
-// import BlazeSlider from 'blaze-slider'
-import { useBlazeSlider } from "react-blaze-slider";
-import "blaze-slider/dist/blaze.css";
 
-// Import Swiper React components
-import { Swiper, SwiperSlide } from "swiper/react";
-
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/scrollbar";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-
-// import "../..index.css";
-
-// import required modules
-import { Keyboard, Scrollbar, Navigation, Pagination } from "swiper";
 
 const OurTeam = () => {
   const [activeAccordion, setActiveAccordion] = useState(0);
@@ -28,14 +10,6 @@ const OurTeam = () => {
   const toggleAccordion = (index) => {
     setActiveAccordion((prevIndex) => (prevIndex === index ? null : index));
   };
-
-  const ref = useBlazeSlider({
-    all: {
-      slidesToShow: 3,
-    },
-  });
-
-
 
   const Members = [
     {
@@ -103,181 +77,72 @@ const OurTeam = () => {
   const Doctors = [
     {
       name: "Gregg Frey, DDS",
-      // img: "../../images/team_members/GreggFrey_blog.jpg",
-      img: "../../images/team_members/GreggFrey_blob.png",
+      img: "../../images/team_members/gregg_frey_dots.png",
       bio: "Dr. Gregg Frey is an orthodontist based in Pennsylvania, who graduated from Temple University School of Dentistry with honors and served in the U.S. Navy Dental Corps before establishing his practice in the Lehigh Valley. He is a Diplomat of the American Board of Orthodontics and has received numerous distinctions, accreditations, and honors,including being named one of America's Top Orthodontists by the Consumer Review Council of America. This distinction is held by fewer than 25% of orthodontists nationwide. ABO certification represents the culmination of 5-10 years of written and oral examinations and independent expert review of actual treated patients. Recently Dr. Frey voluntarily re-certified. Dr. Frey enjoys coaching soccer, vintage car racing, and playing the drums.",
-      backgroundImg:"../../images/royalblue.svg",
+      // backgroundImg:"../../images/royalblue.svg",
     },
     {
       name: "Daniel Frey, DMD, MSD",
-      // img: "../../images/team_members/DanFrey.jpg",
-      img: "../../images/team_members/DanFrey_blob.png",
+      img: "../../images/team_members/dan_frey_dots.png",
       bio: "Dr. Daniel Frey graduated from Blair Academy in Blairstown, NJ in 2005. He then pursued his pre-dental requisites at the University of Pittsburgh,majoring in Biology. Dr. Frey excelled in his studies and was admitted to Temple University's dental school, graduating at the top of his class with the prestigious Summa Cum Laude designation.Continuing his education, Dr. Frey was admitted to the esteemed orthodontic residency program at the University of the Pacific in San Francisco, CA, where he worked with faculty from around the world and utilized cutting-edge orthodontic techniques. During his time in San Francisco, he conducted research in three-dimensional craniofacial analysis and earned his Master of Science degree. Dr. Frey is a member of the American Association of Orthodontists and the American Dental Association. In his leisure time, he enjoys staying active outdoors, camping, playing music, cooking, and spending time with loved ones.",
-      backgroundImg: "../../images/gray.svg",
+      // backgroundImg: "../../images/gray.svg",
     },
   ];
 
   return (
-    <main className="bg-indigo-50 custom-background">
-      <div className="flex">
-        <div className="w-1/2">
-          {Doctors.map((doctor, index) => (
-            <div key={index} className="mb-4 relative">
-            <img
-             src={doctor.backgroundImg}
-              alt="lilac blob"
-              className="opacity-100 -mt-20 absolute top-0 left-0 w-full h-auto"
-              style={{ maxWidth: "70%" }}
-            />
-            <img
-              src={doctor.img}
-              alt={doctor.name}
-              className="block mx-auto max-w-full mr-15 h-auto mt-20 relative"
-              style={{ maxWidth: "100%", maxHeight: "300px", zIndex: 1 }}
-            />
-          </div>
+    <main className="custom-background">
 
-          ))}
-        </div>
-        <div className="w-1/2">
-          <section className="justify-center mx-auto w-full max-w-screen-lg rounded-2xl p-2 mt-16 backdrop-blur-md bg-opacity-70 bg-gradient-conic from-fuchsia-300 via-green-400 to-rose-700">
-            <h1 className="mb-10 flex text-center text-3xl font-bold text-purple-900 mb-4">
-              Our Doctors
-            </h1>
-            <dl className="space-y-8 overflow-hidden h-full">
-              {Doctors.map((member, index) => (
-                <div key={index} className="flex">
-                  <span className="relative">
-                    <span
-                      className={`bg-purple-300 h-full w-1 absolute left-0 top-0 transition-all duration-700 ${
-                        activeAccordion === index
-                          ? "bg-purple-500 h-full"
-                          : "h-0"
-                      } rounded-full`}
-                    ></span>
-                    <dt
-                      className={`text-lg font-medium text-purple-900 cursor-pointer relative pl-4 focus:outline-none ${
-                        activeAccordion === index ? "mb-2" : ""
-                      }`}
-                      onClick={() => toggleAccordion(index)}
-                    >
-                      <div className="flex items-start">
-                        <span className="pl-2 text-2xl">{member.name}</span>
-                      </div>
-                    </dt>
-                    <Transition
-                      show={activeAccordion === index}
-                      enter="transition-all duration-700"
-                      enterFrom="opacity-0 max-h-0"
-                      enterTo="opacity-100 max-h-[500px]"
-                      leave="transition-all duration-700"
-                      leaveFrom="opacity-100 max-h-[500px]"
-                      leaveTo="opacity-0 max-h-0"
-                    >
-                      <dd className="text-md text-center text-gray-500 pl-7">
-                        {member.bio}
-                      </dd>
-                    </Transition>
-                  </span>
-                </div>
-              ))}
-            </dl>
-          </section>
-        </div>
-      </div>
-
-      <>
-      <Swiper
-        slidesPerView={3}
-        centeredSlides={false}
-        slidesPerGroupSkip={2}
-        grabCursor={true}
-        keyboard={{
-          enabled: true,
-        }}
-        breakpoints={{
-          769: {
-            slidesPerView: 2,
-            slidesPerGroup: 2,
-          },
-        }}
-        scrollbar={true}
-        navigation={true}
-        pagination={{
-          clickable: true,
-        }}
-        modules={[Keyboard, Scrollbar, Navigation, Pagination]}
-        className="max-w-screen-lg"
-      >
-        {Members.map((member, index) => (
-          <SwiperSlide>
-              <img src={member.img} alt={member.name} />
-              <caption className="px-4 mt-8">
-                <h2 className="text-left">{member.name}</h2>
-                <p className="w-max">{member.role}</p>
-              </caption>
-          </SwiperSlide>
-        ))}
-      </Swiper>
-    </>
-    <section className="mx-auto w-full max-w-screen-lg rounded-2xl p-2 mt-16 backdrop-blur-md bg-opacity-70 bg-gradient-conic from-fuchsia-300 via-green-400 to-rose-700 py-8">
-        <h1 className="text-3xl text-center font-bold text-purple-900 relative mb-4">
-          Our Team
-        </h1>
-        <div className="blaze-slider" ref={ref}>
-          <div className="blaze-container px-8">
-            <div className="blaze-track-container">
-              <div className="blaze-track">
-                {Members.map((member, index) => (
-                  <picture key={index} className="space-y-4">
-                    {/* make an id for svg clip and ref the id */}
-                    <img src={member.img} alt={member.name} />
-                    <caption className="px-4">
-                      <h2 className="text-left">{member.name}</h2>
-                      <p className="w-max">{member.role}</p>
-                    </caption>
-                  </picture>
-                ))}
-              </div>
-              <div className="absolute top-1/2 left-0 flex justify-between w-full z-0">
-                <button
-                  className="blaze-prev"
-                  aria-label="Go to previous slide"
+      <section className="doctors-section max-w-screen-xl mx-auto pt-32 p-16 md:mt-32 md:pt-0">
+          <h1 className="text-center text-5xl font-bold text-violet-700 pt-8">Our Doctors</h1>
+          <dl className="doctors-list flex flex-col space-y-12 md:space-y-0 md:flex-row my-12">
+            {Doctors && Doctors.map((doctor, index) => (
+              <div className="doctors-list-container" key={index}>
+                <dt className="static relative w-full text-lg font-medium text-violet-700 cursor-pointer focus:outline-none content-center" onClick={() => toggleAccordion(index)}>
+                  <span className={`absolute top-0 left-0 h-full w-1 bg-violet-300 transition-all duration-500 ${activeAccordion === index ? "bg-violet-500 h-full" : "h-0"}`}></span>
+                  <img src={doctor.img} className="inline-block mx-auto w-3/4 h-auto" alt={doctor.name} />
+                  <div className="flex justify-between items-center p-8">
+                    <h2 className="text-2xl">{doctor.name}</h2>
+                    {activeAccordion === index ?
+                      <MinusIcon className="w-6 h-6" />
+                      :
+                      <PlusIcon className="w-6 h-6" />
+                      }
+                  </div>
+                </dt>
+                <Transition
+                  show={activeAccordion === index}
+                  enter="transition-all duration-500"
+                  enterFrom="-mt-10 opacity-0"
+                  enterTo="mt-0 opacity-100"
+                  leave="transition-all duration-500"
+                  leaveFrom="mt-0 opacity-100"
+                  leaveTo="-mt-10 opacity-0"
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth={1.5}
-                    stroke="currentColor"
-                    className="w-6 h-6"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M15.75 19.5L8.25 12l7.5-7.5"
-                    />
-                  </svg>
-                </button>
-                {/* <div className="blaze-pagination"></div> */}
-                <button className="blaze-next" aria-label="Go to next slide">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth={1.5}
-                    stroke="currentColor"
-                    className="w-6 h-6"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M8.25 4.5l7.5 7.5-7.5 7.5"
-                    />
-                  </svg>
-                </button>
+                  <dd className="max-w-screen-sm pt-4 px-8 pb-8 relative h-full">
+                    <span className={`absolute top-0 left-0 h-full w-1 bg-violet-300 transition-all duration-500 ${activeAccordion === index ? "bg-violet-500 h-full" : "h-0"}`}></span>
+                    {doctor.bio}
+                  </dd>
+                </Transition>
               </div>
-            </div>
+            ))}
+          </dl>
+      </section>
+
+      <section className="bg-violet-200 py-24">
+        <div className="container max-w-screen-xl mx-auto">
+          <div className="member-heading w-full text-center">
+            <h2 className="text-5xl font-bold pb-16 text-indigo-500">Our Team</h2>
+          </div>
+          <div className="member-container grid gap-16 grid-cols-3">
+            {Members && Members.map((member, index) => (
+              <figure key={index} className="member-card">
+                <img className="mx-auto h-72 w-auto" src={member.img} alt={member.name} />
+                  <figcaption className="w-full py-8 text-center">
+                    <h6 className="text-3xl text-rose-500">{member.name}</h6>
+                    <span className="text-md">{member.role}</span>
+                  </figcaption>
+              </figure>
+            ))}
           </div>
         </div>
       </section>

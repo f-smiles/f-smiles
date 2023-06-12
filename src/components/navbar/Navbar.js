@@ -1,11 +1,11 @@
 import React, { useState, useContext, useEffect, useRef } from "react";
 import { NavLink } from "react-router-dom";
 import { Transition } from "@headlessui/react";
-import Sphere from "./navbar/sketch";
-import CartContext from "../app/CartContext";
-import Bag from "./stripe/Bag";
+import Sphere from "./sketch";
+import CartContext from "../../app/CartContext";
+import Bag from "../stripe/Bag";
 export default function DesktopNavbar() {
-  
+
   const [isBagOpen, setIsBagOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [showCheckout, setShowCheckout] = useState(false);
@@ -119,12 +119,12 @@ export default function DesktopNavbar() {
 
   <ul className="w-full p-2 flex justify-center items-center">
     <ul className="xl:flex hidden gap-8  items-center">
-       
+
           {!about && (
   <li
     className="hover:underline ml-6 h-full cursor-pointer hover:text-indigo-900 transition duration-150 ease-in-out items-center text-sm text-stone-900 tracking-normal relative hover:text-indigo-700 gap-2"
     onClick={handleMouseClickAbout}
-    style={{ letterSpacing: '1.5px' }} 
+    style={{ letterSpacing: '1.5px' }}
   >
     ABOUT
   </li>
@@ -144,7 +144,7 @@ className={
           {about_us_links &&
             about_us_links.map((link) => {
               return (
-              
+
                 <li
                   className="py-4 cursor-pointer text-indigo text-xl hover:text-violet-400 text-sm p-2"
                   key={link.href}
@@ -158,7 +158,7 @@ className={
                     {link.name}
                   </NavLink>
                 </li>
-                
+
               );
             })}
         </ul>
@@ -181,7 +181,7 @@ className={
         </svg>
       </button>
     <div className="absolute top-4 right-4 z-10">
-   
+
     </div>
     <div className="absolute bottom-60 left-20">
       <Sphere style={{ transform: "translate(-50%, -50%)", zIndex: -1 }} />
@@ -193,7 +193,7 @@ className={
   <li
     className={`hover:underline cursor-pointer hover:text-indigo-700 transition duration-150 ease-in-out items-center text-sm tracking-normal relative text-stone-900 hover:text-indigo-700 gap-2 mr-4 ${about ? 'hidden' : ''}`}
     onClick={() => handleMouseClickPatient(true)}
-    style={{ letterSpacing: '1.5px' }} 
+    style={{ letterSpacing: '1.5px' }}
   >
     PATIENT
   </li>
@@ -209,7 +209,7 @@ className={
                 <div className="bg-stone-200 w-1/3 flex">
                   <div className="overflow-y-auto">
                     <ul className="p-8">
-                      
+
                       {patient_links &&
                         patient_links.map((link) => {
                           return (
@@ -217,7 +217,7 @@ className={
                             <li
                               className="py-4 cursor-pointer text-indigo text-xl hover:text-gray-500 text-sm p-2"
                               key={link.name}
-                              style={{ letterSpacing: '.75px' }} 
+                              style={{ letterSpacing: '.75px' }}
                             >
                               <NavLink
                                 to={link.href}
@@ -285,13 +285,13 @@ className={
                 </div>
               </div>
             </div>
-        
-           
+
+
             {!treatments && (
   <li
     className={`hover:underline cursor-pointer hover:text-indigo-700 transition duration-150 ease-in-out items-center text-sm tracking-normal relative text-stone-900 hover:text-indigo-700 gap-2 mr-4 ${about ? 'hidden' : ''} ${treatments ? 'hidden' : ''}${patient ? 'hidden' : ''}`}
     onClick={() => handleMouseClick(true)}
-    style={{ letterSpacing: '1.5px' }} 
+    style={{ letterSpacing: '1.5px' }}
   >
     TREATMENT
   </li>
@@ -314,7 +314,7 @@ className={
                             <li
                               className="py-4 cursor-pointer text-indigo text-xl hover:text-gray-500 text-sm p-2"
                               key={link.name}
-                              style={{ letterSpacing: '.75px' }} 
+                              style={{ letterSpacing: '.75px' }}
                             >
                               <NavLink
                                 to={link.href}
@@ -395,7 +395,7 @@ className={
               <a
                 href="https://my.orthoblink.com/bLink/Login"
                 className="cursor-pointer block leading-3 tracking-normal px-3 font-normal "
-                style={{ letterSpacing: '1px' }} 
+                style={{ letterSpacing: '1px' }}
               >
                 Patient Login
               </a>
@@ -404,7 +404,7 @@ className={
               <NavLink
                 to="/locations"
                 className="cursor-pointer block leading-3 tracking-normal px-3 font-normal"
-                style={{ letterSpacing: '1px' }} 
+                style={{ letterSpacing: '1px' }}
               >
                 Our Locations
               </NavLink>
@@ -413,7 +413,7 @@ className={
               <NavLink
                 to="/products"
                 className="cursor-pointer block leading-3 tracking-normal px-3 font-normal"
-                style={{ letterSpacing: '1px' }} 
+                style={{ letterSpacing: '1px' }}
               >
                 Shop
               </NavLink>
