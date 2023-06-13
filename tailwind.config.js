@@ -12,7 +12,7 @@ module.exports = {
       'f4eae4': '#f4eae4',
       '#c75b18': '#c75b18',
       '7e3a87':'#7e3a87',
- 
+
       'dec0ae': '#dec0ae',
       'BDB5D5': '#BDB5D5',
       'B47EDE': "#B47EDE",
@@ -28,8 +28,9 @@ module.exports = {
       'b1a69b':"#b1a69b",
       'f1dfd1':"#f1dfd1",
        'f6f0ea':"#f6f0ea",
-       'pink':"#D5D0E5",
- 'purple':"#F3E6E8",
+       'C7AF97':"#C7AF97",
+       'EAE8E1':"#EAE8E1",
+       'F8F3F3':"#F8F3F3"
     
    
     

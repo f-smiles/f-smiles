@@ -100,7 +100,7 @@ const EarlyOrthodontics = () => {
         </div>
       </section>
    
-      <section className="bg-b1a69b pt-10 pb-10">
+      <section className="bg-EAE8E1 pt-10 pb-10">
   <div className="py-2 flex">
     <img
       src="../../images/redhalf.svg"
@@ -111,7 +111,7 @@ const EarlyOrthodontics = () => {
         maxHeight: "60%",
         transform: "rotate(270deg)",
         position: "relative",
-        marginLeft: "-100px",
+        marginLeft: "-10px",
         opacity: 0,
         transition: "opacity 4s ease-in-out",
       }}
@@ -140,10 +140,10 @@ const EarlyOrthodontics = () => {
     <img
       src="../../images/drfreywithyoungpatient.jpg"
       alt="invisalign"
-      className="rounded-full"
+      className="rounded"
       style={{
         maxWidth: "30%",
-        maxHeight: "30%",
+        maxHeight: "40%",
 marginLeft: "10px",
         position: "relative",
 
@@ -166,12 +166,12 @@ marginLeft: "10px",
 
   </div>
 </section>
-<section className="bg-indigo-100 pt-10 pb-10">
+<section className="bg-C7AF97 pt-10 pb-10">
   <div className="py-2 ">
-<h1 className="text-4xl">Find answers to your questions</h1>
-<div
+<h1 className="text-center text-4xl">Find answers to the most commonly asked questions</h1>
+<div 
             style={{ display: "flex", flexDirection: "column" }}
-            className="mt-10  text-violet-800"
+            className="mt-10 text-violet-800"
           >
             <Fragment>
               <Accordion open={open === 1}>
@@ -179,7 +179,7 @@ marginLeft: "10px",
                  
                   <AccordionHeader
                     onClick={() => handleOpen(1)}
-                    className="text-3xl border-b-0"
+                    className="text-xl border-b-0"
                   >
                     <span style={{ whiteSpace: "nowrap" }}>
                     In addition to a beautiful new smile, what are some other benefits of orthodontic treatment?
@@ -189,7 +189,7 @@ marginLeft: "10px",
                 <AccordionBody>
                   <ul>
                   
-                  <p>Braces can improve the function of the bite and teeth, improve the ability to clean the teeth, prevent wear on the teeth, and increase the longevity of natural teeth over a lifetime.</p>
+                  <p className="text-center">Braces can improve the function of the bite and teeth, improve the ability to clean the teeth, prevent wear on the teeth, and increase the longevity of natural teeth over a lifetime.</p>
                   </ul>
                 </AccordionBody>
               </Accordion>
@@ -198,20 +198,20 @@ marginLeft: "10px",
                 <h1>
                   <AccordionHeader
                     onClick={() => handleOpen(2)}
-                    className="text-3xl border-b-0"
+                    className="text-xl border-b-0"
                   >
                     <span style={{ whiteSpace: "nowrap" }}>If a child has treatment early, will this prevent the need for braces as an adolescent?</span>
                   </AccordionHeader>
                 </h1>
                 <AccordionBody>
-                <p>Early treatment can begin the correction of significant problems, prevent more severe problems from developing, and simplify future treatment. Because all of the permanent teeth have not yet erupted when early treatment is performed, their final alignment may not have been corrected. Typically, a shortened comprehensive phase of treatment (Phase II - full braces) in the teen years, after all the permanent teeth have erupted, completes the correction. However, in some circumstances, further orthodontic treatment may not be indicated.</p>
+                <p className="">Early treatment can begin the correction of significant problems, prevent more severe problems from developing, and simplify future treatment. Because all of the permanent teeth have not yet erupted when early treatment is performed, their final alignment may not have been corrected. Typically, a shortened comprehensive phase of treatment (Phase II - full braces) in the teen years, after all the permanent teeth have erupted, completes the correction. However, in some circumstances, further orthodontic treatment may not be indicated.</p>
                 </AccordionBody>
               </Accordion>
               <Accordion open={open === 3}>
                 <h1>
                   <AccordionHeader
                     onClick={() => handleOpen(3)}
-                    className="text-3xl border-b-0"
+                    className="text-xl border-b-0"
                   >
                     <span style={{ whiteSpace: "nowrap" }}>Do we still need to see our family dentist during orthodontic treatment?</span>
                   </AccordionHeader>
