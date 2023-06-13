@@ -23,6 +23,9 @@ module.exports = {
       'F0EFF2': '#F0EFF2',
       'F1F1F0': "#F1F1F0",
       'F2F1F6': "#F2F1F6",
+      'F2F2F2':"#F2F2F2",
+      'd4cdc0':"#d4cdc0",
+      'b1a69b':"#b1a69b"
     
    
     

@@ -112,10 +112,12 @@ export default function DesktopNavbar() {
       {/* TODO: add focus to dropdown for accessibility */}
       <nav
   id="desktop-nav"
-  className={` h-max fixed top-0 left-0 right-0 xl:block hidden z-40 ${
-    navbarTransparent ? "bg-#f4eae4" : "bg-gradient-to-r from-stone-200 via-stone-400 to-stone-200 bg-opacity-90"
-  } `}
+  className={`h-max fixed top-0 left-0 right-0 xl:block hidden z-40 bg-d4cdc0`}
+
 >
+  {/* className={` h-max fixed top-0 left-0 right-0 xl:block hidden z-40 ${
+    navbarTransparent ? "bg-#f4eae4" : "bg-gradient-to-r from-stone-200 via-stone-400 to-stone-200 bg-opacity-90"
+  } `} */}
 
   <ul className="w-full p-2 flex justify-center items-center">
     <ul className="xl:flex hidden gap-8  items-center">
