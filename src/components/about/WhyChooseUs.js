@@ -80,7 +80,7 @@ const WhyChooseUs = () => {
         </div>
       </div>
       <div className="grid grid-cols-3 mt-4">
-      <div className="col-span-1 text-purple-900 px-4 py-20 border border-purple-200 flex flex-col justify-center items-center">
+      <div className="col-span-1 text-purple-900 px-4 py-20 border border-purple-400 flex flex-col justify-center items-center">
       <span className="text-3xl">3D i-Cat Imaging</span>
         <img
              src="/images/x-ray.svg"
@@ -91,17 +91,17 @@ const WhyChooseUs = () => {
            The i-Cat imaging machine creates precise three-dimensional views of the oral-facial complex in as little as five seconds. Using these enhanced images, our Orthodontists plan complex procedures, identify disease, and visualize internal structures that would otherwise only be visible through surgery.
            </p>
          </div>
-         <div className="col-span-1 text-purple-900 px-4 py-20 border-t border-b border-purple-200 flex flex-col justify-center items-center">
+         <div className="col-span-1 text-purple-900 px-4 py-20 border-t border-b border-purple-400 flex flex-col justify-center items-center">
            <span className="text-3xl">Accelerated Treatment</span>
            <img
-             src="/images/propel.png"
+             src="/images/propeltransparent.png"
              alt="propels"
              className="w-12 h-12"
            />
            <p className="mt-2">FreySmiles Orthodontics is proud to offer Propel. Designed to turbo-charge your orthodontic treatment, Propel is non-invasive and works with both braces and Invisalign. It is a safe, well-tolerated option for many patients.
- It stimulates the bone around your teeth so that they move to their ideal positions in less time. How much your treatment time is reduced will depend upon several factors. Many patients see treatments completed in months instead of years. For increased patient comfort, health and satisfaction.</p>
+ It stimulates the bone around your teeth so that they move to their ideal positions in less time. How much your treatment time is reduced will depend upon several factors. Many patients see treatments completed in months instead of years.</p>
          </div>
-         <div className="col-span-1 text-purple-900 px-4 py-20 border border-purple-200">
+         <div className="col-span-1 text-purple-900 px-4 py-20 border border-purple-400">
            <span className="text-3xl">Laser Therapy</span>
            <img
              src="/images/Laser-Symbol.svg"
@@ -115,7 +115,7 @@ const WhyChooseUs = () => {
         <div className="relative">
           <div className="absolute inset-0 flex justify-center items-center"></div>
         </div>
-        <div className="rounded-lg mb-10 flex relative bg-white bg-opacity-40 backdrop-filter backdrop-blur-xl absolute inset-0 overflow-hidden">
+        <div className="rounded-lg  py-20 mb-20 flex relative bg-opacity-60 backdrop-filter backdrop-blur-xl absolute inset-0 overflow-hidden">
           <p className="mt-20 text-center px-12 py-8 mx-auto text-lg text-violet-800 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
           <span className="py-2"     style={{ letterSpacing: '.2px' }} >
     FreySmiles Orthodontics is a family-owned practice providing unparalleled orthodontic experience to 
@@ -133,7 +133,24 @@ the Lehigh Valley community for over four decades. Our office holds the distinct
             <img
               src="../../images/drfreyperfecting.jpg"
               alt="invisalign"
-              className="rounded-lg opacity-90 mt-4"
+              className="rounded-lg mt-4"
+              style={{
+                width: "120%",
+                height: "auto",
+              }}
+            />
+          </div>
+          <div
+            style={{
+              display: "flex",
+          
+              alignItems: "flex-end",
+            }}
+          >
+            <img
+              src="../../images/alyssaprinter.jpg"
+              alt="invisalign"
+              className="rounded-full mt-4"
               style={{
                 width: "100%",
                 height: "auto",

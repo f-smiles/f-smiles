@@ -1,7 +1,12 @@
-import React from "react";
+import React, {useState,Fragment} from "react";
 import { Disclosure } from "@headlessui/react";
 import { ChevronUpIcon } from "@heroicons/react/20/solid";
 import { useTrail, animated } from "react-spring";
+import {
+  Accordion,
+  AccordionHeader,
+  AccordionBody,
+} from "@material-tailwind/react";
 
 const words = [
   "E",
@@ -45,6 +50,12 @@ const EarlyOrthodontics = () => {
     delay: 500,
     config: { duration: 1000 },
   });
+  const [open, setOpen] = useState(1);
+  const [alwaysOpen, setAlwaysOpen] = useState(true);
+
+  const handleOpen = (value) => {
+    setOpen(open === value ? 0 : value);
+  };
   return (
     
     <main className="bg-F2F2F2 w-full pt-20">
@@ -158,59 +169,59 @@ marginLeft: "10px",
 <section className="bg-indigo-100 pt-10 pb-10">
   <div className="py-2 ">
 <h1 className="text-4xl">Find answers to your questions</h1>
+<div
+            style={{ display: "flex", flexDirection: "column" }}
+            className="mt-10  text-violet-800"
+          >
+            <Fragment>
+              <Accordion open={open === 1}>
+                <h1>
+                 
+                  <AccordionHeader
+                    onClick={() => handleOpen(1)}
+                    className="text-3xl border-b-0"
+                  >
+                    <span style={{ whiteSpace: "nowrap" }}>
+                    In addition to a beautiful new smile, what are some other benefits of orthodontic treatment?
+                    </span>
+                  </AccordionHeader>
+                </h1>
+                <AccordionBody>
+                  <ul>
+                  
+                  <p>Braces can improve the function of the bite and teeth, improve the ability to clean the teeth, prevent wear on the teeth, and increase the longevity of natural teeth over a lifetime.</p>
+                  </ul>
+                </AccordionBody>
+              </Accordion>
 
-  <Disclosure as="section" className="mt-2">
-          {({ open }) => (
-            <>
-              <Disclosure.Button className="flex w-full justify-between rounded-lg bg-purple-100 px-4 py-2 text-left text-sm font-medium text-purple-900 hover:bg-purple-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
-                <span>In addition to a beautiful new smile, what are some other benefits of orthodontic treatment?</span>
-                <ChevronUpIcon
-                  className={`${
-                    open ? 'rotate-180 transform' : ''
-                  } h-5 w-5 text-purple-500`}
-                />
-              </Disclosure.Button>
-              <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
-                <p>Braces can improve the function of the bite and teeth, improve the ability to clean the teeth, prevent wear on the teeth, and increase the longevity of natural teeth over a lifetime.</p>
-              </Disclosure.Panel>
-            </>
-          )}
-        </Disclosure>
-        <Disclosure as="section" className="mt-2">
-          {({ open }) => (
-            <>
-              <Disclosure.Button className="flex w-full justify-between rounded-lg bg-purple-100 px-4 py-2 text-left text-sm font-medium text-purple-900 hover:bg-purple-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
-                <span>If a child has treatment early, will this prevent the need for braces as an adolescent?</span>
-                <ChevronUpIcon
-                  className={`${
-                    open ? 'rotate-180 transform' : ''
-                  } h-5 w-5 text-purple-500`}
-                />
-              </Disclosure.Button>
-              <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
+              <Accordion open={open === 2}>
+                <h1>
+                  <AccordionHeader
+                    onClick={() => handleOpen(2)}
+                    className="text-3xl border-b-0"
+                  >
+                    <span style={{ whiteSpace: "nowrap" }}>If a child has treatment early, will this prevent the need for braces as an adolescent?</span>
+                  </AccordionHeader>
+                </h1>
+                <AccordionBody>
                 <p>Early treatment can begin the correction of significant problems, prevent more severe problems from developing, and simplify future treatment. Because all of the permanent teeth have not yet erupted when early treatment is performed, their final alignment may not have been corrected. Typically, a shortened comprehensive phase of treatment (Phase II - full braces) in the teen years, after all the permanent teeth have erupted, completes the correction. However, in some circumstances, further orthodontic treatment may not be indicated.</p>
-              </Disclosure.Panel>
-            </>
-          )}
-        </Disclosure>
-        <Disclosure as="section" className="mt-2">
-          {({ open }) => (
-            <>
-              <Disclosure.Button className="flex w-full justify-between rounded-lg bg-purple-100 px-4 py-2 text-left text-sm font-medium text-purple-900 hover:bg-purple-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
-                <span>Do we still need to see our family dentist during orthodontic treatment?</span>
-                <ChevronUpIcon
-                  className={`${
-                    open ? 'rotate-180 transform' : ''
-                  } h-5 w-5 text-purple-500`}
-                />
-              </Disclosure.Button>
-              <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
+                </AccordionBody>
+              </Accordion>
+              <Accordion open={open === 3}>
+                <h1>
+                  <AccordionHeader
+                    onClick={() => handleOpen(3)}
+                    className="text-3xl border-b-0"
+                  >
+                    <span style={{ whiteSpace: "nowrap" }}>Do we still need to see our family dentist during orthodontic treatment?</span>
+                  </AccordionHeader>
+                </h1>
+                <AccordionBody>
                 <p>Patients with braces and other orthodontic appliances require more effort to keep their teeth and gums clean. Because we want to ensure the highest level of dental health, we recommend you see your family dentist for regular check-ups and cleanings every 6 months during treatment.</p>
-              </Disclosure.Panel>
-            </>
-          )}
-        </Disclosure> 
-
+                </AccordionBody>
+              </Accordion>
+            </Fragment>
+          </div>
   </div>
 </section>
     </main>
