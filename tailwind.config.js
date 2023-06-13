@@ -25,7 +25,11 @@ module.exports = {
       'F2F1F6': "#F2F1F6",
       'F2F2F2':"#F2F2F2",
       'd4cdc0':"#d4cdc0",
-      'b1a69b':"#b1a69b"
+      'b1a69b':"#b1a69b",
+      'f1dfd1':"#f1dfd1",
+       'f6f0ea':"#f6f0ea",
+       'pink':"#D5D0E5",
+ 'purple':"#F3E6E8",
     
    
     

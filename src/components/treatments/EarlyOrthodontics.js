@@ -219,26 +219,3 @@ marginLeft: "10px",
 
 export default EarlyOrthodontics;
 
-
-        // </div>
-      
-        {/* <div>
-        <img
-      src="../../images/redhalf.svg"
-      alt="invisalign"
-      className="rounded-md"
-      style={{
-        maxWidth: "60%",
-        maxHeight: "60%",
-        transform: "rotate(270deg)",
-        float: "left",
-        position: "relative",
-        marginLeft: "-200px",
-        opacity: 0,
-        transition: "opacity 4s ease-in-out",
-      }}
-      onLoad={(event) => {
-        event.target.style.opacity = 1;
-      }}
-    />
-        </div> */}

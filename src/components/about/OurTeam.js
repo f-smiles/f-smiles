@@ -1,7 +1,7 @@
 import { PlusIcon, MinusIcon } from "@heroicons/react/24/solid";
 import React, { useEffect, useRef, useState } from "react";
 import { Transition } from "@headlessui/react";
-
+import { Link } from "react-router-dom";
 const OurTeam = () => {
   const [activeAccordion, setActiveAccordion] = useState(0);
   const [inViewElements, setInViewElements] = useState([]);
@@ -113,10 +113,13 @@ const OurTeam = () => {
 
   return (
     <main className="custom-background">
-      <section className="doctors-section max-w-screen-xl mx-auto pt-32 p-16 md:mt-32 md:pt-0">
+      <section className="bg-gradient-to-r from-f1dfd1  via-purple-300 to-f6f0ea  max-w-screen-xl mx-auto pt-32 p-16 md:mt-32 md:pt-0">
         <h1 className="text-center text-5xl font-bold text-violet-700 pt-8">
           Our Doctors
         </h1>
+        <section className="mt-10">
+        Our doctors are specialists in the treatment of Orthodontic problems. They have gone the extra 3 years after dental school to earn this educational expertise. The first in the Lehigh Valley to use low-dose 3D Digital Radiographs, offer digital orthodontics using 3D iTero scanning, and 3D printing for appliance fabrication.
+        </section>
         <dl className="doctors-list flex flex-col space-y-12 md:space-y-0 md:flex-row my-12">
           {Doctors &&
             Doctors.map((doctor, index) => (
@@ -191,6 +194,9 @@ const OurTeam = () => {
             <h2 className="text-5xl font-bold pb-16 text-white">
               Our Team
             </h2>
+            <section className="text-amber-700 text-lg mb-10">
+            Our members are X-ray certified, trained in CPR and first aid and most of them have received the designation of Specialized Orthodontic Assistant <Link className="underline hover:text-red-100" to="https://www.trapezio.com/training-resources/course-outlines/soa-prep-course-outline/">(SOA)</Link>. This is a voluntary certification program started by the American Association of Orthodontists to recognize those in the profession for their knowledge and experience.
+            </section>
           </div>
           <div className="member-container grid gap-16 grid-cols-3">
             {Members.map((member, index) => (

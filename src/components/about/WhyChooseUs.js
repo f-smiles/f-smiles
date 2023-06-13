@@ -45,7 +45,7 @@ const WhyChooseUs = () => {
           height: "auto",
           objectFit: "cover",
           objectPosition: "right",
-          filter: "hue-rotate(640deg)",
+          filter: "hue-rotate(70deg)",
         }}
       />
       <div className=" relative rounded-lg px-4 pt-4 pb-2 space-y-4 text-gray-500 text-center relative z-10">
@@ -79,22 +79,70 @@ const WhyChooseUs = () => {
           </h1>
         </div>
       </div>
-      <div className="mx-auto w-full max-w-screen-lg rounded-2xl p-2">
+      <div className="grid grid-cols-3 mt-4">
+      <div className="col-span-1 text-purple-900 px-4 py-20 border border-purple-200 flex flex-col justify-center items-center">
+      <span className="text-3xl">3D i-Cat Imaging</span>
+        <img
+             src="/images/x-ray.svg"
+             alt="xray"
+             className="w-20 h-20"
+           />
+           <p className="mt-2">
+           The i-Cat imaging machine creates precise three-dimensional views of the oral-facial complex in as little as five seconds. Using these enhanced images, our Orthodontists plan complex procedures, identify disease, and visualize internal structures that would otherwise only be visible through surgery.
+           </p>
+         </div>
+         <div className="col-span-1 text-purple-900 px-4 py-20 border-t border-b border-purple-200 flex flex-col justify-center items-center">
+           <span className="text-3xl">Accelerated Treatment</span>
+           <img
+             src="/images/propel.png"
+             alt="propels"
+             className="w-12 h-12"
+           />
+           <p className="mt-2">FreySmiles Orthodontics is proud to offer Propel. Designed to turbo-charge your orthodontic treatment, Propel is non-invasive and works with both braces and Invisalign. It is a safe, well-tolerated option for many patients.
+ It stimulates the bone around your teeth so that they move to their ideal positions in less time. How much your treatment time is reduced will depend upon several factors. Many patients see treatments completed in months instead of years. For increased patient comfort, health and satisfaction.</p>
+         </div>
+         <div className="col-span-1 text-purple-900 px-4 py-20 border border-purple-200">
+           <span className="text-3xl">Laser Therapy</span>
+           <img
+             src="/images/Laser-Symbol.svg"
+             alt="laser"
+             className="w-20 h-20 transform rotate-270"
+           />
+           <p>Straight teeth are just one part of a beautiful smile. Like any work of art, your teeth need the right frame to truly shine. Thanks to advanced laser technology, we can sculpt your gum tissue to create symmetrical contours that highlight your new smile. Because Dr. Gregg Frey is certified by the Academy of Laser Dentistry, he is well-qualified to help you determine if this procedure is right for you.</p>
+         </div>
+       </div>
+      <div className="mx-auto  p-2">
         <div className="relative">
           <div className="absolute inset-0 flex justify-center items-center"></div>
         </div>
-        <div className="rounded-full relative bg-white bg-opacity-40 backdrop-filter backdrop-blur-xl absolute inset-0 overflow-hidden">
-          <p className="mt-14 text-center px-12 py-8 mx-auto text-md text-violet-800 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
-          <span className="clamp-8"     style={{ letterSpacing: '.2px' }} >
+        <div className="rounded-lg mb-10 flex relative bg-white bg-opacity-40 backdrop-filter backdrop-blur-xl absolute inset-0 overflow-hidden">
+          <p className="mt-20 text-center px-12 py-8 mx-auto text-lg text-violet-800 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
+          <span className="py-2"     style={{ letterSpacing: '.2px' }} >
     FreySmiles Orthodontics is a family-owned practice providing unparalleled orthodontic experience to 
-  </span>{" "}{" "}
-  <p style={{ letterSpacing: '.2px' }}>the Lehigh Valley community for over four decades. <span className="text-violet-500 text-2xl">
-              {" "}
-              Our office holds the distinction of being the longest-standing,
-              active board-certified orthodontic office in the area.{" "}
-            </span>{" "}</p>
-           
-            <p style={{ letterSpacing: '.2px' }} className="mt-7">
+the Lehigh Valley community for over four decades. Our office holds the distinction of being the longest-standing,
+ active board-certified orthodontic office in the area.{" "}
+           </span>
+          </p>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "flex-end",
+              alignItems: "flex-end",
+            }}
+          >
+            <img
+              src="../../images/drfreyperfecting.jpg"
+              alt="invisalign"
+              className="rounded-lg opacity-90 mt-4"
+              style={{
+                width: "100%",
+                height: "auto",
+              }}
+            />
+          </div>
+        </div>
+<div className="py-10 bg-indigo-500">
+<p style={{ letterSpacing: '.2px' }} className="mt-7">
               {" "}
               We strive to attain finished results consistent with the
               <span style={{ letterSpacing: '.2px' }} className="text-2xl text-violet-500">
@@ -111,8 +159,6 @@ const WhyChooseUs = () => {
               standards for our records, ensuring accuracy and precision
               throughout the treatment process.
             </p>
-          </p>
-
           <p style={{ letterSpacing: '.2px' }} className="mb-16 ml-10 mr-10 text-center px-4 py-2 mx-auto text-md text-violet-800 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75 whitespace-[60ch]">
             Our office is the #1 provider of Invisalign and Invisalign Teen in
             the region.{" "}
@@ -122,8 +168,7 @@ const WhyChooseUs = () => {
             our care over the many years has contributed to the research and
             advancement of this specialized orthodontic treatment modality.
           </p>
-        </div>
-
+</div>
         <NavLink
           to="/virtual-consultation"
           className="-ml-20 mt-10 curspor-pointer px-5 py-5 cursor-pointer bg-teal-800 rounded-full px-8 py-2 hover:bg-emerald-700 text-lg text-white tracking-normal text-white hover:text-white z-20 relative"
@@ -139,16 +184,7 @@ const WhyChooseUs = () => {
             <Fragment>
               <Accordion open={open === 1}>
                 <h1>
-                  <img
-                    src="../../images/glasses.png"
-                    alt="invisalign"
-                    className="absolute inset-0 z-0 opacity-90"
-                    style={{
-                      width: "20%",
-                      height: "auto",
-                      left: "-30%",
-                    }}
-                  />
+                 
                   <AccordionHeader
                     onClick={() => handleOpen(1)}
                     className="text-3xl border-b-0"
@@ -228,23 +264,7 @@ const WhyChooseUs = () => {
               </Accordion>
             </Fragment>
           </div>
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "flex-end",
-              alignItems: "flex-end",
-            }}
-          >
-            <img
-              src="../../images/drfreyperfecting.jpg"
-              alt="invisalign"
-              className="opacity-90 mt-4"
-              style={{
-                width: "50%",
-                height: "auto",
-              }}
-            />
-          </div>
+       
         </div>
         <div className="flex">
           <img
