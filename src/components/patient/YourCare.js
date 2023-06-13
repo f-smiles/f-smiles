@@ -1,52 +1,106 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { Link } from "react-router-dom";
 AOS.init();
 
 const YourCare = () => {
+  const [isHovered, setIsHovered] = useState(false);
+  const images = [
+    '../images/patient-charlotte.jpeg',
+    '../images/landon.jpeg',
+    '../images/youngboy.jpg'
+  ];
+
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [images]);
+
+  const getTransitionStyle = () => {
+    return {
+      backgroundImage: `url(${images[currentImageIndex]})`,
+      transition: 'background-image 1s ease-in-out'
+    };
+  };
+
   return (
     <>
-    <div     >
-    
-<div className="mt-40 py-2 px-24 grid grid-cols-3 ">
-<div className=" col-span-1 text-white ml-1 py-2 border border-green-700 flex ">
+      <div>
+        <div className="mt-40 py-2 px-24 grid grid-cols-3 ">
+         <div
+  className="col-span-1 text-white ml-1 py-2 border border-green-700 flex items-center"
+  style={{
+    backgroundColor: isHovered ? "indigo" : "transparent",
+    transition: "background-color 0.3s",
+  }}
+  onMouseEnter={() => {
+    setIsHovered(true);
+  }}
+  onMouseLeave={() => {
+    setIsHovered(false);
+  }}
+>
   <span>
     <img
       src="/images/greencalender.png"
-      alt="halfcircles"
+      alt="calendar"
       className="ml-10 w-10 h-10"
     />
   </span>
-  <span className="ml-10 text-green-700 text-xl"><Link className="hover:text-red-300" to="/book-now">Schedule A Consultation</Link></span>
+  <span className="ml-10 text-green-700 text-xl">
+    <Link className="hover:text-white" to="/book-now">
+      Schedule A Consultation
+    </Link>
+  </span>
 </div>
-         <div className=" col-span-1 text-green-700 py-2 border-t border-b border-green-700 flex">
-           <img
-             src="/images/map.svg"
-             alt="halfcircles"
-             className="ml-10 w-10 h-10"
-           />
-            <span className="ml-10 text-xl"><Link className="hover:text-red-300" to="/locations">Visit Our Office</Link></span>
-         </div>
-         <div className="col-span-1 text-green-700 px-4 py-2 border border-green-700 flex">
 
-           <img
-             src="/images/phone-call.svg"
-             alt="halfcircles"
-             className="ml-10 w-10 h-8 "
-           />
-           <span className="ml-10 text-xl"><Link className="hover:text-red-300" to="/locations">Give Us A Call</Link></span>
-         </div>
-         
-       </div>
-<div className="flex">
+          <div className="col-span-1 text-green-700 py-2 border-t border-b border-green-700 flex">
+            <img
+              src="/images/map.svg"
+              alt="map"
+              className="ml-20 w-10 h-10"
+            />
+            <span className="mt-1 ml-10 text-xl">
+              <Link className="hover:text-red-300" to="/locations">
+                Visit Our Offices
+              </Link>
+            </span>
+          </div>
+          <div className="col-span-1 text-green-700 px-4 py-2 border border-green-700 flex">
+            <img
+              src="/images/phone-call.svg"
+              alt="halfcircles"
+              className="ml-20 w-10 h-8 "
+            />
+            <span className="mt-1 ml-10 text-xl">
+              <Link className="hover:text-red-300" to="/locations">
+                Give Us A Call
+              </Link>
+            </span>
+          </div>
+        </div>
+        <div className="flex">
+          <div className="w-1/2">
+            <h1 className="text-5xl text-center mt-12  mb-10">
+              Getting Started
+            </h1>
 
-<div className="w-1/2">
-<h1 className="text-5xl text-center mt-12  mb-10">Getting Started</h1>
-
-<p className="text-lg mt-20 justify-content ml-10"> Experience a personalized consultation with one of our doctors, either virtually or in-office. Discover the ideal solution for your needs, free from any financial obligations or commitments. Your well-being is our utmost priority, and we are dedicated to providing you with a stress-free experience.</p>
-</div>
-<div className="md:w-1/2 flex justify-center items-center">
+            <p className="text-lg mt-20 justify-content ml-10">
+              {" "}
+              Experience a personalized consultation with one of our doctors,
+              either virtually or in-office. Discover the ideal solution for
+              your needs, free from any financial obligations or commitments.
+              Your well-being is our utmost priority, and we are dedicated to
+              providing you with a stress-free experience.
+            </p>
+          </div>
+          <div className="md:w-1/2 flex justify-center items-center">
             <img
               className="rounded-full opacity-90 "
               src="../../images/freysmilepatient1.jpg"
@@ -54,49 +108,77 @@ const YourCare = () => {
               style={{ maxWidth: "80%", maxHeight: "80%" }}
             />
           </div>
-</div>
-</div>
+        </div>
+      </div>
       <section className="my-16  space-y-24">
-      <div
-  data-aos="fade-up"
-  data-aos-duration="750"
-  data-aos-easing="linear"
-  className="bg-F8F3F3 rounded-tl-3xl rounded-tr-3xl rounded-bl-3xl rounded-br-md md:flex max-h-full px-12 pb-12 pt-20"
-  style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr" }}
->
-  <div>
-    <h3 className="text-center text-6xl text-lime-900 mb-14 mt-20">1</h3>
-    <p className="text-lime-900">
-      During your initial visit, you'll get to know some of the friendly faces of the FreySmiles orthodontic team and
-      see what makes us unique. We are always excited about meeting new patients.  
-    </p>
-  </div>
-  <div className="">
-  <h3 className="text-center text-6xl text-lime-900 mb-14 mt-20">2</h3>
-  <p className="">Your first appointment will consist
-      of a thorough orthodontic examination including photos, a digital radiograph of your teeth,</p>
-    {/* <img
+        
+        <div
+          data-aos="fade-up"
+          data-aos-duration="750"
+          data-aos-easing="linear"
+          className=" rounded-tl-3xl rounded-tr-3xl rounded-bl-3xl rounded-br-md md:flex max-h-full px-12 pb-12 pt-20"
+          style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr" }}
+        >
+            <img
+        src="/images/sandbackground.png"
+        alt="chart"
+        className="object-cover w-full h-full"
+        style={{ opacity: 0.2, position: "absolute", top: 0, left: 0 }}
+      />
+          <div>
+            <h3 className="text-center text-6xl text-lime-900 mb-14 mt-20">
+              1
+            </h3>
+            <p className="text-lime-900">
+              During your initial visit, you'll get to know some of the friendly
+              faces of the FreySmiles orthodontic team and see what makes us
+              unique. We are always excited about meeting new patients.
+            </p>
+          </div>
+          <div className="">
+            <h3 className="text-center text-6xl text-lime-900 mb-14 mt-20">
+              2
+            </h3>
+            <p className="">
+              Your first appointment will consist of a thorough orthodontic
+              examination including photos, a digital radiograph of your teeth,
+            </p>
+            {/* <img
       className="opacity-90"
       src="../../images/itero.png"
       alt="scan"
       style={{ maxWidth: "80%", maxHeight: "80%" }}
     /> */}
-  </div>
-  <div>
-    <h3 className="text-6xl text-center text-lime-900 mb-14 mt-20">3</h3>
-    <p>and a discussion of
-      your options. This important visit will give us a full picture of your orthodontic needs.</p>
-  </div>
-</div>
+          </div>
+          <div>
+            <h3 className="text-6xl text-center text-lime-900 mb-14 mt-20">
+              3
+            </h3>
+            <p>
+              and a discussion of your options. This important visit will give
+              us a full picture of your orthodontic needs.
+            </p>
+          </div>
+        </div>
 
         <div
-          data-aos="fade-up"
-          data-aos-duration="1050"
-          data-aos-easing="linear"
-          className="brounded-tl-3xl rounded-tr-3xl rounded-bl-3xl rounded-br-md md:flex  max-h-full px-12 pb-12 pt-20"
-        >
-          <div className="md:w-1/2">
-            <h3 className="text-4xl text-lime-900  mb-14 mt-20">Growth and Guidance</h3>
+      data-aos="fade-up"
+      data-aos-duration="1050"
+      data-aos-easing="linear"
+      className="bg-F8F3F3 rounded-tl-3xl rounded-tr-3xl rounded-bl-3xl rounded-br-md md:flex max-h-full px-12 pb-12 pt-20"
+    >
+      <div className="md:w-1/2 flex items-center relative">
+        <div className="rounded-full overflow-hidden flex-shrink-0">
+          <div
+            className="object-cover w-full h-full"
+            style={getTransitionStyle()}
+          ></div>
+        </div>
+        <div className="ml-6">
+          <h3 className="text-4xl text-lime-900 mb-14 mt-20">
+            Growth and Guidance
+          </h3>
+          <div className="paragraph-with-background">
             <p>
               If braces are not needed right away, you will be enrolled in our
               FreySmiles Club, where we will see you every 6-12 months to
@@ -108,22 +190,31 @@ const YourCare = () => {
               care.
             </p>
           </div>
-          <div className="md:w-1/2 flex justify-center items-center">
-            <img
-              className="rounded-full "
-              src="../../images/landon.jpeg"
-              alt="scan"
-              style={{ maxWidth: "80%", maxHeight: "80%" }}
-            />
-              <img
-              className="rounded-full "
-              src="../../images/freysmilecartoon.jpg"
-              alt="scan"
-              style={{ maxWidth: "20%", maxHeight: "30%" }}
-            />
-          </div>
-          
         </div>
+      </div>
+      <div className="md:w-1/2 flex justify-center items-center relative">
+        <div className="animate-bubble-in">
+          <img
+            className="rounded-full overflow-hidden w-96 h-96 object-cover flex-shrink-0"
+            src={images[currentImageIndex]}
+            alt="scan"
+          />
+        </div>
+        <div className="animate-delayed-bubble-in">
+          <img
+            className="rounded-md absolute top-10 right-20"
+            src="../../images/observation.svg"
+            alt="scan"
+            style={{
+              maxWidth: '20%',
+              maxHeight: '30%',
+              filter: 'drop-shadow(0px 0px 0px #000000)'
+            }}
+          />
+        </div>
+      </div>
+    </div>
+
         <div
           data-aos="fade-up"
           data-aos-duration="550"
@@ -131,16 +222,18 @@ const YourCare = () => {
           className="rounded-tl-3xl rounded-tr-3xl rounded-bl-3xl rounded-br-md md:flex  max-h-full px-12 pb-12 pt-20"
         >
           <div className="md:w-1/2">
-            <h3 className="text-2xl text-lime-900 uppercase mb-14 mt-20">What to Bring</h3>
+            <h3 className="text-2xl text-lime-900 uppercase mb-14 mt-20">
+              What to Bring
+            </h3>
             <p>
-            Since treatment plans and payment options may be discussed, we ask
-           that a parent or guardian be present for the first visit. Including
-            everyone who will be making this important decision helps us
-          communicate thoroughly. We are an insurance friendly office so
-          please assist us by bringing your insurance card if you have
-           orthodontic coverage. We want our patients to leave the office with
-          a clear understanding of their specific treatment plan, so don’t
-          hesitate to ask questions.
+              Since treatment plans and payment options may be discussed, we ask
+              that a parent or guardian be present for the first visit.
+              Including everyone who will be making this important decision
+              helps us communicate thoroughly. We are an insurance friendly
+              office so please assist us by bringing your insurance card if you
+              have orthodontic coverage. We want our patients to leave the
+              office with a clear understanding of their specific treatment
+              plan, so don’t hesitate to ask questions.
             </p>
           </div>
           <div className="md:w-1/2 flex justify-center items-center">
@@ -151,10 +244,8 @@ const YourCare = () => {
               style={{ maxWidth: "80%", maxHeight: "80%" }}
             />
           </div>
-          
         </div>
       </section>
-   
     </>
   );
 };
