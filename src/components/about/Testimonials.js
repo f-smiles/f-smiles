@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 
 const Testimonial = () => {
   const ajo = [
@@ -244,41 +244,63 @@ const Testimonial = () => {
     {
       id: 46,
       img: "../../images/reviews/reviews46.jpg",
-    },
-    
+    }, 
   ]
+
+  const [animationDirection, setAnimationDirection] = useState("up");
+
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.key === "ArrowDown") {
+        setAnimationDirection("down");
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, []);
   return (
     <div
-    className="bg-gradient-to-r from-pink-100 to-purple-300"
-    style={{
-      background: "linear-gradient(315deg, #f3e6e8 0%, #d5d0e5 74%)",
-    }}
-  >
-      <h1 className="text-center mt-20 text-5xl text-indigo-900">
+      className="bg-gradient-to-r from-pink-100 to-purple-300 relative"
+      style={{
+        background: "linear-gradient(315deg, #f3e6e8 0%, #d5d0e5 74%)",
+        height: "100vh", 
+        overflow: "hidden",
+      }}
+    >
+      <h1
+        className="text-center mt-20 text-5xl text-indigo-900 absolute top-0 left-0 right-0 z-10"
+        style={{ paddingTop: "50px" }}
+      >
         We're Blushing
       </h1>
-      <div className="flex flex-wrap justify-center">
+      <div
+        className={`flex flex-wrap justify-center absolute top-0 left-0 right-0 animate-film-reel animate-${
+          animationDirection === "down" ? "film-reel-down" : "film-reel-up"
+        }`}
+        style={{ animationDuration: `${(ajo.length + reviews.length) * 5}s` }}
+      >
         {ajo.map((ajo) => (
-         <div key={ajo.id} className="w-1/3 p-4">
-         <img
-           src={ajo.img}
-           alt={`Ajo ${ajo.id}`}
-           className="block mx-auto max-w-full h-auto mt-4"
-           style={{ maxWidth: "100%", maxHeight: "300px" }}
-         />
-       </div>
+          <div key={ajo.id} className="w-1/3 p-4">
+            <img
+              src={ajo.img}
+              alt={`Ajo ${ajo.id}`}
+              className="block mx-auto max-w-full h-auto mt-4"
+              style={{ maxWidth: "100%", maxHeight: "300px" }}
+            />
+          </div>
         ))}
-      </div>
-    <div className="flex flex-wrap justify-center">
         {reviews.map((reviews) => (
-         <div key={ajo.id} className="w-1/3 p-4">
-         <img
-           src={reviews.img}
-           alt={`Ajo ${ajo.id}`}
-           className="block mx-auto max-w-full h-auto mt-4"
-           style={{ maxWidth: "100%", maxHeight: "300px" }}
-         />
-       </div>
+          <div key={reviews.id} className="w-1/3 p-4">
+            <img
+              src={reviews.img}
+              alt={`Review ${reviews.id}`}
+              className="block mx-auto max-w-full h-auto mt-4"
+              style={{ maxWidth: "100%", maxHeight: "300px" }}
+            />
+          </div>
         ))}
       </div>
     </div>
@@ -286,7 +308,6 @@ const Testimonial = () => {
 };
 
 export default Testimonial;
-
 
 // useEffect(() => {
 //   const scene = new THREE.Scene();
