@@ -54,15 +54,15 @@ const BookNow = () => {
   ]);
 
   useEffect(() => {
-    const delay = 500; // Adjust the delay as needed
+    const delay = 500; 
     const timeout1 = setTimeout(() => setIsFirstNameVisible(true), delay);
     const timeout2 = setTimeout(() => setIsLastNameVisible(true), delay * 2);
-    // Add similar timeouts for other input fields
+
 
     return () => {
       clearTimeout(timeout1);
       clearTimeout(timeout2);
-      // Clear timeouts for other input fields
+
     };
   }, []);
 
