@@ -311,7 +311,7 @@ const Home = () => {
                 <img
                   src="../../images/pin.svg"
                   alt="pin"
-                  className="flex ml-2  inset-0 z-0 opacity-90 bounce-animation transform-gpu transition-transform hover:animate-bounce transition-all duration-400"
+                  className="flex ml-2  inset-0 z-0 opacity-90 bounce-animation transform-gpu hover:animate-bounce transition-all duration-400"
                   style={{
                     width: "3%",
                     height: "auto",

@@ -119,8 +119,8 @@ export default function DesktopNavbar() {
                       <XMarkIcon className="w-10 h-10 cursor-pointer"/>
                     </button>
                     {about_us_links && about_us_links.map((link, index) => (
-                      <li className=" hover:text-violet-400 hover:translate-x-10 transition-transform ease-in duration-300">
-                        <NavLink className="block" key={link.name} to={link.href} onClick={handleToggleAbout}>{link.name}</NavLink>
+                      <li key={link.name} className=" hover:text-violet-400 hover:translate-x-10 transition-transform ease-in duration-300">
+                        <NavLink className="block" to={link.href} onClick={handleToggleAbout}>{link.name}</NavLink>
                       </li>
                     ))}
                     <Sphere />
@@ -139,8 +139,8 @@ export default function DesktopNavbar() {
                       <XMarkIcon className="w-10 h-10 cursor-pointer"/>
                     </button>
                     {patient_links && patient_links.map((link, index) => (
-                      <li className=" hover:text-violet-400 hover:translate-x-10 transition-transform ease-in duration-300">
-                        <NavLink className="block" key={link.name} to={link.href} onClick={handleTogglePatient}>{link.name}</NavLink>
+                      <li key={link.name} className=" hover:text-violet-400 hover:translate-x-10 transition-transform ease-in duration-300">
+                        <NavLink className="block" to={link.href} onClick={handleTogglePatient}>{link.name}</NavLink>
                       </li>
                     ))}
                     <Sphere />
@@ -158,8 +158,8 @@ export default function DesktopNavbar() {
                       <XMarkIcon className="w-10 h-10 cursor-pointer"/>
                     </button>
                     {treatments_links && treatments_links.map((link, index) => (
-                      <li className=" hover:text-violet-400 hover:translate-x-10 transition-transform ease-in duration-300">
-                        <NavLink className="block" key={link.name} to={link.href} onClick={handleToggleTreatments}>{link.name}</NavLink>
+                      <li key={link.name} className=" hover:text-violet-400 hover:translate-x-10 transition-transform ease-in duration-300">
+                        <NavLink className="block" to={link.href} onClick={handleToggleTreatments}>{link.name}</NavLink>
                       </li>
                     ))}
                     <Sphere />
@@ -215,7 +215,7 @@ export default function DesktopNavbar() {
                 <button className="self-end h-max p-4 text-violet-500 hover:text-danger-600 transition-colors duration-300 ease-linear z-10" type="button" onClick={handleToggleBag} aria-label="toggle close treatments sidebar links">
                   <XMarkIcon className="w-10 h-10 cursor-pointer"/>
                 </button>
-                <Bag />
+                <Bag isBagOpen={isBagOpen} />
               </div>
             </div>
           </div>
@@ -347,10 +347,9 @@ export default function DesktopNavbar() {
                     {about_us_links &&
                       about_us_links.map((link) => {
                         return (
-                          <li className="cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-300 hover:text-white px-3 font-normal">
+                          <li key={link.name} className="cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-300 hover:text-white px-3 font-normal">
                             <NavLink
                               to={link.href}
-                              key={link.name}
                               className="cursor-pointer block text-gray-600 text-sm leading-3 tracking-normal hover:text-white px-3 font-normal"
                               onClick={() => setShow(false)}
                             >
@@ -409,10 +408,9 @@ export default function DesktopNavbar() {
                       {patient_links &&
                         patient_links.map((link) => {
                           return (
-                            <li className="cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-300 hover:text-white px-3 font-normal">
+                            <li key={link.name} className="cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-300 hover:text-white px-3 font-normal">
                               <NavLink
                                 to={link.href}
-                                key={link.name}
                                 className="cursor-pointer block text-gray-600 text-sm leading-3 tracking-normal hover:text-white px-3 font-normal"
                                 onClick={() => setShow(false)}
                               >
@@ -472,10 +470,9 @@ export default function DesktopNavbar() {
                       {treatments_links &&
                         treatments_links.map((link) => {
                           return (
-                            <li className="cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-300 hover:text-white px-3 font-normal">
+                            <li key={link.name} className="cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-300 hover:text-white px-3 font-normal">
                               <NavLink
                                 to={link.href}
-                                key={link.name}
                                 className="cursor-pointer block text-gray-600 text-sm leading-3 tracking-normal hover:text-white px-3 font-normal"
                                 onClick={() => setShow(false)}
                               >
