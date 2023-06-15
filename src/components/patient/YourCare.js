@@ -194,6 +194,7 @@ const YourCare = () => {
       </div>
       <div className="md:w-1/2 flex justify-center items-center relative">
         <div className="animate-bubble-in">
+          {/* Placeholder for the current image */}
           <img
             className="rounded-full overflow-hidden w-96 h-96 object-cover flex-shrink-0"
             src={images[currentImageIndex]}
