@@ -6,7 +6,8 @@ module.exports = {
     "./node_modules/tw-elements/dist/js/**/*.js"
   ],
   theme: {
-    extend: {  backgroundColor: {
+    extend: {
+      backgroundColor: {
       // 'e8e6df': '#e8e6df',
       'f7f5f2': '#f7f5f2',
       'f4eae4': '#f4eae4',
@@ -31,11 +32,16 @@ module.exports = {
        'C7AF97':"#C7AF97",
        'EAE8E1':"#EAE8E1",
        'F8F3F3':"#F8F3F3"
-    
-   
-    
-      
-    },},
+
+
+
+
+      },
+    },
+    fontFamily: {
+      sans: ['Cera Pro', 'sans-serif'],
+      serif: ['Larken', 'serif'],
+    }
   },
   plugins: [require("tw-elements/dist/plugin.cjs")],
   darkMode: "class",
