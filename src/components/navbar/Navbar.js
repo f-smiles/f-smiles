@@ -18,6 +18,22 @@ export default function DesktopNavbar() {
   const [showSidebar, setShowSidebar] = useState(false);
   const sidebarRef = useRef(null);
 
+  const underlineRef = useRef(null);
+  const shopRef = useRef(null);
+  const patientLoginRef = useRef(null);
+  const locationsRef = useRef(null)
+  const handleMouseEnter = (ref) => {
+    if (ref.current) {
+      ref.current.style.width = '100%';
+    }
+  };
+
+  const handleMouseLeave = (ref) => {
+    if (ref.current) {
+      ref.current.style.width = '0';
+    }
+  };
+
   const handleCheckout = () => {
     setShowCheckout(true);
   };
@@ -123,13 +139,32 @@ export default function DesktopNavbar() {
     <ul className="xl:flex hidden gap-8  items-center">
 
           {!about && (
-  <li
-    className="hover:underline ml-6 h-full cursor-pointer hover:text-indigo-900 transition duration-150 ease-in-out items-center text-sm text-stone-900 tracking-normal relative hover:text-indigo-700 gap-2"
-    onClick={handleMouseClickAbout}
-    style={{ letterSpacing: '1.5px' }}
-  >
-    ABOUT
-  </li>
+             <li
+             className="hover:underline ml-6 h-full cursor-pointer hover:text-indigo-900 transition duration-150 ease-in-out items-center text-sm text-stone-900 tracking-normal relative hover:text-indigo-700 gap-2"
+             
+             onClick={handleMouseClickAbout}
+             style={{ letterSpacing: '1.5px' }}
+           >
+             ABOUT
+           </li>
+//          <li className="relative">
+//          <a
+    
+//            className="relative inline-block"
+//            onMouseEnter={handleMouseEnter}
+//            onMouseLeave={handleMouseLeave}
+//            onClick={handleMouseClickAbout}
+//          >
+//            ABOUT
+//            <span
+//              ref={underlineRef}
+//              className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-px bg-black transition-width duration-300"
+//              style={{ width: '0' }}
+//            ></span>
+//          </a>
+//        </li>
+
+
 )}
 
 <div
@@ -149,7 +184,7 @@ className={
 
                 <li
                   className="py-4 cursor-pointer text-indigo text-xl hover:text-violet-400 text-sm p-2"
-                  key={link.href}
+                  onClick={handleMouseClickAbout}
                   style={{ letterSpacing: '.75px' }}
                 >
                   <NavLink
@@ -393,33 +428,55 @@ className={
                 />
               </NavLink>
             </li>
-            <li className="ml-40 hover:underline text-xs cursor-pointer flex hover:text-indigo-700 transition duration-150 ease-in-out flex items-center tracking-normal hover:text-indigo-700">
-              <a
-                href="https://my.orthoblink.com/bLink/Login"
-                className="cursor-pointer block leading-3 tracking-normal px-3 font-normal "
-                style={{ letterSpacing: '1px' }}
-              >
-                Patient Login
-              </a>
-            </li>
-            <li className="hover:underline cursor-pointer flex hover:text-indigo-700 transition duration-150 ease-in-out flex items-center text-xs text-stone-900 tracking-normal  hover:text-indigo-700">
-              <NavLink
-                to="/locations"
-                className="cursor-pointer block leading-3 tracking-normal px-3 font-normal"
-                style={{ letterSpacing: '1px' }}
-              >
-                Our Locations
-              </NavLink>
-            </li>
-            <li className="hover:underline cursor-pointer flex hover:text-indigo-700 transition duration-150 ease-in-out flex items-center text-xs text-stone-900 tracking-normal  hover:text-indigo-700">
-              <NavLink
-                to="/products"
-                className="cursor-pointer block leading-3 tracking-normal px-3 font-normal"
-                style={{ letterSpacing: '1px' }}
-              >
-                Shop
-              </NavLink>
-            </li>
+
+       
+            <li className="relative">
+          <a
+            href="https://my.orthoblink.com/bLink/Login"
+            className="relative inline-block"
+            onMouseEnter={() => handleMouseEnter(patientLoginRef)}
+            onMouseLeave={() => handleMouseLeave(patientLoginRef)}
+            style={{ letterSpacing: '1px', fontSize: '12px' }}
+          >
+            Patient Login
+            <span
+              ref={patientLoginRef}
+              className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-px bg-black transition-width duration-300"
+            ></span>
+          </a>
+        </li>
+        <li className="relative">
+          <a
+            href="/locations"
+            className="relative inline-block cursor-pointer"
+            onMouseEnter={() => handleMouseEnter(locationsRef)}
+            onMouseLeave={() => handleMouseLeave(locationsRef)}
+            style={{ letterSpacing: '1px', fontSize: '12px' }}
+          >
+            Our Locations
+            <span
+              ref={locationsRef}
+              className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-px bg-black transition-all duration-300"
+              style={{ width: '0' }}
+            ></span>
+          </a>
+        </li>
+        <li className="relative">
+          <NavLink
+            to="/shop"
+            className="relative inline-block"
+            onMouseEnter={() => handleMouseEnter(shopRef)}
+            onMouseLeave={() => handleMouseLeave(shopRef)}
+            style={{ letterSpacing: '1px', fontSize: '12px' }}
+          >
+            Shop
+            <span
+              ref={shopRef}
+              className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-px bg-black transition-width duration-300"
+              style={{ width: '0' }}
+            ></span>
+          </NavLink>
+        </li>
             <li className="">
   {showSidebar ? (
     <button
