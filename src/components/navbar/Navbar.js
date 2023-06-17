@@ -174,14 +174,14 @@ export default function DesktopNavbar() {
           </div>
           <div id="right-links" className="flex items-center gap-8 cursor-pointer">
             <ul className="flex items-center space-x-8 ">
-              <li className="hover:underline hover:text-indigo-700 transition-colors duration-300 ease-in-out">
-                <NavLink to="https://my.orthoblink.com/bLink/Login">Patient Login</NavLink>
+              <li className="inline-block relative transition-all duration-500 before:content-[''] before:absolute before:-bottom-2 before:right-0 before:translate-x-0 before:w-0 before:h-[2px] before:opacity-0 hover:before:w-1/2 hover:before:opacity-100 before:transition-all before:duration-500 before:bg-violet-500 hover:text-indigo-700 ease-in-out">
+                  <NavLink className="inline-block relative transition-all duration-500 before:content-[''] before:absolute before:-bottom-2 before:left-0 before:translate-x-0 before:w-0 before:h-[2px] before:opacity-0 hover:before:w-1/2 hover:before:opacity-100 before:transition-all before:duration-500 before:bg-violet-500" to="https://my.orthoblink.com/bLink/Login">Patient Login</NavLink>
               </li>
-              <li className="hover:underline hover:text-indigo-700 transition-colors duration-300 ease-in-out">
-                <NavLink to="/locations">Our Locations</NavLink>
+              <li className="inline-block relative transition-all duration-500 before:content-[''] before:absolute before:-bottom-2 before:right-0 before:translate-x-0 before:w-0 before:h-[2px] before:opacity-0 hover:before:w-1/2 hover:before:opacity-100 before:transition-all before:duration-500 before:bg-violet-500 hover:text-indigo-700 ease-in-out">
+                <NavLink className="inline-block relative transition-all duration-500 before:content-[''] before:absolute before:-bottom-2 before:left-0 before:translate-x-0 before:w-0 before:h-[2px] before:opacity-0 hover:before:w-1/2 hover:before:opacity-100 before:transition-all before:duration-500 before:bg-violet-500"  to="/locations">Our Locations</NavLink>
               </li>
-              <li className="hover:underline hover:text-indigo-700 transition-colors duration-300 ease-in-out">
-                <NavLink to="/products">Shop</NavLink>
+              <li className="inline-block relative transition-all duration-500 before:content-[''] before:absolute before:-bottom-2 before:right-0 before:translate-x-0 before:w-0 before:h-[2px] before:opacity-0 hover:before:w-1/2 hover:before:opacity-100 before:transition-all before:duration-500 before:bg-violet-500 hover:text-indigo-700 ease-in-out">
+                <NavLink className="inline-block relative transition-all duration-500 before:content-[''] before:absolute before:-bottom-2 before:left-0 before:translate-x-0 before:w-0 before:h-[2px] before:opacity-0 hover:before:w-1/2 hover:before:opacity-100 before:transition-all before:duration-500 before:bg-violet-500"  to="/products">Shop</NavLink>
               </li>
             </ul>
             <ul className="bag-book flex items-center space-x-4">
