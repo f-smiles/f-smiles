@@ -1,18 +1,22 @@
 const express = require("express");
-const bodyParser = require('body-parser');
 const app = express();
-const { resolve } = require("path");
+app.use(express.static('public'));
+
 require("dotenv").config();
 
+const stripe = require('stripe')(process.env.REACT_APP_STRIPE_TEST_KEY);
+
+const bodyParser = require('body-parser');
+const { resolve } = require("path");
 app.use(bodyParser.json());
 
-const stripe = require("stripe")(process.env.REACT_APP_STRIPE_KEY, {
-  apiVersion: "2022-11-15",
-});
+// const stripe = require("stripe")(process.env.REACT_APP_STRIPE_KEY, {
+//   apiVersion: "2022-11-15",
+// });
 
-const path = require('path');
-const publicDirectoryPath = path.join(__dirname, 'public');
-app.use(express.static(publicDirectoryPath));
+// const path = require('path');
+// const publicDirectoryPath = path.join(__dirname, 'public');
+// app.use(express.static(publicDirectoryPath));
 
 app.get("/", (req, res) => {
   const path = resolve(publicDirectoryPath + "/index.html");
