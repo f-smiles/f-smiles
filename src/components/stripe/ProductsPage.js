@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 import { ProductsArray, getProductData } from "./products";
 import Cart from "./Bag";
 import Navbar from "../navbar/Navbar";
@@ -14,6 +15,45 @@ const ProductsPage = () => {
 
   const [total, setTotal] = useState(0);
   const [cartCount, setCartCount] = useState(0);
+
+  const [products, setProducts] = useState([]);
+  const [prices, setPrices] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      fetchProducts();
+      fetchPrices();
+    }, 1000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  const fetchProducts = async () => {
+    try {
+      const { data } = await axios.get(`${process.env.REACT_APP_HOST}/api/products`);
+      if (data) { setProducts(data) }
+      setIsLoading(false);
+    } catch (err) {
+      console.error(err);
+      setIsLoading(false);
+    }
+  }
+  const fetchPrices = async () => {
+    try {
+      const { data } = await axios.get(`${process.env.REACT_APP_HOST}/api/prices`);
+      if (data) { setPrices(data) }
+      setIsLoading(false);
+      // console.log("prices", data);
+    } catch (err) {
+      console.error(err);
+      setIsLoading(false);
+    }
+  }
+
+  const getProductPrice = (productId) => {
+    const price = prices.find((price) => price.product === productId);
+    return price ? (price.unit_amount / 100) : '';
+  }
+
 
   useEffect(() => {
     const savedCart = JSON.parse(localStorage.getItem("cart"));
@@ -73,12 +113,40 @@ const ProductsPage = () => {
   };
 
   return (
-    <div>
-      <Navbar cartCount={cartCount} />
-      <div className="mt-10 h-[20vh] flex justify-center items-center">
-        <h1 className="text-2xl">Products</h1>
+    <div className="max-w-screen-xl mx-auto mt-24">
+      {/* <Navbar cartCount={cartCount} /> */}
+      <div className="h-[20vh] flex justify-center items-center">
+        <h1 className="text-5xl">Products</h1>
       </div>
-      <section className="py-20">
+      {isLoading ? (
+        <p className="mt-16 mb-32 text-3xl text-center flex flex-col justify-center items-center gap-4">
+          <svg className="animate-spin h-5 w-5 text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+          </svg>          
+          <span>Loading...</span>
+        </p>
+        ) : (
+        <section id="products" className="text-center grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 place-content-center gap-4 sm:gap-8 md:gap-16 ">
+          {products && products.map((product) => (
+            <div className="space-y-8" key={product.id}>
+              {/* {console.log(product.id)} */}
+              <Link to={`/products/${product.id}`} className="space-y-8">
+                <img className="w-full aspect-video object-contain mix-blend-color-burn" src={product.images[0]} alt={product.name} />
+                <h2>{product.name}</h2>
+              </Link>
+              <button className="mx-auto hover:text-gray-200 hover:bg-stone-900 border border-gray-900 text-gray-900 py-2 px-4 rounded-full" type="button" aria-label={`Add to Bag ${product.name}`} onClick={() => addToCart(product.id)}>
+                <span>Add to Bag</span>
+                <span>{getProductPrice(product.id)} $</span>
+              </button>
+            </div>
+          ))}
+        </section>
+      )
+      }
+     
+
+      {/* <section className="py-20">
   <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 justify-center">
     {ProductsArray.map((product) => (
       <div key={product.id}>
@@ -92,7 +160,7 @@ const ProductsPage = () => {
       </div>
     ))}
   </div>
-</section>
+</section> */}
 
     </div>
   );
