@@ -303,9 +303,9 @@ const Home = () => {
           </h1>
         </div>
 
-        <section className="flex flex-col gap-8 justify-center px-4 py-8 relative z-1">
-          <div className="mt-36">
-            <div className="relative">
+        <section className="max-w-screen-xl mx-auto flex flex-col gap-8 justify-center px-4 py-8 relative z-1">
+          <div className="mt-36 flex flex-col md:flex-row space-y-16 md:gap-8">
+            <div className="relative md:w-1/3 space-y-4">
               <h3 className="text-3xl lg:text-5xl font-bold md:font-black leading-10 text-gray-700 flex ">
                 Our Locations
                 <img
@@ -325,10 +325,12 @@ const Home = () => {
 
             <div
               id="cards-container"
-              className="md:grid md:grid-cols-2 lg:flex gap-8 mt-16 "
+              className="md:w-2/3 md:grid md:grid-cols-2 gap-8 space-y-16 md:space-y-0"
+              // className="md:grid md:grid-cols-2 lg:flex gap-8 mt-16 "
             >
               <div
-                className="flex flex-col justify-between bg-f7f5f2 rounded-bl-3xl rounded-br-3xl items-center lg:w-1/4 h-96"
+                className="flex flex-col justify-between bg-f7f5f2 rounded-bl-3xl rounded-br-3xl items-center w-auto h-96"
+                // className="flex flex-col justify-between bg-f7f5f2 rounded-bl-3xl rounded-br-3xl items-center lg:w-1/4 h-96"
                 onMouseEnter={() => setIsCardHovered(true)}
                 onMouseLeave={() => setIsCardHovered(false)}
               >
@@ -338,7 +340,7 @@ const Home = () => {
                     latitude: 40.566356,
                     zoom: isCardHovered ? 14 : 12,
                   }}
-                  className="w-full h-full"
+                  // className="w-full h-full"
                   mapStyle={`${process.env.REACT_APP_MAPBOX_STYLE_ALLENTOWN}`}
                 />
                 <figcaption className="p-4 text-center">
@@ -364,14 +366,14 @@ const Home = () => {
                   <Link to="/book-now">Book Now</Link>
                 </button>
               </div>
-              <div className="flex flex-col justify-between bg-f7f5f2 rounded-bl-3xl rounded-br-3xl items-center lg:w-1/4 h-96">
+              <div className="flex flex-col justify-between bg-f7f5f2 rounded-bl-3xl rounded-br-3xl items-center w-auto h-96">
                 <Map
                   initialViewState={{
                     longitude: -75.296074,
                     latitude: 40.660953,
                     zoom: 14,
                   }}
-                  className="w-full h-full"
+                  // className="w-full h-96"
                   mapStyle={`${process.env.REACT_APP_MAPBOX_STYLE_BETHLEHEM}`}
                 />
                 <figcaption className="p-4 text-center">
@@ -395,14 +397,14 @@ const Home = () => {
                   <Link to="/book-now">Book Now</Link>
                 </button>
               </div>
-              <div className="flex flex-col justify-between bg-f7f5f2 rounded-bl-3xl rounded-br-3xl items-center lg:w-1/4 h-96">
+              <div className="flex flex-col justify-between bg-f7f5f2 rounded-bl-3xl rounded-br-3xl items-center w-auto h-96">
                 <Map
                   initialViewState={{
                     longitude: -75.597906,
                     latitude: 40.659477,
                     zoom: 14,
                   }}
-                  className="w-full h-full"
+                  // className="w-full h-full"
                   mapStyle={`${process.env.REACT_APP_MAPBOX_STYLE_SCHNECKSVILLE}`}
                 />
                 <figcaption className="p-4 text-center">
@@ -426,14 +428,14 @@ const Home = () => {
                   <Link to="/book-now">Book Now</Link>
                 </button>
               </div>
-              <div className="flex flex-col justify-between bg-f7f5f2 rounded-bl-3xl rounded-br-3xl items-center lg:w-1/4 h-96">
+              <div className="flex flex-col justify-between bg-f7f5f2 rounded-bl-3xl rounded-br-3xl items-center w-auto h-96">
                 <Map
                   initialViewState={{
                     longitude: -75.73046,
                     latitude: 40.8161,
                     zoom: 14,
                   }}
-                  className="w-full h-full"
+                  // className="w-full h-full"
                   mapStyle={`${process.env.REACT_APP_MAPBOX_STYLE_LEHIGHTON}`}
                 />
                 <figcaption className="p-4 text-center">

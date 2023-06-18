@@ -20,6 +20,7 @@ const LogoSlider = () => {
     minWidth: `var(--image-size, ${maxImageSize})`,
     height: "200px",
     objectFit: "contain",
+    // mixBlendMode: "color-burn",
     margin: "0 1vw",
     boxSizing: "border-box",
   };
