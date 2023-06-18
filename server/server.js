@@ -15,6 +15,10 @@ app.use('/api', (req, res) => {
   res.send('/api connected!')
 })
 
+app.get("/", (req,res) => {
+  res.send('Welcome')
+})
+
 // error-handing middleware
 app.use((err, req, res, next) => {
   console.error(err)
