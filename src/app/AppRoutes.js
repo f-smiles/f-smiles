@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router";
+import { Routes, Route, useParams } from "react-router";
 import Home from "../components/Home";
 import OurTeam from "../components/about/OurTeam";
 import WhyChooseUs from "../components/about/WhyChooseUs";
@@ -39,12 +39,15 @@ const AppRoutes = () => {
       <Route path="/locations" element={<Locations />} />
       <Route path="/book-now" element={<BookNow />} />
       <Route path="/stripe-checkout" element={<StripeCheckoutForm />} />
-      <Route path="/products" element={<ProductsPage />} />
+      {/* <Route path="/products" element={<ProductsPage />} /> */}
       <Route path="/bag" element={<Bag />} />
-      <Route path="/products/:id" element={<SingleProductPage />} />
+      {/* <Route path="/products/:productId" element={<SingleProductPage id={productId} />} /> */}
       <Route path="/checkout" element={<Checkout />} />
       <Route path="/slider" element={<LogoSlider />} />
       <Route path="/testimonials" element={<Testimonials />} />
+
+      <Route path="/products" element={<ProductsPage />} />
+      <Route path="/products/:productId" element={<SingleProductPage />} />
     </Routes>
   );
 };
