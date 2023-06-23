@@ -131,8 +131,8 @@ const Home = () => {
                   Our goal is to make your smile look best on{" "}
                   <strong className="font-bold">YOU</strong>. It's an art, it's
                   a science, and it is something orthodontists Dr. Gregg Frey
-                  and Dr. Daniel Frey and the exceptional team at FreySmiles
-                  Orthodontics recognize and are very passionate about.
+                  and Dr. Daniel Frey and the exceptional steam at FreySmiles
+                  Orthodontics recognize and are very passionate about. 
                 </p>
                 {/* <div className="absolute top-2/3 right-2/3 border border-black w-1/2">
                     <img
