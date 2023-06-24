@@ -157,7 +157,7 @@ const Home = () => {
             </div>
 
             <div className="mx-auto relative flex justify-end pl-6 pt-10 md:mt-0 md:mb-16 md:w-1/2 lg:mt-0 sm:pl-20 sm:block">
-              <div className="relative ml-4 top-10 left-0 w-full h-full z-20 lg:ml-8">
+              <div className="relative ml-4 top-10 left-0 w-full h-full z-10 lg:ml-8">
                 <img
                   className="h-96 md:h-auto"
                   src="../../images/hero_clip.png"
