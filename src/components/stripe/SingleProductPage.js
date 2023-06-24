@@ -12,8 +12,8 @@ export default function SingleProductPage() {
   useEffect(() => {
     const timer = setTimeout(() => {
       fetchProduct(productId)
-      console.log("product", product);
-    }, 1000)
+      // console.log("product", product);
+    }, 500)
     return () => clearTimeout(timer)
   }, [productId])
 
@@ -45,7 +45,7 @@ export default function SingleProductPage() {
       <section>
         {product && (
           <>
-            <img src={product.images[0]} alt={product.name} />
+            <img className='h-96 w-auto' src={product.images[0]} alt={product.name} />
             <h4>{product.name}</h4>
           </>
         )}

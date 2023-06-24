@@ -65,7 +65,7 @@ const Bag = ({ productData, isOpen }) => {
   const addToCart = async (productId, event) => {
     event.preventDefault();
 
-    const productData = await getProductData(productId);
+    // const productData = await getProductData(productId);
 
     if (productData !== undefined) {
       const existingProduct = cart.find((product) => product.id === productId);
@@ -101,7 +101,7 @@ const Bag = ({ productData, isOpen }) => {
 
 
   return (
-    
+
     <div className="mt-20 flex flex-col items-center">
       <h2 className="mb-10 text-black text-2xl">Your Bag</h2>
       <div className="w-full max-w-2xl">
@@ -145,7 +145,7 @@ const Bag = ({ productData, isOpen }) => {
                     value={
                       editedCounts[product.id] !== undefined
                         ? editedCounts[product.id]
-                        : product.count
+                        : product.count || 1
                     }
                     onChange={(event) => {
                       const currentValue = event.target.value;
@@ -221,15 +221,15 @@ const Bag = ({ productData, isOpen }) => {
         ))}
       </div>
       <h3 className="text-black mb-2">Total: ${total.toFixed(2)}</h3>
-      <section className="z-10"> 
+      <section className="z-10">
       <button className="mb-5 rounded bg-black text-md px-10 py-4 hover:bg-violet-400 ">
-          <NavLink 
+          <NavLink
             to="/checkout"
             className="cursor-pointer block text-lg leading-3 tracking-normal px-3 font-normal text-white "
           >Checkout</NavLink>
           </button>
         </section>
-     
+
     </div>
   );
 };

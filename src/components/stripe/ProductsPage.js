@@ -12,6 +12,7 @@ const getCartCount = (cartItems) => {
 
 const ProductsPage = () => {
   const { cart, setCart } = useContext(CartContext);
+  console.log("cart", cart);
 
   const [total, setTotal] = useState(0);
   const [cartCount, setCartCount] = useState(0);
@@ -73,33 +74,66 @@ const ProductsPage = () => {
     setCartCount(getCartCount(cart));
   }, [cart]);
 
+  // const addToCart = (productId) => { // orig
+  //   const productData = getProductData(productId);
+
+  //   if (productData !== undefined) {
+  //     const existingProductIndex = cart.findIndex(
+  //       (product) => product.id === productId
+  //     );
+
+  //     if (existingProductIndex !== -1) {
+  //       const updatedCart = [...cart];
+  //       updatedCart[existingProductIndex].count += 1;
+  //       setCart(updatedCart);
+  //       localStorage.setItem("cart", JSON.stringify(updatedCart));
+  //     } else {
+  //       const updatedProductData = {
+  //         ...productData,
+  //         count: 1,
+  //       };
+  //       const updatedCart = [...cart, updatedProductData];
+  //       setCart(updatedCart);
+  //       localStorage.setItem("cart", JSON.stringify(updatedCart));
+  //     }
+
+  //     setTotal((prevTotal) => prevTotal + productData.price);
+  //     setCartCount(getCartCount(cart));
+  //   }
+  // };
+
   const addToCart = (productId) => {
-    const productData = getProductData(productId);
-
-    if (productData !== undefined) {
-      const existingProductIndex = cart.findIndex(
-        (product) => product.id === productId
-      );
-
-      if (existingProductIndex !== -1) {
-        const updatedCart = [...cart];
-        updatedCart[existingProductIndex].count += 1;
-        setCart(updatedCart);
-        localStorage.setItem("cart", JSON.stringify(updatedCart));
+    const selectedProduct = products.find((product) => product.id === productId) // Find the product in the products array w/ productId
+    if (selectedProduct !== undefined) {
+      const existingProduct = cart.findIndex((item) => item.id === productId) // Check if selectedProduct is already in the cart
+      if (existingProduct !== -1) { // If the product is already in the cart, update its quantity
+        setCart((prevCart) =>
+          prevCart.map((item) =>
+            item.id === productId ? {...item, count: item.count + 1} : item )
+        )
+        // const updatedCart = [...cart];
+        // updatedCart[existingProduct].count += 1;
+        // setCart(updatedCart);
+        // localStorage.setItem("cart", JSON.stringify(updatedCart));
       } else {
-        const updatedProductData = {
-          ...productData,
-          count: 1,
-        };
-        const updatedCart = [...cart, updatedProductData];
-        setCart(updatedCart);
-        localStorage.setItem("cart", JSON.stringify(updatedCart));
+        setCart((prevCart) => [...prevCart, { ...selectedProduct, count: 1 }]) // If the product is not in the cart, add it with a quantity of 1
+        // const updatedProductData = {
+        //   ...selectedProduct,
+        //   count: 1,
+        // };
+        // const updatedCart = [...cart, updatedProductData];
+        // setCart(updatedCart);
+        // localStorage.setItem("cart", JSON.stringify(updatedCart));
       }
-
-      setTotal((prevTotal) => prevTotal + productData.price);
-      setCartCount(getCartCount(cart));
+      // setCart(updatedCart);
+      const updatedCart = [...cart]
+      localStorage.setItem("cart", JSON.stringify(updatedCart))
+      // TODO: fix setTotal , fix bag not getting product price NaN
+      // setTotal((prevTotal) => prevTotal + getProductPrice(selectedProduct.id));
+      // setCartCount(getCartCount(cart));
+      //  ^^^
     }
-  };
+  }
 
   const removeFromCart = (productId) => {
     const updatedCart = cart.filter((product) => product.id !== productId);
@@ -116,14 +150,14 @@ const ProductsPage = () => {
     <div className="max-w-screen-xl mx-auto mt-24">
       {/* <Navbar cartCount={cartCount} /> */}
       <div className="h-[20vh] flex justify-center items-center">
-        <h1 className="text-5xl">Products</h1>
+        <h1 className="text-5xl font-serif">Products</h1>
       </div>
       {isLoading ? (
         <p className="mt-16 mb-32 text-3xl text-center flex flex-col justify-center items-center gap-4">
           <svg className="animate-spin h-5 w-5 text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
             <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
             <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-          </svg>          
+          </svg>
           <span>Loading...</span>
         </p>
         ) : (
@@ -144,7 +178,7 @@ const ProductsPage = () => {
         </section>
       )
       }
-     
+
 
       {/* <section className="py-20">
   <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 justify-center">
@@ -166,29 +200,29 @@ const ProductsPage = () => {
   );
 };
 
-const Card = ({ id, image, name, description, price, addToCart }) => {
-  const [hover, setHover] = useState(false);
+// const Card = ({ id, image, name, description, price, addToCart }) => {
+//   const [hover, setHover] = useState(false);
 
-  return (
-    <div className="rounded-3xl max-w-xs px-12 pb-12 pt-20 flex flex-col text-center">
-      <Link to={`/products/${id}`}>
-        <div className="grid grid-rows-2 gap-4">
-          <img className="h-32 mx-auto my-auto self-center" src={image} alt={name} />
-          <div>
-            <h3 className="mb-4">{name}</h3>
-            {/* <p>{description}</p> */}
-          </div>
-        </div>
-      </Link>
-      <button className="flex items-center hover:text-gray-200 hover:bg-stone-900 border border-gray-900 text-gray-900 py-2 px-4 rounded-full" onClick={() => addToCart(id)}>
-        <span className="ml-4 mr-6">Add To Bag</span>
-        <span className="mr-1 w-px bg-indigo-900 h-6"></span>
-        <span className="ml-4">
-          <h3 className="uppercase">{price} $</h3>
-        </span>
-      </button>
-    </div>
-  );
-};
+//   return (
+//     <div className="rounded-3xl max-w-xs px-12 pb-12 pt-20 flex flex-col text-center">
+//       <Link to={`/products/${id}`}>
+//         <div className="grid grid-rows-2 gap-4">
+//           <img className="h-32 mx-auto my-auto self-center" src={image} alt={name} />
+//           <div>
+//             <h3 className="mb-4">{name}</h3>
+//             {/* <p>{description}</p> */}
+//           </div>
+//         </div>
+//       </Link>
+//       <button className="flex items-center hover:text-gray-200 hover:bg-stone-900 border border-gray-900 text-gray-900 py-2 px-4 rounded-full" onClick={() => addToCart(id)}>
+//         <span className="ml-4 mr-6">Add To Bag</span>
+//         <span className="mr-1 w-px bg-indigo-900 h-6"></span>
+//         <span className="ml-4">
+//           <h3 className="uppercase">{price} $</h3>
+//         </span>
+//       </button>
+//     </div>
+//   );
+// };
 
 export default ProductsPage;
