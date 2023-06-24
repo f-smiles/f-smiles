@@ -1,12 +1,27 @@
 import React, { useState, useContext, useEffect, useRef } from "react";
+import { useSelector } from 'react-redux'
 import { NavLink } from "react-router-dom";
 import { Transition } from "@headlessui/react";
 import Sphere from "./sketch";
 import CartContext from "../../app/CartContext";
-import Bag from "../stripe/Bag";
+// import Bag from "../stripe/Bag";
 import { XMarkIcon } from "@heroicons/react/24/outline"
+import BagSidePanel from "../bag/BagSidePanel";
 
 export default function DesktopNavbar() {
+
+  const bagItems = useSelector(state => state.bag.line_items)
+
+  const getBagTotal = () => {
+    let totalQuantity = 0
+    let totalPrice = 0
+    bagItems.forEach(item => {
+      totalQuantity += item.quantity
+      totalPrice += item.price * item.quantity
+    })
+    return { totalPrice, totalQuantity }
+  }
+
   const { cartCount } = useContext(CartContext);
 
   const [show, setShow] = useState(null); /* mobile nav */
@@ -185,8 +200,26 @@ export default function DesktopNavbar() {
               </li>
             </ul>
             <ul className="bag-book flex items-center space-x-4">
+              {bagItems.length > 0 && (
+                  <li className="flex items-center hover:underline hover:text-indigo-700 transition-colors duration-300 ease-in-out" onClick={handleToggleBag}>
+                    <span>Bag</span>
+                    <div className="relative">
+                      <svg
+                        className="ml-1 w-6 h-6"
+                        fill="currentColor"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M17.54 5.424a.47.47 0 0 1 .46.474v17.627a.47.47 0 0 1-.46.475H.46a.47.47 0 0 1-.46-.475V5.898a.47.47 0 0 1 .46-.474h4.795v-1.56C5.255 1.733 6.935 0 9 0c2.065 0 3.745 1.733 3.745 3.864v1.56zm-11.365 0h5.64v-1.56c0-1.608-1.264-2.915-2.82-2.915-1.555 0-2.82 1.307-2.82 2.915zm10.905.949h-4.335V8.61a.47.47 0 0 1-.46.475.47.47 0 0 1-.46-.475V6.373h-5.65V8.61a.47.47 0 0 1-.46.475.47.47 0 0 1-.46-.475V6.373H.92V23.05h16.16z"></path>
+                      </svg>
+                      <span className="absolute top-1/2 left-1/2 -translate-x-3/4 -translate-y-1/3 text-xs rounded-full hover:text-violet-500 -z-10">
+                        {getBagTotal().totalQuantity}
+                      </span>
+                    </div>
+                  </li>
+                )}
               {cartCount > 0 && (
-                <li className="flex items-center hover:underline hover:text-indigo-700 transition-colors duration-300 ease-in-out" onClick={handleToggleBag}>
+                <li className="hidden items-center hover:underline hover:text-indigo-700 transition-colors duration-300 ease-in-out" onClick={handleToggleBag}>
                   <span>Bag</span>
                   <div className="relative">
                     <svg
@@ -207,7 +240,10 @@ export default function DesktopNavbar() {
                 <NavLink className="block" to="/book-now">Book Now</NavLink>
               </li>
             </ul>
-            <div id="bag-panel" className={
+            {isBagOpen && (
+              <BagSidePanel className='-z-50' isBagOpen={isBagOpen} setIsBagOpen={setIsBagOpen} />
+            )}
+            {/* <div id="bag-panel" className={
               isBagOpen ? "absolute top-0 left-0 right-0 w-screen h-screen backdrop-blur-sm bg-white/30 flex flex-row justify-start overflow-hidden translate-x-0 transition-all delay-300 duration-500 ease-out"
               : "absolute top-0 left-0 right-0 w-screen h-screen backdrop-blur-sm bg-white/30 flex flex-row gap-2 overflow-hidden translate-x-[100%] transition-all delay-300 duration-500 ease-out"
             }>
@@ -217,7 +253,7 @@ export default function DesktopNavbar() {
                 </button>
                 <Bag isBagOpen={isBagOpen} />
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </nav>
