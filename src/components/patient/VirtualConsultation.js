@@ -137,83 +137,84 @@ const VirtualConsultation = () => {
               meeting below.
             </p>
             <section className="flex gap-2 w-full">
-              <div className="w-1/2">
-                <label
-                  htmlFor="first name"
-                  className="absolute -mt-2 ml-4 px-2 block mb-2 text-sm font-medium text-indigo-700 dark:text-white bg-white rounded"
-                >
-                  First Name*
-                </label>
-                <input
-                  type="text"
-                  value={patient_first_name}
-                  onChange={(e) => setPatientFirstName(e.target.value)}
-                  required
-                  className="block bg-white border border-gray-300 text-indigo-700 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                />
-              </div>
-              <div className="w-1/2">
-                <label
-                  htmlFor="last name"
-                  className="absolute -mt-2 ml-4 px-2 block mb-2 text-sm font-medium text-indigo-700 dark:text-white bg-white rounded"
-                >
-                  Last Name*
-                </label>
-                <input
-                  type="text"
-                  value={patient_last_name}
-                  onChange={(e) => setPatientLastName(e.target.value)}
-                  required
-                  className="block bg-white border border-gray-300 text-indigo-700 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                />
-              </div>
+            <div className="relative flex-1 w-1/2">
+                  <input
+                    type="text"
+                    id="floating_filled"
+                    style={{ borderRadius: "9999px", border: "1px solid gray" }}
+                    className="block rounded-t-lg px-2.5 pb-2.5 pt-5 w-full text-sm text-gray-900  border-1 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                    placeholder=" "
+                  />
+                  <label
+                    for="floating_filled"
+                    className="absolute -mt-1 ml-4 bg-white px-2 text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-2.5 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4"
+                  >
+                    First Name
+                  </label>
+                </div>
+                <div className="relative flex-1 w-1/2">
+                  <input
+                    type="text"
+                    id="floating_second"
+                    style={{ borderRadius: "9999px", border: "1px solid gray" }}
+                    className="block rounded-t-lg px-2.5 pb-2.5 pt-5 w-full text-sm text-gray-900  border-1 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                    placeholder=" "
+                  />
+                  <label
+                    for="floating_second"
+                    className="absolute -mt-1 ml-4 bg-white px-2 text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-2.5 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4"
+                  >
+                    Last Name
+                  </label>
+                </div>
             </section>
 
-            <section>
-              <label
-                htmlFor="guardian_name"
-                className="absolute -mt-3 ml-4 px-2 block mb-2 text-sm font-medium text-indigo-700 dark:text-white bg-white rounded"
-              >
-                Name of Parent or Guardian
-              </label>
-              <input
-                type="text"
-                value={guardian_name}
-                onChange={(e) => setGuardianName(e.target.value)}
-                className="block bg-white border border-gray-300 text-indigo-700 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              />
-            </section>
+            <div className="relative  w-full">
+                <input
+                  type="text"
+                  id="guardian"
+                  style={{ borderRadius: "9999px", border: "1px solid gray" }}
+                  className="mt-2 block rounded-t-lg px-2.5 pb-2.5 pt-5 w-full text-sm text-gray-900  border-1 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                  placeholder=" "
+                />
+                <label
+                  for="guardian"
+                  className="absolute mt-2  ml-4 bg-white px-2 text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-2.5 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                >
+                  Guardian
+                </label>
+              </div>
             <section className="flex gap-2 w-full">
-              <div className="w-1/2">
-                <label
-                  htmlFor="guardian_name"
-                  className="absolute -mt-3 ml-4 px-2 block mb-2 text-sm font-medium text-indigo-700 dark:text-white bg-white rounded"
-                >
-                  Phone Number*
-                </label>
+            <div className="w-1/2 relative flex-1 py-4">
+                  <input
+                    type="text"
+                    id="phone"
+                    style={{ borderRadius: "9999px", border: "1px solid gray" }}
+                    className="block rounded-t-lg px-2.5 pb-2.5 pt-5 w-full text-sm text-gray-900  border-1 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                    placeholder=" "
+                  />
+                  <label
+                    for="phone"
+                    className="absolute mt-4 ml-4 bg-white px-2 text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-2.5 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                  >
+                    Phone Number
+                  </label>
+                </div>
+                <div className="w-1/2 relative flex-1 py-4">
                 <input
-                  type="tel"
-                  value={phone_number}
-                  onChange={(e) => setPhoneNumber(e.target.value)}
-                  required
-                  className="block  border border-gray-300 text-indigo-700 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                />
-              </div>
-              <div className="w-1/2">
-                <label
-                  htmlFor="guardian_name"
-                  className="absolute -mt-3 ml-4 px-2 block mb-2 text-sm font-medium text-indigo-700 dark:text-white bg-white rounded"
-                >
-                  Email address*
-                </label>
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                  className="block bg-white border border-gray-300 text-indigo-700 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                />
-              </div>
+                    type="text"
+                    id="email"
+                    style={{ borderRadius: "9999px", border: "1px solid gray" }}
+                    className="block rounded-t-lg px-2.5 pb-2.5 pt-5 w-full text-sm text-gray-900  border-1 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                    placeholder=" "
+                  />
+                  <label
+                    for="email"
+                    className="absolute mt-4 ml-4 bg-white px-2 text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-2.5 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                  >
+                    Email
+                  </label>
+                </div>
             </section>
 
             <div

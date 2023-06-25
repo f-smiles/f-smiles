@@ -172,19 +172,6 @@ const BookNow = () => {
               </h1>
               <div className="flex w-full gap-2">
                 <div className="relative flex-1 w-1/2">
-                  {/* <input
-        className="w-full block p-2"
-        type="text"
-        value={patient_name}
-        onChange={(e) => setPatientName(e.target.value)}
-        required
-        style={{ borderRadius: "9999px", border: "1px solid gray" }}
-      />
-      <label className="text-indigo-700 absolute -mt-12 ml-4 bg-white px-2 text-xs">
-        First Name*
-      </label>
-    </div>
-    <div class="relative"> */}
                   <input
                     type="text"
                     id="floating_filled"

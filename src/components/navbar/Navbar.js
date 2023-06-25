@@ -5,7 +5,6 @@ import Sphere from "./sketch";
 import CartContext from "../../app/CartContext";
 import Bag from "../stripe/Bag";
 export default function DesktopNavbar() {
-
   const [isBagOpen, setIsBagOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [showCheckout, setShowCheckout] = useState(false);
@@ -21,16 +20,16 @@ export default function DesktopNavbar() {
   const underlineRef = useRef(null);
   const shopRef = useRef(null);
   const patientLoginRef = useRef(null);
-  const locationsRef = useRef(null)
+  const locationsRef = useRef(null);
   const handleMouseEnter = (ref) => {
     if (ref.current) {
-      ref.current.style.width = '100%';
+      ref.current.style.width = "100%";
     }
   };
 
   const handleMouseLeave = (ref) => {
     if (ref.current) {
-      ref.current.style.width = '0';
+      ref.current.style.width = "0";
     }
   };
 
@@ -93,7 +92,6 @@ export default function DesktopNavbar() {
     setAbout((prevAbout) => !prevAbout);
   };
 
-
   const handleDropdownMouseEnter = () => {
     setIsDropdownOpen(true);
   };
@@ -104,7 +102,11 @@ export default function DesktopNavbar() {
   const about_us_links = [
     { name: "Our Team", href: "/our-team", image: "../../images/doctors.jpg" },
     { name: "Why Choose Us", href: "/why-choose-us", image: "" },
-    { name: "Testimonials", href: "/testimonials", image: "../../images/ronl.png" },
+    {
+      name: "Testimonials",
+      href: "/testimonials",
+      image: "../../images/ronl.png",
+    },
   ];
 
   const patient_links = [
@@ -121,121 +123,119 @@ export default function DesktopNavbar() {
     { name: "Adult Orthodontics", href: "/adult-orthodontics" },
   ];
 
-
   return (
     <>
       {/* Desktop Navbar */}
       {/* TODO: add focus to dropdown for accessibility */}
       <nav
-  id="desktop-nav"
-  className={`h-max fixed top-0 left-0 right-0 xl:block hidden z-40 bg-d4cdc0`}
-
->
-  {/* className={` h-max fixed top-0 left-0 right-0 xl:block hidden z-40 ${
+        id="desktop-nav"
+        className={`h-max fixed top-0 left-0 right-0 xl:block hidden z-40 bg-F8F6F1`}
+      >
+        {/* className={` h-max fixed top-0 left-0 right-0 xl:block hidden z-40 ${
     navbarTransparent ? "bg-#f4eae4" : "bg-gradient-to-r from-stone-200 via-stone-400 to-stone-200 bg-opacity-90"
   } `} */}
 
-  <ul className="w-full p-2 flex justify-center items-center">
-    <ul className="xl:flex hidden gap-8  items-center">
+        <ul className="w-full p-2 flex justify-center items-center">
+          <ul className="xl:flex hidden gap-8  items-center">
+            {!about && (
+              <li
+                className="hover:underline ml-6 h-full cursor-pointer hover:text-indigo-900 transition duration-150 ease-in-out items-center text-sm text-stone-900 tracking-normal relative hover:text-indigo-700 gap-2"
+                onClick={handleMouseClickAbout}
+                style={{ letterSpacing: "1.5px" }}
+              >
+                ABOUT
+              </li>
+              //          <li className="relative">
+              //          <a
 
-          {!about && (
-             <li
-             className="hover:underline ml-6 h-full cursor-pointer hover:text-indigo-900 transition duration-150 ease-in-out items-center text-sm text-stone-900 tracking-normal relative hover:text-indigo-700 gap-2"
-             
-             onClick={handleMouseClickAbout}
-             style={{ letterSpacing: '1.5px' }}
-           >
-             ABOUT
-           </li>
-//          <li className="relative">
-//          <a
-    
-//            className="relative inline-block"
-//            onMouseEnter={handleMouseEnter}
-//            onMouseLeave={handleMouseLeave}
-//            onClick={handleMouseClickAbout}
-//          >
-//            ABOUT
-//            <span
-//              ref={underlineRef}
-//              className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-px bg-black transition-width duration-300"
-//              style={{ width: '0' }}
-//            ></span>
-//          </a>
-//        </li>
+              //            className="relative inline-block"
+              //            onMouseEnter={handleMouseEnter}
+              //            onMouseLeave={handleMouseLeave}
+              //            onClick={handleMouseClickAbout}
+              //          >
+              //            ABOUT
+              //            <span
+              //              ref={underlineRef}
+              //              className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-px bg-black transition-width duration-300"
+              //              style={{ width: '0' }}
+              //            ></span>
+              //          </a>
+              //        </li>
+            )}
 
-
-)}
-
-<div
-className={
-  about
-    ? "fixed top-0 left-0 flex flex-row h-screen overflow-hidden transition-all delay-300 duration-500 ease-out"
-    : "hidden"
-}
->
-  <div className="flex h-screen w-screen backdrop-blur-sm bg-white/30">
-    <div className="bg-stone-200 w-1/3 ">
-      <div className="overflow-y-auto">
-        <ul className="p-8">
-          {about_us_links &&
-            about_us_links.map((link) => {
-              return (
-
-                <li
-                  className="py-4 cursor-pointer text-indigo text-xl hover:text-violet-400 text-sm p-2"
-                  onClick={handleMouseClickAbout}
-                  style={{ letterSpacing: '.75px' }}
+            <div
+              className={
+                about
+                  ? "fixed top-0 left-0 flex flex-row h-screen overflow-hidden transition-all delay-300 duration-500 ease-out"
+                  : "hidden"
+              }
+            >
+              <div className="flex h-screen w-screen backdrop-blur-sm bg-white/30">
+                <div className="bg-stone-200 w-1/3 ">
+                  <div className="overflow-y-auto">
+                    <ul className="p-8">
+                      {about_us_links &&
+                        about_us_links.map((link) => {
+                          return (
+                            <li
+                              className="py-4 cursor-pointer text-indigo text-xl hover:text-violet-400 text-sm p-2"
+                              onClick={handleMouseClickAbout}
+                              style={{ letterSpacing: ".75px" }}
+                            >
+                              <NavLink
+                                to={link.href}
+                                className="block hover:translate-x-6 transition duration-500"
+                                onClick={handleMouseClickAbout}
+                              >
+                                {link.name}
+                              </NavLink>
+                            </li>
+                          );
+                        })}
+                    </ul>
+                  </div>
+                </div>
+                <button
+                  onClick={() => setAbout(false)}
+                  className="text-gray-500 hover:text-gray-600 focus:outline-none focus:text-gray-600"
+                  aria-label="Toggle sidebar"
                 >
-                  <NavLink
-                    to={link.href}
-                    className="block hover:translate-x-6 transition duration-500"
-                    onClick={handleMouseClickAbout}
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1.5}
+                    stroke="currentColor"
+                    className="w-6 h-6"
                   >
-                    {link.name}
-                  </NavLink>
-                </li>
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
+                </button>
+                <div className="absolute top-4 right-4 z-10"></div>
+                <div className="absolute bottom-60 left-20">
+                  <Sphere
+                    style={{ transform: "translate(-50%, -50%)", zIndex: -1 }}
+                  />
+                </div>
+              </div>
+            </div>
 
-              );
-            })}
-        </ul>
-      </div>
-    </div>
-    <button
-        onClick={() => setAbout(false)}
-        className="text-gray-500 hover:text-gray-600 focus:outline-none focus:text-gray-600"
-        aria-label="Toggle sidebar"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth={1.5}
-          stroke="currentColor"
-          className="w-6 h-6"
-        >
-          <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-        </svg>
-      </button>
-    <div className="absolute top-4 right-4 z-10">
-
-    </div>
-    <div className="absolute bottom-60 left-20">
-      <Sphere style={{ transform: "translate(-50%, -50%)", zIndex: -1 }} />
-    </div>
-  </div>
-</div>
-
-{!patient && (
-  <li
-    className={`hover:underline cursor-pointer hover:text-indigo-700 transition duration-150 ease-in-out items-center text-sm tracking-normal relative text-stone-900 hover:text-indigo-700 gap-2 mr-4 ${about ? 'hidden' : ''}`}
-    onClick={() => handleMouseClickPatient(true)}
-    style={{ letterSpacing: '1.5px' }}
-  >
-    PATIENT
-  </li>
-)}
-              <div
+            {!patient && (
+              <li
+                className={`hover:underline cursor-pointer hover:text-indigo-700 transition duration-150 ease-in-out items-center text-sm tracking-normal relative text-stone-900 hover:text-indigo-700 gap-2 mr-4 ${
+                  about ? "hidden" : ""
+                }`}
+                onClick={() => handleMouseClickPatient(true)}
+                style={{ letterSpacing: "1.5px" }}
+              >
+                PATIENT
+              </li>
+            )}
+            <div
               className={
                 patient
                   ? "block absolute top-0 left-0 flex flex-row h-screen overflow-hidden translate-x-0 transition-all delay-300 duration-500 ease-out"
@@ -246,33 +246,30 @@ className={
                 <div className="bg-stone-200 w-1/3 flex">
                   <div className="overflow-y-auto">
                     <ul className="p-8">
-
                       {patient_links &&
                         patient_links.map((link) => {
                           return (
                             <h1>
-                            <li
-                              className="py-4 cursor-pointer text-indigo text-xl hover:text-gray-500 text-sm p-2"
-                              key={link.name}
-                              style={{ letterSpacing: '.75px' }}
-                            >
-                              <NavLink
-                                to={link.href}
-                                className="block hover:translate-x-6 transition duration-500"
-                                onClick={() => setPatient(false)}
+                              <li
+                                className="py-4 cursor-pointer text-indigo text-xl hover:text-gray-500 text-sm p-2"
+                                key={link.name}
+                                style={{ letterSpacing: ".75px" }}
                               >
-                                {link.name}
-                              </NavLink>
-                            </li>
+                                <NavLink
+                                  to={link.href}
+                                  className="block hover:translate-x-6 transition duration-500"
+                                  onClick={() => setPatient(false)}
+                                >
+                                  {link.name}
+                                </NavLink>
+                              </li>
                             </h1>
                           );
                         })}
                     </ul>
                   </div>
 
-                  <div
-                    style={{ transform: "translate(-50%, -50%)",  }}
-                  >
+                  <div style={{ transform: "translate(-50%, -50%)" }}>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
@@ -323,16 +320,17 @@ className={
               </div>
             </div>
 
-
             {!treatments && (
-  <li
-    className={`hover:underline cursor-pointer hover:text-indigo-700 transition duration-150 ease-in-out items-center text-sm tracking-normal relative text-stone-900 hover:text-indigo-700 gap-2 mr-4 ${about ? 'hidden' : ''} ${treatments ? 'hidden' : ''}${patient ? 'hidden' : ''}`}
-    onClick={() => handleMouseClick(true)}
-    style={{ letterSpacing: '1.5px' }}
-  >
-    TREATMENT
-  </li>
-)}
+              <li
+                className={`hover:underline cursor-pointer hover:text-indigo-700 transition duration-150 ease-in-out items-center text-sm tracking-normal relative text-stone-900 hover:text-indigo-700 gap-2 mr-4 ${
+                  about ? "hidden" : ""
+                } ${treatments ? "hidden" : ""}${patient ? "hidden" : ""}`}
+                onClick={() => handleMouseClick(true)}
+                style={{ letterSpacing: "1.5px" }}
+              >
+                TREATMENT
+              </li>
+            )}
             <div
               className={
                 treatments
@@ -348,19 +346,19 @@ className={
                         treatments_links.map((link) => {
                           return (
                             <h1>
-                            <li
-                              className="py-4 cursor-pointer text-indigo text-xl hover:text-gray-500 text-sm p-2"
-                              key={link.name}
-                              style={{ letterSpacing: '.75px' }}
-                            >
-                              <NavLink
-                                to={link.href}
-                                className="block hover:translate-x-6 transition duration-500"
-                                onClick={() => setTreatments(false)}
+                              <li
+                                className="py-4 cursor-pointer text-indigo text-xl hover:text-gray-500 text-sm p-2"
+                                key={link.name}
+                                style={{ letterSpacing: ".75px" }}
                               >
-                                {link.name}
-                              </NavLink>
-                            </li>
+                                <NavLink
+                                  to={link.href}
+                                  className="block hover:translate-x-6 transition duration-500"
+                                  onClick={() => setTreatments(false)}
+                                >
+                                  {link.name}
+                                </NavLink>
+                              </li>
                             </h1>
                           );
                         })}
@@ -429,101 +427,95 @@ className={
               </NavLink>
             </li>
 
-       
             <li className="relative">
-          <a
-            href="https://my.orthoblink.com/bLink/Login"
-            className="relative inline-block"
-            onMouseEnter={() => handleMouseEnter(patientLoginRef)}
-            onMouseLeave={() => handleMouseLeave(patientLoginRef)}
-            style={{ letterSpacing: '1px', fontSize: '12px' }}
-          >
-            Patient Login
-            <span
-              ref={patientLoginRef}
-              className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-px bg-black transition-width duration-300"
-            ></span>
-          </a>
-        </li>
-        <li className="relative">
-          <a
-            href="/locations"
-            className="relative inline-block cursor-pointer"
-            onMouseEnter={() => handleMouseEnter(locationsRef)}
-            onMouseLeave={() => handleMouseLeave(locationsRef)}
-            style={{ letterSpacing: '1px', fontSize: '12px' }}
-          >
-            Our Locations
-            <span
-              ref={locationsRef}
-              className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-px bg-black transition-all duration-300"
-              style={{ width: '0' }}
-            ></span>
-          </a>
-        </li>
-        <li className="relative">
-          <NavLink
-            to="/shop"
-            className="relative inline-block"
-            onMouseEnter={() => handleMouseEnter(shopRef)}
-            onMouseLeave={() => handleMouseLeave(shopRef)}
-            style={{ letterSpacing: '1px', fontSize: '12px' }}
-          >
-            Shop
-            <span
-              ref={shopRef}
-              className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-px bg-black transition-width duration-300"
-              style={{ width: '0' }}
-            ></span>
-          </NavLink>
-        </li>
+              <a
+                href="https://my.orthoblink.com/bLink/Login"
+                className="relative inline-block"
+                onMouseEnter={() => handleMouseEnter(patientLoginRef)}
+                onMouseLeave={() => handleMouseLeave(patientLoginRef)}
+                style={{ letterSpacing: "1px", fontSize: "12px" }}
+              >
+                Patient Login
+                <span
+                  ref={patientLoginRef}
+                  className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-px bg-black transition-width duration-300"
+                ></span>
+              </a>
+            </li>
+            <li className="relative">
+              <a
+                href="/locations"
+                className="relative inline-block cursor-pointer"
+                onMouseEnter={() => handleMouseEnter(locationsRef)}
+                onMouseLeave={() => handleMouseLeave(locationsRef)}
+                style={{ letterSpacing: "1px", fontSize: "12px" }}
+              >
+                Our Locations
+                <span
+                  ref={locationsRef}
+                  className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-px bg-black transition-all duration-300"
+                  style={{ width: "0" }}
+                ></span>
+              </a>
+            </li>
+            <li className="relative">
+              <NavLink
+                to="/shop"
+                className="relative inline-block"
+                onMouseEnter={() => handleMouseEnter(shopRef)}
+                onMouseLeave={() => handleMouseLeave(shopRef)}
+                style={{ letterSpacing: "1px", fontSize: "12px" }}
+              >
+                Shop
+                <span
+                  ref={shopRef}
+                  className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-px bg-black transition-width duration-300"
+                  style={{ width: "0" }}
+                ></span>
+              </NavLink>
+            </li>
             <li className="">
-  {showSidebar ? (
-    <button
-      className="flex text-3xl text-black items-center cursor-pointer fixed right-10 top-6 z-50"
-      onClick={handleToggleSidebar}
-    >
-      x
-    </button>
-  ) : (
-    <>
-      {cartCount > 0 && (
-        <div
-          className="flex flex-row items-center gap-2 cursor-pointer block text-xs leading-3 tracking-normal px-3 font-normal"
-          onClick={handleToggleSidebar}
-        >
-          <span className="hover:text-violet-500">Bag</span>
-          <div className="relative flex items-center">
-            <svg
-              className="w-5 h-5"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-            >
-              <path d="M17.54 5.424a.47.47 0 0 1 .46.474v17.627a.47.47 0 0 1-.46.475H.46a.47.47 0 0 1-.46-.475V5.898a.47.47 0 0 1 .46-.474h4.795v-1.56C5.255 1.733 6.935 0 9 0c2.065 0 3.745 1.733 3.745 3.864v1.56zm-11.365 0h5.64v-1.56c0-1.608-1.264-2.915-2.82-2.915-1.555 0-2.82 1.307-2.82 2.915zm10.905.949h-4.335V8.61a.47.47 0 0 1-.46.475.47.47 0 0 1-.46-.475V6.373h-5.65V8.61a.47.47 0 0 1-.46.475.47.47 0 0 1-.46-.475V6.373H.92V23.05h16.16z"></path>
-            </svg>
-            <span className="absolute top-0 right-0 text-black text-xs px-1 rounded-full mt-2 mr-2">
-              {cartCount}
-            </span>
-          </div>
-        </div>
-      )}
-    </>
-  )}
+              {showSidebar ? (
+                <button
+                  className="flex text-3xl text-black items-center cursor-pointer fixed right-10 top-6 z-50"
+                  onClick={handleToggleSidebar}
+                >
+                  x
+                </button>
+              ) : (
+                <>
+                  {cartCount > 0 && (
+                    <div
+                      className="flex flex-row items-center gap-2 cursor-pointer block text-xs leading-3 tracking-normal px-3 font-normal"
+                      onClick={handleToggleSidebar}
+                    >
+                      <span className="hover:text-violet-500">Bag</span>
+                      <div className="relative flex items-center">
+                        <svg
+                          className="w-5 h-5"
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                        >
+                          <path d="M17.54 5.424a.47.47 0 0 1 .46.474v17.627a.47.47 0 0 1-.46.475H.46a.47.47 0 0 1-.46-.475V5.898a.47.47 0 0 1 .46-.474h4.795v-1.56C5.255 1.733 6.935 0 9 0c2.065 0 3.745 1.733 3.745 3.864v1.56zm-11.365 0h5.64v-1.56c0-1.608-1.264-2.915-2.82-2.915-1.555 0-2.82 1.307-2.82 2.915zm10.905.949h-4.335V8.61a.47.47 0 0 1-.46.475.47.47 0 0 1-.46-.475V6.373h-5.65V8.61a.47.47 0 0 1-.46.475.47.47 0 0 1-.46-.475V6.373H.92V23.05h16.16z"></path>
+                        </svg>
+                        <span className="absolute top-0 right-0 text-black text-xs px-1 rounded-full mt-2 mr-2">
+                          {cartCount}
+                        </span>
+                      </div>
+                    </div>
+                  )}
+                </>
+              )}
 
-  <div
-    ref={sidebarRef}
-    className={`top-0 right-0 w-[35vw] bg-white p-10 pl-20 text-white fixed h-full z-40 ease-in-out duration-700 ${
-      showSidebar ? "translate-x-0" : "translate-x-full"
-    }`}
-  >
-    <Bag />
-  </div>
-</li>
-
-
-
-
-
+              <div
+                ref={sidebarRef}
+                className={`top-0 right-0 w-[35vw] bg-white p-10 pl-20 text-white fixed h-full z-40 ease-in-out duration-700 ${
+                  showSidebar ? "translate-x-0" : "translate-x-full"
+                }`}
+              >
+                <Bag />
+              </div>
+            </li>
           </ul>
           <div className="flex items-center">
             <li className="cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-3 hover:text-white font-normal">
