@@ -83,7 +83,11 @@ export default function DesktopNavbar() {
   const about_us_links = [
     { name: "Our Team", href: "/our-team", image: "../../images/doctors.jpg" },
     { name: "Why Choose Us", href: "/why-choose-us", image: "" },
-    { name: "Testimonials", href: "/testimonials", image: "../../images/ronl.png" },
+    {
+      name: "Testimonials",
+      href: "/testimonials",
+      image: "../../images/ronl.png",
+    },
   ];
 
   const patient_links = [
