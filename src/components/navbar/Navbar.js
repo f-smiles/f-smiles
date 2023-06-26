@@ -1,104 +1,85 @@
 import React, { useState, useContext, useEffect, useRef } from "react";
+import { useSelector } from 'react-redux'
 import { NavLink } from "react-router-dom";
 import { Transition } from "@headlessui/react";
 import Sphere from "./sketch";
 import CartContext from "../../app/CartContext";
-import Bag from "../stripe/Bag";
+// import Bag from "../stripe/Bag";
+import { XMarkIcon } from "@heroicons/react/24/outline"
+import BagSidePanel from "../bag/BagSidePanel";
+
 export default function DesktopNavbar() {
-  const [isBagOpen, setIsBagOpen] = useState(false);
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [showCheckout, setShowCheckout] = useState(false);
+
+  const bagItems = useSelector(state => state.bag.line_items)
+
+  const getBagTotal = () => {
+    let totalQuantity = 0
+    let totalPrice = 0
+    bagItems.forEach(item => {
+      totalQuantity += item.quantity
+      totalPrice += item.price * item.quantity
+    })
+    return { totalPrice, totalQuantity }
+  }
+
   const { cartCount } = useContext(CartContext);
-  const [show, setShow] = useState(null);
+
+  const [show, setShow] = useState(null); /* mobile nav */
+  const [navbarTransparent, setNavbarTransparent] = useState(true);
+
   const [about, setAbout] = useState(false);
   const [patient, setPatient] = useState(false);
   const [treatments, setTreatments] = useState(false);
-  const [navbarTransparent, setNavbarTransparent] = useState(true);
-  const [showSidebar, setShowSidebar] = useState(false);
-  const sidebarRef = useRef(null);
+  const [isBagOpen, setIsBagOpen] = useState(false);
 
-  const underlineRef = useRef(null);
-  const shopRef = useRef(null);
-  const patientLoginRef = useRef(null);
-  const locationsRef = useRef(null);
-  const handleMouseEnter = (ref) => {
-    if (ref.current) {
-      ref.current.style.width = "100%";
-    }
-  };
+  // const [showCheckout, setShowCheckout] = useState(false);
+  // const sidebarRef = useRef(null);
+  // const [showSidebar, setShowSidebar] = useState(false);
 
-  const handleMouseLeave = (ref) => {
-    if (ref.current) {
-      ref.current.style.width = "0";
-    }
-  };
+  // const handleCheckout = () => {
+  //   setShowCheckout(true);
+  // };
 
-  const handleCheckout = () => {
-    setShowCheckout(true);
-  };
+  // const handleClickOutside = (event) => {
+  //   if (sidebarRef.current && !sidebarRef.current.contains(event.target)) {
+  //     setShowSidebar(false);
+  //   }
+  // };
 
-  const handleClickOutside = (event) => {
-    if (sidebarRef.current && !sidebarRef.current.contains(event.target)) {
-      setShowSidebar(false);
-    }
-  };
+  // const handleToggleSidebar = () => {
+  //   setShowSidebar(!showSidebar);
+  // };
 
-  const handleToggleSidebar = () => {
-    setShowSidebar(!showSidebar);
-  };
+  // useEffect(() => {
+  //   if (showSidebar) {
+  //     document.addEventListener("mousedown", handleClickOutside);
+  //   }
 
-  useEffect(() => {
-    if (showSidebar) {
-      document.addEventListener("mousedown", handleClickOutside);
-    }
+  //   return () => {
+  //     document.removeEventListener("mousedown", handleClickOutside);
+  //   };
+  // }, [showSidebar]);
 
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [showSidebar]);
-  const handleToggleBag = () => {
-    setIsBagOpen(!isBagOpen);
-  };
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     const scrollTop = window.pageYOffset;
+  //     const threshold = 5;
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.pageYOffset;
-      const threshold = 5;
+  //     if (scrollTop > threshold) {
+  //       setNavbarTransparent(false);
+  //     } else {
+  //       setNavbarTransparent(true);
+  //     }
+  //   };
 
-      if (scrollTop > threshold) {
-        setNavbarTransparent(false);
-      } else {
-        setNavbarTransparent(true);
-      }
-    };
+  //   window.addEventListener("scroll", handleScroll);
 
-    window.addEventListener("scroll", handleScroll);
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, []);
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
 
-  const handleMouseClick = () => {
-    setTreatments(true);
-  };
-
-  const handleMouseClickPatient = () => {
-    setPatient(true);
-    setTreatments(false);
-  };
-
-  const handleMouseClickAbout = () => {
-    setAbout((prevAbout) => !prevAbout);
-  };
-
-  const handleDropdownMouseEnter = () => {
-    setIsDropdownOpen(true);
-  };
-
-  const handleDropdownMouseLeave = () => {
-    setIsDropdownOpen(false);
-  };
   const about_us_links = [
     { name: "Our Team", href: "/our-team", image: "../../images/doctors.jpg" },
     { name: "Why Choose Us", href: "/why-choose-us", image: "" },
@@ -123,413 +104,162 @@ export default function DesktopNavbar() {
     { name: "Adult Orthodontics", href: "/adult-orthodontics" },
   ];
 
+  const handleToggleAbout = () => {
+    setAbout(!about);
+  };
+
+  const handleTogglePatient = () => {
+    setPatient(!patient);
+  };
+
+  const handleToggleTreatments = () => {
+    setTreatments(!treatments);
+  };
+
+  const handleToggleBag = () => {
+    setIsBagOpen(!isBagOpen);
+  };
+
+
   return (
     <>
       {/* Desktop Navbar */}
-      {/* TODO: add focus to dropdown for accessibility */}
-      <nav
-        id="desktop-nav"
-        className={`h-max fixed top-0 left-0 right-0 xl:block hidden z-40 bg-F8F6F1`}
-      >
-        {/* className={` h-max fixed top-0 left-0 right-0 xl:block hidden z-40 ${
-    navbarTransparent ? "bg-#f4eae4" : "bg-gradient-to-r from-stone-200 via-stone-400 to-stone-200 bg-opacity-90"
-  } `} */}
+      <nav id="desktop-nav" className={`w-full h-max fixed top-0 left-0 right-0 lg:block hidden z-40 bg-d4cdc0`}>
+        <div className="max-w-screen-xl mx-auto flex justify-between items-center text-sm ">
+          <div id="left-links" className="flex space-x-8 ">
+            <div id="about-links">
+              <h4 className="cursor-pointer uppercase font-medium tracking-wider hover:underline hover:text-indigo-700 transition-colors duration-300 ease-in-out" onClick={handleToggleAbout}>About</h4>
+                <div className={
+                  !about ? "absolute top-0 left-0 w-screen h-screen backdrop-blur-sm bg-white/30 flex flex-row gap-2 overflow-hidden translate-x-[-100%] transition-all delay-300 duration-500 ease-out"
+                  : "absolute top-0 left-0  w-screen h-screen backdrop-blur-sm bg-white/30 flex flex-row gap-2 overflow-hidden translate-x-0 transition-all delay-300 duration-500 ease-out"
+                }>
+                  <ul className="relative w-1/3 h-full p-16 bg-stone-200 flex flex-col gap-8 font-serif text-2xl text-indigo-500">
+                    <button className="self-end h-max p-4 text-violet-500 hover:text-danger-600 transition-colors duration-300 ease-linear z-10" type="button"  onClick={handleToggleAbout} aria-label="toggle close about sidebar links">
+                      <XMarkIcon className="w-10 h-10 cursor-pointer"/>
+                    </button>
+                    {about_us_links && about_us_links.map((link, index) => (
+                      <li key={link.name} className=" hover:text-violet-400 hover:translate-x-10 transition-transform ease-in duration-300">
+                        <NavLink className="block" to={link.href} onClick={handleToggleAbout}>{link.name}</NavLink>
+                      </li>
+                    ))}
+                    <Sphere />
+                  </ul>
 
-        <ul className="w-full p-2 flex justify-center items-center">
-          <ul className="xl:flex hidden gap-8  items-center">
-            {!about && (
-              <li
-                className="hover:underline ml-6 h-full cursor-pointer hover:text-indigo-900 transition duration-150 ease-in-out items-center text-sm text-stone-900 tracking-normal relative hover:text-indigo-700 gap-2"
-                onClick={handleMouseClickAbout}
-                style={{ letterSpacing: "1.5px" }}
-              >
-                ABOUT
-              </li>
-              //          <li className="relative">
-              //          <a
-
-              //            className="relative inline-block"
-              //            onMouseEnter={handleMouseEnter}
-              //            onMouseLeave={handleMouseLeave}
-              //            onClick={handleMouseClickAbout}
-              //          >
-              //            ABOUT
-              //            <span
-              //              ref={underlineRef}
-              //              className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-px bg-black transition-width duration-300"
-              //              style={{ width: '0' }}
-              //            ></span>
-              //          </a>
-              //        </li>
-            )}
-
-            <div
-              className={
-                about
-                  ? "fixed top-0 left-0 flex flex-row h-screen overflow-hidden transition-all delay-300 duration-500 ease-out"
-                  : "hidden"
-              }
-            >
-              <div className="flex h-screen w-screen backdrop-blur-sm bg-white/30">
-                <div className="bg-stone-200 w-1/3 ">
-                  <div className="overflow-y-auto">
-                    <ul className="p-8">
-                      {about_us_links &&
-                        about_us_links.map((link) => {
-                          return (
-                            <li
-                              className="py-4 cursor-pointer text-indigo text-xl hover:text-violet-400 text-sm p-2"
-                              onClick={handleMouseClickAbout}
-                              style={{ letterSpacing: ".75px" }}
-                            >
-                              <NavLink
-                                to={link.href}
-                                className="block hover:translate-x-6 transition duration-500"
-                                onClick={handleMouseClickAbout}
-                              >
-                                {link.name}
-                              </NavLink>
-                            </li>
-                          );
-                        })}
-                    </ul>
-                  </div>
                 </div>
-                <button
-                  onClick={() => setAbout(false)}
-                  className="text-gray-500 hover:text-gray-600 focus:outline-none focus:text-gray-600"
-                  aria-label="Toggle sidebar"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth={1.5}
-                    stroke="currentColor"
-                    className="w-6 h-6"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M6 18L18 6M6 6l12 12"
-                    />
-                  </svg>
-                </button>
-                <div className="absolute top-4 right-4 z-10"></div>
-                <div className="absolute bottom-60 left-20">
-                  <Sphere
-                    style={{ transform: "translate(-50%, -50%)", zIndex: -1 }}
-                  />
-                </div>
-              </div>
             </div>
-
-            {!patient && (
-              <li
-                className={`hover:underline cursor-pointer hover:text-indigo-700 transition duration-150 ease-in-out items-center text-sm tracking-normal relative text-stone-900 hover:text-indigo-700 gap-2 mr-4 ${
-                  about ? "hidden" : ""
-                }`}
-                onClick={() => handleMouseClickPatient(true)}
-                style={{ letterSpacing: "1.5px" }}
-              >
-                PATIENT
-              </li>
-            )}
-            <div
-              className={
-                patient
-                  ? "block absolute top-0 left-0 flex flex-row h-screen overflow-hidden translate-x-0 transition-all delay-300 duration-500 ease-out"
-                  : "absolute top-0 left-0 flex flex-row h-screen overflow-hidden translate-x-[-100%] transition-all delay-0 duration-500 ease-out"
-              }
-            >
-              <div className="flex h-screen w-screen backdrop-blur-sm bg-white/30">
-                <div className="bg-stone-200 w-1/3 flex">
-                  <div className="overflow-y-auto">
-                    <ul className="p-8">
-                      {patient_links &&
-                        patient_links.map((link) => {
-                          return (
-                            <h1>
-                              <li
-                                className="py-4 cursor-pointer text-indigo text-xl hover:text-gray-500 text-sm p-2"
-                                key={link.name}
-                                style={{ letterSpacing: ".75px" }}
-                              >
-                                <NavLink
-                                  to={link.href}
-                                  className="block hover:translate-x-6 transition duration-500"
-                                  onClick={() => setPatient(false)}
-                                >
-                                  {link.name}
-                                </NavLink>
-                              </li>
-                            </h1>
-                          );
-                        })}
-                    </ul>
-                  </div>
-
-                  <div style={{ transform: "translate(-50%, -50%)" }}>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth={1.5}
-                      stroke="currentColor"
-                      className="w-6 h-6"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
-                      />
-                    </svg>
-                  </div>
-                  <div className="absolute bottom-60 left-20">
-                    <Sphere
-                      style={{ transform: "translate(-50%, -50%)", zIndex: -1 }}
-                    />
-                  </div>
+            <div id="patient-links">
+              <h4 className="cursor-pointer uppercase font-medium tracking-wider hover:underline hover:text-indigo-700 transition-colors duration-300 ease-in-out" onClick={handleTogglePatient}>Patient</h4>
+                <div className={
+                  !patient ? "absolute top-0 left-0 w-screen h-screen backdrop-blur-sm bg-white/30 flex flex-row gap-2 overflow-hidden translate-x-[-100%] transition-all delay-300 duration-500 ease-out"
+                  : "absolute top-0 left-0  w-screen h-screen backdrop-blur-sm bg-white/30 flex flex-row gap-2 overflow-hidden translate-x-0 transition-all delay-300 duration-500 ease-out"
+                }>
+                  <ul className="relative w-1/3 h-full p-16 bg-stone-200 flex flex-col gap-8 font-serif text-2xl text-indigo-500">
+                    <button className="self-end h-max p-4 text-violet-500 hover:text-danger-600 transition-colors duration-300 ease-linear z-10" type="button"  onClick={handleTogglePatient} aria-label="toggle close patient sidebar links">
+                      <XMarkIcon className="w-10 h-10 cursor-pointer"/>
+                    </button>
+                    {patient_links && patient_links.map((link, index) => (
+                      <li key={link.name} className=" hover:text-violet-400 hover:translate-x-10 transition-transform ease-in duration-300">
+                        <NavLink className="block" to={link.href} onClick={handleTogglePatient}>{link.name}</NavLink>
+                      </li>
+                    ))}
+                    <Sphere />
+                  </ul>
                 </div>
-                <div className="flex flex-col overflow-hidden">
-                  <div className="flex items-center justify-between h-14 px-4">
-                    <div className="flex items-center">
-                      <button
-                        onClick={() => setPatient(false)}
-                        className="text-gray-500 hover:text-gray-600 focus:outline-none focus:text-gray-600"
-                        aria-label="Toggle sidebar"
-                      >
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          strokeWidth={1.5}
-                          stroke="currentColor"
-                          className="w-6 h-6"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M6 18L18 6M6 6l12 12"
-                          />
-                        </svg>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
-
-            {!treatments && (
-              <li
-                className={`hover:underline cursor-pointer hover:text-indigo-700 transition duration-150 ease-in-out items-center text-sm tracking-normal relative text-stone-900 hover:text-indigo-700 gap-2 mr-4 ${
-                  about ? "hidden" : ""
-                } ${treatments ? "hidden" : ""}${patient ? "hidden" : ""}`}
-                onClick={() => handleMouseClick(true)}
-                style={{ letterSpacing: "1.5px" }}
-              >
-                TREATMENT
-              </li>
-            )}
-            <div
-              className={
-                treatments
-                  ? "block absolute top-0 left-0 flex flex-row h-screen overflow-hidden translate-x-0 transition-all delay-300 duration-500 ease-out"
-                  : "absolute top-0 left-0 flex flex-row h-screen overflow-hidden translate-x-[-100%] transition-all delay-0 duration-500 ease-out"
-              }
-            >
-              <div className="flex h-screen w-screen backdrop-blur-sm bg-white/30">
-                <div className="bg-stone-200 w-1/3 flex">
-                  <div className="overflow-y-auto">
-                    <ul className="p-8">
-                      {treatments_links &&
-                        treatments_links.map((link) => {
-                          return (
-                            <h1>
-                              <li
-                                className="py-4 cursor-pointer text-indigo text-xl hover:text-gray-500 text-sm p-2"
-                                key={link.name}
-                                style={{ letterSpacing: ".75px" }}
-                              >
-                                <NavLink
-                                  to={link.href}
-                                  className="block hover:translate-x-6 transition duration-500"
-                                  onClick={() => setTreatments(false)}
-                                >
-                                  {link.name}
-                                </NavLink>
-                              </li>
-                            </h1>
-                          );
-                        })}
-                    </ul>
-                  </div>
-
-                  <div
-                    style={{ transform: "translate(-50%, -50%)", zIndex: -1 }}
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth={1.5}
-                      stroke="currentColor"
-                      className="w-6 h-6"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
-                      />
-                    </svg>
-                  </div>
-                  <div className="absolute bottom-60 left-20">
-                    <Sphere
-                      style={{ transform: "translate(-50%, -50%)", zIndex: -1 }}
-                    />
-                  </div>
+            <div id="treatments-links">
+              <h4 className="cursor-pointer uppercase font-medium tracking-wider hover:underline hover:text-indigo-700 transition-colors duration-300 ease-in-out" onClick={handleToggleTreatments}>Treatments</h4>
+                <div className={
+                  !treatments ? "absolute top-0 left-0 w-screen h-screen backdrop-blur-sm bg-white/30 flex flex-row gap-2 overflow-hidden translate-x-[-100%] transition-all delay-300 duration-500 ease-out"
+                  : "absolute top-0 left-0 w-screen h-screen backdrop-blur-sm bg-white/30 flex flex-row gap-2 overflow-hidden translate-x-0 transition-all delay-300 duration-500 ease-out"
+                }>
+                  <ul className="relative w-1/3 h-full p-16 bg-stone-200 flex flex-col gap-8 font-serif text-2xl text-indigo-500">
+                    <button className="self-end h-max p-4 text-violet-500 hover:text-danger-600 transition-colors duration-300 ease-linear z-10" type="button"  onClick={handleToggleTreatments} aria-label="toggle close treatments sidebar links">
+                      <XMarkIcon className="w-10 h-10 cursor-pointer"/>
+                    </button>
+                    {treatments_links && treatments_links.map((link, index) => (
+                      <li key={link.name} className=" hover:text-violet-400 hover:translate-x-10 transition-transform ease-in duration-300">
+                        <NavLink className="block" to={link.href} onClick={handleToggleTreatments}>{link.name}</NavLink>
+                      </li>
+                    ))}
+                    <Sphere />
+                  </ul>
                 </div>
-                <div className="flex flex-col overflow-hidden">
-                  <div className="flex items-center justify-between h-14 px-4">
-                    <div className="flex items-center">
-                      <button
-                        onClick={() => setTreatments(false)}
-                        className="text-gray-500 hover:text-gray-600 focus:outline-none focus:text-gray-600"
-                        aria-label="Toggle sidebar"
-                      >
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          strokeWidth={1.5}
-                          stroke="currentColor"
-                          className="w-6 h-6"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M6 18L18 6M6 6l12 12"
-                          />
-                        </svg>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
-            <li>
-              <NavLink to="/">
-                <img
-                  className="h-12 ml-10 mr-10"
-                  src="../../images/logo_full.png"
-                  alt="frey smiles orthodontics logo"
-                />
-              </NavLink>
-            </li>
-
-            <li className="relative">
-              <a
-                href="https://my.orthoblink.com/bLink/Login"
-                className="relative inline-block"
-                onMouseEnter={() => handleMouseEnter(patientLoginRef)}
-                onMouseLeave={() => handleMouseLeave(patientLoginRef)}
-                style={{ letterSpacing: "1px", fontSize: "12px" }}
-              >
-                Patient Login
-                <span
-                  ref={patientLoginRef}
-                  className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-px bg-black transition-width duration-300"
-                ></span>
-              </a>
-            </li>
-            <li className="relative">
-              <a
-                href="/locations"
-                className="relative inline-block cursor-pointer"
-                onMouseEnter={() => handleMouseEnter(locationsRef)}
-                onMouseLeave={() => handleMouseLeave(locationsRef)}
-                style={{ letterSpacing: "1px", fontSize: "12px" }}
-              >
-                Our Locations
-                <span
-                  ref={locationsRef}
-                  className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-px bg-black transition-all duration-300"
-                  style={{ width: "0" }}
-                ></span>
-              </a>
-            </li>
-            <li className="relative">
-              <NavLink
-                to="/shop"
-                className="relative inline-block"
-                onMouseEnter={() => handleMouseEnter(shopRef)}
-                onMouseLeave={() => handleMouseLeave(shopRef)}
-                style={{ letterSpacing: "1px", fontSize: "12px" }}
-              >
-                Shop
-                <span
-                  ref={shopRef}
-                  className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-px bg-black transition-width duration-300"
-                  style={{ width: "0" }}
-                ></span>
-              </NavLink>
-            </li>
-            <li className="">
-              {showSidebar ? (
-                <button
-                  className="flex text-3xl text-black items-center cursor-pointer fixed right-10 top-6 z-50"
-                  onClick={handleToggleSidebar}
-                >
-                  x
-                </button>
-              ) : (
-                <>
-                  {cartCount > 0 && (
-                    <div
-                      className="flex flex-row items-center gap-2 cursor-pointer block text-xs leading-3 tracking-normal px-3 font-normal"
-                      onClick={handleToggleSidebar}
-                    >
-                      <span className="hover:text-violet-500">Bag</span>
-                      <div className="relative flex items-center">
-                        <svg
-                          className="w-5 h-5"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 24 24"
-                        >
-                          <path d="M17.54 5.424a.47.47 0 0 1 .46.474v17.627a.47.47 0 0 1-.46.475H.46a.47.47 0 0 1-.46-.475V5.898a.47.47 0 0 1 .46-.474h4.795v-1.56C5.255 1.733 6.935 0 9 0c2.065 0 3.745 1.733 3.745 3.864v1.56zm-11.365 0h5.64v-1.56c0-1.608-1.264-2.915-2.82-2.915-1.555 0-2.82 1.307-2.82 2.915zm10.905.949h-4.335V8.61a.47.47 0 0 1-.46.475.47.47 0 0 1-.46-.475V6.373h-5.65V8.61a.47.47 0 0 1-.46.475.47.47 0 0 1-.46-.475V6.373H.92V23.05h16.16z"></path>
-                        </svg>
-                        <span className="absolute top-0 right-0 text-black text-xs px-1 rounded-full mt-2 mr-2">
-                          {cartCount}
-                        </span>
-                      </div>
-                    </div>
-                  )}
-                </>
-              )}
-
-              <div
-                ref={sidebarRef}
-                className={`top-0 right-0 w-[35vw] bg-white p-10 pl-20 text-white fixed h-full z-40 ease-in-out duration-700 ${
-                  showSidebar ? "translate-x-0" : "translate-x-full"
-                }`}
-              >
-                <Bag />
-              </div>
-            </li>
-          </ul>
-          <div className="flex items-center">
-            <li className="cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-3 hover:text-white font-normal">
-              <NavLink
-                to="/book-now"
-                className="mr-10 cursor-pointer bg-B47EDE rounded px-6 py-2 hover:text-indigo-700 transition duration-300 ease-in-out flex items-center text-sm text-white tracking-normal text-white hover:text-stone-100 transform-gpu  hover:shadow-md hover:shadow-violet-400/50"
-              >
-                <span className="transform-gpu transition duration-300 ease-in">
-                  Book Now
-                </span>
-              </NavLink>
-            </li>
           </div>
-        </ul>
+          <div id="logo" className="my-4" >
+            <NavLink to="/#">
+              <img className="h-12 ml-10 mr-10" src="../../images/logo_full.png" alt="frey smiles orthodontics logo" />
+            </NavLink>
+          </div>
+          <div id="right-links" className="flex items-center gap-8 cursor-pointer">
+            <ul className="flex items-center space-x-8 ">
+              <li className="inline-block relative transition-all duration-500 before:content-[''] before:absolute before:-bottom-2 before:right-0 before:translate-x-0 before:w-0 before:h-[2px] before:opacity-0 hover:before:w-1/2 hover:before:opacity-100 before:transition-all before:duration-500 before:bg-violet-500 hover:text-indigo-700 ease-in-out">
+                  <NavLink className="inline-block relative transition-all duration-500 before:content-[''] before:absolute before:-bottom-2 before:left-0 before:translate-x-0 before:w-0 before:h-[2px] before:opacity-0 hover:before:w-1/2 hover:before:opacity-100 before:transition-all before:duration-500 before:bg-violet-500" to="https://my.orthoblink.com/bLink/Login">Patient Login</NavLink>
+              </li>
+              <li className="inline-block relative transition-all duration-500 before:content-[''] before:absolute before:-bottom-2 before:right-0 before:translate-x-0 before:w-0 before:h-[2px] before:opacity-0 hover:before:w-1/2 hover:before:opacity-100 before:transition-all before:duration-500 before:bg-violet-500 hover:text-indigo-700 ease-in-out">
+                <NavLink className="inline-block relative transition-all duration-500 before:content-[''] before:absolute before:-bottom-2 before:left-0 before:translate-x-0 before:w-0 before:h-[2px] before:opacity-0 hover:before:w-1/2 hover:before:opacity-100 before:transition-all before:duration-500 before:bg-violet-500"  to="/locations">Our Locations</NavLink>
+              </li>
+              <li className="inline-block relative transition-all duration-500 before:content-[''] before:absolute before:-bottom-2 before:right-0 before:translate-x-0 before:w-0 before:h-[2px] before:opacity-0 hover:before:w-1/2 hover:before:opacity-100 before:transition-all before:duration-500 before:bg-violet-500 hover:text-indigo-700 ease-in-out">
+                <NavLink className="inline-block relative transition-all duration-500 before:content-[''] before:absolute before:-bottom-2 before:left-0 before:translate-x-0 before:w-0 before:h-[2px] before:opacity-0 hover:before:w-1/2 hover:before:opacity-100 before:transition-all before:duration-500 before:bg-violet-500"  to="/products">Shop</NavLink>
+              </li>
+            </ul>
+            <ul className="bag-book flex items-center space-x-4">
+              {bagItems.length > 0 && (
+                  <li className="flex items-center hover:underline hover:text-indigo-700 transition-colors duration-300 ease-in-out" onClick={handleToggleBag}>
+                    <span>Bag</span>
+                    <div className="relative">
+                      <svg
+                        className="ml-1 w-6 h-6"
+                        fill="currentColor"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M17.54 5.424a.47.47 0 0 1 .46.474v17.627a.47.47 0 0 1-.46.475H.46a.47.47 0 0 1-.46-.475V5.898a.47.47 0 0 1 .46-.474h4.795v-1.56C5.255 1.733 6.935 0 9 0c2.065 0 3.745 1.733 3.745 3.864v1.56zm-11.365 0h5.64v-1.56c0-1.608-1.264-2.915-2.82-2.915-1.555 0-2.82 1.307-2.82 2.915zm10.905.949h-4.335V8.61a.47.47 0 0 1-.46.475.47.47 0 0 1-.46-.475V6.373h-5.65V8.61a.47.47 0 0 1-.46.475.47.47 0 0 1-.46-.475V6.373H.92V23.05h16.16z"></path>
+                      </svg>
+                      <span className="absolute top-1/2 left-1/2 -translate-x-3/4 -translate-y-1/3 text-xs rounded-full hover:text-violet-500 -z-10">
+                        {getBagTotal().totalQuantity}
+                      </span>
+                    </div>
+                  </li>
+                )}
+              {cartCount > 0 && (
+                <li className="hidden items-center hover:underline hover:text-indigo-700 transition-colors duration-300 ease-in-out" onClick={handleToggleBag}>
+                  <span>Bag</span>
+                  <div className="relative">
+                    <svg
+                      className="ml-1 w-6 h-6"
+                      fill="currentColor"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M17.54 5.424a.47.47 0 0 1 .46.474v17.627a.47.47 0 0 1-.46.475H.46a.47.47 0 0 1-.46-.475V5.898a.47.47 0 0 1 .46-.474h4.795v-1.56C5.255 1.733 6.935 0 9 0c2.065 0 3.745 1.733 3.745 3.864v1.56zm-11.365 0h5.64v-1.56c0-1.608-1.264-2.915-2.82-2.915-1.555 0-2.82 1.307-2.82 2.915zm10.905.949h-4.335V8.61a.47.47 0 0 1-.46.475.47.47 0 0 1-.46-.475V6.373h-5.65V8.61a.47.47 0 0 1-.46.475.47.47 0 0 1-.46-.475V6.373H.92V23.05h16.16z"></path>
+                    </svg>
+                    <span className="absolute top-1/2 left-1/2 -translate-x-3/4 -translate-y-1/3 text-xs rounded-full hover:text-violet-500 -z-10">
+                      {cartCount}
+                    </span>
+                  </div>
+                </li>
+              )}
+              <li className="cursor-pointer bg-B47EDE uppercase font-medium tracking-wider flex items-center rounded px-6 py-2 transition duration-300 ease-in-out text-violet-100 hover:text-violet-900 hover:shadow-md hover:shadow-violet-400/50">
+                <NavLink className="block" to="/book-now">Book Now</NavLink>
+              </li>
+            </ul>
+            {isBagOpen && (
+              <BagSidePanel className='-z-50' isBagOpen={isBagOpen} setIsBagOpen={setIsBagOpen} />
+            )}
+            {/* <div id="bag-panel" className={
+              isBagOpen ? "absolute top-0 left-0 right-0 w-screen h-screen backdrop-blur-sm bg-white/30 flex flex-row justify-start overflow-hidden translate-x-0 transition-all delay-300 duration-500 ease-out"
+              : "absolute top-0 left-0 right-0 w-screen h-screen backdrop-blur-sm bg-white/30 flex flex-row gap-2 overflow-hidden translate-x-[100%] transition-all delay-300 duration-500 ease-out"
+            }>
+              <div className="relative w-1/3 left-2/3 h-full p-16 bg-stone-200 flex flex-col ">
+                <button className="self-end h-max p-4 text-violet-500 hover:text-danger-600 transition-colors duration-300 ease-linear z-10" type="button" onClick={handleToggleBag} aria-label="toggle close treatments sidebar links">
+                  <XMarkIcon className="w-10 h-10 cursor-pointer"/>
+                </button>
+                <Bag isBagOpen={isBagOpen} />
+              </div>
+            </div> */}
+          </div>
+        </div>
       </nav>
 
       {/* Desktop Navbar end */}
@@ -657,10 +387,9 @@ export default function DesktopNavbar() {
                     {about_us_links &&
                       about_us_links.map((link) => {
                         return (
-                          <li className="cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-300 hover:text-white px-3 font-normal">
+                          <li key={link.name} className="cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-300 hover:text-white px-3 font-normal">
                             <NavLink
                               to={link.href}
-                              key={link.name}
                               className="cursor-pointer block text-gray-600 text-sm leading-3 tracking-normal hover:text-white px-3 font-normal"
                               onClick={() => setShow(false)}
                             >
@@ -719,10 +448,9 @@ export default function DesktopNavbar() {
                       {patient_links &&
                         patient_links.map((link) => {
                           return (
-                            <li className="cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-300 hover:text-white px-3 font-normal">
+                            <li key={link.name} className="cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-300 hover:text-white px-3 font-normal">
                               <NavLink
                                 to={link.href}
-                                key={link.name}
                                 className="cursor-pointer block text-gray-600 text-sm leading-3 tracking-normal hover:text-white px-3 font-normal"
                                 onClick={() => setShow(false)}
                               >
@@ -782,10 +510,9 @@ export default function DesktopNavbar() {
                       {treatments_links &&
                         treatments_links.map((link) => {
                           return (
-                            <li className="cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-300 hover:text-white px-3 font-normal">
+                            <li key={link.name} className="cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-300 hover:text-white px-3 font-normal">
                               <NavLink
                                 to={link.href}
-                                key={link.name}
                                 className="cursor-pointer block text-gray-600 text-sm leading-3 tracking-normal hover:text-white px-3 font-normal"
                                 onClick={() => setShow(false)}
                               >

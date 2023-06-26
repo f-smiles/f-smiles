@@ -331,6 +331,6 @@ const Locations = () => {
     </main>
   );
 };
-console.log('\x1Bc')
+// console.log('\x1Bc')
 
 export default Locations;
