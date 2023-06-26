@@ -88,18 +88,18 @@ const WhyChooseUs = () => {
              className="w-20 h-20"
            />
            <p className="mt-2">
-           The i-Cat imaging machine creates precise three-dimensional views of the oral-facial complex in as little as five seconds. Using these enhanced images, our Orthodontists plan complex procedures, identify disease, and visualize internal structures that would otherwise only be visible through surgery.
+           The i-Cat imaging machine creates precise three-dimensional views of the oral-facial structures in as little as five seconds. Using these enhanced images, our orthodontists monitor facial growth and estimate your best treatment timing and plan.
            </p>
          </div>
          <div className="col-span-1 text-purple-900 px-4 py-20 border-t border-b border-purple-400 flex flex-col justify-center items-center">
-           <span className="text-3xl">Accelerated Treatment</span>
+           <span className="text-3xl">Optimized Treatment</span>
            <img
              src="/images/propeltransparent.png"
              alt="propels"
              className="w-12 h-12"
            />
-           <p className="mt-2">FreySmiles Orthodontics is proud to offer Propel. Designed to turbo-charge your orthodontic treatment, Propel is non-invasive and works with both braces and Invisalign. It is a safe, well-tolerated option for many patients.
- It stimulates the bone around your teeth so that they move to their ideal positions in less time. How much your treatment time is reduced will depend upon several factors. Many patients see treatments completed in months instead of years.</p>
+           <p className="mt-2"> Our team prioritizes your treatment optimization. We currently offer the most efficient adjuncts to accelerate your treatment. 
+ Currently we utilize light and vibrational therapy to stimulate the supporting tissues around the teeth so that they move to their ideal positions in less time. We always strive to reduce office visits is a priority of ours.  </p>
          </div>
          <div className="col-span-1 text-purple-900 px-4 py-20 border border-purple-400">
            <span className="text-3xl">Laser Therapy</span>
@@ -108,7 +108,7 @@ const WhyChooseUs = () => {
              alt="laser"
              className="w-20 h-20 transform rotate-270"
            />
-           <p>Straight teeth are just one part of a beautiful smile. Like any work of art, your teeth need the right frame to truly shine. Thanks to advanced laser technology, we can sculpt your gum tissue to create symmetrical contours that highlight your new smile. Because Dr. Gregg Frey is certified by the Academy of Laser Dentistry, he is well-qualified to help you determine if this procedure is right for you.</p>
+           <p>Straight teeth are just one part of a beautiful smile. Like any work of art, your teeth need the right frame to truly shine. Thanks to advanced laser technology, we can sculpt your gum tissue to create symmetrical contours that highlight your new smile.</p>
          </div>
        </div>
       <div className="mx-auto  p-2">

@@ -7,11 +7,13 @@ module.exports = {
   ],
   theme: {
     extend: {  backgroundColor: {
+      'B7B19F': "#B7B19F",
       // 'e8e6df': '#e8e6df',
       'f7f5f2': '#f7f5f2',
       'f4eae4': '#f4eae4',
       '#c75b18': '#c75b18',
       '7e3a87':'#7e3a87',
+      'F8F6F1':"#F8F6F1",
 
       'dec0ae': '#dec0ae',
       'BDB5D5': '#BDB5D5',
@@ -43,4 +45,5 @@ module.exports = {
     display: ["group-hover"],
   }
 }
+
 
