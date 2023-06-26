@@ -1,55 +1,26 @@
-const express = require("express");
-const bodyParser = require('body-parser');
-const app = express();
-const { resolve } = require("path");
 require("dotenv").config();
 
-app.use(bodyParser.json());
+const express = require("express");
+const cors = require('cors');
+// const bodyParser = require('body-parser')
+const app = express();
 
-const stripe = require("stripe")(process.env.REACT_APP_STRIPE_KEY, {
-  apiVersion: "2022-11-15",
-});
+app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
 
-const path = require('path');
-const publicDirectoryPath = path.join(__dirname, 'public');
-app.use(express.static(publicDirectoryPath));
+app.use('/api/v1/prices', require('./api/prices'));
+app.use('/api/v1/products', require('./api/products'));
+app.use('/api/v1/checkout', require('./api/stripe'));
+app.use('/api/v1/webhook', require('./api/webhook'));
 
-app.get("/", (req, res) => {
-  const path = resolve(publicDirectoryPath + "/index.html");
-  res.sendFile(path);
-});
-
-app.get("/config", (req, res) => {
-  res.send({
-    publishableKey: process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY,
-  });
-});
-
-
-app.post('/api/payments', async (req, res) => {
-  try {
-    const { token, paymentIntent, customer } = req.body;
-    const intent = await stripe.paymentIntents.retrieve(paymentIntent);
-    const paymentMethod = await stripe.paymentMethods.attach(token.card.id, { customer: customer });
-
-    const confirmPaymentIntent = await stripe.paymentIntents.confirm(paymentIntent, {
-      payment_method: paymentMethod.id
-    });
-
-    if (confirmPaymentIntent.status === "succeeded") {
-      res.sendStatus(200);
-    } else {
-      res.sendStatus(404);
-    }
-  } catch (error) {
-    console.error(error);
-    res.sendStatus(500);
-  }
+// error-handing middleware
+app.use((err, req, res, next) => {
+  console.error(err);
+  console.error(err.stack);
+  res.status(err.status || 500).send(err.message || 'Internal server error.');
 });
 
 
-
-
-app.listen(3000, () =>
-  console.log(`Node server listening at http://localhost:3000/api/payments`)
-);
+const PORT = process.env.REACT_APP_PORT || 8080;
+app.listen(PORT, () => console.log(`Node server listening at port ${PORT}`));

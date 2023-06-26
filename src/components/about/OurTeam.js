@@ -128,17 +128,18 @@ const OurTeam = () => {
                   className="static relative w-full text-lg font-medium text-violet-700 cursor-pointer focus:outline-none content-center"
                   onClick={() => toggleAccordion(index)}
                 >
-                  <span
-                    className={`absolute top-0 left-0 h-full w-1 bg-violet-300 transition-all duration-500 ${
-                      activeAccordion === index ? "bg-violet-500 h-full" : "h-0"
-                    }`}
-                  ></span>
+
                   <img
                     src={doctor.img}
                     className="inline-block mx-auto w-3/4 h-auto"
                     alt={doctor.name}
                   />
-                  <div className="flex justify-between items-center p-8">
+                  <div className="relative flex justify-between items-center p-8">
+                    <span
+                      className={`absolute top-0 left-0 h-full w-1 bg-violet-300 transition-all duration-500 ${
+                        activeAccordion === index ? "bg-violet-500 h-full" : "h-0"
+                      }`}
+                    ></span>
                     <h2 className="text-2xl">{doctor.name}</h2>
                     {activeAccordion === index ? (
                       <MinusIcon className="w-6 h-6" />
@@ -188,7 +189,7 @@ const OurTeam = () => {
     MozBoxShadow: 'inset 0 1px 0 #D3BDBC',
     border: '1px solid #A6908F',
   }}>
-    {/* {//alternative green color* style={{ backgroundImage: 'url("/../../images/greenblue.jpg")', backgroundSize: 'cover', backgroundPosition: 'center', backgroundColor: '#8B5CF6' }}> */} 
+    {/* {//alternative green color* style={{ backgroundImage: 'url("/../../images/greenblue.jpg")', backgroundSize: 'cover', backgroundPosition: 'center', backgroundColor: '#8B5CF6' }}> */}
         <div className="container max-w-screen-xl mx-auto">
           <div className="member-heading w-full text-center">
             <h2 className="text-5xl font-bold pb-16 text-white">
@@ -207,7 +208,7 @@ const OurTeam = () => {
                 }`}
                 ref={(element) => (membersRef.current[index] = element)}
                 style={{
-                  transitionDuration: `${transitionDuration}ms`, 
+                  transitionDuration: `${transitionDuration}ms`,
                 }}
               >
                 <img
@@ -217,8 +218,8 @@ const OurTeam = () => {
     style={{
       opacity: inViewElements[index] ? 1 : 0,
       transform: inViewElements[index] ? "scale(1)" : "scale(0.8)",
-      transition: `opacity ${transitionDuration}ms ease-in-out, transform ${transitionDuration}ms ease-in-out`, 
-      
+      transition: `opacity ${transitionDuration}ms ease-in-out, transform ${transitionDuration}ms ease-in-out`,
+
     }}
   />
                 <figcaption className="w-full py-8 text-center">

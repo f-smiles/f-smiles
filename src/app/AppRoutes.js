@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router";
+import { Routes, Route, useParams } from "react-router";
 import Home from "../components/Home";
 import OurTeam from "../components/about/OurTeam";
 import WhyChooseUs from "../components/about/WhyChooseUs";
@@ -14,12 +14,17 @@ import AdultOrthodontics from "../components/treatments/AdultOrthodontics";
 import Locations from "../components/OurLocations/Locations";
 import BookNow from "../components/BookNow";
 import StripeCheckoutForm from "../components/stripe/StripeCheckoutForm";
+// import Bag from "../components/stripe/Bag";
 import ProductsPage from "../components/stripe/ProductsPage";
-import Bag from "../components/stripe/Bag";
 import SingleProductPage from "../components/stripe/SingleProductPage";
 import Checkout from "../components/stripe/checkout";
 import LogoSlider from "../components/logoslider";
 import Testimonials from "../components/about/Testimonials";
+
+import Bag from "../components/bag/Bag";
+import Products from "../components/products/Products";
+import SingleProduct from "../components/products/SingleProduct"
+import CheckoutSuccess from "../components/bag/CheckoutSuccess";
 
 const AppRoutes = () => {
   return (
@@ -39,12 +44,20 @@ const AppRoutes = () => {
       <Route path="/locations" element={<Locations />} />
       <Route path="/book-now" element={<BookNow />} />
       <Route path="/stripe-checkout" element={<StripeCheckoutForm />} />
-      <Route path="/products" element={<ProductsPage />} />
-      <Route path="/bag" element={<Bag />} />
-      <Route path="/products/:id" element={<SingleProductPage />} />
+      {/* <Route path="/products" element={<ProductsPage />} /> */}
+      {/* <Route path="/bag" element={<Bag />} /> */}
+      {/* <Route path="/products/:productId" element={<SingleProductPage id={productId} />} /> */}
       <Route path="/checkout" element={<Checkout />} />
       <Route path="/slider" element={<LogoSlider />} />
       <Route path="/testimonials" element={<Testimonials />} />
+
+      {/* <Route path="/products" element={<ProductsPage />} />
+      <Route path="/products/:productId" element={<SingleProductPage />} /> */}
+
+      <Route path="/products" element={<Products />} />
+      <Route path="/products/:id" element={<SingleProduct />} />
+      <Route path="/bag" element={<Bag />} />
+      <Route path="/checkout/success" element={<CheckoutSuccess />} />
     </Routes>
   );
 };
