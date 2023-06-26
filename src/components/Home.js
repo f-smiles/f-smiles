@@ -117,9 +117,9 @@ const Home = () => {
   return (
     <>
       <main className="pt-16 bg-#fFFFDFD overflow-hidden w-full">
-        <section
+      <section
           id="hero-section"
-          className="max-w-screen-2xl mx-auto py-8 lg:px-4 xl:px-0"
+          className="max-w-screen-2xl mx-auto py-8 lg:px-4 xl:px-0 bg-fixed"
         >
           <div className="flex flex-col-reverse md:flex-row">
             <div className="mt-24 md:mt-0 flex flex-col lg:ml-10 xl:ml-32 2xl:ml-40 lg:w-6/12 xl:w-5/12 md:w-6/12 px-4 lg:px-0 justify-center">
