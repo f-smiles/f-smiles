@@ -19,26 +19,88 @@ const Home = () => {
   const InvisalignRef = useRef(null);
   const damonRef = useRef(null);
   const techRef = useRef(null);
+  const [isDamonVisible, setIsDamonVisible] = useState(false);
+  const [isTechVisible, setIsTechVisible] = useState(false);
 
+  // useEffect(() => {
+  //   const observer = new IntersectionObserver(
+  //     (entries) => {
+  //       entries.forEach((entry) => {
+  //         if (entry.isIntersecting) {
+  //           setIsVisible(true);
+  //         }
+  //       });
+  //     },
+  //     { threshold: 0.5 }
+  //   );
+
+  //   observer.observe(InvisalignRef.current);
+  //   const damonObserver = new IntersectionObserver(
+  //     (entries) => {
+  //       entries.forEach((entry) => {
+  //         if (entry.isIntersecting) {
+  //           setIsDamonVisible(true);
+  //         }
+  //       });
+  //     },
+  //     { threshold: .3 }
+  //   );
+
+  //   damonObserver.observe(damonRef.current);
+
+  //   observer.observe(InvisalignRef.current);
+
+  //   const techObserver = new IntersectionObserver(
+  //     (entries) => {
+  //       entries.forEach((entry) => {
+  //         if (entry.isIntersecting) {
+  //           setIsTechVisible(true);
+  //         }
+  //       });
+  //     },
+  //     { threshold: .1 }
+  //   );
+
+  //   techObserver.observe(techRef.current);
+  //   return () => {
+  //     observer.disconnect();
+  //     damonObserver.disconnect();
+  //     techObserver.disconnect();
+  //   };
+  // }, []);
+
+  const techStyle = {
+    opacity: isTechVisible ? "1" : "0",
+    transform: isTechVisible ? "translateX(0)" : "translateX(-100%)",
+    transition: "opacity 0.8s ease-in-out, transform 1.2s ease-in-out",
+  };
+  const damonStyle = {
+    opacity: isDamonVisible ? "1" : "0",
+    transform: isDamonVisible ? "translateX(0)" : "translateX(100%)",
+    transition: "opacity 0.8s ease-in-out, transform 1.2s ease-in-out",
+  };
+
+  const cardStyle = {
+    opacity: isVisible ? "1" : "0",
+    transform: isVisible ? "translateX(0)" : "translateX(-100%)",
+    transition: "opacity 0.8s ease-in-out, transform 1.2s ease-in-out",
+  };
 
   
   useEffect(() => {
     const handleScroll = () => {
-      const position = window.pageYOffset;
-      const windowHeight = window.innerHeight;
-
-      const damonSection = damonRef.current;
-      if (damonSection) {
-        const damonSectionRect = damonSection.getBoundingClientRect();
-        const damonSectionTop = damonSectionRect.top;
-        const damonSectionHeight = damonSectionRect.height;
-        const isDamonVisible =
-          damonSectionTop <= windowHeight / 2 &&
-          damonSectionTop + damonSectionHeight >= windowHeight / 2;
-        setIsCardHovered(isDamonVisible);
-      }
-
-      setScrollPosition(position);
+      setTimeout(() => {
+        const position = document.documentElement.scrollTop;
+        setScrollPosition(position);
+        const windowHeight = window.innerHeight;
+        if (position + windowHeight > threshold) {
+          setIsVisible(true);
+          setIsTransition(true);
+        } else {
+          setIsVisible(false);
+          setIsTransition(false);
+        }
+      }, 100);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -47,7 +109,6 @@ const Home = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-
   const calculateOffset = (sectionNumber) => {
     return sectionNumber * scrollPosition * 0.5;
   };
@@ -89,7 +150,7 @@ const Home = () => {
                 <div className="mt-12 flex flex-wrap z-100">
                   <div className="mr-6 sm:mt-0 md:mt-5 lg:mt-0">
                     <button className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 bg-B47EDE transition duration-150 ease-in-out hover:bg-indigo-600 rounded text-white px-8 py-4 text-base md:text-xl">
-                      <Link to="/book-now">Book Now</Link>
+                      <Link to="/book-now">Booke eeeeeeeeeeeNow</Link>
                     </button>
                   </div>
                   <div className="sm:mt-0 md:mt-5 lg:mt-0">
@@ -132,51 +193,56 @@ const Home = () => {
             </button>
           </div>
         </section>
-        <section
-          style={{
-            transform: `translateY(-${calculateOffset(1)}px)`,
-            backgroundColor: isCardHovered ? "#dec0ae" : "#F8F6F1",
-            transition: "background-color 0.7s ease"
-          }}
-          className="bg-F8F6F1"
-        >
-  <div className="p-48">
+
+        <section style={{ transform: `translateY(-${calculateOffset(1)}px)` }} className="rounded-lg bg-F8F6F1" id="invisalign-damon">
+  <div className="p-24">
     <div className="flex">
-      <div className="text-center flex flex-col gap-6 justify-center items-center w-1/3">
-        <h3 className="text-6xl">Invisalign</h3>
-        <p className="md:px-8">
-          As part of the top 1% of Invisalign providers in the US, we have the
-          experience to deliver the smile you deserve.
-        </p>
-      </div>
-      <div className="text-center flex flex-col gap-6 justify-center items-center w-1/3">
-        <img className="rounded-lg self-center" src="../images/aligner.png" alt="invis" />
-      </div>
-      <div className="text-center flex flex-col gap-6 justify-center items-center w-1/3">
-        <button className="rounded-full border border-black px-6 py-4">
+      <img
+        className="max-h-96  -ml-20 rounded-lg self-center "
+        src="../images/aligner.png"
+        alt="invis"
+      />
+      <div className="text-center flex flex-col gap-6 justify-center items-center w-1/2">
+        <img src="../images/invisalign.png" alt="invisalign" />
+        <h3 className="text-2xl">Invisadlign</h3>
+      
+        <button className="rounded bg-violet-200 px-6 py-4">
           <Link to="/invisalign">How Invisalign Works</Link>
         </button>
       </div>
     </div>
   </div>
-  <div className="flex">
-    <img
-      className="rounded-lg self-center mx-auto"
-      src="../images/damonfull.png"
-      alt="invis"
-    />
-    <div  ref={damonRef} className="text-center flex flex-col gap-6 justify-center items-center w-1/2">
-      <img src="../images/damontech.png" alt="damon braces" />
-      <h3 className="text-2xl">Damon Braces</h3>
-      <p className="md:px-8">
-        Combining self-ligating braces with advanced archwires clinically proven to move teeth quickly and comfortably.
-      </p>
-      <button className="rounded bg-violet-200 px-6 py-4">
-        <Link to="/braces">How Damon Braces Work</Link>
-      </button>
-    </div>
-  </div>
-  <div>
+</section>
+
+<section >
+      <div className="flex">
+              <img
+                className="rounded-lg h-96 w-auto self-center mx-auto"
+                src="../images/monse.jpg"
+                alt="invis"
+              />
+              <div className="text-center flex flex-col gap-6 justify-center items-center w-1/2">
+                <img src="../images/damon.png" alt="damon braces" />
+                <h3 className="text-2xl">Damon Braces</h3>
+                <p className="md:px-8">
+                  Combining self-ligating braces with advanced archwires
+                  clinically proven to move teeth quickly and comfortably.
+                </p>
+                <button className="rounded bg-violet-200 px-6 py-4">
+                  <Link to="/braces">How Damon Braces Work</Link>
+                </button>
+              </div>
+              </div>
+</section>
+<section>
+            <div
+              data-aos="fade-right"
+              data-aos-duration="1000"
+              data-aos-easing="ease-in-sine"
+              data-aos-anchor="#invisalign-damon"
+              data-aos-anchor-placement="top-top"
+              className="flex flex-col gap-8 md:flex-row md:gap-0 justify-start items-center my-16"
+            >
               <img
                 className="rounded-lg h-96 w-auto self-center mx-auto"
                 src="../images/boytero.jpg"
@@ -195,10 +261,7 @@ const Home = () => {
                 </button>
               </div>
             </div>
-</section>
-
-
-
+        </section>
 
         <div className="mt-10 mb-60">
           <LogoSlider style={{ transform: "translate(-50%, -50%)" }} />
