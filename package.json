@@ -26,6 +26,7 @@
     "intersection-observer": "^0.12.2",
     "locomotive-scroll": "^4.1.4",
     "mapbox-gl": "^2.14.1",
+    "nodemon": "^2.0.22",
     "react": "^18.2.0",
     "react-blaze-slider": "^1.7.2",
     "react-datepicker": "^4.11.0",

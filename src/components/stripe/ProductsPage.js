@@ -166,7 +166,7 @@ const ProductsPage = () => {
             <div className="space-y-8" key={product.id}>
               {/* {console.log(product.id)} */}
               <Link to={`/products/${product.id}`} className="space-y-8">
-                <img className="w-full aspect-video object-contain mix-blend-color-burn" src={product.images[0]} alt={product.name} />
+                <img className="w-full aspect-video object-contain " src={product.images[0]} alt={product.name} />
                 <h2>{product.name}</h2>
               </Link>
               <button className="mx-auto hover:text-gray-200 hover:bg-stone-900 border border-gray-900 text-gray-900 py-2 px-4 rounded-full" type="button" aria-label={`Add to Bag ${product.name}`} onClick={() => addToCart(product.id)}>

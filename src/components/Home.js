@@ -14,6 +14,7 @@ const Home = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [isTransition, setIsTransition] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
+  
   const threshold = 400;
   const InvisalignRef = useRef(null);
   const damonRef = useRef(null);
@@ -84,6 +85,8 @@ const Home = () => {
     transform: isVisible ? "translateX(0)" : "translateX(-100%)",
     transition: "opacity 0.8s ease-in-out, transform 1.2s ease-in-out",
   };
+
+  
   useEffect(() => {
     const handleScroll = () => {
       setTimeout(() => {
@@ -106,6 +109,9 @@ const Home = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+  const calculateOffset = (sectionNumber) => {
+    return sectionNumber * scrollPosition * 0.5;
+  };
 
   const handleClickScroll = () => {
     const jumpToSection = document.querySelector("#invisalign-damon");
@@ -188,12 +194,11 @@ const Home = () => {
           </div>
         </section>
 
-        <section
-          id="invisalign-damon"
-          className="bg-gradient-to-br from-pink via-purple to-pink my-8"
-        >
-          <div className="container max-w-screen-lg mx-auto py-16">
+        <section  style={{ transform: `translateY(-${calculateOffset(1)}px)` }} className="rounded-lg bg-indigo-100"
+          id="invisalign-damon">
+       
             <div
+             
               data-aos="fade-right"
               data-aos-duration="1000"
               data-aos-easing="ease-in-sine"
@@ -202,7 +207,7 @@ const Home = () => {
               className="flex flex-col gap-8 md:flex-row md:gap-0 justify-start items-center my-16"
             >
               <img
-                className="rounded-lg h-96 w-auto self-center mx-auto"
+                className=" mt-20 mb-20 rounded-lg h-96 w-auto self-center mx-auto"
                 src="../images/girlwithinvisalign.jpg"
                 alt="invis"
               />
@@ -218,6 +223,8 @@ const Home = () => {
                 </button>
               </div>
             </div>
+</section>
+<section >
             <div
               data-aos="fade-left"
               data-aos-duration="1000"
@@ -243,6 +250,8 @@ const Home = () => {
                 </button>
               </div>
             </div>
+</section>
+<section>
             <div
               data-aos="fade-right"
               data-aos-duration="1000"
@@ -269,7 +278,6 @@ const Home = () => {
                 </button>
               </div>
             </div>
-          </div>
         </section>
 
         <div className="mt-10 mb-60">
