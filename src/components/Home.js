@@ -154,7 +154,7 @@ const Home = () => {
             backgroundColor: isCardHovered ? "#dec0ae" : "#F8F6F1",
             transition: "background-color 0.7s ease",
           }}
-          className="bg-F8F6F1"
+          className="bg-F8F6F1 z-20"
         >
           <div >
             <div className="flex">
@@ -173,7 +173,7 @@ const Home = () => {
                 />
               </div>
               <div className="text-center flex flex-col gap-6 justify-center items-center w-1/3">
-                <button className="rounded border border-black px-6 py-4">
+                <button className="rounded-full border border-black px-6 py-4 hover:bg-black hover:text-white">
                   <Link to="/invisalign">How Invisalign Works</Link>
                 </button>
               </div>
@@ -201,7 +201,7 @@ const Home = () => {
                 Combining self-ligating braces with advanced archwires
                 clinically proven to move teeth quickly and comfortably.
               </p>
-              <button className="rounded border border-black px-6 py-4">
+              <button className="rounded-full border border-black px-6 py-4 hover:bg-black hover:text-white">
                 <Link to="/braces">Damon System </Link>
               </button>
             </div>
@@ -223,7 +223,7 @@ const Home = () => {
                 </p>
                 <img src="../images/technology.png" alt="itero" />
 
-                <button className="rounded border border-black px-6 py-4">
+                <button className="rounded-full hover:bg-black hover:text-white border border-black px-6 py-4">
                   <Link to="/invisalign">Learn More</Link>
                 </button>
               </div>
@@ -234,7 +234,7 @@ const Home = () => {
         </div>
         </section>
 
-        <div className="relative">
+        <div className="relative flex items-center justify-center ml-60 mr-60">
       {slides.map((slide, index) => (
         <div
           key={index}
@@ -244,13 +244,13 @@ const Home = () => {
         >
           <img src={slide.image} className="w-full" alt={slide.title} />
           <div className="absolute inset-x-0 bottom-0 p-4 text-black">
-            <h5 className="text-xl font-bold">{slide.title}</h5>
-            <p>{slide.content}</p>
+            
+            <h1  className = "text-xl text-teal-700">{slide.content}</h1>
           </div>
         </div>
       ))}
       <button
-        className="absolute left-0 top-1/2 transform -translate-y-1/2 px-4 py-2 rounded"
+        className="absolute -left-20 top-1/2 transform -translate-y-20 px-4 py-2 rounded"
         onClick={prevSlide}
       >
            <div className="border border-black rounded-full inline-flex p-1">
@@ -262,7 +262,7 @@ const Home = () => {
             
       </button>
       <button
-        className="absolute right-0 top-1/2 transform -translate-y-1/2 px-4 py-2 rounded"
+        className="absolute -right-20 top-1/2 transform -translate-y-20 px-4 py-2 rounded"
         onClick={nextSlide}
       >
    <div className="border border-black rounded-full inline-flex p-1">
@@ -283,15 +283,9 @@ const Home = () => {
             <div className="flex flex-col items-center">
               {showTextPerson1 && (
                 <p className="mt-10">
-                 
-
                 </p>
               )}
-              {!showTextPerson1 && showTextPerson2 && (
-                <p className="mt-10">
-                  Paragraph for Person 2.
-                </p>
-              )}
+              
               <h1
                 onClick={handleToggleTextPerson1}
                 className="text-teal-500 text-xl mb-2 cursor-pointer"
@@ -308,11 +302,7 @@ const Home = () => {
               >
                 Person 2
               </h1>
-              {showTextPerson2 && (
-                <p className="mt-10">
-                  Additional information for Person 2.
-                </p>
-              )}
+              
               <div className="bg-green-500 h-1 w-80"></div>
             </div>
             <div className="w-2"></div>
