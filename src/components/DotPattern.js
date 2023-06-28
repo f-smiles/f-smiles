@@ -10,8 +10,8 @@ export default function DotPattern() {
   }, []);
 
   return (
-    <div id="dots-container">
-      <svg id="dots" width="286" height="631" viewBox="0 0 286 650" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <div className="z-0" id="dots-container">
+      <svg id="dots"  width="286" height="631" viewBox="0 0 286 650" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect className="rect-animate" width="6.00167" height="6.00467" rx="3.00083" fill="#1E40AF"/>
         <rect className="rect-animate" x="31.002" width="6.00167" height="6.00467" rx="3.00083" fill="#1E40AF"/>
         <rect className="rect-animate" x="62.0039" width="6.00167" height="6.00467" rx="3.00083" fill="#1E40AF"/>
