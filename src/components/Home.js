@@ -7,7 +7,7 @@ import "aos/dist/aos.css";
 import LogoSlider from "./logoslider";
 import { ChevronDownIcon } from "@heroicons/react/24/solid";
 import { Carousel } from "@material-tailwind/react";
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 AOS.init();
 
 const Home = () => {
@@ -15,28 +15,31 @@ const Home = () => {
 
   const slides = [
     {
-      image: 'image1.jpg',
-     author: 'Taneesha N.',
+      author: "Taneesha N.",
       content: `Fantastic!! Absolutely recommend! The team at FreySmiles was extremely accommodating to my busy schedule and was able to get me an appointment the day after I called. The staff was so sweet and made me feel welcomed as soon as I walked into the office.  Dr. Frey has a wonderful practice. I have all the confidence in the world that I will love my smile once my treatment is done!`,
     },
     {
-      image: 'image2.jpg',
-      author:  "Alexandra W",
-      content: '“My husband’s experience at FreySmiles Orthodontics has been absolutely amazing. He had an emergency that occurred on Friday and contacted the emergency contact number. Soon after, he was contacted by Dr. Gregg Frey who scheduled him an appointment right away. My husband was so happy to not have to go through the weekend in discomfort. Hands down, I have to say this is the best Orthodontist we have ever been to. The staff are always professional, polite and very eager to help!”',
+      author: "Alexandra W",
+      content:
+        "“My husband’s experience at FreySmiles Orthodontics has been absolutely amazing. He had an emergency that occurred on Friday and contacted the emergency contact number. Soon after, he was contacted by Dr. Gregg Frey who scheduled him an appointment right away. My husband was so happy to not have to go through the weekend in discomfort. Hands down, I have to say this is the best Orthodontist we have ever been to. The staff are always professional, polite and very eager to help!”",
     },
     {
-      image: 'image3.jpg',
       author: "Fei Z",
-      content: 'Our whole experience for the past 10 years of being under Dr. Gregg Frey’s care and his wonderful staff has been amazing. My son and my daughter have most beautiful smiles, and they received so many compliments on their teeth. It has made a dramatic and positive change in their lives. Dr. Frey is a perfectionist, and his treatment is second to none. I recommend Dr. Frey highly and without any reservation.',
+      content:
+        "Our whole experience for the past 10 years of being under Dr. Gregg Frey’s care and his wonderful staff has been amazing. My son and my daughter have most beautiful smiles, and they received so many compliments on their teeth. It has made a dramatic and positive change in their lives. Dr. Frey is a perfectionist, and his treatment is second to none. I recommend Dr. Frey highly and without any reservation.",
     },
   ];
 
   const prevSlide = () => {
-    setActiveSlide((prevSlide) => (prevSlide === 0 ? slides.length - 1 : prevSlide - 1));
+    setActiveSlide((prevSlide) =>
+      prevSlide === 0 ? slides.length - 1 : prevSlide - 1
+    );
   };
 
   const nextSlide = () => {
-    setActiveSlide((prevSlide) => (prevSlide === slides.length - 1 ? 0 : prevSlide + 1));
+    setActiveSlide((prevSlide) =>
+      prevSlide === slides.length - 1 ? 0 : prevSlide + 1
+    );
   };
   const [isCardHovered, setIsCardHovered] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
@@ -150,13 +153,13 @@ const Home = () => {
         </section>
         <section
           style={{
-            transform: `translateY(-${calculateOffset(1)}px)`,
+            // transform: `translateY(-${calculateOffset(1)}px)`,
             backgroundColor: isCardHovered ? "#dec0ae" : "#F8F6F1",
             transition: "background-color 0.7s ease",
           }}
-          className="bg-F8F6F1 z-20"
+          className="bg-F8F6F1"
         >
-          <div >
+          <div className="z-40">
             <div className="flex">
               <div className="text-center flex flex-col gap-6 justify-center items-center w-1/3">
                 <h3 className="text-4xl">Invisalign</h3>
@@ -230,90 +233,94 @@ const Home = () => {
             </div>
           </div>
           <div className="mt-10">
-          <LogoSlider style={{ transform: "translate(-50%, -50%)" }} />
-        </div>
+            <LogoSlider style={{ transform: "translate(-50%, -50%)" }} />
+          </div>
         </section>
 
-        <div className="relative flex items-center justify-center ml-60 mr-60">
-      {slides.map((slide, index) => (
-        <div
-          key={index}
-          className={`absolute left-0 top-0 w-full h-full transition-opacity duration-500 ${
-            index === activeSlide ? 'opacity-100' : 'opacity-0'
-          }`}
-        >
-          <img src={slide.image} className="w-full" alt={slide.title} />
-          <div className="absolute inset-x-0 bottom-0 p-4 text-black">
-            
-            <h1  className = "text-xl text-teal-700">{slide.content}</h1>
-          </div>
+        <div className="relative h-max flex justify-center ml-60 mr-60">
+          {slides.map((slide, index) => (
+            <div
+              key={index}
+              className={`absolute left-0 top-0 w-full h-full transition-opacity duration-500 ${
+                index === activeSlide ? "opacity-100" : "opacity-0"
+              }`}
+            >
+              <div className="absolute inset-x-0 bottom-0 p-4 text-black">
+                <h1 className="text-xl text-teal-700">{slide.content}</h1>
+              </div>
+            </div>
+          ))}
+          <button
+            className="absolute -left-20 top-1/2 transform -translate-y-20 px-4 py-2 rounded"
+            onClick={prevSlide}
+          >
+            <div className="border border-black rounded-full inline-flex p-1">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="w-6 h-6"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"
+                />
+              </svg>
+            </div>
+          </button>
+          <button
+            className="absolute -right-20 top-1/2 transform -translate-y-20 px-4 py-2 rounded"
+            onClick={nextSlide}
+          >
+            <div className="border border-black rounded-full inline-flex p-1">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="w-6 h-6 rounded-full"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+                />
+              </svg>
+            </div>
+          </button>
         </div>
-      ))}
-      <button
-        className="absolute -left-20 top-1/2 transform -translate-y-20 px-4 py-2 rounded"
-        onClick={prevSlide}
-      >
-           <div className="border border-black rounded-full inline-flex p-1">
-<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-  <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
-</svg>
-
-</div>
-            
-      </button>
-      <button
-        className="absolute -right-20 top-1/2 transform -translate-y-20 px-4 py-2 rounded"
-        onClick={nextSlide}
-      >
-   <div className="border border-black rounded-full inline-flex p-1">
-  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 rounded-full">
-    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-  </svg>
-</div>
-      </button>
-    </div>
-
 
         <section>
-         
+          <div className="flex justify-center">
+            <div className="flex justify-center">
+              <div className="flex items-center">
+                <div className="flex flex-col items-center">
+                  <h1 className="text-teal-500 text-xl mb-2 cursor-pointer">
+                    Taneesha N.
+                  </h1>
+                  <div className="bg-green-500 h-1 w-80"></div>
+                </div>
+                <div className="w-2"></div>
+                <div className="flex flex-col items-center">
+                  <h1 className="text-teal-500 text-xl mb-2 cursor-pointer">
+                    Alexandra W
+                  </h1>
 
-      <div className="flex justify-center">
-        <div className="flex justify-center">
-          <div className="flex items-center">
-            <div className="flex flex-col items-center">
-              {showTextPerson1 && (
-                <p className="mt-10">
-                </p>
-              )}
-              
-              <h1
-                onClick={handleToggleTextPerson1}
-                className="text-teal-500 text-xl mb-2 cursor-pointer"
-              >
-                Person 1
-              </h1>
-              <div className="bg-green-500 h-1 w-80"></div>
-            </div>
-            <div className="w-2"></div>
-            <div className="flex flex-col items-center">
-              <h1
-                onClick={handleToggleTextPerson2}
-                className="text-teal-500 text-xl mb-2 cursor-pointer"
-              >
-                Person 2
-              </h1>
-              
-              <div className="bg-green-500 h-1 w-80"></div>
-            </div>
-            <div className="w-2"></div>
-            <div className="flex flex-col items-center">
-              <h1 className="text-teal-500 text-xl">Person 3</h1>
-              <div className="bg-green-500 h-1 w-80"></div>
+                  <div className="bg-green-500 h-1 w-80"></div>
+                </div>
+                <div className="w-2"></div>
+                <div className="flex flex-col items-center">
+                  <h1 className="text-teal-500 text-xl mb-2">Fei Z</h1>
+                  <div className="bg-green-500 h-1 w-80"></div>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
+        </section>
         <section className="max-w-screen-xl mx-auto flex flex-col gap-8 justify-center px-4 py-8 relative z-1">
           <div className="mt-36 flex flex-col md:flex-row space-y-16 md:gap-8">
             <div className="relative md:w-1/3 space-y-4">
