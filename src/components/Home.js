@@ -5,7 +5,7 @@ import DotPattern from "./DotPattern";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import LogoSlider from "./logoslider";
-import Features from './stripe/Features';
+import Features from './Features';
 import { ChevronDownIcon } from "@heroicons/react/24/solid";
 import { Carousel } from "@material-tailwind/react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
