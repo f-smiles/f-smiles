@@ -5,12 +5,15 @@ import DotPattern from "./DotPattern";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import LogoSlider from "./logoslider";
+import Features from './stripe/Features';
 import { ChevronDownIcon } from "@heroicons/react/24/solid";
 import { Carousel } from "@material-tailwind/react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+
 AOS.init();
 
 const Home = () => {
+
   const [activeSlide, setActiveSlide] = useState(0);
 
   const slides = [
@@ -56,49 +59,49 @@ const Home = () => {
     setShowTextPerson2(!showTextPerson2);
   };
 
-  const threshold = 400;
-  const InvisalignRef = useRef(null);
-  const damonRef = useRef(null);
-  const techRef = useRef(null);
+  // const threshold = 400;
+  // const InvisalignRef = useRef(null);
+  // const damonRef = useRef(null);
+  // const techRef = useRef(null);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const position = window.pageYOffset;
-      const windowHeight = window.innerHeight;
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     const position = window.pageYOffset;
+  //     const windowHeight = window.innerHeight;
 
-      const damonSection = damonRef.current;
-      if (damonSection) {
-        const damonSectionRect = damonSection.getBoundingClientRect();
-        const damonSectionTop = damonSectionRect.top;
-        const damonSectionHeight = damonSectionRect.height;
-        const isDamonVisible =
-          damonSectionTop <= windowHeight / 2 &&
-          damonSectionTop + damonSectionHeight >= windowHeight / 2;
-        setIsCardHovered(isDamonVisible);
-      }
+  //     const damonSection = damonRef.current;
+  //     if (damonSection) {
+  //       const damonSectionRect = damonSection.getBoundingClientRect();
+  //       const damonSectionTop = damonSectionRect.top;
+  //       const damonSectionHeight = damonSectionRect.height;
+  //       const isDamonVisible =
+  //         damonSectionTop <= windowHeight / 2 &&
+  //         damonSectionTop + damonSectionHeight >= windowHeight / 2;
+  //       setIsCardHovered(isDamonVisible);
+  //     }
 
-      setScrollPosition(position);
-    };
+  //     setScrollPosition(position);
+  //   };
 
-    window.addEventListener("scroll", handleScroll);
+  //   window.addEventListener("scroll", handleScroll);
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, []);
 
-  const calculateOffset = (sectionNumber) => {
-    return sectionNumber * scrollPosition * 0.5;
-  };
+  // const calculateOffset = (sectionNumber) => {
+  //   return sectionNumber * scrollPosition * 0.5;
+  // };
 
   return (
     <>
-      <main className="pt-16 bg-#fFFFDFD overflow-hidden w-full">
-        <section id="hero-section" className="max-w-screen-lg mx-auto py-8">
+      <main className="md:pt-16 bg-#fFFFDFD overflow-hidden w-full">
+        <section id="hero-section" className="max-w-screen-lg mx-auto py-8 md:pb-24">
           <div className="flex flex-col-reverse md:flex-row">
             <div className="mt-24 md:mt-0 flex flex-col px-4 md:w-1/2 lg:px-0">
               <div className="p-8 lg:p-0">
-                <h1 className="md:mt-40 text-4xl lg:text-6xl font-bold md:font-black leading-10 text-gray-700">
+                <h1 className="md:mt-16 text-4xl lg:text-6xl font-bold md:font-black leading-10 text-gray-700">
                   Because every smile is unique
                 </h1>
                 <p className="text-lg text-gray-600 font-light leading-relaxed pt-8 w-4/5">
@@ -151,93 +154,23 @@ const Home = () => {
             </div>
           </div>
         </section>
-        <section
+
+        <section id='features-section' className='bg-F8F6F1 py-24'
           style={{
-            // transform: `translateY(-${calculateOffset(1)}px)`,
             backgroundColor: isCardHovered ? "#dec0ae" : "#F8F6F1",
             transition: "background-color 0.7s ease",
+            // transform: `translateY(-${calculateOffset(1)}px)`,
+            // overflow: "scroll"
           }}
-          className="bg-F8F6F1"
         >
-          <div className="z-40">
-            <div className="flex">
-              <div className="text-center flex flex-col gap-6 justify-center items-center w-1/3">
-                <h3 className="text-4xl">Invisalign</h3>
-                <p className="md:px-8">
-                  As part of the top 1% of Invisalign providers in the US, we
-                  have the experience to deliver the smile you deserve.
-                </p>
-              </div>
-              <div className="text-center flex flex-col gap-6 justify-center items-center w-1/3">
-                <img
-                  className="rounded-lg self-center"
-                  src="../images/aligner.png"
-                  alt="invis"
-                />
-              </div>
-              <div className="text-center flex flex-col gap-6 justify-center items-center w-1/3">
-                <button className="rounded-full border border-black px-6 py-4 hover:bg-black hover:text-white">
-                  <Link to="/invisalign">How Invisalign Works</Link>
-                </button>
-              </div>
-            </div>
-          </div>
-          <div className="flex">
-            <img
-              className="rounded-lg self-center mx-auto"
-              src="../images/damonfull.png"
-              alt="invis"
-              style={{ width: "30%", height: "auto" }}
-            />
-
-            <div
-              ref={damonRef}
-              className="text-center flex flex-col gap-6 justify-center items-center w-1/2"
-            >
-              <img
-                src="../images/damontech.png"
-                style={{ width: "30%", height: "auto" }}
-                alt="damon braces"
-              />
-              <h3 className="text-4xl">Damon Braces</h3>
-              <p className="md:px-8">
-                Combining self-ligating braces with advanced archwires
-                clinically proven to move teeth quickly and comfortably.
-              </p>
-              <button className="rounded-full border border-black px-6 py-4 hover:bg-black hover:text-white">
-                <Link to="/braces">Damon System </Link>
-              </button>
-            </div>
-          </div>
-          <div className="pt-48 flex">
-            <div className="w-1/3">
-              <img
-                className="rounded-lg h-96 w-auto self-center mx-auto"
-                src="../images/itero2.png"
-                alt="invis"
-              />
-            </div>
-            <div className="w-1/3">
-              <div className="text-center flex flex-col gap-6 justify-center items-center">
-                <h3 className="text-4xl">Advanced Technology</h3>
-                <p className="md:px-8">
-                  We offer Invisalign without Impressions. Say goodbye to goopy
-                  impressions with our iTero digital scanner.
-                </p>
-                <img src="../images/technology.png" alt="itero" />
-
-                <button className="rounded-full hover:bg-black hover:text-white border border-black px-6 py-4">
-                  <Link to="/invisalign">Learn More</Link>
-                </button>
-              </div>
-            </div>
-          </div>
-          <div className="mt-10">
-            <LogoSlider style={{ transform: "translate(-50%, -50%)" }} />
-          </div>
+          <Features/> 
         </section>
 
-        <div className="relative h-max flex justify-center ml-60 mr-60">
+        <section id="logo-slider" className='bg-dec0ae'>
+          <LogoSlider/>
+        </section>
+
+        <div className="relative min-h-screen flex items-center justify-center ml-60 mr-60">
           {slides.map((slide, index) => (
             <div
               key={index}
