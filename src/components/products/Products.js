@@ -51,7 +51,7 @@ export default function Products() {
                 <img className="w-full aspect-video object-contain" src={product.images[0]} alt={product.name} />
                 <h2>{product.name}</h2>
               </Link>
-              <button className="mx-auto flex items-center justify-between gap-2 px-4 hover:text-zinc-50 hover:bg-stone-900 border border-gray-900 text-gray-900 py-2 rounded-full transition-colors duration-300" type="button" aria-label={`Add to Bag ${product.name}`}
+              {/* <button className="mx-auto flex items-center justify-between gap-2 px-4 hover:text-zinc-50 hover:bg-stone-900 border border-gray-900 text-gray-900 py-2 rounded-full transition-colors duration-300" type="button" aria-label={`Add to Bag ${product.name}`}
                 // onClick={() => handleAddToBag(
                 //   { id: product.id, name: product.name, image: product.images[0], price: getProductPrice(product.id) }
                 // )}
@@ -60,7 +60,7 @@ export default function Products() {
                 <span>Add to Bag</span>
                 <span className='w-px h-6 bg-violet-500'></span>
                 <span>{getProductPrice(product.id)} $</span>
-              </button>
+              </button> */}
             </div>
         ))}
         </div>

@@ -110,15 +110,42 @@ const OurTeam = () => {
       // backgroundImg: "../../images/gray.svg",
     },
   ];
+  const [isOverlayVisible, setOverlayVisible] = useState(false);
 
+  const toggleOverlay = () => {
+    setOverlayVisible(!isOverlayVisible);
+  };
   return (
     <main className="custom-background">
+   <div className="relative">
+      <img
+        src="../../images/team_members/danfrey.jpg"
+        alt="Thumbnail"
+        className="cursor-pointer"
+        onClick={toggleOverlay}
+      />
+      {isOverlayVisible && (
+        <div className="overlay absolute inset-0 overflow-hidden">
+          <div className="overlay-content absolute inset-0 flex items-center">
+            <img
+              src="../../images/team_members/greggfrey.jpg"
+              alt="Overlay"
+              className="max-h-full max-w-full transition-transform duration-500 ease-in-out transform"
+            />
+          </div>
+        </div>
+      )}
+    </div>
       <section className="bg-gradient-to-r from-f1dfd1  via-purple-300 to-f6f0ea  max-w-screen-xl mx-auto pt-32 p-16 md:mt-32 md:pt-0">
         <h1 className="text-center text-5xl font-bold text-violet-700 pt-8">
           Our Doctors
         </h1>
         <section className="mt-10">
-        Our doctors are specialists in the treatment of Orthodontic problems. They have gone the extra 3 years after dental school to earn this educational expertise. The first in the Lehigh Valley to use low-dose 3D Digital Radiographs, offer digital orthodontics using 3D iTero scanning, and 3D printing for appliance fabrication.
+          Our doctors are specialists in the treatment of Orthodontic problems.
+          They have gone the extra 3 years after dental school to earn this
+          educational expertise. The first in the Lehigh Valley to use low-dose
+          3D Digital Radiographs, offer digital orthodontics using 3D iTero
+          scanning, and 3D printing for appliance fabrication.
         </section>
         <dl className="doctors-list flex flex-col space-y-12 md:space-y-0 md:flex-row my-12">
           {Doctors &&
@@ -128,7 +155,6 @@ const OurTeam = () => {
                   className="static relative w-full text-lg font-medium text-violet-700 cursor-pointer focus:outline-none content-center"
                   onClick={() => toggleAccordion(index)}
                 >
-
                   <img
                     src={doctor.img}
                     className="inline-block mx-auto w-3/4 h-auto"
@@ -137,7 +163,9 @@ const OurTeam = () => {
                   <div className="relative flex justify-between items-center p-8">
                     <span
                       className={`absolute top-0 left-0 h-full w-1 bg-violet-300 transition-all duration-500 ${
-                        activeAccordion === index ? "bg-violet-500 h-full" : "h-0"
+                        activeAccordion === index
+                          ? "bg-violet-500 h-full"
+                          : "h-0"
                       }`}
                     ></span>
                     <h2 className="text-2xl">{doctor.name}</h2>
@@ -173,30 +201,41 @@ const OurTeam = () => {
         </dl>
       </section>
 
-      <section className=" py-24"    style={{
-    background: '#C4AEAD',
-    backgroundImage:
-      'linear-gradient(to bottom, #C4AEAD 0%, #B59F9E 100%)',
-    WebkitBackgroundImage:
-      '-webkit-linear-gradient(top, #C4AEAD 0%, #B59F9E 100%)',
-    MozBackgroundImage:
-      '-moz-linear-gradient(top, #C4AEAD 0%, #B59F9E 100%)',
-    OBackgroundImage:
-      '-o-linear-gradient(top, #C4AEAD 0%, #B59F9E 100%)',
-    msBackgroundImage:
-      '-ms-linear-gradient(top, #C4AEAD 0%, #B59F9E 100%)',
-    WebkitBoxShadow: 'inset 0 1px 0 #D3BDBC',
-    MozBoxShadow: 'inset 0 1px 0 #D3BDBC',
-    border: '1px solid #A6908F',
-  }}>
-    {/* {//alternative green color* style={{ backgroundImage: 'url("/../../images/greenblue.jpg")', backgroundSize: 'cover', backgroundPosition: 'center', backgroundColor: '#8B5CF6' }}> */}
+      <section
+        className=" py-24"
+        style={{
+          background: "#C4AEAD",
+          backgroundImage:
+            "linear-gradient(to bottom, #C4AEAD 0%, #B59F9E 100%)",
+          WebkitBackgroundImage:
+            "-webkit-linear-gradient(top, #C4AEAD 0%, #B59F9E 100%)",
+          MozBackgroundImage:
+            "-moz-linear-gradient(top, #C4AEAD 0%, #B59F9E 100%)",
+          OBackgroundImage: "-o-linear-gradient(top, #C4AEAD 0%, #B59F9E 100%)",
+          msBackgroundImage:
+            "-ms-linear-gradient(top, #C4AEAD 0%, #B59F9E 100%)",
+          WebkitBoxShadow: "inset 0 1px 0 #D3BDBC",
+          MozBoxShadow: "inset 0 1px 0 #D3BDBC",
+          border: "1px solid #A6908F",
+        }}
+      >
+        {/* {//alternative green color* style={{ backgroundImage: 'url("/../../images/greenblue.jpg")', backgroundSize: 'cover', backgroundPosition: 'center', backgroundColor: '#8B5CF6' }}> */}
         <div className="container max-w-screen-xl mx-auto">
           <div className="member-heading w-full text-center">
-            <h2 className="text-5xl font-bold pb-16 text-white">
-              Our Team
-            </h2>
+            <h2 className="text-5xl font-bold pb-16 text-white">Our Team</h2>
             <section className="text-amber-700 text-lg mb-10">
-            Our members are X-ray certified, trained in CPR and first aid and most of them have received the designation of Specialized Orthodontic Assistant <Link className="underline hover:text-red-100" to="https://www.trapezio.com/training-resources/course-outlines/soa-prep-course-outline/">(SOA)</Link>. This is a voluntary certification program started by the American Association of Orthodontists to recognize those in the profession for their knowledge and experience.
+              Our members are X-ray certified, trained in CPR and first aid and
+              most of them have received the designation of Specialized
+              Orthodontic Assistant{" "}
+              <Link
+                className="underline hover:text-red-100"
+                to="https://www.trapezio.com/training-resources/course-outlines/soa-prep-course-outline/"
+              >
+                (SOA)
+              </Link>
+              . This is a voluntary certification program started by the
+              American Association of Orthodontists to recognize those in the
+              profession for their knowledge and experience.
             </section>
           </div>
           <div className="member-container grid gap-16 grid-cols-3">
@@ -212,16 +251,19 @@ const OurTeam = () => {
                 }}
               >
                 <img
-    className={`mx-auto h-72 w-auto ${inViewElements[index] ? "blur-in" : "blur-out"}`}
-    src={member.img}
-    alt={member.name}
-    style={{
-      opacity: inViewElements[index] ? 1 : 0,
-      transform: inViewElements[index] ? "scale(1)" : "scale(0.8)",
-      transition: `opacity ${transitionDuration}ms ease-in-out, transform ${transitionDuration}ms ease-in-out`,
-
-    }}
-  />
+                  className={`mx-auto h-72 w-auto ${
+                    inViewElements[index] ? "blur-in" : "blur-out"
+                  }`}
+                  src={member.img}
+                  alt={member.name}
+                  style={{
+                    opacity: inViewElements[index] ? 1 : 0,
+                    transform: inViewElements[index]
+                      ? "scale(1)"
+                      : "scale(0.8)",
+                    transition: `opacity ${transitionDuration}ms ease-in-out, transform ${transitionDuration}ms ease-in-out`,
+                  }}
+                />
                 <figcaption className="w-full py-8 text-center">
                   <h3 className="text-3xl text-white">{member.name}</h3>
                   <span className="text-white text-md">{member.role}</span>

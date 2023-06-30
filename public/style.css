@@ -354,4 +354,12 @@ text {
   }
 
   
+  @keyframes slidein {
+    from {
+      left: 100%;
+    }
+    to {
+      left: 50%;
+    }
+  }
   
