@@ -20,16 +20,23 @@ import SingleProductPage from "../components/stripe/SingleProductPage";
 import Checkout from "../components/stripe/checkout";
 import LogoSlider from "../components/logoslider";
 import Testimonials from "../components/about/Testimonials";
-
+import Allentown from "../components/OurLocations/Allentown";
+import Schnecksville from "../components/OurLocations/Schnecksville";
+import Lehighton from "../components/OurLocations/Lehighton";
 import Bag from "../components/bag/Bag";
 import Products from "../components/products/Products";
 import SingleProduct from "../components/products/SingleProduct"
 import CheckoutSuccess from "../components/bag/CheckoutSuccess";
+import Bethlehem from "../components/OurLocations/Bethlehem"
 
 const AppRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
+      <Route path="/allentown" element={<Allentown />}/>
+      <Route path="/bethlehem" element={<Bethlehem />}/>
+      <Route path="/schnecksville" element={<Schnecksville/>}/>
+      <Route path="/lehighton" element={<Lehighton/>}/>
       <Route path="/our-team" element={<OurTeam />} />
       <Route path="/why-choose-us" element={<WhyChooseUs />} />
       <Route path="/your-care" element={<YourCare />} />

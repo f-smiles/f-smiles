@@ -7,16 +7,23 @@ const Locations = () => {
     <div className="ml-2">
       <h1 className="pb-10 text-4xl border-b" >  Choose location</h1>
  <ul>
- <li className="flex items-center text-2xl pb-10 border-b pt-10">Allentown <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="currentColor"
-            className="w-6 h-6 ml-auto"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-          </svg></li>
+ <a href="/allentown">
+  <li className="flex items-center text-2xl pb-10 border-b pt-10">
+    Allentown
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth={1.5}
+      stroke="currentColor"
+      className="w-6 h-6 ml-auto"
+    >
+      <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+    </svg>
+  </li>
+</a>
+
+<a href="/bethlehem">
         <li className="flex items-center text-2xl  pt-10 pb-10 border-b">Bethlehem  <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -27,6 +34,9 @@ const Locations = () => {
           >
             <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
           </svg></li>
+
+          </a>
+          <a href="lehighton">
         <li className="flex items-center text-2xl pt-10 pb-10 border-b">Lehighton  <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -37,6 +47,8 @@ const Locations = () => {
           >
             <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
           </svg></li>
+          </a>
+<a href="schnecksville">
         <li className="flex-items-center text-2xl pt-10 pb-10 border-b">Schnecksville  <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -47,6 +59,7 @@ const Locations = () => {
           >
             <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
           </svg></li>
+          </a>
  </ul>
     </div>
     <div>
