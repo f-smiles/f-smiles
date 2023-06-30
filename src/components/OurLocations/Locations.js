@@ -91,14 +91,15 @@ const Locations = () => {
         </p>
       </div>
      
-      <section className="w-full p-8 cursor-pointer hover:bg-stone-200 transition-all duration-500 linear">
+      <section className="w-full py-8 cursor-pointer hover:bg-stone-200 transition-all duration-500 linear">
         <div className="max-w-screen-xl mx-auto md:px-8 md:grid md:grid-cols-3 gap-4 space-y-4">
           <div>
             <h2 className="py-4">Allentown</h2>
-            <address>
-              1251 South Cedar Crest Blvd, Suite 210<br />
-              Allentown, PA 18103
-            </address>              
+            <address style={{ fontStyle: "normal" }}>
+  1251 South Cedar Crest Blvd, Suite 210<br />
+  Allentown, PA 18103
+</address>
+            
                 <div className="py-4 space-y-2">
                   <span className="flex gap-2 items-center">
                     <svg
@@ -122,9 +123,6 @@ const Locations = () => {
                       <Link className="underline" to="https://goo.gl/maps/jeFprQaeMQwUzwPx8" target="_blank">Get Directions</Link>
                   </span>
                 </div>
-
-            
-            
           </div>
           <div>
             <p>
@@ -144,7 +142,7 @@ const Locations = () => {
         <div className="max-w-screen-xl mx-auto md:px-8 md:grid md:grid-cols-3 gap-4 space-y-4">
           <div>
             <h2 className="py-4">Lehighton</h2>
-              <address>
+            <address style={{ fontStyle: "normal" }}>
                 1080 Blakeslee Blvd Dr E<br />
                 Lehighton, PA 18235
               </address>
@@ -193,7 +191,7 @@ const Locations = () => {
         <div className="max-w-screen-xl mx-auto md:px-8 md:grid md:grid-cols-3 gap-4 space-y-4">
           <div>
             <h2 className="py-4">Bethlehem</h2>
-              <address>
+            <address style={{ fontStyle: "normal" }}>
                 2901 Emrick Boulevard<br />
                 Bethlehem, PA 18020
                 <div className="py-4 space-y-2">
@@ -245,7 +243,7 @@ const Locations = () => {
         <div className="max-w-screen-xl mx-auto md:px-8 md:grid md:grid-cols-3 gap-4 space-y-4">
           <div>
             <h2 className="py-4">Schnecksville</h2>
-              <address>
+            <address style={{ fontStyle: "normal" }}>
                 4155 Independence Drive<br />
                 Schnecksville, PA 18078
                 <div className="py-4 space-y-2">
