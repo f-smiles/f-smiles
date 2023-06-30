@@ -355,11 +355,20 @@ text {
 
   
   @keyframes slidein {
-    from {
-      left: 100%;
-    }
-    to {
-      left: 50%;
-    }
+  from {
+    left: 100%;
   }
-  
+  to {
+    left: 50%;
+  }
+}
+@keyframes slide-in {
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
