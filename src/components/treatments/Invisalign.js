@@ -5,9 +5,9 @@ import { ChevronUpIcon } from "@heroicons/react/20/solid";
 const Invisalign = () => {
   return (
     
-    <main className=" w-full px-4 pt-16">
+    <main className=" w-full px-4 pt-16 bg-indigo-100">
       <div className="flex justify-center items-center">
-            <img src="../../images/invisaligngradient2.png" alt="invisalign" style={{ maxWidth: "60%", maxHeight: "60%" }}/>
+<h1 className="text-5xl my-10 ">How <span className="italic">Invisalign</span> Works<span></span></h1>
             </div>
       <div className="mx-auto w-full max-w-screen-lg rounded-2xl bg-white p-2">       
         <Disclosure as="section" defaultOpen={true}>

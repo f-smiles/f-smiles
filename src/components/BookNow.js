@@ -155,7 +155,7 @@ const BookNow = () => {
   const inactiveButtonClass =
     "border border-violet-400 hover:bg-violet-400 hover:text-white text-indigo-700";
     const styles = {
-      animation: "slide-in 1s",
+      animation: "slide-in 2s",
       transition: "opacity 0.5s",
     };
     const [showForm, setShowForm] = useState(false);
