@@ -515,7 +515,7 @@ const BookNow = () => {
 
             <div className="flex justify-center">
               <button
-                className="text-white rounded-full px-4 py-2 bg-indigo-300 max-w-max -mt-3"
+                className="text-white rounded-lg px-4 py-2 bg-indigo-700 max-w-max -mt-3"
                 type="submit"
                 onClick={handleSubmit}
               >

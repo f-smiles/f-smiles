@@ -57,17 +57,18 @@ const Allentown = () => {
               </span>
             </div>
           </div>
-          <div>
-            <p>
-              Our original location situated within the Cedar Crest Plaza across
-              from the Lehigh Valley Hospital
-            </p>
-          </div>
+         
    
         </div>
       </section>
     </div>
     <div>
+    <div>
+            <p className="text-center">
+              Our original location situated within the Cedar Crest Plaza across
+              from the Lehigh Valley Hospital
+            </p>
+          </div>
       <BookNow />
     </div>
   </main>

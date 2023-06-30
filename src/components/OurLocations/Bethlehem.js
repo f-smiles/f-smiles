@@ -70,7 +70,12 @@ const Bethlehem = () => {
               <h3>Bethlehem Office Virtual Tour</h3>
             </Link>
           </div>
-          <div>
+      
+         
+        </div>
+      </section>
+      </div>  <div>
+      <div>
             <p>
               We invite you to take a virtual tour of the FreySmiles orthodontic
               office in Bethlehem, PA. Our largest office equipped with our
@@ -78,10 +83,6 @@ const Bethlehem = () => {
               stocked with cold beverages.
             </p>
           </div>
-         
-        </div>
-      </section>
-      </div>  <div>
     <BookNow />
   </div></main>)
 };

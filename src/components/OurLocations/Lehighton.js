@@ -6,9 +6,16 @@ const Lehighton = () => {
   return (
     <main className=" mt-40 grid grid-cols-2 gap-4">
     <div className="ml-2">
-      <h1 className="pb-10 text-4xl border-b" >  Lehighton</h1>
+
       <section className="w-full p-8 cursor-pointer hover:bg-stone-200 transition-all duration-500 linear">
-        <div className="max-w-screen-xl mx-auto md:px-8 md:grid md:grid-cols-3 gap-4 space-y-4">
+        <div className="max-w-screen-xl mx-auto md:px-8 md:grid gap-4 space-y-4">
+        <figure className="h-full w-full">
+              <img
+                className="object-cover w-full h-full"
+                src="../../images/office_interior.jpg"
+                alt="view of interior office"
+              />
+            </figure>
           <div>
             <h2 className="py-4">Lehighton</h2>
             <address style={{ fontStyle: "normal" }}>
@@ -55,25 +62,20 @@ const Lehighton = () => {
             </div>
             <div className=""></div>
           </div>
+         
           <div>
-            <p>
-              Our newly renovated office in Lehighton is located adjacent to
-              Rita's Italian Ice. State of the art sterilization.
-            </p>
-          </div>
-          <div>
-            <figure className="h-full w-full">
-              <img
-                className="object-cover w-full h-full"
-                src="../../images/office_interior.jpg"
-                alt="view of interior office"
-              />
-            </figure>
+            
+        
           </div>
         </div>
       </section>
       </div>
-      <div><BookNow /></div></main>)
+      <div>  <div>
+            <p>
+              Our newly renovated office in Lehighton is located adjacent to
+              Rita's Italian Ice. State of the art sterilization.
+            </p>
+          </div><BookNow /></div></main>)
 };
 
 
