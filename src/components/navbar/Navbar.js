@@ -5,7 +5,7 @@ import { Transition } from "@headlessui/react";
 import Sphere from "./sketch";
 import CartContext from "../../app/CartContext";
 // import Bag from "../stripe/Bag";
-import { XMarkIcon } from "@heroicons/react/24/outline"
+import { XMarkIcon, Bars2Icon } from "@heroicons/react/24/outline"
 import BagSidePanel from "../bag/BagSidePanel";
 
 export default function DesktopNavbar() {
@@ -120,11 +120,15 @@ export default function DesktopNavbar() {
     setIsBagOpen(!isBagOpen);
   };
 
+  const handleToggleMobileNav = () => {
+    setShow(!show);
+  };
+
 
   return (
     <>
       {/* Desktop Navbar */}
-      <nav id="desktop-nav" className={`w-full h-max fixed top-0 left-0 right-0 lg:block hidden z-40 bg-d4cdc0`}>
+      <nav id="desktop-nav" className={`w-full h-max fixed top-0 left-0 right-0 z-40 bg-d4cdc0 hidden lg:block`}>
         <div className="max-w-screen-xl mx-auto flex justify-between items-center text-sm ">
           <div id="left-links" className="flex space-x-8 ">
             <div id="about-links">
@@ -265,7 +269,86 @@ export default function DesktopNavbar() {
       {/* Desktop Navbar end */}
 
       {/* Mobile Navbar */}
-      <nav id="mobile-nav" className="fixed top-0 left-0 right-0 mx-auto z-40">
+      <nav id="mobile-nav" className="sticky top-0 left-0 right-0 mx-auto w-full z-40 lg:hidden bg-c py-6 px-4">
+        <section className="flex justify-between items-center">
+          <NavLink to='/'>
+            <img className="h-10" src="../../images/logo_full.png" alt="FreySmiles Orthodontics logo" />
+          </NavLink>
+          <div className="cursor-pointer text-slate-500" onClick={handleToggleMobileNav}>
+            {show ? (
+              <XMarkIcon className="w-6 h-6" />
+              ) : (
+              <Bars2Icon className="w-6 h-6" />
+            )}
+          </div>
+        </section>
+        <section>
+          {show && (
+            <ul className="font-serif text-3xl font-thin tracking-wider uppercase min-h-screen">
+              <div className="mt-12 cursor-pointer">
+                <li className="border-t py-2 border-light-brown" onClick={() => setAbout(!about)}>
+                  <span className="">About</span>
+                  <span className={about ? 'hidden' : 'inline-block ml-2 text-sm align-super'}>❋</span>
+                  {about && (
+                    <div className="w-full mt-4">
+                      {about_us_links && about_us_links.map((link) => (
+                        <>
+                        <NavLink to={link.href} onClick={() => setShow(!show)}>{link.name}</NavLink>
+                        <span className="mx-2 text-sm align-super">❋</span>
+                        </>
+                      ))}
+                    </div>
+                  )}
+                </li>
+                <li className="border-t border-light-brown py-2" onClick={() => setPatient(!patient)}>
+                  <span className="">Patient</span>
+                  <span className={patient ? 'hidden' : 'inline-block ml-2 text-sm align-super'}>❋</span>
+                  {patient && (
+                    <div className="flex flex-col">
+                      {patient_links && patient_links.map((link) => (
+                        <>
+                        <NavLink to={link.href} onClick={() => setShow(!show)}>
+                          <span className="mx-2 text-sm align-super">❋</span>
+                          {link.name}
+                        </NavLink>
+                        </>
+                      ))}
+                    </div>
+                  )}
+                </li>
+                <li className="border-b border-t border-light-brown py-2"  onClick={() => setTreatments(!treatments)}>
+                  <span className="">Treatments</span>
+                  <span className={treatments ? 'hidden' : 'inline-block ml-2 text-sm align-super'}>❋</span>
+                  {treatments && (
+                    <div>
+                      {treatments_links && treatments_links.map((link) => (
+                        <>
+                        <NavLink to={link.href} onClick={() => setShow(!show)}>{link.name}</NavLink>
+                        <span className="mx-2 text-sm align-super">❋</span>
+                        </>
+                      ))}
+                    </div>
+                  )}
+
+                </li>
+              </div>
+              <div className="mt-12 cursor-pointer space-y-4" onClick={() => setShow(!show)}>
+                <li className="">
+                  <NavLink className="block" to="https://my.orthoblink.com/bLink/Login">Patient Login</NavLink>
+                </li>
+                <li className="">
+                  <NavLink className="block" to="/products">Shop</NavLink>
+                </li>
+                <li className="">
+                  <NavLink className="p-2 rounded border border-slate-900" to="/book-now">Book Now</NavLink>
+                </li>
+              </div>
+            </ul>
+          )}
+        </section>
+      </nav>
+
+      {/* <nav id="mobile-nav" className="fixed top-0 left-0 right-0 mx-auto z-30 lg:hidden">
         <section
           id="mobile-menu-header"
           className="py-4 px-6 w-full flex xl:hidden justify-between items-center bg-stone-900"
@@ -590,7 +673,7 @@ export default function DesktopNavbar() {
             </div>
           </div>
         </section>
-      </nav>
+      </nav> */}
       {/* Mobile Navbar end */}
     </>
   );

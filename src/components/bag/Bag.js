@@ -46,27 +46,6 @@ export default function Bag() {
   //   }
   // }
 
-  // const handleCheckout = async () => {
-    // /api/v1/checkout/sessions/create-checkout-session
-  //   await axios.post(`${process.env.REACT_APP_HOST}/api/v1/sessions/create-checkout-session`, {
-  //     bagItems,
-  //   }).then((response) => {
-  //     // if (response.data.url) {
-  //     //   window.location.href = response.data.url;
-  //     // }
-  //     if (response) {
-  //       console.log(bagItems);
-  //     }
-  //   }).catch((error) => console.log(error.message))
-  // }
-
-  // const handleCheckout = async () => {
-  //   // console.log('checkout', bagItems);
-  //   await axios.post(`${process.env.REACT_APP_HOST}/api/v1/checkout/sessions/create-checkout-session`, bagItems).then((response) => {
-  //     console.log(response);
-  //   }).catch((error) => console.log(error.message))
-  // }
-
   const handleCheckout = async () => {
     await axios.post(`${apiUrl}/api/v1/checkout/sessions/create-checkout-session`, bagItems)
     .then((response) => {
@@ -88,16 +67,16 @@ export default function Bag() {
         </div>
         ) : (
         <>
-          <div className="px-4 sm:px-0">
-            <h3 className="text-base font-semibold leading-7 text-gray-900">Shopping Bag</h3>
+          <div className="px-4 lg:px-0">
+            <h2 className="text-3xl font-semibold leading-7 text-gray-900">Shopping Bag</h2>
           </div>
-          <div className='mt-6 w-full flex justify-end divide-y divide-gray-100'>
-            <button className='mt-6 flex items-center gap-2 text-danger-500 border border-danger-500 rounded py-1 px-3' type='button' onClick={() => dispatch(clearBag())}>
+          <div className='px-8 sm:px-4 lg:px-0 mt-6 w-full flex justify-end border-y border-gray-100'>
+            <button className='my-6 flex items-center gap-2 text-danger-500 border border-danger-500 rounded py-1 px-3' type='button' onClick={() => dispatch(clearBag())}>
               <span>Clear Bag</span>
               <TrashIcon className='w-5 h-5' />
             </button>
           </div>
-            <dl className="divide-y divide-gray-100 w-full">
+            <dl className="px-4 lg:px-0 divide-y divide-gray-100 w-full">
             {bagItems && bagItems.map((item) => (
               <div className="px-4 py-6 mb-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0" key={item.id}>
                 <dt className="text-sm font-medium leading-6 text-gray-900">

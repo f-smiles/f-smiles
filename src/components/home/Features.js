@@ -1,11 +1,20 @@
-import React, { useRef } from 'react'
+import React, { useRef,  useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { motion, useScroll, useTransform } from 'framer-motion'
 
 export default function Features() {
-  const damonRef = useRef();
+  // const damonRef = useRef();
+  const ref = useRef(null)
+  const [isInView, setIsInView] = useState(false)
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["end end", "start start"],
+    onEnterViewport: () => setIsInView(true),
+    onLeaveViewport: () => setIsInView(false),
+  })
 
   return (
-    <div className='max-w-screen-xl mx-auto space-y-8'>
+    <div ref={ref} className={`${isInView} ? 'bg-rose-500' :  max-w-screen-xl mx-auto space-y-8`}>
       <div className="flex justify-center items-center">
         <div className="text-center flex flex-col gap-6 justify-center items-center w-1/2">
           <h3 className="text-4xl">Invisalign</h3>

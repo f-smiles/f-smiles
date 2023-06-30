@@ -4,7 +4,7 @@ import Map from "react-map-gl";
 import DotPattern from "./DotPattern";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import LogoSlider from "./logoslider";
+import LogoSlider from './logoslider';
 import Features from './Features';
 import { ChevronDownIcon } from "@heroicons/react/24/solid";
 import { Carousel } from "@material-tailwind/react";
@@ -14,36 +14,21 @@ AOS.init();
 
 const Home = () => {
 
-  const [activeSlide, setActiveSlide] = useState(0);
+  // const [activeSlide, setActiveSlide] = useState(0);
 
-  const slides = [
-    {
-      author: "Taneesha N.",
-      content: `Fantastic!! Absolutely recommend! The team at FreySmiles was extremely accommodating to my busy schedule and was able to get me an appointment the day after I called. The staff was so sweet and made me feel welcomed as soon as I walked into the office.  Dr. Frey has a wonderful practice. I have all the confidence in the world that I will love my smile once my treatment is done!`,
-    },
-    {
-      author: "Alexandra W",
-      content:
-        "“My husband’s experience at FreySmiles Orthodontics has been absolutely amazing. He had an emergency that occurred on Friday and contacted the emergency contact number. Soon after, he was contacted by Dr. Gregg Frey who scheduled him an appointment right away. My husband was so happy to not have to go through the weekend in discomfort. Hands down, I have to say this is the best Orthodontist we have ever been to. The staff are always professional, polite and very eager to help!”",
-    },
-    {
-      author: "Fei Z",
-      content:
-        "Our whole experience for the past 10 years of being under Dr. Gregg Frey’s care and his wonderful staff has been amazing. My son and my daughter have most beautiful smiles, and they received so many compliments on their teeth. It has made a dramatic and positive change in their lives. Dr. Frey is a perfectionist, and his treatment is second to none. I recommend Dr. Frey highly and without any reservation.",
-    },
-  ];
+ 
 
-  const prevSlide = () => {
-    setActiveSlide((prevSlide) =>
-      prevSlide === 0 ? slides.length - 1 : prevSlide - 1
-    );
-  };
+  // const prevSlide = () => {
+  //   setActiveSlide((prevSlide) =>
+  //     prevSlide === 0 ? slides.length - 1 : prevSlide - 1
+  //   );
+  // };
 
-  const nextSlide = () => {
-    setActiveSlide((prevSlide) =>
-      prevSlide === slides.length - 1 ? 0 : prevSlide + 1
-    );
-  };
+  // const nextSlide = () => {
+  //   setActiveSlide((prevSlide) =>
+  //     prevSlide === slides.length - 1 ? 0 : prevSlide + 1
+  //   );
+  // };
   const [isCardHovered, setIsCardHovered] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const [isTransition, setIsTransition] = useState(false);
@@ -51,13 +36,13 @@ const Home = () => {
   const [showTextPerson1, setShowTextPerson1] = useState(true);
   const [showTextPerson2, setShowTextPerson2] = useState(false);
 
-  const handleToggleTextPerson1 = () => {
-    setShowTextPerson1(!showTextPerson1);
-  };
+  // const handleToggleTextPerson1 = () => {
+  //   setShowTextPerson1(!showTextPerson1);
+  // };
 
-  const handleToggleTextPerson2 = () => {
-    setShowTextPerson2(!showTextPerson2);
-  };
+  // const handleToggleTextPerson2 = () => {
+  //   setShowTextPerson2(!showTextPerson2);
+  // };
 
   // const threshold = 400;
   // const InvisalignRef = useRef(null);
@@ -170,62 +155,11 @@ const Home = () => {
           <LogoSlider/>
         </section>
 
-        <div className="relative min-h-screen flex items-center justify-center ml-60 mr-60">
-          {slides.map((slide, index) => (
-            <div
-              key={index}
-              className={`absolute left-0 top-0 w-full h-full transition-opacity duration-500 ${
-                index === activeSlide ? "opacity-100" : "opacity-0"
-              }`}
-            >
-              <div className="absolute inset-x-0 bottom-0 p-4 text-black">
-                <h1 className="text-xl text-teal-700">{slide.content}</h1>
-              </div>
-            </div>
-          ))}
-          <button
-            className="absolute -left-20 top-1/2 transform -translate-y-20 px-4 py-2 rounded"
-            onClick={prevSlide}
-          >
-            <div className="border border-black rounded-full inline-flex p-1">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="w-6 h-6"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"
-                />
-              </svg>
-            </div>
-          </button>
-          <button
-            className="absolute -right-20 top-1/2 transform -translate-y-20 px-4 py-2 rounded"
-            onClick={nextSlide}
-          >
-            <div className="border border-black rounded-full inline-flex p-1">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="w-6 h-6 rounded-full"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-                />
-              </svg>
-            </div>
-          </button>
-        </div>
+        <section id='featured-reviews'>
+
+        </section>
+
+        
 
         <section>
           <div className="flex justify-center">
