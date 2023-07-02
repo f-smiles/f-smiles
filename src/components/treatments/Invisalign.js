@@ -5,7 +5,7 @@ import { ChevronUpIcon } from "@heroicons/react/20/solid";
 const Invisalign = () => {
   return (
     
-    <main className=" w-full px-4 pt-16 bg-indigo-100">
+    <main className=" w-full px-4 pt-16 bg-F8F6F1">
       <div className="flex justify-center items-center">
 <h1 className="text-5xl my-10 ">How <span className="italic">Invisalign</span> Works<span></span></h1>
             </div>

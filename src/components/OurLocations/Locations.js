@@ -5,7 +5,7 @@ const Locations = () => {
   return (
     <main className=" mt-40 grid grid-cols-2 gap-4">
     <div className="ml-2">
-      <h1 className="pb-10 text-4xl border-b" >  Choose location</h1>
+      <h1 className="pb-10 text-4xl border-b text-teal-900" >  Choose location</h1>
  <ul>
  <a href="/allentown">
   <li className="flex items-center text-2xl pb-10 border-b pt-10">
