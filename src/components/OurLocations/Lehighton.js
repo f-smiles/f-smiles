@@ -38,7 +38,7 @@ const Lehighton = () => {
                 </svg>{" "}
                 610.437.4748
               </span>
-              <span className="flex gap-2 transition-colors duration-500 linear text-amber-800">
+              <span className="flex gap-2 transition-colors duration-500 linear ">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
@@ -52,7 +52,7 @@ const Lehighton = () => {
                   />
                 </svg>
                 <Link
-                  className="underline"
+                  className="underline hover:text-purple-900"
                   to="https://goo.gl/maps/rcoLbjXmATgQn2t47"
                   target="_blank"
                 >

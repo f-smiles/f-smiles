@@ -39,7 +39,7 @@ const Bethlehem = () => {
                   </svg>{" "}
                   (610) 437-4748
                 </span>
-                <span className="flex gap-2 transition-colors duration-500 linear text-amber-800">
+                <span className="flex gap-2 transition-colors duration-500 linear">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
@@ -53,7 +53,7 @@ const Bethlehem = () => {
                     />
                   </svg>
                   <Link
-                    className="underline"
+                    className="underline hover:text-purple-900"
                     to="https://goo.gl/maps/QjaBN2q5nmC7Vvmp8"
                     target="_blank"
                   >
@@ -63,12 +63,6 @@ const Bethlehem = () => {
               </div>
             </address>
 
-            <Link
-              to=""
-              className="text-amber-800 transition-colors duration-500 linear"
-            >
-              <h3>Bethlehem Office Virtual Tour</h3>
-            </Link>
           </div>
       
          
@@ -76,6 +70,13 @@ const Bethlehem = () => {
       </section>
       </div>  <div>
       <div>
+
+      <Link
+              to=""
+              className="transition-colors duration-500 linear "
+            >
+              <h3>Bethlehem Office Virtual Tour</h3>
+            </Link>
             <p>
               We invite you to take a virtual tour of the FreySmiles orthodontic
               office in Bethlehem, PA. Our largest office equipped with our

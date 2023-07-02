@@ -51,7 +51,7 @@ const Schnecksville = () => {
             {/* Map icon SVG path */}
           </svg>
           <Link
-            className="underline"
+            className="underline hover:text-purple-900"
             to="https://goo.gl/maps/Z7C7Z7BPzHgcJmUr6"
             target="_blank"
           >
