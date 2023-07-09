@@ -32,7 +32,7 @@ function ParallaxText({ children, baseVelocity = 100 }) {
   });
 
   return (
-    <div className="parallax">
+    <div className="parallax max-w-screen-xl mx-auto">
       <motion.div className="scroller" style={{ x }}>
         <span className='inline-flex space-x-8'>{children} </span>
       </motion.div>
@@ -43,7 +43,7 @@ function ParallaxText({ children, baseVelocity = 100 }) {
 export default function LogoSlider() {
   return (
     <>
-      <ParallaxText baseVelocity={-5}>      
+      <ParallaxText baseVelocity={-5}>
         <img
           className='w-1/6 aspect-auto object-contain'
           src="../../images/movingbannerfiles/damonlogo.png"
@@ -59,7 +59,7 @@ export default function LogoSlider() {
           src="../../images/movingbannerfiles/readers.png"
           alt="readers choice"
         />
-        <img 
+        <img
           className='w-1/6 aspect-auto object-contain'
           src="../../images/movingbannerfiles/Top-Dentist.png"
           alt="top-dentist"

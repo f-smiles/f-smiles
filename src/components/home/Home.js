@@ -1,22 +1,21 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Map from "react-map-gl";
-import DotPattern from "./DotPattern";
+// import DotPattern from "./DotPattern";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import LogoSlider from './logoslider';
-import Features from './Features';
-import { ChevronDownIcon } from "@heroicons/react/24/solid";
-import { Carousel } from "@material-tailwind/react";
-import "react-responsive-carousel/lib/styles/carousel.min.css";
+import Hero from "./Hero";
+import LogoSlider from "./logoslider";
+import Features from "./Features";
+import FeaturedReviews from "./FeaturedReviews";
+// import { ChevronDownIcon } from "@heroicons/react/24/solid";
+// import { Carousel } from "@material-tailwind/react";
+// import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 AOS.init();
 
 const Home = () => {
-
   // const [activeSlide, setActiveSlide] = useState(0);
-
- 
 
   // const prevSlide = () => {
   //   setActiveSlide((prevSlide) =>
@@ -30,11 +29,11 @@ const Home = () => {
   //   );
   // };
   const [isCardHovered, setIsCardHovered] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
-  const [isTransition, setIsTransition] = useState(false);
-  const [scrollPosition, setScrollPosition] = useState(0);
-  const [showTextPerson1, setShowTextPerson1] = useState(true);
-  const [showTextPerson2, setShowTextPerson2] = useState(false);
+  // const [isVisible, setIsVisible] = useState(false);
+  // const [isTransition, setIsTransition] = useState(false);
+  // const [scrollPosition, setScrollPosition] = useState(0);
+  // const [showTextPerson1, setShowTextPerson1] = useState(true);
+  // const [showTextPerson2, setShowTextPerson2] = useState(false);
 
   // const handleToggleTextPerson1 = () => {
   //   setShowTextPerson1(!showTextPerson1);
@@ -81,87 +80,33 @@ const Home = () => {
 
   return (
     <>
-      <main className="md:pt-16 bg-#fFFFDFD overflow-hidden w-full">
-        <section id="hero-section" className="max-w-screen-lg mx-auto py-8 md:pb-24">
-          <div className="flex flex-col-reverse md:flex-row">
-            <div className="mt-24 md:mt-0 flex flex-col px-4 md:w-1/2 lg:px-0">
-              <div className="p-8 lg:p-0">
-                <h1 className="md:mt-16 text-4xl lg:text-6xl font-bold md:font-black leading-10 text-gray-700">
-                  Because every smile is unique
-                </h1>
-                <p className="text-lg text-gray-600 font-light leading-relaxed pt-8 w-4/5">
-                  Our goal is to make your smile look best on{" "}
-                  <strong className="font-bold">YOU</strong>. It's an art, it's
-                  a science, and it is something orthodontists Dr. Gregg Frey
-                  and Dr. Daniel Frey and the exceptional team at FreySmiles
-                  Orthodontics recognize and are very passionate about.
-                </p>
-                {/* <div className="absolute top-2/3 right-2/3 border border-black w-1/2">
-                    <img
-                      className="w-full h-full"
-                      src="../../images/fadedblob.svg"
-                      alt="blue blob"
-                    />
-                  </div> */}
-                <div className="mt-12 flex flex-wrap z-100">
-                  <div className="mr-6 sm:mt-0 md:mt-5 lg:mt-0">
-                    <button className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 bg-B47EDE transition duration-150 ease-in-out hover:bg-indigo-600 rounded text-white px-8 py-4 text-base md:text-xl">
-                      <Link to="/book-now">Book Now</Link>
-                    </button>
-                  </div>
-                  <div className="sm:mt-0 md:mt-5 lg:mt-0">
-                    <button className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600 transition duration-150 ease-in-out hover:bg-gray-200 rounded border border-indigo-600 text-indigo-600 px-8 py-4 text-base md:text-xl">
-                      <Link to="/our-team">Our Team</Link>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="mx-auto relative flex justify-end pl-6 pt-10 md:mt-0 md:mb-16 md:w-1/2 lg:mt-0 sm:pl-20 sm:block">
-              <div className="relative ml-4 top-10 left-0 w-full h-full z-10 lg:ml-8">
-                <img
-                  className="h-96 md:h-auto"
-                  src="../../images/hero_clip.png"
-                  alt="girl smiling"
-                />
-              </div>
-              {/* <div aria-hidden="true" className="absolute z-10 h-full w-full md:w-40 lg:w-full top-1/2 left-0 md:left-10 lg:left-10 flex flex-col items-start">
-                  <img className="h-96 md:h-auto" src="../../images/blob_purple.png" alt="organic shape resembling a blob colorized by a purple shifting to indigo gradient" role="img" />
-                </div> */}
-              <div
-                aria-hidden="true"
-                className="absolute z-0 h-full w-full md:w-40 lg:w-full top-5 left-0 md:left-10 lg:left-10 flex flex-col items-start overflow-hidden"
-              >
-                {/* <img className="h-96 md:h-auto" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/left_aligned_with_image_and_cta-SVG1.svg" alt="dot pattern" /> */}
-                <DotPattern />
-              </div>
-            </div>
-          </div>
+      <main className="bg-#fFFFDFD overflow-hidden w-full">
+        <section id="hero-section" className="bg-white overflow-hidden">
+          <Hero />
         </section>
 
-        <section id='features-section' className='bg-F8F6F1 py-24'
+        {/* <section id='features-section' className='bg-F8F6F1 py-24'
           style={{
             backgroundColor: isCardHovered ? "#dec0ae" : "#F8F6F1",
             transition: "background-color 0.7s ease",
-            // transform: `translateY(-${calculateOffset(1)}px)`,
-            // overflow: "scroll"
+            transform: `translateY(-${calculateOffset(1)}px)`,
+            overflow: "scroll"
           }}
-        >
-          <Features/> 
+        > */}
+        <section id="features">
+          <Features />
+        </section>
+        {/* </section> */}
+
+        <section id="featured-reviews" className="bg-gray-100 min-h-screen">
+          <FeaturedReviews />
         </section>
 
-        <section id="logo-slider" className='bg-dec0ae'>
-          <LogoSlider/>
+        <section id="logo-slider" className="bg-dec0ae">
+          <LogoSlider />
         </section>
 
-        <section id='featured-reviews'>
-
-        </section>
-
-        
-
-        <section>
+        {/* <section>
           <div className="flex justify-center">
             <div className="flex justify-center">
               <div className="flex items-center">
@@ -187,7 +132,8 @@ const Home = () => {
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
+
         <section className="max-w-screen-xl mx-auto flex flex-col gap-8 justify-center px-4 py-8 relative z-1">
           <div className="mt-36 flex flex-col md:flex-row space-y-16 md:gap-8">
             <div className="relative md:w-1/3 space-y-4">
