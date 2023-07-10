@@ -138,7 +138,7 @@ export default function DesktopNavbar() {
                   : "absolute top-0 left-0  w-screen h-screen backdrop-blur-sm bg-white/30 flex flex-row gap-2 overflow-hidden translate-x-0 transition-all delay-300 duration-500 ease-out"
                 }>
                   <ul className="relative w-1/3 h-full p-16 bg-stone-200 flex flex-col gap-8 font-serif text-2xl text-indigo-500">
-                    <button className="self-end h-max p-4 text-violet-500 hover:text-danger-600 transition-colors duration-300 ease-linear z-10" type="button"  onClick={handleToggleAbout} aria-label="toggle close about sidebar links">
+                    <button className="self-end h-max p-4 text-violet-500 hover:text-violet-400 transition-colors duration-300 ease-linear z-10" type="button"  onClick={handleToggleAbout} aria-label="toggle close about sidebar links">
                       <XMarkIcon className="w-10 h-10 cursor-pointer"/>
                     </button>
                     {about_us_links && about_us_links.map((link, index) => (
