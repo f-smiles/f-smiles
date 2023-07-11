@@ -45,6 +45,38 @@ body {
   );
 }
 
+.parent {
+  width: 300px;
+  overflow: hidden;
+  display: flex;
+}
+
+.parent.smaller {
+  max-width: 250px;
+  width: 70%;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: left;
+  margin-left: -100%;
+  transition: cubic-bezier(0.075, 0.82, 0.165, 1) 1s;
+}
+
+.switch-left {
+  float: left;
+  margin-right: -100%; /* Move the left image out of the parent div */
+}
+
+.switch-right {
+  float: left;
+  /* transition: cubic-bezier(0.165, 0.84, 0.44, 1) 1s; */
+  transition: cubic-bezier(0.075, 0.82, 0.165, 1) 1s;
+}
+
 .reviews-bars {
   display: flex;
   justify-content: center;

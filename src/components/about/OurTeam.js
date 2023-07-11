@@ -1,29 +1,29 @@
-import { PlusIcon, MinusIcon } from "@heroicons/react/24/solid";
-import React, { useEffect, useRef, useState } from "react";
-import { Transition } from "@headlessui/react";
-import { Link } from "react-router-dom";
+import React from "react";
 import DoctorsSection from "./DoctorsSection";
 import MembersSection from "./MembersSection";
+import DoctorsMembers from "./DoctorsMembers";
 
-const OurTeam = () => {
-  const SLIDE_COUNT = 2;
-  const slides = Array.from(Array(SLIDE_COUNT).keys());
+export default function OurTeam() {
+  // const SLIDE_COUNT = 2;
+  // const slides = Array.from(Array(SLIDE_COUNT).keys());
 
   return (
     <main className="min-h-screen">
-      <section className="bg-white pt-32 pb-20">
-        <DoctorsSection slides={slides} />
+      <section className="pt-32 bg-white dark:bg-gray-900">
+        <DoctorsSection />
       </section>
 
       {/* <section className="bg-[#bf9975] pt-24 pb-40"> */}
-      <section className="bg-white pt-24 pb-40">
+      <section className="bg-[#B08C7D] pt-24 pb-40">
         <MembersSection />
+      </section>
+
+      <section>
+        <DoctorsMembers />
       </section>
     </main>
   );
-};
-
-export default OurTeam;
+}
 
 // import { ChevronUpIcon } from "@heroicons/react/20/solid";
 // import { Transition } from "@headlessui/react";
