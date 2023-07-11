@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Sphere = () => {
-  const sphereSize = '45vmin';
+  const sphereSize = '30vmin';
   const ringStyles = [];
 
   for (let i = 1; i <= 16; i++) {
