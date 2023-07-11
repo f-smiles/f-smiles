@@ -10,7 +10,7 @@
 
 @font-face {
   font-family: "EditorialNew";
-  src: url('fonts/PPEditorialNew-Ultralight.otf') format('otf');
+  src: url('fonts/EditorialNew-Variable.ttf') format('truetype');
 }
 
 .editorial{
@@ -238,13 +238,13 @@ text {
   50% {
     transform: translateX(-25%);
   }
-  
+
   100% {
     transform: translateX(-50%);
   }
 }
 
- 
+
 @keyframes bounce {
   0%, 100% {
     transform: translateY(0);
@@ -275,18 +275,18 @@ text {
       transform: translateY(0);
     }
   }
-  
+
   .wave-animation {
     display: inline-block;
     animation: wave 2s infinite;
   }
 
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
   @keyframes blur-in {
     from {
       filter: blur(8px);
@@ -297,7 +297,7 @@ text {
       transform: scale(1);
     }
   }
-  
+
   @keyframes blur-out {
     from {
       filter: blur(0);
@@ -317,7 +317,7 @@ text {
       transform: scale(1);
     }
   }
-  
+
   @keyframes delayed-bubble-in {
     0% {
       transform: scale(0);
@@ -329,17 +329,17 @@ text {
       transform: scale(1);
     }
   }
-  
+
   .animate-bubble-in {
     animation: bubble-in 1s ease-out;
   }
-  
+
   .animate-delayed-bubble-in {
     animation: delayed-bubble-in 1s ease-out;
     animation-delay: 0.5s;
   }
-  
-  
+
+
   @keyframes film-reel {
     0% {
       transform: translateY(0);
@@ -348,12 +348,12 @@ text {
       transform: translateY(-100%);
     }
   }
-  
+
   .animate-film-reel {
     animation: film-reel 10s linear infinite;
   }
 
-  
+
   @keyframes slidein {
   from {
     left: 100%;
@@ -372,3 +372,4 @@ text {
     transform: translateX(0);
   }
 }
+

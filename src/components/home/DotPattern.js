@@ -10,8 +10,7 @@ export default function DotPattern() {
   }, []);
 
   return (
-    <div className="z-0" id="dots-container">
-      <svg id="dots"  width="286" height="631" viewBox="0 0 286 650" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg id="dots" width="286" height="631" viewBox="0 0 286 650"fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect className="rect-animate" width="6.00167" height="6.00467" rx="3.00083" fill="#1E40AF"/>
         <rect className="rect-animate" x="31.002" width="6.00167" height="6.00467" rx="3.00083" fill="#1E40AF"/>
         <rect className="rect-animate" x="62.0039" width="6.00167" height="6.00467" rx="3.00083" fill="#1E40AF"/>
@@ -247,7 +246,6 @@ export default function DotPattern() {
         <rect className="rect-animate" x="217.012" y="624.117" width="6.00167" height="6.00467" rx="3.00083" fill="#e5eafb"/>
         <rect className="rect-animate" x="248.014" y="624.117" width="6.00167" height="6.00467" rx="3.00083" fill="#e5eafb"/>
         <rect className="rect-animate" x="279.016" y="624.117" width="6.00167" height="6.00467" rx="3.00083" fill="#e5eafb"/>
-      </svg>
-    </div>
+    </svg>
   )
 }

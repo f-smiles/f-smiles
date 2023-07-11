@@ -1,5 +1,6 @@
 import { Routes, Route, useParams } from "react-router";
-import Home from "../components/Home";
+import Home from "../components/home/Home";
+import Error404 from '../components/Error404';
 import OurTeam from "../components/about/OurTeam";
 import WhyChooseUs from "../components/about/WhyChooseUs";
 import YourCare from "../components/patient/YourCare";
@@ -18,7 +19,7 @@ import StripeCheckoutForm from "../components/stripe/StripeCheckoutForm";
 import ProductsPage from "../components/stripe/ProductsPage";
 import SingleProductPage from "../components/stripe/SingleProductPage";
 import Checkout from "../components/stripe/checkout";
-import LogoSlider from "../components/logoslider";
+// import LogoSlider from "../components/logoslider";
 import Testimonials from "../components/about/Testimonials";
 import Allentown from "../components/OurLocations/Allentown";
 import Schnecksville from "../components/OurLocations/Schnecksville";
@@ -54,8 +55,8 @@ const AppRoutes = () => {
       {/* <Route path="/products" element={<ProductsPage />} /> */}
       {/* <Route path="/bag" element={<Bag />} /> */}
       {/* <Route path="/products/:productId" element={<SingleProductPage id={productId} />} /> */}
-      <Route path="/checkout" element={<Checkout />} />
-      <Route path="/slider" element={<LogoSlider />} />
+      {/* <Route path="/checkout" element={<Checkout />} /> */}
+      {/* <Route path="/slider" element={<LogoSlider />} /> */}
       <Route path="/testimonials" element={<Testimonials />} />
 
       {/* <Route path="/products" element={<ProductsPage />} />
@@ -65,6 +66,8 @@ const AppRoutes = () => {
       <Route path="/products/:id" element={<SingleProduct />} />
       <Route path="/bag" element={<Bag />} />
       <Route path="/checkout/success" element={<CheckoutSuccess />} />
+      
+      <Route path='*' element={<Error404/>} />
     </Routes>
   );
 };

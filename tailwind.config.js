@@ -6,8 +6,25 @@ module.exports = {
     "./node_modules/tw-elements/dist/js/**/*.js"
   ],
   theme: {
-    extend: {  
-      backgroundColor: {
+    extend: { 
+      colors: {
+        // 'cream': '#fdf3e6',
+        'a': '#DED7CC',
+        'b': '#D4C6B0',
+        'c': '#f0eadd',
+        'd': '#EEE4D0',
+        'light-brown': 'rgb(212, 198, 176)',
+        'oat': '#f6f2ef',
+        'linen': '#faf0e6',
+        'champagne': '#f7e7ce',
+        'cream': '#e8c8b3',
+        'light-lavender': '#d4c5ff',
+        'seaside-sand': 'rgb(242, 233, 215)',
+        'cozy-cottage': 'rgb(237, 225, 201)',
+        'oat-straw': 'rgb(211, 196, 167)',
+        'euphoric-magenta': 'rgb(127, 87, 109)',
+        'wine-not': 'rgb(134, 76, 88)',
+        'rumors': 'rgb(116, 66, 69)',
       'B7B19F': "#B7B19F",
       // 'e8e6df': '#e8e6df',
       'f7f5f2': '#f7f5f2',
@@ -42,7 +59,10 @@ module.exports = {
       serif: ['Larken', 'serif'],
     }
   },
-  plugins: [require("tw-elements/dist/plugin.cjs")],
+  plugins: [
+    require("tw-elements/dist/plugin.cjs"),
+    // require("daisyui"),
+  ],
   darkMode: "class",
   variants: {
     display: ["group-hover"],
