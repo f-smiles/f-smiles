@@ -7,7 +7,7 @@ const Invisalign = () => {
     
     <main className=" w-full px-4 pt-16 bg-F8F6F1">
       <div className="flex justify-center items-center">
-<h1 className="text-5xl my-10 ">How <span className="italic">Invisalign</span> Works<span></span></h1>
+<h1 className="text-5xl my-10 ">How <span className="font-light italic">Invisalign</span> Works<span></span></h1>
             </div>
       <div className="mx-auto w-full max-w-screen-lg rounded-2xl bg-white p-2">       
         <Disclosure as="section" defaultOpen={true}>
