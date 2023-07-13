@@ -5,6 +5,7 @@ import { Datepicker, Input, initTE } from "tw-elements";
 import { init } from "emailjs-com";
 import { Disclosure } from "@headlessui/react";
 import { ChevronUpIcon } from "@heroicons/react/20/solid";
+import classNames from 'classnames';
 init(process.env.REACT_APP_PUBLIC_KEY);
 
 const BookNow = () => {
@@ -153,9 +154,18 @@ const BookNow = () => {
   const activeButtonClass = "bg-violet-100";
   const inactiveButtonClass =
     "border border-violet-400 hover:bg-violet-400 hover:text-white text-indigo-700";
+    const styles = {
+      animation: "slide-in 2s",
+      transition: "opacity 0.5s",
+    };
+    const [showForm, setShowForm] = useState(false);
 
+    useEffect(() => {
+      setShowForm(true);
+    }, []);
   return (
-    <main className="mt-20 pt-10">
+    <main className="mt-20 pt-10" style={showForm ? styles : {}}>
+      
       <div id="contact-form">
         {emailSent ? (
           <span className={emailSent ? "block" : "hidden"}>
@@ -505,7 +515,7 @@ const BookNow = () => {
 
             <div className="flex justify-center">
               <button
-                className="text-white rounded-full px-4 py-2 bg-indigo-300 max-w-max -mt-3"
+                className="text-white rounded-lg px-4 py-2 bg-indigo-700 max-w-max -mt-3"
                 type="submit"
                 onClick={handleSubmit}
               >
