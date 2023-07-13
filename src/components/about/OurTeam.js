@@ -1,12 +1,8 @@
 import React from "react";
 import DoctorsSection from "./DoctorsSection";
 import MembersSection from "./MembersSection";
-import DoctorsMembers from "./DoctorsMembers";
 
 export default function OurTeam() {
-  // const SLIDE_COUNT = 2;
-  // const slides = Array.from(Array(SLIDE_COUNT).keys());
-
   return (
     <main className="min-h-screen">
       <section className="pt-32 bg-white dark:bg-gray-900">
@@ -16,10 +12,6 @@ export default function OurTeam() {
       {/* <section className="bg-[#bf9975] pt-24 pb-40"> */}
       <section className="bg-[#B08C7D] pt-24 pb-40">
         <MembersSection />
-      </section>
-
-      <section>
-        <DoctorsMembers />
       </section>
     </main>
   );
