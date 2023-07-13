@@ -1,26 +1,25 @@
 import React, { useState, useContext, useEffect, useRef } from "react";
-import { useSelector } from 'react-redux'
+import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { Transition } from "@headlessui/react";
 import Sphere from "./sketch";
 import CartContext from "../../app/CartContext";
 // import Bag from "../stripe/Bag";
-import { XMarkIcon, Bars2Icon } from "@heroicons/react/24/outline"
+import { XMarkIcon, Bars2Icon } from "@heroicons/react/24/outline";
 import BagSidePanel from "../bag/BagSidePanel";
 
 export default function DesktopNavbar() {
-
-  const bagItems = useSelector(state => state.bag.line_items)
+  const bagItems = useSelector((state) => state.bag.line_items);
 
   const getBagTotal = () => {
-    let totalQuantity = 0
-    let totalPrice = 0
-    bagItems.forEach(item => {
-      totalQuantity += item.quantity
-      totalPrice += item.price * item.quantity
-    })
-    return { totalPrice, totalQuantity }
-  }
+    let totalQuantity = 0;
+    let totalPrice = 0;
+    bagItems.forEach((item) => {
+      totalQuantity += item.quantity;
+      totalPrice += item.price * item.quantity;
+    });
+    return { totalPrice, totalQuantity };
+  };
 
   const { cartCount } = useContext(CartContext);
 
@@ -79,7 +78,6 @@ export default function DesktopNavbar() {
   //   };
   // }, []);
 
-
   const about_us_links = [
     { name: "Our Team", href: "/our-team", image: "../../images/doctors.jpg" },
     { name: "Why Choose Us", href: "/why-choose-us", image: "" },
@@ -124,110 +122,211 @@ export default function DesktopNavbar() {
     setShow(!show);
   };
 
-
   return (
     <>
       {/* Desktop Navbar */}
-      <nav id="desktop-nav" className={`w-full h-max fixed top-0 left-0 right-0 z-40 bg-d4cdc0 hidden lg:block`}>
+      <nav
+        id="desktop-nav"
+        className={`w-full h-max fixed top-0 left-0 right-0 z-40 bg-d4cdc0 hidden lg:block`}
+      >
         <div className="max-w-screen-xl mx-auto flex justify-between items-center text-sm ">
           <div id="left-links" className="flex space-x-8 ">
             <div id="about-links">
-              <h4 className="cursor-pointer uppercase font-medium tracking-wider hover:underline hover:text-indigo-700 transition-colors duration-300 ease-in-out" onClick={handleToggleAbout}>About</h4>
-                <div className={
-                  !about ? "absolute top-0 left-0 w-screen h-screen backdrop-blur-sm bg-white/30 flex flex-row gap-2 overflow-hidden translate-x-[-100%] transition-all delay-300 duration-500 ease-out"
-                  : "absolute top-0 left-0  w-screen h-screen backdrop-blur-sm bg-white/30 flex flex-row gap-2 overflow-hidden translate-x-0 transition-all delay-300 duration-500 ease-out"
-                }>
-                  <ul className="relative w-1/3 h-full p-16 bg-stone-200 flex flex-col gap-8 font-serif text-2xl text-indigo-500">
-                    <button className="self-end h-max p-4 text-violet-500 hover:text-violet-400 transition-colors duration-300 ease-linear z-10" type="button"  onClick={handleToggleAbout} aria-label="toggle close about sidebar links">
-                      <XMarkIcon className="w-10 h-10 cursor-pointer"/>
-                    </button>
-                    {about_us_links && about_us_links.map((link, index) => (
-                      <li key={link.name} className=" hover:text-violet-400 hover:translate-x-10 transition-transform ease-in duration-300">
-                        <NavLink className="block" to={link.href} onClick={handleToggleAbout}>{link.name}</NavLink>
+              <p
+                className="group font-serif cursor-pointer uppercase font-medium tracking-wider hover:text-indigo-700 transition-all duration-300 ease-in-out"
+                onClick={handleToggleAbout}
+              >
+                About
+                <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-indigo-700"></span>
+              </p>
+              <div
+                className={
+                  !about
+                    ? "absolute top-0 left-0 w-screen h-screen backdrop-blur-sm bg-white/30 flex flex-row gap-2 overflow-hidden translate-x-[-100%] transition-all delay-300 duration-500 ease-out"
+                    : "absolute top-0 left-0  w-screen h-screen backdrop-blur-sm bg-white/30 flex flex-row gap-2 overflow-hidden translate-x-0 transition-all delay-300 duration-500 ease-out"
+                }
+              >
+                <ul className="relative w-1/3 h-full p-16 bg-stone-200 flex flex-col gap-8 font-serif text-2xl text-indigo-500">
+                  <button
+                    className="self-end h-max p-4 text-violet-500 hover:text-violet-400 transition-colors duration-300 ease-linear z-10"
+                    type="button"
+                    onClick={handleToggleAbout}
+                    aria-label="toggle close about sidebar links"
+                  >
+                    <XMarkIcon className="w-10 h-10 cursor-pointer" />
+                  </button>
+                  {about_us_links &&
+                    about_us_links.map((link, index) => (
+                      <li
+                        key={link.name}
+                        className=" hover:text-violet-400 hover:translate-x-10 transition-transform ease-in duration-300"
+                      >
+                        <NavLink
+                          className="block"
+                          to={link.href}
+                          onClick={handleToggleAbout}
+                        >
+                          {link.name}
+                        </NavLink>
                       </li>
                     ))}
-                    <Sphere />
-                  </ul>
-
-                </div>
+                  <Sphere />
+                </ul>
+              </div>
             </div>
             <div id="patient-links">
-              <h4 className="cursor-pointer uppercase font-medium tracking-wider hover:underline hover:text-indigo-700 transition-colors duration-300 ease-in-out" onClick={handleTogglePatient}>Patient</h4>
-                <div className={
-                  !patient ? "absolute top-0 left-0 w-screen h-screen backdrop-blur-sm bg-white/30 flex flex-row gap-2 overflow-hidden translate-x-[-100%] transition-all delay-300 duration-500 ease-out"
-                  : "absolute top-0 left-0  w-screen h-screen backdrop-blur-sm bg-white/30 flex flex-row gap-2 overflow-hidden translate-x-0 transition-all delay-300 duration-500 ease-out"
-                }>
-                  <ul className="relative w-1/3 h-full p-16 bg-stone-200 flex flex-col gap-8 font-serif text-2xl text-indigo-500">
-                    <button className="self-end h-max p-4 text-violet-500 hover:text-violet-400 transition-colors duration-300 ease-linear z-10" type="button"  onClick={handleTogglePatient} aria-label="toggle close patient sidebar links">
-                      <XMarkIcon className="w-10 h-10 cursor-pointer"/>
-                    </button>
-                    {patient_links && patient_links.map((link, index) => (
-                      <li key={link.name} className=" hover:text-violet-400 hover:translate-x-10 transition-transform ease-in duration-300">
-                        <NavLink className="block" to={link.href} onClick={handleTogglePatient}>{link.name}</NavLink>
+              <p
+                className="group font-serif cursor-pointer uppercase font-medium tracking-wider hover:text-indigo-700 transition-all duration-300 ease-in-out"
+                onClick={handleTogglePatient}
+              >
+                Patient
+                <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-indigo-700"></span>
+              </p>
+              <div
+                className={
+                  !patient
+                    ? "absolute top-0 left-0 w-screen h-screen backdrop-blur-sm bg-white/30 flex flex-row gap-2 overflow-hidden translate-x-[-100%] transition-all delay-300 duration-500 ease-out"
+                    : "absolute top-0 left-0  w-screen h-screen backdrop-blur-sm bg-white/30 flex flex-row gap-2 overflow-hidden translate-x-0 transition-all delay-300 duration-500 ease-out"
+                }
+              >
+                <ul className="relative w-1/3 h-full p-16 bg-stone-200 flex flex-col gap-8 font-serif text-2xl text-indigo-500">
+                  <button
+                    className="self-end h-max p-4 text-violet-500 hover:text-violet-400 transition-colors duration-300 ease-linear z-10"
+                    type="button"
+                    onClick={handleTogglePatient}
+                    aria-label="toggle close patient sidebar links"
+                  >
+                    <XMarkIcon className="w-10 h-10 cursor-pointer" />
+                  </button>
+                  {patient_links &&
+                    patient_links.map((link, index) => (
+                      <li
+                        key={link.name}
+                        className=" hover:text-violet-400 hover:translate-x-10 transition-transform ease-in duration-300"
+                      >
+                        <NavLink
+                          className="block"
+                          to={link.href}
+                          onClick={handleTogglePatient}
+                        >
+                          {link.name}
+                        </NavLink>
                       </li>
                     ))}
-                    <Sphere />
-                  </ul>
-                </div>
+                  <Sphere />
+                </ul>
+              </div>
             </div>
             <div id="treatments-links">
-              <h4 className="cursor-pointer uppercase font-medium tracking-wider hover:underline hover:text-indigo-700 transition-colors duration-300 ease-in-out" onClick={handleToggleTreatments}>Treatments</h4>
-                <div className={
-                  !treatments ? "absolute top-0 left-0 w-screen h-screen backdrop-blur-sm bg-white/30 flex flex-row gap-2 overflow-hidden translate-x-[-100%] transition-all delay-300 duration-500 ease-out"
-                  : "absolute top-0 left-0 w-screen h-screen backdrop-blur-sm bg-white/30 flex flex-row gap-2 overflow-hidden translate-x-0 transition-all delay-300 duration-500 ease-out"
-                }>
-                  <ul className="relative w-1/3 h-full p-16 bg-stone-200 flex flex-col gap-8 font-serif text-2xl text-indigo-500">
-                    <button className="self-end h-max p-4 text-violet-500 hover:text-violet-400 transition-colors duration-300 ease-linear z-10" type="button"  onClick={handleToggleTreatments} aria-label="toggle close treatments sidebar links">
-                      <XMarkIcon className="w-10 h-10 cursor-pointer"/>
-                    </button>
-                    {treatments_links && treatments_links.map((link, index) => (
-                      <li key={link.name} className=" hover:text-violet-400 hover:translate-x-10 transition-transform ease-in duration-300">
-                        <NavLink className="block" to={link.href} onClick={handleToggleTreatments}>{link.name}</NavLink>
+              <p
+                className="group font-serif cursor-pointer uppercase font-medium tracking-wider hover:text-indigo-700 transition-all duration-300 ease-in-out"
+                onClick={handleToggleTreatments}
+              >
+                Treatments
+                <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-indigo-700"></span>
+              </p>
+              <div
+                className={
+                  !treatments
+                    ? "absolute top-0 left-0 w-screen h-screen backdrop-blur-sm bg-white/30 flex flex-row gap-2 overflow-hidden translate-x-[-100%] transition-all delay-300 duration-500 ease-out"
+                    : "absolute top-0 left-0 w-screen h-screen backdrop-blur-sm bg-white/30 flex flex-row gap-2 overflow-hidden translate-x-0 transition-all delay-300 duration-500 ease-out"
+                }
+              >
+                <ul className="relative w-1/3 h-full p-16 bg-stone-200 flex flex-col gap-8 font-serif text-2xl text-indigo-500">
+                  <button
+                    className="self-end h-max p-4 text-violet-500 hover:text-violet-400 transition-colors duration-300 ease-linear z-10"
+                    type="button"
+                    onClick={handleToggleTreatments}
+                    aria-label="toggle close treatments sidebar links"
+                  >
+                    <XMarkIcon className="w-10 h-10 cursor-pointer" />
+                  </button>
+                  {treatments_links &&
+                    treatments_links.map((link, index) => (
+                      <li
+                        key={link.name}
+                        className=" hover:text-violet-400 hover:translate-x-10 transition-transform ease-in duration-300"
+                      >
+                        <NavLink
+                          className="block"
+                          to={link.href}
+                          onClick={handleToggleTreatments}
+                        >
+                          {link.name}
+                        </NavLink>
                       </li>
                     ))}
-                    <Sphere />
-                  </ul>
-                </div>
+                  <Sphere />
+                </ul>
+              </div>
             </div>
           </div>
-          <div id="logo" className="my-4" >
+          <div id="logo" className="my-4">
             <NavLink to="/#">
-              <img className="h-12 ml-10 mr-10" src="../../images/logo_full.png" alt="frey smiles orthodontics logo" />
+              <img
+                className="h-12 ml-10 mr-10"
+                src="../../images/logo_full.png"
+                alt="frey smiles orthodontics logo"
+              />
             </NavLink>
           </div>
-          <div id="right-links" className="flex items-center gap-8 cursor-pointer">
+          <div
+            id="right-links"
+            className="flex items-center gap-8 cursor-pointer"
+          >
             <ul className="flex items-center space-x-8 ">
               <li className="inline-block relative transition-all duration-500 before:content-[''] before:absolute before:-bottom-2 before:right-0 before:translate-x-0 before:w-0 before:h-[2px] before:opacity-0 hover:before:w-1/2 hover:before:opacity-100 before:transition-all before:duration-500 before:bg-violet-500 hover:text-indigo-700 ease-in-out">
-                  <NavLink className="inline-block relative transition-all duration-500 before:content-[''] before:absolute before:-bottom-2 before:left-0 before:translate-x-0 before:w-0 before:h-[2px] before:opacity-0 hover:before:w-1/2 hover:before:opacity-100 before:transition-all before:duration-500 before:bg-violet-500" to="https://my.orthoblink.com/bLink/Login">Patient Login</NavLink>
+                <NavLink
+                  className="inline-block relative transition-all duration-500 before:content-[''] before:absolute before:-bottom-2 before:left-0 before:translate-x-0 before:w-0 before:h-[2px] before:opacity-0 hover:before:w-1/2 hover:before:opacity-100 before:transition-all before:duration-500 before:bg-violet-500"
+                  to="https://my.orthoblink.com/bLink/Login"
+                >
+                  Patient Login
+                </NavLink>
               </li>
               <li className="inline-block relative transition-all duration-500 before:content-[''] before:absolute before:-bottom-2 before:right-0 before:translate-x-0 before:w-0 before:h-[2px] before:opacity-0 hover:before:w-1/2 hover:before:opacity-100 before:transition-all before:duration-500 before:bg-violet-500 hover:text-indigo-700 ease-in-out">
-                <NavLink className="inline-block relative transition-all duration-500 before:content-[''] before:absolute before:-bottom-2 before:left-0 before:translate-x-0 before:w-0 before:h-[2px] before:opacity-0 hover:before:w-1/2 hover:before:opacity-100 before:transition-all before:duration-500 before:bg-violet-500"  to="/locations">Our Locations</NavLink>
+                <NavLink
+                  className="inline-block relative transition-all duration-500 before:content-[''] before:absolute before:-bottom-2 before:left-0 before:translate-x-0 before:w-0 before:h-[2px] before:opacity-0 hover:before:w-1/2 hover:before:opacity-100 before:transition-all before:duration-500 before:bg-violet-500"
+                  to="/locations"
+                >
+                  Our Locations
+                </NavLink>
               </li>
               <li className="inline-block relative transition-all duration-500 before:content-[''] before:absolute before:-bottom-2 before:right-0 before:translate-x-0 before:w-0 before:h-[2px] before:opacity-0 hover:before:w-1/2 hover:before:opacity-100 before:transition-all before:duration-500 before:bg-violet-500 hover:text-indigo-700 ease-in-out">
-                <NavLink className="inline-block relative transition-all duration-500 before:content-[''] before:absolute before:-bottom-2 before:left-0 before:translate-x-0 before:w-0 before:h-[2px] before:opacity-0 hover:before:w-1/2 hover:before:opacity-100 before:transition-all before:duration-500 before:bg-violet-500"  to="/products">Shop</NavLink>
+                <NavLink
+                  className="inline-block relative transition-all duration-500 before:content-[''] before:absolute before:-bottom-2 before:left-0 before:translate-x-0 before:w-0 before:h-[2px] before:opacity-0 hover:before:w-1/2 hover:before:opacity-100 before:transition-all before:duration-500 before:bg-violet-500"
+                  to="/products"
+                >
+                  Shop
+                </NavLink>
               </li>
             </ul>
             <ul className="bag-book flex items-center space-x-4">
               {bagItems.length > 0 && (
-                  <li className="flex items-center hover:underline hover:text-indigo-700 transition-colors duration-300 ease-in-out" onClick={handleToggleBag}>
-                    <span>Bag</span>
-                    <div className="relative">
-                      <svg
-                        className="ml-1 w-6 h-6"
-                        fill="currentColor"
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                      >
-                        <path d="M17.54 5.424a.47.47 0 0 1 .46.474v17.627a.47.47 0 0 1-.46.475H.46a.47.47 0 0 1-.46-.475V5.898a.47.47 0 0 1 .46-.474h4.795v-1.56C5.255 1.733 6.935 0 9 0c2.065 0 3.745 1.733 3.745 3.864v1.56zm-11.365 0h5.64v-1.56c0-1.608-1.264-2.915-2.82-2.915-1.555 0-2.82 1.307-2.82 2.915zm10.905.949h-4.335V8.61a.47.47 0 0 1-.46.475.47.47 0 0 1-.46-.475V6.373h-5.65V8.61a.47.47 0 0 1-.46.475.47.47 0 0 1-.46-.475V6.373H.92V23.05h16.16z"></path>
-                      </svg>
-                      <span className="absolute top-1/2 left-1/2 -translate-x-3/4 -translate-y-1/3 text-xs rounded-full hover:text-violet-500 -z-10">
-                        {getBagTotal().totalQuantity}
-                      </span>
-                    </div>
-                  </li>
-                )}
+                <li
+                  className="flex items-center hover:underline hover:text-indigo-700 transition-colors duration-300 ease-in-out"
+                  onClick={handleToggleBag}
+                >
+                  <span>Bag</span>
+                  <div className="relative">
+                    <svg
+                      className="ml-1 w-6 h-6"
+                      fill="currentColor"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M17.54 5.424a.47.47 0 0 1 .46.474v17.627a.47.47 0 0 1-.46.475H.46a.47.47 0 0 1-.46-.475V5.898a.47.47 0 0 1 .46-.474h4.795v-1.56C5.255 1.733 6.935 0 9 0c2.065 0 3.745 1.733 3.745 3.864v1.56zm-11.365 0h5.64v-1.56c0-1.608-1.264-2.915-2.82-2.915-1.555 0-2.82 1.307-2.82 2.915zm10.905.949h-4.335V8.61a.47.47 0 0 1-.46.475.47.47 0 0 1-.46-.475V6.373h-5.65V8.61a.47.47 0 0 1-.46.475.47.47 0 0 1-.46-.475V6.373H.92V23.05h16.16z"></path>
+                    </svg>
+                    <span className="absolute top-1/2 left-1/2 -translate-x-3/4 -translate-y-1/3 text-xs rounded-full hover:text-violet-500 -z-10">
+                      {getBagTotal().totalQuantity}
+                    </span>
+                  </div>
+                </li>
+              )}
               {cartCount > 0 && (
-                <li className="hidden items-center hover:underline hover:text-indigo-700 transition-colors duration-300 ease-in-out" onClick={handleToggleBag}>
+                <li
+                  className="hidden items-center hover:underline hover:text-indigo-700 transition-colors duration-300 ease-in-out"
+                  onClick={handleToggleBag}
+                >
                   <span>Bag</span>
                   <div className="relative">
                     <svg
@@ -245,11 +344,17 @@ export default function DesktopNavbar() {
                 </li>
               )}
               <li className="cursor-pointer bg-B47EDE uppercase font-medium tracking-wider flex items-center rounded px-6 py-2 transition duration-300 ease-in-out text-violet-100 hover:text-violet-900 hover:shadow-md hover:shadow-violet-400/50">
-                <NavLink className="block" to="/book-now">Book Now</NavLink>
+                <NavLink className="block" to="/book-now">
+                  Book Now
+                </NavLink>
               </li>
             </ul>
             {isBagOpen && (
-              <BagSidePanel className='-z-50' isBagOpen={isBagOpen} setIsBagOpen={setIsBagOpen} />
+              <BagSidePanel
+                className="-z-50"
+                isBagOpen={isBagOpen}
+                setIsBagOpen={setIsBagOpen}
+              />
             )}
             {/* <div id="bag-panel" className={
               isBagOpen ? "absolute top-0 left-0 right-0 w-screen h-screen backdrop-blur-sm bg-white/30 flex flex-row justify-start overflow-hidden translate-x-0 transition-all delay-300 duration-500 ease-out"
@@ -269,15 +374,25 @@ export default function DesktopNavbar() {
       {/* Desktop Navbar end */}
 
       {/* Mobile Navbar */}
-      <nav id="mobile-nav" className="sticky top-0 left-0 right-0 mx-auto w-full z-40 lg:hidden bg-c py-6 px-4">
+      <nav
+        id="mobile-nav"
+        className="sticky top-0 left-0 right-0 mx-auto w-full z-40 lg:hidden bg-c py-6 px-4"
+      >
         <section className="flex justify-between items-center">
-          <NavLink to='/'>
-            <img className="h-10" src="../../images/logo_full.png" alt="FreySmiles Orthodontics logo" />
+          <NavLink to="/">
+            <img
+              className="h-10"
+              src="../../images/logo_full.png"
+              alt="FreySmiles Orthodontics logo"
+            />
           </NavLink>
-          <div className="cursor-pointer text-slate-500" onClick={handleToggleMobileNav}>
+          <div
+            className="cursor-pointer text-slate-500"
+            onClick={handleToggleMobileNav}
+          >
             {show ? (
               <XMarkIcon className="w-6 h-6" />
-              ) : (
+            ) : (
               <Bars2Icon className="w-6 h-6" />
             )}
           </div>
@@ -286,61 +401,124 @@ export default function DesktopNavbar() {
           {show && (
             <ul className="font-serif text-3xl font-thin tracking-wider uppercase min-h-screen">
               <div className="mt-12 cursor-pointer">
-                <li className="border-t py-2 border-light-brown" onClick={() => setAbout(!about)}>
+                <li
+                  className="border-t py-2 border-light-brown"
+                  onClick={() => setAbout(!about)}
+                >
                   <span className="">About</span>
-                  <span className={about ? 'hidden' : 'inline-block ml-2 text-sm align-super'}>❋</span>
+                  <span
+                    className={
+                      about ? "hidden" : "inline-block ml-2 text-sm align-super"
+                    }
+                  >
+                    ❋
+                  </span>
                   {about && (
                     <div className="w-full mt-4">
-                      {about_us_links && about_us_links.map((link) => (
-                        <>
-                        <NavLink to={link.href} onClick={() => setShow(!show)}>{link.name}</NavLink>
-                        <span className="mx-2 text-sm align-super">❋</span>
-                        </>
-                      ))}
+                      {about_us_links &&
+                        about_us_links.map((link) => (
+                          <>
+                            <NavLink
+                              to={link.href}
+                              onClick={() => setShow(!show)}
+                            >
+                              {link.name}
+                            </NavLink>
+                            <span className="mx-2 text-sm align-super">❋</span>
+                          </>
+                        ))}
                     </div>
                   )}
                 </li>
-                <li className="border-t border-light-brown py-2" onClick={() => setPatient(!patient)}>
+                <li
+                  className="border-t border-light-brown py-2"
+                  onClick={() => setPatient(!patient)}
+                >
                   <span className="">Patient</span>
-                  <span className={patient ? 'hidden' : 'inline-block ml-2 text-sm align-super'}>❋</span>
+                  <span
+                    className={
+                      patient
+                        ? "hidden"
+                        : "inline-block ml-2 text-sm align-super"
+                    }
+                  >
+                    ❋
+                  </span>
                   {patient && (
                     <div className="flex flex-col">
-                      {patient_links && patient_links.map((link) => (
-                        <>
-                        <NavLink to={link.href} onClick={() => setShow(!show)}>
-                          <span className="mx-2 text-sm align-super">❋</span>
-                          {link.name}
-                        </NavLink>
-                        </>
-                      ))}
+                      {patient_links &&
+                        patient_links.map((link) => (
+                          <>
+                            <NavLink
+                              to={link.href}
+                              onClick={() => setShow(!show)}
+                            >
+                              <span className="mx-2 text-sm align-super">
+                                ❋
+                              </span>
+                              {link.name}
+                            </NavLink>
+                          </>
+                        ))}
                     </div>
                   )}
                 </li>
-                <li className="border-b border-t border-light-brown py-2"  onClick={() => setTreatments(!treatments)}>
+                <li
+                  className="border-b border-t border-light-brown py-2"
+                  onClick={() => setTreatments(!treatments)}
+                >
                   <span className="">Treatments</span>
-                  <span className={treatments ? 'hidden' : 'inline-block ml-2 text-sm align-super'}>❋</span>
+                  <span
+                    className={
+                      treatments
+                        ? "hidden"
+                        : "inline-block ml-2 text-sm align-super"
+                    }
+                  >
+                    ❋
+                  </span>
                   {treatments && (
                     <div>
-                      {treatments_links && treatments_links.map((link) => (
-                        <>
-                        <NavLink to={link.href} onClick={() => setShow(!show)}>{link.name}</NavLink>
-                        <span className="mx-2 text-sm align-super">❋</span>
-                        </>
-                      ))}
+                      {treatments_links &&
+                        treatments_links.map((link) => (
+                          <>
+                            <NavLink
+                              to={link.href}
+                              onClick={() => setShow(!show)}
+                            >
+                              {link.name}
+                            </NavLink>
+                            <span className="mx-2 text-sm align-super">❋</span>
+                          </>
+                        ))}
                     </div>
                   )}
-
                 </li>
               </div>
-              <div className="mt-12 cursor-pointer space-y-4" onClick={() => setShow(!show)}>
+              <div
+                className="mt-12 cursor-pointer space-y-4"
+                onClick={() => setShow(!show)}
+              >
                 <li className="">
-                  <NavLink className="block" to="https://my.orthoblink.com/bLink/Login">Patient Login</NavLink>
+                  <NavLink
+                    className="block"
+                    to="https://my.orthoblink.com/bLink/Login"
+                  >
+                    Patient Login
+                  </NavLink>
                 </li>
                 <li className="">
-                  <NavLink className="block" to="/products">Shop</NavLink>
+                  <NavLink className="block" to="/products">
+                    Shop
+                  </NavLink>
                 </li>
                 <li className="">
-                  <NavLink className="p-2 rounded border border-slate-900" to="/book-now">Book Now</NavLink>
+                  <NavLink
+                    className="p-2 rounded border border-slate-900"
+                    to="/book-now"
+                  >
+                    Book Now
+                  </NavLink>
                 </li>
               </div>
             </ul>
