@@ -1,33 +1,3 @@
-@font-face {
-  font-family: "CeraProRegular";
-  src: url("fonts/cerapro_regular.woff2") format("woff2"),
-    url("fonts/cerapro_regular.woff") format("woff");
-}
-
-@font-face {
-  font-family: "CeraProBold";
-  src: url("fonts/cerapro_bold.woff2") format("woff2"),
-    url("fonts/cerapro_bold.woff") format("woff");
-}
-
-@font-face {
-  font-family: "EditorialNew";
-  src: url("fonts/EditorialNew-Variable.ttf") format("truetype");
-}
-
-.editorial {
-  font-family: "EditorialNew";
-}
-/* @font-face {
-  font-family: "Larken";
-  src: url('fonts/Larken-Bold.otf') format('opentype');
-} */
-
-@font-face {
-  font-family: "Larken";
-  src: url("fonts/LarkenVariable.ttf") format("truetype");
-}
-
 footer a {
   font-family: "CeraProRegular";
 }
