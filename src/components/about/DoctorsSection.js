@@ -13,7 +13,7 @@ export default function DoctorsSection() {
     <div className="container px-6 py-10 mx-auto">
       <div className="xl:flex xl:items-start xl:-mx-4">
         <div className="xl:w-1/2 xl:mx-4">
-          <h1 className="text-2xl font-semibold text-gray-800 capitalize lg:text-3xl dark:text-white">
+          <h1 className="text-2xl font-semibold text-gray-800 capitalize lg:text-4xl dark:text-white">
             Our Doctors
           </h1>
 

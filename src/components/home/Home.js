@@ -152,9 +152,9 @@ const Home = () => {
                 />
               </h3>
               <h2>
-                We are blessed to now have 4 incredible offices for your
+                We have 4 incredible offices for your
                 ultimate convenience. Our orthodontists and FreySmiles Team are
-                excited to serve families in the Allentown, Bethlehem | Easton,
+                excited to serve families in the Allentown, Bethlehem, Easton,
                 Schnecksville and Lehighton communities.{" "}
                 <Link to="/book-now">Schedule an evaluation today.</Link>
               </h2>
@@ -200,7 +200,7 @@ const Home = () => {
                   className="p-4 bg-stone-900 text-white hover:text-stone-900 hover:bg-stone-100 w-full rounded-bl-3xl rounded-br-3xl ease-in-out duration-500"
                   type="button"
                 >
-                  <Link to="/book-now">Book Now</Link>
+                  <Link to="/allentown">Book Now</Link>
                 </button>
               </div>
               <div className="flex flex-col justify-between bg-f7f5f2 rounded-bl-3xl rounded-br-3xl items-center w-auto h-96">
@@ -231,7 +231,7 @@ const Home = () => {
                   className="p-4 bg-stone-900 text-white hover:text-stone-900 hover:bg-stone-100 w-full rounded-bl-3xl rounded-br-3xl ease-in-out duration-500"
                   type="button"
                 >
-                  <Link to="/book-now">Book Now</Link>
+                  <Link to="/bethlehem">Book Now</Link>
                 </button>
               </div>
               <div className="flex flex-col justify-between bg-f7f5f2 rounded-bl-3xl rounded-br-3xl items-center w-auto h-96">
@@ -262,7 +262,7 @@ const Home = () => {
                   className="p-4 bg-stone-900 text-white hover:text-stone-900 hover:bg-stone-100 w-full rounded-bl-3xl rounded-br-3xl ease-in-out duration-500"
                   type="button"
                 >
-                  <Link to="/book-now">Book Now</Link>
+                  <Link to="/schnecksville">Book Now</Link>
                 </button>
               </div>
               <div className="flex flex-col justify-between bg-f7f5f2 rounded-bl-3xl rounded-br-3xl items-center w-auto h-96">
@@ -293,7 +293,7 @@ const Home = () => {
                   className="p-4 bg-stone-900 text-white hover:text-stone-900 hover:bg-stone-100 w-full rounded-bl-3xl rounded-br-3xl ease-in-out duration-500"
                   type="button"
                 >
-                  <Link to="/book-now">Book Now</Link>
+                  <Link to="/lehighton">Book Now</Link>
                 </button>
               </div>
             </div>
