@@ -58,23 +58,29 @@ export default function FeaturedReviews() {
 
   return (
     <div className="slider-container space-y-16">
-    <div className="container mx-auto">
-    <div className="flex justify-center">
-  <button className="rounded-full p-2 border border-gray-400 hover:border-gray-700 hover:cursor-pointer prev-button" onClick={prevSlide}>
+      <div className="container mx-auto">
+      <div className="flex justify-center items-center">
+  <button
+    className="rounded-full p-2 border border-gray-400 hover:border-gray-700 hover:cursor-pointer prev-button"
+    onClick={prevSlide}
+  >
     <ArrowLeftIcon className="w-5 h-5 z-0" />
   </button>
   <div className="slide active relative">
     <div className="slide-content text-xl text-center">
       <h2 className="mt-10">{activeReview.review}</h2>
-      <p className="mt-2">{activeReview.author}</p>
+      <p className="mt-10">{activeReview.author}</p>
     </div>
   </div>
-  <button className="rounded-full p-2 border border-gray-400 hover:border-gray-700 hover:cursor-pointer next-button" onClick={nextSlide}>
+  <button
+    className="rounded-full p-2 border border-gray-400 hover:border-gray-700 hover:cursor-pointer next-button"
+    onClick={nextSlide}
+  >
     <ArrowRightIcon className="w-5 h-5 z-0" />
   </button>
 </div>
 
-</div>
+      </div>
 
       <div>
         <div className="reviews-bars w-96 mx-auto relative">
@@ -86,7 +92,6 @@ export default function FeaturedReviews() {
               }`}
             ></span>
           ))}
-  
         </div>
       </div>
     </div>
