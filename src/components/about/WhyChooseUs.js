@@ -36,22 +36,11 @@ const WhyChooseUs = () => {
 
   return (
     <div className="bg-gradient-to-r from-neutral-50 to-teal-50 to-violet-100 to-violet-200 py-4  w-full px-4 pt-16">
-      <img
-        src="../../images/pinkbanner.png"
-        alt="invisalign"
-        className="absolute inset-0 z-0 opacity-30"
-        style={{
-          width: "100%",
-          height: "auto",
-          objectFit: "cover",
-          objectPosition: "right",
-          filter: "hue-rotate(70deg)",
-        }}
-      />
+
       <div className=" relative rounded-lg px-4 pt-4 pb-2 space-y-4 text-gray-500 text-center relative z-10">
         <div>
           <h1 className="mt-20 mb-20 text-stone-100 text-5xl relative">
-            <span className="mr-4 justify-start -ml-80">Experts in</span>{" "}
+            <span className="text-black mr-4 justify-start -ml-80">Experts in</span>{" "}
             <span className="relative">
               {words.map((word, index) => (
                 <span
@@ -101,7 +90,7 @@ const WhyChooseUs = () => {
            <p className="mt-2"> Our team prioritizes your treatment optimization. We currently offer the most efficient adjuncts to accelerate your treatment. 
  Currently we utilize light and vibrational therapy to stimulate the supporting tissues around the teeth so that they move to their ideal positions in less time. We always strive to reduce office visits is a priority of ours.  </p>
          </div>
-         <div className="col-span-1 text-purple-900 px-4 py-20 border border-purple-400">
+         <div className="col-span-1 text-purple-900 px-4 py-20 border border-purple-400 flex flex-col justify-center items-center">
            <span className="text-3xl">Laser Therapy</span>
            <img
              src="/images/Laser-Symbol.svg"

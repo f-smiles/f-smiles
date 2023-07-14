@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Map from "react-map-gl";
+
 // import DotPattern from "./DotPattern";
 import AOS from "aos";
 import "aos/dist/aos.css";

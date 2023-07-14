@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { StarIcon, StarFilledIcon } from "@radix-ui/react-icons";
-
+import { ArrowRightIcon, ArrowLeftIcon } from "@heroicons/react/24/solid";
 export default function FeaturedReviews() {
   const reviews = [
     {
@@ -58,15 +58,24 @@ export default function FeaturedReviews() {
 
   return (
     <div className="slider-container space-y-16">
-      <div className="slider-card mx-auto w-96 rounded-md bg-white shadow-md">
-        <div className="slide active">
-          <div className="slide-content">
-            <h2>{activeReview.review}</h2>
-            <RatingStars rating={activeReview.rating} />
-            <p>{activeReview.author}</p>
-          </div>
-        </div>
-      </div>
+    <div className="container mx-auto">
+    <div className="flex justify-center">
+  <button className="rounded-full p-2 border border-gray-400 hover:border-gray-700 hover:cursor-pointer prev-button" onClick={prevSlide}>
+    <ArrowLeftIcon className="w-5 h-5 z-0" />
+  </button>
+  <div className="slide active relative">
+    <div className="slide-content text-xl text-center">
+      <h2 className="mt-10">{activeReview.review}</h2>
+      <p className="mt-2">{activeReview.author}</p>
+    </div>
+  </div>
+  <button className="rounded-full p-2 border border-gray-400 hover:border-gray-700 hover:cursor-pointer next-button" onClick={nextSlide}>
+    <ArrowRightIcon className="w-5 h-5 z-0" />
+  </button>
+</div>
+
+</div>
+
       <div>
         <div className="reviews-bars w-96 mx-auto relative">
           {reviews.map((_, index) => (
@@ -77,12 +86,7 @@ export default function FeaturedReviews() {
               }`}
             ></span>
           ))}
-          <button className="absolute left-0 prev-button" onClick={prevSlide}>
-            Prev
-          </button>
-          <button className="absolute right-0 next-button" onClick={nextSlide}>
-            Next
-          </button>
+  
         </div>
       </div>
     </div>
