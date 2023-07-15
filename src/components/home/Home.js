@@ -99,7 +99,7 @@ const Home = () => {
         </section>
         {/* </section> */}
 
-        <section id="featured-reviews" className="bg-gray-100 min-h-screen">
+        <section id="featured-reviews" className="min-h-screen">
           <FeaturedReviews />
         </section>
 

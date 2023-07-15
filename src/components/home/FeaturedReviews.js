@@ -67,8 +67,8 @@ export default function FeaturedReviews() {
     <ArrowLeftIcon className="w-5 h-5 z-0" />
   </button>
   <div className="slide active relative">
-    <div className="slide-content text-xl text-center">
-      <h2 className="mt-10">{activeReview.review}</h2>
+    <div className="slide-content text-2xl text-center">
+      <h2 className="mt-10">"{activeReview.review}"</h2>
       <p className="mt-10">{activeReview.author}</p>
     </div>
   </div>
@@ -83,7 +83,7 @@ export default function FeaturedReviews() {
       </div>
 
       <div>
-        <div className="reviews-bars w-96 mx-auto relative">
+        <div className="reviews-bars w-1/2 mx-auto relative">
           {reviews.map((_, index) => (
             <span
               key={index}

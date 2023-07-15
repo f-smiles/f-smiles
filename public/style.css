@@ -373,3 +373,30 @@ text {
   }
 }
 
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in-delayed {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 1s ease-in;
+}
+
+.animate-fade-in-delayed {
+  animation: fade-in-delayed 1s ease-in;
+  animation-delay: 0.5s;
+}
+
