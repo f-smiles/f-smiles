@@ -64,7 +64,7 @@ export default function BagSidePanel({ isBagOpen, setIsBagOpen }) {
                       </div>
                       <div className="ml-4 flex flex-1 flex-col">
                         <div className="flex justify-between text-base font-medium text-gray-900">
-                          <h3><Link to={`/products/${item.id}`}>{item.name}</Link></h3>
+                          <p><Link to={`/products/${item.id}`}>{item.name}</Link></p>
                           <p className="ml-4">${item.price * item.quantity}</p>
                         </div>
                         <p className="text-gray-500">${item.price}</p>
