@@ -133,7 +133,7 @@ export default function DesktopNavbar() {
           <div id="left-links" className="flex space-x-8 ">
             <div id="about-links">
               <p
-                className="group font-serif cursor-pointer uppercase font-medium tracking-wider hover:text-indigo-700 transition-all duration-300 ease-in-out"
+                className="group cursor-pointer uppercase font-medium tracking-wider hover:text-indigo-700 transition-all duration-300 ease-in-out"
                 onClick={handleToggleAbout}
               >
                 About
@@ -176,7 +176,7 @@ export default function DesktopNavbar() {
             </div>
             <div id="patient-links">
               <p
-                className="group font-serif cursor-pointer uppercase font-medium tracking-wider hover:text-indigo-700 transition-all duration-300 ease-in-out"
+                className="group cursor-pointer uppercase font-medium tracking-wider hover:text-indigo-700 transition-all duration-300 ease-in-out"
                 onClick={handleTogglePatient}
               >
                 Patient
@@ -219,7 +219,7 @@ export default function DesktopNavbar() {
             </div>
             <div id="treatments-links">
               <p
-                className="group font-serif cursor-pointer uppercase font-medium tracking-wider hover:text-indigo-700 transition-all duration-300 ease-in-out"
+                className="group cursor-pointer uppercase font-medium tracking-wider hover:text-indigo-700 transition-all duration-300 ease-in-out"
                 onClick={handleToggleTreatments}
               >
                 Treatments
