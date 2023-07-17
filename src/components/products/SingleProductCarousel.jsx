@@ -18,13 +18,6 @@ export default function SingleProductCarousel({ product }) {
   } else {
     carouselImages = product.images;
   }
-  // let carouselImages = product.images.concat(
-  //   product.metadata.images.split(", ")
-  // );
-  // console.log(product.images);
-  // console.log(product.metadata?.images || product.images);
-  // console.log(product.metadata.images.split(", "));
-  // console.log(carouselImages);
 
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
@@ -32,8 +25,8 @@ export default function SingleProductCarousel({ product }) {
     <>
       <Swiper
         style={{
-          "--swiper-navigation-color": "#777777",
-          "--swiper-pagination-color": "#777777",
+          "--swiper-navigation-color": "#888888",
+          "--swiper-pagination-color": "#888888",
         }}
         loop={true}
         spaceBetween={10}
