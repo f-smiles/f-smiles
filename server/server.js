@@ -3,6 +3,7 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 // const bodyParser = require('body-parser')
+const path = require("path");
 const app = express();
 
 app.use(cors());
@@ -13,6 +14,8 @@ app.use("/api/v1/prices", require("./api/prices"));
 app.use("/api/v1/products", require("./api/products"));
 app.use("/api/v1/checkout", require("./api/stripe"));
 app.use("/api/v1/webhook", require("./api/webhook"));
+
+app.use(express.static(path.join(__dirname, "public")));
 
 // error-handing middleware
 app.use((err, req, res, next) => {
