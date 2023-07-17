@@ -9,11 +9,19 @@ const bagSlice = createSlice({
   },
   reducers: {
     addToBag: (state, action) => {
+      const { id, name, image, price, quantity, variant } = action.payload;
         const existingItem = state.line_items.find(item => item.id === action.payload.id)
         if (existingItem) {
           existingItem.quantity++
         } else {
-          state.line_items.push({...action.payload, quantity: 1})
+          state.line_items.push({
+            id,
+            name,
+            image,
+            price,
+            quantity,
+            variant
+          })
         }
     },
     removeFromBag: (state, action) => {
@@ -25,21 +33,22 @@ const bagSlice = createSlice({
     },
     incrementQuantity: (state, action) => {
         const item = state.line_items.find(item => item.id === action.payload)
-        if (item) { item.quantity += 1 }
-
+        if (item) { item.product.quantity += 1 }
     },
     decrementQuantity: (state, action) => {
         const item = state.line_items.find(item => item.id === action.payload)
         if (item && item.quantity === 1) { item.quantity = 1 }
         else { item.quantity -= 1}
     },
-    // updateQuantity: (state, action) => {
-    //     const { itemId, quantity } = action.payload
-    //     const item = state.line_items.find(item => item.id === itemId)
-    //     if (item) {
-    //       item.quantity = quantity
-    //     }
-    // }
+    getBagTotal: (state) => {
+      let totalQuantity = 0;
+      let totalPrice = 0;
+      state.line_items.forEach(item => {
+        totalQuantity += item.quantity;
+        totalPrice += item.price * item.quantity;
+      });
+      return { totalPrice, totalQuantity };
+    }
   },
 })
 
