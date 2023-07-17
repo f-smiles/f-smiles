@@ -70,7 +70,7 @@ export default function MembersSection() {
     target: memberCardRef,
     offset: ["start start", "end start"]
   });
-  let y = useTransform(scrollYProgress, [0, 1], ["0%", "80%"]);
+  let y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
   return (
     <div className="py-0 px-0 md:px-14 xl:px-8 flex justify-center items-center flex-col">
       <div className="px-12 max-w-screen-lg text-[#F9EDE7]">
