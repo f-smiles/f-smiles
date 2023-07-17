@@ -392,7 +392,7 @@ text {
 }
 
 .animate-fade-in {
-  animation: fade-in 1s ease-in;
+  animation: fade-in .5s ease-in;
 }
 
 .animate-fade-in-delayed {

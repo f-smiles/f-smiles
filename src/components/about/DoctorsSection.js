@@ -188,7 +188,7 @@ export default function DoctorsSection() {
           <div className="max-w-2xl mt-6 text-gray-500 dark:text-gray-300">
           {showParagraph && (
     <p
-    className={`transition-opacity duration-1000 ${
+    className={`transition-opacity duration-500 ${
       showParagraph ? "opacity-100 animate-fade-in" : "opacity-0"
     }`}
     onAnimationStart={handleAnimationStart}

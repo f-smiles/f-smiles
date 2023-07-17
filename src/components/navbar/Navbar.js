@@ -128,7 +128,7 @@ export default function DesktopNavbar() {
   return (
     <>
       {/* Desktop Navbar */}
-      <nav id="desktop-nav" className={`w-full h-max fixed top-0 left-0 right-0 z-40 bg-d4cdc0 hidden lg:block`}>
+      <nav id="desktop-nav" className={`w-full h-max fixed top-0 left-0 right-0 z-40 bg-white/30 backdrop-blur-sm hidden lg:block`}>
         <div className="max-w-screen-xl mx-auto flex justify-between items-center text-sm ">
           <div id="left-links" className="flex space-x-8 ">
             <div id="about-links">

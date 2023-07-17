@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import Map from "react-map-gl";
+import { gsap } from 'gsap';
 
 // import DotPattern from "./DotPattern";
 import AOS from "aos";
@@ -78,14 +79,94 @@ const Home = () => {
   // const calculateOffset = (sectionNumber) => {
   //   return sectionNumber * scrollPosition * 0.5;
   // };
+  const handleMouseEnter = (event) => {
+    const target = event.target;
+    const text = target.innerText;
+    const chars = text.split('');
 
+    target.innerHTML = '';
+
+    chars.forEach((char, index) => {
+      const span = document.createElement('span');
+      span.innerText = char;
+      span.style.animation = `typewriter-anim 0.5s forwards ${index * 0.05}s`;
+      target.appendChild(span);
+    });
+  };
+
+  const handleMouseLeave = (event) => {
+    const target = event.target;
+    const spans = Array.from(target.querySelectorAll('span'));
+
+    spans.forEach((span, index) => {
+      span.style.animation = `typewriter-reverse-anim 0.5s reverse ${index * 0.05}s`;
+    });
+
+    setTimeout(() => {
+      target.innerHTML = target.innerText;
+    }, spans.length * 50);
+  };
   return (
     <>
       <main className="bg-#fFFFDFD overflow-hidden w-full">
         <section id="hero-section" className="bg-white overflow-hidden">
           <Hero />
         </section>
+        <header className="p-header w-full h-80 min-h-screen px-20 flex items-center justify-center">
+      <nav className="p-header__nav p-nav">
+        <ul className="p-nav__lists flex items-center">
+          <li className="p-nav__list">
+            <a
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+              className="text-black hover:text-red-500"
+              href="./"
+            >
+              Patient
+            </a>
+          </li>
+          <li className="p-nav__list">
+            <a
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+              className="text-black hover:text-red-500"
+              href="./"
+            >
+              Treatments
+            </a>
+          </li>
+          <li className="p-nav__list">
+            <a
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+              className="text-black hover:text-red-500"
+              href="./"
+            >
+              About
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <style jsx>{`
+        @keyframes typewriter-anim {
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
+          }
+        }
 
+        @keyframes typewriter-reverse-anim {
+          from {
+            opacity: 1;
+          }
+          to {
+            opacity: 0;
+          }
+        }
+      `}</style>
+    </header>
         {/* <section id='features-section' className='bg-F8F6F1 py-24'
           style={{
             backgroundColor: isCardHovered ? "#dec0ae" : "#F8F6F1",
