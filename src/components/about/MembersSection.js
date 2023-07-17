@@ -74,7 +74,7 @@ export default function MembersSection() {
   return (
     <div className="py-0 px-0 md:px-14 xl:px-8 flex justify-center items-center flex-col">
       <div className="px-12 max-w-screen-lg text-[#F9EDE7]">
-        <h1 className="text-3xl md:text-5xl xl:text-6xl leading-10 tracking-wide xl:font-medium text-center">
+        <h1 className="text-3xl md:text-4xl xl:text-4xl leading-10 tracking-wide xl:font-medium text-center">
           Our Members
         </h1>
         <p className="mt-6 md:mt-8 text-md md:text-lg xl:text-xl xl:font-medium sm:text-left md:text-center">

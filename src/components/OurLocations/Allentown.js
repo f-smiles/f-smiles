@@ -9,7 +9,7 @@ const Allentown = () => {
     <div>
             <figure className="h-full w-full">
               <img
-                className="object-cover w-full h-full"
+                className="object-cover aspect-square w-full h-full"
                 src="../../images/office_interior.jpg"
                 alt="view of interior office"
               />
