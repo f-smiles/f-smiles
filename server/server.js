@@ -11,7 +11,6 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use("/api/v1/prices", require("./api/prices"));
 app.use("/api/v1/products", require("./api/products"));
-app.use("/api/v1/inventory", require("./api/inventory"));
 app.use("/api/v1/checkout", require("./api/stripe"));
 app.use("/api/v1/webhook", require("./api/webhook"));
 

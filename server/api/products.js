@@ -16,11 +16,32 @@ router.get("/:id", async (req, res, next) => {
 // GET /api/v1/products
 router.get("/", async (req, res, next) => {
   try {
-    // only get the active products in stripe dashboard, not archived
-    const products = await stripe.products.list({
+    const pricesResponse = await stripe.prices.list({
       active: "true",
     });
-    res.json(products.data);
+    const productsResponse = await stripe.products.list({
+      active: "true",
+    });
+    const prices = pricesResponse.data;
+    const products = productsResponse.data;
+
+    const priceMap = {};
+    products.forEach((product) => {
+      priceMap[product.id] = {
+        product,
+        price: null,
+      };
+    });
+
+    prices.forEach((price) => {
+      const productId = price.product;
+      if (priceMap[productId]) {
+        priceMap[productId].price = price;
+      }
+    });
+
+    const pricesWithProducts = Object.values(priceMap);
+    res.json(pricesWithProducts);
   } catch (err) {
     next(err);
   }

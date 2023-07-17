@@ -5,7 +5,6 @@ import singleProductSlice from "./singleProductSlice";
 import pricesSlice from "./pricesSlice";
 import singlePriceSlice from "./singlePriceSlice";
 import bagSlice from "./bagSlice";
-import inventorySlice from "./inventorySlice";
 import storage from "redux-persist/lib/storage";
 import {
   persistStore,
@@ -32,7 +31,6 @@ export const store = configureStore({
     prices: pricesSlice,
     singlePrice: singlePriceSlice,
     bag: persistedReducer,
-    inventory: inventorySlice,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
