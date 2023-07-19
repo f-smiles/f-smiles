@@ -125,92 +125,42 @@ export default function DesktopNavbar() {
   return (
     <>
       {/* Desktop Navbar */}
-      <nav
-        id="desktop-nav"
-        className={`w-full h-max fixed top-0 left-0 right-0 z-40 bg-d4cdc0 hidden lg:block`}
-      >
+      <nav id="desktop-nav" className={`w-full h-max fixed top-0 left-0 right-0 z-40 bg-white/30 backdrop-blur-sm hidden lg:block`}>
         <div className="max-w-screen-xl mx-auto flex justify-between items-center text-sm ">
           <div id="left-links" className="flex space-x-8 ">
             <div id="about-links">
-              <p
-                className="group cursor-pointer uppercase font-medium tracking-wider hover:text-indigo-700 transition-all duration-300 ease-in-out"
-                onClick={handleToggleAbout}
-              >
-                About
-                <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-indigo-700"></span>
-              </p>
-              <div
-                className={
-                  !about
-                    ? "absolute top-0 left-0 w-screen h-screen backdrop-blur-sm bg-white/30 flex flex-row gap-2 overflow-hidden translate-x-[-100%] transition-all delay-300 duration-500 ease-out"
-                    : "absolute top-0 left-0  w-screen h-screen backdrop-blur-sm bg-white/30 flex flex-row gap-2 overflow-hidden translate-x-0 transition-all delay-300 duration-500 ease-out"
-                }
-              >
-                <ul className="relative w-1/3 h-full p-16 bg-stone-200 flex flex-col gap-8 font-serif text-2xl text-indigo-500">
-                  <button
-                    className="self-end h-max p-4 text-violet-500 hover:text-violet-400 transition-colors duration-300 ease-linear z-10"
-                    type="button"
-                    onClick={handleToggleAbout}
-                    aria-label="toggle close about sidebar links"
-                  >
-                    <XMarkIcon className="w-10 h-10 cursor-pointer" />
-                  </button>
-                  {about_us_links &&
-                    about_us_links.map((link, index) => (
-                      <li
-                        key={link.name}
-                        className=" hover:text-violet-400 hover:translate-x-10 transition-transform ease-in duration-300"
-                      >
-                        <NavLink
-                          className="block"
-                          to={link.href}
-                          onClick={handleToggleAbout}
-                        >
-                          {link.name}
-                        </NavLink>
-                      </li>
+              <h4 className="cursor-pointer uppercase font-medium tracking-wider hover:underline hover:text-indigo-700 transition-colors duration-300 ease-in-out" onClick={handleToggleAbout}>About</h4>
+                <div className={
+                  !about ? "absolute top-0 left-0 w-screen h-screen backdrop-blur-sm bg-white/30 flex flex-row gap-2 overflow-hidden translate-x-[-100%] transition-all delay-300 duration-500 ease-out"
+                  : "absolute top-0 left-0  w-screen h-screen backdrop-blur-sm bg-white/30 flex flex-row gap-2 overflow-hidden translate-x-0 transition-all delay-300 duration-500 ease-out"
+                }>
+                  <section className="relative w-1/3 h-full p-16 bg-stone-200 flex flex-col gap-8 text-2xl text-indigo-500">
+                    <button className="self-end h-max p-4 text-violet-500 hover:text-violet-400 transition-colors duration-300 ease-linear z-10" type="button"  onClick={handleToggleAbout} aria-label="toggle close about sidebar links">
+                      <XMarkIcon className="w-10 h-10 cursor-pointer"/>
+                    </button>
+                    {about_us_links && about_us_links.map((link, index) => (
+                      <div key={link.name} className=" hover:text-violet-400 hover:translate-x-10 transition-transform ease-in duration-300">
+                        <NavLink className="block" to={link.href} onClick={handleToggleAbout}>{link.name}</NavLink>
+                      </div>
                     ))}
-                  <Sphere />
-                </ul>
-              </div>
+                    <Sphere />
+                  </section>
+
+                </div>
             </div>
             <div id="patient-links">
-              <p
-                className="group cursor-pointer uppercase font-medium tracking-wider hover:text-indigo-700 transition-all duration-300 ease-in-out"
-                onClick={handleTogglePatient}
-              >
-                Patient
-                <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-indigo-700"></span>
-              </p>
-              <div
-                className={
-                  !patient
-                    ? "absolute top-0 left-0 w-screen h-screen backdrop-blur-sm bg-white/30 flex flex-row gap-2 overflow-hidden translate-x-[-100%] transition-all delay-300 duration-500 ease-out"
-                    : "absolute top-0 left-0  w-screen h-screen backdrop-blur-sm bg-white/30 flex flex-row gap-2 overflow-hidden translate-x-0 transition-all delay-300 duration-500 ease-out"
-                }
-              >
-                <ul className="relative w-1/3 h-full p-16 bg-stone-200 flex flex-col gap-8 font-serif text-2xl text-indigo-500">
-                  <button
-                    className="self-end h-max p-4 text-violet-500 hover:text-violet-400 transition-colors duration-300 ease-linear z-10"
-                    type="button"
-                    onClick={handleTogglePatient}
-                    aria-label="toggle close patient sidebar links"
-                  >
-                    <XMarkIcon className="w-10 h-10 cursor-pointer" />
-                  </button>
-                  {patient_links &&
-                    patient_links.map((link, index) => (
-                      <li
-                        key={link.name}
-                        className=" hover:text-violet-400 hover:translate-x-10 transition-transform ease-in duration-300"
-                      >
-                        <NavLink
-                          className="block"
-                          to={link.href}
-                          onClick={handleTogglePatient}
-                        >
-                          {link.name}
-                        </NavLink>
+              <h4 className="cursor-pointer uppercase font-medium tracking-wider hover:underline hover:text-indigo-700 transition-colors duration-300 ease-in-out" onClick={handleTogglePatient}>Patient</h4>
+                <div className={
+                  !patient ? "absolute top-0 left-0 w-screen h-screen backdrop-blur-sm bg-white/30 flex flex-row gap-2 overflow-hidden translate-x-[-100%] transition-all delay-300 duration-500 ease-out"
+                  : "absolute top-0 left-0  w-screen h-screen backdrop-blur-sm bg-white/30 flex flex-row gap-2 overflow-hidden translate-x-0 transition-all delay-300 duration-500 ease-out"
+                }>
+                  <ul className="relative w-1/3 h-full p-16 bg-stone-200 flex flex-col gap-8 text-2xl text-indigo-500">
+                    <button className="self-end h-max p-4 text-violet-500 hover:text-danger-600 transition-colors duration-300 ease-linear z-10" type="button"  onClick={handleTogglePatient} aria-label="toggle close patient sidebar links">
+                      <XMarkIcon className="w-10 h-10 cursor-pointer"/>
+                    </button>
+                    {patient_links && patient_links.map((link, index) => (
+                      <li key={link.name} className=" hover:text-violet-400 hover:translate-x-10 transition-transform ease-in duration-300">
+                        <NavLink className="block" to={link.href} onClick={handleTogglePatient}>{link.name}</NavLink>
                       </li>
                     ))}
                   <Sphere />
@@ -218,42 +168,18 @@ export default function DesktopNavbar() {
               </div>
             </div>
             <div id="treatments-links">
-              <p
-                className="group cursor-pointer uppercase font-medium tracking-wider hover:text-indigo-700 transition-all duration-300 ease-in-out"
-                onClick={handleToggleTreatments}
-              >
-                Treatments
-                <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-indigo-700"></span>
-              </p>
-              <div
-                className={
-                  !treatments
-                    ? "absolute top-0 left-0 w-screen h-screen backdrop-blur-sm bg-white/30 flex flex-row gap-2 overflow-hidden translate-x-[-100%] transition-all delay-300 duration-500 ease-out"
-                    : "absolute top-0 left-0 w-screen h-screen backdrop-blur-sm bg-white/30 flex flex-row gap-2 overflow-hidden translate-x-0 transition-all delay-300 duration-500 ease-out"
-                }
-              >
-                <ul className="relative w-1/3 h-full p-16 bg-stone-200 flex flex-col gap-8 font-serif text-2xl text-indigo-500">
-                  <button
-                    className="self-end h-max p-4 text-violet-500 hover:text-violet-400 transition-colors duration-300 ease-linear z-10"
-                    type="button"
-                    onClick={handleToggleTreatments}
-                    aria-label="toggle close treatments sidebar links"
-                  >
-                    <XMarkIcon className="w-10 h-10 cursor-pointer" />
-                  </button>
-                  {treatments_links &&
-                    treatments_links.map((link, index) => (
-                      <li
-                        key={link.name}
-                        className=" hover:text-violet-400 hover:translate-x-10 transition-transform ease-in duration-300"
-                      >
-                        <NavLink
-                          className="block"
-                          to={link.href}
-                          onClick={handleToggleTreatments}
-                        >
-                          {link.name}
-                        </NavLink>
+              <h4 className="cursor-pointer uppercase font-medium tracking-wider hover:underline hover:text-indigo-700 transition-colors duration-300 ease-in-out" onClick={handleToggleTreatments}>Treatments</h4>
+                <div className={
+                  !treatments ? "absolute top-0 left-0 w-screen h-screen backdrop-blur-sm bg-white/30 flex flex-row gap-2 overflow-hidden translate-x-[-100%] transition-all delay-300 duration-500 ease-out"
+                  : "absolute top-0 left-0 w-screen h-screen backdrop-blur-sm bg-white/30 flex flex-row gap-2 overflow-hidden translate-x-0 transition-all delay-300 duration-500 ease-out"
+                }>
+                  <ul className="relative w-1/3 h-full p-16 bg-stone-200 flex flex-col gap-8 text-2xl text-indigo-500">
+                    <button className="self-end h-max p-4 text-violet-500 hover:text-danger-600 transition-colors duration-300 ease-linear z-10" type="button"  onClick={handleToggleTreatments} aria-label="toggle close treatments sidebar links">
+                      <XMarkIcon className="w-10 h-10 cursor-pointer"/>
+                    </button>
+                    {treatments_links && treatments_links.map((link, index) => (
+                      <li key={link.name} className=" hover:text-violet-400 hover:translate-x-10 transition-transform ease-in duration-300">
+                        <NavLink className="block" to={link.href} onClick={handleToggleTreatments}>{link.name}</NavLink>
                       </li>
                     ))}
                   <Sphere />

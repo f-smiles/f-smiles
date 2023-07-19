@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import Map from "react-map-gl";
+import { gsap } from 'gsap';
+
 // import DotPattern from "./DotPattern";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -77,14 +79,94 @@ const Home = () => {
   // const calculateOffset = (sectionNumber) => {
   //   return sectionNumber * scrollPosition * 0.5;
   // };
+  const handleMouseEnter = (event) => {
+    const target = event.target;
+    const text = target.innerText;
+    const chars = text.split('');
 
+    target.innerHTML = '';
+
+    chars.forEach((char, index) => {
+      const span = document.createElement('span');
+      span.innerText = char;
+      span.style.animation = `typewriter-anim 0.5s forwards ${index * 0.05}s`;
+      target.appendChild(span);
+    });
+  };
+
+  const handleMouseLeave = (event) => {
+    const target = event.target;
+    const spans = Array.from(target.querySelectorAll('span'));
+
+    spans.forEach((span, index) => {
+      span.style.animation = `typewriter-reverse-anim 0.5s reverse ${index * 0.05}s`;
+    });
+
+    setTimeout(() => {
+      target.innerHTML = target.innerText;
+    }, spans.length * 50);
+  };
   return (
     <>
       <main className="bg-#fFFFDFD overflow-hidden w-full">
         <section id="hero-section" className="bg-white overflow-hidden">
           <Hero />
         </section>
+        <header className="p-header w-full h-80 min-h-screen px-20 flex items-center justify-center">
+      <nav className="p-header__nav p-nav">
+        <ul className="p-nav__lists flex items-center">
+          <li className="p-nav__list">
+            <a
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+              className="text-black hover:text-red-500"
+              href="./"
+            >
+              Patient
+            </a>
+          </li>
+          <li className="p-nav__list">
+            <a
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+              className="text-black hover:text-red-500"
+              href="./"
+            >
+              Treatments
+            </a>
+          </li>
+          <li className="p-nav__list">
+            <a
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+              className="text-black hover:text-red-500"
+              href="./"
+            >
+              About
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <style jsx>{`
+        @keyframes typewriter-anim {
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
+          }
+        }
 
+        @keyframes typewriter-reverse-anim {
+          from {
+            opacity: 1;
+          }
+          to {
+            opacity: 0;
+          }
+        }
+      `}</style>
+    </header>
         {/* <section id='features-section' className='bg-F8F6F1 py-24'
           style={{
             backgroundColor: isCardHovered ? "#dec0ae" : "#F8F6F1",
@@ -98,7 +180,7 @@ const Home = () => {
         </section>
         {/* </section> */}
 
-        <section id="featured-reviews" className="bg-gray-100 min-h-screen">
+        <section id="featured-reviews" className="min-h-screen">
           <FeaturedReviews />
         </section>
 
@@ -152,9 +234,9 @@ const Home = () => {
                 />
               </h3>
               <h2>
-                We are blessed to now have 4 incredible offices for your
+                We have 4 incredible offices for your
                 ultimate convenience. Our orthodontists and FreySmiles Team are
-                excited to serve families in the Allentown, Bethlehem | Easton,
+                excited to serve families in the Allentown, Bethlehem, Easton,
                 Schnecksville and Lehighton communities.{" "}
                 <Link to="/book-now">Schedule an evaluation today.</Link>
               </h2>
@@ -200,7 +282,7 @@ const Home = () => {
                   className="p-4 bg-stone-900 text-white hover:text-stone-900 hover:bg-stone-100 w-full rounded-bl-3xl rounded-br-3xl ease-in-out duration-500"
                   type="button"
                 >
-                  <Link to="/book-now">Book Now</Link>
+                  <Link to="/allentown">Book Now</Link>
                 </button>
               </div>
               <div className="flex flex-col justify-between bg-f7f5f2 rounded-bl-3xl rounded-br-3xl items-center w-auto h-96">
@@ -231,7 +313,7 @@ const Home = () => {
                   className="p-4 bg-stone-900 text-white hover:text-stone-900 hover:bg-stone-100 w-full rounded-bl-3xl rounded-br-3xl ease-in-out duration-500"
                   type="button"
                 >
-                  <Link to="/book-now">Book Now</Link>
+                  <Link to="/bethlehem">Book Now</Link>
                 </button>
               </div>
               <div className="flex flex-col justify-between bg-f7f5f2 rounded-bl-3xl rounded-br-3xl items-center w-auto h-96">
@@ -262,7 +344,7 @@ const Home = () => {
                   className="p-4 bg-stone-900 text-white hover:text-stone-900 hover:bg-stone-100 w-full rounded-bl-3xl rounded-br-3xl ease-in-out duration-500"
                   type="button"
                 >
-                  <Link to="/book-now">Book Now</Link>
+                  <Link to="/schnecksville">Book Now</Link>
                 </button>
               </div>
               <div className="flex flex-col justify-between bg-f7f5f2 rounded-bl-3xl rounded-br-3xl items-center w-auto h-96">
@@ -293,7 +375,7 @@ const Home = () => {
                   className="p-4 bg-stone-900 text-white hover:text-stone-900 hover:bg-stone-100 w-full rounded-bl-3xl rounded-br-3xl ease-in-out duration-500"
                   type="button"
                 >
-                  <Link to="/book-now">Book Now</Link>
+                  <Link to="/lehighton">Book Now</Link>
                 </button>
               </div>
             </div>

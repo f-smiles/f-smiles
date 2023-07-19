@@ -49,6 +49,7 @@ import { useEffect, useState } from 'react';
 const FinancingTreatment = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
   const [showLine, setShowLine] = useState(false);
+  
 
   const dots = [
     { id: 1, label: 'Complimentary Consultation', description: 'Initial consultations are always free of charge' },
