@@ -2,155 +2,83 @@ import React, { useEffect, useState } from "react";
 import gsap from 'gsap';
 
 const sectionsData = [
-
   {
     bgImage: '../../images/i-cat.png',
     heading: 'i-cat',
-    backgroundSize: 'contain',
-    imageSize: 'w-96 h-96'
+
+
   },
   {
     bgImage: '../../images/laser',
     heading: 'laser therapy'
   },
   {
-    bgImage: 'https://images.unsplash.com/photo-1617141636403-f511e2d5dc17?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTYxODAzMjc4Mw&ixlib=rb-1.2.1&q=75w=1920',
-    heading: 'Fifth Section'
+    bgImage: '',
+    heading: 'advanced tech'
   },
 ];
 
 const Braces = () => {
   const [current, setCurrent] = useState(0);
-  const [next, setNext] = useState(0);
-  const [listening, setListening] = useState(true);
-  const [direction, setDirection] = useState('down');
+  const next = (current + 1) % sectionsData.length;
 
-  const [touch, setTouch] = useState({
-    startX: 0,
-    startY: 0,
-    dx: 0,
-    dy: 0,
-    startTime: 0,
-    dt: 0,
-  });
+  const handleMouseSwipe = (e) => {
+    const deltaY = e.deltaY;
 
-  const handleDirection = () => {
-    setListening(false);
+    if (deltaY > 0) {
+    
+      goToNextSection();
+    } else if (deltaY < 0) {
 
-    if (direction === 'down') {
-      setNext((prevNext) => (prevNext + 1 >= sectionsData.length ? 0 : prevNext + 1));
-    } else if (direction === 'up') {
-      setNext((prevNext) => (prevNext - 1 < 0 ? sectionsData.length - 1 : prevNext - 1));
+      goToPrevSection();
     }
   };
 
+  const goToNextSection = () => {
+    gsap.to(`#section-${next}`, { top: "0%", duration: 1 });
+    gsap.to(`#section-${current}`, { top: "-100%", duration: 1, onComplete: () => setCurrent(next) });
+  };
+
+  const goToPrevSection = () => {
+    gsap.to(`#section-${current}`, { top: "100%", duration: 1, onComplete: () => setCurrent(next) });
+    gsap.to(`#section-${next}`, { top: "0%", duration: 1 });
+  };
+
   useEffect(() => {
-    const handleWheel = (e) => {
-      if (!listening) return;
-      setDirection(e.deltaY > 0 ? 'down' : 'up');
-      handleDirection();
-    };
-
-    const handleTouchStart = (e) => {
-      if (!listening) return;
-      const t = e.changedTouches[0];
-      setTouch((prev) => ({ ...prev, startX: t.pageX, startY: t.pageY }));
-    };
-
-    const handleTouchMove = (e) => {
-      if (!listening) return;
-      e.preventDefault();
-    };
-
-    const handleTouchEnd = (e) => {
-      if (!listening) return;
-      const t = e.changedTouches[0];
-      const dx = t.pageX - touch.startX;
-      const dy = t.pageY - touch.startY;
-      if (dy > 10) setDirection('up');
-      if (dy < -10) setDirection('down');
-      handleDirection();
-    };
-
-    document.addEventListener('wheel', handleWheel);
-    document.addEventListener('touchstart', handleTouchStart);
-    document.addEventListener('touchmove', handleTouchMove);
-    document.addEventListener('touchend', handleTouchEnd);
+    document.addEventListener('wheel', handleMouseSwipe);
 
     return () => {
-      document.removeEventListener('wheel', handleWheel);
-      document.removeEventListener('touchstart', handleTouchStart);
-      document.removeEventListener('touchmove', handleTouchMove);
-      document.removeEventListener('touchend', handleTouchEnd);
+      document.removeEventListener('wheel', handleMouseSwipe);
     };
-  }, [listening, touch, direction]);
-
-  useEffect(() => {
-    const tl = gsap.timeline({
-      defaults: { duration: 1.5 },
-      onComplete: () => {
-        setListening(true);
-        setCurrent(next);
-      },
-    });
-
-    tl.set(sectionsData[next], { visibility: 'visible', opacity: 0 });
-    tl.from(sectionsData[next], { opacity: 0 })
-
-  }, [next]);
+  }, [current]);
 
   return (
-    <div>
+    <div style={{ height: "100vh", width: "100%", position: "relative", overflow: "hidden" }}>
       {sectionsData.map((section, index) => (
         <section
+          id={`section-${index}`}
           key={index}
           style={{
             height: "100%",
             width: "100%",
-            top: 0,
-            position: "fixed",
-            visibility: current === index ? "visible" : "hidden", // Show current section, hide others
-            opacity: current === index ? 1 : 0, // Show current section, hide others
-            zIndex: current === index ? 1 : 0,
-            willChange: "transform"
+            top: index === current ? 0 : index > current ? "100%" : "-100%",
+            position: "absolute",
+            willChange: "transform",
+            backgroundImage: `url(${section.bgImage})`,
+            backgroundSize: section.backgroundSize,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            flexDirection: "column",
+            color: "#fff",
           }}
         >
-          <div
-            className="bg"
-            style={{
-              backgroundImage: `linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.3) 100%), url(${section.bgImage})`,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              position: "absolute",
-              height: "100%",
-              width: "100%",
-              top: 0,
-              backgroundSize: "cover",
-              backgroundPosition: "center"
-            }}
-          >
-            <h2
-              className="section-heading"
-              style={{
-                fontSize: "clamp(1rem, 5vw, 5rem)",
-                fontWeight: 400,
-                textAlign: "center",
-                letterSpacing: "0.5em",
-                marginRight: "-0.5em",
-                color: "hsl(0, 0, 80%)",
-                width: "90vw",
-                maxWidth: "1200px",
-                zIndex: 2
-              }}
-            >
-              {section.heading}
-            </h2>
-          </div>
+          <h2 style={{ fontSize: "clamp(1rem, 5vw, 5rem)", fontWeight: 400 }}>
+            {section.heading}
+          </h2>
         </section>
       ))}
     </div>
-
   );
 };
 
