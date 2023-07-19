@@ -60,11 +60,11 @@ export default function Hero() {
         </div>
         <div className="relative mx-auto mt-32 lg:mt-0">
           <img
-            className="absolute top-0 left-0 z-10 max-w-lg"
+            className="absolute top-0 left-0 max-w-lg"
             src="../../images/hero_clip.png"
             alt="girl smiling"
           />
-          <div className="w-full scale-110 z-0">
+          <div className="relative w-full scale-110 -z-10">
             <DotPattern />
           </div>
         </div>

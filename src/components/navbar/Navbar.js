@@ -1,82 +1,27 @@
-import React, { useState, useContext, useEffect, useRef } from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
-import { Transition } from "@headlessui/react";
 import Sphere from "./sketch";
-import CartContext from "../../app/CartContext";
-// import Bag from "../stripe/Bag";
 import { XMarkIcon, Bars2Icon } from "@heroicons/react/24/outline";
 import BagSidePanel from "../bag/BagSidePanel";
 
 export default function DesktopNavbar() {
   const bagItems = useSelector((state) => state.bag.line_items);
 
-  const getBagTotal = () => {
+  const getBagQuantity = () => {
     let totalQuantity = 0;
-    let totalPrice = 0;
     bagItems.forEach((item) => {
       totalQuantity += item.quantity;
-      totalPrice += item.price * item.quantity;
     });
-    return { totalPrice, totalQuantity };
+    return totalQuantity;
   };
 
-  const { cartCount } = useContext(CartContext);
-
   const [show, setShow] = useState(null); /* mobile nav */
-  const [navbarTransparent, setNavbarTransparent] = useState(true);
 
   const [about, setAbout] = useState(false);
   const [patient, setPatient] = useState(false);
   const [treatments, setTreatments] = useState(false);
   const [isBagOpen, setIsBagOpen] = useState(false);
-
-  // const [showCheckout, setShowCheckout] = useState(false);
-  // const sidebarRef = useRef(null);
-  // const [showSidebar, setShowSidebar] = useState(false);
-
-  // const handleCheckout = () => {
-  //   setShowCheckout(true);
-  // };
-
-  // const handleClickOutside = (event) => {
-  //   if (sidebarRef.current && !sidebarRef.current.contains(event.target)) {
-  //     setShowSidebar(false);
-  //   }
-  // };
-
-  // const handleToggleSidebar = () => {
-  //   setShowSidebar(!showSidebar);
-  // };
-
-  // useEffect(() => {
-  //   if (showSidebar) {
-  //     document.addEventListener("mousedown", handleClickOutside);
-  //   }
-
-  //   return () => {
-  //     document.removeEventListener("mousedown", handleClickOutside);
-  //   };
-  // }, [showSidebar]);
-
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     const scrollTop = window.pageYOffset;
-  //     const threshold = 5;
-
-  //     if (scrollTop > threshold) {
-  //       setNavbarTransparent(false);
-  //     } else {
-  //       setNavbarTransparent(true);
-  //     }
-  //   };
-
-  //   window.addEventListener("scroll", handleScroll);
-
-  //   return () => {
-  //     window.removeEventListener("scroll", handleScroll);
-  //   };
-  // }, []);
 
   const about_us_links = [
     { name: "Our Team", href: "/our-team", image: "../../images/doctors.jpg" },
@@ -125,17 +70,17 @@ export default function DesktopNavbar() {
   return (
     <>
       {/* Desktop Navbar */}
-      <nav id="desktop-nav" className={`w-full h-max fixed top-0 left-0 right-0 z-40 bg-white/30 backdrop-blur-sm hidden lg:block`}>
+      <nav id="desktop-nav" className="w-full h-max fixed top-0 left-0 right-0 bg-white/30 backdrop-blur-sm hidden lg:block z-50">
         <div className="max-w-screen-xl mx-auto flex justify-between items-center text-sm ">
           <div id="left-links" className="flex space-x-8 ">
             <div id="about-links">
-              <h4 className="cursor-pointer uppercase font-medium tracking-wider hover:underline hover:text-indigo-700 transition-colors duration-300 ease-in-out" onClick={handleToggleAbout}>About</h4>
+              <p className="cursor-pointer uppercase font-medium tracking-wider hover:underline hover:text-indigo-700 transition-colors duration-300 ease-in-out" onClick={handleToggleAbout}>About</p>
                 <div className={
-                  !about ? "absolute top-0 left-0 w-screen h-screen backdrop-blur-sm bg-white/30 flex flex-row gap-2 overflow-hidden translate-x-[-100%] transition-all delay-300 duration-500 ease-out"
-                  : "absolute top-0 left-0  w-screen h-screen backdrop-blur-sm bg-white/30 flex flex-row gap-2 overflow-hidden translate-x-0 transition-all delay-300 duration-500 ease-out"
+                  !about ? "absolute top-0 left-0 w-screen h-screen backdrop-blur-sm bg-white/30 flex flex-row gap-2 overflow-hidden translate-x-[-100%] transition-all delay-300 duration-500 ease-out z-10"
+                  : "absolute top-0 left-0 w-screen h-screen backdrop-blur-sm bg-white/30 flex flex-row gap-2 overflow-hidden translate-x-0 transition-all delay-300 duration-500 ease-out z-10"
                 }>
                   <section className="relative w-1/3 h-full p-16 bg-stone-200 flex flex-col gap-8 text-2xl text-indigo-500">
-                    <button className="self-end h-max p-4 text-violet-500 hover:text-violet-400 transition-colors duration-300 ease-linear z-10" type="button"  onClick={handleToggleAbout} aria-label="toggle close about sidebar links">
+                    <button className="self-end h-max p-4 text-violet-500 hover:text-violet-400 transition-colors duration-300 ease-linear" type="button"  onClick={handleToggleAbout} aria-label="toggle close about sidebar links">
                       <XMarkIcon className="w-10 h-10 cursor-pointer"/>
                     </button>
                     {about_us_links && about_us_links.map((link, index) => (
@@ -149,13 +94,13 @@ export default function DesktopNavbar() {
                 </div>
             </div>
             <div id="patient-links">
-              <h4 className="cursor-pointer uppercase font-medium tracking-wider hover:underline hover:text-indigo-700 transition-colors duration-300 ease-in-out" onClick={handleTogglePatient}>Patient</h4>
+              <p className="cursor-pointer uppercase font-medium tracking-wider hover:underline hover:text-indigo-700 transition-colors duration-300 ease-in-out" onClick={handleTogglePatient}>Patient</p>
                 <div className={
-                  !patient ? "absolute top-0 left-0 w-screen h-screen backdrop-blur-sm bg-white/30 flex flex-row gap-2 overflow-hidden translate-x-[-100%] transition-all delay-300 duration-500 ease-out"
-                  : "absolute top-0 left-0  w-screen h-screen backdrop-blur-sm bg-white/30 flex flex-row gap-2 overflow-hidden translate-x-0 transition-all delay-300 duration-500 ease-out"
+                  !patient ? "absolute top-0 left-0 w-screen h-screen backdrop-blur-sm bg-white/30 flex flex-row gap-2 overflow-hidden translate-x-[-100%] transition-all delay-300 duration-500 ease-out z-10"
+                  : "absolute top-0 left-0  w-screen h-screen backdrop-blur-sm bg-white/30 flex flex-row gap-2 overflow-hidden translate-x-0 transition-all delay-300 duration-500 ease-out z-10"
                 }>
                   <ul className="relative w-1/3 h-full p-16 bg-stone-200 flex flex-col gap-8 text-2xl text-indigo-500">
-                    <button className="self-end h-max p-4 text-violet-500 hover:text-danger-600 transition-colors duration-300 ease-linear z-10" type="button"  onClick={handleTogglePatient} aria-label="toggle close patient sidebar links">
+                    <button className="self-end h-max p-4 text-violet-500 hover:text-violet-400 transition-colors duration-300 ease-linear" type="button"  onClick={handleTogglePatient} aria-label="toggle close patient sidebar links">
                       <XMarkIcon className="w-10 h-10 cursor-pointer"/>
                     </button>
                     {patient_links && patient_links.map((link, index) => (
@@ -168,13 +113,13 @@ export default function DesktopNavbar() {
               </div>
             </div>
             <div id="treatments-links">
-              <h4 className="cursor-pointer uppercase font-medium tracking-wider hover:underline hover:text-indigo-700 transition-colors duration-300 ease-in-out" onClick={handleToggleTreatments}>Treatments</h4>
+              <p className="cursor-pointer uppercase font-medium tracking-wider hover:underline hover:text-indigo-700 transition-colors duration-300 ease-in-out" onClick={handleToggleTreatments}>Treatments</p>
                 <div className={
-                  !treatments ? "absolute top-0 left-0 w-screen h-screen backdrop-blur-sm bg-white/30 flex flex-row gap-2 overflow-hidden translate-x-[-100%] transition-all delay-300 duration-500 ease-out"
-                  : "absolute top-0 left-0 w-screen h-screen backdrop-blur-sm bg-white/30 flex flex-row gap-2 overflow-hidden translate-x-0 transition-all delay-300 duration-500 ease-out"
+                  !treatments ? "absolute top-0 left-0 w-screen h-screen backdrop-blur-sm bg-white/30 flex flex-row gap-2 overflow-hidden translate-x-[-100%] transition-all delay-300 duration-500 ease-out z-10"
+                  : "absolute top-0 left-0 w-screen h-screen backdrop-blur-sm bg-white/30 flex flex-row gap-2 overflow-hidden translate-x-0 transition-all delay-300 duration-500 ease-out z-10"
                 }>
                   <ul className="relative w-1/3 h-full p-16 bg-stone-200 flex flex-col gap-8 text-2xl text-indigo-500">
-                    <button className="self-end h-max p-4 text-violet-500 hover:text-danger-600 transition-colors duration-300 ease-linear z-10" type="button"  onClick={handleToggleTreatments} aria-label="toggle close treatments sidebar links">
+                    <button className="self-end h-max p-4 text-violet-500 hover:text-violet-400 transition-colors duration-300 ease-linear" type="button"  onClick={handleToggleTreatments} aria-label="toggle close treatments sidebar links">
                       <XMarkIcon className="w-10 h-10 cursor-pointer"/>
                     </button>
                     {treatments_links && treatments_links.map((link, index) => (
@@ -200,13 +145,13 @@ export default function DesktopNavbar() {
             id="right-links"
             className="flex items-center gap-8 cursor-pointer"
           >
-            <ul className="flex items-center space-x-8 ">
+            <ul className="flex items-center space-x-8">
               <li className="inline-block relative transition-all duration-500 before:content-[''] before:absolute before:-bottom-2 before:right-0 before:translate-x-0 before:w-0 before:h-[2px] before:opacity-0 hover:before:w-1/2 hover:before:opacity-100 before:transition-all before:duration-500 before:bg-violet-500 hover:text-indigo-700 ease-in-out">
                 <NavLink
                   className="inline-block relative transition-all duration-500 before:content-[''] before:absolute before:-bottom-2 before:left-0 before:translate-x-0 before:w-0 before:h-[2px] before:opacity-0 hover:before:w-1/2 hover:before:opacity-100 before:transition-all before:duration-500 before:bg-violet-500"
                   to="https://my.orthoblink.com/bLink/Login"
                 >
-                  Patient Login
+                  <p>Patient Login</p>
                 </NavLink>
               </li>
               <li className="inline-block relative transition-all duration-500 before:content-[''] before:absolute before:-bottom-2 before:right-0 before:translate-x-0 before:w-0 before:h-[2px] before:opacity-0 hover:before:w-1/2 hover:before:opacity-100 before:transition-all before:duration-500 before:bg-violet-500 hover:text-indigo-700 ease-in-out">
@@ -214,7 +159,7 @@ export default function DesktopNavbar() {
                   className="inline-block relative transition-all duration-500 before:content-[''] before:absolute before:-bottom-2 before:left-0 before:translate-x-0 before:w-0 before:h-[2px] before:opacity-0 hover:before:w-1/2 hover:before:opacity-100 before:transition-all before:duration-500 before:bg-violet-500"
                   to="/locations"
                 >
-                  Our Locations
+                  <p>Our Locations</p>
                 </NavLink>
               </li>
               <li className="inline-block relative transition-all duration-500 before:content-[''] before:absolute before:-bottom-2 before:right-0 before:translate-x-0 before:w-0 before:h-[2px] before:opacity-0 hover:before:w-1/2 hover:before:opacity-100 before:transition-all before:duration-500 before:bg-violet-500 hover:text-indigo-700 ease-in-out">
@@ -222,7 +167,7 @@ export default function DesktopNavbar() {
                   className="inline-block relative transition-all duration-500 before:content-[''] before:absolute before:-bottom-2 before:left-0 before:translate-x-0 before:w-0 before:h-[2px] before:opacity-0 hover:before:w-1/2 hover:before:opacity-100 before:transition-all before:duration-500 before:bg-violet-500"
                   to="/products"
                 >
-                  Shop
+                  <p>Shop</p>
                 </NavLink>
               </li>
             </ul>
@@ -242,29 +187,8 @@ export default function DesktopNavbar() {
                     >
                       <path d="M17.54 5.424a.47.47 0 0 1 .46.474v17.627a.47.47 0 0 1-.46.475H.46a.47.47 0 0 1-.46-.475V5.898a.47.47 0 0 1 .46-.474h4.795v-1.56C5.255 1.733 6.935 0 9 0c2.065 0 3.745 1.733 3.745 3.864v1.56zm-11.365 0h5.64v-1.56c0-1.608-1.264-2.915-2.82-2.915-1.555 0-2.82 1.307-2.82 2.915zm10.905.949h-4.335V8.61a.47.47 0 0 1-.46.475.47.47 0 0 1-.46-.475V6.373h-5.65V8.61a.47.47 0 0 1-.46.475.47.47 0 0 1-.46-.475V6.373H.92V23.05h16.16z"></path>
                     </svg>
-                    <span className="absolute top-1/2 left-1/2 -translate-x-3/4 -translate-y-1/3 text-xs rounded-full hover:text-violet-500 -z-10">
-                      {getBagTotal().totalQuantity}
-                    </span>
-                  </div>
-                </li>
-              )}
-              {cartCount > 0 && (
-                <li
-                  className="hidden items-center hover:underline hover:text-indigo-700 transition-colors duration-300 ease-in-out"
-                  onClick={handleToggleBag}
-                >
-                  <span>Bag</span>
-                  <div className="relative">
-                    <svg
-                      className="ml-1 w-6 h-6"
-                      fill="currentColor"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="M17.54 5.424a.47.47 0 0 1 .46.474v17.627a.47.47 0 0 1-.46.475H.46a.47.47 0 0 1-.46-.475V5.898a.47.47 0 0 1 .46-.474h4.795v-1.56C5.255 1.733 6.935 0 9 0c2.065 0 3.745 1.733 3.745 3.864v1.56zm-11.365 0h5.64v-1.56c0-1.608-1.264-2.915-2.82-2.915-1.555 0-2.82 1.307-2.82 2.915zm10.905.949h-4.335V8.61a.47.47 0 0 1-.46.475.47.47 0 0 1-.46-.475V6.373h-5.65V8.61a.47.47 0 0 1-.46.475.47.47 0 0 1-.46-.475V6.373H.92V23.05h16.16z"></path>
-                    </svg>
-                    <span className="absolute top-1/2 left-1/2 -translate-x-3/4 -translate-y-1/3 text-xs rounded-full hover:text-violet-500 -z-10">
-                      {cartCount}
+                    <span className="absolute top-1/2 left-1/2 -translate-x-3/4 -translate-y-1/3 text-xs rounded-full hover:text-violet-500">
+                      {getBagQuantity()}
                     </span>
                   </div>
                 </li>
@@ -277,7 +201,6 @@ export default function DesktopNavbar() {
             </ul>
             {isBagOpen && (
               <BagSidePanel
-                className="-z-50"
                 isBagOpen={isBagOpen}
                 setIsBagOpen={setIsBagOpen}
               />

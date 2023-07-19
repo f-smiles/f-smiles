@@ -40,9 +40,9 @@ export default function BagSidePanel({ isBagOpen, setIsBagOpen }) {
   return (
     <>
     {isBagOpen && (
-      <div className='fixed inset-0 z-50 overflow-hidden bg-opacity-75 transition-all duration-500'>
+      <div className='fixed inset-0 h-screen z-50 overflow-hidden bg-gray-500 bg-opacity-75 transition-all duration-500'>
         <div className="fixed inset-y-0 right-0 flex max-w-full pl-10">
-          <div className="w-screen max-w-md transform translate-x-0 bg-white shadow-xl">
+          <div className="w-screen h-screen max-w-md transform translate-x-0 bg-white shadow-xl">
             <div className="flex flex-col h-full">
               <div className="flex items-start justify-between p-6">
                 <h2 className="text-lg font-medium text-gray-900">Shopping Bag</h2>
