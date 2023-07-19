@@ -1,14 +1,9 @@
-import React, { useRef, useState } from "react";
-// Import Swiper React components
+import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
-
-// import required modules
 import { FreeMode, Navigation, Thumbs } from "swiper/modules";
 
 export default function SingleProductCarousel({ product }) {
@@ -37,7 +32,7 @@ export default function SingleProductCarousel({ product }) {
         {carouselImages.length > 0 &&
           carouselImages.map((image, i) => (
             <SwiperSlide key={i} className="my-auto">
-              <img src={image} />
+              <img src={image} alt="product" />
             </SwiperSlide>
           ))}
       </Swiper>
@@ -54,7 +49,7 @@ export default function SingleProductCarousel({ product }) {
         {carouselImages.length > 0 &&
           carouselImages.map((image, i) => (
             <SwiperSlide key={i} className="my-auto">
-              <img src={image} />
+              <img src={image} alt="product" loading="lazy" />
             </SwiperSlide>
           ))}
       </Swiper>

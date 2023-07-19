@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { fetchProducts } from "../../store/productsSlice";
+import { fetchPrices } from "../../store/pricesSlice";
 import ProductsLoader from "./ProductsLoader";
 
 export default function Products() {
@@ -13,16 +14,20 @@ export default function Products() {
       await dispatch(fetchProducts());
     };
     getProducts();
+    const getPrices = async () => {
+      await dispatch(fetchPrices());
+    };
+    getPrices();
 
     const loadingDelay = setTimeout(() => {
       setLoading(false);
-    }, 1000);
+    }, 250);
   
     return () => clearTimeout(loadingDelay);
-  }, []);
+  }, [dispatch]);
 
   const products = useSelector((state) => state.products.all_products);
-  console.log(products);
+  const prices = useSelector((state) => state.prices.all_prices);
 
   return (
     <main className="bg-white dark:bg-gray-900">
@@ -36,26 +41,26 @@ export default function Products() {
           >
             <h2>Products</h2>
             <div className="px-12 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8 lg:px-0">
-              {products.length > 0 &&
-                products.map((item) => (
-                  <div key={item.product.id} className="group relative">
+              {products && products.map((product) => (
+                  <div key={product.id} className="group relative">
                     <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md lg:aspect-video group-hover:opacity-75 lg:h-80">
                       <img
-                        src={item.product.images[0]}
-                        alt={item.product.name}
+                        src={product.images[0]}
+                        alt={product.name}
                         className="h-full w-full object-cover object-center lg:object-contain lg:h-full lg:w-full"
+                        loading="lazy"
                       />
                     </div>
-                    <div className="mt-4 lg:mt-0 flex justify-between items-baseline text-sm text-gray-700">
+                    <div className="mt-4 lg:mt-0 text-left text-sm text-gray-700">
                       <p>
-                        <Link to={`/products/${item.product.id}`}>
+                        <Link to={`/products/${product.id}`}>
                           <span aria-hidden="true" className="absolute inset-0" />
-                          {item.product.name}
+                          {product.name}
                         </Link>
                       </p>
-                      <p className="font-semibold">
-                        ${item.price.unit_amount / 100}
-                      </p>
+                      {prices && prices.filter((price) => price.product === product.id).map((productPrice) => (
+                        <p key={productPrice.id}>$ {productPrice.unit_amount / 100}</p>
+                      ))}
                     </div>
                   </div>
                 ))}
