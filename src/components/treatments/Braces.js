@@ -1,84 +1,74 @@
 import React, { useEffect, useState } from "react";
-import gsap from 'gsap';
+import gsap from "gsap";
 
 const sectionsData = [
   {
-    bgImage: '../../images/icatscan.jpg',
-    heading: 'i-cat',
-    backgroundSize: 'contain',
-    imageSize: 'w-96 h-96'
+    bgImage: "../../images/icatscan.jpg",
+    heading: "i-cat",
+    backgroundSize: "contain",
   },
   {
-    bgImage: '../../images/laser',
-    heading: 'laser therapy'
+    bgImage: "../../images/laser",
+    heading: "laser therapy",
   },
   {
-    bgImage: 'https://images.unsplash.com/photo-1617141636403-f511e2d5dc17?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTYxODAzMjc4Mw&ixlib=rb-1.2.1&q=75&w=1920',
-    heading: 'Optimized Treatment'
+    bgImage:
+      "https://images.unsplash.com/photo-1617141636403-f511e2d5dc17?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTYxODAzMjc4Mw&ixlib=rb-1.2.1&q=75&w=1920",
+    heading: "Optimized Treatment",
   },
 ];
 
 const Braces = () => {
   const [current, setCurrent] = useState(0);
-  const next = (current + 1) % sectionsData.length;
-  const [direction, setDirection] = useState('down');
   const [sliding, setSliding] = useState(false);
-  const handleMouseSwipe = (e) => {
-    const deltaY = e.deltaY;
-  
-    if (deltaY > 0) {
-      // User swiped down
-      setDirection('down');
-    } else if (deltaY < 0) {
-      // User swiped up
-      setDirection('up');
-    }
-  };
-  
 
   const goToNextSection = () => {
+    if (sliding) return;
+    setSliding(true);
+    const next = (current + 1) % sectionsData.length;
     gsap.to(`#section-${next}`, {
       top: "0%",
       duration: 1,
       onComplete: () => {
         setSliding(false);
         setCurrent(next);
-      }
+      },
     });
-    gsap.to(`#section-${current}`, { top: "100%", duration: 1 });
   };
+
   const goToPrevSection = () => {
-    gsap.to(`#section-${next}`, {
-      top: "100%",
+    if (sliding) return;
+    setSliding(true);
+    const prev = (current - 1 + sectionsData.length) % sectionsData.length;
+    gsap.to(`#section-${prev}`, {
+      top: "0%",
       duration: 1,
       onComplete: () => {
+        gsap.set(`#section-${prev}`, { top: "-100%" });
         setSliding(false);
-        setCurrent(next);
-      }
+        setCurrent(prev);
+      },
     });
-    gsap.to(`#section-${current}`, { top: "-100%", duration: 1 });
   };
-  
-  
 
   useEffect(() => {
-    if (!sliding) {
-      setSliding(true);
-      if (direction === 'down') {
-        goToNextSection();
-      } else if (direction === 'up') {
-        goToPrevSection();
-      }
-    }
-  }, [direction]);
-
-  useEffect(() => {
-    document.addEventListener('wheel', handleMouseSwipe);
-
+    document.addEventListener("wheel", handleMouseSwipe);
     return () => {
-      document.removeEventListener('wheel', handleMouseSwipe);
+      document.removeEventListener("wheel", handleMouseSwipe);
     };
   }, [current, sliding]);
+
+  const handleMouseSwipe = (e) => {
+    const deltaY = e.deltaY;
+
+    if (deltaY > 0) {
+  
+      goToNextSection();
+    } else if (deltaY < 0) {
+ 
+      goToPrevSection();
+    }
+  };
 
   return (
     <div style={{ height: "100vh", width: "100%", position: "relative", overflow: "hidden" }}>
@@ -111,6 +101,8 @@ const Braces = () => {
 };
 
 export default Braces;
+
+
 
 
 
