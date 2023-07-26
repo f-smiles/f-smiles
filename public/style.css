@@ -400,3 +400,35 @@ text {
   animation-delay: 0.5s;
 }
 
+/* styles.css */
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@keyframes growProgressBar {
+  0%, 33% { --pgPercentage: 0; }
+  100% { --pgPercentage: var(--value); }
+}
+
+[property="progressbar"] {
+  --pgPercentage: var(--value);
+}
+
+.progress-bar {
+  --value: 0;
+  --size: 12rem;
+  --fg: #369;
+  --bg: #def;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(closest-side, white 80%, transparent 0 99.9%, white 0),
+              conic-gradient(var(--fg) calc(var(--pgPercentage) * 1% + 90deg), var(--bg) 0 90deg);
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: calc(var(--size) / 5);
+  color: var(--fg);
+  animation: growProgressBar 3s 1 forwards;
+}
+

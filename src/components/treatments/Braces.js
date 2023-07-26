@@ -5,7 +5,8 @@ const sectionsData = [
   {
     bgImage: "../../images/icatscan.jpg",
     heading: "i-cat",
-    backgroundSize: "contain",
+    sectionClass: "bg-center bg-no-repeat bg-center-60",
+   
   },
   {
     bgImage: "../../images/laser",
@@ -84,6 +85,7 @@ const Braces = () => {
             willChange: "transform",
             backgroundImage: `url(${section.bgImage})`,
             backgroundSize: section.backgroundSize,
+            backgroundRepeat: section.backgroundRepeat, 
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
