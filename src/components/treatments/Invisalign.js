@@ -6,10 +6,10 @@ const Invisalign = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setProgress((prevProgress) => {
-        const nextProgress = prevProgress >= 100 ? 100 : prevProgress + 1;
+        const nextProgress = prevProgress >= 100 ? 100 : prevProgress + 2; 
         return nextProgress;
       });
-    }, 50);
+    }, 25);
 
     return () => {
       clearInterval(interval);
@@ -29,9 +29,8 @@ const Invisalign = () => {
     height: "100%",
     borderRadius: "50%",
     clipPath: `polygon(50% 50%, 100% 0, 100% 100%, ${(100 - progress) / 100 * 50}% 100%, 50% 50%, 50% 0)`,
-    border: "8px solid #9F7AEA",
-    borderWidth: "4px", 
-    borderStyle: "solid", 
+    borderWidth: "4px",
+    borderStyle: "solid",
     borderColor: "#9F7AEA",
     boxSizing: "border-box",
   };
@@ -43,16 +42,28 @@ const Invisalign = () => {
     top: "50%",
     left: "50%",
     transform: "translate(-50%, -50%)",
-    opacity: progress >= 100 ? 1 : 0, 
-    transition: "opacity 1s ease-in-out", 
+    opacity: progress >= 100 ? 1 : 0,
+    transition: "opacity 1s ease-in-out",
+  };
+
+  const topTextStyle = {
+    fontSize: "18px",
+    color: "#369",
+    position: "absolute",
+    top: "50%",
+    left: "15%", 
+    transform: `translate(-50%, -50%) ${progress >= 100 ? "translateX(-100%)" : "translateX(0)"}`,
+    opacity: progress >= 100 ? 1 : 0,
+    transition: "opacity 1s ease-in-out, transform 1s ease-in-out",
   };
 
   return (
-    <main className="mt-10 w-full px-4 pt-16 bg-F8F6F1">
+    <main className="w-full px-4 pt-16 bg-F8F6F1">
       <div className="flex justify-center items-center">
         <div style={progressBarStyle}>
           <div style={borderStyle}></div>
-          <div style={numberStyle}>1%</div>
+          <div style={numberStyle}>1</div>
+          <div style={topTextStyle}>Top</div>
         </div>
       </div>
       <div className="flex justify-center items-center">
@@ -65,11 +76,6 @@ const Invisalign = () => {
 };
 
 export default Invisalign;
-
-
-
-
-
 
 
 
