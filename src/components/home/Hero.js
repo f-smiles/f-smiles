@@ -15,11 +15,11 @@ export default function Hero() {
     <motion.div
       ref={heroRef}
       style={{ y }}
-      className="relative isolate px-8 pt-14 lg:px-8"
+      className="relative z-0 px-8 isolate pt-14 lg:px-8"
     >
       <div
         id="gradients"
-        className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
+        className="absolute inset-x-0 overflow-hidden -top-40 -z-10 transform-gpu blur-3xl sm:-top-80"
         aria-hidden="true"
       >
         <div
@@ -30,20 +30,20 @@ export default function Hero() {
           }}
         />
       </div>
-      <div className="py-32 sm:py-48 lg:py-56 grid grid-cols-1 place-items-center lg:grid-cols-2 max-w-screen-xl mx-auto">
+      <div className="grid max-w-screen-xl grid-cols-1 py-32 mx-auto sm:py-48 lg:py-56 place-items-center lg:grid-cols-2">
         <div className="text-left">
-          <h1 className="text-4xl font-medium lg:text-5xl text-indigo-500">
+          <h1 className="text-4xl font-medium text-indigo-500 lg:text-5xl">
             Because every smile is unique
-            {/* Because every <span className='italic font-normal mr-2'>smile</span> is <span className='italic font-normal'>unique</span> */}
+            {/* Because every <span className='mr-2 italic font-normal'>smile</span> is <span className='italic font-normal'>unique</span> */}
           </h1>
           <p className="max-w-xl mt-6 text-lg leading-8 text-gray-600 lg:text-lg">
             Our goal is to make your smile look best on{" "}
-            <span className="uppercase font-bold ">you</span>. It's an art, it's
+            <span className="font-bold uppercase ">you</span>. It's an art, it's
             a science, and it is something orthodontists Dr. Gregg Frey, Dr.
             Daniel Frey, and the exceptional team at FreySmiles Orthodontics
             recognize and are very passionate about.
           </p>
-          <div className="mt-10 flex items-center justify-start gap-x-6">
+          <div className="flex items-center justify-start mt-10 gap-x-6">
             <Link
               to="/book-now"
               className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-lg lg:text-xl lg:px-5 lg:py-3 font-normal text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"

@@ -108,66 +108,11 @@ const Home = () => {
   };
   return (
     <>
-      <main className="bg-#fFFFDFD overflow-hidden w-full">
-        <section id="hero-section" className="bg-white overflow-hidden">
+      <main className="w-full overflow-hidden bg-white">
+        <section id="hero-section" className="z-0">
           <Hero />
         </section>
-        <header className="p-header w-full h-80 min-h-screen px-20 flex items-center justify-center">
-      <nav className="p-header__nav p-nav">
-        <ul className="p-nav__lists flex items-center">
-          <li className="p-nav__list">
-            <a
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
-              className="text-black hover:text-red-500"
-              href="./"
-            >
-              Patient
-            </a>
-          </li>
-          <li className="p-nav__list">
-            <a
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
-              className="text-black hover:text-red-500"
-              href="./"
-            >
-              Treatments
-            </a>
-          </li>
-          <li className="p-nav__list">
-            <a
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
-              className="text-black hover:text-red-500"
-              href="./"
-            >
-              About
-            </a>
-          </li>
-        </ul>
-      </nav>
-      <style jsx>{`
-        @keyframes typewriter-anim {
-          from {
-            opacity: 0;
-          }
-          to {
-            opacity: 1;
-          }
-        }
-
-        @keyframes typewriter-reverse-anim {
-          from {
-            opacity: 1;
-          }
-          to {
-            opacity: 0;
-          }
-        }
-      `}</style>
-    </header>
-        {/* <section id='features-section' className='bg-F8F6F1 py-24'
+        {/* <section id='features-section' className='py-24 bg-F8F6F1'
           style={{
             backgroundColor: isCardHovered ? "#dec0ae" : "#F8F6F1",
             transition: "background-color 0.7s ease",
@@ -175,7 +120,7 @@ const Home = () => {
             overflow: "scroll"
           }}
         > */}
-        <section id="features">
+        <section id="features" className="z-40">
           <Features />
         </section>
         {/* </section> */}
@@ -193,38 +138,38 @@ const Home = () => {
             <div className="flex justify-center">
               <div className="flex items-center">
                 <div className="flex flex-col items-center">
-                  <h1 className="text-teal-500 text-xl mb-2 cursor-pointer">
+                  <h1 className="mb-2 text-xl text-teal-500 cursor-pointer">
                     Taneesha N.
                   </h1>
-                  <div className="bg-green-500 h-1 w-80"></div>
+                  <div className="h-1 bg-green-500 w-80"></div>
                 </div>
                 <div className="w-2"></div>
                 <div className="flex flex-col items-center">
-                  <h1 className="text-teal-500 text-xl mb-2 cursor-pointer">
+                  <h1 className="mb-2 text-xl text-teal-500 cursor-pointer">
                     Alexandra W
                   </h1>
 
-                  <div className="bg-green-500 h-1 w-80"></div>
+                  <div className="h-1 bg-green-500 w-80"></div>
                 </div>
                 <div className="w-2"></div>
                 <div className="flex flex-col items-center">
-                  <h1 className="text-teal-500 text-xl mb-2">Fei Z</h1>
-                  <div className="bg-green-500 h-1 w-80"></div>
+                  <h1 className="mb-2 text-xl text-teal-500">Fei Z</h1>
+                  <div className="h-1 bg-green-500 w-80"></div>
                 </div>
               </div>
             </div>
           </div>
         </section> */}
 
-        <section className="max-w-screen-xl mx-auto flex flex-col gap-8 justify-center px-4 py-8 relative z-1">
-          <div className="mt-36 flex flex-col md:flex-row space-y-16 md:gap-8">
-            <div className="relative md:w-1/3 space-y-4">
-              <h3 className="text-3xl lg:text-5xl font-bold md:font-black leading-10 text-gray-700 flex ">
+        <section className="relative flex flex-col justify-center max-w-screen-xl gap-8 px-4 py-8 mx-auto z-1">
+          <div className="flex flex-col space-y-16 mt-36 md:flex-row md:gap-8">
+            <div className="relative space-y-4 md:w-1/3">
+              <h3 className="flex text-3xl font-bold leading-10 text-gray-700 lg:text-5xl md:font-black ">
                 Our Locations
                 <img
                   src="../../images/pin.svg"
                   alt="pin"
-                  className="flex ml-2  inset-0 z-0 opacity-90 bounce-animation transform-gpu hover:animate-bounce transition-all duration-400"
+                  className="inset-0 z-0 flex ml-2 transition-all opacity-90 bounce-animation transform-gpu hover:animate-bounce duration-400"
                   style={{
                     width: "3%",
                     height: "auto",
@@ -233,23 +178,23 @@ const Home = () => {
                   }}
                 />
               </h3>
-              <h2>
+              <p>
                 We have 4 incredible offices for your
                 ultimate convenience. Our orthodontists and FreySmiles Team are
                 excited to serve families in the Allentown, Bethlehem, Easton,
                 Schnecksville and Lehighton communities.{" "}
                 <Link to="/book-now">Schedule an evaluation today.</Link>
-              </h2>
+              </p>
             </div>
 
             <div
               id="cards-container"
-              className="md:w-2/3 md:grid md:grid-cols-2 gap-8 space-y-16 md:space-y-0"
-              // className="md:grid md:grid-cols-2 lg:flex gap-8 mt-16 "
+              className="gap-8 space-y-16 md:w-2/3 md:grid md:grid-cols-2 md:space-y-0"
+              // className="gap-8 mt-16 md:grid md:grid-cols-2 lg:flex "
             >
               <div
-                className="flex flex-col justify-between bg-f7f5f2 rounded-bl-3xl rounded-br-3xl items-center w-auto h-96"
-                // className="flex flex-col justify-between bg-f7f5f2 rounded-bl-3xl rounded-br-3xl items-center lg:w-1/4 h-96"
+                className="flex flex-col items-center justify-between w-auto bg-f7f5f2 rounded-bl-3xl rounded-br-3xl h-96"
+                // className="flex flex-col items-center justify-between bg-f7f5f2 rounded-bl-3xl rounded-br-3xl lg:w-1/4 h-96"
                 onMouseEnter={() => setIsCardHovered(true)}
                 onMouseLeave={() => setIsCardHovered(false)}
               >
@@ -279,13 +224,13 @@ const Home = () => {
                   </Link>
                 </figcaption>
                 <button
-                  className="p-4 bg-stone-900 text-white hover:text-stone-900 hover:bg-stone-100 w-full rounded-bl-3xl rounded-br-3xl ease-in-out duration-500"
+                  className="w-full p-4 text-white duration-500 ease-in-out bg-stone-900 hover:text-stone-900 hover:bg-stone-100 rounded-bl-3xl rounded-br-3xl"
                   type="button"
                 >
                   <Link to="/allentown">Book Now</Link>
                 </button>
               </div>
-              <div className="flex flex-col justify-between bg-f7f5f2 rounded-bl-3xl rounded-br-3xl items-center w-auto h-96">
+              <div className="flex flex-col items-center justify-between w-auto bg-f7f5f2 rounded-bl-3xl rounded-br-3xl h-96">
                 <Map
                   initialViewState={{
                     longitude: -75.296074,
@@ -310,13 +255,13 @@ const Home = () => {
                   </Link>
                 </figcaption>
                 <button
-                  className="p-4 bg-stone-900 text-white hover:text-stone-900 hover:bg-stone-100 w-full rounded-bl-3xl rounded-br-3xl ease-in-out duration-500"
+                  className="w-full p-4 text-white duration-500 ease-in-out bg-stone-900 hover:text-stone-900 hover:bg-stone-100 rounded-bl-3xl rounded-br-3xl"
                   type="button"
                 >
                   <Link to="/bethlehem">Book Now</Link>
                 </button>
               </div>
-              <div className="flex flex-col justify-between bg-f7f5f2 rounded-bl-3xl rounded-br-3xl items-center w-auto h-96">
+              <div className="flex flex-col items-center justify-between w-auto bg-f7f5f2 rounded-bl-3xl rounded-br-3xl h-96">
                 <Map
                   initialViewState={{
                     longitude: -75.597906,
@@ -341,13 +286,13 @@ const Home = () => {
                   </Link>
                 </figcaption>
                 <button
-                  className="p-4 bg-stone-900 text-white hover:text-stone-900 hover:bg-stone-100 w-full rounded-bl-3xl rounded-br-3xl ease-in-out duration-500"
+                  className="w-full p-4 text-white duration-500 ease-in-out bg-stone-900 hover:text-stone-900 hover:bg-stone-100 rounded-bl-3xl rounded-br-3xl"
                   type="button"
                 >
                   <Link to="/schnecksville">Book Now</Link>
                 </button>
               </div>
-              <div className="flex flex-col justify-between bg-f7f5f2 rounded-bl-3xl rounded-br-3xl items-center w-auto h-96">
+              <div className="flex flex-col items-center justify-between w-auto bg-f7f5f2 rounded-bl-3xl rounded-br-3xl h-96">
                 <Map
                   initialViewState={{
                     longitude: -75.73046,
@@ -372,7 +317,7 @@ const Home = () => {
                   </Link>
                 </figcaption>
                 <button
-                  className="p-4 bg-stone-900 text-white hover:text-stone-900 hover:bg-stone-100 w-full rounded-bl-3xl rounded-br-3xl ease-in-out duration-500"
+                  className="w-full p-4 text-white duration-500 ease-in-out bg-stone-900 hover:text-stone-900 hover:bg-stone-100 rounded-bl-3xl rounded-br-3xl"
                   type="button"
                 >
                   <Link to="/lehighton">Book Now</Link>
