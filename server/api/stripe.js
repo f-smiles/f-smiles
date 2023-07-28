@@ -44,6 +44,10 @@ router.post("/sessions/create-checkout-session", async (req, res) => {
         },
         unit_amount: item.price * 100,
       },
+      adjustable_quantity: {
+        enabled: true,
+        minimum: 1,
+      },
       quantity: item.quantity,
     };
   });
@@ -52,6 +56,7 @@ router.post("/sessions/create-checkout-session", async (req, res) => {
     shipping_address_collection: {
       allowed_countries: ["US"],
     },
+    allow_promotion_codes: true,
     line_items: lineItems,
     mode: "payment",
     success_url: `http://localhost:3000/checkout/success?session_id={CHECKOUT_SESSION_ID}`,

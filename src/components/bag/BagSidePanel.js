@@ -40,36 +40,36 @@ export default function BagSidePanel({ isBagOpen, setIsBagOpen }) {
   return (
     <>
     {isBagOpen && (
-      <div className='fixed inset-0 h-screen z-50 overflow-hidden bg-gray-500 bg-opacity-75 transition-all duration-500'>
+      <div className='fixed inset-0 z-50 h-screen overflow-hidden transition-all duration-500 bg-white/30 backdrop-blur-sm'>
         <div className="fixed inset-y-0 right-0 flex max-w-full pl-10">
           <div className="w-screen h-screen max-w-md transform translate-x-0 bg-white shadow-xl">
             <div className="flex flex-col h-full">
               <div className="flex items-start justify-between p-6">
                 <h2 className="text-lg font-medium text-gray-900">Shopping Bag</h2>
-                <button type="button" className="-m-2 p-2 text-gray-400 hover:text-gray-500" onClick={handleToggleSidePanel}>
+                <button type="button" className="p-2 -m-2 text-gray-400 hover:text-gray-500" onClick={handleToggleSidePanel}>
                   <span className="sr-only">Close panel</span>
-                  <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                  <XMarkIcon className="w-6 h-6" aria-hidden="true" />
                 </button>
               </div>
               <div className="flex-1 px-4 py-6 sm:px-6">
                 <ul className="space-y-6 divide-y divide-gray-200">
                 {bagItems.length === 0 ? (
-                  <li className="px-4 sm:px-0 space-y-8">
+                  <li className="px-4 space-y-8 sm:px-0">
                     <p className='text-sm leading-6 text-gray-500'>You currently do not have any items in your bag.</p>
                   </li>
                   ) : (bagItems.map((item, index) => (
                     <li key={index} className="flex py-6">
-                      <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
-                        <img src={item.image} alt={item.name} className="h-full w-full object-cover object-center" />
+                      <div className="flex-shrink-0 w-24 h-24 overflow-hidden border border-gray-200 rounded-md">
+                        <img src={item.image} alt={item.name} className="object-cover object-center w-full h-full" />
                       </div>
-                      <div className="ml-4 flex flex-1 flex-col">
+                      <div className="flex flex-col flex-1 ml-4">
                         <span className="flex justify-between text-base font-medium text-gray-900">
                           <p><Link to={`/products/${item.id}`}>{item.name}</Link></p>
                           <p className="ml-4">${item.price * item.quantity}</p>
                         </span>
                         <p className="text-gray-500">{item.variant}</p>
                         <p className="text-gray-500">${item.price}</p>
-                        <span className="flex flex-1 items-center justify-between text-sm">
+                        <span className="flex items-center justify-between flex-1 text-sm">
                           <p className="text-gray-500">Qty: {item.quantity}</p>
                           <div className="flex">
                             <button type="button" className="font-medium text-indigo-600 hover:text-indigo-500" onClick={() => dispatch(removeFromBag(item.id))}>Remove</button>
@@ -81,23 +81,23 @@ export default function BagSidePanel({ isBagOpen, setIsBagOpen }) {
                 </ul>
               </div>
 
-            <div className="border-t border-gray-200 px-4 py-6 sm:px-6">
+            <div className="px-4 py-6 border-t border-gray-200 sm:px-6">
               <div className="flex justify-between text-base font-medium text-gray-900">
                 <p>Subtotal ({getBagTotal().totalQuantity} items)</p>
                 <p>${getBagTotal().totalPrice}</p>
               </div>
               <p className="mt-0.5 text-sm text-gray-500">Shipping and taxes calculated at checkout.</p>
               <div className="mt-6">
-                <button href="#" className="w-full flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700 transition-colors duration-300 ease-in-out"
+                <button href="#" className="flex items-center justify-center w-full px-6 py-3 text-base font-medium text-white transition-colors duration-300 ease-in-out bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-700"
                 onClick={handleCheckout}
                 // onClick={() => handleCheckout(false)}
                 >Checkout</button>
               </div>
               <div className="mt-6">
-                <Link to="/bag" className="flex items-center justify-center rounded-md border border-indigo-600 px-6 py-3 text-base font-medium text-indigo-600 hover:text-white shadow-sm hover:bg-indigo-700 transition-colors duration-300 ease-in-out" onClick={handleToggleSidePanel}>View Bag</Link>
+                <Link to="/bag" className="flex items-center justify-center px-6 py-3 text-base font-medium text-indigo-600 transition-colors duration-300 ease-in-out border border-indigo-600 rounded-md shadow-sm hover:text-white hover:bg-indigo-700" onClick={handleToggleSidePanel}>View Bag</Link>
               </div>
-              <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
-                <p>or <button type="button" className="font-medium text-indigo-600 hover:text-indigo-500 ml-1 transition-colors duration-300 ease-in-out" onClick={handleToggleSidePanel}>Continue Shopping<span aria-hidden="true"> &rarr;</span></button></p>
+              <div className="flex justify-center mt-6 text-sm text-center text-gray-500">
+                <p>or <button type="button" className="ml-1 font-medium text-indigo-600 transition-colors duration-300 ease-in-out hover:text-indigo-500" onClick={handleToggleSidePanel}>Continue Shopping<span aria-hidden="true"> &rarr;</span></button></p>
               </div>
             </div>
           </div>
