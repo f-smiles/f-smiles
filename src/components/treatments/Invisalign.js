@@ -6,7 +6,7 @@ const Invisalign = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setProgress((prevProgress) => {
-        const nextProgress = prevProgress >= 100 ? 100 : prevProgress + 2; 
+        const nextProgress = prevProgress >= 100 ? 100 : prevProgress + 2;
         return nextProgress;
       });
     }, 25);
@@ -16,9 +16,11 @@ const Invisalign = () => {
     };
   }, []);
 
+  const circleSize = 200; 
+
   const progressBarStyle = {
-    width: "100px",
-    height: "100px",
+    width: `${circleSize}px`,
+    height: `${circleSize}px`,
     borderRadius: "50%",
     position: "relative",
   };
@@ -29,14 +31,14 @@ const Invisalign = () => {
     height: "100%",
     borderRadius: "50%",
     clipPath: `polygon(50% 50%, 100% 0, 100% 100%, ${(100 - progress) / 100 * 50}% 100%, 50% 50%, 50% 0)`,
-    borderWidth: "4px",
+    borderWidth: "2px",
     borderStyle: "solid",
     borderColor: "#9F7AEA",
     boxSizing: "border-box",
   };
 
   const numberStyle = {
-    fontSize: "24px",
+    fontSize: `${circleSize / 6}px`, 
     color: "#369",
     position: "absolute",
     top: "50%",
@@ -47,23 +49,32 @@ const Invisalign = () => {
   };
 
   const topTextStyle = {
-    fontSize: "18px",
+    fontSize: `${circleSize / 10}px`, 
     color: "#369",
     position: "absolute",
     top: "50%",
-    left: "15%", 
+    left: "15%",
     transform: `translate(-50%, -50%) ${progress >= 100 ? "translateX(-100%)" : "translateX(0)"}`,
     opacity: progress >= 100 ? 1 : 0,
     transition: "opacity 1s ease-in-out, transform 1s ease-in-out",
   };
 
+  const progressContainerStyle = {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  };
+
   return (
     <main className="w-full px-4 pt-16 bg-F8F6F1">
       <div className="flex justify-center items-center">
-        <div style={progressBarStyle}>
-          <div style={borderStyle}></div>
-          <div style={numberStyle}>1</div>
-          <div style={topTextStyle}>Top</div>
+        <div style={progressContainerStyle}>
+          <div style={progressBarStyle}>
+            <div style={borderStyle}></div>
+            <div style={numberStyle}>1%</div>
+            <div style={topTextStyle}>Top</div>
+          </div>
+          <div style={{ marginLeft: "20px" }}>Of Invisalign Providers</div>
         </div>
       </div>
       <div className="flex justify-center items-center">
