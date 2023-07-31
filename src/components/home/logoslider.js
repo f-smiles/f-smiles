@@ -32,7 +32,7 @@ function ParallaxText({ children, baseVelocity = 100 }) {
   });
 
   return (
-    <div className="parallax max-w-screen-xl mx-auto">
+    <div className="max-w-screen-xl mx-auto parallax">
       <motion.div className="scroller" style={{ x }}>
         <span className='inline-flex space-x-8'>{children} </span>
       </motion.div>
@@ -45,49 +45,49 @@ export default function LogoSlider() {
     <>
       <ParallaxText baseVelocity={-5}>
         <img
-          className='w-1/6 aspect-auto object-contain'
+          className='object-contain w-1/6 aspect-auto'
           src="../../images/movingbannerfiles/damonlogo.png"
           alt="damon"
         />
         <img
-          className='w-24 aspect-auto object-contain'
+          className='object-contain w-24 aspect-auto'
           src="../../images/movingbannerfiles/invis-logo.png"
           alt="invisalign"
         />
         <img
-          className='w-1/6 aspect-auto object-contain'
+          className='object-contain w-1/6 aspect-auto'
           src="../../images/movingbannerfiles/readers.png"
           alt="readers choice"
         />
         <img
-          className='w-1/6 aspect-auto object-contain'
+          className='object-contain w-1/6 aspect-auto'
           src="../../images/movingbannerfiles/Top-Dentist.png"
           alt="top-dentist"
         />
       </ParallaxText>
       <ParallaxText baseVelocity={5}>
         <img
-          className='w-1/4 aspect-auto object-contain'
+          className='object-contain w-1/4 aspect-auto'
           src="../../images/movingbannerfiles/invis.png"
           alt="invisalign"
         />
         <img
-          className='w-1/4 aspect-auto object-contain'
+          className='object-contain w-1/4 aspect-auto'
           src="../../images/movingbannerfiles/aao.png"
           alt="Image"
         />
         <img
-          className='w-1/6 aspect-auto object-contain'
+          className='object-contain w-1/6 aspect-auto'
           src="../../images/movingbannerfiles/ABO.png"
           alt="ABO"
         />
         <img
-          className='w-1/6 aspect-auto object-contain'
+          className='object-contain w-1/6 aspect-auto'
           src="../../images/movingbannerfiles/valley.jpg"
           alt="valley"
         />
         <img
-          className='w-1/6 aspect-auto object-contain'
+          className='object-contain w-1/6 aspect-auto'
           src="../../images/movingbannerfiles/top-dentists.png"
           alt="dentists"
         />

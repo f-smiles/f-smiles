@@ -1,7 +1,4 @@
 import React, { Fragment, useState, useEffect } from "react";
-import { Disclosure } from "@headlessui/react";
-import { ChevronUpIcon } from "@heroicons/react/20/solid";
-import { Link } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 
 import {
@@ -10,7 +7,7 @@ import {
   AccordionBody,
 } from "@material-tailwind/react";
 
-const WhyChooseUs = () => {
+export default function WhyChooseUs() {
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const words = [
     "Invisalign",
@@ -35,12 +32,12 @@ const WhyChooseUs = () => {
   }, [words.length]);
 
   return (
-    <div className="bg-gradient-to-r from-neutral-50 to-teal-50 to-violet-100 to-violet-200 py-4  w-full px-4 pt-16">
+    <div className="w-full px-4 py-4 pt-16 bg-gradient-to-r from-neutral-50 to-teal-50 to-violet-100 to-violet-200">
 
-      <div className=" relative rounded-lg px-4 pt-4 pb-2 space-y-4 text-gray-500 text-center relative z-10">
+      <div className="relative z-10 px-4 pt-4 pb-2 space-y-4 text-center text-gray-500 rounded-lg ">
         <div>
-          <h1 className="mt-20 mb-20 text-stone-100 text-5xl relative">
-            <span className="text-black mr-4 justify-start -ml-80">Experts in</span>{" "}
+          <h1 className="relative mt-20 mb-20 text-5xl text-stone-100">
+            <span className="justify-start mr-4 text-black -ml-80">Experts in</span>{" "}
             <span className="relative">
               {words.map((word, index) => (
                 <span
@@ -69,7 +66,7 @@ const WhyChooseUs = () => {
         </div>
       </div>
       <div className="grid grid-cols-3 mt-4">
-      <div className="col-span-1 text-purple-900 px-4 py-20 border border-purple-400 flex flex-col justify-center items-center">
+      <div className="flex flex-col items-center justify-center col-span-1 px-4 py-20 text-purple-900 border border-purple-400">
       <span className="text-3xl">3D i-Cat Imaging</span>
         <img
              src="/images/x-ray.svg"
@@ -80,7 +77,7 @@ const WhyChooseUs = () => {
            The i-Cat imaging machine creates precise three-dimensional views of the oral-facial structures in as little as five seconds. Using these enhanced images, our orthodontists monitor facial growth and estimate your best treatment timing and plan.
            </p>
          </div>
-         <div className="col-span-1 text-purple-900 px-4 py-20 border-t border-b border-purple-400 flex flex-col justify-center items-center">
+         <div className="flex flex-col items-center justify-center col-span-1 px-4 py-20 text-purple-900 border-t border-b border-purple-400">
            <span className="text-3xl">Optimized Treatment</span>
            <img
              src="/images/propeltransparent.png"
@@ -90,7 +87,7 @@ const WhyChooseUs = () => {
            <p className="mt-2"> Our team prioritizes your treatment optimization. We currently offer the most efficient adjuncts to accelerate your treatment. 
  Currently we utilize light and vibrational therapy to stimulate the supporting tissues around the teeth so that they move to their ideal positions in less time. We always strive to reduce office visits is a priority of ours.  </p>
          </div>
-         <div className="col-span-1 text-purple-900 px-4 py-20 border border-purple-400 flex flex-col justify-center items-center">
+         <div className="flex flex-col items-center justify-center col-span-1 px-4 py-20 text-purple-900 border border-purple-400">
            <span className="text-3xl">Laser Therapy</span>
            <img
              src="/images/Laser-Symbol.svg"
@@ -100,12 +97,12 @@ const WhyChooseUs = () => {
            <p>Straight teeth are just one part of a beautiful smile. Like any work of art, your teeth need the right frame to truly shine. Thanks to advanced laser technology, we can sculpt your gum tissue to create symmetrical contours that highlight your new smile.</p>
          </div>
        </div>
-      <div className="mx-auto  p-2">
+      <div className="p-2 mx-auto">
         <div className="relative">
-          <div className="absolute inset-0 flex justify-center items-center"></div>
+          <div className="absolute inset-0 flex items-center justify-center"></div>
         </div>
-        <div className="rounded-lg  py-20 mb-20 flex relative bg-opacity-60 backdrop-filter backdrop-blur-xl absolute inset-0 overflow-hidden">
-          <p className="mt-20 text-center px-12 py-8 mx-auto text-lg text-violet-800 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
+        <div className="absolute relative inset-0 flex py-20 mb-20 overflow-hidden rounded-lg bg-opacity-60 backdrop-filter backdrop-blur-xl">
+          <p className="px-12 py-8 mx-auto mt-20 text-lg text-center text-violet-800 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
           <span className="py-2"     style={{ letterSpacing: '.2px' }} >
     FreySmiles Orthodontics is a family-owned practice providing unparalleled orthodontic experience to 
 the Lehigh Valley community for over four decades. Our office holds the distinction of being the longest-standing,
@@ -122,7 +119,7 @@ the Lehigh Valley community for over four decades. Our office holds the distinct
             <img
               src="../../images/drfreyperfecting.jpg"
               alt="invisalign"
-              className="rounded-lg mt-4"
+              className="mt-4 rounded-lg"
               style={{
                 width: "120%",
                 height: "auto",
@@ -139,7 +136,7 @@ the Lehigh Valley community for over four decades. Our office holds the distinct
             <img
               src="../../images/alyssaprinter.jpg"
               alt="invisalign"
-              className="rounded-full mt-4"
+              className="mt-4 rounded-full"
               style={{
                 width: "100%",
                 height: "auto",
@@ -168,7 +165,7 @@ the Lehigh Valley community for over four decades. Our office holds the distinct
           <p style={{ letterSpacing: '.2px' }} className="mb-16 ml-10 mr-10 text-center px-4 py-2 mx-auto text-md text-violet-800 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75 whitespace-[60ch]">
             Our office is the #1 provider of Invisalign and Invisalign Teen in
             the region.{" "}
-            <span className="text-violet-500 text-2xl">
+            <span className="text-2xl text-violet-500">
               As Diamond Plus Invisalign providers,
             </span>{" "}
             our care over the many years has contributed to the research and
@@ -177,7 +174,7 @@ the Lehigh Valley community for over four decades. Our office holds the distinct
 </div>
         <NavLink
           to="/virtual-consultation"
-          className="-ml-20 mt-10 curspor-pointer px-5 py-5 cursor-pointer bg-teal-800 rounded-full px-8 py-2 hover:bg-emerald-700 text-lg text-white tracking-normal text-white hover:text-white z-20 relative"
+          className="relative z-20 px-5 px-8 py-2 py-5 mt-10 -ml-20 text-lg tracking-normal text-white bg-teal-800 rounded-full cursor-pointer curspor-pointer hover:bg-emerald-700 hover:text-white"
           style={{ zIndex: "20" }}
         >
           <button className="mt-20">Schedule a Consultation</button>
@@ -204,7 +201,7 @@ the Lehigh Valley community for over four decades. Our office holds the distinct
                   <ul>
                     <li className="mb-5">
                       <a
-                        className=" text-xl  cursor-pointer text-emerald-700 hover:text-indigo-700"
+                        className="text-xl cursor-pointer  text-emerald-700 hover:text-indigo-700"
                         href="/our-team"
                       >
                         Dr. Gregg Frey
@@ -235,7 +232,7 @@ the Lehigh Valley community for over four decades. Our office holds the distinct
                   <ul>
                     <li>
                       <a
-                        className="text-lg underline cursor-pointer text-indigo-500 hover:text-indigo-700"
+                        className="text-lg text-indigo-500 underline cursor-pointer hover:text-indigo-700"
                         href="/locations"
                       >
                         Allentown
@@ -243,7 +240,7 @@ the Lehigh Valley community for over four decades. Our office holds the distinct
                     </li>
                     <li>
                       <a
-                        className="text-lg underline cursor-pointer text-indigo-500 hover:text-indigo-700"
+                        className="text-lg text-indigo-500 underline cursor-pointer hover:text-indigo-700"
                         href="/locations"
                       >
                         Bethlehem
@@ -251,7 +248,7 @@ the Lehigh Valley community for over four decades. Our office holds the distinct
                     </li>
                     <li>
                       <a
-                        className="text-lg underline cursor-pointer text-indigo-500 hover:text-indigo-700"
+                        className="text-lg text-indigo-500 underline cursor-pointer hover:text-indigo-700"
                         href="/locations"
                       >
                         Lehigton
@@ -259,7 +256,7 @@ the Lehigh Valley community for over four decades. Our office holds the distinct
                     </li>
                     <li>
                       <a
-                        className="text-lg underline cursor-pointer text-indigo-500 hover:text-indigo-700"
+                        className="text-lg text-indigo-500 underline cursor-pointer hover:text-indigo-700"
                         href="/locations"
                       >
                         Schnecksville
@@ -276,14 +273,14 @@ the Lehigh Valley community for over four decades. Our office holds the distinct
           <img
             src="../../images/rainbow.svg"
             alt="invisalign"
-            className="opacity-90 mt-4"
+            className="mt-4 opacity-90"
             style={{
               width: "20%",
               height: "auto",
             }}
           />
           <p
-            className="text-violet-800  text-lg mt-10 mr-20 relative text-center"
+            className="relative mt-10 mr-20 text-lg text-center text-violet-800"
             style={{ zIndex: "20", flex: "1",     }}
        
           >
@@ -294,7 +291,7 @@ the Lehigh Valley community for over four decades. Our office holds the distinct
               {" "}
               <a
                 href="https://morethansmiles.org/"
-                className="underline cursor-pointer text-indigo-500 hover:text-indigo-700"
+                className="text-indigo-500 underline cursor-pointer hover:text-indigo-700"
               >
                 <strong> More Than Smiles</strong>
               </a>{" "}
@@ -307,7 +304,7 @@ the Lehigh Valley community for over four decades. Our office holds the distinct
           </p>
         </div>
         <div className="px-4 py-2 mx-auto text-xl text-stone-800">
-          <p className="mt-1 relative" style={{ zIndex: "20" }}></p>
+          <p className="relative mt-1" style={{ zIndex: "20" }}></p>
         </div>
 
         <table
@@ -319,7 +316,7 @@ the Lehigh Valley community for over four decades. Our office holds the distinct
               <td className="p-2"></td>
 
               <td
-                className="bg-gradient-to-r from-rose-50 to-violet-200 p-2 py-8 text-violet-700 text-center"
+                className="p-2 py-8 text-center bg-gradient-to-r from-rose-50 to-violet-200 text-violet-700"
                 style={{
                   borderTopLeftRadius: "40px",
                   borderBottomLeftRadius: "40px",
@@ -329,7 +326,7 @@ the Lehigh Valley community for over four decades. Our office holds the distinct
                 FreySmiles Orthodontics
               </td>
               <td
-                className="bg-gradient-to-r from-violet-200 to-violet-300 p-2 py-8 text-violet-700 text-center"
+                className="p-2 py-8 text-center bg-gradient-to-r from-violet-200 to-violet-300 text-violet-700"
                 style={{
                   borderTopRightRadius: "40px",
 
@@ -341,7 +338,7 @@ the Lehigh Valley community for over four decades. Our office holds the distinct
             </tr>
             <tr>
               <td
-                className="bg-gradient-to-r from-stone-50 to-rose-50 text-lg text-neutral-500 p-2 py-8 text-center"
+                className="p-2 py-8 text-lg text-center bg-gradient-to-r from-stone-50 to-rose-50 text-neutral-500"
                 style={{
                   borderTopLeftRadius: "40px",
                 
@@ -357,7 +354,7 @@ the Lehigh Valley community for over four decades. Our office holds the distinct
                   viewBox="0 0 24 24"
                   strokeWidth={1.5}
                   stroke="#B17CFF"
-                  className="w-8 h-8 mx-auto z-0"
+                  className="z-0 w-8 h-8 mx-auto"
                 >
                   <path
                     strokeLinecap="round"
@@ -373,7 +370,7 @@ the Lehigh Valley community for over four decades. Our office holds the distinct
                   viewBox="0 0 24 24"
                   strokeWidth={1.5}
                   stroke="currentColor"
-                  className="w-8 h-8 mx-auto stroke-red-500 z-0"
+                  className="z-0 w-8 h-8 mx-auto stroke-red-500"
                 >
                   <path
                     strokeLinecap="round"
@@ -384,7 +381,7 @@ the Lehigh Valley community for over four decades. Our office holds the distinct
               </td>
             </tr>
             <tr>
-              <td className="bg-gradient-to-r from-stone-50 to-rose-50 text-neutral-500 text-lg p-2 py-8 text-center">
+              <td className="p-2 py-8 text-lg text-center bg-gradient-to-r from-stone-50 to-rose-50 text-neutral-500">
                 Leaders in the industry
               </td>
               <td className="mb-2 bg-gradient-to-r from-rose-50 to-violet-200">
@@ -394,7 +391,7 @@ the Lehigh Valley community for over four decades. Our office holds the distinct
                   viewBox="0 0 24 24"
                   strokeWidth={1.5}
                   stroke="#B17CFF"
-                  className="w-8 h-8 mx-auto z-0"
+                  className="z-0 w-8 h-8 mx-auto"
                 >
                   <path
                     strokeLinecap="round"
@@ -410,7 +407,7 @@ the Lehigh Valley community for over four decades. Our office holds the distinct
                   viewBox="0 0 24 24"
                   strokeWidth={1.5}
                   stroke="currentColor"
-                  className="w-8 h-8 mx-auto stroke-red-500 z-0"
+                  className="z-0 w-8 h-8 mx-auto stroke-red-500"
                 >
                   <path
                     strokeLinecap="round"
@@ -421,7 +418,7 @@ the Lehigh Valley community for over four decades. Our office holds the distinct
               </td>
             </tr>
             <tr>
-              <td className="bg-gradient-to-r from-stone-50 to-rose-50 text-neutral-500 text-lg p-2 py-8 text-center">
+              <td className="p-2 py-8 text-lg text-center bg-gradient-to-r from-stone-50 to-rose-50 text-neutral-500">
                 Modern office settings
               </td>
               <td className="mb-2 bg-gradient-to-r from-rose-50 to-violet-200">
@@ -431,7 +428,7 @@ the Lehigh Valley community for over four decades. Our office holds the distinct
                   viewBox="0 0 24 24"
                   strokeWidth={1.5}
                   stroke="#B17CFF"
-                  className="w-8 h-8 mx-auto z-0"
+                  className="z-0 w-8 h-8 mx-auto"
                 >
                   <path
                     strokeLinecap="round"
@@ -447,7 +444,7 @@ the Lehigh Valley community for over four decades. Our office holds the distinct
                   viewBox="0 0 24 24"
                   strokeWidth={1.5}
                   stroke="currentColor"
-                  className="w-8 h-8 mx-auto stroke-red-500 z-0"
+                  className="z-0 w-8 h-8 mx-auto stroke-red-500"
                 >
                   <path
                     strokeLinecap="round"
@@ -459,7 +456,7 @@ the Lehigh Valley community for over four decades. Our office holds the distinct
             </tr>
             <tr></tr>
             <tr>
-              <td className="text-lg p-2 py-8 text-center bg-gradient-to-r from-stone-50 to-rose-50 text-neutral-500">
+              <td className="p-2 py-8 text-lg text-center bg-gradient-to-r from-stone-50 to-rose-50 text-neutral-500">
                 Over 50+ years of experience
               </td>
               <td className="mb-2 bg-gradient-to-r from-rose-50 to-violet-200">
@@ -469,7 +466,7 @@ the Lehigh Valley community for over four decades. Our office holds the distinct
                   viewBox="0 0 24 24"
                   strokeWidth={1.5}
                   stroke="#B17CFF"
-                  className="w-8 h-8 mx-auto z-0"
+                  className="z-0 w-8 h-8 mx-auto"
                 >
                   <path
                     strokeLinecap="round"
@@ -485,7 +482,7 @@ the Lehigh Valley community for over four decades. Our office holds the distinct
                   viewBox="0 0 24 24"
                   strokeWidth={1.5}
                   stroke="currentColor"
-                  className="w-8 h-8 mx-auto stroke-red-500 z-0"
+                  className="z-0 w-8 h-8 mx-auto stroke-red-500"
                 >
                   <path
                     strokeLinecap="round"
@@ -497,7 +494,7 @@ the Lehigh Valley community for over four decades. Our office holds the distinct
             </tr>
             <tr>
               <td
-                className="text-lg p-2 py-8 text-center bg-gradient-to-r from-stone-50 to-rose-50 text-neutral-500"
+                className="p-2 py-8 text-lg text-center bg-gradient-to-r from-stone-50 to-rose-50 text-neutral-500"
                 style={{
                   borderBottomLeftRadius: "40px",
                 }}
@@ -511,7 +508,7 @@ the Lehigh Valley community for over four decades. Our office holds the distinct
                   viewBox="0 0 24 24"
                   strokeWidth={1.5}
                   stroke="#B17CFF"
-                  className="w-8 h-8 mx-auto z-0"
+                  className="z-0 w-8 h-8 mx-auto"
                 >
                   <path
                     strokeLinecap="round"
@@ -532,7 +529,7 @@ the Lehigh Valley community for over four decades. Our office holds the distinct
                   viewBox="0 0 24 24"
                   strokeWidth={1.5}
                   stroke="#B17CFF"
-                  className="w-8 h-8 mx-auto z-0"
+                  className="z-0 w-8 h-8 mx-auto"
                 >
                   <path
                     strokeLinecap="round"
@@ -548,5 +545,3 @@ the Lehigh Valley community for over four decades. Our office holds the distinct
     </div>
   );
 };
-
-export default WhyChooseUs;

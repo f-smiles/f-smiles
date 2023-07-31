@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo, useCallback } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import CartContext from "./CartContext";
 
 const useLocalStorage = (key, initialValue) => {

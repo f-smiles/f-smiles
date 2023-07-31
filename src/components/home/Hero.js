@@ -15,11 +15,11 @@ export default function Hero() {
     <motion.div
       ref={heroRef}
       style={{ y }}
-      className="relative isolate px-8 pt-14 lg:px-8"
+      className="relative z-0 px-8 isolate pt-14 lg:px-8"
     >
       <div
         id="gradients"
-        className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
+        className="absolute inset-x-0 overflow-hidden -top-40 -z-10 transform-gpu blur-3xl sm:-top-80"
         aria-hidden="true"
       >
         <div
@@ -30,29 +30,28 @@ export default function Hero() {
           }}
         />
       </div>
-      <div className="py-32 sm:py-48 lg:py-56 grid grid-cols-1 place-items-center lg:grid-cols-2 max-w-screen-xl mx-auto">
+      <div className="grid max-w-screen-xl grid-cols-1 py-32 mx-auto sm:py-48 lg:py-56 place-items-center lg:grid-cols-2">
         <div className="text-left">
-          <h1 className="text-4xl font-medium lg:text-5xl text-indigo-500">
+          <h1 className="text-4xl font-medium text-primary50 lg:text-5xl">
             Because every smile is unique
-            {/* Because every <span className='italic font-normal mr-2'>smile</span> is <span className='italic font-normal'>unique</span> */}
           </h1>
           <p className="max-w-xl mt-6 text-lg leading-8 text-gray-600 lg:text-lg">
             Our goal is to make your smile look best on{" "}
-            <span className="uppercase font-bold ">you</span>. It's an art, it's
+            <span className="font-bold uppercase ">you</span>. It's an art, it's
             a science, and it is something orthodontists Dr. Gregg Frey, Dr.
             Daniel Frey, and the exceptional team at FreySmiles Orthodontics
             recognize and are very passionate about.
           </p>
-          <div className="mt-10 flex items-center justify-start gap-x-6">
+          <div className="flex items-center justify-start mt-10 gap-x-6">
             <Link
               to="/book-now"
-              className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-lg lg:text-xl lg:px-5 lg:py-3 font-normal text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              className="transition-colors ease-linear duration-300 rounded-md bg-primary50 px-3.5 py-2.5 text-lg lg:text-xl lg:px-5 lg:py-3 font-normal text-white shadow-sm hover:bg-primary30 hover:text-primary90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary30"
             >
               Book Now
             </Link>
             <Link
               to="/our-team"
-              className="text-lg font-normal leading-6 text-indigo-600"
+              className="text-lg font-normal leading-6 transition-colors duration-300 ease-linear text-primary50 hover:text-primary30"
             >
               Our Team <span aria-hidden="true">→</span>
             </Link>
@@ -60,11 +59,11 @@ export default function Hero() {
         </div>
         <div className="relative mx-auto mt-32 lg:mt-0">
           <img
-            className="absolute top-0 left-0 z-10 max-w-lg"
+            className="absolute top-0 max-w-lg left-8"
             src="../../images/hero_clip.png"
             alt="girl smiling"
           />
-          <div className="w-full scale-110 z-0">
+          <div className="relative w-full scale-110 -z-10">
             <DotPattern />
           </div>
         </div>

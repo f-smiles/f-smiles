@@ -1,51 +1,24 @@
-@font-face {
-  font-family: "CeraProRegular";
-  src: url('fonts/cerapro_regular.woff2') format('woff2'), url('fonts/cerapro_regular.woff') format('woff');
-}
-
-@font-face {
-  font-family: "CeraProBold";
-  src: url('fonts/cerapro_bold.woff2') format('woff2'), url('fonts/cerapro_bold.woff') format('woff');
-}
-
-@font-face {
-  font-family: "EditorialNew";
-  src: url('fonts/EditorialNew-Variable.ttf') format('truetype');
-}
-
-.editorial{
-  font-family: "EditorialNew";
-}
-/* @font-face {
-  font-family: "Larken";
-  src: url('fonts/Larken-Bold.otf') format('opentype');
-} */
-
-@font-face {
-  font-family: "Larken";
-  src: url('fonts/LarkenVariable.ttf') format('truetype');
-}
-
 footer a {
-  font-family: "CeraProRegular"
+  font-family: "CeraProRegular";
 }
 
-svg {
+/* svg {
   position: relative;
   z-index: -1;
   display: block;
-}
+} */
 
 text {
   font-size: 11px;
   transform-origin: center;
 }
 
-
-@keyframes rotate-btn{
-  to{ transform: rotate(360deg); }
+@keyframes rotate-btn {
+  to {
+    transform: rotate(360deg);
+  }
 }
-.go-down-btn text{
+.go-down-btn text {
   animation: rotate-btn 20s linear infinite;
 }
 /*
@@ -106,33 +79,6 @@ text {
       to { transform: rotate(0); }
   } */
 
-
-@keyframes cascading-animation {
-  /* from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  } */
-  0% {
-    transform: translateY(-2px);
-  }
-  50% {
-    transform: translateY(5px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
-}
-
-.rect-animate {
-  animation: cascading-animation 1s ease-in-out;
-  /* animation: cascading-animation 1.5s cubic-bezier(0.445, 0.05, 0.55, 0.95); */
-
-}
-
 .btn3 {
   transform: scale(1);
   transition: transform 0.1s ease-in;
@@ -140,7 +86,6 @@ text {
 
 .btn3:hover {
   transform: scale(1.1);
-
 }
 
 .btn3 span {
@@ -151,7 +96,6 @@ text {
 /* .btn3:hover span {
   transform: scale(1.1, 1.2);
 } */
-
 
 /* .collapsible-data-list-module--container--2Lk2y.collapsible-data-list-module--active--3rlZC::before {
   background-color: red;
@@ -244,9 +188,9 @@ text {
   }
 }
 
-
 @keyframes bounce {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0);
   }
   50% {
@@ -254,107 +198,99 @@ text {
   }
 }
 
-  .animate-bounce:hover {
-    animation: bounce 0.5s infinite;
+.animate-bounce:hover {
+  animation: bounce 0.5s infinite;
+}
+
+@keyframes wave {
+  0% {
+    transform: translateY(0);
   }
-
-  @keyframes wave {
-    0% {
-      transform: translateY(0);
-    }
-    25% {
-      transform: translateY(-10px);
-    }
-    50% {
-      transform: translateY(0);
-    }
-    75% {
-      transform: translateY(1px);
-    }
-    100% {
-      transform: translateY(0);
-    }
+  25% {
+    transform: translateY(-10px);
   }
-
-  .wave-animation {
-    display: inline-block;
-    animation: wave 2s infinite;
+  50% {
+    transform: translateY(0);
   }
-
-
-
-
-
-
-
-  @keyframes blur-in {
-    from {
-      filter: blur(8px);
-      transform: scale(0.6);
-    }
-    to {
-      filter: blur(0);
-      transform: scale(1);
-    }
+  75% {
+    transform: translateY(1px);
   }
-
-  @keyframes blur-out {
-    from {
-      filter: blur(0);
-      transform: scale(1);
-    }
-    to {
-      filter: blur(8px);
-      transform: scale(0.8);
-    }
+  100% {
+    transform: translateY(0);
   }
+}
 
-  @keyframes bubble-in {
-    0% {
-      transform: scale(0.5);
-    }
-    100% {
-      transform: scale(1);
-    }
+.wave-animation {
+  display: inline-block;
+  animation: wave 2s infinite;
+}
+
+@keyframes blur-in {
+  from {
+    filter: blur(8px);
+    transform: scale(0.6);
   }
-
-  @keyframes delayed-bubble-in {
-    0% {
-      transform: scale(0);
-    }
-    50% {
-      transform: scale(0.5);
-    }
-    100% {
-      transform: scale(1);
-    }
+  to {
+    filter: blur(0);
+    transform: scale(1);
   }
+}
 
-  .animate-bubble-in {
-    animation: bubble-in 1s ease-out;
+@keyframes blur-out {
+  from {
+    filter: blur(0);
+    transform: scale(1);
   }
-
-  .animate-delayed-bubble-in {
-    animation: delayed-bubble-in 1s ease-out;
-    animation-delay: 0.5s;
+  to {
+    filter: blur(8px);
+    transform: scale(0.8);
   }
+}
 
-
-  @keyframes film-reel {
-    0% {
-      transform: translateY(0);
-    }
-    100% {
-      transform: translateY(-100%);
-    }
+@keyframes bubble-in {
+  0% {
+    transform: scale(0.5);
   }
-
-  .animate-film-reel {
-    animation: film-reel 10s linear infinite;
+  100% {
+    transform: scale(1);
   }
+}
 
+@keyframes delayed-bubble-in {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(0.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
 
-  @keyframes slidein {
+.animate-bubble-in {
+  animation: bubble-in 1s ease-out;
+}
+
+.animate-delayed-bubble-in {
+  animation: delayed-bubble-in 1s ease-out;
+  animation-delay: 0.5s;
+}
+
+@keyframes film-reel {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+.animate-film-reel {
+  animation: film-reel 10s linear infinite;
+}
+
+@keyframes slidein {
   from {
     left: 100%;
   }
