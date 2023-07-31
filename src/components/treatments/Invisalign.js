@@ -16,22 +16,24 @@ const Invisalign = () => {
     };
   }, []);
 
-  const circleSize = 200; 
+  const circleSize = 300;
 
   const progressBarStyle = {
     width: `${circleSize}px`,
     height: `${circleSize}px`,
     borderRadius: "50%",
-    position: "relative",
+    position: "absolute",
+    top: "50%",
+    left: "50%", 
+    transform: "translate(-50%, -50%)",
   };
 
   const borderStyle = {
-    position: "absolute",
     width: "100%",
     height: "100%",
     borderRadius: "50%",
     clipPath: `polygon(50% 50%, 100% 0, 100% 100%, ${(100 - progress) / 100 * 50}% 100%, 50% 50%, 50% 0)`,
-    borderWidth: "2px",
+    borderWidth: "8px",
     borderStyle: "solid",
     borderColor: "#9F7AEA",
     boxSizing: "border-box",
@@ -59,35 +61,34 @@ const Invisalign = () => {
     transition: "opacity 1s ease-in-out, transform 1s ease-in-out",
   };
 
-  const progressContainerStyle = {
+  const sectionStyle = {
+    background: `url("../../images/elizabethpatient.jpeg") 100% center/50% no-repeat`,
+    minHeight: "100vh",
     display: "flex",
+    flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
+    position: "relative",
   };
 
   return (
-    <main className="w-full px-4 pt-16 bg-F8F6F1">
-      <div className="flex justify-center items-center">
-        <div style={progressContainerStyle}>
-          <div style={progressBarStyle}>
-            <div style={borderStyle}></div>
-            <div style={numberStyle}>1%</div>
-            <div style={topTextStyle}>Top</div>
-          </div>
-          <div style={{ marginLeft: "20px" }}>Of Invisalign Providers</div>
-        </div>
+    <main style={sectionStyle} className="w-full px-4 pt-16 bg-F8F6F1">
+      <div style={progressBarStyle}>
+        <div style={borderStyle}></div>
+        <div style={numberStyle}>1%</div>
+        <div style={topTextStyle}>Top</div>
       </div>
+      <div style={{ marginTop: "20px" }}>Of Invisalign Providers</div>
       <div className="flex justify-center items-center">
-        <h1 className="text-5xl my-10">
+        {/* <h1 className="text-5xl my-10">
           How <span className="font-light italic">Invisalign</span> Works
-        </h1>
+        </h1> */}
       </div>
     </main>
   );
 };
 
 export default Invisalign;
-
 
 
 
