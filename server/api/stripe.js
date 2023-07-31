@@ -1,32 +1,7 @@
 const router = require("express").Router();
 module.exports = router;
 
-const stripe = require("stripe")(process.env.REACT_APP_STRIPE_TEST_KEY);
-
-// GET /api/v1/checkout/sessions/:id/line_items
-router.get("/sessions/:id/line_items", async (req, res) => {
-  const Stripe = require("stripe");
-  const stripe = Stripe(process.env.REACT_APP_STRIPE_TEST_KEY);
-  stripe.checkout.sessions.listLineItems(
-    req.params.id,
-    { limit: 5 },
-    function (err, lineItems) {
-      // asynchronously called
-    }
-  );
-});
-
-// GET /api/v1/checkout/sessions/:id
-router.get("/sessions/:id", async (req, res) => {
-  const session = await stripe.checkout.sessions.retrieve(req.params.id);
-  return session;
-});
-
-// GET /api/v1/checkout/sessions
-router.get("/sessions", async (req, res) => {
-  const sessions = await stripe.checkout.sessions.list();
-  return sessions;
-});
+const stripe = require("stripe")(process.env.REACT_APP_STRIPE_KEY);
 
 // POST /api/v1/checkout/sessions
 router.post("/sessions/create-checkout-session", async (req, res) => {
