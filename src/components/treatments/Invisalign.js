@@ -17,6 +17,9 @@ const Invisalign = () => {
   }, []);
 
   const circleSize = 300;
+  const countdownValue = 10 - Math.ceil((100 - progress) / 100 * 10);
+
+
 
   const progressBarStyle = {
     width: `${circleSize}px`,
@@ -24,24 +27,30 @@ const Invisalign = () => {
     borderRadius: "50%",
     position: "absolute",
     top: "50%",
-    left: "50%", 
-    transform: "translate(-50%, -50%)",
+    left: "50%",
+    transform: "translate(-200%, -50%)",
   };
 
   const borderStyle = {
     width: "100%",
     height: "100%",
     borderRadius: "50%",
-    clipPath: `polygon(50% 50%, 100% 0, 100% 100%, ${(100 - progress) / 100 * 50}% 100%, 50% 50%, 50% 0)`,
-    borderWidth: "8px",
+    clipPath: `polygon(
+      50% 100%,
+      50% ${(100 - progress) / 100 * 50}%,
+      100% ${(100 - progress) / 100 * 50}%,
+      10% 100%,
+      50% 100%
+    )`,
+    borderWidth: "2px",
     borderStyle: "solid",
     borderColor: "#9F7AEA",
     boxSizing: "border-box",
   };
 
   const numberStyle = {
-    fontSize: `${circleSize / 6}px`, 
-    color: "#369",
+    fontSize: `${circleSize / 4}px`,
+    color: "#9F7AEA",
     position: "absolute",
     top: "50%",
     left: "50%",
@@ -51,14 +60,25 @@ const Invisalign = () => {
   };
 
   const topTextStyle = {
-    fontSize: `${circleSize / 10}px`, 
-    color: "#369",
+    fontSize: `${circleSize / 12}px`,
+    color: "#9F7AEA",
     position: "absolute",
     top: "50%",
     left: "15%",
-    transform: `translate(-50%, -50%) ${progress >= 100 ? "translateX(-100%)" : "translateX(0)"}`,
+    transform: `translate(-50%, -50%)`,
     opacity: progress >= 100 ? 1 : 0,
     transition: "opacity 1s ease-in-out, transform 1s ease-in-out",
+  };
+
+  const textStyle = {
+    position: "absolute",
+    top: "50%",
+    left: "25%",
+    transform: "translateY(-50%)",
+    fontSize: `${circleSize / 12}px`,
+    color: "#9F7AEA",
+    opacity: progress >= 100 ? 1 : 0, 
+    transition: "opacity 1s ease-in-out", 
   };
 
   const sectionStyle = {
@@ -75,10 +95,10 @@ const Invisalign = () => {
     <main style={sectionStyle} className="w-full px-4 pt-16 bg-F8F6F1">
       <div style={progressBarStyle}>
         <div style={borderStyle}></div>
-        <div style={numberStyle}>1%</div>
+        <div style={numberStyle}>{progress >= 100 ? 1 : countdownValue}%</div>
         <div style={topTextStyle}>Top</div>
       </div>
-      <div style={{ marginTop: "20px" }}>Of Invisalign Providers</div>
+      <div style={textStyle}>Of Invisalign Providers</div>
       <div className="flex justify-center items-center">
         {/* <h1 className="text-5xl my-10">
           How <span className="font-light italic">Invisalign</span> Works
@@ -89,6 +109,7 @@ const Invisalign = () => {
 };
 
 export default Invisalign;
+
 
 
 
