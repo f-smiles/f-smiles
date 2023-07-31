@@ -2,7 +2,7 @@ import React from "react";
 import { Disclosure } from "@headlessui/react";
 import { ChevronUpIcon } from "@heroicons/react/20/solid";
 
-const Invisalign = () => {
+export default function Invisalign() {
   return (
     
     <main className=" w-full px-4 pt-16 bg-F8F6F1">
@@ -112,6 +112,4 @@ const Invisalign = () => {
 
     </main>
   );
-};
-
-export default Invisalign;
+}
