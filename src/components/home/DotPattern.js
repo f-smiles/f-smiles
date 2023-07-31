@@ -23,7 +23,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#1E40AF"
+        fill="#925fc7"
       />
       <rect
         className="rect-animate"
@@ -31,7 +31,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#1E40AF"
+        fill="#925fc7"
       />
       <rect
         className="rect-animate"
@@ -39,7 +39,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#1E40AF"
+        fill="#925fc7"
       />
       <rect
         className="rect-animate"
@@ -47,7 +47,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#1E40AF"
+        fill="#925fc7"
       />
       <rect
         className="rect-animate"
@@ -55,7 +55,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#1E40AF"
+        fill="#925fc7"
       />
       <rect
         className="rect-animate"
@@ -63,7 +63,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#1E40AF"
+        fill="#925fc7"
       />
       <rect
         className="rect-animate"
@@ -71,7 +71,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#1E40AF"
+        fill="#925fc7"
       />
       <rect
         className="rect-animate"
@@ -79,7 +79,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#1E40AF"
+        fill="#925fc7"
       />
       <rect
         className="rect-animate"
@@ -87,7 +87,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#1E40AF"
+        fill="#925fc7"
       />
       <rect
         className="rect-animate"
@@ -95,7 +95,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#1E40AF"
+        fill="#925fc7"
       />
       <rect
         className="rect-animate"
@@ -103,7 +103,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#1E40AF"
+        fill="#925fc7"
       />
       <rect
         className="rect-animate"
@@ -112,7 +112,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#1E40AF"
+        fill="#925fc7"
       />
       <rect
         className="rect-animate"
@@ -121,7 +121,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#1E40AF"
+        fill="#925fc7"
       />
       <rect
         className="rect-animate"
@@ -130,7 +130,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#1E40AF"
+        fill="#925fc7"
       />
       <rect
         className="rect-animate"
@@ -139,7 +139,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#1E40AF"
+        fill="#925fc7"
       />
       <rect
         className="rect-animate"
@@ -148,7 +148,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#1E40AF"
+        fill="#925fc7"
       />
       <rect
         className="rect-animate"
@@ -157,7 +157,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#1E40AF"
+        fill="#925fc7"
       />
       <rect
         className="rect-animate"
@@ -166,7 +166,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#1E40AF"
+        fill="#925fc7"
       />
       <rect
         className="rect-animate"
@@ -175,7 +175,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#1E40AF"
+        fill="#925fc7"
       />
       <rect
         className="rect-animate"
@@ -184,7 +184,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#1E40AF"
+        fill="#925fc7"
       />
       <rect
         className="rect-animate"
@@ -192,7 +192,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#244cd0"
+        fill="#925fc7"
       />
       <rect
         className="rect-animate"
@@ -201,7 +201,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#244cd0"
+        fill="#925fc7"
       />
       <rect
         className="rect-animate"
@@ -210,7 +210,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#244cd0"
+        fill="#925fc7"
       />
       <rect
         className="rect-animate"
@@ -219,7 +219,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#244cd0"
+        fill="#925fc7"
       />
       <rect
         className="rect-animate"
@@ -228,7 +228,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#244cd0"
+        fill="#925fc7"
       />
       <rect
         className="rect-animate"
@@ -237,7 +237,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#244cd0"
+        fill="#925fc7"
       />
       <rect
         className="rect-animate"
@@ -246,7 +246,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#244cd0"
+        fill="#925fc7"
       />
       <rect
         className="rect-animate"
@@ -255,7 +255,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#244cd0"
+        fill="#925fc7"
       />
       <rect
         className="rect-animate"
@@ -264,7 +264,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#244cd0"
+        fill="#925fc7"
       />
       <rect
         className="rect-animate"
@@ -273,7 +273,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#244cd0"
+        fill="#925fc7"
       />
       <rect
         className="rect-animate"
@@ -281,7 +281,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#2d56db"
+        fill="#925fc7"
       />
       <rect
         className="rect-animate"
@@ -290,7 +290,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#2d56db"
+        fill="#925fc7"
       />
       <rect
         className="rect-animate"
@@ -299,7 +299,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#2d56db"
+        fill="#925fc7"
       />
       <rect
         className="rect-animate"
@@ -308,7 +308,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#2d56db"
+        fill="#925fc7"
       />
       <rect
         className="rect-animate"
@@ -317,7 +317,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#2d56db"
+        fill="#925fc7"
       />
       <rect
         className="rect-animate"
@@ -326,7 +326,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#2d56db"
+        fill="#925fc7"
       />
       <rect
         className="rect-animate"
@@ -335,7 +335,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#2d56db"
+        fill="#925fc7"
       />
       <rect
         className="rect-animate"
@@ -344,7 +344,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#2d56db"
+        fill="#925fc7"
       />
       <rect
         className="rect-animate"
@@ -353,7 +353,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#2d56db"
+        fill="#925fc7"
       />
       <rect
         className="rect-animate"
@@ -362,7 +362,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#2d56db"
+        fill="#925fc7"
       />
       <rect
         className="rect-animate"
@@ -370,7 +370,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#3e63de"
+        fill="#925fc7"
       />
       <rect
         className="rect-animate"
@@ -379,7 +379,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#3e63de"
+        fill="#925fc7"
       />
       <rect
         className="rect-animate"
@@ -388,7 +388,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#3e63de"
+        fill="#925fc7"
       />
       <rect
         className="rect-animate"
@@ -397,7 +397,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#3e63de"
+        fill="#925fc7"
       />
       <rect
         className="rect-animate"
@@ -406,7 +406,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#3e63de"
+        fill="#925fc7"
       />
       <rect
         className="rect-animate"
@@ -415,7 +415,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#3e63de"
+        fill="#925fc7"
       />
       <rect
         className="rect-animate"
@@ -424,7 +424,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#3e63de"
+        fill="#925fc7"
       />
       <rect
         className="rect-animate"
@@ -433,7 +433,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#3e63de"
+        fill="#925fc7"
       />
       <rect
         className="rect-animate"
@@ -442,7 +442,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#3e63de"
+        fill="#925fc7"
       />
       <rect
         className="rect-animate"
@@ -451,7 +451,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#3e63de"
+        fill="#925fc7"
       />
       <rect
         className="rect-animate"
@@ -459,7 +459,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#3e63de"
+        fill="#ad79e3"
       />
       <rect
         className="rect-animate"
@@ -468,7 +468,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#3e63de"
+        fill="#ad79e3"
       />
       <rect
         className="rect-animate"
@@ -477,7 +477,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#3e63de"
+        fill="#ad79e3"
       />
       <rect
         className="rect-animate"
@@ -486,7 +486,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#3e63de"
+        fill="#ad79e3"
       />
       <rect
         className="rect-animate"
@@ -495,7 +495,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#3e63de"
+        fill="#ad79e3"
       />
       <rect
         className="rect-animate"
@@ -504,7 +504,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#3e63de"
+        fill="#ad79e3"
       />
       <rect
         className="rect-animate"
@@ -513,7 +513,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#3e63de"
+        fill="#ad79e3"
       />
       <rect
         className="rect-animate"
@@ -522,7 +522,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#3e63de"
+        fill="#ad79e3"
       />
       <rect
         className="rect-animate"
@@ -531,7 +531,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#3e63de"
+        fill="#ad79e3"
       />
       <rect
         className="rect-animate"
@@ -540,7 +540,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#3e63de"
+        fill="#ad79e3"
       />
       <rect
         className="rect-animate"
@@ -548,7 +548,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#3e63de"
+        fill="#ad79e3"
       />
       <rect
         className="rect-animate"
@@ -557,7 +557,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#3e63de"
+        fill="#ad79e3"
       />
       <rect
         className="rect-animate"
@@ -566,7 +566,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#3e63de"
+        fill="#ad79e3"
       />
       <rect
         className="rect-animate"
@@ -575,7 +575,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#3e63de"
+        fill="#ad79e3"
       />
       <rect
         className="rect-animate"
@@ -584,7 +584,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#3e63de"
+        fill="#ad79e3"
       />
       <rect
         className="rect-animate"
@@ -593,7 +593,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#3e63de"
+        fill="#ad79e3"
       />
       <rect
         className="rect-animate"
@@ -602,7 +602,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#3e63de"
+        fill="#ad79e3"
       />
       <rect
         className="rect-animate"
@@ -611,7 +611,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#3e63de"
+        fill="#ad79e3"
       />
       <rect
         className="rect-animate"
@@ -620,7 +620,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#3e63de"
+        fill="#ad79e3"
       />
       <rect
         className="rect-animate"
@@ -629,7 +629,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#3e63de"
+        fill="#ad79e3"
       />
       <rect
         className="rect-animate"
@@ -637,7 +637,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#3e63de"
+        fill="#ad79e3"
       />
       <rect
         className="rect-animate"
@@ -646,7 +646,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#3e63de"
+        fill="#ad79e3"
       />
       <rect
         className="rect-animate"
@@ -655,7 +655,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#3e63de"
+        fill="#ad79e3"
       />
       <rect
         className="rect-animate"
@@ -664,7 +664,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#3e63de"
+        fill="#ad79e3"
       />
       <rect
         className="rect-animate"
@@ -673,7 +673,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#3e63de"
+        fill="#ad79e3"
       />
       <rect
         className="rect-animate"
@@ -682,7 +682,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#3e63de"
+        fill="#ad79e3"
       />
       <rect
         className="rect-animate"
@@ -691,7 +691,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#3e63de"
+        fill="#ad79e3"
       />
       <rect
         className="rect-animate"
@@ -700,7 +700,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#3e63de"
+        fill="#ad79e3"
       />
       <rect
         className="rect-animate"
@@ -709,7 +709,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#3e63de"
+        fill="#ad79e3"
       />
       <rect
         className="rect-animate"
@@ -718,7 +718,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#3e63de"
+        fill="#ad79e3"
       />
       <rect
         className="rect-animate"
@@ -726,7 +726,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#5f7ee4"
+        fill="#ad79e3"
       />
       <rect
         className="rect-animate"
@@ -735,7 +735,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#5f7ee4"
+        fill="#ad79e3"
       />
       <rect
         className="rect-animate"
@@ -744,7 +744,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#5f7ee4"
+        fill="#ad79e3"
       />
       <rect
         className="rect-animate"
@@ -753,7 +753,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#5f7ee4"
+        fill="#ad79e3"
       />
       <rect
         className="rect-animate"
@@ -762,7 +762,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#5f7ee4"
+        fill="#ad79e3"
       />
       <rect
         className="rect-animate"
@@ -771,7 +771,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#5f7ee4"
+        fill="#ad79e3"
       />
       <rect
         className="rect-animate"
@@ -780,7 +780,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#5f7ee4"
+        fill="#ad79e3"
       />
       <rect
         className="rect-animate"
@@ -789,7 +789,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#5f7ee4"
+        fill="#ad79e3"
       />
       <rect
         className="rect-animate"
@@ -798,7 +798,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#5f7ee4"
+        fill="#ad79e3"
       />
       <rect
         className="rect-animate"
@@ -807,7 +807,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#5f7ee4"
+        fill="#ad79e3"
       />
       <rect
         className="rect-animate"
@@ -815,7 +815,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#5f7ee4"
+        fill="#ad79e3"
       />
       <rect
         className="rect-animate"
@@ -824,7 +824,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#5f7ee4"
+        fill="#ad79e3"
       />
       <rect
         className="rect-animate"
@@ -833,7 +833,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#5f7ee4"
+        fill="#ad79e3"
       />
       <rect
         className="rect-animate"
@@ -842,7 +842,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#5f7ee4"
+        fill="#ad79e3"
       />
       <rect
         className="rect-animate"
@@ -851,7 +851,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#5f7ee4"
+        fill="#ad79e3"
       />
       <rect
         className="rect-animate"
@@ -860,7 +860,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#5f7ee4"
+        fill="#ad79e3"
       />
       <rect
         className="rect-animate"
@@ -869,7 +869,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#5f7ee4"
+        fill="#ad79e3"
       />
       <rect
         className="rect-animate"
@@ -878,7 +878,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#5f7ee4"
+        fill="#ad79e3"
       />
       <rect
         className="rect-animate"
@@ -887,7 +887,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#5f7ee4"
+        fill="#ad79e3"
       />
       <rect
         className="rect-animate"
@@ -896,7 +896,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#5f7ee4"
+        fill="#ad79e3"
       />
       <rect
         className="rect-animate"
@@ -904,7 +904,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#5f7ee4"
+        fill="#c994ff"
       />
       <rect
         className="rect-animate"
@@ -913,7 +913,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#5f7ee4"
+        fill="#c994ff"
       />
       <rect
         className="rect-animate"
@@ -922,7 +922,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#5f7ee4"
+        fill="#c994ff"
       />
       <rect
         className="rect-animate"
@@ -931,7 +931,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#5f7ee4"
+        fill="#c994ff"
       />
       <rect
         className="rect-animate"
@@ -940,7 +940,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#5f7ee4"
+        fill="#c994ff"
       />
       <rect
         className="rect-animate"
@@ -949,7 +949,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#5f7ee4"
+        fill="#c994ff"
       />
       <rect
         className="rect-animate"
@@ -958,7 +958,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#5f7ee4"
+        fill="#c994ff"
       />
       <rect
         className="rect-animate"
@@ -967,7 +967,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#5f7ee4"
+        fill="#c994ff"
       />
       <rect
         className="rect-animate"
@@ -976,7 +976,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#5f7ee4"
+        fill="#c994ff"
       />
       <rect
         className="rect-animate"
@@ -985,7 +985,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#5f7ee4"
+        fill="#c994ff"
       />
       <rect
         className="rect-animate"
@@ -993,7 +993,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#5f7ee4"
+        fill="#c994ff"
       />
       <rect
         className="rect-animate"
@@ -1002,7 +1002,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#5f7ee4"
+        fill="#c994ff"
       />
       <rect
         className="rect-animate"
@@ -1011,7 +1011,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#5f7ee4"
+        fill="#c994ff"
       />
       <rect
         className="rect-animate"
@@ -1020,7 +1020,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#5f7ee4"
+        fill="#c994ff"
       />
       <rect
         className="rect-animate"
@@ -1029,7 +1029,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#5f7ee4"
+        fill="#c994ff"
       />
       <rect
         className="rect-animate"
@@ -1038,7 +1038,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#5f7ee4"
+        fill="#c994ff"
       />
       <rect
         className="rect-animate"
@@ -1047,7 +1047,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#5f7ee4"
+        fill="#c994ff"
       />
       <rect
         className="rect-animate"
@@ -1056,7 +1056,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#5f7ee4"
+        fill="#c994ff"
       />
       <rect
         className="rect-animate"
@@ -1065,7 +1065,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#5f7ee4"
+        fill="#c994ff"
       />
       <rect
         className="rect-animate"
@@ -1074,7 +1074,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#5f7ee4"
+        fill="#c994ff"
       />
       <rect
         className="rect-animate"
@@ -1082,7 +1082,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#8199e9"
+        fill="#c994ff"
       />
       <rect
         className="rect-animate"
@@ -1091,7 +1091,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#8199e9"
+        fill="#c994ff"
       />
       <rect
         className="rect-animate"
@@ -1100,7 +1100,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#8199e9"
+        fill="#c994ff"
       />
       <rect
         className="rect-animate"
@@ -1109,7 +1109,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#8199e9"
+        fill="#c994ff"
       />
       <rect
         className="rect-animate"
@@ -1118,7 +1118,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#8199e9"
+        fill="#c994ff"
       />
       <rect
         className="rect-animate"
@@ -1127,7 +1127,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#8199e9"
+        fill="#c994ff"
       />
       <rect
         className="rect-animate"
@@ -1136,7 +1136,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#8199e9"
+        fill="#c994ff"
       />
       <rect
         className="rect-animate"
@@ -1145,7 +1145,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#8199e9"
+        fill="#c994ff"
       />
       <rect
         className="rect-animate"
@@ -1154,7 +1154,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#8199e9"
+        fill="#c994ff"
       />
       <rect
         className="rect-animate"
@@ -1163,7 +1163,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#8199e9"
+        fill="#c994ff"
       />
       <rect
         className="rect-animate"
@@ -1171,7 +1171,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#8199e9"
+        fill="#c994ff"
       />
       <rect
         className="rect-animate"
@@ -1180,7 +1180,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#8199e9"
+        fill="#c994ff"
       />
       <rect
         className="rect-animate"
@@ -1189,7 +1189,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#8199e9"
+        fill="#c994ff"
       />
       <rect
         className="rect-animate"
@@ -1198,7 +1198,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#8199e9"
+        fill="#c994ff"
       />
       <rect
         className="rect-animate"
@@ -1207,7 +1207,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#8199e9"
+        fill="#c994ff"
       />
       <rect
         className="rect-animate"
@@ -1216,7 +1216,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#8199e9"
+        fill="#c994ff"
       />
       <rect
         className="rect-animate"
@@ -1225,7 +1225,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#8199e9"
+        fill="#c994ff"
       />
       <rect
         className="rect-animate"
@@ -1234,7 +1234,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#8199e9"
+        fill="#c994ff"
       />
       <rect
         className="rect-animate"
@@ -1243,7 +1243,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#8199e9"
+        fill="#c994ff"
       />
       <rect
         className="rect-animate"
@@ -1252,7 +1252,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#8199e9"
+        fill="#c994ff"
       />
       <rect
         className="rect-animate"
@@ -1260,7 +1260,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#8199e9"
+        fill="#c994ff"
       />
       <rect
         className="rect-animate"
@@ -1269,7 +1269,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#8199e9"
+        fill="#c994ff"
       />
       <rect
         className="rect-animate"
@@ -1278,7 +1278,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#8199e9"
+        fill="#c994ff"
       />
       <rect
         className="rect-animate"
@@ -1287,7 +1287,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#8199e9"
+        fill="#c994ff"
       />
       <rect
         className="rect-animate"
@@ -1296,7 +1296,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#8199e9"
+        fill="#c994ff"
       />
       <rect
         className="rect-animate"
@@ -1305,7 +1305,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#8199e9"
+        fill="#c994ff"
       />
       <rect
         className="rect-animate"
@@ -1314,7 +1314,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#8199e9"
+        fill="#c994ff"
       />
       <rect
         className="rect-animate"
@@ -1323,7 +1323,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#8199e9"
+        fill="#c994ff"
       />
       <rect
         className="rect-animate"
@@ -1332,7 +1332,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#8199e9"
+        fill="#c994ff"
       />
       <rect
         className="rect-animate"
@@ -1341,7 +1341,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#8199e9"
+        fill="#c994ff"
       />
       <rect
         className="rect-animate"
@@ -1349,7 +1349,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#8199e9"
+        fill="#dcb8ff"
       />
       <rect
         className="rect-animate"
@@ -1358,7 +1358,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#8199e9"
+        fill="#dcb8ff"
       />
       <rect
         className="rect-animate"
@@ -1367,7 +1367,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#8199e9"
+        fill="#dcb8ff"
       />
       <rect
         className="rect-animate"
@@ -1376,7 +1376,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#8199e9"
+        fill="#dcb8ff"
       />
       <rect
         className="rect-animate"
@@ -1385,7 +1385,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#8199e9"
+        fill="#dcb8ff"
       />
       <rect
         className="rect-animate"
@@ -1394,7 +1394,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#8199e9"
+        fill="#dcb8ff"
       />
       <rect
         className="rect-animate"
@@ -1403,7 +1403,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#8199e9"
+        fill="#dcb8ff"
       />
       <rect
         className="rect-animate"
@@ -1412,7 +1412,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#8199e9"
+        fill="#dcb8ff"
       />
       <rect
         className="rect-animate"
@@ -1421,7 +1421,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#8199e9"
+        fill="#dcb8ff"
       />
       <rect
         className="rect-animate"
@@ -1430,7 +1430,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#8199e9"
+        fill="#dcb8ff"
       />
       <rect
         className="rect-animate"
@@ -1438,7 +1438,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#a2b4ef"
+        fill="#dcb8ff"
       />
       <rect
         className="rect-animate"
@@ -1447,7 +1447,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#a2b4ef"
+        fill="#dcb8ff"
       />
       <rect
         className="rect-animate"
@@ -1456,7 +1456,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#a2b4ef"
+        fill="#dcb8ff"
       />
       <rect
         className="rect-animate"
@@ -1465,7 +1465,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#a2b4ef"
+        fill="#dcb8ff"
       />
       <rect
         className="rect-animate"
@@ -1474,7 +1474,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#a2b4ef"
+        fill="#dcb8ff"
       />
       <rect
         className="rect-animate"
@@ -1483,7 +1483,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#a2b4ef"
+        fill="#dcb8ff"
       />
       <rect
         className="rect-animate"
@@ -1492,7 +1492,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#a2b4ef"
+        fill="#dcb8ff"
       />
       <rect
         className="rect-animate"
@@ -1501,7 +1501,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#a2b4ef"
+        fill="#dcb8ff"
       />
       <rect
         className="rect-animate"
@@ -1510,7 +1510,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#a2b4ef"
+        fill="#dcb8ff"
       />
       <rect
         className="rect-animate"
@@ -1519,7 +1519,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#a2b4ef"
+        fill="#dcb8ff"
       />
       <rect
         className="rect-animate"
@@ -1527,7 +1527,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#a2b4ef"
+        fill="#dcb8ff"
       />
       <rect
         className="rect-animate"
@@ -1536,7 +1536,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#a2b4ef"
+        fill="#dcb8ff"
       />
       <rect
         className="rect-animate"
@@ -1545,7 +1545,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#a2b4ef"
+        fill="#dcb8ff"
       />
       <rect
         className="rect-animate"
@@ -1554,7 +1554,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#a2b4ef"
+        fill="#dcb8ff"
       />
       <rect
         className="rect-animate"
@@ -1563,7 +1563,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#a2b4ef"
+        fill="#dcb8ff"
       />
       <rect
         className="rect-animate"
@@ -1572,7 +1572,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#a2b4ef"
+        fill="#dcb8ff"
       />
       <rect
         className="rect-animate"
@@ -1581,7 +1581,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#a2b4ef"
+        fill="#dcb8ff"
       />
       <rect
         className="rect-animate"
@@ -1590,7 +1590,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#a2b4ef"
+        fill="#dcb8ff"
       />
       <rect
         className="rect-animate"
@@ -1599,7 +1599,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#a2b4ef"
+        fill="#dcb8ff"
       />
       <rect
         className="rect-animate"
@@ -1608,7 +1608,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#a2b4ef"
+        fill="#dcb8ff"
       />
       <rect
         className="rect-animate"
@@ -1616,7 +1616,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#a2b4ef"
+        fill="#dcb8ff"
       />
       <rect
         className="rect-animate"
@@ -1625,7 +1625,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#a2b4ef"
+        fill="#dcb8ff"
       />
       <rect
         className="rect-animate"
@@ -1634,7 +1634,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#a2b4ef"
+        fill="#dcb8ff"
       />
       <rect
         className="rect-animate"
@@ -1643,7 +1643,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#a2b4ef"
+        fill="#dcb8ff"
       />
       <rect
         className="rect-animate"
@@ -1652,7 +1652,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#a2b4ef"
+        fill="#dcb8ff"
       />
       <rect
         className="rect-animate"
@@ -1661,7 +1661,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#a2b4ef"
+        fill="#dcb8ff"
       />
       <rect
         className="rect-animate"
@@ -1670,7 +1670,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#a2b4ef"
+        fill="#dcb8ff"
       />
       <rect
         className="rect-animate"
@@ -1679,7 +1679,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#a2b4ef"
+        fill="#dcb8ff"
       />
       <rect
         className="rect-animate"
@@ -1688,7 +1688,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#a2b4ef"
+        fill="#dcb8ff"
       />
       <rect
         className="rect-animate"
@@ -1697,7 +1697,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#a2b4ef"
+        fill="#dcb8ff"
       />
       <rect
         className="rect-animate"
@@ -1705,7 +1705,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#a2b4ef"
+        fill="#dcb8ff"
       />
       <rect
         className="rect-animate"
@@ -1714,7 +1714,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#a2b4ef"
+        fill="#dcb8ff"
       />
       <rect
         className="rect-animate"
@@ -1723,7 +1723,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#a2b4ef"
+        fill="#dcb8ff"
       />
       <rect
         className="rect-animate"
@@ -1732,7 +1732,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#a2b4ef"
+        fill="#dcb8ff"
       />
       <rect
         className="rect-animate"
@@ -1741,7 +1741,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#a2b4ef"
+        fill="#dcb8ff"
       />
       <rect
         className="rect-animate"
@@ -1750,7 +1750,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#a2b4ef"
+        fill="#dcb8ff"
       />
       <rect
         className="rect-animate"
@@ -1759,7 +1759,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#a2b4ef"
+        fill="#dcb8ff"
       />
       <rect
         className="rect-animate"
@@ -1768,7 +1768,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#a2b4ef"
+        fill="#dcb8ff"
       />
       <rect
         className="rect-animate"
@@ -1777,7 +1777,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#a2b4ef"
+        fill="#dcb8ff"
       />
       <rect
         className="rect-animate"
@@ -1786,7 +1786,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#a2b4ef"
+        fill="#dcb8ff"
       />
       <rect
         className="rect-animate"
@@ -1795,7 +1795,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#c4cff5"
+        fill="#f0dbff"
       />
       <rect
         className="rect-animate"
@@ -1804,7 +1804,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#c4cff5"
+        fill="#f0dbff"
       />
       <rect
         className="rect-animate"
@@ -1813,7 +1813,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#c4cff5"
+        fill="#f0dbff"
       />
       <rect
         className="rect-animate"
@@ -1822,7 +1822,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#c4cff5"
+        fill="#f0dbff"
       />
       <rect
         className="rect-animate"
@@ -1831,7 +1831,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#c4cff5"
+        fill="#f0dbff"
       />
       <rect
         className="rect-animate"
@@ -1840,7 +1840,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#c4cff5"
+        fill="#f0dbff"
       />
       <rect
         className="rect-animate"
@@ -1849,7 +1849,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#c4cff5"
+        fill="#f0dbff"
       />
       <rect
         className="rect-animate"
@@ -1858,7 +1858,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#c4cff5"
+        fill="#f0dbff"
       />
       <rect
         className="rect-animate"
@@ -1867,7 +1867,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#c4cff5"
+        fill="#f0dbff"
       />
       <rect
         className="rect-animate"
@@ -1876,7 +1876,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#c4cff5"
+        fill="#f0dbff"
       />
       <rect
         className="rect-animate"
@@ -1885,7 +1885,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#c4cff5"
+        fill="#f0dbff"
       />
       <rect
         className="rect-animate"
@@ -1894,7 +1894,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#c4cff5"
+        fill="#f0dbff"
       />
       <rect
         className="rect-animate"
@@ -1903,7 +1903,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#c4cff5"
+        fill="#f0dbff"
       />
       <rect
         className="rect-animate"
@@ -1912,7 +1912,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#c4cff5"
+        fill="#f0dbff"
       />
       <rect
         className="rect-animate"
@@ -1921,7 +1921,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#c4cff5"
+        fill="#f0dbff"
       />
       <rect
         className="rect-animate"
@@ -1930,7 +1930,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#d4ddf8"
+        fill="#f0dbff"
       />
       <rect
         className="rect-animate"
@@ -1939,7 +1939,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#d4ddf8"
+        fill="#f0dbff"
       />
       <rect
         className="rect-animate"
@@ -1948,7 +1948,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#d4ddf8"
+        fill="#f0dbff"
       />
       <rect
         className="rect-animate"
@@ -1957,7 +1957,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#d4ddf8"
+        fill="#f0dbff"
       />
       <rect
         className="rect-animate"
@@ -1966,7 +1966,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#d4ddf8"
+        fill="#f0dbff"
       />
       <rect
         className="rect-animate"
@@ -1975,7 +1975,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#d4ddf8"
+        fill="#f9ecff"
       />
       <rect
         className="rect-animate"
@@ -1984,7 +1984,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#d4ddf8"
+        fill="#f9ecff"
       />
       <rect
         className="rect-animate"
@@ -1993,7 +1993,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#d4ddf8"
+        fill="#f9ecff"
       />
       <rect
         className="rect-animate"
@@ -2002,7 +2002,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#d4ddf8"
+        fill="#f9ecff"
       />
       <rect
         className="rect-animate"
@@ -2011,7 +2011,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#d4ddf8"
+        fill="#f9ecff"
       />
       <rect
         className="rect-animate"
@@ -2020,7 +2020,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#e5eafb"
+        fill="#f9ecff"
       />
       <rect
         className="rect-animate"
@@ -2029,7 +2029,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#e5eafb"
+        fill="#f9ecff"
       />
       <rect
         className="rect-animate"
@@ -2038,7 +2038,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#e5eafb"
+        fill="#f9ecff"
       />
       <rect
         className="rect-animate"
@@ -2047,7 +2047,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#e5eafb"
+        fill="#f9ecff"
       />
       <rect
         className="rect-animate"
@@ -2056,7 +2056,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#e5eafb"
+        fill="#f9ecff"
       />
       <rect
         className="rect-animate"
@@ -2065,7 +2065,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#e5eafb"
+        fill="#f9ecff"
       />
       <rect
         className="rect-animate"
@@ -2074,7 +2074,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#e5eafb"
+        fill="#f9ecff"
       />
       <rect
         className="rect-animate"
@@ -2083,7 +2083,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#e5eafb"
+        fill="#f9ecff"
       />
       <rect
         className="rect-animate"
@@ -2092,7 +2092,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#e5eafb"
+        fill="#f9ecff"
       />
       <rect
         className="rect-animate"
@@ -2101,7 +2101,7 @@ export default function DotPattern() {
         width="6.00167"
         height="6.00467"
         rx="3.00083"
-        fill="#e5eafb"
+        fill="#f9ecff"
       />
     </svg>
   );

@@ -32,9 +32,8 @@ export default function Hero() {
       </div>
       <div className="grid max-w-screen-xl grid-cols-1 py-32 mx-auto sm:py-48 lg:py-56 place-items-center lg:grid-cols-2">
         <div className="text-left">
-          <h1 className="text-4xl font-medium text-indigo-500 lg:text-5xl">
+          <h1 className="text-4xl font-medium text-primary50 lg:text-5xl">
             Because every smile is unique
-            {/* Because every <span className='mr-2 italic font-normal'>smile</span> is <span className='italic font-normal'>unique</span> */}
           </h1>
           <p className="max-w-xl mt-6 text-lg leading-8 text-gray-600 lg:text-lg">
             Our goal is to make your smile look best on{" "}
@@ -46,13 +45,13 @@ export default function Hero() {
           <div className="flex items-center justify-start mt-10 gap-x-6">
             <Link
               to="/book-now"
-              className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-lg lg:text-xl lg:px-5 lg:py-3 font-normal text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              className="transition-colors ease-linear duration-300 rounded-md bg-primary50 px-3.5 py-2.5 text-lg lg:text-xl lg:px-5 lg:py-3 font-normal text-white shadow-sm hover:bg-primary30 hover:text-primary90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary30"
             >
               Book Now
             </Link>
             <Link
               to="/our-team"
-              className="text-lg font-normal leading-6 text-indigo-600"
+              className="text-lg font-normal leading-6 transition-colors duration-300 ease-linear text-primary50 hover:text-primary30"
             >
               Our Team <span aria-hidden="true">→</span>
             </Link>
@@ -60,7 +59,7 @@ export default function Hero() {
         </div>
         <div className="relative mx-auto mt-32 lg:mt-0">
           <img
-            className="absolute top-0 left-0 max-w-lg"
+            className="absolute top-0 max-w-lg left-8"
             src="../../images/hero_clip.png"
             alt="girl smiling"
           />

@@ -46,7 +46,7 @@
 
 import { useEffect, useState } from 'react';
 
-const FinancingTreatment = () => {
+export default function FinancingTreatment() {
   const [scrollPosition, setScrollPosition] = useState(0);
   const [showLine, setShowLine] = useState(false);
   
@@ -165,6 +165,4 @@ const isDotVisible = (index) => {
        </div>
        </>
   );
-};
-
-export default FinancingTreatment;
+}

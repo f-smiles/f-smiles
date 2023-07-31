@@ -1,29 +1,28 @@
-import React, { useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import axios from 'axios'
-import { incrementQuantity, decrementQuantity, removeFromBag, clearBag, getBagTotal } from '../../store/bagSlice'
-import { XCircleIcon } from '@heroicons/react/24/solid'
-import { MinusSmallIcon, PlusSmallIcon, TrashIcon } from '@heroicons/react/24/outline'
+import axios from 'axios';
+import { incrementQuantity, decrementQuantity, removeFromBag, clearBag, getBagTotal } from '../../store/bagSlice';
+import { XCircleIcon } from '@heroicons/react/24/solid';
+import { MinusSmallIcon, PlusSmallIcon, TrashIcon } from '@heroicons/react/24/outline';
 
-const apiUrl = process.env.REACT_APP_HOST
+const apiUrl = process.env.REACT_APP_HOST;
 
 export default function Bag() {
 
   const dispatch = useDispatch();
 
-  const bagItems = useSelector(state => state.bag.line_items)
-  console.log(bagItems);
+  const bagItems = useSelector(state => state.bag.line_items);
 
   const getBagTotal = () => {
-    let totalQuantity = 0
-    let totalPrice = 0
+    let totalQuantity = 0;
+    let totalPrice = 0;
     bagItems.forEach(item => {
       totalQuantity += item.quantity
       totalPrice += item.price * item.quantity
-    })
+    });
     return { totalPrice, totalQuantity }
-  }
+  };
 
   const handleCheckout = async () => {
     await axios.post(`${apiUrl}/api/v1/checkout/sessions/create-checkout-session`, bagItems)
@@ -32,7 +31,7 @@ export default function Bag() {
         window.location.href = response.data.url;
       }
     }).catch((error) => console.log(error.message))
-  }
+  };
 
 
   return (

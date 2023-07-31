@@ -187,7 +187,7 @@ export default function DesktopNavbar() {
                   </div>
                 </li>
               )}
-              <li className="flex items-center px-6 py-2 font-medium tracking-wider uppercase transition duration-300 ease-in-out rounded cursor-pointer bg-B47EDE text-violet-100 hover:text-violet-900 hover:shadow-md hover:shadow-violet-400/50">
+              <li className="flex items-center px-6 py-2 font-medium tracking-wider text-white uppercase transition duration-300 ease-in-out rounded cursor-pointer hover:shadow-md bg-primary50 hover:bg-primary30 hover:text-primary90">
                 <NavLink className="block" to="/book-now">
                   Book Now
                 </NavLink>
@@ -199,17 +199,6 @@ export default function DesktopNavbar() {
                 setIsBagOpen={setIsBagOpen}
               />
             )}
-            {/* <div id="bag-panel" className={
-              isBagOpen ? "absolute top-0 left-0 right-0 w-screen h-screen backdrop-blur-sm bg-white/30 flex flex-row justify-start overflow-hidden translate-x-0 transition-all delay-300 duration-500 ease-out"
-              : "absolute top-0 left-0 right-0 w-screen h-screen backdrop-blur-sm bg-white/30 flex flex-row gap-2 overflow-hidden translate-x-[100%] transition-all delay-300 duration-500 ease-out"
-            }>
-              <div className="relative flex flex-col w-1/3 h-full p-16 left-2/3 bg-stone-200 ">
-                <button className="z-10 self-end p-4 transition-colors duration-300 ease-linear h-max text-violet-500 hover:text-danger-600" type="button" onClick={handleToggleBag} aria-label="toggle close treatments sidebar links">
-                  <XMarkIcon className="w-10 h-10 cursor-pointer"/>
-                </button>
-                <Bag isBagOpen={isBagOpen} />
-              </div>
-            </div> */}
           </div>
         </div>
       </nav>
