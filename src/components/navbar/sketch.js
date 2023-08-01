@@ -12,7 +12,7 @@ const Sphere = () => {
   }
 
   return (
-    <div id="sphere" className="absolute top-2/3 left-0 right-0" width={sphereSize} height={sphereSize} style={{transformStyle: 'preserve-3d', animation: 'spinSphere 20s infinite linear'}}
+    <div id="sphere" className="absolute right-2/4 top-2/3" width={sphereSize} height={sphereSize} style={{transformStyle: 'preserve-3d', animation: 'spinSphere 20s infinite linear'}}
     // style={{position: 'absolute', top: 0, right: 0, bottom: 0, left: 0, margin: 'auto', width: sphereSize, height: sphereSize, transformStyle: 'preserve-3d', animation: 'spinSphere 20s infinite linear'}}
     >
       {ringStyles.map((style, i) => (
