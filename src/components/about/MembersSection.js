@@ -1,69 +1,6 @@
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
-// const Members = [
-//   {
-//     name: "Alyssa",
-//     role: "Treatment Coordinator",
-//     img: "../../images/team_members/Alyssa_blob.png",
-//   },
-//   {
-//     name: "Lexi",
-//     role: "Treatment Coordinator",
-//     img: "../../images/team_members/Lexi_blob.png",
-//   },
-//   {
-//     name: "Dana",
-//     role: "Marketing Coordinator",
-//     img: "../../images/team_members/Dana_blob.png",
-//   },
-//   {
-//     name: "Lizzie",
-//     role: "Patient Services",
-//     img: "../../images/team_members/Lizzie_blob.png",
-//   },
-//   {
-//     name: "Kayli",
-//     role: "Financial Coordinator",
-//     img: "../../images/team_members/Kayli_blob.png",
-//   },
-//   {
-//     name: "Adriana",
-//     role: "Insurance Coordinator",
-//     img: "../../images/team_members/Adriana_blob.png",
-//   },
-//   {
-//     name: "Ibis",
-//     role: "Lab Manager",
-//     img: "../../images/team_members/Ibis_blob.png",
-//   },
-//   {
-//     name: "Aleah",
-//     role: "Specialized Orthodontic Assistant",
-//     img: "../../images/team_members/Aleah_blob.png",
-//   },
-//   {
-//     name: "Nicolle",
-//     role: "Specialized Orthodontic Assistant",
-//     img: "../../images/team_members/Nicolle_blob.png",
-//   },
-//   {
-//     name: "Grace",
-//     role: "Specialized Orthodontic Assistant",
-//     img: "../../images/team_members/Grace_blob.png",
-//   },
-//   {
-//     name: "Samantha",
-//     role: "Patient Services",
-//     img: "../../images/team_members/Samantha_blob.png",
-//   },
-//   {
-//     name: "Elizabeth",
-//     role: "Patient Services",
-//     img: "../../images/team_members/Elizabeth_blob.png",
-//   },
-// ];
-
 export default function MembersSection() {
   let memberCardRef = useRef(null);
   let { scrollYProgress } = useScroll({
@@ -73,7 +10,7 @@ export default function MembersSection() {
   let y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
   return (
     <div className="flex flex-col items-center justify-center px-0 py-0 md:px-14 xl:px-8">
-      <div className="px-12 max-w-screen-lg text-[#F9EDE7]">
+      <div className="max-w-screen-lg px-12 text-primary30">
         <h1 className="text-3xl leading-10 tracking-wide text-center md:text-4xl xl:text-4xl xl:font-medium">
           Our Members
         </h1>
@@ -82,7 +19,7 @@ export default function MembersSection() {
           of them have received the designation of Specialized Orthodontic
           Assistant{" "}
           <a
-            className="underline underline-offset-4 text-[#57433C] hover:text-[#74594E] transition duration-200"
+            className="underline transition duration-200 underline-offset-4 text-secondary40 hover:text-secondary50"
             href="https://www.trapezio.com/training-resources/course-outlines/soa-prep-course-outline/"
           >
             (SOA)
@@ -107,74 +44,74 @@ export default function MembersSection() {
           <section className="flex flex-col items-center justify-center sm:justify-start sm:flex-row sm:items-start">
             <motion.div
               style={{ y }}
-              className="w-64 xl:w-72 py-10 px-6 md:py-14 mb-4 md:mb-0 sm:mr-6 xl:mr-6 2xl:mr-8 space-y-8 backdrop-blur-sm bg-white/30 flex justify-center items-center flex-col shadow-md hover:shadow-xl transition duration-500 ease-in-out cursor-pointer border rounded-lg border-[#F9EDE7]/80"
+              className="flex flex-col items-center justify-center w-64 px-6 py-10 mb-4 space-y-8 transition duration-500 ease-in-out rounded-lg cursor-pointer xl:w-72 md:py-14 md:mb-0 sm:mr-6 xl:mr-6 2xl:mr-8 hover:shadow-xl "
             >
               <img
                 className="w-3/4 xl:w-48 2xl:w-48"
                 src="../../images/team_members/Alyssa_blob.png"
                 alt="Alyssa"
               />
-              <div className="flex flex-col items-center justify-center space-y-2 text-gray-800">
-                <p className="text-lg font-medium leading-none text-center xl:text-xl xl:font-bold xl:leading-5">
+              <div className="flex flex-col items-center justify-center space-y-1 text-primary20">
+                <p className="text-lg font-medium leading-none text-center xl:text-xl xl:leading-5">
                   Alyssa
                 </p>
-                <p className="text-sm leading-4.5 text-center">
+                <p className="leading-4.5 text-center">
                   Treatment Coordinator
                 </p>
               </div>
             </motion.div>
             <motion.div
               style={{ y }}
-              className="w-64 xl:w-72 py-10 px-6 md:py-14 sm:mt-14 xl:mt-32 space-y-8 backdrop-blur-sm bg-white/30 flex justify-center items-center flex-col shadow hover:shadow-xl transition duration-500 ease-in-out cursor-pointer border rounded-lg border-[#F9EDE7]/80"
+              className="flex flex-col items-center justify-center w-64 px-6 py-10 space-y-8 transition duration-500 ease-in-out rounded-lg cursor-pointer xl:w-72 md:py-14 sm:mt-14 xl:mt-32 hover:shadow-xl"
             >
               <img
                 className="w-3/4 xl:w-48 2xl:w-48"
                 src="../../images/team_members/Lexi_blob.png"
                 alt="Lexi"
               />
-              <div className="flex flex-col items-center justify-center space-y-2 text-gray-800">
-                <p className="text-lg font-medium leading-none text-center xl:text-xl xl:font-bold xl:leading-5 ">
+              <div className="flex flex-col items-center justify-center space-y-1 text-primary20">
+                <p className="text-lg font-medium leading-none text-center xl:text-xl xl:leading-5">
                   Lexi
                 </p>
-                <p className="text-sm leading-4.5 text-center ">
+                <p className="leading-4.5 text-center ">
                   Treatment Coordinator
                 </p>
               </div>
             </motion.div>
           </section>
-          <section className="flex flex-col items-center justify-center sm:justify-start sm:flex-row sm:items-start">
+          <section className="flex flex-col items-center justify-center sm:justify-start sm:flex-row sm:items-start ">
             <motion.div
               style={{ y }}
-              className="w-64 xl:w-72 py-10 px-6 md:py-14 mb-4 md:mb-0 sm:mr-6 xl:mr-6 2xl:mr-8 space-y-8 backdrop-blur-sm bg-white/30 flex justify-center items-center flex-col shadow hover:shadow-xl transition duration-500 ease-in-out cursor-pointer border rounded-lg border-[#F9EDE7]/80"
+              className="flex flex-col items-center justify-center w-64 px-6 py-10 mb-4 space-y-8 transition duration-500 ease-in-out rounded-lg cursor-pointer xl:w-72 md:py-14 md:mb-0 sm:mr-6 xl:mr-6 2xl:mr-8 hover:shadow-xl"
             >
               <img
                 className="w-3/4 xl:w-48 2xl:w-48"
                 src="../../images/team_members/Dana_blob.png"
                 alt="Dana"
               />
-              <div className="flex flex-col items-center justify-center space-y-2 text-gray-800">
-                <p className="text-lg font-medium leading-none text-center xl:text-xl xl:font-bold xl:leading-5">
+              <div className="flex flex-col items-center justify-center space-y-1 text-primary20">
+                <p className="text-lg font-medium leading-none text-center xl:text-xl xl:leading-5">
                   Dana
                 </p>
-                <p className="text-sm leading-4.5 text-center">
+                <p className="leading-4.5 text-center">
                   Marketing Operations
                 </p>
               </div>
             </motion.div>
             <motion.div
               style={{ y }}
-              className="w-64 xl:w-72 py-10 px-6 md:py-14 sm:mt-14 xl:mt-32 space-y-8 backdrop-blur-sm bg-white/30 flex justify-center items-center flex-col shadow hover:shadow-xl transition duration-500 ease-in-out cursor-pointer border rounded-lg border-[#F9EDE7]/80"
+              className="flex flex-col items-center justify-center w-64 px-6 py-10 space-y-8 transition duration-500 ease-in-out rounded-lg cursor-pointer xl:w-72 md:py-14 sm:mt-14 xl:mt-32 hover:shadow-xl"
             >
               <img
                 className="w-3/4 xl:w-48 2xl:w-48"
                 src="../../images/team_members/Lizzie_blob.png"
                 alt="avatar 4"
               />
-              <div className="flex flex-col items-center justify-center space-y-2 text-gray-800">
-                <p className="text-lg font-medium leading-none text-center xl:text-xl xl:font-bold xl:leading-5">
+              <div className="flex flex-col items-center justify-center space-y-1 text-primary20">
+                <p className="text-lg font-medium leading-none text-center xl:text-xl xl:leading-5">
                   Lizzie
                 </p>
-                <p className="text-sm leading-4.5 text-center ">
+                <p className="leading-4.5 text-center ">
                   Patient Services
                 </p>
               </div>
@@ -197,36 +134,36 @@ export default function MembersSection() {
           <section className="flex flex-col items-center justify-center sm:justify-start sm:flex-row sm:items-start">
             <motion.div
               style={{ y }}
-              className="w-64 xl:w-72 py-10 px-6 md:py-14 mb-4 md:mb-0 sm:mr-6 xl:mr-6 2xl:mr-8 space-y-8 backdrop-blur-sm bg-white/30 flex justify-center items-center flex-col shadow hover:shadow-xl transition duration-500 ease-in-out cursor-pointer border rounded-lg border-[#F9EDE7]/80"
+              className="flex flex-col items-center justify-center w-64 px-6 py-10 mb-4 space-y-8 transition duration-500 ease-in-out rounded-lg cursor-pointer xl:w-72 md:py-14 md:mb-0 sm:mr-6 xl:mr-6 2xl:mr-8 hover:shadow-xl"
             >
               <img
                 className="w-3/4 xl:w-48 2xl:w-48"
                 src="../../images/team_members/Kayli_blob.png"
                 alt="Kayli"
               />
-              <div className="flex flex-col items-center justify-center space-y-2 text-gray-800">
-                <p className="text-lg font-medium leading-none text-center xl:text-xl xl:font-bold xl:leading-5">
+              <div className="flex flex-col items-center justify-center space-y-1 text-primary20">
+                <p className="text-lg font-medium leading-none text-center xl:text-xl xl:leading-5">
                   Kayli
                 </p>
-                <p className="text-sm leading-4.5 text-center ">
+                <p className="leading-4.5 text-center ">
                   Financial Coordinator
                 </p>
               </div>
             </motion.div>
             <motion.div
               style={{ y }}
-              className="w-64 xl:w-72 py-10 px-6 md:py-14 sm:mt-14 xl:mt-32  space-y-8 backdrop-blur-sm bg-white/30 flex justify-center items-center flex-col shadow hover:shadow-xl transition duration-500 ease-in-out cursor-pointer border rounded-lg border-[#F9EDE7]/80"
+              className="flex flex-col items-center justify-center w-64 px-6 py-10 space-y-8 transition duration-500 ease-in-out rounded-lg cursor-pointer xl:w-72 md:py-14 sm:mt-14 xl:mt-32 hover:shadow-xl"
             >
               <img
                 className="w-3/4 xl:w-48 2xl:w-48"
                 src="../../images/team_members/Adriana_blob.png"
                 alt="Adriana"
               />
-              <div className="flex flex-col items-center justify-center space-y-2 text-gray-800">
-                <p className="text-lg font-medium leading-none text-center xl:text-xl xl:font-bold xl:leading-5 ">
+              <div className="flex flex-col items-center justify-center space-y-1 text-primary20">
+                <p className="text-lg font-medium leading-none text-center xl:text-xl xl:leading-5 ">
                   Adriana
                 </p>
-                <p className="text-sm leading-4.5 text-center ">
+                <p className="leading-4.5 text-center ">
                   Insurance Coordinator
                 </p>
               </div>
@@ -235,34 +172,34 @@ export default function MembersSection() {
           <section className="flex flex-col items-center justify-center sm:justify-start sm:flex-row sm:items-start">
             <motion.div
               style={{ y }}
-              className="w-64 xl:w-72 py-10 px-6 md:py-14 mb-4 md:mb-0 sm:mr-6 xl:mr-6 2xl:mr-8 space-y-8 backdrop-blur-sm bg-white/30 flex justify-center items-center flex-col shadow hover:shadow-xl transition duration-500 ease-in-out cursor-pointer border rounded-lg border-[#F9EDE7]/80"
+              className="flex flex-col items-center justify-center w-64 px-6 py-10 mb-4 space-y-8 transition duration-500 ease-in-out rounded-lg cursor-pointer xl:w-72 md:py-14 md:mb-0 sm:mr-6 xl:mr-6 2xl:mr-8 hover:shadow-xl"
             >
               <img
                 className="w-3/4 xl:w-48 2xl:w-48"
                 src="../../images/team_members/Ibis_blob.png"
                 alt="Ibis"
               />
-              <div className="flex flex-col items-center justify-center space-y-2 text-gray-800">
-                <p className="text-lg font-medium leading-none text-center xl:text-xl xl:font-bold xl:leading-5 ">
+              <div className="flex flex-col items-center justify-center space-y-1 text-primary20">
+                <p className="text-lg font-medium leading-none text-center xl:text-xl xl:leading-5 ">
                   Ibis
                 </p>
-                <p className="text-sm leading-4.5 text-center ">Lab Manager</p>
+                <p className="leading-4.5 text-center ">Lab Manager</p>
               </div>
             </motion.div>
             <motion.div
               style={{ y }}
-              className="w-64 xl:w-72 py-10 px-6 md:py-14 sm:mt-14 xl:mt-32 space-y-8 backdrop-blur-sm bg-white/30 flex justify-center items-center flex-col shadow hover:shadow-xl transition duration-500 ease-in-out cursor-pointer border rounded-lg border-[#F9EDE7]/80"
+              className="flex flex-col items-center justify-center w-64 px-6 py-10 space-y-8 transition duration-500 ease-in-out rounded-lg cursor-pointer xl:w-72 md:py-14 sm:mt-14 xl:mt-32 hover:shadow-xl"
             >
               <img
                 className="w-3/4 xl:w-48 2xl:w-48"
                 src="../../images/team_members/Aleah_blob.png"
                 alt="avatar 4"
               />
-              <div className="flex flex-col items-center justify-center space-y-2 text-gray-800">
-                <p className="text-lg font-medium leading-none text-center xl:text-xl xl:font-bold xl:leading-5">
+              <div className="flex flex-col items-center justify-center space-y-2 text-primary20">
+                <p className="text-lg font-medium leading-none text-center xl:text-xl xl:leading-5">
                   Aleah
                 </p>
-                <p className="text-sm leading-4.5 text-center ">
+                <p className="leading-4.5 text-center">
                   Specialized Orthodontic Assistant
                 </p>
               </div>
@@ -285,36 +222,36 @@ export default function MembersSection() {
           <section className="flex flex-col items-center justify-center sm:justify-start sm:flex-row sm:items-start">
             <motion.div
               style={{ y }}
-              className="w-64 xl:w-72 py-10 px-6 md:py-14 mb-4 md:mb-0 sm:mr-6 xl:mr-6 2xl:mr-8 space-y-8 backdrop-blur-sm bg-white/30 flex justify-center items-center flex-col shadow hover:shadow-xl transition duration-500 ease-in-out cursor-pointer border rounded-lg border-[#F9EDE7]/80"
+              className="flex flex-col items-center justify-center w-64 px-6 py-10 mb-4 space-y-8 transition duration-500 ease-in-out rounded-lg cursor-pointer xl:w-72 md:py-14 md:mb-0 sm:mr-6 xl:mr-6 2xl:mr-8 hover:shadow-xl"
             >
               <img
                 className="w-3/4 xl:w-48 2xl:w-48"
                 src="../../images/team_members/Nicolle_blob.png"
                 alt="Nicolle"
               />
-              <div className="flex flex-col items-center justify-center space-y-2 text-gray-800">
-                <p className="text-lg font-medium leading-none text-center xl:text-xl xl:font-bold xl:leading-5">
+              <div className="flex flex-col items-center justify-center space-y-2 text-primary20">
+                <p className="text-lg font-medium leading-none text-center xl:text-xl xl:leading-5">
                   Nicolle
                 </p>
-                <p className="text-sm leading-4.5 text-center ">
+                <p className="leading-4.5 text-center">
                   Specialized Orthodontic Assistant
                 </p>
               </div>
             </motion.div>
             <motion.div
               style={{ y }}
-              className="w-64 xl:w-72 py-10 px-6 md:py-14 sm:mt-14 xl:mt-32  space-y-8 backdrop-blur-sm bg-white/30 flex justify-center items-center flex-col shadow hover:shadow-xl transition duration-500 ease-in-out cursor-pointer border rounded-lg border-[#F9EDE7]/80"
+              className="flex flex-col items-center justify-center w-64 px-6 py-10 space-y-8 transition duration-500 ease-in-out rounded-lg cursor-pointer xl:w-72 md:py-14 sm:mt-14 xl:mt-32 hover:shadow-xl"
             >
               <img
                 className="w-3/4 xl:w-48 2xl:w-48"
                 src="../../images/team_members/Grace_blob.png"
                 alt="Grace"
               />
-              <div className="flex flex-col items-center justify-center space-y-2 text-gray-800">
-                <p className="text-lg font-medium leading-none text-center xl:text-xl xl:font-bold xl:leading-5">
+              <div className="flex flex-col items-center justify-center space-y-2 text-primary20">
+                <p className="text-lg font-medium leading-none text-center xl:text-xl xl:leading-5">
                   Grace
                 </p>
-                <p className="text-sm leading-4.5 text-center ">
+                <p className="leading-4.5 text-center">
                   Specialized Orthodontic Assistant
                 </p>
               </div>
@@ -323,36 +260,36 @@ export default function MembersSection() {
           <section className="flex flex-col items-center justify-center sm:justify-start sm:flex-row sm:items-start">
             <motion.div
               style={{ y }}
-              className="w-64 xl:w-72 py-10 px-6 md:py-14 mb-4 md:mb-0 sm:mr-6 xl:mr-6 2xl:mr-8 space-y-8 backdrop-blur-sm bg-white/30 flex justify-center items-center flex-col shadow hover:shadow-xl transition duration-500 ease-in-out cursor-pointer border rounded-lg border-[#F9EDE7]/80"
+              className="flex flex-col items-center justify-center w-64 px-6 py-10 mb-4 space-y-8 transition duration-500 ease-in-out rounded-lg cursor-pointer xl:w-72 md:py-14 md:mb-0 sm:mr-6 xl:mr-6 2xl:mr-8 hover:shadow-xl"
             >
               <img
                 className="w-3/4 xl:w-48 2xl:w-48"
                 src="../../images/team_members/Samantha_blob.png"
                 alt="Samantha"
               />
-              <div className="flex flex-col items-center justify-center space-y-2 text-gray-800">
-                <p className="text-lg font-medium leading-none text-center xl:text-xl xl:font-bold xl:leading-5">
+              <div className="flex flex-col items-center justify-center space-y-1 text-primary20">
+                <p className="text-lg font-medium leading-none text-center xl:text-xl xl:leading-5">
                   Samantha
                 </p>
-                <p className="text-sm leading-4.5 text-center ">
+                <p className="leading-4.5 text-center ">
                   Patient Services
                 </p>
               </div>
             </motion.div>
             <motion.div
               style={{ y }}
-              className="w-64 xl:w-72 py-10 px-6 md:py-14 sm:mt-14 xl:mt-32 space-y-8 backdrop-blur-sm bg-white/30 flex justify-center items-center flex-col shadow hover:shadow-xl transition duration-500 ease-in-out cursor-pointer border rounded-lg border-[#F9EDE7]/80"
+              className="flex flex-col items-center justify-center w-64 px-6 py-10 space-y-8 transition duration-500 ease-in-out rounded-lg cursor-pointer xl:w-72 md:py-14 sm:mt-14 xl:mt-32 hover:shadow-xl "
             >
               <img
                 className="w-3/4 xl:w-48 2xl:w-48"
                 src="../../images/team_members/Elizabeth_blob.png"
                 alt="Elizabeth"
               />
-              <div className="flex flex-col items-center justify-center space-y-2 text-gray-800">
-                <p className="text-lg font-medium leading-none text-center xl:text-xl xl:font-bold xl:leading-5">
+              <div className="flex flex-col items-center justify-center space-y-1 text-primary20">
+                <p className="text-lg font-medium leading-none text-center xl:text-xl xl:leading-5">
                   Elizabeth
                 </p>
-                <p className="text-sm leading-4.5 text-center">
+                <p className="leading-4.5 text-center">
                   Patient Services
                 </p>
               </div>
