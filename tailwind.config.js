@@ -48,23 +48,6 @@ module.exports = {
         'secondary99': '#fffbff',
         'secondary100': '#ffffff',
 
-        'tertiary0': '#000000',
-        'tertiary10': '#002111',
-        'tertiary20': '#003920',
-        'tertiary25': '#004528',
-        'tertiary30': '#005231',
-        'tertiary35': '#005f39',
-        'tertiary40': '#006d42',
-        'tertiary50': '#198856',
-        'tertiary60': '#3da26e',
-        'tertiary70': '#5abe87',
-        'tertiary80': '#77daa1',
-        'tertiary90': '#93f7bc',
-        'tertiary95': '#c0ffd6',
-        'tertiary98': '#e9ffed',
-        'tertiary99': '#f5fff4',
-        'tertiary100': '#ffffff',
-
         'neutral0': '#000000',
         'neutral10': '#001f25',
         'neutral20': '#00363f',
@@ -116,7 +99,7 @@ module.exports = {
         'error99': '#fffbff',
         'error100': '#ffffff',
 
-        
+
       'B7B19F': "#B7B19F",
       // 'e8e6df': '#e8e6df',
       'f7f5f2': '#f7f5f2',
