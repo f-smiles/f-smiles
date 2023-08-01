@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import Sphere from "./sketch";
 import { XMarkIcon, Bars2Icon } from "@heroicons/react/24/outline";
+import { animate, stagger, useMotionValue } from "framer-motion";
 import BagSidePanel from "../bag/BagSidePanel";
 
 export default function DesktopNavbar() {
@@ -17,6 +18,11 @@ export default function DesktopNavbar() {
   };
 
   const [show, setShow] = useState(null); /* mobile nav */
+  const progress = useMotionValue(0)
+  const sequence = [
+    ["ul", { opacity: 1 }, { duration: 0.5 }]
+    ["li", { x: [-100, 0] }, { delay: stagger(0.1) }]
+  ];
 
   const [about, setAbout] = useState(false);
   const [patient, setPatient] = useState(false);
@@ -208,13 +214,13 @@ export default function DesktopNavbar() {
       {/* Mobile Navbar */}
       <nav
         id="mobile-nav"
-        className="sticky top-0 left-0 right-0 z-40 w-full px-4 py-6 mx-auto bg-white/30 backdrop-blur-sm lg:hidden"
+        className={`${show ? 'bg-white' : 'bg-white/30 backdrop-blur-sm'} fixed top-0 left-0 right-0 z-50 w-full px-4 py-6 mx-auto lg:hidden text-gray-600`}
       >
         <section className="flex items-center justify-between">
           <NavLink to="/">
             <img
               className="h-10"
-              src="../../images/logo_full.svg"
+              src="../../images/logo_full.png"
               alt="FreySmiles Orthodontics logo"
             />
           </NavLink>
@@ -231,7 +237,7 @@ export default function DesktopNavbar() {
         </section>
         <section>
           {show && (
-            <ul className="min-h-screen font-serif text-3xl font-thin tracking-wider uppercase">
+            <ul className="h-screen font-serif text-3xl font-thin tracking-wider uppercase bg-white">
               <div className="mt-12 cursor-pointer">
                 <li
                   className="py-2 border-t border-light-brown"

@@ -153,7 +153,7 @@ module.exports = {
   },
   plugins: [
     require("tw-elements/dist/plugin.cjs"),
-    // require("daisyui"),
+    require("daisyui"),
   ],
   darkMode: "class",
   variants: {
