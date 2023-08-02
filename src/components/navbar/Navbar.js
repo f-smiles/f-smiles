@@ -46,7 +46,7 @@ function useMobileNavAnimation(show) {
           ["ul", { transform: "translateX(-100%)" }, { at: "-0.1" }],
         ];
     animate([...mobileNavAnimations]);
-  }, [show]);
+  }, [show, animate]);
 
   return scope;
 }
@@ -315,7 +315,6 @@ export default function DesktopNavbar() {
           </div>
         </div>
       </nav>
-
       {/* Desktop Navbar end */}
 
       {/* Mobile Navbar */}
@@ -334,7 +333,7 @@ export default function DesktopNavbar() {
             />
           </NavLink>
           <div
-            className="cursor-pointer text-violet-500"
+            className="transition duration-300 ease-linear cursor-pointer text-primary50 hover:text-secondary50"
             onClick={handleToggleMobileNav}
           >
             {show ? (
@@ -346,22 +345,23 @@ export default function DesktopNavbar() {
         </section>
         <section ref={scope}>
           {show && (
-            <ul className="h-screen font-serif text-3xl font-thin tracking-wider uppercase bg-white">
-              <div className="mt-12 cursor-pointer group text-primary50">
+            <ul className="relative h-screen overflow-auto text-3xl bg-white">
+              <div className="mt-12 cursor-pointer group text-primary40">
                 <li
-                  className="py-2 border-t border-secondary50/30"
+                  className="py-2 border-b border-secondary50/30"
                   onClick={() => setAbout(!about)}
                 >
-                  <span className="inline-flex items-center gap-2">
+                  <span className="inline-flex items-center gap-2 font-light tracking-wider uppercase font-larken">
                     About <ChevronDownIcon className="w-4 h-4" />
                   </span>
                   {about && (
-                    <div className="w-full mt-4">
+                    <div className="flex flex-col w-full my-4 space-y-1 capitalize">
                       {about_us_links &&
                         about_us_links.map((link) => (
                           <NavLink
                             key={link.name}
                             to={link.href}
+                            className="mx-6 font-cera text-secondary50"
                             onClick={() => setShow(!show)}
                           >
                             {link.name}
@@ -371,19 +371,20 @@ export default function DesktopNavbar() {
                   )}
                 </li>
                 <li
-                  className="py-2 border-t border-secondary50/30"
+                  className="py-2 border-b border-secondary50/30"
                   onClick={() => setPatient(!patient)}
                 >
-                  <span className="inline-flex items-center gap-2">
+                  <span className="inline-flex items-center gap-2 font-light tracking-wider uppercase font-larken">
                     Patient <ChevronDownIcon className="w-4 h-4" />
                   </span>
                   {patient && (
-                    <div className="flex flex-col">
+                    <div className="flex flex-col w-full my-4 space-y-1 capitalize">
                       {patient_links &&
                         patient_links.map((link) => (
                           <NavLink
                             key={link.name}
                             to={link.href}
+                            className="mx-6 font-cera text-secondary50"
                             onClick={() => setShow(!show)}
                           >
                             {link.name}
@@ -393,19 +394,20 @@ export default function DesktopNavbar() {
                   )}
                 </li>
                 <li
-                  className="py-2 border-y border-secondary50/30"
+                  className="py-2 border-b border-secondary50/30"
                   onClick={() => setTreatments(!treatments)}
                 >
-                  <span className="inline-flex items-center gap-2">
+                  <span className="inline-flex items-center gap-2 font-light tracking-wider uppercase font-larken">
                     Treatments <ChevronDownIcon className="w-4 h-4" />
                   </span>
                   {treatments && (
-                    <div>
+                    <div className="flex flex-col w-full my-4 space-y-1 capitalize">
                       {treatments_links &&
                         treatments_links.map((link) => (
                           <NavLink
                             key={link.name}
                             to={link.href}
+                            className="mx-6 font-cera text-secondary50"
                             onClick={() => setShow(!show)}
                           >
                             {link.name}
@@ -419,32 +421,58 @@ export default function DesktopNavbar() {
                 className="mt-12 space-y-4 cursor-pointer"
                 onClick={() => setShow(!show)}
               >
-                <li>
+                <li className="">
                   <NavLink
-                    className="block"
+                    className="block text-md font-cera text-secondary50"
                     to="https://my.orthoblink.com/bLink/Login"
                   >
                     Patient Login
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink className="block" to="/products">
+                  <NavLink
+                    className="block font-cera text-secondary50"
+                    to="/products"
+                  >
                     Shop
                   </NavLink>
                 </li>
-                <li>
-                  <NavLink
-                    className="p-2 border rounded border-slate-900"
-                    to="/book-now"
-                  >
-                    Book Now
-                  </NavLink>
+                <li className="pt-6">
+                  {/* <div className="w-max">
+                      <div className="w-full h-full p-1 rounded-md bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500">
+                        <div className="w-full h-full bg-white">
+                          <NavLink
+                            className="p-2 uppercase text-primary50 font-cera-bold"
+                            to="/book-now"
+                          >
+                            Book Now
+                          </NavLink>
+                        </div>
+                      </div>
+                    </div> */}
+                  <div className="px-3 py-2 rounded-md w-max bg-gradient-to-r from-purple-700 to-secondary50">
+                    <NavLink
+                      to="/book-now"
+                      className="font-normal uppercase text-primary98 font-cera"
+                    >
+                      Book Now
+                    </NavLink>
+                  </div>
                 </li>
+              </div>
+              {/* animated blobs */}
+              <div className="absolute w-full bottom-1/2 left-1/2">
+                <div className="relative max-w-lg">
+                  <div className="absolute top-0 rounded-full opacity-50 bg-primary50 -left-1/2 w-96 h-96 mix-blend-multiply filter animate-blob blur-xl"></div>
+                  <div className="absolute top-0 bg-yellow-300 rounded-full opacity-50 -left-1/6 w-96 h-96 mix-blend-multiply filter animate-blob animation-delay-2000 blur-xl"></div>
+                  <div className="absolute rounded-full opacity-50 bg-secondary70 -left-1/4 top-3/4 w-96 h-96 mix-blend-multiply filter animate-blob animation-delay-4000 blur-xl"></div>
+                </div>
               </div>
             </ul>
           )}
         </section>
       </nav>
+      {/* Mobile Navbar end */}
     </>
   );
 }

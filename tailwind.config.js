@@ -82,24 +82,6 @@ module.exports = {
         'neutral-variant99': '#fffbff',
         'neutral-variant100': '#ffffff',
 
-        'error0': '#000000',
-        'error10': '#410002',
-        'error20': '#690005',
-        'error25': '#7e0007',
-        'error30': '#93000a',
-        'error35': '#a80710',
-        'error40': '#ba1a1a',
-        'error50': '#de3730',
-        'error60': '#ff5449',
-        'error70': '#ff897d',
-        'error80': '#ffb4ab',
-        'error90': '#ffdad6',
-        'error95': '#ffedea',
-        'error98': '#fff8f7',
-        'error99': '#fffbff',
-        'error100': '#ffffff',
-
-
       'B7B19F': "#B7B19F",
       // 'e8e6df': '#e8e6df',
       'f7f5f2': '#f7f5f2',
@@ -130,9 +112,29 @@ module.exports = {
       },
     },
     fontFamily: {
-      sans: ['Cera Pro', 'sans-serif'],
-      serif: ['Larken', 'serif'],
-    }
+      'cera': ['CeraProRegular', 'sans-serif'],
+      'cera-bold': ['CeraProBold', 'sans-serif'],
+      'larken': ['Larken', 'serif'],
+    },
+    animation: {
+      blob: "blob 7s infinite",
+    },
+    keyframes: {
+      blob: {
+        "0%": {
+          transform: "translate(0px, 0px) scale(1)",
+        },
+        "33%": {
+          transform: "translate(30px, -50px) scale(1.1)",
+        },
+        "66%": {
+          transform: "translate(-20px, 20px) scale(0.9)",
+        },
+        "100%": {
+          transform: "translate(0px, 0px) scale(1)",
+        },
+      }
+    },
   },
   plugins: [
     require("tw-elements/dist/plugin.cjs"),
