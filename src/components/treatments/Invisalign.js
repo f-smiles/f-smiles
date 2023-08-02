@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 
 const Invisalign = () => {
   const [progress, setProgress] = useState(0);
+  const [topRightProgress, setTopRightProgress] = useState(0);
+  const [bottomLeftProgress, setBottomLeftProgress] = useState(0);
+
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -9,7 +12,17 @@ const Invisalign = () => {
         const nextProgress = prevProgress >= 100 ? 100 : prevProgress + 2;
         return nextProgress;
       });
-    }, 25);
+
+      setTopRightProgress((prevProgress) => {
+        const nextProgress = prevProgress >= 100 ? 100 : prevProgress + 2;
+        return nextProgress;
+      });
+
+      setBottomLeftProgress((prevProgress) => {
+        const nextProgress = prevProgress >= 100 ? 100 : prevProgress + 2;
+        return nextProgress;
+      });
+    }, 40);
 
     return () => {
       clearInterval(interval);
@@ -19,7 +32,20 @@ const Invisalign = () => {
   const circleSize = 300;
   const countdownValue = 10 - Math.ceil((100 - progress) / 100 * 10);
 
+  const arcSize = 100;
+  const arcRadius = circleSize / 2 - arcSize / 2;
+  const arcStrokeWidth = 2;
+  const arcStrokeColor = "#9F7AEA";
 
+  const arcStyle = {
+    fill: "none",
+    strokeWidth: arcStrokeWidth,
+    stroke: arcStrokeColor,
+  };
+
+  const arcTopRightPath = `M${circleSize / 2} ${circleSize / 2 - arcRadius} A${arcRadius} ${arcRadius} 0 0 1 ${circleSize / 2 + arcRadius} ${circleSize / 2}`;
+
+  const arcBottomLeftPath = `M${circleSize / 2} ${circleSize / 2 + arcRadius} A${arcRadius} ${arcRadius} 0 0 1 ${circleSize / 2 - arcRadius} ${circleSize / 2}`;
 
   const progressBarStyle = {
     width: `${circleSize}px`,
@@ -31,22 +57,7 @@ const Invisalign = () => {
     transform: "translate(-200%, -50%)",
   };
 
-  const borderStyle = {
-    width: "100%",
-    height: "100%",
-    borderRadius: "50%",
-    clipPath: `polygon(
-      50% 100%,
-      50% ${(100 - progress) / 100 * 50}%,
-      100% ${(100 - progress) / 100 * 50}%,
-      10% 100%,
-      50% 100%
-    )`,
-    borderWidth: "2px",
-    borderStyle: "solid",
-    borderColor: "#9F7AEA",
-    boxSizing: "border-box",
-  };
+
 
   const numberStyle = {
     fontSize: `${circleSize / 4}px`,
@@ -56,7 +67,7 @@ const Invisalign = () => {
     left: "50%",
     transform: "translate(-50%, -50%)",
     opacity: progress >= 100 ? 1 : 0,
-    transition: "opacity 1s ease-in-out",
+    transition: "opacity .5s ease-in-out",
   };
 
   const topTextStyle = {
@@ -65,20 +76,20 @@ const Invisalign = () => {
     position: "absolute",
     top: "50%",
     left: "15%",
-    transform: `translate(-50%, -50%)`,
+    transform: `translate(-200%, -50%)`,
     opacity: progress >= 100 ? 1 : 0,
-    transition: "opacity 1s ease-in-out, transform 1s ease-in-out",
+
   };
 
   const textStyle = {
     position: "absolute",
     top: "50%",
-    left: "25%",
+    left: "30%",
     transform: "translateY(-50%)",
     fontSize: `${circleSize / 12}px`,
     color: "#9F7AEA",
     opacity: progress >= 100 ? 1 : 0, 
-    transition: "opacity 1s ease-in-out", 
+ 
   };
 
   const sectionStyle = {
@@ -94,7 +105,19 @@ const Invisalign = () => {
   return (
     <main style={sectionStyle} className="w-full px-4 pt-16 bg-F8F6F1">
       <div style={progressBarStyle}>
-        <div style={borderStyle}></div>
+
+        <svg width={circleSize} height={circleSize} style={{ position: "absolute" }}>
+          <path
+            style={arcStyle}
+            d={arcTopRightPath}
+            strokeDasharray={`${(topRightProgress / 100) * arcRadius * Math.PI * 2} ${arcRadius * Math.PI * 2}`}
+          />
+          <path
+            style={arcStyle}
+            d={arcBottomLeftPath}
+            strokeDasharray={`${(bottomLeftProgress / 100) * arcRadius * Math.PI * 2} ${arcRadius * Math.PI * 2}`}
+          />
+        </svg>
         <div style={numberStyle}>{progress >= 100 ? 1 : countdownValue}%</div>
         <div style={topTextStyle}>Top</div>
       </div>
@@ -114,9 +137,7 @@ export default Invisalign;
 
 
 {/* <div className="mx-auto w-full max-w-screen-lg rounded-2xl bg-white p-2">
-<span>
-  FreySmiles Orthodontics is one of the TOP 1% Providers in the US
-</span>
+
 
 <p>
   Invisalign has worked for over a million smiles across the country.
