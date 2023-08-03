@@ -102,14 +102,19 @@ export default function WhyChooseUs() {
           <div className="absolute inset-0 flex items-center justify-center"></div>
         </div>
         <div className="absolute relative inset-0 flex py-20 mb-20 overflow-hidden rounded-lg bg-opacity-60 backdrop-filter backdrop-blur-xl">
+          <div className="w-1/2">
           <p className="px-12 py-8 mx-auto mt-20 text-lg text-center text-violet-800 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
-          <span className="py-2"     style={{ letterSpacing: '.2px' }} >
-    FreySmiles Orthodontics is a family-owned practice providing unparalleled orthodontic experience to 
-the Lehigh Valley community for over four decades. Our office holds the distinction of being the longest-standing,
+            <span className="text-4xl">
+            Our office holds the distinction of being the longest-standing,
  active board-certified orthodontic office in the area.{" "}
+            </span>
+          <span className="py-2"     style={{ letterSpacing: '.2px' }} >
+   With four offices in the Lehigh Valley, we have been providing unparalleled orthondtic care for over four decades.
            </span>
           </p>
+          </div>
           <div
+          className="w-1/2"
             style={{
               display: "flex",
               justifyContent: "flex-end",
@@ -119,7 +124,7 @@ the Lehigh Valley community for over four decades. Our office holds the distinct
             <img
               src="../../images/drfreyperfecting.jpg"
               alt="invisalign"
-              className="mt-4 rounded-lg"
+              className="mt-4 "
               style={{
                 width: "120%",
                 height: "auto",
@@ -133,15 +138,7 @@ the Lehigh Valley community for over four decades. Our office holds the distinct
               alignItems: "flex-end",
             }}
           >
-            <img
-              src="../../images/alyssaprinter.jpg"
-              alt="invisalign"
-              className="mt-4 rounded-full"
-              style={{
-                width: "100%",
-                height: "auto",
-              }}
-            />
+    
           </div>
         </div>
 <div className="py-10 bg-indigo-500">
@@ -188,82 +185,13 @@ the Lehigh Valley community for over four decades. Our office holds the distinct
               <Accordion open={open === 1}>
                 <h1>
                  
-                  <AccordionHeader
-                    onClick={() => handleOpen(1)}
-                    className="text-3xl border-b-0"
-                  >
-                    <span style={{ whiteSpace: "nowrap" }}>
-                      + Meet Our Doctors
-                    </span>
-                  </AccordionHeader>
+             
                 </h1>
-                <AccordionBody>
-                  <ul>
-                    <li className="mb-5">
-                      <a
-                        className="text-xl cursor-pointer  text-emerald-700 hover:text-indigo-700"
-                        href="/our-team"
-                      >
-                        Dr. Gregg Frey
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        className="text-xl text-center cursor-pointer text-emerald-700 hover:text-indigo-700"
-                        href="/our-team"
-                      >
-                        Dr. Daniel Frey
-                      </a>
-                    </li>
-                  </ul>
-                </AccordionBody>
+           
               </Accordion>
 
               <Accordion open={open === 2}>
-                <h1>
-                  <AccordionHeader
-                    onClick={() => handleOpen(2)}
-                    className="text-3xl border-b-0"
-                  >
-                    <span style={{ whiteSpace: "nowrap" }}>+ 4 Locations</span>
-                  </AccordionHeader>
-                </h1>
-                <AccordionBody>
-                  <ul>
-                    <li>
-                      <a
-                        className="text-lg text-indigo-500 underline cursor-pointer hover:text-indigo-700"
-                        href="/locations"
-                      >
-                        Allentown
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        className="text-lg text-indigo-500 underline cursor-pointer hover:text-indigo-700"
-                        href="/locations"
-                      >
-                        Bethlehem
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        className="text-lg text-indigo-500 underline cursor-pointer hover:text-indigo-700"
-                        href="/locations"
-                      >
-                        Lehigton
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        className="text-lg text-indigo-500 underline cursor-pointer hover:text-indigo-700"
-                        href="/locations"
-                      >
-                        Schnecksville
-                      </a>
-                    </li>
-                  </ul>
-                </AccordionBody>
+         
               </Accordion>
             </Fragment>
           </div>
@@ -355,6 +283,7 @@ the Lehigh Valley community for over four decades. Our office holds the distinct
                 style={{
                   borderTopLeftRadius: "40px",
                   borderBottom: "1px solid #B17CFF",
+ 
                 
                 }}
               >
