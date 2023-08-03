@@ -1,6 +1,6 @@
 import React, { Fragment, useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
-
+import { Parallax, ParallaxLayer } from '@react-spring/parallax'
 import {
   Accordion,
   AccordionHeader,
@@ -8,6 +8,7 @@ import {
 } from "@material-tailwind/react";
 
 export default function WhyChooseUs() {
+  const alignCenter = { display: 'flex', alignItems: 'center' }
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const words = [
     "Invisalign",
@@ -101,6 +102,143 @@ export default function WhyChooseUs() {
         <div className="relative">
           <div className="absolute inset-0 flex items-center justify-center"></div>
         </div>
+            <div>
+      <div
+        className="background"
+        style={{
+          background: '',
+          position: 'absolute',
+          top: 0,
+          bottom: 0,
+          right: 0,
+          left: 0,
+          width: '100vw',
+          height: '100vh',
+        }}
+      />
+
+      <Parallax pages={5}>
+        <ParallaxLayer offset={0} speed={0.5} style={{ ...alignCenter, justifyContent: 'center' }}>
+          <p className="scrollText" style={{ fontSize: '1.5rem' }}>
+            Scroll down
+          </p>
+        </ParallaxLayer>
+
+        <ParallaxLayer sticky={{ start: 1, end: 3 }} style={{ ...alignCenter, justifyContent: 'flex-start' }}>
+          <div
+            className="card sticky"
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              fontSize: '1.25rem',
+              height: '10rem',
+              width: '25%',
+              textAlign: 'center',
+              borderRadius: '10px',
+              marginLeft: '15%',
+              backgroundColor: '#ff6d6d',
+            }}
+          >
+                <img
+      src="../../images/your-image.jpg"
+      alt="invisalign"
+      className="mt-4 rounded-lg"
+      style={{
+        width: "100%",
+        height: "auto",
+        maxWidth: "400px", 
+      }}
+    />
+          </div>
+        </ParallaxLayer>
+
+        <ParallaxLayer offset={1.5} speed={1.5} style={{ ...alignCenter, justifyContent: 'flex-end' }}>
+          <div
+            className="card parallax purple"
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              fontSize: '1.25rem',
+              height: '10rem',
+              width: '25%',
+              textAlign: 'center',
+              borderRadius: '10px',
+              marginRight: '15%',
+    
+            }}
+          >
+              <p style={{ letterSpacing: ".2px" }} className="mt-7">
+      We strive to attain finished results consistent with the{" "}
+      <span style={{ letterSpacing: ".2px" }} className="text-2xl text-violet-500">
+        American Board of Orthodontics (ABO){" "}
+      </span>{" "}
+      qualitative standards. Our dedicated doctors place great priority on the
+      certification and recertification process, ensuring that all diagnostic
+      records adhere to ABO standards. Currently, Dr. Gregg Frey is a certified
+      orthodontist, and is preparing cases for recertification. Dr. Daniel Frey
+      is in the final stages of obtaining his initial certification. To
+      complement our use of cutting-edge diagnostic technology, we uphold the
+      highest standards for our records, ensuring accuracy and precision
+      throughout the treatment process.
+    </p>
+          </div>
+        </ParallaxLayer>
+
+        <ParallaxLayer offset={2.5} speed={1.5} style={{ ...alignCenter, justifyContent: 'flex-end' }}>
+          <div
+            className="card parallax blue"
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              fontSize: '1.25rem',
+              height: '10rem',
+              width: '25%',
+              textAlign: 'center',
+              borderRadius: '10px',
+              marginRight: '15%',
+              backgroundColor: '#5b65ad',
+              color: 'white',
+            }}
+          >
+            <p>Neither am I</p>
+          </div>
+        </ParallaxLayer>
+      </Parallax>
+    </div>
+        <div className="py-10 bg-white flex flex-col md:flex-row items-center justify-center">
+  <div className="max-w-xl mx-auto text-center px-4 py-2">
+    <p style={{ letterSpacing: ".2px" }} className="mt-7">
+     
+      qualitative standards. Our dedicated doctors place great priority on the
+      certification and recertification process, ensuring that all diagnostic
+      records adhere to ABO standards. Currently, Dr. Gregg Frey is a certified
+      orthodontist, and is preparing cases for recertification. Dr. Daniel Frey
+      is in the final stages of obtaining his initial certification. To
+      complement our use of cutting-edge diagnostic technology, we uphold the
+      highest standards for our records, ensuring accuracy and precision
+      throughout the treatment process.
+    </p>
+    <p
+      style={{ letterSpacing: ".2px" }}
+      className="mb-16 ml-10 mr-10 text-center px-4 py-2 mx-auto text-md text-violet-800 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75 whitespace-[60ch]"
+    >
+      Our office is the #1 provider of Invisalign and Invisalign Teen in the
+      region.{" "}
+      <span className="text-2xl text-violet-500">
+        As Diamond Plus Invisalign providers,
+      </span>{" "}
+      our care over the many years has contributed to the research and
+      advancement of this specialized orthodontic treatment modality.
+    </p>
+  </div>
+  <div className="max-w-xl mx-auto text-center">
+
+  </div>
+</div>
+
         <div className="absolute relative inset-0 flex py-20 mb-20 overflow-hidden rounded-lg bg-opacity-60 backdrop-filter backdrop-blur-xl">
           <div className="w-1/2">
           <p className="px-12 py-8 mx-auto mt-20 text-lg text-center text-violet-800 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
@@ -141,34 +279,7 @@ export default function WhyChooseUs() {
     
           </div>
         </div>
-<div className="py-10 bg-white">
-<p style={{ letterSpacing: '.2px' }} className="mt-7">
-              {" "}
-              We strive to attain finished results consistent with the
-              <span style={{ letterSpacing: '.2px' }} className="text-2xl text-violet-500">
-                {" "}
-                American Board of Orthodontics (ABO){" "}
-              </span>{" "}
-              qualitative standards. Our dedicated doctors place great priority
-              on the certification and recertification process, ensuring that
-              all diagnostic records adhere to ABO standards. Currently, Dr.
-              Gregg Frey is a certified orthodontist, and is preparing cases for
-              recertification. Dr. Daniel Frey is in the final stages of
-              obtaining his initial certification. To complement our use of
-              cutting-edge diagnostic technology, we uphold the highest
-              standards for our records, ensuring accuracy and precision
-              throughout the treatment process.
-            </p>
-          <p style={{ letterSpacing: '.2px' }} className="mb-16 ml-10 mr-10 text-center px-4 py-2 mx-auto text-md text-violet-800 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75 whitespace-[60ch]">
-            Our office is the #1 provider of Invisalign and Invisalign Teen in
-            the region.{" "}
-            <span className="text-2xl text-violet-500">
-              As Diamond Plus Invisalign providers,
-            </span>{" "}
-            our care over the many years has contributed to the research and
-            advancement of this specialized orthodontic treatment modality.
-          </p>
-</div>
+
      
         <div style={{ display: "flex", alignItems: "flex-start" }}>
           <div
@@ -195,9 +306,9 @@ export default function WhyChooseUs() {
         <img
               src="../../images/smilescholarship.jpg"
               alt="invisalign"
-              className="mt-4 "
+              className="mt-4 rounded-lg "
               style={{
-                width: "50%",
+                width: "40%",
                 height: "auto",
               }}
             />
