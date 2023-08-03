@@ -307,28 +307,41 @@ the Lehigh Valley community for over four decades. Our office holds the distinct
           <p className="relative mt-1" style={{ zIndex: "20" }}></p>
         </div>
 
+<section className="bg-white">
         <table
           className="mx-auto"
           style={{ width: "100%", borderCollapse: "collapse" }}
         >
           <tbody>
             <tr>
-              <td className="p-2"></td>
+              <td className="p-2"     style={{
+                  borderBottom: "1px solid #B17CFF",
+       
+                  fontSize: "20px",
+                }}></td>
 
               <td
                 className="p-2 py-8 text-center bg-gradient-to-r from-rose-50 to-violet-200 text-violet-700"
                 style={{
-                  borderTopLeftRadius: "40px",
-                  borderBottomLeftRadius: "40px",
+                  borderBottom: "1px solid #B17CFF",
+       
                   fontSize: "20px",
                 }}
               >
-                FreySmiles Orthodontics
+            <div style={{ maxWidth: "200px", margin: "0 auto" }}>
+  <img
+    src="/images/logo_full.png"
+    alt="xray"
+    style={{ width: "100%", height: "auto" }}
+  />
+</div>
+
               </td>
               <td
-                className="p-2 py-8 text-center bg-gradient-to-r from-violet-200 to-violet-300 text-violet-700"
+                className="p-2 py-8 text-center "
                 style={{
                   borderTopRightRadius: "40px",
+                  borderBottom: "1px solid #B17CFF",
 
                   fontSize: "20px",
                 }}
@@ -338,15 +351,21 @@ the Lehigh Valley community for over four decades. Our office holds the distinct
             </tr>
             <tr>
               <td
-                className="p-2 py-8 text-lg text-center bg-gradient-to-r from-stone-50 to-rose-50 text-neutral-500"
+                className="p-2 py-8 text-lg text-center "
                 style={{
                   borderTopLeftRadius: "40px",
+                  borderBottom: "1px solid #B17CFF",
                 
                 }}
               >
                 4 convenient locations
               </td>
               <td className="mb-2 bg-gradient-to-r from-rose-50 to-violet-200"
+               style={{
+               
+                borderBottom: "1px solid #B17CFF",
+              
+              }}
                 >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -363,7 +382,12 @@ the Lehigh Valley community for over four decades. Our office holds the distinct
                   />
                 </svg>
               </td>
-              <td className="mb-2 bg-gradient-to-r from-violet-200 to-violet-300">
+              <td className="mb-2"
+               style={{
+          
+                borderBottom: "1px solid #B17CFF",
+              
+              }}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -381,10 +405,20 @@ the Lehigh Valley community for over four decades. Our office holds the distinct
               </td>
             </tr>
             <tr>
-              <td className="p-2 py-8 text-lg text-center bg-gradient-to-r from-stone-50 to-rose-50 text-neutral-500">
+              <td className="p-2 py-8 text-lg text-center"
+               style={{
+          
+                borderBottom: "1px solid #B17CFF",
+              
+              }}>
                 Leaders in the industry
               </td>
-              <td className="mb-2 bg-gradient-to-r from-rose-50 to-violet-200">
+              <td className="mb-2 bg-gradient-to-r from-rose-50 to-violet-200"
+               style={{
+               
+                borderBottom: "1px solid #B17CFF",
+              
+              }}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -400,7 +434,11 @@ the Lehigh Valley community for over four decades. Our office holds the distinct
                   />
                 </svg>
               </td>
-              <td className="mb-2 bg-gradient-to-r from-violet-200 to-violet-300">
+              <td className="mb-2 " style={{
+                 
+                  borderBottom: "1px solid #B17CFF",
+                
+                }}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -418,10 +456,21 @@ the Lehigh Valley community for over four decades. Our office holds the distinct
               </td>
             </tr>
             <tr>
-              <td className="p-2 py-8 text-lg text-center bg-gradient-to-r from-stone-50 to-rose-50 text-neutral-500">
+              <td className="p-2 py-8 text-lg text-center"
+               style={{
+       
+                borderBottom: "1px solid #B17CFF",
+              
+              }}>
                 Modern office settings
               </td>
-              <td className="mb-2 bg-gradient-to-r from-rose-50 to-violet-200">
+              <td className="mb-2 bg-gradient-to-r from-rose-50 to-violet-200"
+                 style={{
+       
+                  borderBottom: "1px solid #B17CFF",
+                
+                }}
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -437,7 +486,11 @@ the Lehigh Valley community for over four decades. Our office holds the distinct
                   />
                 </svg>
               </td>
-              <td className="mb-2 bg-gradient-to-r from-violet-200 to-violet-300">
+              <td className="mb-2"    style={{
+       
+       borderBottom: "1px solid #B17CFF",
+     
+     }}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -456,10 +509,19 @@ the Lehigh Valley community for over four decades. Our office holds the distinct
             </tr>
             <tr></tr>
             <tr>
-              <td className="p-2 py-8 text-lg text-center bg-gradient-to-r from-stone-50 to-rose-50 text-neutral-500">
+              <td className="p-2 py-8 text-lg text-center "
+                 style={{
+       
+                  borderBottom: "1px solid #B17CFF",
+                
+                }}>
                 Over 50+ years of experience
               </td>
-              <td className="mb-2 bg-gradient-to-r from-rose-50 to-violet-200">
+              <td className="mb-2 bg-gradient-to-r from-rose-50 to-violet-200"   style={{
+       
+       borderBottom: "1px solid #B17CFF",
+     
+     }}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -475,7 +537,11 @@ the Lehigh Valley community for over four decades. Our office holds the distinct
                   />
                 </svg>
               </td>
-              <td className="mb-2 bg-gradient-to-r from-violet-200 to-violet-300">
+              <td className="mb-2 "    style={{
+       
+       borderBottom: "1px solid #B17CFF",
+     
+     }}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -494,14 +560,21 @@ the Lehigh Valley community for over four decades. Our office holds the distinct
             </tr>
             <tr>
               <td
-                className="p-2 py-8 text-lg text-center bg-gradient-to-r from-stone-50 to-rose-50 text-neutral-500"
+                className="p-2 py-8 text-lg text-center "
                 style={{
                   borderBottomLeftRadius: "40px",
+                  borderBottom: "1px solid #B17CFF",
                 }}
+
               >
                 Financial options
               </td>
-              <td className="mb-2 bg-gradient-to-r from-rose-50 to-violet-200">
+              <td className="mb-2 bg-gradient-to-r from-rose-50 to-violet-200"
+                 style={{
+       
+                  borderBottom: "1px solid #B17CFF",
+                
+                }}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -518,9 +591,10 @@ the Lehigh Valley community for over four decades. Our office holds the distinct
                 </svg>
               </td>
               <td
-                className="mb-2 bg-gradient-to-r from-violet-200 to-violet-300"
+                className="mb-2 "
                 style={{
                   borderBottomRightRadius: "40px",
+                  borderBottom: "1px solid #B17CFF",
                 }}
               >
                 <svg
@@ -541,6 +615,7 @@ the Lehigh Valley community for over four decades. Our office holds the distinct
             </tr>
           </tbody>
         </table>
+        </section>
       </div>
     </div>
   );

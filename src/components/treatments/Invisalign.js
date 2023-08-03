@@ -254,9 +254,15 @@ const Invisalign = () => {
       style={{ width: "120px", height: "120px" }}
     />
   </div>
-  <div style={{ position: "absolute", top: "240px", left: "50%", transform: "translateX(-50%)", zIndex: 20 }}>
-    Top 1%
-    </div>
+  <div style={{ position: "absolute", top: "220px", left: "50%", transform: "translateX(-50%)", zIndex: 20, color: "#D6E69E", fontSize: "24px", fontWeight: "bold", textAlign: "center" }}>
+  Top
+</div>
+<div style={{ position: "absolute", top: "250px", left: "50%", transform: "translateX(-50%)", zIndex: 20, color: "#D6E69E", fontSize: "28px", fontWeight: "bold", textAlign: "center" }}>
+  1%
+</div>
+
+
+
         <img
       src="../../images/elizabethpatient.jpeg"
       alt="invisalign"
@@ -269,7 +275,7 @@ const Invisalign = () => {
   <div className="text-center text-3xl mb-4">Before & After</div>
   <div className="text-center">Thousands of our patients are loving their new smile!</div>
   <div className="flex justify-center mt-6">
- <div className="w-72 border border-red-200 p-2 flex flex-col items-center mx-1">   
+ <div className="w-72 border border-lime-300 p-2 flex flex-col items-center mx-1">   
       <div className="h-64">
         <img
           src="../../images/beforeafter1.png"
@@ -289,7 +295,7 @@ const Invisalign = () => {
       </div>
       <p className="mt-2 italic">- Sean</p>
     </div>
-    <div className="w-72 border border-indigo-200 p-2 flex flex-col items-center mx-1">
+    <div className="w-72 border border-lime-300 p-2 flex flex-col items-center mx-1">
       <div className="h-64">
         <img
           src="../../images/beforeafter3.png"
