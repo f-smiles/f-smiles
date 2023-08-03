@@ -141,7 +141,7 @@ export default function WhyChooseUs() {
     
           </div>
         </div>
-<div className="py-10 bg-indigo-500">
+<div className="py-10 bg-white">
 <p style={{ letterSpacing: '.2px' }} className="mt-7">
               {" "}
               We strive to attain finished results consistent with the
@@ -169,13 +169,7 @@ export default function WhyChooseUs() {
             advancement of this specialized orthodontic treatment modality.
           </p>
 </div>
-        <NavLink
-          to="/virtual-consultation"
-          className="relative z-20 px-5 px-8 py-2 py-5 mt-10 -ml-20 text-lg tracking-normal text-white bg-teal-800 rounded-full cursor-pointer curspor-pointer hover:bg-emerald-700 hover:text-white"
-          style={{ zIndex: "20" }}
-        >
-          <button className="mt-20">Schedule a Consultation</button>
-        </NavLink>
+     
         <div style={{ display: "flex", alignItems: "flex-start" }}>
           <div
             style={{ display: "flex", flexDirection: "column" }}
@@ -198,17 +192,17 @@ export default function WhyChooseUs() {
        
         </div>
         <div className="flex">
-          <img
-            src="../../images/rainbow.svg"
-            alt="invisalign"
-            className="mt-4 opacity-90"
-            style={{
-              width: "20%",
-              height: "auto",
-            }}
-          />
+        <img
+              src="../../images/smilescholarship.jpg"
+              alt="invisalign"
+              className="mt-4 "
+              style={{
+                width: "50%",
+                height: "auto",
+              }}
+            />
           <p
-            className="relative mt-10 mr-20 text-lg text-center text-violet-800"
+            className="relative mt-40 mr-20 text-2xl text-center text-violet-800"
             style={{ zIndex: "20", flex: "1",     }}
        
           >
