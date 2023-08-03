@@ -117,101 +117,18 @@ const Invisalign = () => {
   };
 
   return (
-    <main style={sectionStyle} className="w-full px-4 pt-16 bg-F8F6F1">
-{/* <svg
-  version="1.1"
-  xmlns="http://www.w3.org/2000/svg"
-  xmlnsXlink="http://www.w3.org/1999/xlink"
-  x="0px"
-  y="0px"
-  width="1600px"
-  height="200px"
-  viewBox="0 0 100 100"
-  enableBackground="new 0 0 100 100"
-  xmlSpace="preserve"
-  className="z-10"
-  style={{
-    position: 'relative',
-    margin: 'auto',
-    transform: 'translate(0, 50%)',
-    animation: 'rotate 10s linear infinite',
-  }}
->
-  <defs>
-    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style={{ stopColor: '#AA98A9', stopOpacity: 1 }} />
-      <stop offset="100%" style={{ stopColor: '#D8BFD8', stopOpacity: 1 }} />
-    </linearGradient>
-  </defs>
-  <circle cx="50" cy="50" r="25" fill="url(#grad)" />
-  <path
-    id="textPath"
-    fill="none"
-    d="M89.322,50.197c0,22.09-17.91,40-40,40c-22.089,0-40-17.91-40-40 c0-22.089,17.911-40,40-40C71.412,10.197,89.322,28.108,89.322,50.197z"
-  />
-<text style={{ fontSize: '12px' }}>
-  <textPath xlinkHref="#textPath">
-    <tspan x="10">Frey</tspan>
-    <tspan x="40">Smiles</tspan>
-    <tspan x="80">Top</tspan>
-    <tspan x="100">Of</tspan>
-    <tspan x="130">Invisalign</tspan>
-    <tspan x="200">Providers</tspan>
-
-  </textPath>
-</text>
-
-</svg>
-<svg
-  version="1.1"
-  xmlns="http://www.w3.org/2000/svg"
-  xmlnsXlink="http://www.w3.org/1999/xlink"
-  x="0px"
-  y="0px"
-  width="1600px"
-  height="200px"
-  viewBox="0 0 100 100"
-  enableBackground="new 0 0 100 100"
-  xmlSpace="preserve"
-  className="z-10"
-  style={{
-    position: 'absolute',
-    left: '50%',
-    top: '58%',
-    fontSize: '9px',
-  }}
->
-  <text x="50" y="0" fill="white" fontSize="12px" textAnchor="middle">
-    1%
-  </text>
-</svg> */}
+    <main >
 
 
 
+
+<section style={sectionStyle} className="w-full px-4 pt-16 bg-F8F6F1">
       <div className="flex flex-col md:flex-row">
         
         <div className="md:w-1/2 md:pr-6">
           <div  className="text-white mt-40">
           <div className="relative w-full pb-full overflow-hidden">
-      <svg
-        className="absolute left-0 top-0 w-full h-full animation-spin"
-        viewBox="0 0 300 300"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <defs>
-          <path
-            id="circlePath"
-            d="M 150, 150 m -75, 0 a 75,75 0 0,1 150,0 a 75,75 0 0,1 -150,0"
-          />
-        </defs>
-        <circle cx="150" cy="100" r="75" fill="none" />
-        <g>
-          <use xlinkHref="#circlePath" fill="none" />
-          <text fill="#000" className="font-bold text-lg">
-            <textPath xlinkHref="#circlePath">Top Of Invisalign Providers</textPath>
-          </text>
-        </g>
-      </svg>
+   
     </div>
           <Accordion open={open === 1}>
         <AccordionHeader onClick={() => handleOpen(1)}>          <span className="text-2xl font-normal">What is Invisalign?</span></AccordionHeader>
@@ -288,6 +205,58 @@ const Invisalign = () => {
     
           </div>
         </div>
+        <div style={{ position: "absolute", top: "160px", left: "50%", transform: "translateX(-50%)", zIndex: 20 }}>
+         <svg
+  version="1.1"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlnsXlink="http://www.w3.org/1999/xlink"
+  x="0px"
+  y="0px"
+  width="1600px"
+  height="200px"
+  viewBox="0 0 100 100"
+  enableBackground="new 0 0 100 100"
+  xmlSpace="preserve"
+  className="z-10"
+  style={{
+    position: 'relative',
+    margin: 'auto',
+    transform: 'translate(0, 50%)',
+    animation: 'rotate 10s linear infinite',
+  }}
+>
+  
+  <circle cx="50" cy="50" r="25" fill="url(#grad)" />
+  <path
+    id="textPath"
+    fill="none"
+    d="M89.322,50.197c0,22.09-17.91,40-40,40c-22.089,0-40-17.91-40-40 c0-22.089,17.911-40,40-40C71.412,10.197,89.322,28.108,89.322,50.197z"
+  />
+<text style={{ fontSize: '12px', fill: '#fff', letterSpacing: '1px' }} >
+  <textPath xlinkHref="#textPath">
+
+    <tspan x="10">Diamond</tspan>
+    <tspan x="80">Plus</tspan>
+    <tspan x="120">Invisalign</tspan>
+    <tspan x="200">Providers</tspan>
+  </textPath>
+</text>
+
+
+
+</svg>
+</div>
+        <div style={{ position: "absolute", top: "200px", left: "50%", transform: "translateX(-50%)", zIndex: 20 }}>
+    <img
+      src="../../images/sticker.svg"
+      alt="joel"
+      className="rounded-lg"
+      style={{ width: "120px", height: "120px" }}
+    />
+  </div>
+  <div style={{ position: "absolute", top: "240px", left: "50%", transform: "translateX(-50%)", zIndex: 20 }}>
+    Top 1%
+    </div>
         <img
       src="../../images/elizabethpatient.jpeg"
       alt="invisalign"
@@ -295,38 +264,45 @@ const Invisalign = () => {
       style={imageStyle}
     />
       </div>
-      <section className="mt-10 flex justify-between">
-      <div className="w-72 bg-red-200 p-2 flex flex-col items-center mx-2">
-    <div className="h-64">
-      <img
-        src="../../images/beforeafter1.png"
-        alt="invisalign"
-        className="h-full w-auto object-cover"
-      />
+      </section>
+      <section className="mt-10 mb-10">
+  <div className="text-center text-3xl mb-4">Before & After</div>
+  <div className="text-center">Thousands of our patients are loving their new smile!</div>
+  <div className="flex justify-center mt-6">
+ <div className="w-72 border border-red-200 p-2 flex flex-col items-center mx-1">   
+      <div className="h-64">
+        <img
+          src="../../images/beforeafter1.png"
+          alt="joel"
+          className="rounded-lg h-full w-auto object-cover"
+        />
+      </div>
+      <p className="mt-2 italic ">- Joel</p>
     </div>
-    <p className="mt-2">Joel</p>
-  </div>
-  <div className="w-72 bg-lime-100 p-2 flex flex-col items-center mx-2">
-    <div className="h-64">
-      <img
-        src="../../images/beforeafter2.png"
-        alt="Image 2"
-        className="h-full w-auto object-cover"
-      />
+    <div className="w-72 border border-lime-300 p-2 flex flex-col items-center mx-1">
+      <div className="h-64">
+        <img
+          src="../../images/beforeafter2.png"
+          alt="sean"
+          className="rounded-lg h-full w-auto object-cover"
+        />
+      </div>
+      <p className="mt-2 italic">- Sean</p>
     </div>
-    <p className="mt-2">Sean</p>
-  </div>
-  <div className="w-72 bg-indigo-200 p-2 flex flex-col items-center mx-2">
-    <div className="h-64">
-      <img
-        src="../../images/beforeafter3.png"
-        alt="Image 3"
-        className="h-full w-auto object-cover"
-      />
+    <div className="w-72 border border-indigo-200 p-2 flex flex-col items-center mx-1">
+      <div className="h-64">
+        <img
+          src="../../images/beforeafter3.png"
+          alt="london"
+          className="rounded-lg h-full w-auto object-cover"
+        />
+      </div>
+      <p className="mt-2 italic">- London</p>
     </div>
-    <p className="mt-2">London</p>
   </div>
 </section>
+
+
 
 
 
