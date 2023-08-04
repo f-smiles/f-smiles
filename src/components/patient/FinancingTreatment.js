@@ -71,15 +71,27 @@
 // }, []);
 
 
+// import { motion, useScroll, useSpring } from "framer-motion"
+// const ref = useRef(null);
+// const { scrollYProgress } = useScroll({
+//   target: ref,
+//   offset: ["end end", "start start"]
+// });
+// const scaleY = useSpring(scrollYProgress, {
+//   stiffness: 100,
+//   damping: 30,
+//   restDelta: 0.001
+// });
 // <motion.span
 //  className="absolute md:w-1 w-full h-1 md:h-full top-0 left-0 bottom-24 origin-[0%] bg-red-700"
 //  style={{ scaleY }}
 //></motion.span>
 
-import React, { useEffect, useRef } from "react";
+
+import React, { useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-// import { motion, useScroll, useSpring } from "framer-motion"
+
 
 export default function FinancingTreatment() {
   gsap.registerPlugin(ScrollTrigger);
@@ -101,8 +113,7 @@ export default function FinancingTreatment() {
     });
 
     //create scrolltrigger for each details section
-    //trigger photo animation when headline of each details section
-    //reaches 80% of window height
+    //trigger photo animation when headline of each details section reaches 80% of window height
     details.forEach((detail, index) => {
       let headline = detail.querySelector("h1");
       let animation = gsap
@@ -119,102 +130,133 @@ export default function FinancingTreatment() {
       });
     });
 
+    // return () => details.revert();
   }, []);
 
-  const ref = useRef(null);
-  // const { scrollYProgress } = useScroll({
-  //   target: ref,
-  //   offset: ["end end", "start start"]
-  // });
-  // const scaleY = useSpring(scrollYProgress, {
-  //   stiffness: 100,
-  //   damping: 30,
-  //   restDelta: 0.001
-  // });
-
   return (
-    <main className="w-full min-h-screen mt-32 bg-white">
-      <div className="max-w-2xl mx-auto">
+    <main className="w-full min-h-screen bg-white md:mt-24">
+      <div className="hidden max-w-2xl mx-auto">
         <h1>Investing In Your Health and Appearance</h1>
-        <p>While cost may be a factor in choosing an orthodontist, it's crucial to prioritize findind one who can achieve the best treatment result for you or your child.</p>
+        <p>
+          While cost may be a factor in choosing an orthodontist, it's crucial
+          to prioritize findind one who can achieve the best treatment result
+          for you or your child.
+        </p>
       </div>
       <div id="gallery" className="flex">
         <div id="left" className="hidden md:w-1/2 md:block">
-          <div ref={ref} id="desktopContent" className="m-auto w-[80%] border-l-2 border-purple-500">
+          <div
+            id="desktopContent"
+            className="m-auto w-[80%] border-l-2 border-purple-500"
+          >
             <section
               id="desktopContentSection"
-              className="flex flex-col justify-center min-h-screen"
+              className="relative flex flex-col justify-center min-h-screen"
             >
-              <div className="relative p-4">
-                <h1>Complimentary Consultation</h1>
-                <p>Initial consultations are always free of charge.</p>
+              <div className="md:pl-10">
+                <h1 className="leading-10">Complimentary Consultation</h1>
+                <p className="mt-2">
+                  Initial consultations are always free of charge.
+                </p>
+              </div>
+              <div className="absolute rounded-full top-[45vh] -left-5 bg-primary50 text-white">
+                <div className="px-3.5 py-2">1.</div>
               </div>
             </section>
             <section
               id="desktopContentSection"
-              className="flex flex-col justify-center min-h-screen "
+              className="relative flex flex-col justify-center min-h-screen"
             >
-              <div className="relative p-4">
-                <h1>Payment plans are available</h1>
-                <p>We offer a variety of payment plans at no interest.</p>
+              <div className="md:pl-10">
+                <h1 className="leading-10">Payment plans are available</h1>
+                <p className="mt-2">
+                  We offer a variety of payment plans at no interest.
+                </p>
+              </div>
+              <div className="absolute rounded-full top-[45vh] -left-5 bg-primary50 text-white">
+                <div className="px-3.5 py-2">2.</div>
               </div>
             </section>
             <section
               id="desktopContentSection"
-              className="flex flex-col justify-center min-h-screen "
+              className="relative flex flex-col justify-center min-h-screen"
             >
-              <div className="relative p-4">
-                <h1>No hidden costs</h1>
-                <p>
+              <div className="md:pl-10">
+                <h1 className="leading-10">No hidden costs</h1>
+                <p className="mt-2">
                   Fees for diagnostic records, treatment visits, appliances.
                 </p>
               </div>
+              <div className="absolute rounded-full top-[45vh] -left-5 bg-primary50 text-white">
+                <div className="px-3.5 py-2">3.</div>
+              </div>
             </section>
             <section
               id="desktopContentSection"
-              className="flex flex-col justify-center min-h-screen "
+              className="relative flex flex-col justify-center min-h-screen"
             >
-              <div className="relative p-4">
-                <h1>One Year Post-Treatment Follow Up</h1>
-                <p>
+              <div className="md:pl-10">
+                <h1 className="leading-10">
+                  One Year Post-Treatment Follow Up
+                </h1>
+                <p className="mt-2">
                   Retainers and retention visits for one year post-treatment
                   included.
                 </p>
+              </div>
+              <div className="absolute rounded-full top-[45vh] -left-5 bg-primary50 text-white">
+                <div className="px-3.5 py-2">4.</div>
               </div>
             </section>
           </div>
         </div>
         <div
           id="right"
-          className="items-center w-full md:h-screen md:w-1/2 md:flex md:flex-col md:justify-center "
+          className="items-center w-full md:h-screen md:w-1/2 md:flex md:flex-col md:justify-center"
         >
           {/* mobile content */}
           <section
             id="mobileContent"
-            className="block mx-auto md:hidden md:w-[80vw]"
+            className="h-screen block mx-auto md:hidden md:w-[80vw]"
           >
-            <div
+            {/* <div
               id="mobilePhoto"
-              className="aspect-square md:w-[80vw] md:h-[80vh] mt-20 rounded-[8vw] bg-red-500 m-auto"
-            ></div>
+              className="aspect-square w-[80vw] h-[80vh] mt-20 rounded-[8vw] bg-red-500 m-auto"
+            ></div> */}
+            <div id="mobilePhoto" className="aspect-square mt-20 rounded-[8vw]">
+              <img
+                className="object-cover w-full h-full"
+                src="../../images/firstmeeting.jpg"
+                alt="woman greeting a patient and shaking their hand"
+              />
+            </div>
             <h1>Complimentary Consultation</h1>
             <p>Initial consultations are always free of charge.</p>
-            <div
-              id="mobilePhoto"
-              className="aspect-square md:w-[80vw] md:h-[80vh] mt-20 rounded-[8vw] bg-green-500 m-auto"
-            ></div>
+            <div id="mobilePhoto" className="aspect-square mt-20 rounded-[8vw]">
+              <img
+                className="object-cover w-full h-full"
+                src="../../images/firstmeeting.jpg"
+                alt="woman greeting a patient and shaking their hand"
+              />
+            </div>
             <h1>Payment plans are available</h1>
             <p>We offer a variety of payment plans at no interest.</p>
-            <div
-              id="mobilePhoto"
-              className="aspect-square md:w-[80vw] md:h-[80vh] mt-20 rounded-[8vw]m-auto bg-pink-500 "
-            ></div>
+            <div id="mobilePhoto" className="aspect-square mt-20 rounded-[8vw]">
+              <img
+                className="object-cover w-full h-full"
+                src="../../images/firstmeeting.jpg"
+                alt="woman greeting a patient and shaking their hand"
+              />
+            </div>
             <h1>No hidden costs</h1>
             <p>Fees for diagnostic records, treatment visits, appliances.</p>
-            <div
-              id="mobilePhoto"
-              className="aspect-square md:w-[80vw] md:h-[80vh] mt-20 rounded-[8vw] m-auto bg-blue-500 "
-            ></div>
+            <div id="mobilePhoto" className="aspect-square mt-20 rounded-[8vw]">
+              <img
+                className="object-cover w-full h-full"
+                src="../../images/firstmeeting.jpg"
+                alt="woman greeting a patient and shaking their hand"
+              />
+            </div>
             <h1>One Year Post-Treatment Follow Up</h1>
             <p>
               Retainers and retention visits for one year post-treatment
@@ -233,21 +275,32 @@ export default function FinancingTreatment() {
                 alt="woman greeting a patient and shaking their hand"
               />
             </div>
-            <div
-              id="desktopPhoto"
-              className="absolute w-full h-full bg-green-500"
-            ></div>
-            <div
-              id="desktopPhoto"
-              className="absolute w-full h-full bg-pink-500 "
-            ></div>
-            <div
-              id="desktopPhoto"
-              className="absolute w-full h-full bg-blue-500 "
-            ></div>
+            <div id="desktopPhoto" className="absolute w-full h-full">
+              <img
+                className="z-10 object-cover w-full h-full"
+                src="../../images/firstmeeting.jpg"
+                alt="woman greeting a patient and shaking their hand"
+              />
+            </div>
+            <div id="desktopPhoto" className="absolute w-full h-full">
+              <img
+                className="z-10 object-cover w-full h-full"
+                src="../../images/firstmeeting.jpg"
+                alt="woman greeting a patient and shaking their hand"
+              />
+            </div>
+            <div id="desktopPhoto" className="absolute w-full h-full">
+              <img
+                className="z-10 object-cover w-full h-full"
+                src="../../images/firstmeeting.jpg"
+                alt="woman greeting a patient and shaking their hand"
+              />
+            </div>
           </section>
         </div>
       </div>
+      <div className="w-full h-[100vh] md:hidden"></div>
+      <div className="w-full h-[80vh] md:hidden"></div>
     </main>
   );
 }
