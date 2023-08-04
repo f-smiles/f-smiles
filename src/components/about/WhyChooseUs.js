@@ -117,123 +117,124 @@ export default function WhyChooseUs() {
         }}
       />
 
-      <Parallax pages={5}>
-        <ParallaxLayer offset={0} speed={0.5} style={{ ...alignCenter, justifyContent: 'center' }}>
-          <p className="scrollText" style={{ fontSize: '1.5rem' }}>
-            Scroll down
-          </p>
-        </ParallaxLayer>
+<Parallax pages={5}>
+  <ParallaxLayer offset={0} speed={0.5} style={{ ...alignCenter, justifyContent: 'center' }}>
+    {/* Content for first parallax layer */}
+  </ParallaxLayer>
 
-        <ParallaxLayer sticky={{ start: 1, end: 3 }} style={{ ...alignCenter, justifyContent: 'flex-start' }}>
-          <div
-            className="card sticky"
-            style={{
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              fontSize: '1.25rem',
-              height: '10rem',
-              width: '25%',
-              textAlign: 'center',
-              borderRadius: '10px',
-              marginLeft: '15%',
-              backgroundColor: '#ff6d6d',
-            }}
-          >
-                <img
-      src="../../images/your-image.jpg"
-      alt="invisalign"
-      className="mt-4 rounded-lg"
+  <ParallaxLayer style={{ ...alignCenter, justifyContent: 'flex-start', top: '20%' }}>
+    <div
+      className="card sticky"
       style={{
-        width: "100%",
-        height: "auto",
-        maxWidth: "400px", 
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        fontSize: '1.25rem',
+        height: '10rem',
+        width: '25%',
+        textAlign: 'center',
+        borderRadius: '10px',
+        marginLeft: '15%',
+        backgroundColor: '#ff6d6d',
       }}
-    />
-          </div>
-        </ParallaxLayer>
-
-        <ParallaxLayer offset={1.5} speed={1.5} style={{ ...alignCenter, justifyContent: 'flex-end' }}>
-          <div
-            className="card parallax purple"
-            style={{
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              fontSize: '1.25rem',
-              height: '10rem',
-              width: '25%',
-              textAlign: 'center',
-              borderRadius: '10px',
-              marginRight: '15%',
-    
-            }}
-          >
-              <p style={{ letterSpacing: ".2px" }} className="mt-7">
-      We strive to attain finished results consistent with the{" "}
-      <span style={{ letterSpacing: ".2px" }} className="text-2xl text-violet-500">
-        American Board of Orthodontics (ABO){" "}
-      </span>{" "}
-      qualitative standards. Our dedicated doctors place great priority on the
-      certification and recertification process, ensuring that all diagnostic
-      records adhere to ABO standards. Currently, Dr. Gregg Frey is a certified
-      orthodontist, and is preparing cases for recertification. Dr. Daniel Frey
-      is in the final stages of obtaining his initial certification. To
-      complement our use of cutting-edge diagnostic technology, we uphold the
-      highest standards for our records, ensuring accuracy and precision
-      throughout the treatment process.
-    </p>
-          </div>
-        </ParallaxLayer>
-
-        <ParallaxLayer offset={2.5} speed={1.5} style={{ ...alignCenter, justifyContent: 'flex-end' }}>
-          <div
-            className="card parallax blue"
-            style={{
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              fontSize: '1.25rem',
-              height: '10rem',
-              width: '25%',
-              textAlign: 'center',
-              borderRadius: '10px',
-              marginRight: '15%',
-              backgroundColor: '#5b65ad',
-              color: 'white',
-            }}
-          >
-            <p>Neither am I</p>
-          </div>
-        </ParallaxLayer>
-      </Parallax>
-    </div>
-        <div className="py-10 bg-white flex flex-col md:flex-row items-center justify-center">
-  <div className="max-w-xl mx-auto text-center px-4 py-2">
-    <p style={{ letterSpacing: ".2px" }} className="mt-7">
-     
-      qualitative standards. Our dedicated doctors place great priority on the
-      certification and recertification process, ensuring that all diagnostic
-      records adhere to ABO standards. Currently, Dr. Gregg Frey is a certified
-      orthodontist, and is preparing cases for recertification. Dr. Daniel Frey
-      is in the final stages of obtaining his initial certification. To
-      complement our use of cutting-edge diagnostic technology, we uphold the
-      highest standards for our records, ensuring accuracy and precision
-      throughout the treatment process.
-    </p>
-    <p
-      style={{ letterSpacing: ".2px" }}
-      className="mb-16 ml-10 mr-10 text-center px-4 py-2 mx-auto text-md text-violet-800 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75 whitespace-[60ch]"
     >
-      Our office is the #1 provider of Invisalign and Invisalign Teen in the
-      region.{" "}
-      <span className="text-2xl text-violet-500">
-        As Diamond Plus Invisalign providers,
-      </span>{" "}
-      our care over the many years has contributed to the research and
-      advancement of this specialized orthodontic treatment modality.
-    </p>
+      <img
+        src="../../images/your-image.jpg"
+        alt="invisalign"
+        className="mt-4 rounded-lg"
+        style={{
+          width: "100%",
+          height: "auto",
+          maxWidth: "400px",
+        }}
+      />
+    </div>
+  </ParallaxLayer>
+
+  <ParallaxLayer style={{ ...alignCenter, justifyContent: 'flex-end', top: '45%' }}>
+    <div
+      className="card parallax purple"
+      style={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        fontSize: '1.25rem',
+        height: '10rem',
+        width: '25%',
+        textAlign: 'center',
+        borderRadius: '10px',
+        marginRight: '15%',
+      }}
+    >
+      <p style={{ letterSpacing: ".2px" }} className="mt-7">
+        We strive to attain finished results consistent with the{" "}
+        <span style={{ letterSpacing: ".2px" }} className="text-2xl text-violet-500">
+          American Board of Orthodontics (ABO){" "}
+        </span>{" "}
+        qualitative standards. Our dedicated doctors place great priority on the
+        certification and recertification process, ensuring that all diagnostic
+        records adhere to ABO standards. Currently, Dr. Gregg Frey is a certified
+        orthodontist, and is preparing cases for recertification. Dr. Daniel Frey
+        is in the final stages of obtaining his initial certification. 
+      </p>
+    </div>
+  </ParallaxLayer>
+
+  <ParallaxLayer style={{ ...alignCenter, justifyContent: 'flex-end', top: '60%' }}>
+    <div
+      className=""
+      style={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        fontSize: '1.25rem',
+        height: '10rem',
+        width: '25%',
+        textAlign: 'center',
+        borderRadius: '10px',
+        marginRight: '15%',
+        color: 'black',
+      }}
+    >
+      <p>
+        To complement our use of cutting-edge diagnostic technology, we uphold the
+        highest standards for our records, ensuring accuracy and precision
+        throughout the treatment process.
+      </p>
+    </div>
+  </ParallaxLayer>
+</Parallax>
+
+    </div>
+        <div className="py-10  bg-white flex flex-col md:flex-row items-center justify-center">
+        <div style={{ zIndex: 2 }}>
+  <img
+    src="../../images/freysmilepatient.jpg"
+    alt="invisalign"
+    className="mt-4 rounded-full"
+    style={{
+      width: "40%",
+      height: "auto",
+    }}
+  />
+</div>
+
+     
+<div className="max-w-xl mx-auto text-center" style={{ marginLeft: "-900px" }}>
+  <img
+    src="../../images/babyblueblob.svg"
+    alt="invisalign"
+    className="mt-4"
+    style={{
+      width: "120%",
+      height: "auto",
+    }}
+  />
+</div>
+<div className="text-center mx-auto mt-4">
+    <p className="text-lg">Your text here</p>
   </div>
+
   <div className="max-w-xl mx-auto text-center">
 
   </div>
