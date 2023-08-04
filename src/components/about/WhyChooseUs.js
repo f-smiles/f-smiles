@@ -8,6 +8,7 @@ import {
 } from "@material-tailwind/react";
 
 export default function WhyChooseUs() {
+  
   const alignCenter = { display: 'flex', alignItems: 'center' }
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const words = [
@@ -118,15 +119,7 @@ export default function WhyChooseUs() {
       />
 
 <Parallax pages={5}>
-  <ParallaxLayer offset={0} speed={0.5} style={{ ...alignCenter, justifyContent: 'center' }}>
-
-  </ParallaxLayer>
-
-  <ParallaxLayer style={{ ...alignCenter, justifyContent: 'flex-start', top: '20%' }}>
-  
-  </ParallaxLayer>
-
-  <ParallaxLayer style={{ ...alignCenter, justifyContent: 'flex-end', top: '45%' }}>
+  <ParallaxLayer style={{ ...alignCenter, justifyContent: 'flex-end', top: '4%' }}>
     <div
       className="card parallax purple"
       style={{
@@ -141,7 +134,7 @@ export default function WhyChooseUs() {
         marginRight: '15%',
       }}
     >
-  <p style={{ letterSpacing: ".2px" }} className="mt-7">
+  <p style={{ letterSpacing: ".2px" }} className="">
   <h1 className="text-5xl text-violet-800 block mb-4">Uncompromising quality</h1>
   We strive to attain finished results consistent with the{" "}
   <span style={{ letterSpacing: ".2px" }} className="text-2xl text-violet-800">
@@ -155,7 +148,7 @@ export default function WhyChooseUs() {
     </div>
   </ParallaxLayer>
 
-  <ParallaxLayer style={{ ...alignCenter, justifyContent: 'flex-end', top: '60%' }}>
+  <ParallaxLayer style={{ ...alignCenter, justifyContent: 'flex-end', top: '20%' }}>
   <div
   className="relative"
   style={{
@@ -191,7 +184,7 @@ export default function WhyChooseUs() {
 </div>
 
   </ParallaxLayer>
-<ParallaxLayer style={{ ...alignCenter, justifyContent: 'flex-end', top: '75%' }}>
+<ParallaxLayer style={{ ...alignCenter, justifyContent: 'flex-end', top: '35%' }}>
   <div
     className="relative"
     style={{
@@ -257,9 +250,7 @@ export default function WhyChooseUs() {
     }}
   />
 </div>
-<div className="text-center mx-auto mt-4">
-    <p className="text-lg">Your text here</p>
-  </div>
+
 
   <div className="max-w-xl mx-auto text-center">
 
@@ -329,40 +320,45 @@ export default function WhyChooseUs() {
           </div>
        
         </div>
-        <div className="flex">
-        <img
-              src="../../images/smilescholarship.jpg"
-              alt="invisalign"
-              className="mt-4 rounded-lg "
-              style={{
-                width: "40%",
-                height: "auto",
-              }}
-            />
-          <p
-            className="relative mt-40 mr-20 text-2xl text-center text-violet-800"
-            style={{ zIndex: "20", flex: "1",     }}
-       
-          >
-            FreySmiles believes in accessible orthodontic care for everyone and
-            offers flexible payment options. They established a non-profit
-            organization called{" "}
-            <span>
-              {" "}
-              <a
-                href="https://morethansmiles.org/"
-                className="text-indigo-500 underline cursor-pointer hover:text-indigo-700"
-              >
-                <strong> More Than Smiles</strong>
-              </a>{" "}
-            </span>{" "}
-            in 2011, providing orthodontic treatment to deserving young
-            individuals who may not have access to world-class orthodontic care
-            or cannot afford it. If you know someone that could benefit from
-            this gift, please visit the website for details on how to nominate a
-            deserving individual.
-          </p>
-        </div>
+        <div className="flex bg-white py-10 relative">
+
+  <div className="w-1/3 p-8 relative">
+    <div className="text-5xl mt-40 py-2  px-2 ml-20 bg-white mb-10 absolute z-10 ">Giving Back</div>
+  </div>
+  
+
+  <div className="w-1/3 flex items-center justify-center">
+    <img
+      src="../../images/smilescholarship.jpg"
+      alt="invisalign"
+      className="w-full h-auto -ml-80"
+      style={{
+        maxWidth: "100%",
+      }}
+    />
+  </div>
+  
+  
+  <div className="w-1/3 p-8 text-xl text-center text-violet-800">
+    <img
+      src="../../images/purpleblog.png"
+      alt="invisalign"
+      className="absolute -bottom-20 right-0 w-20% h-auto opacity-40"
+      style={{ zIndex: "-1" }}
+    />
+    Frey Smiles believes in providing accessible orthodontic care for everyone. In 2011, they established a non-profit organization called More Than Smiles, which offers orthodontic treatment to deserving individuals who may not have access to world-class orthodontic care or cannot afford it. If you know someone who could benefit from this gift, please visit the website for details on how to nominate a candidate.
+    <div className="flex items-center mt-4">
+      <a href="https://morethansmiles.org/" className="mr-2 text-indigo-500 hover:text-indigo-700">
+        Learn More
+      </a>
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+      </svg>
+    </div>
+  </div>
+</div>
+
+
         <div className="px-4 py-2 mx-auto text-xl text-stone-800">
           <p className="relative mt-1" style={{ zIndex: "20" }}></p>
         </div>
@@ -402,11 +398,11 @@ export default function WhyChooseUs() {
                 style={{
                   borderTopRightRadius: "40px",
                   borderBottom: "1px solid #B17CFF",
-
+                  letterSpacing: "1.2px",
                   fontSize: "20px",
                 }}
               >
-                Other Practitioners
+                OTHER OFFICES
               </td>
             </tr>
             <tr>
@@ -415,6 +411,7 @@ export default function WhyChooseUs() {
                 style={{
                   borderTopLeftRadius: "40px",
                   borderBottom: "1px solid #B17CFF",
+                  letterSpacing: "1px",
  
                 
                 }}
@@ -468,7 +465,7 @@ export default function WhyChooseUs() {
             <tr>
               <td className="p-2 py-8 text-lg text-center"
                style={{
-          
+                letterSpacing: "1px",
                 borderBottom: "1px solid #B17CFF",
               
               }}>
@@ -519,7 +516,7 @@ export default function WhyChooseUs() {
             <tr>
               <td className="p-2 py-8 text-lg text-center"
                style={{
-       
+                letterSpacing: "1px",
                 borderBottom: "1px solid #B17CFF",
               
               }}>
@@ -572,7 +569,7 @@ export default function WhyChooseUs() {
             <tr>
               <td className="p-2 py-8 text-lg text-center "
                  style={{
-       
+                  letterSpacing: "1px",
                   borderBottom: "1px solid #B17CFF",
                 
                 }}>
@@ -622,7 +619,7 @@ export default function WhyChooseUs() {
             <tr>
               <td
                 className="p-2 py-8 text-lg text-center "
-                style={{
+                style={{         letterSpacing: "1px",
                   borderBottomLeftRadius: "40px",
                   borderBottom: "1px solid #B17CFF",
                 }}
