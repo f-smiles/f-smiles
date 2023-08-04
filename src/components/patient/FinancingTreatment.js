@@ -1,9 +1,7 @@
-
-
 //       {/* <img
 //         src="/images/twoquads.png"
 //         alt="halfcircles"
-//         className="absolute top-0 left-0 w-full h-full object-cover opacity-20"
+//         className="absolute top-0 left-0 object-cover w-full h-full opacity-20"
 //         style={{
 //           clip: "rect(0, 120vw, 100vh, 0)",
 //           filter: "hue-rotate(190deg)",
@@ -16,7 +14,7 @@
 //         advancements in orthodontics, treatment options extend beyond
 //         straightening teeth to enhancing facial features. The cost of treatment
 //         varies depending on the extent of correction required and the prescribed
-//         treatment plan by Dr. Gregg Frey and Dr. Daniel Frey. 
+//         treatment plan by Dr. Gregg Frey and Dr. Daniel Frey.
 //       </p>
 //       <p>
 //         Schedule an initial consultation where we can learn about your
@@ -41,128 +39,215 @@
 //         planning and utilizing reimbursements for orthodontic care to achieve
 //         your desired smile.
 //       </div>
+// ========================================================
+// const [scrollPosition, setScrollPosition] = useState(0);
+//   const [showLine, setShowLine] = useState(false);
 
-       
+//   const dots = [
+//     { id: 1, label: 'Complimentary Consultation', description: 'Initial consultations are always free of charge' },
+//     { id: 2, label: 'Payment Plans Are Available', description: 'We offer a variety of payment plans at no interest' },
+//     { id: 3, label: "No Hidden Costs", description: 'Fees for diagnostic records, treatment visits, appliances' },
+//     { id: 3, label: "One Year Post-Treatment Follow Up", description: 'Retainers and retention visits for one year post-treatment included' },
+//   ];
+// const isDotVisible = (index) => {
+//   if (showLine) {
+//     const linePosition = scrollPosition - dots[0].id * 100;
+//     const dotPosition = index * 100;
+//     return linePosition >= 0 && linePosition >= dotPosition;
+//   }
+//   return false;
+// };
 
-import { useEffect, useState } from 'react';
+// useEffect(() => {
+//   const handleScroll = () => {
+//     setScrollPosition(window.scrollY);
+//     setShowLine(true);
+//   };
+
+//   window.addEventListener('scroll', handleScroll);
+//   return () => {
+//     window.removeEventListener('scroll', handleScroll);
+//   };
+// }, []);
+
+
+// <motion.span
+//  className="absolute md:w-1 w-full h-1 md:h-full top-0 left-0 bottom-24 origin-[0%] bg-red-700"
+//  style={{ scaleY }}
+//></motion.span>
+
+import React, { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+// import { motion, useScroll, useSpring } from "framer-motion"
 
 export default function FinancingTreatment() {
-  const [scrollPosition, setScrollPosition] = useState(0);
-  const [showLine, setShowLine] = useState(false);
-  
+  gsap.registerPlugin(ScrollTrigger);
 
-  const dots = [
-    { id: 1, label: 'Complimentary Consultation', description: 'Initial consultations are always free of charge' },
-    { id: 2, label: 'Payment Plans Are Available', description: 'We offer a variety of payment plans at no interest' },
-    { id: 3, label: "No Hidden Costs", description: 'Fees for diagnostic records, treatment visits, appliances' },
-    { id: 3, label: "One Year Post-Treatment Follow Up", description: 'Retainers and retention visits for one year post-treatment included' },
-  ];
-const isDotVisible = (index) => {
-  if (showLine) {
-    const linePosition = scrollPosition - dots[0].id * 100;
-    const dotPosition = index * 100;
-    return linePosition >= 0 && linePosition >= dotPosition;
-  }
-  return false;
-};
-
-  
-  
   useEffect(() => {
-    const handleScroll = () => {
-      setScrollPosition(window.scrollY);
-      setShowLine(true);
-    };
+    // making arrays of the respective sections in order
+    const details = gsap.utils.toArray(
+      "#desktopContentSection:not(:first-child)"
+    );
+    const photos = gsap.utils.toArray("#desktopPhoto:not(:first-child)");
+    gsap.set(photos, { yPercent: 101 });
+    const allPhotos = gsap.utils.toArray("#desktopPhoto");
 
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
+    ScrollTrigger.create({
+      trigger: "#gallery",
+      start: "top top",
+      end: "bottom bottom",
+      pin: "#right",
+    });
+
+    //create scrolltrigger for each details section
+    //trigger photo animation when headline of each details section
+    //reaches 80% of window height
+    details.forEach((detail, index) => {
+      let headline = detail.querySelector("h1");
+      let animation = gsap
+        .timeline()
+        .to(photos[index], { yPercent: 0 })
+        .set(allPhotos[index], { autoAlpha: 0 });
+      ScrollTrigger.create({
+        trigger: headline,
+        start: "top 80%",
+        end: "top 50%",
+        animation: animation,
+        scrub: true,
+        markers: false,
+      });
+    });
+
   }, []);
 
+  const ref = useRef(null);
+  // const { scrollYProgress } = useScroll({
+  //   target: ref,
+  //   offset: ["end end", "start start"]
+  // });
+  // const scaleY = useSpring(scrollYProgress, {
+  //   stiffness: 100,
+  //   damping: 30,
+  //   restDelta: 0.001
+  // });
+
   return (
-    <>
-    <div className="bg-stone-50 mt-20 w-full px-4 pt-20">
-      <div className="relative">
-        <div className="relative inset-0 mt-20 w-full min-h-screen md:fixed md:w-7/12">
-          <img
-            src="../../images/firstmeeting.jpg"
-            alt="invisalign"
-            style={{ maxWidth: '80%', maxHeight: '100%' }}
-          />
-        </div>
-        <div className="flex-1">
-         
-          <div class="w-full ml-auto md:w-5/12">
-          <h1 className="text-center text-4xl">Investing In Your Health and Appearance</h1>
-          <p className="px-4 text-lg mt-12 ">
-            While cost may be a factor in choosing an orthodontist, it's crucial to prioritize finding
-            one who can achieve the best treatment result for you or your child.
-          </p>
-          <div className="-mt-28 flex flex-col relative justify-center h-screen"style={{ marginLeft: '100px' }}>
-          {dots.map((dot, index) => (
-  <div key={dot.id} className="flex items-center my-8">
-      <div
-                    className={`h-3 w-3 rounded-full border-2 border-purple-400 ${
-                      isDotVisible(index) ? 'bg-purple-400 h-4 w-4' : 'bg-transparent'
-                    }`}
-                    style={{ marginRight: '18px' }}
-                  ></div>
-    <h1
-      className={`text-2xl ml-2 ${isDotVisible(index) ? 'text-black' : 'text-gray-400'}`}
-    >
-      {dot.label}
-      <section className="justify-start 
-      text-sm">{dot.description}</section> 
-            
-    </h1>
-  </div>
-))}
-            {showLine && (
-              <div
-                className="absolute top-56 bottom-0 left-2 bg-purple-400"
-                style={{
-                  width: '1px',
-                  height: `${Math.max(scrollPosition - dots[0].id * 100, 0)}px`,
-                }}
-              ></div>
-            )}
+    <main className="w-full min-h-screen mt-32 bg-white">
+      <div className="max-w-2xl mx-auto">
+        <h1>Investing In Your Health and Appearance</h1>
+        <p>While cost may be a factor in choosing an orthodontist, it's crucial to prioritize findind one who can achieve the best treatment result for you or your child.</p>
+      </div>
+      <div id="gallery" className="flex">
+        <div id="left" className="hidden md:w-1/2 md:block">
+          <div ref={ref} id="desktopContent" className="m-auto w-[80%] border-l-2 border-purple-500">
+            <section
+              id="desktopContentSection"
+              className="flex flex-col justify-center min-h-screen"
+            >
+              <div className="relative p-4">
+                <h1>Complimentary Consultation</h1>
+                <p>Initial consultations are always free of charge.</p>
+              </div>
+            </section>
+            <section
+              id="desktopContentSection"
+              className="flex flex-col justify-center min-h-screen "
+            >
+              <div className="relative p-4">
+                <h1>Payment plans are available</h1>
+                <p>We offer a variety of payment plans at no interest.</p>
+              </div>
+            </section>
+            <section
+              id="desktopContentSection"
+              className="flex flex-col justify-center min-h-screen "
+            >
+              <div className="relative p-4">
+                <h1>No hidden costs</h1>
+                <p>
+                  Fees for diagnostic records, treatment visits, appliances.
+                </p>
+              </div>
+            </section>
+            <section
+              id="desktopContentSection"
+              className="flex flex-col justify-center min-h-screen "
+            >
+              <div className="relative p-4">
+                <h1>One Year Post-Treatment Follow Up</h1>
+                <p>
+                  Retainers and retention visits for one year post-treatment
+                  included.
+                </p>
+              </div>
+            </section>
           </div>
         </div>
+        <div
+          id="right"
+          className="items-center w-full md:h-screen md:w-1/2 md:flex md:flex-col md:justify-center "
+        >
+          {/* mobile content */}
+          <section
+            id="mobileContent"
+            className="block mx-auto md:hidden md:w-[80vw]"
+          >
+            <div
+              id="mobilePhoto"
+              className="aspect-square md:w-[80vw] md:h-[80vh] mt-20 rounded-[8vw] bg-red-500 m-auto"
+            ></div>
+            <h1>Complimentary Consultation</h1>
+            <p>Initial consultations are always free of charge.</p>
+            <div
+              id="mobilePhoto"
+              className="aspect-square md:w-[80vw] md:h-[80vh] mt-20 rounded-[8vw] bg-green-500 m-auto"
+            ></div>
+            <h1>Payment plans are available</h1>
+            <p>We offer a variety of payment plans at no interest.</p>
+            <div
+              id="mobilePhoto"
+              className="aspect-square md:w-[80vw] md:h-[80vh] mt-20 rounded-[8vw]m-auto bg-pink-500 "
+            ></div>
+            <h1>No hidden costs</h1>
+            <p>Fees for diagnostic records, treatment visits, appliances.</p>
+            <div
+              id="mobilePhoto"
+              className="aspect-square md:w-[80vw] md:h-[80vh] mt-20 rounded-[8vw] m-auto bg-blue-500 "
+            ></div>
+            <h1>One Year Post-Treatment Follow Up</h1>
+            <p>
+              Retainers and retention visits for one year post-treatment
+              included.
+            </p>
+          </section>
+          {/* desktop photos */}
+          <section
+            id="desktopPhotos"
+            className="w-[40vw] h-[40vh] rounded-2xl relative overflow-hidden shadow-md hidden md:block"
+          >
+            <div id="desktopPhoto" className="absolute w-full h-full">
+              <img
+                className="z-10 object-cover w-full h-full"
+                src="../../images/firstmeeting.jpg"
+                alt="woman greeting a patient and shaking their hand"
+              />
+            </div>
+            <div
+              id="desktopPhoto"
+              className="absolute w-full h-full bg-green-500"
+            ></div>
+            <div
+              id="desktopPhoto"
+              className="absolute w-full h-full bg-pink-500 "
+            ></div>
+            <div
+              id="desktopPhoto"
+              className="absolute w-full h-full bg-blue-500 "
+            ></div>
+          </section>
         </div>
       </div>
-    </div>
-     <div className="grid grid-cols-3 mt-4">
-      <div className="col-span-1 text-purple-900 px-4 py-20 border border-purple-200 flex flex-col justify-center items-center">
-      <span className="text-3xl">FSA/HSA</span>
-        <img
-             src="/images/twohalves.svg"
-             alt="halfcircles"
-             className="w-10 h-10"
-           />
-           <p>
-             We strive to help you maximize your lifetime orthodontic insurance
-             benefits. If you have an FSA, we can assist you in planning and
-             utilizing reimbursements for orthodontic care.
-           </p>
-         </div>
-         <div className="col-span-1 text-purple-900 px-4 py-20 border-t border-b border-purple-200 flex flex-col justify-center items-center">
-           <span className="text-3xl">Loyalty Discounts</span>
-           <img
-             src="/images/organicshapes.svg"
-             alt="halfcircles"
-             className="w-20 h-20 transform -rotate-90"
-           />
-         </div>
-         <div className="col-span-1 text-purple-900 px-4 py-20 border border-purple-200">
-           <span>Easy Payments & No Hidden Costs</span>
-           <img
-             src="/images/half.png"
-             alt="halfcircles"
-             className="w-10 h-10 transform rotate-270"
-           />
-         </div>
-       </div>
-       </>
+    </main>
   );
 }

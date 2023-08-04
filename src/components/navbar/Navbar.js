@@ -322,9 +322,9 @@ export default function DesktopNavbar() {
         id="mobile-nav"
         className={`${
           show ? "bg-white" : "bg-white/30 backdrop-blur-sm"
-        } fixed top-0 left-0 right-0 z-50 w-full px-4 py-6 mx-auto lg:hidden text-gray-600`}
+        } fixed top-0 left-0 right-0 z-50 w-full py-6 mx-auto lg:hidden text-gray-600`}
       >
-        <section className="flex items-center justify-between">
+        <section className="flex items-center justify-between px-4">
           <NavLink to="/">
             <img
               className="h-10"
@@ -346,7 +346,7 @@ export default function DesktopNavbar() {
         <section ref={scope}>
           {show && (
             <ul className="relative h-screen overflow-auto text-3xl bg-white">
-              <div className="mt-12 cursor-pointer group text-primary40">
+              <div className="px-4 mt-12 cursor-pointer group text-primary40">
                 <li
                   className="py-2 border-b border-secondary50/30"
                   onClick={() => setAbout(!about)}
@@ -361,7 +361,7 @@ export default function DesktopNavbar() {
                           <NavLink
                             key={link.name}
                             to={link.href}
-                            className="mx-6 font-cera text-secondary50"
+                            className="mx-6 font-cera text-[1.5rem] text-secondary50"
                             onClick={() => setShow(!show)}
                           >
                             {link.name}
@@ -384,7 +384,7 @@ export default function DesktopNavbar() {
                           <NavLink
                             key={link.name}
                             to={link.href}
-                            className="mx-6 font-cera text-secondary50"
+                            className="mx-6 font-cera text-secondary50 text-[1.5rem]"
                             onClick={() => setShow(!show)}
                           >
                             {link.name}
@@ -407,7 +407,7 @@ export default function DesktopNavbar() {
                           <NavLink
                             key={link.name}
                             to={link.href}
-                            className="mx-6 font-cera text-secondary50"
+                            className="mx-6 font-cera text-secondary50 text-[1.5rem]"
                             onClick={() => setShow(!show)}
                           >
                             {link.name}
@@ -418,12 +418,12 @@ export default function DesktopNavbar() {
                 </li>
               </div>
               <div
-                className="mt-12 space-y-4 cursor-pointer"
+                className="px-4 mt-12 space-y-4 cursor-pointer"
                 onClick={() => setShow(!show)}
               >
                 <li className="">
                   <NavLink
-                    className="block text-md font-cera text-secondary50"
+                    className="block text-[2rem] font-cera text-secondary50"
                     to="https://my.orthoblink.com/bLink/Login"
                   >
                     Patient Login
@@ -431,25 +431,13 @@ export default function DesktopNavbar() {
                 </li>
                 <li>
                   <NavLink
-                    className="block font-cera text-secondary50"
+                    className="block font-cera text-[2rem] text-secondary50"
                     to="/products"
                   >
                     Shop
                   </NavLink>
                 </li>
                 <li className="pt-6">
-                  {/* <div className="w-max">
-                      <div className="w-full h-full p-1 rounded-md bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500">
-                        <div className="w-full h-full bg-white">
-                          <NavLink
-                            className="p-2 uppercase text-primary50 font-cera-bold"
-                            to="/book-now"
-                          >
-                            Book Now
-                          </NavLink>
-                        </div>
-                      </div>
-                    </div> */}
                   <div className="px-3 py-2 rounded-md w-max bg-gradient-to-r from-purple-700 to-secondary50">
                     <NavLink
                       to="/book-now"
@@ -461,11 +449,11 @@ export default function DesktopNavbar() {
                 </li>
               </div>
               {/* animated blobs */}
-              <div className="absolute w-full bottom-1/2 left-1/2">
+              <div className="absolute w-full -right-1/2 bottom-1/3">
                 <div className="relative max-w-lg">
-                  <div className="absolute top-0 rounded-full opacity-50 bg-primary50 -left-1/2 w-96 h-96 mix-blend-multiply filter animate-blob blur-xl"></div>
-                  <div className="absolute top-0 bg-yellow-300 rounded-full opacity-50 -left-1/6 w-96 h-96 mix-blend-multiply filter animate-blob animation-delay-2000 blur-xl"></div>
-                  <div className="absolute rounded-full opacity-50 bg-secondary70 -left-1/4 top-3/4 w-96 h-96 mix-blend-multiply filter animate-blob animation-delay-4000 blur-xl"></div>
+                  <div className="absolute top-0 rounded-full w-72 h-72 opacity-40 bg-primary50 -left-1/2 mix-blend-multiply filter animate-blob blur-xl"></div>
+                  <div className="absolute top-0 bg-yellow-300 rounded-full w-72 h-72 opacity-40 -left-1/6 mix-blend-multiply filter animate-blob animation-delay-2000 blur-xl"></div>
+                  <div className="absolute rounded-full w-72 h-72 opacity-40 bg-secondary70 -left-1/4 top-3/4 mix-blend-multiply filter animate-blob animation-delay-4000 blur-xl"></div>
                 </div>
               </div>
             </ul>
