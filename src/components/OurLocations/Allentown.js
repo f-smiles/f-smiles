@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import BookNow from "../BookNow";
 
 export default function Allentown() {
+  
   const [showText, setShowText] = useState(false);
   useEffect(() => {
     setShowText(true);

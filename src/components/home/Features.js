@@ -76,7 +76,7 @@ export default function Features() {
           </figure>
         </div>
       </Section>
-      <Section color="#925fc7">
+      <Section color="#FAE1ED">
         <div className="flex flex-col items-center justify-center max-w-screen-xl min-h-screen mx-auto lg:flex-row">
           <div className="flex flex-col items-center justify-center w-1/2 gap-6 text-center">
             <h3 className="text-4xl">Advanced Technology</h3>

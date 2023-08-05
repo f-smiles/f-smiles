@@ -79,6 +79,7 @@ const Home = () => {
   // const calculateOffset = (sectionNumber) => {
   //   return sectionNumber * scrollPosition * 0.5;
   // };
+  
   const handleMouseEnter = (event) => {
     const target = event.target;
     const text = target.innerText;
@@ -106,10 +107,78 @@ const Home = () => {
       target.innerHTML = target.innerText;
     }, spans.length * 50);
   };
+
+  const [logoVisible, setLogoVisible] = useState(false);
+
+  useEffect(() => {
+    window.addEventListener('load', () => {
+      setLogoVisible(true);
+    });
+  }, []);
+  const [showText, setShowText] = useState(false);
+
+  const [scrollPosition, setScrollPosition] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollPosition(window.scrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  const calculateOpacity = (scrollY, threshold) => {
+    if (scrollY < threshold) {
+      return 1;
+    } else {
+      return 1 - Math.min((scrollY - threshold) / (threshold * 0.5), 1);
+    }
+  };
+
+  const showH = scrollPosition > 100
+
   return (
     <>
       <main className="w-full overflow-hidden bg-white">
-        <section id="hero-section" className="z-0">
+      <div className="flex items-center justify-center h-screen">
+      <div>
+      <video
+        className="w-full h-auto object-cover fixed top-0 left-0 z-0"
+        src="../../images/moving.mp4"
+        autoPlay
+        muted
+        loop
+      />
+      <div className="relative z-10">
+        <img
+          className="max-w-lg"
+          src="../../images/logo_full.png"
+          alt="girl smiling"
+          style={{ opacity: calculateOpacity(scrollPosition, 100) }}
+        />
+        <div
+          className="absolute top-0 left-0 max-w-lg"
+          style={{
+            opacity: 1 - calculateOpacity(scrollPosition, 100),
+            transition: 'opacity 0.5s',
+            position: 'fixed',
+            zIndex: 1,
+          }}
+        >
+          H
+        </div>
+      </div>
+    </div>
+</div>
+
+
+
+        <section id="hero-section" className=" z-20">
+
           <Hero />
         </section>
 
@@ -164,7 +233,7 @@ const Home = () => {
                     />
                   </div>
 
-                  <figcaption className="w-full py-8 text-center text-secondary50 bg-secondary99">
+                  <figcaption className="w-full py-8 text-center  ">
                     <h3 className="uppercase" style={{ letterSpacing: "1px" }}>
                       Allentown
                     </h3>
@@ -185,7 +254,7 @@ const Home = () => {
                   </figcaption>
 
                   <button
-                    className="w-full py-6 uppercase duration-500 ease-in-out rounded-bl-3xl rounded-br-3xl bg-primary30 text-primary95 hover:bg-neutral50"
+                    className="w-full py-6 uppercase duration-500 ease-in-out rounded-bl-3xl rounded-br-3xl hover:bg-neutral50"
                     type="button"
                   >
                     <Link to="/allentown">Book Now</Link>

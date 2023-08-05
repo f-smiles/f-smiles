@@ -1,80 +1,128 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const Locations = () => {
+  const [showText, setShowText] = useState(false);
+
+  useEffect(() => {
+    setShowText(true);
+  }, []);
+
   return (
-    <main className=" mt-40 grid grid-cols-2 gap-4">
-    <div className="ml-2">
-      <h1 className="pb-10 text-4xl border-b text-teal-900" >  Choose location</h1>
- <ul>
- <a href="/allentown">
-  <li className="flex items-center text-2xl pb-10 border-b pt-10">
-    Allentown
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 24 24"
-      strokeWidth={1.5}
-      stroke="currentColor"
-      className="w-6 h-6 ml-auto"
-    >
-      <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-    </svg>
-  </li>
-</a>
-
-<a href="/bethlehem">
-        <li className="flex items-center text-2xl  pt-10 pb-10 border-b">Bethlehem  <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="currentColor"
-            className="w-6 h-6 ml-auto"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-          </svg></li>
-
+    <main className="mt-40 grid grid-cols-2 gap-4">
+      <div className="ml-2">
+        <h1 className="pb-10 text-4xl border-b text-teal-900">Choose location</h1>
+        <ul>
+          <a href="/allentown">
+            <li
+              className={`flex items-center text-2xl pb-10 border-b pt-10 ${
+                showText ? "animate-drop-down" : ""
+              }`}
+            >
+              Allentown
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="w-6 h-6 ml-auto"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+              </svg>
+            </li>
           </a>
-          <a href="lehighton">
-        <li className="flex items-center text-2xl pt-10 pb-10 border-b">Lehighton  <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="currentColor"
-            className="w-6 h-6 ml-auto"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-          </svg></li>
+          <a href="/bethlehem">
+            <li
+              className={`flex items-center text-2xl pt-10 pb-10 border-b ${
+                showText ? "animate-drop-down" : ""
+              }`}
+            >
+              Bethlehem
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="w-6 h-6 ml-auto"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+              </svg>
+            </li>
           </a>
-<a href="schnecksville">
-        <li className="flex-items-center text-2xl pt-10 pb-10 border-b">Schnecksville  <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="currentColor"
-            className="w-6 h-6 ml-auto"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-          </svg></li>
+          <a href="/lehighton">
+            <li
+             s className={`flex items-center text-2xl pt-10 pb-10 border-b ${
+                showText ? "animate-drop-down" : ""
+              }`}
+            >
+              Lehighton
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="w-6 h-6 ml-auto"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+              </svg>
+            </li>
           </a>
- </ul>
-    </div>
-    <div>
-    <img
-                className="object-cover w-full h-full opacity-90"
-                src="../../images/entrance.jpg"
-                alt="view of interior office"
-              />
-    </div>
-  </main>
+          <a href="/schnecksville">
+            <li
+              className={`flex items-center text-2xl pt-10 pb-10 ${
+                showText ? "animate-drop-down" : ""
+              }`}
+            >
+              Schnecksville
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="w-6 h-6 ml-auto"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+              </svg>
+            </li>
+          </a>
+        </ul>
+      </div>
+      <div>
+        <img
+          className="object-cover w-full h-full opacity-90"
+          src="../../images/entrance.jpg"
+          alt="view of interior office"
+        />
+      </div>
+      <style>
+        {showText &&
+          `
+          @keyframes drop-down {
+            0% {
+              opacity: 0;
+              transform: translateY(-50px);
+            }
+            100% {
+              opacity: 1;
+              transform: translateY(0);
+            }
+          }
+          .animate-drop-down {
+            animation: drop-down 1s ease-out;
+          }
+        `}
+      </style>
+    </main>
   );
 };
-// console.log('\x1Bc')
 
 export default Locations;
+
+
   // <main
     //   className="w-full mt-20 relative"
     //   style={{
