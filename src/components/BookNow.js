@@ -174,12 +174,12 @@ const BookNow = () => {
         ) : (
           <form
             onSubmit={handleSubmit}
-            className=" backdrop-blur-md bg-white/30 max-w-screen-sm mx-auto flex flex-col space-y-12 p-8 rounded-xl"
+            className="  max-w-screen-sm mx-auto flex flex-col space-y-12 p-8 rounded-xl"
           >
             <div className="flex flex-col items-center">
-              <h1 className="text-center text-3xl text-indigo-700 mb-12">
+              <div className="mt-10 text-center text-5xl text-indigo-700 mb-20" style={{letterSpacing:"px"}}>
                 Request Appointment
-              </h1>
+              </div>
               <div className="flex w-full gap-2">
                 <div className="relative flex-1 w-1/2">
                   <input
@@ -213,7 +213,7 @@ const BookNow = () => {
                 </div>
               </div>
 
-              <div className="relative  w-full">
+              <div className="relative mt-2  w-full">
                 <input
                   type="text"
                   id="guardian"
@@ -283,185 +283,86 @@ const BookNow = () => {
                 Date of Birth*
               </label>
             </div>
-            <Disclosure>
-              {({ open }) => (
-                <>
-                  <Disclosure.Button className="flex w-full justify-between rounded-lg  px-4 py-2 text-left text-md font-medium text-indigo-700  focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
-                    <span>Type Of Appointment*</span>
-                    <ChevronUpIcon
-                      className={`${
-                        open ? "rotate-180 transform" : ""
-                      } h-5 w-5 text-indigo-700`}
-                    />
-                  </Disclosure.Button>
-                  <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
-                    {appointmentType.map((button, index) => (
-                      <button
-                        className="px-4"
-                        key={button.type}
-                        type="button"
-                        onClick={() => handleAppointmentClick(index)}
-                      >
-                        {button.clicked ? (
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 24 24"
-                            fill="purple"
-                            class="w-6 h-6"
-                          >
-                            <path
-                              fill-rule="evenodd"
-                              d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z"
-                              clip-rule="evenodd"
-                            />
-                          </svg>
-                        ) : (
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke-width="1.5"
-                            stroke="currentColor"
-                            class="w-6 h-6"
-                          >
-                            <path
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                            />
-                          </svg>
-                        )}
-                        {button.type}
-                      </button>
-                    ))}
-                  </Disclosure.Panel>
-                </>
-              )}
-            </Disclosure>
+            <div className="grid grid-cols-2 gap-4">
+ {appointmentType.map((button, index) => (
+  <button
+    className={`px-6 ${button.clicked ? 'py-2 border rounded-full border-purple-500 bg-purple-500 text-white' : 'py-2 rounded-full border border-purple-500 text-black'}`}
+    key={button.type}
+    type="button"
+    onClick={() => handleAppointmentClick(index)}
+  >
+    {button.type}
+  </button>
+))}
 
-            <Disclosure>
-              {({ open }) => (
-                <>
-                  <Disclosure.Button className="flex w-full justify-between rounded-lg px-4 py-2 text-left text-md font-medium text-indigo-700 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
-                    <span>Choose Location</span>
-                    <ChevronUpIcon
-                      className={`${
-                        open ? "rotate-180 transform" : ""
-                      } h-5 w-5 text-indigo-700`}
-                    />
-                  </Disclosure.Button>
-                  <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
-                    {locations.map((button, index) => (
-                      <button
-                        className="px-4"
-                        key={button.location}
-                        type="button"
-                        onClick={() => handleClick(index)}
-                      >
-                        {button.clicked ? (
-                          <svg
-                            className=" w-8"
-                            id="gradient_concentrics"
-                            data-name="gradient_concentrics"
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 500 500"
-                          >
-                            <g
-                              className="hover:shadow-lg hover:shadow-cyan-500/50"
-                              id="gradient_concentric"
-                              data-name="gradient_concentric"
-                            >
-                              <g>
-                                <circle
-                                  cx="250"
-                                  cy="250"
-                                  r="250"
-                                  fill="white"
-                                />
-                                <circle
-                                  cx="250"
-                                  cy="250"
-                                  r="221.43"
-                                  fill="#ddd6fe"
-                                />
-                                <circle
-                                  cx="250"
-                                  cy="250"
-                                  r="192.86"
-                                  fill="#ddd6fe"
-                                />
-                                <circle
-                                  cx="250"
-                                  cy="250"
-                                  r="164.29"
-                                  fill="#c4b5fd"
-                                />
-                                <circle
-                                  cx="250"
-                                  cy="250"
-                                  r="135.71"
-                                  fill="#c4b5fd"
-                                />
-                                <circle
-                                  cx="250"
-                                  cy="250"
-                                  r="107.14"
-                                  fill="#a78bfa"
-                                />
-                                <circle
-                                  cx="250"
-                                  cy="250"
-                                  r="78.57"
-                                  fill="#a78bfa"
-                                />
-                                {/* <circle cx="250" cy="250" r="50" fill="#ba9bc9"/> */}
-                              </g>
-                            </g>
-                          </svg>
-                        ) : (
-                          <svg
-                            className="w-8"
-                            stroke="black"
-                            id="gradient_concentrics"
-                            data-name="gradient_concentrics"
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 500 500"
-                          >
-                            <g
-                              id="gradient_concentric"
-                              data-name="gradient_concentric"
-                            >
-                              <g>
-                                <circle
-                                  cx="250"
-                                  cy="250"
-                                  r="250"
-                                  fill="#f3f4f6"
-                                />
-                                {/* <circle cx="250" cy="250" r="192.86" fill="#f3f4f6"/> */}
-                                <circle
-                                  cx="250"
-                                  cy="250"
-                                  r="164.29"
-                                  fill="#d1d5db"
-                                />
-                                <circle
-                                  cx="250"
-                                  cy="250"
-                                  r="78.57"
-                                  fill="#9ca3af"
-                                />
-                              </g>
-                            </g>
-                          </svg>
-                        )}
-                        {button.location}
-                      </button>
-                    ))}
-                  </Disclosure.Panel>
-                </>
-              )}
-            </Disclosure>
+</div>
+
+
+
+
+
+<div>
+  <div className="flex w-full justify-between rounded-lg px-4 py-2 text-left text-md font-medium text-indigo-700 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
+    <span>Choose Location</span>
+  </div>
+  <div className="px-4 pt-4 pb-2 text-sm text-gray-500">
+    {locations.map((button, index) => (
+      <button
+        className="px-4"
+        key={button.location}
+        type="button"
+        onClick={() => handleClick(index)}
+      >
+        {button.clicked ? (
+          <svg
+            className="w-8"
+            id="gradient_concentrics"
+            data-name="gradient_concentrics"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 500 500"
+          >
+            <g
+              className="hover:shadow-lg hover:shadow-cyan-500/50"
+              id="gradient_concentric"
+              data-name="gradient_concentric"
+            >
+              <g>
+                <circle cx="250" cy="250" r="250" fill="white" />
+                <circle cx="250" cy="250" r="221.43" fill="#ddd6fe" />
+                <circle cx="250" cy="250" r="192.86" fill="#ddd6fe" />
+                <circle cx="250" cy="250" r="164.29" fill="#c4b5fd" />
+                <circle cx="250" cy="250" r="135.71" fill="#c4b5fd" />
+                <circle cx="250" cy="250" r="107.14" fill="#a78bfa" />
+                <circle cx="250" cy="250" r="78.57" fill="#a78bfa" />
+                {/* <circle cx="250" cy="250" r="50" fill="#ba9bc9" /> */}
+              </g>
+            </g>
+          </svg>
+        ) : (
+          <svg
+            className="w-8"
+            stroke="black"
+            id="gradient_concentrics"
+            data-name="gradient_concentrics"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 500 500"
+          >
+            <g id="gradient_concentric" data-name="gradient_concentric">
+              <g>
+                <circle cx="250" cy="250" r="250" fill="#f3f4f6" />
+                {/* <circle cx="250" cy="250" r="192.86" fill="#f3f4f6" /> */}
+                <circle cx="250" cy="250" r="164.29" fill="#d1d5db" />
+                <circle cx="250" cy="250" r="78.57" fill="#9ca3af" />
+              </g>
+            </g>
+          </svg>
+        )}
+        {button.location}
+      </button>
+    ))}
+  </div>
+</div>
+
 
             <div className="text-indigo-700 flex justify-center flex-col">
               Preferred Day(s):
