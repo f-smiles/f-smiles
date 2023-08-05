@@ -138,7 +138,7 @@ const Home = () => {
                 We have 4 incredible offices for your ultimate convenience. Our orthodontists and FreySmiles Team are excited to serve families in the Allentown, Bethlehem, Easton, Schnecksville and Lehighton communities.
                 <br />
                 <Link
-                  className="underline underline-offset-8 text-neutral60"
+                  className="underline transition duration-300 ease-linear underline-offset-8 text-tertiary60 hover:text-tertiary80"
                   to="/book-now"
                 >
                   Schedule an evaluation today.
@@ -176,7 +176,7 @@ const Home = () => {
                     </p>
 
                     <Link
-                      className="underline transition-colors ease-linear text-neutral60 hover:text-neutral50"
+                      className="underline transition-colors ease-linear text-tertiary60 hover:text-tertiary80"
                       to="https://goo.gl/maps/jeFprQaeMQwUzwPx8"
                       target="_blank"
                     >
@@ -185,7 +185,7 @@ const Home = () => {
                   </figcaption>
 
                   <button
-                    className="w-full py-6 uppercase duration-500 ease-in-out rounded-bl-3xl rounded-br-3xl bg-primary30 text-primary95 hover:bg-neutral50"
+                    className="w-full py-6 uppercase duration-500 ease-in-out rounded-bl-3xl rounded-br-3xl bg-primary30 text-primary95 hover:bg-tertiary60"
                     type="button"
                   >
                     <Link to="/allentown">Book Now</Link>
@@ -222,7 +222,7 @@ const Home = () => {
                     </p>
 
                     <Link
-                      className="underline transition-colors ease-linear text-neutral60 hover:text-neutral40"
+                      className="underline transition-colors ease-linear text-tertiary60 hover:text-tertiary80"
                       to="https://goo.gl/maps/QjaBN2q5nmC7Vvmp8"
                       target="_blank"
                     >
@@ -231,7 +231,7 @@ const Home = () => {
                   </figcaption>
 
                   <button
-                    className="w-full py-6 uppercase duration-500 ease-in-out bg-primary30 rounded-bl-3xl rounded-br-3xl text-primary95 hover:bg-neutral50"
+                    className="w-full py-6 uppercase duration-500 ease-in-out bg-primary30 rounded-bl-3xl rounded-br-3xl text-primary95 hover:bg-tertiary60"
                     type="button"
                   >
                     <Link to="/bethlehem">Book Now</Link>
@@ -268,7 +268,7 @@ const Home = () => {
                     </p>
 
                     <Link
-                      className="underline transition-colors ease-linear text-neutral60 hover:text-neutral40"
+                      className="underline transition-colors ease-linear text-tertiary60 hover:text-tertiary80"
                       to="https://goo.gl/maps/Z7C7Z7BPzHgcJmUr6"
                       target="_blank"
                     >
@@ -277,7 +277,7 @@ const Home = () => {
                   </figcaption>
 
                   <button
-                    className="w-full py-6 uppercase duration-500 ease-in-out text-primary95 bg-primary30 rounded-bl-3xl rounded-br-3xl hover:bg-neutral50"
+                    className="w-full py-6 uppercase duration-500 ease-in-out text-primary95 bg-primary30 rounded-bl-3xl rounded-br-3xl hover:bg-tertiary60"
                     type="button"
                   >
                     <Link to="/schnecksville">Book Now</Link>
@@ -314,7 +314,7 @@ const Home = () => {
                     </p>
 
                     <Link
-                      className="underline transition-colors ease-linear text-neutral60 hover:text-neutral40"
+                      className="underline transition-colors ease-linear text-tertiary60 hover:text-tertiary80"
                       to="https://goo.gl/maps/rcoLbjXmATgQn2t47"
                       target="_blank"
                     >
@@ -323,7 +323,7 @@ const Home = () => {
                   </figcaption>
 
                   <button
-                    className="w-full py-6 uppercase duration-500 ease-in-out text-primary95 bg-primary30 rounded-bl-3xl rounded-br-3xl hover:bg-neutral50"
+                    className="w-full py-6 uppercase duration-500 ease-in-out text-primary95 bg-primary30 rounded-bl-3xl rounded-br-3xl hover:bg-tertiary60"
                     type="button"
                   >
                     <Link to="/lehighton">Book Now</Link>
