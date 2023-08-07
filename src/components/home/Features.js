@@ -16,7 +16,6 @@ function Section({ children, color }) {
       style={{
         padding: "16rem 0 16rem 0",
         backgroundColor: isInView ? color : "#ffffff",
-        transition: "all 0.5s linear 0.5s",
         opacity: isInView ? 1 : 0,
         transition: "background-color 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
       }}
@@ -28,7 +27,7 @@ function Section({ children, color }) {
 
 export default function Features() {
   return (
-    <>
+    <section id="features" className="z-40">
       <Section color="#5f2b92">
         <div className="flex flex-col items-center justify-center max-w-screen-xl mx-auto lg:flex-row">
           <div className="flex flex-col items-center justify-center w-1/2 gap-6 text-center ">
@@ -90,7 +89,7 @@ export default function Features() {
           </figure>
         </div>
       </Section>
-    </>
+    </section>
   );
 }
 
