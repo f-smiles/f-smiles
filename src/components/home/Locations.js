@@ -39,9 +39,9 @@ export default function Locations() {
   return (
     <>
       <section id="locations" className="min-h-screen bg-primary80">
-        <div className="flex flex-col items-center justify-center w-full h-full max-w-screen-lg mx-auto md:flex-row">
+        <div className="flex flex-col items-center justify-center w-full h-full max-w-screen-xl mx-auto md:flex-row">
           {/* left */}
-          <div className="w-full h-full px-12 py-12 space-y-4 overflow-auto md:p-6 md:w-1/2">
+          <div className="w-full h-full px-12 py-12 space-y-4 overflow-auto md:px-6 md:py-6 md:w-1/2">
             <span id="locations-heading" className="flex items-baseline">
               <h2 className="text-3xl font-medium uppercase lg:text-4xl text-secondary50">
                 Our Locations
@@ -68,7 +68,7 @@ export default function Locations() {
             {/* locations list */}
             <div className="flex flex-col space-y-4">
               <button
-                className="self-end transition-all duration-300 ease-linear w-max text-primary20 hover:text-secondary50"
+                className={`${selectedLocation === null ? 'text-secondary50' : ''} self-end transition-all duration-300 ease-linear w-max text-primary20 hover:text-secondary50`}
                 onClick={() => setSelectedLocation(null)}
               >
                 Show All Locations
@@ -78,11 +78,11 @@ export default function Locations() {
                   <div
                     key={l.location}
                     className={`
-                      ${selectedLocation === l.location ? 'bg-primary50 text-primary95' : ''} 
-                      px-4 py-6 transition-all duration-300 ease-linear cursor-pointer sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0 hover:bg-primary50 hover:text-primary95 group text-primary20` }
+                      ${selectedLocation === l.location ? 'bg-primary30 text-primary95' : ''} 
+                      px-4 py-6 transition-all duration-300 ease-linear cursor-pointer sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0 hover:bg-primary50 hover:text-primary95 group text-primary20`}
                     onClick={() => setSelectedLocation(l.location)}
                   >
-                    <dt className="ml-4 text-sm font-medium leading-6 group">
+                    <dt className="text-sm font-medium leading-6 md:ml-4 group">
                       {l.location}
                     </dt>
                     <dd className="mt-1 mr-4 text-sm leading-6 sm:col-span-2 sm:mt-0">
