@@ -107,12 +107,11 @@ export default function DesktopNavbar() {
     setIsBagOpen(!isBagOpen);
   };
 
-  const [show, setShow] = useState(null); /* mobile nav */
-
+  /* mobile nav */
+  const [show, setShow] = useState(null); 
   const handleToggleMobileNav = () => {
     setShow(!show);
   };
-
   const scope = useMobileNavAnimation(show);
 
   return (
@@ -123,7 +122,9 @@ export default function DesktopNavbar() {
         className="fixed top-0 left-0 right-0 z-50 hidden w-full transition duration-300 ease-in-out h-max bg-white/30 backdrop-blur-sm lg:block hover:bg-white"
       >
         <div className="flex items-center justify-between max-w-screen-xl px-4 mx-auto text-sm">
+          {/* about, patient, treatments */}
           <div id="left-links" className="flex space-x-8 ">
+            {/* about */}
             <div id="about-links">
               <p
                 className="font-medium tracking-wider text-gray-800 uppercase transition duration-300 ease-in-out cursor-pointer hover:text-indigo-700 group"
@@ -163,6 +164,7 @@ export default function DesktopNavbar() {
                 </ul>
               </div>
             </div>
+            {/* patient */}
             <div id="patient-links">
               <p
                 className="font-medium tracking-wider text-gray-800 uppercase transition duration-300 ease-in-out cursor-pointer hover:text-indigo-700 group"
@@ -202,6 +204,7 @@ export default function DesktopNavbar() {
                 </ul>
               </div>
             </div>
+            {/* treatments */}
             <div id="treatments-links">
               <p
                 className="font-medium tracking-wider text-gray-800 uppercase transition duration-300 ease-in-out cursor-pointer hover:text-indigo-700 group"
@@ -242,6 +245,7 @@ export default function DesktopNavbar() {
               </div>
             </div>
           </div>
+          {/* logo */}
           <div id="logo" className="my-4">
             <NavLink to="/#">
               <img
@@ -251,6 +255,7 @@ export default function DesktopNavbar() {
               />
             </NavLink>
           </div>
+          {/* patient login, our locations, shop, bag, book now */}
           <div
             id="right-links"
             className="flex items-center gap-8 cursor-pointer"
@@ -272,38 +277,41 @@ export default function DesktopNavbar() {
                   <p>Our Locations</p>
                 </NavLink>
               </li>
-              <li className="inline-block relative transition-all duration-500 before:content-[''] before:absolute before:-bottom-2 before:right-0 before:translate-x-0 before:w-0 before:h-[2px] before:opacity-0 hover:before:w-1/2 hover:before:opacity-100 before:transition-all before:duration-500 before:bg-violet-500 hover:text-indigo-700 ease-in-out">
+              <li className="inline-block relative transition-all duration-500 before:content-[''] before:absolute before:-bottom-1 before:right-0 before:translate-x-0 before:w-0 before:h-[2px] before:opacity-0 hover:before:w-1/2 hover:before:opacity-100 before:transition-all before:duration-500 before:bg-violet-500 hover:text-indigo-700 ease-in-out">
                 <NavLink
-                  className="inline-block relative transition-all duration-500 before:content-[''] before:absolute before:-bottom-2 before:left-0 before:translate-x-0 before:w-0 before:h-[2px] before:opacity-0 hover:before:w-1/2 hover:before:opacity-100 before:transition-all before:duration-500 before:bg-violet-500"
+                  className="inline-block relative transition-all duration-500 before:content-[''] before:absolute before:-bottom-1 before:left-0 before:translate-x-0 before:w-0 before:h-[2px] before:opacity-0 hover:before:w-1/2 hover:before:opacity-100 before:transition-all before:duration-500 before:bg-violet-500"
                   to="/products"
                 >
                   <p>Shop</p>
                 </NavLink>
               </li>
             </ul>
-            <ul className="flex items-center space-x-4 bag-book">
+            {/* bag book */}
+            <ul className="flex items-center space-x-4 text-gray-800 group">
               {bagItems.length > 0 && (
                 <li
-                  className="flex items-center transition-colors duration-300 ease-in-out hover:underline hover:text-indigo-700"
+                  className="inline-block relative transition-all duration-500 before:content-[''] before:absolute before:-bottom-2 before:right-0 before:translate-x-0 before:w-0 before:h-[2px] before:opacity-0 hover:before:w-1/2 hover:before:opacity-100 before:transition-all before:duration-500 before:bg-violet-500 hover:text-indigo-700 ease-in-out"
                   onClick={handleToggleBag}
                 >
-                  <span>Bag</span>
-                  <div className="relative">
-                    <svg
-                      className="w-6 h-6 ml-1"
-                      fill="currentColor"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="M17.54 5.424a.47.47 0 0 1 .46.474v17.627a.47.47 0 0 1-.46.475H.46a.47.47 0 0 1-.46-.475V5.898a.47.47 0 0 1 .46-.474h4.795v-1.56C5.255 1.733 6.935 0 9 0c2.065 0 3.745 1.733 3.745 3.864v1.56zm-11.365 0h5.64v-1.56c0-1.608-1.264-2.915-2.82-2.915-1.555 0-2.82 1.307-2.82 2.915zm10.905.949h-4.335V8.61a.47.47 0 0 1-.46.475.47.47 0 0 1-.46-.475V6.373h-5.65V8.61a.47.47 0 0 1-.46.475.47.47 0 0 1-.46-.475V6.373H.92V23.05h16.16z"></path>
-                    </svg>
-                    <span className="absolute text-xs rounded-full top-1/2 left-1/2 -translate-x-3/4 -translate-y-1/3 hover:text-violet-500">
-                      {getBagQuantity()}
-                    </span>
-                  </div>
+                  <span className="flex items-center relative transition-all duration-500 before:content-[''] before:absolute before:-bottom-2 before:left-0 before:translate-x-0 before:w-0 before:h-[2px] before:opacity-0 hover:before:w-1/2 hover:before:opacity-100 before:transition-all before:duration-500 before:bg-violet-500">
+                    Bag
+                    <div className="relative">
+                      <svg
+                        className="w-6 h-6 ml-1"
+                        fill="currentColor"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M17.54 5.424a.47.47 0 0 1 .46.474v17.627a.47.47 0 0 1-.46.475H.46a.47.47 0 0 1-.46-.475V5.898a.47.47 0 0 1 .46-.474h4.795v-1.56C5.255 1.733 6.935 0 9 0c2.065 0 3.745 1.733 3.745 3.864v1.56zm-11.365 0h5.64v-1.56c0-1.608-1.264-2.915-2.82-2.915-1.555 0-2.82 1.307-2.82 2.915zm10.905.949h-4.335V8.61a.47.47 0 0 1-.46.475.47.47 0 0 1-.46-.475V6.373h-5.65V8.61a.47.47 0 0 1-.46.475.47.47 0 0 1-.46-.475V6.373H.92V23.05h16.16z"></path>
+                      </svg>
+                      <span className="absolute text-xs rounded-full top-1/2 left-1/2 -translate-x-3/4 -translate-y-1/3 hover:text-violet-500">
+                        {getBagQuantity()}
+                      </span>
+                    </div>
+                  </span>
                 </li>
               )}
-              <li className="flex items-center px-6 py-2 font-medium tracking-wider text-white uppercase transition duration-300 ease-in-out rounded cursor-pointer hover:shadow-md bg-primary50 hover:bg-primary30 hover:text-primary90">
+              <li className="flex items-center px-6 py-3 font-medium tracking-wider uppercase transition duration-300 ease-in-out rounded cursor-pointer text-primary95 hover:shadow-md bg-primary30 hover:bg-secondary50 hover:text-secondary95">
                 <NavLink className="block" to="/book-now">
                   Book Now
                 </NavLink>
