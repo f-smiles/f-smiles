@@ -42,7 +42,7 @@ function ParallaxText({ children, baseVelocity = 100 }) {
 
 export default function LogoSlider() {
   return (
-    <>
+    <section id="logo-slider" className="bg-primary70">
       <ParallaxText baseVelocity={-5}>
         <img
           className='object-contain w-1/6 aspect-auto'
@@ -74,7 +74,7 @@ export default function LogoSlider() {
         <img
           className='object-contain w-1/4 aspect-auto'
           src="../../images/movingbannerfiles/aao.png"
-          alt="Image"
+          alt="aao"
         />
         <img
           className='object-contain w-1/6 aspect-auto'
@@ -92,7 +92,7 @@ export default function LogoSlider() {
           alt="dentists"
         />
       </ParallaxText>
-    </>
+    </section>
   );
 }
 
