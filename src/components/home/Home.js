@@ -116,8 +116,10 @@ const Home = () => {
     });
   }, []);
   const [showText, setShowText] = useState(false);
-
   const [scrollPosition, setScrollPosition] = useState(0);
+
+
+  const [showH, setShowH] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -131,6 +133,12 @@ const Home = () => {
     };
   }, []);
 
+  useEffect(() => {
+    setShowH(scrollPosition > 10);
+  }, [scrollPosition]);
+
+
+
   const calculateOpacity = (scrollY, threshold) => {
     if (scrollY < threshold) {
       return 1;
@@ -139,42 +147,62 @@ const Home = () => {
     }
   };
 
-  const showH = scrollPosition > 100
+
 
   return (
     <>
       <main className="w-full overflow-hidden bg-white">
-      <div className="flex items-center justify-center h-screen">
-      <div>
-      <video
-        className="w-full h-auto object-cover fixed top-0 left-0 z-0"
-        src="../../images/moving.mp4"
-        autoPlay
-        muted
-        loop
-      />
-      <div className="relative z-10">
+      <div style={{ position: 'relative', minHeight: '100vh', overflow: 'hidden' }}>
+      <div
+        className="flex items-center justify-center h-screen"
+        style={{
+          position: 'relative',
+          zIndex: 1,
+          overflow: 'hidden',
+        }}
+      >
+        <video
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            zIndex: -1,
+          }}
+          src="../../images/moving.mp4"
+          autoPlay
+          muted
+          loop
+        />
+     
         <img
-          className="max-w-lg"
+          className={`max-w-lg ${showH ? 'opacity-0' : 'opacity-100 transition-opacity duration-1000'}`}
           src="../../images/logo_full.png"
           alt="girl smiling"
-          style={{ opacity: calculateOpacity(scrollPosition, 100) }}
         />
-        <div
-          className="absolute top-0 left-0 max-w-lg"
-          style={{
-            opacity: 1 - calculateOpacity(scrollPosition, 100),
-            transition: 'opacity 0.5s',
-            position: 'fixed',
-            zIndex: 1,
-          }}
-        >
-          H
-        </div>
+
+        {showH && (
+          <div
+            style={{
+              position: 'absolute',
+              top: '50%',
+              left: '50%',
+              transform: 'translate(-50%, -50%)',
+              fontSize: '3rem',
+              fontWeight: 'bold',
+              zIndex: 2,
+              color: '#000', 
+              opacity: showH ? 1 : 0,
+              transition: 'opacity 0.5s',
+            }}
+          >
+            H
+          </div>
+        )}
       </div>
     </div>
-</div>
-
 
 
         <section id="hero-section" className=" z-20">
