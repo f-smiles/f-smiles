@@ -20,6 +20,11 @@
     src: url("../public/fonts/LarkenVariable.ttf") format("truetype");
   }
 
+  @font-face {
+    font-family: "NexaTextBlack";
+    src: url("../public/fonts/NexaText-Trial-Black.otf") format("opentype");
+  }
+
   html,
   body,
   #root {

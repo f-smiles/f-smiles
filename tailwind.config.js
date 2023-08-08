@@ -97,6 +97,7 @@ module.exports = {
       'cera': ['CeraProRegular', 'sans-serif'],
       'cera-bold': ['CeraProBold', 'sans-serif'],
       'larken': ['Larken', 'serif'],
+      'nexa-text-black': ['NexaTextBlack', 'sans-serif'],
     },
     animation: {
       blob: "blob 7s infinite",
