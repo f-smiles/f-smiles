@@ -5,21 +5,19 @@ import { useInView } from "framer-motion";
 function Section({ children, color }) {
   const ref = useRef(null);
   const isInView = useInView(ref, {
-    // once: true,
-    amount: 0.6,
+    amount: 0.1,
   });
 
   
   return (
     <div
       ref={ref}
-      className="relative flex flex-col items-center justify-center h-96 text-primary"
+      className="relative flex flex-col items-center justify-center min-h-screen text-primary95"
       style={{
-        padding: "16rem 0 16rem 0",
-        backgroundColor: isInView ? color : "#ffffff",
-        transition: "all 0.5s linear 0.5s",
+        backgroundColor: isInView ? color : "",
         opacity: isInView ? 1 : 0,
-        transition: "background-color 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
+        transition: "all 0.5s ease-in-out",
+        transitionDelay: "150ms",
       }}
     >
       {children}
@@ -30,11 +28,17 @@ function Section({ children, color }) {
 export default function Features() {
   
   return (
-    <>
-      <Section color="#ECF1F4">
+    <section id="features" className="z-40">
+      <Section color="#fae1ee">
         <div className="flex flex-col items-center justify-center max-w-screen-xl mx-auto lg:flex-row">
-          
-        <figure className="w-1/2">
+          <div className="gap-6 space-y-4 text-gray-700 md:w-1/3">
+            <h3 className="text-4xl text-[#e67fb4]">Invisalign</h3>
+            <p className="pb-4">
+              As part of the top 1% of Invisalign providers in the US, we have the experience to deliver the smile you deserve.
+            </p>
+            <Link className="inline-block px-6 py-4 transition-colors duration-300 ease-linear border rounded-full border-[#e67fb4] hover:bg-gray-800 hover:border-0 hover:text-white" to="/invisalign">How Invisalign Works</Link>
+          </div>
+          <figure className="w-1/2">
             <img
               className="object-contain aspect-video"
               src="../images/aligner.png"
@@ -53,50 +57,50 @@ export default function Features() {
      
         </div>
       </Section>
-      <Section color="">
-        <div className="flex flex-col items-center justify-center max-w-screen-xl min-h-screen mx-auto lg:flex-row-reverse">
-          <div className="flex flex-col items-center justify-center w-1/2 gap-6 text-center">
-            <img
-              className="object-contain h-24 md:h-48 aspect-video"
-              src="../images/damontech.png"
-              alt="damon braces"
-            />
-            <h3 className="text-4xl">Damon Braces</h3>
-            <p className="md:px-8">
+      <Section color="#e0f0ff">
+        <div className="flex flex-col items-center justify-center max-w-screen-xl mx-auto lg:flex-row">
+          <div className="gap-6 space-y-4 text-gray-700 md:w-1/3">
+            <h3 className="text-4xl text-[#7781d9]">Damon Braces</h3>
+            <p className="pb-4">
               Combining self-ligating braces with advanced archwires clinically proven to move teeth quickly and comfortably.
             </p>
-            <Link className="inline-block px-6 py-4 transition-colors duration-300 ease-linear border rounded-full border-primary80 hover:bg-secondary50 hover:border-secondary50 hover:text-white text-primary90" to="/braces">Damon System</Link>
+            <Link className="inline-block px-6 py-4 transition-colors duration-300 ease-linear border rounded-full border-[#7781d9] hover:bg-gray-800 hover:border-0 hover:text-white" to="/braces">Damon System</Link>
           </div>
-          <figure className="flex items-center justify-center w-1/2">
+          <figure className="flex flex-col items-center justify-center w-1/2">
             <img
-              className="object-contain scale-75 aspect-video"
+              className="w-auto h-32 md:h-40"
               src="../images/damonfull.png"
               alt="invis"
             />
+            <img
+              className="w-auto h-40 md:h-48"
+              src="../images/damontech.png"
+              alt="damon braces"
+            />
           </figure>
         </div>
       </Section>
-      <Section color="#925fc7">
-        <div className="flex flex-col items-center justify-center max-w-screen-xl min-h-screen mx-auto lg:flex-row">
-          <div className="flex flex-col items-center justify-center w-1/2 gap-6 text-center">
-            <h3 className="text-4xl">Advanced Technology</h3>
-            <p className="md:px-8">
+      <Section color="#ffede0">
+        <div className="flex flex-col items-center justify-center max-w-screen-xl mx-auto lg:flex-row">
+          <div className="gap-6 space-y-4 text-gray-700 md:w-1/3">
+            <h3 className="text-4xl text-[#f2ab79]">Advanced Technology</h3>
+            <p className="pb-4">
               We offer Invisalign without Impressions. Say goodbye to goopy
               impressions with our iTero digital scanner.
             </p>
-            <img
+            {/* <img
               className="object-scale-down aspect-video mix-blend-color-burn"
               src="../images/technology.png"
               alt="itero"
-            />
-            <Link className="inline-block px-6 py-4 transition-colors duration-300 ease-linear border rounded-full border-primary80 hover:bg-secondary50 hover:border-secondary50 hover:text-white text-primary90" to="/invisalign">Learn More</Link>
+            /> */}
+            <Link className="inline-block px-6 py-4 transition-colors duration-300 ease-linear border rounded-full border-[#f2ab79] hover:bg-gray-800 hover:border-0 hover:border-secondary50 hover:text-white" to="/invisalign">Learn More</Link>
           </div>
           <figure className="flex items-center justify-center w-1/2">
-            <img className="w-1/2" src="../images/itero2.png" alt="itero" />
+            <img className="w-auto h-96" src="../images/itero2.png" alt="itero" />
           </figure>
         </div>
       </Section>
-    </>
+    </section>
   );
 }
 

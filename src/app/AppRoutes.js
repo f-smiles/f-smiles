@@ -1,4 +1,5 @@
 import { Routes, Route } from "react-router";
+import { useLocation } from "react-router-dom";
 import Home from "../components/home/Home";
 import Error404 from "../components/Error404";
 import OurTeam from "../components/about/OurTeam";
@@ -25,6 +26,10 @@ import SingleProduct from "../components/products/SingleProduct";
 import CheckoutSuccess from "../components/bag/CheckoutSuccess";
 
 const AppRoutes = () => {
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const sessionId = queryParams.get('session_id');
+
   return (
     <Routes>
       <Route path="/" element={<Home />} />
@@ -49,8 +54,10 @@ const AppRoutes = () => {
       <Route path="/products" element={<Products />} />
       <Route path="/products/:id" element={<SingleProduct />} />
       <Route path="/bag" element={<Bag />} />
-      <Route path="/checkout/success" element={<CheckoutSuccess />} />
-
+      <Route 
+        path="/checkout/success" 
+        element={sessionId ? <CheckoutSuccess /> : <Error404 />} 
+      />
       <Route path="*" element={<Error404 />} />
     </Routes>
   );

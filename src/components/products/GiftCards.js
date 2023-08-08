@@ -32,15 +32,24 @@ export default function GiftCards() {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
   return (
-    <div className="flex flex-col justify-center">
-      <h4 className="text-primary50">Give the Gift of Happiness:</h4>
-      <h2 className="text-primary40">Dental Treatments for Brighter Days!</h2>
-      <p className="mx-auto mt-4 w-96 text-primary20">Simply choose a design and gift amount, send it to a family member, friend, or yourself, and checkout. It's that easy!</p>
-      <Link to={`${process.env.REACT_APP_SQUARE_GIFT_CARDS_URL}`} className="px-8 py-6 mx-auto mt-6 uppercase transition-colors duration-300 ease-in-out rounded-full w-max bg-secondary50 text-secondary98 hover:bg-primary30 hover:text-primary98" target="_blank">
-        Shop Gift Cards
-      </Link>
+    <div className="grid grid-cols-3">
+      <div>
+        <h4 className="text-primary50">Give the Gift of Happiness:</h4>
+        <h2 className="text-primary40">Dental Treatments for Brighter Days!</h2>
+        <ul className="text-gray-500 steps steps-vertical">
+          <li className="step step-primary">Choose a design and gift amount</li>
+          <li className="step step-primary">Address it to a family member, friend, or yourself</li>
+          <li className="step step-primary">Checkout</li>
+        </ul>
+      </div>
 
-      <div className="w-full mx-auto mt-6 md:w-2/3 lg:w-2/5">
+      <div>
+        <Link to={`${process.env.REACT_APP_SQUARE_GIFT_CARDS_URL}`} className="px-8 py-6 mx-auto mt-6 uppercase transition-colors duration-300 ease-in-out rounded-full w-max bg-secondary50 text-secondary98 hover:bg-primary30 hover:text-primary98" target="_blank">
+          Shop Gift Cards
+        </Link>
+      </div>
+
+      {/* <div className="w-full mx-auto mt-6 md:w-2/3 lg:w-2/5">
         <Swiper
           style={{
             "--swiper-navigation-color": "#262626",
@@ -74,7 +83,7 @@ export default function GiftCards() {
               </SwiperSlide>
             ))}
         </Swiper>
-      </div>
+      </div> */}
     </div>
   );
 }

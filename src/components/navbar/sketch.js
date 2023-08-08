@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Sphere = () => {
-  const sphereSize = '30vmin';
+  const sphereSize = '15vw';
   const ringStyles = [];
 
   for (let i = 1; i <= 16; i++) {
@@ -12,7 +12,11 @@ const Sphere = () => {
   }
 
   return (
-    <div id="sphere" className="absolute top-2/3 left-0 right-0" width={sphereSize} height={sphereSize} style={{transformStyle: 'preserve-3d', animation: 'spinSphere 20s infinite linear'}}
+    <div id="sphere" 
+    className="py-32"
+    // className="absolute left-0 right-0 bottom-1/4" 
+    width={sphereSize} 
+    height={sphereSize} style={{transformStyle: 'preserve-3d', animation: 'spinSphere 20s infinite linear'}}
     // style={{position: 'absolute', top: 0, right: 0, bottom: 0, left: 0, margin: 'auto', width: sphereSize, height: sphereSize, transformStyle: 'preserve-3d', animation: 'spinSphere 20s infinite linear'}}
     >
       {ringStyles.map((style, i) => (
