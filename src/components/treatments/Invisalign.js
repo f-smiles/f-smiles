@@ -5,6 +5,7 @@ import {
   AccordionBody,
 } from "@material-tailwind/react";
 const Invisalign = () => {
+  
   const [progress, setProgress] = useState(0);
   const [topRightProgress, setTopRightProgress] = useState(0);
   const [bottomLeftProgress, setBottomLeftProgress] = useState(0);
