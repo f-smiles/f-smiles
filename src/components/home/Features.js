@@ -8,6 +8,7 @@ function Section({ children, color }) {
     amount: 0.1,
   });
 
+  
   return (
     <div
       ref={ref}
@@ -25,6 +26,7 @@ function Section({ children, color }) {
 }
 
 export default function Features() {
+  
   return (
     <section id="features" className="z-40">
       <Section color="#fae1ee">
@@ -43,6 +45,16 @@ export default function Features() {
               alt="invisalign"
             />
           </figure>
+          <h3 className="text-4xl">Invisalign</h3>
+          <div className="flex flex-col items-center justify-center w-1/2 gap-6 text-center ">
+          
+            
+            <p className="md:px-8">
+              As part of the top 1% of Invisalign providers in the US, we have the experience to deliver the smile you deserve.
+            </p>
+            <Link className="inline-block px-6 py-4 transition-colors duration-300 ease-linear border rounded-full border-primary80 hover:bg-secondary50 hover:border-secondary50 hover:text-white text-primary90" to="/invisalign">How Invisalign Works</Link>
+          </div>
+     
         </div>
       </Section>
       <Section color="#e0f0ff">
