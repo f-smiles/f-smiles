@@ -1,8 +1,20 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
+import Map from "react-map-gl";
+import { gsap } from 'gsap';
+
+// import DotPattern from "./DotPattern";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import Hero from "./Hero";
 import LogoSlider from "./logoslider";
 import Features from "./Features";
-import Locations from "./Locations";
+import FeaturedReviews from "./FeaturedReviews";
+// import { ChevronDownIcon } from "@heroicons/react/24/solid";
+// import { Carousel } from "@material-tailwind/react";
+// import "react-responsive-carousel/lib/styles/carousel.min.css";
+
+AOS.init();
 
 const Home = () => {
   // const [activeSlide, setActiveSlide] = useState(0);
@@ -67,6 +79,7 @@ const Home = () => {
   // const calculateOffset = (sectionNumber) => {
   //   return sectionNumber * scrollPosition * 0.5;
   // };
+  
   const handleMouseEnter = (event) => {
     const target = event.target;
     const text = target.innerText;
@@ -94,10 +107,106 @@ const Home = () => {
       target.innerHTML = target.innerText;
     }, spans.length * 50);
   };
+
+  const [logoVisible, setLogoVisible] = useState(false);
+
+  useEffect(() => {
+    window.addEventListener('load', () => {
+      setLogoVisible(true);
+    });
+  }, []);
+  const [showText, setShowText] = useState(false);
+  const [scrollPosition, setScrollPosition] = useState(0);
+
+
+  const [showH, setShowH] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollPosition(window.scrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  useEffect(() => {
+    setShowH(scrollPosition > 10);
+  }, [scrollPosition]);
+
+
+
+  const calculateOpacity = (scrollY, threshold) => {
+    if (scrollY < threshold) {
+      return 1;
+    } else {
+      return 1 - Math.min((scrollY - threshold) / (threshold * 0.5), 1);
+    }
+  };
+
+
+
   return (
     <>
       <main className="w-full overflow-hidden bg-white">
-        <section id="hero-section" className="z-0">
+      <div style={{ position: 'relative', minHeight: '100vh', overflow: 'hidden' }}>
+      <div
+        className="flex items-center justify-center h-screen"
+        style={{
+          position: 'relative',
+          zIndex: 1,
+          overflow: 'hidden',
+        }}
+      >
+        <video
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            zIndex: -1,
+          }}
+          src="../../images/moving.mp4"
+          autoPlay
+          muted
+          loop
+        />
+     
+        <img
+          className={`max-w-lg ${showH ? 'opacity-0' : 'opacity-100 transition-opacity duration-1000'}`}
+          src="../../images/logo_full.png"
+          alt="girl smiling"
+        />
+
+        {showH && (
+          <div
+            style={{
+              position: 'absolute',
+              top: '50%',
+              left: '50%',
+              transform: 'translate(-50%, -50%)',
+              fontSize: '3rem',
+              fontWeight: 'bold',
+              zIndex: 2,
+              color: '#000', 
+              opacity: showH ? 1 : 0,
+              transition: 'opacity 0.5s',
+            }}
+          >
+            H
+          </div>
+        )}
+      </div>
+    </div>
+
+
+        <section id="hero-section" className=" z-20">
+
           <Hero />
         </section>
 
@@ -152,7 +261,7 @@ const Home = () => {
                     />
                   </div>
 
-                  <figcaption className="w-full py-8 text-center text-secondary50 bg-secondary99">
+                  <figcaption className="w-full py-8 text-center  ">
                     <h3 className="uppercase" style={{ letterSpacing: "1px" }}>
                       Allentown
                     </h3>
@@ -173,7 +282,7 @@ const Home = () => {
                   </figcaption>
 
                   <button
-                    className="w-full py-6 uppercase duration-500 ease-in-out rounded-bl-3xl rounded-br-3xl bg-primary30 text-primary95 hover:bg-neutral50"
+                    className="w-full py-6 uppercase duration-500 ease-in-out rounded-bl-3xl rounded-br-3xl hover:bg-neutral50"
                     type="button"
                   >
                     <Link to="/allentown">Book Now</Link>
@@ -326,3 +435,10 @@ const Home = () => {
 };
 
 export default Home;
+
+              // className="gap-8 space-y-16 md:w-2/3 md:grid md:grid-cols-2 md:space-y-0"
+              // className="gap-8 mt-16 md:grid md:grid-cols-2 lg:flex "
+
+// className="flex flex-col items-center justify-between bg-f7f5f2 rounded-bl-3xl rounded-br-3xl lg:w-1/4 h-96"
+                // onMouseEnter={() => setIsCardHovered(true)}
+                // onMouseLeave={() => setIsCardHovered(false)}
