@@ -158,7 +158,7 @@
 
 .switch-left {
   float: left;
-  margin-right: -100%; /* Move the left image out of the parent div */
+  margin-right: -100%; 
 }
 
 .switch-right {
@@ -205,7 +205,7 @@
 }
 
 .circle-container {
-  width: 200px; /* Adjust the container size as needed */
+  width: 200px; 
   height: 200px;
   position: relative;
   overflow: hidden;
@@ -215,15 +215,15 @@
   width: 100%;
   height: 100%;
   position: absolute;
-  animation: rotate 10s linear infinite; /* Adjust the animation speed as needed */
+  animation: rotate 10s linear infinite; 
 }
 
 .dot {
   position: absolute;
-  width: 8px; /* Adjust the dot size as needed */
+  width: 8px; 
   height: 8px;
   border-radius: 50%;
-  background-color: #000; /* You can change the color of the dots here */
+  background-color: #000; 
 }
 
 @keyframes rotate {
