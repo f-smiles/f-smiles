@@ -91,13 +91,24 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { motion, useScroll } from "framer-motion";
+import { motion, useInView, useScroll, useSpring, useTransform } from "framer-motion";
 
-function DesktopContentSection({ children, step }) {
+function DesktopContentSection({ children, step, }) {
+  const ref = useRef(null);
+  const isInView = useInView(ref, {
+    amount: 0.5,
+  });
+
   return (
     <section
+      ref={ref}
       id="desktopContentSection"
       className="relative flex flex-col justify-center min-h-screen"
+      style={{
+        opacity: isInView ? 1 : 0,
+        transition: "all 1s ease-in-out",
+        transitionDelay: "250ms",
+      }}
     >
       <div className="md:pl-10">{children}</div>
       <div className="z-10 absolute rounded-full top-[45vh] -left-5 bg-primary50 text-white">
@@ -126,10 +137,11 @@ export default function FinancingTreatment() {
   gsap.registerPlugin(ScrollTrigger);
 
   const ref = useRef(null);
-  const { scrollYProgress } = useScroll({
+  let { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start start", "end end"]
+    offset: ["start center", "end end"]
   });
+  let height = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
   useEffect(() => {
     
@@ -175,37 +187,37 @@ export default function FinancingTreatment() {
           <p className="text-primary10">While cost may be a factor in choosing an orthodontist, it's crucial to prioritize finding one who can achieve the best treatment result for you or your child.</p>
         </div>
       </section>
-      <div id="gallery" className="flex justify-center">
-        <div id="left" className="hidden md:w-1/3 md:block">
+      <div id="gallery"className="flex justify-center">
+        <div ref={ref} id="left" className="hidden md:w-1/3 md:block">
           {/* desktop content */}
           <div id="desktopContent" className="m-auto w-[80%] relative">
             <DesktopContentSection step={"1."}>
-                <h1 className="leading-10">Complimentary Consultation</h1>
-                <p className="mt-2">
+                <h1 className="leading-10 text-primary40">Complimentary Consultation</h1>
+                <p className="mt-2 text-gray-700">
                   Initial consultations are always free of charge.
                 </p>
             </DesktopContentSection>
             <DesktopContentSection step={"2."}>
-              <h1 className="leading-10">Payment plans are available</h1>
-              <p className="mt-2">
+              <h1 className="leading-10 text-primary40">Payment plans are available</h1>
+              <p className="mt-2 text-gray-700">
                 We offer a variety of payment plans at no interest.
               </p>
             </DesktopContentSection>
             <DesktopContentSection step={"3."}>
-              <h1 className="leading-10">No hidden costs</h1>
-              <p className="mt-2">
+              <h1 className="leading-10 text-primary40">No hidden costs</h1>
+              <p className="mt-2 text-gray-700">
                 Fees for diagnostic records, treatment visits, appliances.
               </p>
             </DesktopContentSection>
             <DesktopContentSection step={"4."}>
-              <h1 className="leading-10">
+              <h1 className="leading-10 text-primary40">
                 One Year Post-Treatment Follow Up
               </h1>
-              <p className="mt-2">
+              <p className="mt-2 text-gray-700">
                 Retainers and retention visits for one year post-treatment included.
               </p>
             </DesktopContentSection>
-            <motion.span ref={ref} style={{ scrollYProgress }} className="absolute top-0 left-0 z-0 hidden h-full border-l-2 md:block border-primary50"></motion.span>
+            <motion.span style={{ height }} className="absolute top-0 left-0 z-0 hidden h-full border-l-2 md:block border-primary50"></motion.span>
           </div>
         </div>
         <div
