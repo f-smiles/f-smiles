@@ -1,6 +1,6 @@
 import React, { Fragment, useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
-
+import { Parallax, ParallaxLayer } from '@react-spring/parallax'
 import {
   Accordion,
   AccordionHeader,
@@ -8,6 +8,8 @@ import {
 } from "@material-tailwind/react";
 
 export default function WhyChooseUs() {
+  
+  const alignCenter = { display: 'flex', alignItems: 'center' }
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const words = [
     "Invisalign",
@@ -101,15 +103,174 @@ export default function WhyChooseUs() {
         <div className="relative">
           <div className="absolute inset-0 flex items-center justify-center"></div>
         </div>
+            <div>
+      <div
+        className="background"
+        style={{
+          background: '',
+          position: 'absolute',
+          top: 0,
+          bottom: 0,
+          right: 0,
+          left: 0,
+          width: '100vw',
+          height: '100vh',
+        }}
+      />
+
+<Parallax pages={5}>
+  <ParallaxLayer style={{ ...alignCenter, justifyContent: 'flex-end', top: '4%' }}>
+    <div
+      className="card parallax purple"
+      style={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        fontSize: '1.5rem',
+        height: '10rem',
+        width: '25%',
+        textAlign: 'center',
+        borderRadius: '10px',
+        marginRight: '15%',
+      }}
+    >
+  <p style={{ letterSpacing: ".2px" }} className="">
+  <h1 className="text-5xl text-violet-800 block mb-4">Uncompromising quality</h1>
+  We strive to attain finished results consistent with the{" "}
+  <span style={{ letterSpacing: ".2px" }} className="text-2xl text-violet-800">
+    American Board of Orthodontics (ABO){" "}
+  </span>{" "}
+  qualitative standards. Our doctors place great priority on the
+  certification and recertification process, ensuring that all diagnostic
+  records adhere to ABO standards.
+</p>
+
+    </div>
+  </ParallaxLayer>
+
+  <ParallaxLayer style={{ ...alignCenter, justifyContent: 'flex-end', top: '20%' }}>
+  <div
+  className="relative"
+  style={{
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    fontSize: '1.5rem',
+    height: '10rem',
+    width: '25%',
+    textAlign: 'center',
+    borderRadius: '10px',
+    marginRight: '15%',
+    color: 'black',
+  }}
+>
+  <div style={{ position: 'relative', zIndex: '1' }}>
+    <p>
+      Currently, Dr. Gregg Frey is a certified orthodontist, and is preparing cases for recertification. Dr. Daniel Frey is in the final stages of obtaining his initial certification.
+    </p>
+  </div>
+  <div
+    style={{
+      position: 'absolute',
+      top: '-40px',
+      left: '0',
+      right: '0',
+      height: '2px',
+      background: '#333',
+      borderRadius: '10px 10px 0 0',
+      zIndex: '0',
+    }}
+  ></div>
+</div>
+
+  </ParallaxLayer>
+<ParallaxLayer style={{ ...alignCenter, justifyContent: 'flex-end', top: '35%' }}>
+  <div
+    className="relative"
+    style={{
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      fontSize: '1.5rem',
+      height: '10rem',
+      width: '25%',
+      textAlign: 'center',
+      borderRadius: '10px',
+      marginRight: '15%',
+      color: 'black',
+    }}
+  >
+    <div style={{ position: 'relative', zIndex: '1' }}>
+      <p>
+        To complement our use of cutting-edge diagnostic technology, we uphold the
+        highest standards for our records, ensuring accuracy and precision
+        throughout the treatment process.
+      </p>
+    </div>
+    <div
+      style={{
+        position: 'absolute',
+        top: '-50px',
+        left: '0',
+        right: '0',
+        height: '2px',
+        background: '#333',
+        borderRadius: '10px 10px 0 0',
+        zIndex: '0',
+      }}
+    ></div>
+  </div>
+</ParallaxLayer>
+
+</Parallax>
+
+    </div>
+        <div className="py-10  bg-white flex flex-col md:flex-row items-center justify-center">
+        <div style={{ zIndex: 2 }}>
+  <img
+    src="../../images/freysmilepatient.jpg"
+    alt="invisalign"
+    className="mt-4 rounded-full"
+    style={{
+      width: "40%",
+      height: "auto",
+    }}
+  />
+</div>
+
+     
+<div className="max-w-xl mx-auto text-center" style={{ marginLeft: "-900px" }}>
+  <img
+    src="../../images/babyblueblob.svg"
+    alt="invisalign"
+    className="mt-4"
+    style={{
+      width: "120%",
+      height: "auto",
+    }}
+  />
+</div>
+
+
+  <div className="max-w-xl mx-auto text-center">
+
+  </div>
+</div>
+
         <div className="absolute relative inset-0 flex py-20 mb-20 overflow-hidden rounded-lg bg-opacity-60 backdrop-filter backdrop-blur-xl">
+          <div className="w-1/2">
           <p className="px-12 py-8 mx-auto mt-20 text-lg text-center text-violet-800 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
-          <span className="py-2"     style={{ letterSpacing: '.2px' }} >
-    FreySmiles Orthodontics is a family-owned practice providing unparalleled orthodontic experience to 
-the Lehigh Valley community for over four decades. Our office holds the distinction of being the longest-standing,
+            <span className="text-4xl">
+            Our office holds the distinction of being the longest-standing,
  active board-certified orthodontic office in the area.{" "}
+            </span>
+          <span className="py-2"     style={{ letterSpacing: '.2px' }} >
+   With four offices in the Lehigh Valley, we have been providing unparalleled orthondtic care for over four decades.
            </span>
           </p>
+          </div>
           <div
+          className="w-1/2"
             style={{
               display: "flex",
               justifyContent: "flex-end",
@@ -119,7 +280,7 @@ the Lehigh Valley community for over four decades. Our office holds the distinct
             <img
               src="../../images/drfreyperfecting.jpg"
               alt="invisalign"
-              className="mt-4 rounded-lg"
+              className="mt-4 "
               style={{
                 width: "120%",
                 height: "auto",
@@ -133,52 +294,11 @@ the Lehigh Valley community for over four decades. Our office holds the distinct
               alignItems: "flex-end",
             }}
           >
-            <img
-              src="../../images/alyssaprinter.jpg"
-              alt="invisalign"
-              className="mt-4 rounded-full"
-              style={{
-                width: "100%",
-                height: "auto",
-              }}
-            />
+    
           </div>
         </div>
-<div className="py-10 bg-indigo-500">
-<p style={{ letterSpacing: '.2px' }} className="mt-7">
-              {" "}
-              We strive to attain finished results consistent with the
-              <span style={{ letterSpacing: '.2px' }} className="text-2xl text-violet-500">
-                {" "}
-                American Board of Orthodontics (ABO){" "}
-              </span>{" "}
-              qualitative standards. Our dedicated doctors place great priority
-              on the certification and recertification process, ensuring that
-              all diagnostic records adhere to ABO standards. Currently, Dr.
-              Gregg Frey is a certified orthodontist, and is preparing cases for
-              recertification. Dr. Daniel Frey is in the final stages of
-              obtaining his initial certification. To complement our use of
-              cutting-edge diagnostic technology, we uphold the highest
-              standards for our records, ensuring accuracy and precision
-              throughout the treatment process.
-            </p>
-          <p style={{ letterSpacing: '.2px' }} className="mb-16 ml-10 mr-10 text-center px-4 py-2 mx-auto text-md text-violet-800 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75 whitespace-[60ch]">
-            Our office is the #1 provider of Invisalign and Invisalign Teen in
-            the region.{" "}
-            <span className="text-2xl text-violet-500">
-              As Diamond Plus Invisalign providers,
-            </span>{" "}
-            our care over the many years has contributed to the research and
-            advancement of this specialized orthodontic treatment modality.
-          </p>
-</div>
-        <NavLink
-          to="/virtual-consultation"
-          className="relative z-20 px-5 px-8 py-2 py-5 mt-10 -ml-20 text-lg tracking-normal text-white bg-teal-800 rounded-full cursor-pointer curspor-pointer hover:bg-emerald-700 hover:text-white"
-          style={{ zIndex: "20" }}
-        >
-          <button className="mt-20">Schedule a Consultation</button>
-        </NavLink>
+
+     
         <div style={{ display: "flex", alignItems: "flex-start" }}>
           <div
             style={{ display: "flex", flexDirection: "column" }}
@@ -188,165 +308,122 @@ the Lehigh Valley community for over four decades. Our office holds the distinct
               <Accordion open={open === 1}>
                 <h1>
                  
-                  <AccordionHeader
-                    onClick={() => handleOpen(1)}
-                    className="text-3xl border-b-0"
-                  >
-                    <span style={{ whiteSpace: "nowrap" }}>
-                      + Meet Our Doctors
-                    </span>
-                  </AccordionHeader>
+             
                 </h1>
-                <AccordionBody>
-                  <ul>
-                    <li className="mb-5">
-                      <a
-                        className="text-xl cursor-pointer  text-emerald-700 hover:text-indigo-700"
-                        href="/our-team"
-                      >
-                        Dr. Gregg Frey
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        className="text-xl text-center cursor-pointer text-emerald-700 hover:text-indigo-700"
-                        href="/our-team"
-                      >
-                        Dr. Daniel Frey
-                      </a>
-                    </li>
-                  </ul>
-                </AccordionBody>
+           
               </Accordion>
 
               <Accordion open={open === 2}>
-                <h1>
-                  <AccordionHeader
-                    onClick={() => handleOpen(2)}
-                    className="text-3xl border-b-0"
-                  >
-                    <span style={{ whiteSpace: "nowrap" }}>+ 4 Locations</span>
-                  </AccordionHeader>
-                </h1>
-                <AccordionBody>
-                  <ul>
-                    <li>
-                      <a
-                        className="text-lg text-indigo-500 underline cursor-pointer hover:text-indigo-700"
-                        href="/locations"
-                      >
-                        Allentown
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        className="text-lg text-indigo-500 underline cursor-pointer hover:text-indigo-700"
-                        href="/locations"
-                      >
-                        Bethlehem
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        className="text-lg text-indigo-500 underline cursor-pointer hover:text-indigo-700"
-                        href="/locations"
-                      >
-                        Lehigton
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        className="text-lg text-indigo-500 underline cursor-pointer hover:text-indigo-700"
-                        href="/locations"
-                      >
-                        Schnecksville
-                      </a>
-                    </li>
-                  </ul>
-                </AccordionBody>
+         
               </Accordion>
             </Fragment>
           </div>
        
         </div>
-        <div className="flex">
-          <img
-            src="../../images/rainbow.svg"
-            alt="invisalign"
-            className="mt-4 opacity-90"
-            style={{
-              width: "20%",
-              height: "auto",
-            }}
-          />
-          <p
-            className="relative mt-10 mr-20 text-lg text-center text-violet-800"
-            style={{ zIndex: "20", flex: "1",     }}
-       
-          >
-            FreySmiles believes in accessible orthodontic care for everyone and
-            offers flexible payment options. They established a non-profit
-            organization called{" "}
-            <span>
-              {" "}
-              <a
-                href="https://morethansmiles.org/"
-                className="text-indigo-500 underline cursor-pointer hover:text-indigo-700"
-              >
-                <strong> More Than Smiles</strong>
-              </a>{" "}
-            </span>{" "}
-            in 2011, providing orthodontic treatment to deserving young
-            individuals who may not have access to world-class orthodontic care
-            or cannot afford it. If you know someone that could benefit from
-            this gift, please visit the website for details on how to nominate a
-            deserving individual.
-          </p>
-        </div>
+        <div className="flex bg-white py-10 relative">
+
+  <div className="w-1/3 p-8 relative">
+    <div className="text-5xl mt-40 py-2  px-2 ml-20 bg-white mb-10 absolute z-10 ">Giving Back</div>
+  </div>
+  
+
+  <div className="w-1/3 flex items-center justify-center">
+    <img
+      src="../../images/smilescholarship.jpg"
+      alt="invisalign"
+      className="w-full h-auto -ml-80"
+      style={{
+        maxWidth: "100%",
+      }}
+    />
+  </div>
+  
+  
+  <div className="w-1/3 p-8 text-xl text-center text-violet-800">
+    <img
+      src="../../images/purpleblog.png"
+      alt="invisalign"
+      className="absolute -bottom-20 right-0 w-20% h-auto opacity-40"
+      style={{ zIndex: "-1" }}
+    />
+    Frey Smiles believes in providing accessible orthodontic care for everyone. In 2011, they established a non-profit organization called More Than Smiles, which offers orthodontic treatment to deserving individuals who may not have access to world-class orthodontic care or cannot afford it. If you know someone who could benefit from this gift, please visit the website for details on how to nominate a candidate.
+    <div className="flex items-center mt-4">
+      <a href="https://morethansmiles.org/" className="mr-2 text-indigo-500 hover:text-indigo-700">
+        Learn More
+      </a>
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+      </svg>
+    </div>
+  </div>
+</div>
+
+
         <div className="px-4 py-2 mx-auto text-xl text-stone-800">
           <p className="relative mt-1" style={{ zIndex: "20" }}></p>
         </div>
 
+<section className="bg-white">
         <table
           className="mx-auto"
           style={{ width: "100%", borderCollapse: "collapse" }}
         >
           <tbody>
             <tr>
-              <td className="p-2"></td>
+              <td className="p-2"     style={{
+                  borderBottom: "1px solid #B17CFF",
+       
+                  fontSize: "20px",
+                }}></td>
 
               <td
                 className="p-2 py-8 text-center bg-gradient-to-r from-rose-50 to-violet-200 text-violet-700"
                 style={{
-                  borderTopLeftRadius: "40px",
-                  borderBottomLeftRadius: "40px",
+                  borderBottom: "1px solid #B17CFF",
+       
                   fontSize: "20px",
                 }}
               >
-                FreySmiles Orthodontics
+            <div style={{ maxWidth: "200px", margin: "0 auto" }}>
+  <img
+    src="/images/logo_full.png"
+    alt="xray"
+    style={{ width: "100%", height: "auto" }}
+  />
+</div>
+
               </td>
               <td
-                className="p-2 py-8 text-center bg-gradient-to-r from-violet-200 to-violet-300 text-violet-700"
+                className="p-2 py-8 text-center "
                 style={{
                   borderTopRightRadius: "40px",
-
+                  borderBottom: "1px solid #B17CFF",
+                  letterSpacing: "1.2px",
                   fontSize: "20px",
                 }}
               >
-                Other Practitioners
+                OTHER OFFICES
               </td>
             </tr>
             <tr>
               <td
-                className="p-2 py-8 text-lg text-center bg-gradient-to-r from-stone-50 to-rose-50 text-neutral-500"
+                className="p-2 py-8 text-lg text-center "
                 style={{
                   borderTopLeftRadius: "40px",
+                  borderBottom: "1px solid #B17CFF",
+                  letterSpacing: "1px",
+ 
                 
                 }}
               >
                 4 convenient locations
               </td>
               <td className="mb-2 bg-gradient-to-r from-rose-50 to-violet-200"
+               style={{
+               
+                borderBottom: "1px solid #B17CFF",
+              
+              }}
                 >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -363,7 +440,12 @@ the Lehigh Valley community for over four decades. Our office holds the distinct
                   />
                 </svg>
               </td>
-              <td className="mb-2 bg-gradient-to-r from-violet-200 to-violet-300">
+              <td className="mb-2"
+               style={{
+          
+                borderBottom: "1px solid #B17CFF",
+              
+              }}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -381,10 +463,20 @@ the Lehigh Valley community for over four decades. Our office holds the distinct
               </td>
             </tr>
             <tr>
-              <td className="p-2 py-8 text-lg text-center bg-gradient-to-r from-stone-50 to-rose-50 text-neutral-500">
+              <td className="p-2 py-8 text-lg text-center"
+               style={{
+                letterSpacing: "1px",
+                borderBottom: "1px solid #B17CFF",
+              
+              }}>
                 Leaders in the industry
               </td>
-              <td className="mb-2 bg-gradient-to-r from-rose-50 to-violet-200">
+              <td className="mb-2 bg-gradient-to-r from-rose-50 to-violet-200"
+               style={{
+               
+                borderBottom: "1px solid #B17CFF",
+              
+              }}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -400,7 +492,11 @@ the Lehigh Valley community for over four decades. Our office holds the distinct
                   />
                 </svg>
               </td>
-              <td className="mb-2 bg-gradient-to-r from-violet-200 to-violet-300">
+              <td className="mb-2 " style={{
+                 
+                  borderBottom: "1px solid #B17CFF",
+                
+                }}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -418,10 +514,21 @@ the Lehigh Valley community for over four decades. Our office holds the distinct
               </td>
             </tr>
             <tr>
-              <td className="p-2 py-8 text-lg text-center bg-gradient-to-r from-stone-50 to-rose-50 text-neutral-500">
+              <td className="p-2 py-8 text-lg text-center"
+               style={{
+                letterSpacing: "1px",
+                borderBottom: "1px solid #B17CFF",
+              
+              }}>
                 Modern office settings
               </td>
-              <td className="mb-2 bg-gradient-to-r from-rose-50 to-violet-200">
+              <td className="mb-2 bg-gradient-to-r from-rose-50 to-violet-200"
+                 style={{
+       
+                  borderBottom: "1px solid #B17CFF",
+                
+                }}
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -437,7 +544,11 @@ the Lehigh Valley community for over four decades. Our office holds the distinct
                   />
                 </svg>
               </td>
-              <td className="mb-2 bg-gradient-to-r from-violet-200 to-violet-300">
+              <td className="mb-2"    style={{
+       
+       borderBottom: "1px solid #B17CFF",
+     
+     }}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -456,10 +567,19 @@ the Lehigh Valley community for over four decades. Our office holds the distinct
             </tr>
             <tr></tr>
             <tr>
-              <td className="p-2 py-8 text-lg text-center bg-gradient-to-r from-stone-50 to-rose-50 text-neutral-500">
+              <td className="p-2 py-8 text-lg text-center "
+                 style={{
+                  letterSpacing: "1px",
+                  borderBottom: "1px solid #B17CFF",
+                
+                }}>
                 Over 50+ years of experience
               </td>
-              <td className="mb-2 bg-gradient-to-r from-rose-50 to-violet-200">
+              <td className="mb-2 bg-gradient-to-r from-rose-50 to-violet-200"   style={{
+       
+       borderBottom: "1px solid #B17CFF",
+     
+     }}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -475,7 +595,11 @@ the Lehigh Valley community for over four decades. Our office holds the distinct
                   />
                 </svg>
               </td>
-              <td className="mb-2 bg-gradient-to-r from-violet-200 to-violet-300">
+              <td className="mb-2 "    style={{
+       
+       borderBottom: "1px solid #B17CFF",
+     
+     }}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -494,14 +618,21 @@ the Lehigh Valley community for over four decades. Our office holds the distinct
             </tr>
             <tr>
               <td
-                className="p-2 py-8 text-lg text-center bg-gradient-to-r from-stone-50 to-rose-50 text-neutral-500"
-                style={{
+                className="p-2 py-8 text-lg text-center "
+                style={{         letterSpacing: "1px",
                   borderBottomLeftRadius: "40px",
+                  borderBottom: "1px solid #B17CFF",
                 }}
+
               >
                 Financial options
               </td>
-              <td className="mb-2 bg-gradient-to-r from-rose-50 to-violet-200">
+              <td className="mb-2 bg-gradient-to-r from-rose-50 to-violet-200"
+                 style={{
+       
+                  borderBottom: "1px solid #B17CFF",
+                
+                }}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -518,9 +649,10 @@ the Lehigh Valley community for over four decades. Our office holds the distinct
                 </svg>
               </td>
               <td
-                className="mb-2 bg-gradient-to-r from-violet-200 to-violet-300"
+                className="mb-2 "
                 style={{
                   borderBottomRightRadius: "40px",
+                  borderBottom: "1px solid #B17CFF",
                 }}
               >
                 <svg
@@ -541,6 +673,7 @@ the Lehigh Valley community for over four decades. Our office holds the distinct
             </tr>
           </tbody>
         </table>
+        </section>
       </div>
     </div>
   );

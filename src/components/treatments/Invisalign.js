@@ -1,115 +1,404 @@
-import React from "react";
-import { Disclosure } from "@headlessui/react";
-import { ChevronUpIcon } from "@heroicons/react/20/solid";
+import React, { useState, useEffect } from "react";
+import {
+  Accordion,
+  AccordionHeader,
+  AccordionBody,
+} from "@material-tailwind/react";
+const Invisalign = () => {
+  const [progress, setProgress] = useState(0);
+  const [topRightProgress, setTopRightProgress] = useState(0);
+  const [bottomLeftProgress, setBottomLeftProgress] = useState(0);
+  const [open, setOpen] = React.useState(1);
+ 
+  const handleOpen = (value) => setOpen(open === value ? 0 : value);
 
-export default function Invisalign() {
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setProgress((prevProgress) => {
+        const nextProgress = prevProgress >= 100 ? 100 : prevProgress + 2;
+        return nextProgress;
+      });
+
+      setTopRightProgress((prevProgress) => {
+        const nextProgress = prevProgress >= 100 ? 100 : prevProgress + 2;
+        return nextProgress;
+      });
+
+      setBottomLeftProgress((prevProgress) => {
+        const nextProgress = prevProgress >= 100 ? 100 : prevProgress + 2;
+        return nextProgress;
+      });
+    }, 40);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
+
+  const circleSize = 300;
+  const countdownValue = 10 - Math.ceil((100 - progress) / 100 * 10);
+
+  const arcSize = 100;
+  const arcRadius = circleSize / 2 - arcSize / 2;
+  const arcStrokeWidth = 2;
+  const arcStrokeColor = "white";
+
+  const arcStyle = {
+    fill: "none",
+    strokeWidth: arcStrokeWidth,
+    stroke: arcStrokeColor,
+  };
+
+  const arcTopRightPath = `M${circleSize / 2} ${circleSize / 2 - arcRadius} A${arcRadius} ${arcRadius} 0 0 1 ${circleSize / 2 + arcRadius} ${circleSize / 2}`;
+
+  const arcBottomLeftPath = `M${circleSize / 2} ${circleSize / 2 + arcRadius} A${arcRadius} ${arcRadius} 0 0 1 ${circleSize / 2 - arcRadius} ${circleSize / 2}`;
+
+  const progressBarStyle = {
+    width: `${circleSize}px`,
+    height: `${circleSize}px`,
+    borderRadius: "50%",
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-200%, -50%)",
+  };
+
+
+
+  const numberStyle = {
+    fontSize: `${circleSize / 4}px`,
+    color: "white",
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    opacity: progress >= 100 ? 1 : 0,
+    transition: "opacity .5s ease-in-out",
+    transitionDelay: progress >= 100 ? "0s" : "0.1s", 
+  };
+
+  const topTextStyle = {
+    fontSize: `${circleSize / 5}px`,
+    color: "white",
+    position: "absolute",
+    top: "10%",
+    left: "50%",
+    transform: `translate(-200%, -50%)`,
+    opacity: progress >= 100 ? 1 : 0,
+    transition: "opacity .5s ease-in-out",
+    transitionDelay: progress >= 100 ? "0s" : "0.1s", 
+  };
+
+  const textStyle = {
+    position: "absolute",
+    top: "80%",
+    left: "10%",
+    transform: "translateY(-50%)",
+    fontSize: `${circleSize / 5}px`,
+    color: "white",
+    opacity: progress >= 100 ? 1 : 0, 
+    transitionDelay: progress >= 100 ? "0s" : "0.1s", 
+ 
+  };
+
+  const imageStyle = {
+    maxWidth: '50%',
+    maxHeight: '50%',
+    marginLeft: 'auto', 
+  };
+  const sectionStyle = {
+    background: `#C3BEE6`,
+    minHeight: "100vh",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    position: "relative",
+  };
+
   return (
+    <main >
+
+
+
+
+<section style={sectionStyle} className="w-full px-4 pt-16 bg-F8F6F1">
+      <div className="flex flex-col md:flex-row">
+        
+        <div className="md:w-1/2 md:pr-6">
+          <div  className="text-white mt-40">
+          <div className="relative w-full pb-full overflow-hidden">
+   
+    </div>
+          <Accordion open={open === 1}>
+        <AccordionHeader onClick={() => handleOpen(1)}>          <span className="text-2xl font-normal">What is Invisalign?</span></AccordionHeader>
+        <AccordionBody>
+        <p>
+            Invisalign uses a series of customized, clear aligners to
+            straighten teeth faster and with fewer office visits than
+            traditional braces. Thousands of orthodontists in the United
+            States and Canada use Invisalign to accurately and effectively
+            treat their patients. This type of treatment in the hands of
+            experts delivers fantastic results. Aligners are:
+            <li>
+    Completely invisible - aligners cannot be seen while you are wearing
+    them! Friends, family members and co-workers may never even know you
+    are wearing aligners, unless of course, you tell them!
+  </li>
+  <li>
+    Comfortable to wear - The aligners are made from a special plastic
+    that has smooth, rounded edges so they won't irritate your mouth and
+    tissues like traditional braces often can.
+  </li>
+          </p>
+        </AccordionBody>
+      </Accordion>
+      <Accordion open={open === 2}>
+        <AccordionHeader onClick={() => handleOpen(2)}>
+        <span className="text-2xl font-normal"> Benefits of Invisalign </span>
+        </AccordionHeader>
+        <AccordionBody>
+        <li>
+    Removable - Unlike traditional metal braces, you can remove your
+    aligners to eat, drink, brush your teeth, floss and for special
+    occasions. There's no need to change your lifestyle with Invisalign!
+  </li>
+  <li>
+    Effective - You will begin to notice a significant difference even
+    before your treatment is complete! Most treatments are completed
+    within one year; however, this can vary from patient to patient.
+  </li>
+        </AccordionBody>
+      </Accordion>
+      <Accordion open={open === 3}>
+        <AccordionHeader onClick={() => handleOpen(3)}>
+        <span className="text-2xl font-normal">Why Choose Us</span>
+        </AccordionHeader>
+        <AccordionBody className="max-h-48 overflow-y-auto">
+        <p>
+  Invisalign has worked for over a million smiles across the country.
+  Some dentists and orthodontists may not feel comfortable recommending
+  Invisalign to their patients, but as Diamond Plus providers of
+  Invisalign and Invisalign Teen (top 1% of Invisalign providers in the
+  US) we have the experience to deliver the smile you deserve. Dr. Gregg
+  Frey and Dr. Daniel Frey have treated many hundreds of patients with
+  this leading-edge appliance system. Their expertise shows in the smile
+  results of their satisfied patients. The cost of Invisalign treatment
+  is comparable to the cost of braces.
+</p>
+<p>
+  The science of Invisalign is not in the clear aligners, but in overall
+  design and prescription for tooth movement by our doctors based on the
+  full facial evaluation to craft the smile that is perfect for you. Our
+  experienced doctors are top experts and providers in clear aligner
+  treatment. Beware of mail-order aligner companies. Your smile and
+  health is nothing to take lightly. An orthodontic, on-site evaluation
+  with full digital x-rays and records is necessary to prescribe the
+  correct path to a safe and healthy result. Dr. Gregg Frey and Dr.
+  Daniel Frey have the expert tools and experience in Invisalign
+  treatment to give you a fantastic FreySmile!
+</p>
+        </AccordionBody>
+      </Accordion>
+
+
     
-    <main className=" w-full px-4 pt-16 bg-F8F6F1">
-      <div className="flex justify-center items-center">
-<h1 className="text-5xl my-10 ">How <span className="font-light italic">Invisalign</span> Works<span></span></h1>
-            </div>
-      <div className="mx-auto w-full max-w-screen-lg rounded-2xl bg-white p-2">       
-        <Disclosure as="section" defaultOpen={true}>
-          {({ open }) => (
-            <>
-              <Disclosure.Button className="flex w-full justify-between rounded-lg bg-purple-100 px-4 py-2 text-left text-sm font-medium text-purple-900 hover:bg-purple-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
-                <span>Invisible Braces for Adults and Teens in Allentown, Bethlehem, Schnecksville and Lehighton, PA</span>
-                <ChevronUpIcon
-                  className={`${
-                    open ? 'rotate-180 transform' : ''
-                  } h-5 w-5 text-purple-500`}
-                />
-              </Disclosure.Button>
-              <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
-                <p>Have you ever wished for a straighter, healthier smile, but not looked forward to all the metal wires and bands that often go along with braces? Since <a className="text-blue-500 hover:text-indigo-500" href="https://www.invisalign.com">Invisalign</a> is nearly invisible, you can straighten your teeth without anyone knowing.</p>
-              </Disclosure.Panel>
-            </>
-          )}
-        </Disclosure>
-        <Disclosure as="section" className="mt-2">
-          {({ open }) => (
-            <>
-              <Disclosure.Button className="flex w-full justify-between rounded-lg bg-purple-100 px-4 py-2 text-left text-sm font-medium text-purple-900 hover:bg-purple-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
-                <span>FreySmiles Orthodontics is one of the TOP 1% Providers in the US</span>
-                <ChevronUpIcon
-                  className={`${
-                    open ? 'rotate-180 transform' : ''
-                  } h-5 w-5 text-purple-500`}
-                />
-              </Disclosure.Button>
-              <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
-                <p>Invisalign has worked for over a million smiles across the country. Some dentists and orthodontists may not feel comfortable recommending Invisalign to their patients, but as Diamond Plus providers of Invisalign and Invisalign Teen (top 1% of Invisalign providers in the US) we have the experience to deliver the smile you deserve. Dr. Gregg Frey and Dr. Daniel Frey have treated many hundreds of patients with this leading-edge appliance system. Their expertise shows in the smile results of their satisfied patients. The cost of Invisalign treatment is comparable to the cost of braces.</p>
-              </Disclosure.Panel>
-            </>
-          )}
-        </Disclosure>
-        <Disclosure as="section" className="mt-2">
-          {({ open }) => (
-            <>
-              <Disclosure.Button className="flex w-full justify-between rounded-lg bg-purple-100 px-4 py-2 text-left text-sm font-medium text-purple-900 hover:bg-purple-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
-                <span>What is Invisalign?</span>
-                <ChevronUpIcon
-                  className={`${
-                    open ? 'rotate-180 transform' : ''
-                  } h-5 w-5 text-purple-500`}
-                />
-              </Disclosure.Button>
-              <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
-                <p>Invisalign uses a series of customized, clear aligners to straighten teeth faster and with fewer office visits than traditional braces. Thousands of orthodontists in the United States and Canada use Invisalign to accurately and effectively treat their patients. This type of treatment in the hands of experts delivers fantastic results. Aligners are:</p>
-                <ul>
-                  <li>Completely invisible - aligners cannot be seen while you are wearing them! Friends, family members and co-workers may never even know you are wearing aligners, unless of course, you tell them!</li>
-                  <li>Comfortable to wear - The aligners are made from a special plastic that has smooth, rounded edges so they won't irritate your mouth and tissues like traditional braces often can.</li>
-                  <li>Customized just for you - Your aligners are customized to fit your mouth. Dr. Frey and Dr. Frey uses advanced 3-D computer imaging technology to replicate an exact impression of your mouth and teeth, then our doctors customize each aligner treatment plan specific to your needs. This RX is sent to the lab that fabricates a series of your custom aligners so that they fit your mouth, and over time they move your teeth into the proper position.</li>
-                  <li>Removable - Unlike traditional metal braces, you can remove your aligners to eat, drink, brush your teeth, floss and for special occasions. There's no need to change your lifestyle with Invisalign!</li>
-                  <li>Effective - You will begin to notice a significant difference even before your treatment is complete! Most treatments are completed within one year; however, this can vary from patient to patient.</li>
-                </ul>
-              </Disclosure.Panel>
-            </>
-          )}
-        </Disclosure>
-        <Disclosure as="section" className="mt-2">
-          {({ open }) => (
-            <>
-              <Disclosure.Button className="flex w-full justify-between rounded-lg bg-purple-100 px-4 py-2 text-left text-sm font-medium text-purple-900 hover:bg-purple-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
-                <span>Why Consider Invisalign</span>
-                <ChevronUpIcon
-                  className={`${
-                    open ? 'rotate-180 transform' : ''
-                  } h-5 w-5 text-purple-500`}
-                />
-              </Disclosure.Button>
-              <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
-                <p>People everywhere are beginning to experience the benefits of treatment. Here's why people just like you are choosing Invisalign over traditional braces:</p>
-                <ul>
-                  <li>You can have a straighter, healthier smile without all the noticeable wires and brackets of traditional braces.</li>
-                  <li>Aligners are removable making it easy for you to enjoy the foods you love without worrying about breaking or bending your brackets and wires. You can also remove your Invisalign aligners to brush and floss regularly.</li>
-                  <li>You don't need to change anything about your current lifestyle! With Invisalign, you can continue participating in day-to-day activities without changing a thing. Invisalign is great for professionals, athletes, brides, and parents.</li>
-                  <li>Office visits and checkups are easy, quick, and painless. Fewer appointments are required throughout your entire treatment.</li>
-                </ul>
-              </Disclosure.Panel>
-            </>
-          )}
-        </Disclosure>
-        <Disclosure as="section" className="mt-2">
-          {({ open }) => (
-            <>
-              <Disclosure.Button className="flex w-full justify-between rounded-lg bg-purple-100 px-4 py-2 text-left text-sm font-medium text-purple-900 hover:bg-purple-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
-                <span>Choose Experience for Your Invisalign Treatment</span>
-                <ChevronUpIcon
-                  className={`${
-                    open ? 'rotate-180 transform' : ''
-                  } h-5 w-5 text-purple-500`}
-                />
-              </Disclosure.Button>
-              <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
-                <p>The science of Invisalign is not in the clear aligners, but in overall design and prescription for tooth movement by our doctors based on the full facial evaluation to craft the smile that is perfect for you. Our experienced doctors are top experts and providers in clear aligner treatment. Beware of mail-order aligner companies. Your smile and health is nothing to take lightly. An orthodontic, on-site evaluation with full digital x-rays and records is necessary to prescribe the correct path to a safe and healthy result. Dr. Gregg Frey and Dr. Daniel Frey have the expert tools and experience in Invisalign treatment to give you a fantastic FreySmile!</p>
-              </Disclosure.Panel>
-            </>
-          )}
-        </Disclosure>
+          </div>
+        </div>
+        <div style={{ position: "absolute", top: "160px", left: "50%", transform: "translateX(-50%)", zIndex: 20 }}>
+         <svg
+  version="1.1"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlnsXlink="http://www.w3.org/1999/xlink"
+  x="0px"
+  y="0px"
+  width="1600px"
+  height="200px"
+  viewBox="0 0 100 100"
+  enableBackground="new 0 0 100 100"
+  xmlSpace="preserve"
+  className="z-10"
+  style={{
+    position: 'relative',
+    margin: 'auto',
+    transform: 'translate(0, 50%)',
+    animation: 'rotate 10s linear infinite',
+  }}
+>
+  
+  <circle cx="50" cy="50" r="25" fill="url(#grad)" />
+  <path
+    id="textPath"
+    fill="none"
+    d="M89.322,50.197c0,22.09-17.91,40-40,40c-22.089,0-40-17.91-40-40 c0-22.089,17.911-40,40-40C71.412,10.197,89.322,28.108,89.322,50.197z"
+  />
+<text style={{ fontSize: '12px', fill: '#fff', letterSpacing: '1px' }} >
+  <textPath xlinkHref="#textPath">
+
+    <tspan x="10">Diamond</tspan>
+    <tspan x="80">Plus</tspan>
+    <tspan x="120">Invisalign</tspan>
+    <tspan x="200">Providers</tspan>
+  </textPath>
+</text>
+
+
+
+</svg>
+</div>
+        <div style={{ position: "absolute", top: "200px", left: "50%", transform: "translateX(-50%)", zIndex: 20 }}>
+    <img
+      src="../../images/sticker.svg"
+      alt="joel"
+      className="rounded-lg"
+      style={{ width: "120px", height: "120px" }}
+    />
+  </div>
+  <div style={{ position: "absolute", top: "220px", left: "50%", transform: "translateX(-50%)", zIndex: 20, color: "#D6E69E", fontSize: "24px", fontWeight: "bold", textAlign: "center" }}>
+  Top
+</div>
+<div style={{ position: "absolute", top: "250px", left: "50%", transform: "translateX(-50%)", zIndex: 20, color: "#D6E69E", fontSize: "28px", fontWeight: "bold", textAlign: "center" }}>
+  1%
+</div>
+
+
+
+        <img
+      src="../../images/elizabethpatient.jpeg"
+      alt="invisalign"
+      className="w-full md:max-w-1/2 relative z-0"
+      style={imageStyle}
+    />
       </div>
+      </section>
+      <section className="mt-10 mb-10">
+  <div className="text-center text-3xl mb-4">Before & After</div>
+  <div className="text-center">Thousands of our patients are loving their new smile!</div>
+  <div className="flex justify-center mt-6">
+ <div className="w-72 border border-lime-300 p-2 flex flex-col items-center mx-1">   
+      <div className="h-64">
+        <img
+          src="../../images/beforeafter1.png"
+          alt="joel"
+          className="rounded-lg h-full w-auto object-cover"
+        />
+      </div>
+      <p className="mt-2 italic ">- Joel</p>
+    </div>
+    <div className="w-72 border border-lime-300 p-2 flex flex-col items-center mx-1">
+      <div className="h-64">
+        <img
+          src="../../images/beforeafter2.png"
+          alt="sean"
+          className="rounded-lg h-full w-auto object-cover"
+        />
+      </div>
+      <p className="mt-2 italic">- Sean</p>
+    </div>
+    <div className="w-72 border border-lime-300 p-2 flex flex-col items-center mx-1">
+      <div className="h-64">
+        <img
+          src="../../images/beforeafter3.png"
+          alt="london"
+          className="rounded-lg h-full w-auto object-cover"
+        />
+      </div>
+      <p className="mt-2 italic">- London</p>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
 
     </main>
   );
-}
+};
+
+export default Invisalign;
+
+{/* <div style={progressBarStyle}>
+        
+<div className="relative inset-0 mt-20 w-full min-h-screen md:fixed md:w-7/12">
+
+  </div>
+  <svg width={circleSize} height={circleSize} style={{ position: "absolute" }}>
+    <path
+      style={arcStyle}
+      d={arcTopRightPath}
+      strokeDasharray={`${(topRightProgress / 100) * arcRadius * Math.PI * 2} ${arcRadius * Math.PI * 2}`}
+    />
+    <path
+      style={arcStyle}
+      d={arcBottomLeftPath}
+      strokeDasharray={`${(bottomLeftProgress / 100) * arcRadius * Math.PI * 2} ${arcRadius * Math.PI * 2}`}
+    />
+  </svg>
+  <div style={numberStyle}>{progress >= 100 ? 1 : countdownValue}%</div>
+  <div style={topTextStyle}>Top</div>
+</div>
+<div style={textStyle}>Of Invisalign Providers</div>
+<div className="flex justify-center items-center">
+  <h1 className="text-5xl my-10">
+    How <span className="font-light italic">Invisalign</span> Works
+  </h1>
+</div> */}
+
+
+{/* <div className="mx-auto w-full max-w-screen-lg rounded-2xl bg-white p-2">
+
+
+
+
+
+<ul>
+
+  <li>
+    Customized just for you - Your aligners are customized to fit your
+    mouth. Dr. Frey and Dr. Frey uses advanced 3-D computer imaging
+    technology to replicate an exact impression of your mouth and teeth,
+    then our doctors customize each aligner treatment plan specific to
+    your needs. This RX is sent to the lab that fabricates a series of
+    your custom aligners so that they fit your mouth, and over time they
+    move your teeth into the proper position.
+  </li>
+ 
+</ul>
+
+<span>Why Consider Invisalign</span>
+
+<p>
+  People everywhere are beginning to experience the benefits of
+  treatment. Here's why people just like you are choosing Invisalign
+  over traditional braces:
+</p>
+<ul>
+  <li>
+    You can have a straighter, healthier smile without all the
+    noticeable wires and brackets of traditional braces.
+  </li>
+  <li>
+    Aligners are removable making it easy for you to enjoy the foods you
+    love without worrying about breaking or bending your brackets and
+    wires. You can also remove your Invisalign aligners to brush and
+    floss regularly.
+  </li>
+  <li>
+    You don't need to change anything about your current lifestyle! With
+    Invisalign, you can continue participating in day-to-day activities
+    without changing a thing. Invisalign is great for professionals,
+    athletes, brides, and parents.
+  </li>
+  <li>
+    Office visits and checkups are easy, quick, and painless. Fewer
+    appointments are required throughout your entire treatment.
+  </li>
+</ul>
+
+<span>Choose Experience for Your Invisalign Treatment</span>
+
+
+</div> */}
