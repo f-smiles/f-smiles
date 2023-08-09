@@ -71,7 +71,7 @@
 // }, []);
 
 
-// import { motion, useScroll, useSpring } from "framer-motion"
+// import { m, useScroll, useSpring } from "framer-motion"
 // const ref = useRef(null);
 // const { scrollYProgress } = useScroll({
 //   target: ref,
@@ -82,16 +82,16 @@
 //   damping: 30,
 //   restDelta: 0.001
 // });
-// <motion.span
+// <m.span
 //  className="absolute md:w-1 w-full h-1 md:h-full top-0 left-0 bottom-24 origin-[0%] bg-red-700"
 //  style={{ scaleY }}
-//></motion.span>
+//></m.span>
 
 
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { motion, useInView, useScroll, useSpring, useTransform } from "framer-motion";
+import { m, useInView, useScroll, useSpring, useTransform } from "framer-motion";
 
 function DesktopContentSection({ children, step, }) {
   const ref = useRef(null);
@@ -144,22 +144,22 @@ export default function FinancingTreatment() {
   let height = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
   useEffect(() => {
-    
+
     let mm = gsap.matchMedia();
-    
+
     mm.add("(min-width: 768px)", () => {
       const details = gsap.utils.toArray("#desktopContentSection:not(:first-child)");
       const photos = gsap.utils.toArray("#desktopPhoto:not(:first-child)");
       gsap.set(photos, { yPercent: 101 });
       const allPhotos = gsap.utils.toArray("#desktopPhoto");
-  
+
       ScrollTrigger.create({
         trigger: "#gallery",
         start: "top top",
         end: "bottom bottom",
         pin: "#right",
       });
-  
+
       details.forEach((detail, index) => {
         let headline = detail.querySelector("h1");
         let animation = gsap
@@ -217,7 +217,7 @@ export default function FinancingTreatment() {
                 Retainers and retention visits for one year post-treatment included.
               </p>
             </DesktopContentSection>
-            <motion.span style={{ height }} className="absolute top-0 left-0 z-0 hidden h-full border-l-2 md:block border-primary50"></motion.span>
+            <m.span style={{ height }} className="absolute top-0 left-0 z-0 hidden h-full border-l-2 md:block border-primary50"></m.span>
           </div>
         </div>
         <div
@@ -226,29 +226,29 @@ export default function FinancingTreatment() {
         >
           {/* mobile content */}
           <div id="mobileContent" className="h-auto block mx-auto md:hidden md:w-[80vw] my-12">
-            <MobileContentSection 
-              src={"../../images/firstmeeting.jpg"} 
+            <MobileContentSection
+              src={"../../images/firstmeeting.jpg"}
               alt={"woman greeting a patient and shaking their hand"}
             >
               <h1 className="leading-normal text-primary40">1. Complimentary Consultation</h1>
               <p className="leading-7 text-gray-700">Initial consultations are always free of charge.</p>
             </MobileContentSection>
-            <MobileContentSection 
-              src={"../../images/firstmeeting.jpg"} 
+            <MobileContentSection
+              src={"../../images/firstmeeting.jpg"}
               alt={"woman greeting a patient and shaking their hand"}
             >
               <h1 className="leading-normal text-primary40">2. Payment plans are available</h1>
               <p className="leading-7 text-gray-700">We offer a variety of payment plans at no interest.</p>
             </MobileContentSection>
-            <MobileContentSection 
-              src={"../../images/firstmeeting.jpg"} 
+            <MobileContentSection
+              src={"../../images/firstmeeting.jpg"}
               alt={"woman greeting a patient and shaking their hand"}
             >
               <h1 className="leading-normal text-primary40">3. No hidden costs</h1>
               <p className="leading-7 text-gray-700">Fees for diagnostic records, treatment visits, appliances.</p>
             </MobileContentSection>
-            <MobileContentSection 
-              src={"../../images/firstmeeting.jpg"} 
+            <MobileContentSection
+              src={"../../images/firstmeeting.jpg"}
               alt={"woman greeting a patient and shaking their hand"}
             >
               <h1 className="leading-normal text-primary40">4. One Year Post-Treatment Follow Up</h1>

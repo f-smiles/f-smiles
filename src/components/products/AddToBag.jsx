@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addToBag } from "../../store/bagSlice";
 import { MinusIcon, PlusIcon } from "@heroicons/react/24/outline";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import Toast from "./Toast";
 
 export default function AddToBag({ product, price }) {
@@ -70,13 +70,13 @@ export default function AddToBag({ product, price }) {
         </button>
       </div>
       {showToast && (
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 80 }}
           animate={{ opacity: 1, y: 40 }}
           exit={{ opacity: 0, y: 80 }}
         >
           <Toast />
-        </motion.div>
+        </m.div>
       )}
     </>
   );

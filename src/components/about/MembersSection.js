@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { m, useScroll, useTransform } from "framer-motion";
 
 export default function MembersSection() {
   let memberCardRef = useRef(null);
@@ -42,7 +42,7 @@ export default function MembersSection() {
         />
         <div className="relative z-10 flex flex-col items-center justify-center w-full space-y-4 sm:space-y-6 xl:space-y-0 xl:flex-row xl:space-x-6">
           <section className="flex flex-col items-center justify-center sm:justify-start sm:flex-row sm:items-start">
-            <motion.div
+            <m.div
               style={{ y }}
               className="flex flex-col items-center justify-center w-64 px-6 py-10 mb-4 space-y-8 transition duration-500 ease-in-out rounded-lg cursor-pointer xl:w-72 md:py-14 md:mb-0 sm:mr-6 xl:mr-6 2xl:mr-8 hover:shadow-xl "
             >
@@ -59,8 +59,8 @@ export default function MembersSection() {
                   Treatment Coordinator
                 </p>
               </div>
-            </motion.div>
-            <motion.div
+            </m.div>
+            <m.div
               style={{ y }}
               className="flex flex-col items-center justify-center w-64 px-6 py-10 space-y-8 transition duration-500 ease-in-out rounded-lg cursor-pointer xl:w-72 md:py-14 sm:mt-14 xl:mt-32 hover:shadow-xl"
             >
@@ -77,10 +77,10 @@ export default function MembersSection() {
                   Treatment Coordinator
                 </p>
               </div>
-            </motion.div>
+            </m.div>
           </section>
           <section className="flex flex-col items-center justify-center sm:justify-start sm:flex-row sm:items-start ">
-            <motion.div
+            <m.div
               style={{ y }}
               className="flex flex-col items-center justify-center w-64 px-6 py-10 mb-4 space-y-8 transition duration-500 ease-in-out rounded-lg cursor-pointer xl:w-72 md:py-14 md:mb-0 sm:mr-6 xl:mr-6 2xl:mr-8 hover:shadow-xl"
             >
@@ -97,8 +97,8 @@ export default function MembersSection() {
                   Marketing Operations
                 </p>
               </div>
-            </motion.div>
-            <motion.div
+            </m.div>
+            <m.div
               style={{ y }}
               className="flex flex-col items-center justify-center w-64 px-6 py-10 space-y-8 transition duration-500 ease-in-out rounded-lg cursor-pointer xl:w-72 md:py-14 sm:mt-14 xl:mt-32 hover:shadow-xl"
             >
@@ -115,7 +115,7 @@ export default function MembersSection() {
                   Patient Services
                 </p>
               </div>
-            </motion.div>
+            </m.div>
           </section>
         </div>
       </div>
@@ -132,7 +132,7 @@ export default function MembersSection() {
         />
         <div className="relative z-10 flex flex-col items-center justify-center w-full space-y-4 sm:space-y-6 xl:space-y-0 xl:flex-row xl:space-x-6">
           <section className="flex flex-col items-center justify-center sm:justify-start sm:flex-row sm:items-start">
-            <motion.div
+            <m.div
               style={{ y }}
               className="flex flex-col items-center justify-center w-64 px-6 py-10 mb-4 space-y-8 transition duration-500 ease-in-out rounded-lg cursor-pointer xl:w-72 md:py-14 md:mb-0 sm:mr-6 xl:mr-6 2xl:mr-8 hover:shadow-xl"
             >
@@ -149,8 +149,8 @@ export default function MembersSection() {
                   Financial Coordinator
                 </p>
               </div>
-            </motion.div>
-            <motion.div
+            </m.div>
+            <m.div
               style={{ y }}
               className="flex flex-col items-center justify-center w-64 px-6 py-10 space-y-8 transition duration-500 ease-in-out rounded-lg cursor-pointer xl:w-72 md:py-14 sm:mt-14 xl:mt-32 hover:shadow-xl"
             >
@@ -167,10 +167,10 @@ export default function MembersSection() {
                   Insurance Coordinator
                 </p>
               </div>
-            </motion.div>
+            </m.div>
           </section>
           <section className="flex flex-col items-center justify-center sm:justify-start sm:flex-row sm:items-start">
-            <motion.div
+            <m.div
               style={{ y }}
               className="flex flex-col items-center justify-center w-64 px-6 py-10 mb-4 space-y-8 transition duration-500 ease-in-out rounded-lg cursor-pointer xl:w-72 md:py-14 md:mb-0 sm:mr-6 xl:mr-6 2xl:mr-8 hover:shadow-xl"
             >
@@ -185,8 +185,8 @@ export default function MembersSection() {
                 </p>
                 <p className="leading-4.5 text-center ">Lab Manager</p>
               </div>
-            </motion.div>
-            <motion.div
+            </m.div>
+            <m.div
               style={{ y }}
               className="flex flex-col items-center justify-center w-64 px-6 py-10 space-y-8 transition duration-500 ease-in-out rounded-lg cursor-pointer xl:w-72 md:py-14 sm:mt-14 xl:mt-32 hover:shadow-xl"
             >
@@ -203,7 +203,7 @@ export default function MembersSection() {
                   Specialized Orthodontic Assistant
                 </p>
               </div>
-            </motion.div>
+            </m.div>
           </section>
         </div>
       </div>
@@ -220,7 +220,7 @@ export default function MembersSection() {
         />
         <div className="relative z-10 flex flex-col items-center justify-center w-full space-y-4 sm:space-y-6 xl:space-y-0 xl:flex-row xl:space-x-6">
           <section className="flex flex-col items-center justify-center sm:justify-start sm:flex-row sm:items-start">
-            <motion.div
+            <m.div
               style={{ y }}
               className="flex flex-col items-center justify-center w-64 px-6 py-10 mb-4 space-y-8 transition duration-500 ease-in-out rounded-lg cursor-pointer xl:w-72 md:py-14 md:mb-0 sm:mr-6 xl:mr-6 2xl:mr-8 hover:shadow-xl"
             >
@@ -237,8 +237,8 @@ export default function MembersSection() {
                   Specialized Orthodontic Assistant
                 </p>
               </div>
-            </motion.div>
-            <motion.div
+            </m.div>
+            <m.div
               style={{ y }}
               className="flex flex-col items-center justify-center w-64 px-6 py-10 space-y-8 transition duration-500 ease-in-out rounded-lg cursor-pointer xl:w-72 md:py-14 sm:mt-14 xl:mt-32 hover:shadow-xl"
             >
@@ -255,10 +255,10 @@ export default function MembersSection() {
                   Specialized Orthodontic Assistant
                 </p>
               </div>
-            </motion.div>
+            </m.div>
           </section>
           <section className="flex flex-col items-center justify-center sm:justify-start sm:flex-row sm:items-start">
-            <motion.div
+            <m.div
               style={{ y }}
               className="flex flex-col items-center justify-center w-64 px-6 py-10 mb-4 space-y-8 transition duration-500 ease-in-out rounded-lg cursor-pointer xl:w-72 md:py-14 md:mb-0 sm:mr-6 xl:mr-6 2xl:mr-8 hover:shadow-xl"
             >
@@ -275,8 +275,8 @@ export default function MembersSection() {
                   Patient Services
                 </p>
               </div>
-            </motion.div>
-            <motion.div
+            </m.div>
+            <m.div
               style={{ y }}
               className="flex flex-col items-center justify-center w-64 px-6 py-10 space-y-8 transition duration-500 ease-in-out rounded-lg cursor-pointer xl:w-72 md:py-14 sm:mt-14 xl:mt-32 hover:shadow-xl "
             >
@@ -293,7 +293,7 @@ export default function MembersSection() {
                   Patient Services
                 </p>
               </div>
-            </motion.div>
+            </m.div>
           </section>
         </div>
       </div>
