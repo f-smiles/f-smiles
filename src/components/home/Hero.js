@@ -1,15 +1,10 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef } from "react";
 import { Link } from "react-router-dom";
 import DotPattern from "./DotPattern";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { m, useScroll, useTransform } from "framer-motion";
 
 export default function Hero() {
-  const [showContent, setShowContent] = useState(false);
 
-  useEffect(() => {
-    setShowContent(true);
-  }, []);
-  
   let heroRef = useRef();
   let { scrollYProgress } = useScroll({
     target: heroRef,
@@ -18,12 +13,13 @@ export default function Hero() {
   let y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
 
   return (
-    <section id="hero-section" className="z-20">
-      <motion.div
-        ref={heroRef}
-        style={{ y }}
-        className="relative z-0 px-8 isolate pt-14 lg:px-8"
-      >
+    <m.section
+      ref={heroRef}
+      style={{ y }}
+      id="hero-section"
+      className="z-20"
+    >
+      <div className="relative z-0 px-8 isolate pt-14 lg:px-8">
         <div
           id="gradients"
           className="absolute inset-x-0 overflow-hidden -top-40 -z-10 transform-gpu blur-3xl sm:-top-80"
@@ -38,15 +34,18 @@ export default function Hero() {
           />
         </div>
         <div className="grid max-w-screen-xl grid-cols-1 py-32 mx-auto sm:py-48 lg:py-56 place-items-center lg:grid-cols-2">
-          <div
+          <m.div
             className="text-left"
-            style={{
-              opacity: showContent ? 1 : 0,
-              transform: showContent
-                ? "translateY(0) scale(1)"
-                : "translateY(60px) scale(0.95)",
-              transition:
-                "opacity 1s, transform 1.5s cubic-bezier(0.22, 0.86, 0.4, 1)",
+            initial={{ opacity: 0, translateY: '60px', scale: 0.95 }}
+            animate={{
+              opacity: 1,
+              translateY: 0,
+              scale: 1,
+            }}
+            transition={{
+              opacity: { duration: 1 },
+              translateY: { duration: 1.5, ease: [0.22, 0.86, 0.4, 1] },
+              scale: { duration: 1.5, ease: [0.22, 0.86, 0.4, 1] },
             }}
           >
             <h1 className="text-4xl font-nexa-text-light text-primary50 lg:text-6xl">
@@ -73,7 +72,7 @@ export default function Hero() {
                 Our Team <span aria-hidden="true">→</span>
               </Link>
             </div>
-          </div>
+          </m.div>
           <div className="relative mx-auto mt-32 lg:mt-0">
             <img
               className="absolute top-0 max-w-lg left-8"
@@ -98,7 +97,7 @@ export default function Hero() {
             }}
           />
         </div>
-      </motion.div>
-    </section>
+      </div>
+    </m.section>
   );
 }

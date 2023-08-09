@@ -108,7 +108,7 @@ export default function DesktopNavbar() {
   };
 
   /* mobile nav */
-  const [show, setShow] = useState(null); 
+  const [show, setShow] = useState(null);
   const handleToggleMobileNav = () => {
     setShow(!show);
   };
@@ -131,7 +131,7 @@ export default function DesktopNavbar() {
                 onClick={handleToggleAbout}
               >
                 About
-                <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-secondary50"></span>
+                <span className="block max-w-0 group-hover:max-w-full transition-all duration-300 h-0.5 bg-secondary50 ease-out"></span>
               </p>
               <div
                 className={`${
@@ -171,7 +171,7 @@ export default function DesktopNavbar() {
                 onClick={handleTogglePatient}
               >
                 Patient
-                <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-secondary50"></span>
+                <span className="block max-w-0 group-hover:max-w-full transition-all duration-300 h-0.5 bg-secondary50 ease-out"></span>
               </p>
               <div
                 className={`${
@@ -211,7 +211,7 @@ export default function DesktopNavbar() {
                 onClick={handleToggleTreatments}
               >
                 Treatments
-                <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-secondary50"></span>
+                <span className="block max-w-0 group-hover:max-w-full transition-all duration-300 h-0.5 ease-out bg-secondary50"></span>
               </p>
               <div
                 className={`${
