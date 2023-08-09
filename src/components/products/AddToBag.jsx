@@ -41,21 +41,21 @@ export default function AddToBag({ product, price }) {
   return (
     <>
       <div className="flex items-center justify-between">
-        <div className="flex">
+        <div className="flex group text-primary50">
           <p className="mr-2 text-gray-700">Quantity:</p>
           <button
-            className="px-2 py-1 text-indigo-700 border border-indigo-700 rounded-tl rounded-bl"
+            className={`${productQuantity > 1 ? 'hover:bg-primary50 hover:text-white' : ''} px-2 py-1 transition-colors duration-150 ease-linear border rounded-tl rounded-bl border-primary50`}
             type="button"
             disabled={productQuantity === 1}
             onClick={handleDecrement}
           >
             <MinusIcon className="w-4 h-4" />
           </button>
-          <span className="px-3 py-1 border-t border-b border-indigo-700">
+          <span className="px-3 py-1 text-gray-700 border-t border-b border-primary50">
             {productQuantity}
           </span>
           <button
-            className="px-2 py-1 text-indigo-700 border border-indigo-700 rounded-tr rounded-br"
+            className="px-2 py-1 transition-colors duration-150 ease-linear border rounded-tr rounded-br border-primary50 hover:bg-primary50 hover:text-white"
             type="button"
             onClick={handleIncrement}
           >
@@ -63,7 +63,7 @@ export default function AddToBag({ product, price }) {
           </button>
         </div>
         <button
-          className="z-10 self-stretch px-5 py-4 text-sm text-white uppercase transition-colors duration-300 bg-indigo-700 rounded"
+          className="z-10 self-stretch px-5 py-4 text-sm text-white uppercase transition-colors duration-300 rounded bg-primary50 hover:bg-primary30"
           onClick={handleAddToBag}
         >
           Add to Bag
@@ -71,9 +71,9 @@ export default function AddToBag({ product, price }) {
       </div>
       {showToast && (
         <motion.div
-          initial={{ opacity: 0, y: 600 }}
-          animate={{ opacity: 1, y: 300 }}
-          exit={{ opacity: 0, y: 600 }}
+          initial={{ opacity: 0, y: 80 }}
+          animate={{ opacity: 1, y: 40 }}
+          exit={{ opacity: 0, y: 80 }}
         >
           <Toast />
         </motion.div>
