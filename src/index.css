@@ -21,8 +21,24 @@
   }
 
   @font-face {
-    font-family: "NexaTextBlack";
-    src: url("../public/fonts/NexaText-Trial-Black.otf") format("opentype");
+    font-family: "EuclidCircularABold";
+    src: url("../public/fonts/EuclidCircularA-Bold.otf") format("opentype");
+  }
+  @font-face {
+    font-family: "EuclidCircularALight";
+    src: url("../public/fonts/EuclidCircularA-Light.otf") format("opentype");
+  }
+  @font-face {
+    font-family: "EuclidCircularAMedium";
+    src: url("../public/fonts/EuclidCircularA-Medium.otf") format("opentype");
+  }
+  @font-face {
+    font-family: "EuclidCircularARegular";
+    src: url("../public/fonts/EuclidCircularA-Regular.otf") format("opentype");
+  }
+  @font-face {
+    font-family: "EuclidCircularASemibold";
+    src: url("../public/fonts/EuclidCircularA-Semibold.otf") format("opentype");
   }
 
   html,
@@ -166,7 +182,7 @@
 
 .switch-left {
   float: left;
-  margin-right: -100%; 
+  margin-right: -100%;
 }
 
 .switch-right {
@@ -214,7 +230,7 @@
 }
 
 .circle-container {
-  width: 200px; 
+  width: 200px;
   height: 200px;
   position: relative;
   overflow: hidden;
@@ -224,15 +240,15 @@
   width: 100%;
   height: 100%;
   position: absolute;
-  animation: rotate 10s linear infinite; 
+  animation: rotate 10s linear infinite;
 }
 
 .dot {
   position: absolute;
-  width: 8px; 
+  width: 8px;
   height: 8px;
   border-radius: 50%;
-  background-color: #000; 
+  background-color: #000;
 }
 
 @keyframes rotate {
