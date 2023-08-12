@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { Link } from "react-router-dom";
-import DotPattern from "./DotPattern";
-import { m, useScroll, useTransform } from "framer-motion";
+import DotPattern from "../svg/DotPattern";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 export default function Hero() {
 
@@ -10,12 +10,12 @@ export default function Hero() {
     target: heroRef,
     offset: ["start start", "end start"],
   });
-  let y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
+  let scrollY = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
 
   return (
-    <m.section
+    <motion.section
       ref={heroRef}
-      style={{ y }}
+      style={{ scrollY }}
       id="hero-section"
       className="z-20"
     >
@@ -34,19 +34,11 @@ export default function Hero() {
           />
         </div>
         <div className="grid max-w-screen-xl grid-cols-1 py-32 mx-auto sm:py-48 lg:py-56 place-items-center lg:grid-cols-2">
-          <m.div
+          <motion.div
             className="text-left"
-            initial={{ opacity: 0, translateY: '60px', scale: 0.95 }}
-            animate={{
-              opacity: 1,
-              translateY: 0,
-              scale: 1,
-            }}
-            transition={{
-              opacity: { duration: 1 },
-              translateY: { duration: 1.5, ease: [0.22, 0.86, 0.4, 1] },
-              scale: { duration: 1.5, ease: [0.22, 0.86, 0.4, 1] },
-            }}
+            initial={{ opacity: 0, y: 80 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ type: "tween", ease: "linear", duration: 0.75 }}
           >
             <h1 className="text-4xl font-nexa-text-light text-primary50 lg:text-6xl">
               Because every <br></br>smile is unique
@@ -61,7 +53,7 @@ export default function Hero() {
             <div className="flex items-center justify-start mt-10 gap-x-6">
               <Link
                 to="/book-now"
-                className="transition-colors ease-linear duration-300 rounded-md bg-primary50 px-3.5 py-2.5 text-lg lg:text-xl lg:px-5 lg:py-3 font-normal text-white shadow-sm hover:bg-primary30 hover:text-primary90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary30"
+                className="transition-colors ease-linear duration-300 rounded-md bg-primary50 px-3.5 py-2.5 text-lg lg:text-xl lg:px-5 lg:py-3 font-normal text-white shadow-sm hover:bg-secondary50 hover:text-primary95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary30"
               >
                 Book Now
               </Link>
@@ -72,7 +64,7 @@ export default function Hero() {
                 Our Team <span aria-hidden="true">→</span>
               </Link>
             </div>
-          </m.div>
+          </motion.div>
           <div className="relative mx-auto mt-32 lg:mt-0">
             <img
               className="absolute top-0 max-w-lg left-8"
@@ -98,6 +90,6 @@ export default function Hero() {
           />
         </div>
       </div>
-    </m.section>
+    </motion.section>
   );
 }
