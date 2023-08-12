@@ -9,7 +9,7 @@ export default function Allentown() {
     setShowText(true);
   }, []);
   return (
-    <main className="mt-40 grid grid-cols-2 gap-4">
+    <main className="bg-white text-black mt-40 grid grid-cols-2 gap-4">
       <div>
         <figure className="h-96 w-auto">
           <img

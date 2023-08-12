@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-
+import Map from "react-map-gl";
+ 
 const Locations = () => {
   const [showText, setShowText] = useState(false);
 
@@ -9,8 +10,8 @@ const Locations = () => {
   }, []);
 
   return (
-    <main className="mt-40 grid grid-cols-2 gap-4">
-      <div className="ml-2">
+    <main className="bg-white text-black flex gap-4 min-h-screen">
+      <div className="w-1/2 mt-40 ml-2 min-h-screen">
         <h1 className="pb-10 text-4xl border-b text-teal-900">Choose location</h1>
         <ul>
           <a href="/allentown">
@@ -91,13 +92,28 @@ const Locations = () => {
           </a>
         </ul>
       </div>
-      <div>
-        <img
-          className="object-cover w-full h-full opacity-90"
-          src="../../images/entrance.jpg"
-          alt="view of interior office"
-        />
-      </div>
+      <div className="w-1/2 h-full">
+            <div className="w-full h-80 md:min-h-screen">
+              <Map
+                initialViewState={{
+                  longitude: -75.511481,
+                  latitude: 40.684438,
+                  zoom: 9.0,
+                  cooperativeGestures: true,
+                  showZoom: true,
+                }}
+                style={{
+                  position: "relative",
+                  width: "100%",
+                  height: "100%",
+                }}
+                mapStyle={
+                 
+                  `${process.env.REACT_APP_MAPBOX_STYLE_ALL_LOCATIONS}`
+                }
+              />
+            </div>
+            </div>
       <style>
         {showText &&
           `
