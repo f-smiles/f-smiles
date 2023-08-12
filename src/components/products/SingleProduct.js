@@ -20,16 +20,11 @@ export default function SingleProduct() {
       await dispatch(fetchSingleProduct(id));
     };
     getProduct();
-
-    const loadingDelay = setTimeout(() => {
-      setLoading(false);
-    }, 250);
-
-    return () => clearTimeout(loadingDelay);
+    setLoading(false);
   }, [dispatch, id]);
 
   return (
-    <main className="bg-white ">
+    <main className="min-h-screen bg-white">
       <div className="max-w-screen-lg py-32 mx-auto">
       {loading ? (
         <SingleProductLoader />
@@ -39,9 +34,9 @@ export default function SingleProduct() {
               <>
                 <section id="product-details" className="relative md:order-last">
                   <div className="flex flex-col justify-center w-full space-y-8">
-                    <div id="product-details" className="h-max">
-                      <h1 className="mb-2 text-3xl font-bold text-gray-800">{product.name}</h1>
-                      <h2 className="mb-4 text-2xl text-indigo-700">${price.unit_amount / 100}</h2>
+                    <div id="product-details" className="w-full h-full text-gray-800">
+                      <h1 className="mb-2 text-3xl font-bold">{product.name}</h1>
+                      <h2 className="mb-4 text-2xl text-primary50">${price.unit_amount / 100}</h2>
                       <p className="pt-4 leading-7 border-t border-gray-300">{product.description}</p>
                     </div>
                     <div id="bag-controls">

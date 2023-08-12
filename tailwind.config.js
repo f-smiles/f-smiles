@@ -62,8 +62,8 @@ module.exports = {
         'tertiary90': "#62f9eb",
         'tertiary95': "#b2fff6",
         'tertiary98': "#e4fffa",
-        'tertiary99': "#f2fffc",     
-        
+        'tertiary99': "#f2fffc",
+
       'B7B19F': "#B7B19F",
       // 'e8e6df': '#e8e6df',
       'f7f5f2': '#f7f5f2',
@@ -97,7 +97,11 @@ module.exports = {
       'cera': ['CeraProRegular', 'sans-serif'],
       'cera-bold': ['CeraProBold', 'sans-serif'],
       'larken': ['Larken', 'serif'],
-      'nexa-text-black': ['NexaTextBlack', 'sans-serif'],
+      'euclidBold': ['EuclidCircularABold', 'sans-serif'],
+      'euclidLight': ['EuclidCircularALight', 'sans-serif'],
+      'euclidMedium': ['EuclidCircularAMedium', 'sans-serif'],
+      'euclidRegular': ['EuclidCircularARegular', 'sans-serif'],
+      'euclidSemibold': ['EuclidCircularASemibold', 'sans-serif'],
     },
     animation: {
       blob: "blob 7s infinite",
@@ -121,7 +125,6 @@ module.exports = {
   },
   plugins: [
     require("tw-elements/dist/plugin.cjs"),
-    require("daisyui"),
   ],
   darkMode: "class",
   variants: {

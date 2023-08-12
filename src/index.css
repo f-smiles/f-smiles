@@ -24,6 +24,26 @@
     font-family: "NexaTextBlack";
     src: url("../public/fonts/NexaText-Trial-Black.otf") format("opentype");
   } */
+  @font-face {
+    font-family: "EuclidCircularABold";
+    src: url("../public/fonts/EuclidCircularA-Bold.otf") format("opentype");
+  }
+  @font-face {
+    font-family: "EuclidCircularALight";
+    src: url("../public/fonts/EuclidCircularA-Light.otf") format("opentype");
+  }
+  @font-face {
+    font-family: "EuclidCircularAMedium";
+    src: url("../public/fonts/EuclidCircularA-Medium.otf") format("opentype");
+  }
+  @font-face {
+    font-family: "EuclidCircularARegular";
+    src: url("../public/fonts/EuclidCircularA-Regular.otf") format("opentype");
+  }
+  @font-face {
+    font-family: "EuclidCircularASemibold";
+    src: url("../public/fonts/EuclidCircularA-Semibold.otf") format("opentype");
+  }
 
   html,
   body,
@@ -106,10 +126,6 @@
     font-style: normal;
     letter-spacing: 0em;
   }
-  a {
-    font-family: 'Larken';
-    font-weight: 300;
-  }
 }
 
 @layer utilities {
@@ -119,13 +135,6 @@
   .animation-delay-4000 {
     animation-delay: 4s;
   }
-}
-
-.glassmorphism {
-  /* From https://css.glass */
-  background: rgba(55, 30, 30, 0.3);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
 }
 
 @keyframes cascading-animation {
@@ -153,6 +162,7 @@
   animation: cascading-animation 1.5s cubic-bezier(0.445, 0.05, 0.55, 0.95);
 } */
 
+/* Our Doctors styles START */
 .parent {
   width: 300px;
   overflow: hidden;
@@ -176,7 +186,7 @@
 
 .switch-left {
   float: left;
-  margin-right: -100%; 
+  margin-right: -100%;
 }
 
 .switch-right {
@@ -184,6 +194,7 @@
   /* transition: cubic-bezier(0.165, 0.84, 0.44, 1) 1s; */
   transition: cubic-bezier(0.075, 0.82, 0.165, 1) 1s;
 }
+/* Our Doctors styles END */
 
 .reviews-bars {
   display: flex;
@@ -205,10 +216,6 @@
   background-color: cornflowerblue;
 }
 
-.pin-spacer {
-  height: 100%;
-  min-height: 100vh;
-}
 @keyframes rotate {
   from {
     transform: rotate(0deg);
@@ -227,7 +234,7 @@
 }
 
 .circle-container {
-  width: 200px; 
+  width: 200px;
   height: 200px;
   position: relative;
   overflow: hidden;
@@ -237,15 +244,15 @@
   width: 100%;
   height: 100%;
   position: absolute;
-  animation: rotate 10s linear infinite; 
+  animation: rotate 10s linear infinite;
 }
 
 .dot {
   position: absolute;
-  width: 8px; 
+  width: 8px;
   height: 8px;
   border-radius: 50%;
-  background-color: #000; 
+  background-color: #000;
 }
 
 @keyframes rotate {
