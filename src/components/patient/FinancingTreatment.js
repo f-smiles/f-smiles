@@ -71,7 +71,7 @@
 // }, []);
 
 
-// import { m, useScroll, useSpring } from "framer-motion"
+// import { motion, useScroll, useSpring } from "framer-motion"
 // const ref = useRef(null);
 // const { scrollYProgress } = useScroll({
 //   target: ref,
@@ -82,16 +82,16 @@
 //   damping: 30,
 //   restDelta: 0.001
 // });
-// <m.span
+// <motion.span
 //  className="absolute md:w-1 w-full h-1 md:h-full top-0 left-0 bottom-24 origin-[0%] bg-red-700"
 //  style={{ scaleY }}
-//></m.span>
+//></motion.span>
 
 
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { m, useInView, useScroll, useSpring, useTransform } from "framer-motion";
+import { motion, useInView, useScroll, useSpring, useTransform } from "framer-motion";
 
 function DesktopContentSection({ children, step, }) {
   const ref = useRef(null);
@@ -217,7 +217,7 @@ export default function FinancingTreatment() {
                 Retainers and retention visits for one year post-treatment included.
               </p>
             </DesktopContentSection>
-            <m.span style={{ height }} className="absolute top-0 left-0 z-0 hidden h-full border-l-2 md:block border-primary50"></m.span>
+            <motion.span style={{ height }} className="absolute top-0 left-0 z-0 hidden h-full border-l-2 md:block border-primary50"></motion.span>
           </div>
         </div>
         <div

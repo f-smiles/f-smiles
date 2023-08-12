@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { m, useScroll, useSpring, useTransform, useMotionValue, useVelocity, useAnimationFrame } from "framer-motion";
+import { motion, useScroll, useSpring, useTransform, useMotionValue, useVelocity, useAnimationFrame } from "framer-motion";
 import { wrap } from "@motionone/utils";
 
 function ParallaxText({ children, baseVelocity = 100 }) {
@@ -33,9 +33,9 @@ function ParallaxText({ children, baseVelocity = 100 }) {
 
   return (
     <div className="max-w-screen-xl mx-auto parallax">
-      <m.div className="scroller" style={{ x }}>
+      <motion.div className="scroller" style={{ x }}>
         <span className='inline-flex space-x-8'>{children} </span>
-      </m.div>
+      </motion.div>
     </div>
   );
 }
