@@ -6,9 +6,10 @@ import {
   AccordionHeader,
   AccordionBody,
 } from "@material-tailwind/react";
+import SvgClipOne from "../svg/SvgClipOne";
 
 export default function WhyChooseUs() {
-  
+
   const alignCenter = { display: 'flex', alignItems: 'center' }
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const words = [
@@ -86,7 +87,7 @@ export default function WhyChooseUs() {
              alt="propels"
              className="w-12 h-12"
            />
-           <p className="mt-2"> Our team prioritizes your treatment optimization. We currently offer the most efficient adjuncts to accelerate your treatment. 
+           <p className="mt-2"> Our team prioritizes your treatment optimization. We currently offer the most efficient adjuncts to accelerate your treatment.
  Currently we utilize light and vibrational therapy to stimulate the supporting tissues around the teeth so that they move to their ideal positions in less time. We always strive to reduce office visits is a priority of ours.  </p>
          </div>
          <div className="flex flex-col items-center justify-center col-span-1 px-4 py-20 text-purple-900 border border-purple-400">
@@ -135,7 +136,7 @@ export default function WhyChooseUs() {
       }}
     >
   <p style={{ letterSpacing: ".2px" }} className="">
-  <h1 className="text-5xl text-violet-800 block mb-4">Uncompromising quality</h1>
+  <h1 className="block mb-4 text-5xl text-violet-800">Uncompromising quality</h1>
   We strive to attain finished results consistent with the{" "}
   <span style={{ letterSpacing: ".2px" }} className="text-2xl text-violet-800">
     American Board of Orthodontics (ABO){" "}
@@ -225,7 +226,7 @@ export default function WhyChooseUs() {
 </Parallax>
 
     </div>
-        <div className="py-10  bg-white flex flex-col md:flex-row items-center justify-center">
+        <div className="flex flex-col items-center justify-center py-10 bg-white md:flex-row">
         <div style={{ zIndex: 2 }}>
   <img
     src="../../images/freysmilepatient.jpg"
@@ -238,7 +239,7 @@ export default function WhyChooseUs() {
   />
 </div>
 
-     
+
 <div className="max-w-xl mx-auto text-center" style={{ marginLeft: "-900px" }}>
   <img
     src="../../images/babyblueblob.svg"
@@ -270,35 +271,35 @@ export default function WhyChooseUs() {
           </p>
           </div>
           <div
-          className="w-1/2"
+          className="relative w-1/2"
             style={{
               display: "flex",
               justifyContent: "flex-end",
               alignItems: "flex-end",
             }}
           >
+            <SvgClipOne className="absolute inset-0 m-auto" />
             <img
               src="../../images/drfreyperfecting.jpg"
               alt="invisalign"
-              className="mt-4 "
-              style={{
-                width: "120%",
-                height: "auto",
-              }}
+              // style={{
+              //   width: "120%",
+              //   height: "auto",
+              // }}
             />
           </div>
           <div
             style={{
               display: "flex",
-          
+
               alignItems: "flex-end",
             }}
           >
-    
+
           </div>
         </div>
 
-     
+
         <div style={{ display: "flex", alignItems: "flex-start" }}>
           <div
             style={{ display: "flex", flexDirection: "column" }}
@@ -307,27 +308,27 @@ export default function WhyChooseUs() {
             <Fragment>
               <Accordion open={open === 1}>
                 <h1>
-                 
-             
+
+
                 </h1>
-           
+
               </Accordion>
 
               <Accordion open={open === 2}>
-         
+
               </Accordion>
             </Fragment>
           </div>
-       
+
         </div>
-        <div className="flex bg-white py-10 relative">
+        <div className="relative flex py-10 bg-white">
 
-  <div className="w-1/3 p-8 relative">
-    <div className="text-5xl mt-40 py-2  px-2 ml-20 bg-white mb-10 absolute z-10 ">Giving Back</div>
+  <div className="relative w-1/3 p-8">
+    <div className="absolute z-10 px-2 py-2 mt-40 mb-10 ml-20 text-5xl bg-white ">Giving Back</div>
   </div>
-  
 
-  <div className="w-1/3 flex items-center justify-center">
+
+  <div className="flex items-center justify-center w-1/3">
     <img
       src="../../images/smilescholarship.jpg"
       alt="invisalign"
@@ -337,8 +338,8 @@ export default function WhyChooseUs() {
       }}
     />
   </div>
-  
-  
+
+
   <div className="w-1/3 p-8 text-xl text-center text-violet-800">
     <img
       src="../../images/purpleblog.png"
@@ -372,7 +373,7 @@ export default function WhyChooseUs() {
             <tr>
               <td className="p-2"     style={{
                   borderBottom: "1px solid #B17CFF",
-       
+
                   fontSize: "20px",
                 }}></td>
 
@@ -380,7 +381,7 @@ export default function WhyChooseUs() {
                 className="p-2 py-8 text-center bg-gradient-to-r from-rose-50 to-violet-200 text-violet-700"
                 style={{
                   borderBottom: "1px solid #B17CFF",
-       
+
                   fontSize: "20px",
                 }}
               >
@@ -412,17 +413,17 @@ export default function WhyChooseUs() {
                   borderTopLeftRadius: "40px",
                   borderBottom: "1px solid #B17CFF",
                   letterSpacing: "1px",
- 
-                
+
+
                 }}
               >
                 4 convenient locations
               </td>
               <td className="mb-2 bg-gradient-to-r from-rose-50 to-violet-200"
                style={{
-               
+
                 borderBottom: "1px solid #B17CFF",
-              
+
               }}
                 >
                 <svg
@@ -442,9 +443,9 @@ export default function WhyChooseUs() {
               </td>
               <td className="mb-2"
                style={{
-          
+
                 borderBottom: "1px solid #B17CFF",
-              
+
               }}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -467,15 +468,15 @@ export default function WhyChooseUs() {
                style={{
                 letterSpacing: "1px",
                 borderBottom: "1px solid #B17CFF",
-              
+
               }}>
                 Leaders in the industry
               </td>
               <td className="mb-2 bg-gradient-to-r from-rose-50 to-violet-200"
                style={{
-               
+
                 borderBottom: "1px solid #B17CFF",
-              
+
               }}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -493,9 +494,9 @@ export default function WhyChooseUs() {
                 </svg>
               </td>
               <td className="mb-2 " style={{
-                 
+
                   borderBottom: "1px solid #B17CFF",
-                
+
                 }}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -518,15 +519,15 @@ export default function WhyChooseUs() {
                style={{
                 letterSpacing: "1px",
                 borderBottom: "1px solid #B17CFF",
-              
+
               }}>
                 Modern office settings
               </td>
               <td className="mb-2 bg-gradient-to-r from-rose-50 to-violet-200"
                  style={{
-       
+
                   borderBottom: "1px solid #B17CFF",
-                
+
                 }}
               >
                 <svg
@@ -545,9 +546,9 @@ export default function WhyChooseUs() {
                 </svg>
               </td>
               <td className="mb-2"    style={{
-       
+
        borderBottom: "1px solid #B17CFF",
-     
+
      }}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -571,14 +572,14 @@ export default function WhyChooseUs() {
                  style={{
                   letterSpacing: "1px",
                   borderBottom: "1px solid #B17CFF",
-                
+
                 }}>
                 Over 50+ years of experience
               </td>
               <td className="mb-2 bg-gradient-to-r from-rose-50 to-violet-200"   style={{
-       
+
        borderBottom: "1px solid #B17CFF",
-     
+
      }}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -596,9 +597,9 @@ export default function WhyChooseUs() {
                 </svg>
               </td>
               <td className="mb-2 "    style={{
-       
+
        borderBottom: "1px solid #B17CFF",
-     
+
      }}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -629,9 +630,9 @@ export default function WhyChooseUs() {
               </td>
               <td className="mb-2 bg-gradient-to-r from-rose-50 to-violet-200"
                  style={{
-       
+
                   borderBottom: "1px solid #B17CFF",
-                
+
                 }}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

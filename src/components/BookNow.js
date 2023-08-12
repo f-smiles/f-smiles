@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
 import emailjs from "@emailjs/browser";
-import "tw-elements";
 import { Datepicker, Input, initTE } from "tw-elements";
 import { init } from "emailjs-com";
 import { Disclosure } from "@headlessui/react";
@@ -55,7 +54,7 @@ const BookNow = () => {
   ]);
 
   useEffect(() => {
-    const delay = 500; 
+    const delay = 500;
     const timeout1 = setTimeout(() => setIsFirstNameVisible(true), delay);
     const timeout2 = setTimeout(() => setIsLastNameVisible(true), delay * 2);
 
@@ -164,8 +163,8 @@ const BookNow = () => {
       setShowForm(true);
     }, []);
   return (
-    <main className="mt-20 pt-10" style={showForm ? styles : {}}>
-      
+    <main className="pt-10 mt-20" style={showForm ? styles : {}}>
+
       <div id="contact-form">
         {emailSent ? (
           <span className={emailSent ? "block" : "hidden"}>
@@ -174,10 +173,10 @@ const BookNow = () => {
         ) : (
           <form
             onSubmit={handleSubmit}
-            className="  max-w-screen-sm mx-auto flex flex-col space-y-12 p-8 rounded-xl"
+            className="flex flex-col max-w-screen-sm p-8 mx-auto space-y-12  rounded-xl"
           >
             <div className="flex flex-col items-center">
-              <div className="mt-10 text-center text-5xl text-indigo-700 mb-20" style={{letterSpacing:"px"}}>
+              <div className="mt-10 mb-20 text-5xl text-center text-indigo-700" style={{letterSpacing:"px"}}>
                 Request Appointment
               </div>
               <div className="flex w-full gap-2">
@@ -213,7 +212,7 @@ const BookNow = () => {
                 </div>
               </div>
 
-              <div className="relative mt-2  w-full">
+              <div className="relative w-full mt-2">
                 <input
                   type="text"
                   id="guardian"
@@ -229,8 +228,8 @@ const BookNow = () => {
                 </label>
               </div>
 
-              <div className="w-full flex gap-2">
-                <div className="w-1/2 relative flex-1 py-4">
+              <div className="flex w-full gap-2">
+                <div className="relative flex-1 w-1/2 py-4">
                   <input
                     type="text"
                     id="phone"
@@ -246,7 +245,7 @@ const BookNow = () => {
                   </label>
                 </div>
 
-                <div className="w-1/2 relative flex-1 py-4">
+                <div className="relative flex-1 w-1/2 py-4">
                 <input
                     type="text"
                     id="email"
@@ -265,7 +264,7 @@ const BookNow = () => {
             </div>
 
             <div
-              className="my-4 relative mb-3"
+              className="relative my-4 mb-3"
               data-te-datepicker-init
               data-te-input-wrapper-init
             >
@@ -302,7 +301,7 @@ const BookNow = () => {
 
 
 <div>
-  <div className="flex w-full justify-between rounded-lg px-4 py-2 text-left text-md font-medium text-indigo-700 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
+  <div className="flex justify-between w-full px-4 py-2 font-medium text-left text-indigo-700 rounded-lg text-md focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
     <span>Choose Location</span>
   </div>
   <div className="px-4 pt-4 pb-2 text-sm text-gray-500">
@@ -364,9 +363,9 @@ const BookNow = () => {
 </div>
 
 
-            <div className="text-indigo-700 flex justify-center flex-col">
+            <div className="flex flex-col justify-center text-indigo-700">
               Preferred Day(s):
-              <div className="flex flex-wrap justify-start py-4 gap-4 ml-4">
+              <div className="flex flex-wrap justify-start gap-4 py-4 ml-4">
                 {days.map((button, index) => (
                   <button
                     key={button.day}
@@ -383,9 +382,9 @@ const BookNow = () => {
                 ))}
               </div>
             </div>
-            <div className="text-indigo-700 py-2 space-x-4">
+            <div className="py-2 space-x-4 text-indigo-700">
               Preferred Time(s):
-              <div className="flex flex-wrap justify-start py-4 gap-4 ml-4">
+              <div className="flex flex-wrap justify-start gap-4 py-4 ml-4">
                 {times.map((button, index) => (
                   <button
                     key={button.time}
@@ -403,7 +402,7 @@ const BookNow = () => {
               </div>
             </div>
 
-            <div className="border-2 h-32 border-indigo-100 flex flex-col">
+            <div className="flex flex-col h-32 border-2 border-indigo-100">
               <label className="flex flex-col" style={{ height: "100%" }}>
                 <textarea
                   placeholder="Your message"
@@ -416,7 +415,7 @@ const BookNow = () => {
 
             <div className="flex justify-center">
               <button
-                className="text-white rounded-lg px-4 py-2 bg-indigo-700 max-w-max -mt-3"
+                className="px-4 py-2 -mt-3 text-white bg-indigo-700 rounded-lg max-w-max"
                 type="submit"
                 onClick={handleSubmit}
               >

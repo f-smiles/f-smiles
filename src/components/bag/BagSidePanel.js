@@ -32,7 +32,6 @@ export default function BagSidePanel({ isBagOpen, setIsBagOpen }) {
     .then((response) => {
       if (response.data.url) {
         window.location.href = response.data.url
-        // if (clearBagOnRedirect) { dispatch(clearBag()) }
       }
     }).catch((error) => console.log(error.message))
   }
@@ -46,12 +45,12 @@ export default function BagSidePanel({ isBagOpen, setIsBagOpen }) {
             <div className="flex flex-col h-full">
               <div className="flex items-start justify-between p-6">
                 <h2 className="text-lg font-medium text-gray-900">Shopping Bag</h2>
-                <button type="button" className="p-2 -m-2 text-gray-400 hover:text-gray-500" onClick={handleToggleSidePanel}>
+                <button type="button" className="p-2 -m-2 text-gray-400 transition-colors duration-150 ease-linear hover:text-secondary50" onClick={handleToggleSidePanel}>
                   <span className="sr-only">Close panel</span>
                   <XMarkIcon className="w-6 h-6" aria-hidden="true" />
                 </button>
               </div>
-              <div className="flex-1 px-4 py-6 sm:px-6">
+              <div className="flex-1 px-4 py-6 overflow-auto sm:px-6">
                 <ul className="space-y-6 divide-y divide-gray-200">
                 {bagItems.length === 0 ? (
                   <li className="px-4 space-y-8 sm:px-0">
@@ -72,7 +71,7 @@ export default function BagSidePanel({ isBagOpen, setIsBagOpen }) {
                         <span className="flex items-center justify-between flex-1 text-sm">
                           <p className="text-gray-500">Qty: {item.quantity}</p>
                           <div className="flex">
-                            <button type="button" className="font-medium text-indigo-600 hover:text-indigo-500" onClick={() => dispatch(removeFromBag(item.id))}>Remove</button>
+                            <button type="button" className="font-medium text-secondary50 hover:underline hover:underline-offset-4" onClick={() => dispatch(removeFromBag(item.id))}>Remove</button>
                           </div>
                         </span>
                       </div>
@@ -88,16 +87,15 @@ export default function BagSidePanel({ isBagOpen, setIsBagOpen }) {
               </div>
               <p className="mt-0.5 text-sm text-gray-500">Shipping and taxes calculated at checkout.</p>
               <div className="mt-6">
-                <button href="#" className="flex items-center justify-center w-full px-6 py-3 text-base font-medium text-white transition-colors duration-300 ease-in-out bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-700"
+                <button className="flex items-center justify-center w-full px-6 py-3 text-base font-medium text-white transition-colors duration-300 ease-in-out border border-transparent rounded-md shadow-sm bg-primary50 hover:bg-primary30"
                 onClick={handleCheckout}
-                // onClick={() => handleCheckout(false)}
                 >Checkout</button>
               </div>
               <div className="mt-6">
-                <Link to="/bag" className="flex items-center justify-center px-6 py-3 text-base font-medium text-indigo-600 transition-colors duration-300 ease-in-out border border-indigo-600 rounded-md shadow-sm hover:text-white hover:bg-indigo-700" onClick={handleToggleSidePanel}>View Bag</Link>
+                <Link to="/bag" className="flex items-center justify-center px-6 py-3 text-base font-medium transition-colors duration-300 ease-in-out border rounded-md shadow-sm border-primary50 text-primary50 hover:text-white hover:bg-primary30" onClick={handleToggleSidePanel}>View Bag</Link>
               </div>
               <div className="flex justify-center mt-6 text-sm text-center text-gray-500">
-                <p>or <button type="button" className="ml-1 font-medium text-indigo-600 transition-colors duration-300 ease-in-out hover:text-indigo-500" onClick={handleToggleSidePanel}>Continue Shopping<span aria-hidden="true"> &rarr;</span></button></p>
+                <p>or <button type="button" className="ml-1 font-medium transition-colors duration-300 ease-in-out text-primary50 hover:text-primary30 hover:underline hover:underline-offset-4" onClick={handleToggleSidePanel}>Continue Shopping<span aria-hidden="true"> &rarr;</span></button></p>
               </div>
             </div>
           </div>

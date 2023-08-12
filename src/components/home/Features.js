@@ -7,7 +7,6 @@ function Section({ children, color }) {
   const isInView = useInView(ref, {
     amount: 0.1,
   });
-
   
   return (
     <div
@@ -32,7 +31,7 @@ export default function Features() {
       <Section color="#fae1ee">
         <div className="flex flex-col items-center justify-center max-w-screen-xl mx-auto lg:flex-row">
           <div className="gap-6 space-y-4 text-gray-700 md:w-1/3">
-            <h3 className="text-4xl text-[#e67fb4]">Invisalign</h3>
+            <h3 className="text-4xl text-[#e67fb4] font-gilroy-light">Invisalign</h3>
             <p className="pb-4">
               As part of the top 1% of Invisalign providers in the US, we have the experience to deliver the smile you deserve.
             </p>
@@ -44,17 +43,7 @@ export default function Features() {
               src="../images/aligner.png"
               alt="invisalign"
             />
-          </figure>
-          <h3 className="text-4xl">Invisalign</h3>
-          <div className="flex flex-col items-center justify-center w-1/2 gap-6 text-center ">
-          
-            
-            <p className="md:px-8">
-              As part of the top 1% of Invisalign providers in the US, we have the experience to deliver the smile you deserve.
-            </p>
-            <Link className="inline-block px-6 py-4 transition-colors duration-300 ease-linear border rounded-full border-primary80 hover:bg-secondary50 hover:border-secondary50 hover:text-white text-primary90" to="/invisalign">How Invisalign Works</Link>
-          </div>
-     
+          </figure>     
         </div>
       </Section>
       <Section color="#e0f0ff">
@@ -88,11 +77,6 @@ export default function Features() {
               We offer Invisalign without Impressions. Say goodbye to goopy
               impressions with our iTero digital scanner.
             </p>
-            {/* <img
-              className="object-scale-down aspect-video mix-blend-color-burn"
-              src="../images/technology.png"
-              alt="itero"
-            /> */}
             <Link className="inline-block px-6 py-4 transition-colors duration-300 ease-linear border rounded-full border-[#f2ab79] hover:bg-gray-800 hover:border-0 hover:border-secondary50 hover:text-white" to="/invisalign">Learn More</Link>
           </div>
           <figure className="flex items-center justify-center w-1/2">

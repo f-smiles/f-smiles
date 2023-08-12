@@ -1,21 +1,9 @@
-import React, { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
-import Map from "react-map-gl";
-import { gsap } from 'gsap';
-
-// import DotPattern from "./DotPattern";
-import AOS from "aos";
-import "aos/dist/aos.css";
+import React, { useState, useEffect } from "react";
 import Hero from "./Hero";
 import LogoSlider from "./logoslider";
 import Features from "./Features";
 import FeaturedReviews from "./FeaturedReviews";
 import Locations from "./Locations";
-// import { ChevronDownIcon } from "@heroicons/react/24/solid";
-// import { Carousel } from "@material-tailwind/react";
-// import "react-responsive-carousel/lib/styles/carousel.min.css";
-
-AOS.init();
 
 const Home = () => {
   // const [activeSlide, setActiveSlide] = useState(0);
@@ -151,9 +139,8 @@ const Home = () => {
 
 
   return (
-    <>
       <main className="w-full overflow-hidden bg-white">
-      <div style={{ position: 'relative', minHeight: '100vh', overflow: 'hidden' }}>
+        <div style={{ position: 'relative', minHeight: '100vh', overflow: 'hidden' }}>
       <div
         className="flex items-center justify-center h-screen"
         style={{
@@ -203,34 +190,14 @@ const Home = () => {
           </div>
         )}
       </div>
-    </div>
-
-
-        <section id="hero-section" className="z-20 ">
-
-          <Hero />
-        </section>
-
-        <section id="features" className="z-40">
-          <Features />
-        </section>
-
-        <section id="logo-slider" className="bg-primary70">
-          <LogoSlider />
-        </section>
-
+        </div>
+    
+        <Hero />
+        <Features />
+        <LogoSlider />
         <Locations/>
-
       </main>
-    </>
   );
 };
 
 export default Home;
-
-              // className="gap-8 space-y-16 md:w-2/3 md:grid md:grid-cols-2 md:space-y-0"
-              // className="gap-8 mt-16 md:grid md:grid-cols-2 lg:flex "
-
-// className="flex flex-col items-center justify-between bg-f7f5f2 rounded-bl-3xl rounded-br-3xl lg:w-1/4 h-96"
-                // onMouseEnter={() => setIsCardHovered(true)}
-                // onMouseLeave={() => setIsCardHovered(false)}
