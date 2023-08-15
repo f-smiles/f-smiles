@@ -24,7 +24,7 @@
     font-family: "NexaTextBlack";
     src: url("../public/fonts/NexaText-Trial-Black.otf") format("opentype");
   } */
-  @font-face {
+  /* @font-face {
     font-family: "EuclidCircularABold";
     src: url("../public/fonts/EuclidCircularA-Bold.otf") format("opentype");
   }
@@ -43,7 +43,7 @@
   @font-face {
     font-family: "EuclidCircularASemibold";
     src: url("../public/fonts/EuclidCircularA-Semibold.otf") format("opentype");
-  }
+  } */
 
   html,
   body,
