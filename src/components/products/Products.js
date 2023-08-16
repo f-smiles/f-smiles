@@ -21,7 +21,7 @@ const sortOptions = [
 export default function Products() {
   const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
-  
+
   useEffect(() => {
     const getProducts = async () => {
       await dispatch(fetchProducts());
@@ -114,7 +114,7 @@ export default function Products() {
                     </Menu.Items>
                   </Transition>
                 </Menu>
-                
+
               </div>
               <div className="grid grid-cols-1 px-12 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8 lg:px-0">
                 {products && sortedProducts.map((product) => (
