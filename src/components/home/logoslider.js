@@ -42,16 +42,16 @@ function ParallaxText({ children, baseVelocity = 100 }) {
 
 export default function LogoSlider() {
   return (
-    <section id="logo-slider" className="bg-primary70">
+    <section id="logo-slider" className="my-8">
       <ParallaxText baseVelocity={-5}>
         <img
           className='object-contain w-1/6 aspect-auto'
-          src="../../images/movingbannerfiles/damonlogo.png"
+          src="../../images/movingbannerfiles/damonlogo_invert.png"
           alt="damon"
         />
         <img
           className='object-contain w-24 aspect-auto'
-          src="../../images/movingbannerfiles/invis-logo.png"
+          src="../../images/movingbannerfiles/invis-logo_invert.png"
           alt="invisalign"
         />
         <img
@@ -61,35 +61,30 @@ export default function LogoSlider() {
         />
         <img
           className='object-contain w-1/6 aspect-auto'
-          src="../../images/movingbannerfiles/Top-Dentist.png"
+          src="../../images/movingbannerfiles/topDentist_logo.png"
           alt="top-dentist"
         />
       </ParallaxText>
       <ParallaxText baseVelocity={5}>
         <img
           className='object-contain w-1/4 aspect-auto'
-          src="../../images/movingbannerfiles/invis.png"
+          src="../../images/movingbannerfiles/invisalign_invert.png"
           alt="invisalign"
         />
         <img
           className='object-contain w-1/4 aspect-auto'
-          src="../../images/movingbannerfiles/aao.png"
+          src="../../images/movingbannerfiles/aao_invert.png"
           alt="aao"
         />
         <img
           className='object-contain w-1/6 aspect-auto'
-          src="../../images/movingbannerfiles/ABO.png"
+          src="../../images/movingbannerfiles/ABO_invert.png"
           alt="ABO"
         />
         <img
           className='object-contain w-1/6 aspect-auto'
-          src="../../images/movingbannerfiles/valley.jpg"
-          alt="valley"
-        />
-        <img
-          className='object-contain w-1/6 aspect-auto'
-          src="../../images/movingbannerfiles/top-dentists.png"
-          alt="dentists"
+          src="../../images/movingbannerfiles/valley.png"
+          alt="best of the valley 2018"
         />
       </ParallaxText>
     </section>
