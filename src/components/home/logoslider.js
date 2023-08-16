@@ -34,7 +34,7 @@ function ParallaxText({ children, baseVelocity = 100 }) {
   return (
     <div className="max-w-screen-xl mx-auto parallax">
       <motion.div className="scroller" style={{ x }}>
-        <span className='inline-flex space-x-8'>{children} </span>
+        <span className='inline-flex space-x-10'>{children} </span>
       </motion.div>
     </div>
   );
@@ -42,10 +42,10 @@ function ParallaxText({ children, baseVelocity = 100 }) {
 
 export default function LogoSlider() {
   return (
-    <section id="logo-slider" className="my-8">
+    <section id="logo-slider" className="my-8 space-y-4">
       <ParallaxText baseVelocity={-5}>
         <img
-          className='object-contain w-1/6 aspect-auto'
+          className='object-contain h-[48px] my-auto aspect-auto'
           src="../../images/movingbannerfiles/damonlogo_invert.png"
           alt="damon"
         />
@@ -55,34 +55,34 @@ export default function LogoSlider() {
           alt="invisalign"
         />
         <img
-          className='object-contain w-1/6 aspect-auto'
+          className='object-contain my-auto h-28 aspect-auto'
           src="../../images/movingbannerfiles/readers.png"
           alt="readers choice"
         />
         <img
-          className='object-contain w-1/6 aspect-auto'
+          className='object-contain my-auto h-[64px] aspect-auto'
           src="../../images/movingbannerfiles/topDentist_logo.png"
           alt="top-dentist"
         />
       </ParallaxText>
       <ParallaxText baseVelocity={5}>
         <img
-          className='object-contain w-1/4 aspect-auto'
+          className='object-contain my-auto h-18 aspect-auto'
           src="../../images/movingbannerfiles/invisalign_invert.png"
           alt="invisalign"
         />
         <img
-          className='object-contain w-1/4 aspect-auto'
+          className='object-contain h-16 my-auto aspect-auto'
           src="../../images/movingbannerfiles/aao_invert.png"
           alt="aao"
         />
         <img
-          className='object-contain my-auto h-[96px] w-auto aspect-auto'
+          className='object-contain h-32 aspect-auto'
           src="../../images/movingbannerfiles/ABO_invert.png"
           alt="ABO"
         />
         <img
-          className='object-contain w-1/6 aspect-auto'
+          className='object-contain h-28 aspect-auto'
           src="../../images/movingbannerfiles/valley.png"
           alt="best of the valley 2018"
         />
