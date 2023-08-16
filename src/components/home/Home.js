@@ -4,6 +4,7 @@ import LogoSlider from "./logoslider";
 import Features from "./Features";
 import FeaturedReviews from "./FeaturedReviews";
 import Locations from "./Locations";
+import GiftCards from "../products/GiftCards";
 
 const Home = () => {
   // const [activeSlide, setActiveSlide] = useState(0);
@@ -68,7 +69,7 @@ const Home = () => {
   // const calculateOffset = (sectionNumber) => {
   //   return sectionNumber * scrollPosition * 0.5;
   // };
-  
+
   const handleMouseEnter = (event) => {
     const target = event.target;
     const text = target.innerText;
@@ -164,7 +165,7 @@ const Home = () => {
           muted
           loop
         />
-     
+
         <img
           className={`max-w-lg ${showH ? 'opacity-0' : 'opacity-100 transition-opacity duration-1000'}`}
           src="../../images/logo_full.png"
@@ -181,7 +182,7 @@ const Home = () => {
               fontSize: '3rem',
               fontWeight: 'bold',
               zIndex: 2,
-              color: '#000', 
+              color: '#000',
               opacity: showH ? 1 : 0,
               transition: 'opacity 0.5s',
             }}
@@ -191,11 +192,12 @@ const Home = () => {
         )}
       </div>
         </div>
-    
+
         <Hero />
         <Features />
         <LogoSlider />
-        <Locations/>
+        <Locations />
+        <GiftCards />
       </main>
   );
 };
