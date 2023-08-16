@@ -77,7 +77,7 @@ export default function LogoSlider() {
           alt="aao"
         />
         <img
-          className='object-contain w-1/6 aspect-auto'
+          className='object-contain my-auto h-[96px] w-auto aspect-auto'
           src="../../images/movingbannerfiles/ABO_invert.png"
           alt="ABO"
         />
