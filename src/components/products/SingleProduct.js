@@ -20,9 +20,13 @@ export default function SingleProduct() {
       await dispatch(fetchSingleProduct(id));
     };
     getProduct();
-    setLoading(false);
-  }, [dispatch, id]);
+    // setLoading(false);
+    const loadingDelay = setTimeout(() => {
+      setLoading(false);
+    }, 250);
 
+    return () => clearTimeout(loadingDelay);
+  }, [dispatch, id]);
   return (
     <main className="min-h-screen bg-white">
       <div className="max-w-screen-lg py-32 mx-auto">
