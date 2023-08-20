@@ -51,12 +51,7 @@ export default function Hero() {
               FreySmiles Orthodontics recognize and are very passionate about.
             </p>
             <div className="flex items-center justify-start mt-10 gap-x-6">
-              <Link
-                to="/book-now"
-                className="transition-colors ease-linear duration-300 rounded-md bg-primary50 px-3.5 py-2.5 text-lg lg:text-xl lg:px-5 lg:py-3 font-normal text-white shadow-sm hover:bg-secondary50 hover:text-primary95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary30"
-              >
-                Book Now
-              </Link>
+   
               <Link
                 to="/our-team"
                 className="text-lg font-normal leading-6 transition-colors duration-300 ease-linear text-primary50 hover:text-primary30"
@@ -103,7 +98,7 @@ export default function Hero() {
     className="wave"
     d="M0.1,119.43V67.45c0,0,99.87,71.51,322.45,8.12c5.56-1.66,92.01-26.52,125.74-35.72
     c77.28-21.08,219.28-41.4,311.28-38.34c233,7.77,323.98,82.1,469.23,96.61c149.64,14.94,288.45-12.46,371.26-36.99v55.34L0.1,119.43z"
-    style={{ fill: '#fae1ee' }} 
+    style={{ fill: '#F1FFE0' }} 
   />
 </svg>
       </div>
