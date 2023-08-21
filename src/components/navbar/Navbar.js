@@ -311,7 +311,7 @@ export default function DesktopNavbar() {
                   </span>
                 </li>
               )}
-              <li className="flex items-center px-6 py-3 font-medium tracking-wider uppercase transition duration-300 ease-in-out rounded cursor-pointer text-primary95 hover:shadow-md bg-primary30 hover:bg-secondary50 hover:text-secondary95">
+              <li className="flex items-center px-6 py-3 font-medium tracking-wider uppercase transition duration-300 ease-in-out rounded cursor-pointer border hover:shadow-md hover:bg-violet-200">
                 <NavLink className="block" to="/book-now">
                   Book Now
                 </NavLink>
