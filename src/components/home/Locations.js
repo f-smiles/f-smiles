@@ -37,12 +37,12 @@ export default function Locations() {
   };
 
   return (
-    <section id="locations" className="min-h-screen bg-primary80">
+    <section id="locations" className="min-h-screen ">
       <div className="flex flex-col items-center justify-center w-full h-full mx-auto md:flex-row">
         {/* left */}
         <div className="w-1/2 h-full px-12 py-12 space-y-4 overflow-auto md:px-6 md:py-6 md:w-1/2">
           <span id="locations-heading" className="flex items-baseline">
-            <h2 className="text-3xl font-medium uppercase lg:text-4xl text-secondary50">
+            <h2 className="text-3xl  lg:text-4xl text-secondary50">
               Our Locations
             </h2>
             <img

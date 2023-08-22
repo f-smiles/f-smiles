@@ -7,14 +7,14 @@ function Section({ children, color }) {
   const isInView = useInView(ref, {
     amount: 0.1,
   });
-  
+
   return (
     <div
       ref={ref}
       className="relative flex flex-col items-center justify-center min-h-screen text-primary95"
       style={{
-        backgroundColor: isInView ? color : "",
-        opacity: isInView ? 1 : 0,
+        backgroundColor: isInView ? color : "#F1FFE0",
+        opacity: isInView ? 1 : 1,
         transition: "all 0.5s ease-in-out",
         transitionDelay: "150ms",
       }}
@@ -24,32 +24,55 @@ function Section({ children, color }) {
   );
 }
 
+
 export default function Features() {
   
   return (
     <section id="features" className="z-40">
-      <Section color="#fae1ee">
+<Section color="#F1FFE0" className="relative overflow-hidden">
+<h3 className="text-black absolute top-0 left-1/2 transform -translate-x-1/2 mt-10 text-6xl font-gilroy-light w-1/2 text-center">Invisalign</h3>
+  <div className="flex flex-col items-center justify-center max-w-screen-xl mx-auto lg:flex-row">
+ 
+    <div className="bg-white gap-6 space-y-4 text-gray-700 md:w-1/3">
+      <p className="text-xl pb-4">
+        As part of the top 1% of Invisalign providers in the US, we have the experience to deliver the smile you deserve.
+      </p>
+      <Link className="mb-10 inline-block px-6 py-4 transition-colors duration-300 ease-linear border rounded-full border-[#e67fb4] hover:bg-gray-800 hover:border-0 hover:text-white" to="/invisalign">How Invisalign Works</Link>
+    </div>
+    <figure className="w-1/2">
+      <img
+        className="object-contain aspect-video"
+        src="../images/aligner.png"
+        alt="invisalign"
+      />
+    </figure>
+  </div>
+
+  <div className="flex justify-center">
+    {[...Array(10)].map((_, index) => (
+      <figure
+        key={index}
+        className="animate-slide mx-12"
+        style={{
+          transform: `translateY(${Math.sin(index) * 10}px)`,
+          width: '4%',
+        }}
+      >
+        <img
+          className="object-contain w-full h-auto"
+          src="../images/invisalignicon.png"
+          alt="invisalign"
+        />
+      </figure>
+    ))}
+  </div>
+</Section>
+
+
+      <Section color="#eeebfa">
         <div className="flex flex-col items-center justify-center max-w-screen-xl mx-auto lg:flex-row">
           <div className="gap-6 space-y-4 text-gray-700 md:w-1/3">
-            <h3 className="text-4xl text-[#e67fb4] font-gilroy-light">Invisalign</h3>
-            <p className="pb-4">
-              As part of the top 1% of Invisalign providers in the US, we have the experience to deliver the smile you deserve.
-            </p>
-            <Link className="inline-block px-6 py-4 transition-colors duration-300 ease-linear border rounded-full border-[#e67fb4] hover:bg-gray-800 hover:border-0 hover:text-white" to="/invisalign">How Invisalign Works</Link>
-          </div>
-          <figure className="w-1/2">
-            <img
-              className="object-contain aspect-video"
-              src="../images/aligner.png"
-              alt="invisalign"
-            />
-          </figure>     
-        </div>
-      </Section>
-      <Section color="#e0f0ff">
-        <div className="flex flex-col items-center justify-center max-w-screen-xl mx-auto lg:flex-row">
-          <div className="gap-6 space-y-4 text-gray-700 md:w-1/3">
-            <h3 className="text-4xl text-[#7781d9]">Damon Braces</h3>
+            <h3 className="text-4xl ">Damon Braces</h3>
             <p className="pb-4">
               Combining self-ligating braces with advanced archwires clinically proven to move teeth quickly and comfortably.
             </p>

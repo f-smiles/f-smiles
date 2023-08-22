@@ -20,7 +20,11 @@
     src: url("../public/fonts/LarkenVariable.ttf") format("truetype");
   }
 
-  @font-face {
+  /* @font-face {
+    font-family: "NexaTextBlack";
+    src: url("../public/fonts/NexaText-Trial-Black.otf") format("opentype");
+  } */
+  /* @font-face {
     font-family: "EuclidCircularABold";
     src: url("../public/fonts/EuclidCircularA-Bold.otf") format("opentype");
   }
@@ -39,7 +43,7 @@
   @font-face {
     font-family: "EuclidCircularASemibold";
     src: url("../public/fonts/EuclidCircularA-Semibold.otf") format("opentype");
-  }
+  } */
 
   html,
   body,
@@ -259,3 +263,26 @@
     transform: rotate(-360deg);
   }
 }
+
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-slide {
+  animation: slide 2s linear infinite;
+}
+

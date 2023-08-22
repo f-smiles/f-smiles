@@ -35,7 +35,7 @@ export default function WhyChooseUs() {
   }, [words.length]);
 
   return (
-    <div className="w-full px-4 py-4 pt-16 bg-gradient-to-r from-neutral-50 to-teal-50 to-violet-100 to-violet-200">
+    <div className="w-full px-4 py-4 pt-16 bg-white">
 
       <div className="relative z-10 px-4 pt-4 pb-2 space-y-4 text-center text-gray-500 rounded-lg ">
         <div>
@@ -68,7 +68,7 @@ export default function WhyChooseUs() {
           </h1>
         </div>
       </div>
-      <div className="grid grid-cols-3 mt-4">
+      {/* <div className="grid grid-cols-3 mt-4">
       <div className="flex flex-col items-center justify-center col-span-1 px-4 py-20 text-purple-900 border border-purple-400">
       <span className="text-3xl">3D i-Cat Imaging</span>
         <img
@@ -99,7 +99,7 @@ export default function WhyChooseUs() {
            />
            <p>Straight teeth are just one part of a beautiful smile. Like any work of art, your teeth need the right frame to truly shine. Thanks to advanced laser technology, we can sculpt your gum tissue to create symmetrical contours that highlight your new smile.</p>
          </div>
-       </div>
+       </div> */}
       <div className="p-2 mx-auto">
         <div className="relative">
           <div className="absolute inset-0 flex items-center justify-center"></div>
@@ -120,7 +120,7 @@ export default function WhyChooseUs() {
       />
 
 <Parallax pages={5}>
-  <ParallaxLayer style={{ ...alignCenter, justifyContent: 'flex-end', top: '4%' }}>
+  <ParallaxLayer style={{ ...alignCenter, justifyContent: 'flex-end', top: '-4%' }}>
     <div
       className="card parallax purple"
       style={{
@@ -226,12 +226,12 @@ export default function WhyChooseUs() {
 </Parallax>
 
     </div>
-        <div className="flex flex-col items-center justify-center py-10 bg-white md:flex-row">
+        <div className="-mt-40 ml-20 flex flex-col items-center justify-center py-10 bg-white md:flex-row">
         <div style={{ zIndex: 2 }}>
   <img
     src="../../images/freysmilepatient.jpg"
     alt="invisalign"
-    className="mt-4 rounded-full"
+    className="rounded-full"
     style={{
       width: "40%",
       height: "auto",
@@ -240,16 +240,9 @@ export default function WhyChooseUs() {
 </div>
 
 
-<div className="max-w-xl mx-auto text-center" style={{ marginLeft: "-900px" }}>
-  <img
-    src="../../images/babyblueblob.svg"
-    alt="invisalign"
-    className="mt-4"
-    style={{
-      width: "120%",
-      height: "auto",
-    }}
-  />
+<div className="max-w-xl mx-auto mt-20 text-center" style={{ marginLeft: "-800px" }}>
+  
+<svg width="400" height="400" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg"> <g clip-path="url(#clip0_104_171)"> <path fill-rule="evenodd" clip-rule="evenodd" d="M50 100C77.6142 100 100 77.6142 100 50C100 77.6142 122.386 100 150 100C122.386 100 100 122.386 100 150C100 122.386 77.6142 100 50 100ZM50 100C22.3858 100 0 122.386 0 150C0 177.614 22.3858 200 50 200C77.6142 200 100 177.614 100 150C100 177.614 122.386 200 150 200C177.614 200 200 177.614 200 150C200 122.386 177.614 100 150 100C177.614 100 200 77.6142 200 50C200 22.3858 177.614 0 150 0C122.386 0 100 22.3858 100 50C100 22.3858 77.6142 0 50 0C22.3858 0 0 22.3858 0 50C0 77.6142 22.3858 100 50 100Z" fill="url(#paint0_linear_104_171)"/> </g> <defs> <linearGradient id="paint0_linear_104_171" x1="14" y1="26" x2="179" y2="179.5" gradientUnits="userSpaceOnUse"> <stop stop-color="#E9B8FF"/> <stop offset="1" stop-color="#F9ECFF"/> </linearGradient> <clipPath id="clip0_104_171"> <rect width="200" height="200" fill="white"/> </clipPath> </defs> </svg>
 </div>
 
 
@@ -329,6 +322,7 @@ export default function WhyChooseUs() {
 
 
   <div className="flex items-center justify-center w-1/3">
+    
     <img
       src="../../images/smilescholarship.jpg"
       alt="invisalign"
@@ -378,7 +372,7 @@ export default function WhyChooseUs() {
                 }}></td>
 
               <td
-                className="p-2 py-8 text-center bg-gradient-to-r from-rose-50 to-violet-200 text-violet-700"
+                className="rounded-tl-full rounded-tr-full p-2 py-8 text-center bg-violet-50 text-violet-700"
                 style={{
                   borderBottom: "1px solid #B17CFF",
 
@@ -419,7 +413,7 @@ export default function WhyChooseUs() {
               >
                 4 convenient locations
               </td>
-              <td className="mb-2 bg-gradient-to-r from-rose-50 to-violet-200"
+              <td className="mb-2 bg-violet-50"
                style={{
 
                 borderBottom: "1px solid #B17CFF",
@@ -472,7 +466,7 @@ export default function WhyChooseUs() {
               }}>
                 Leaders in the industry
               </td>
-              <td className="mb-2 bg-gradient-to-r from-rose-50 to-violet-200"
+              <td className="mb-2 bg-violet-50"
                style={{
 
                 borderBottom: "1px solid #B17CFF",
@@ -523,7 +517,7 @@ export default function WhyChooseUs() {
               }}>
                 Modern office settings
               </td>
-              <td className="mb-2 bg-gradient-to-r from-rose-50 to-violet-200"
+              <td className="mb-2 bg-violet-50"
                  style={{
 
                   borderBottom: "1px solid #B17CFF",
@@ -576,7 +570,7 @@ export default function WhyChooseUs() {
                 }}>
                 Over 50+ years of experience
               </td>
-              <td className="mb-2 bg-gradient-to-r from-rose-50 to-violet-200"   style={{
+              <td className="mb-2 bg-violet-50"   style={{
 
        borderBottom: "1px solid #B17CFF",
 
@@ -619,7 +613,7 @@ export default function WhyChooseUs() {
             </tr>
             <tr>
               <td
-                className="p-2 py-8 text-lg text-center "
+                className=" p-2 py-8 text-lg text-center "
                 style={{         letterSpacing: "1px",
                   borderBottomLeftRadius: "40px",
                   borderBottom: "1px solid #B17CFF",
@@ -628,7 +622,7 @@ export default function WhyChooseUs() {
               >
                 Financial options
               </td>
-              <td className="mb-2 bg-gradient-to-r from-rose-50 to-violet-200"
+              <td className="rounded-bl-full rounded-br-full mb-2 bg-violet-50"
                  style={{
 
                   borderBottom: "1px solid #B17CFF",

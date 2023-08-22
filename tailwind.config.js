@@ -13,6 +13,8 @@ module.exports = {
         'source-tertiary': "#30d5c8",
         'source-neutral': "#bfbfbf",
         'source-neutral-dark': "#262626",
+        'purplelil':"#E9E9F3",
+        'lightblue':"#daf0ff",
         // 'source-tertiary': "#339966",
 
         'primary0': '#000000',
