@@ -15,19 +15,6 @@ export default function SingleProduct() {
   const productAndPrice = useSelector((state) => state.singleProduct.single_product);
   const { product, price } = productAndPrice;
 
-  // useEffect(() => {
-  //   const getProduct = async () => {
-  //     await dispatch(fetchSingleProduct(id));
-  //   };
-  //   getProduct();
-  //   // setLoading(false);
-  //   const loadingDelay = setTimeout(() => {
-  //     setLoading(false);
-  //   }, 250);
-
-  //   return () => clearTimeout(loadingDelay);
-  // }, [dispatch, id]);
-
   useEffect(()=>{
     const getProduct = async () =>{
       await dispatch(fetchSingleProduct(id));
@@ -38,7 +25,9 @@ export default function SingleProduct() {
     }, 350);
     return () => clearTimeout(loadingDelay);
   }, [dispatch, id]);
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <main className="min-h-screen bg-white">
       <div className="h-full max-w-screen-lg py-32 mx-auto">
@@ -70,4 +59,6 @@ export default function SingleProduct() {
       </div>
     </main>
   );
+
+  
 }
