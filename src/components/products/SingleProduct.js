@@ -41,7 +41,7 @@ export default function SingleProduct() {
 
   return (
     <main className="min-h-screen bg-white">
-      <div className="max-w-screen-lg py-32 mx-auto">
+      <div className="h-full max-w-screen-lg py-32 mx-auto">
       {!loading &&  
 
 
