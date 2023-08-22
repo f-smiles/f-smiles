@@ -58,9 +58,9 @@ const EarlyOrthodontics = () => {
   };
   return (
 
-    <main className="bg-F2F2F2 w-full pt-20">
+    <main className=" w-full pt-20">
 
-      <section className="bg-F2F2F2 max-w-screen-lg mx-auto mt-10 py-20 p-10">
+      <section className=" max-w-screen-lg mx-auto mt-10 py-20 p-10">
         <div className="relative">
           <h1 className="-ml-20 absolute top-0 mt-20 z-10 text-4xl text-indigo-200">
             <span className="text-stone-700">
@@ -72,9 +72,9 @@ const EarlyOrthodontics = () => {
             </span>
           </h1>
           <img
-            src="../../images/sisters.jpg"
+            src="../../images/girlswing.png"
             alt="invisalign"
-            className="rounded-full"
+            className="rounded"
             style={{
               maxWidth: "50%",
               maxHeight: "50%",
@@ -90,9 +90,9 @@ const EarlyOrthodontics = () => {
           />
         </div>
         <div>
-        <p className="-ml-20 mt-40 relative">
+        <p className=" bg-lightblue  mt-40 relative">
   <span className="py-2 block">The American Association of Orthodontics recommends every child have their first orthodontic screening at age 7.</span>{" "}
-  <span className="py-2 block">Why so early?</span>{" "}
+
   <span className="py-2 block">Even though early treatment is rarely indicated, assessing dental development, the health of the airway, and evaluating the growth of the face and jaws through key developmental periods is essential to providing the best orthodontic outcomes.</span>{" "}
   <span>We want your child to have every opportunity for a healthy smile.</span>
 </p>

@@ -149,7 +149,7 @@ export default function Hero() {
         Frey, Dr. Daniel Frey, and the exceptional team at FreySmiles Orthodontics
         recognize and are very passionate about.
       </p>
-      <div className="flex items-center justify-start gap-x-6">
+      <div className="-mt-18 flex items-center justify-start gap-x-6">
         <Link
           to="/our-team"
           className="text-lg font-normal leading-6 transition-colors duration-300 ease-linear text-primary50 hover:text-primary30"

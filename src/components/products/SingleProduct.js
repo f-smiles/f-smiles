@@ -15,25 +15,37 @@ export default function SingleProduct() {
   const productAndPrice = useSelector((state) => state.singleProduct.single_product);
   const { product, price } = productAndPrice;
 
-  useEffect(() => {
-    const getProduct = async () => {
+  // useEffect(() => {
+  //   const getProduct = async () => {
+  //     await dispatch(fetchSingleProduct(id));
+  //   };
+  //   getProduct();
+  //   // setLoading(false);
+  //   const loadingDelay = setTimeout(() => {
+  //     setLoading(false);
+  //   }, 250);
+
+  //   return () => clearTimeout(loadingDelay);
+  // }, [dispatch, id]);
+
+  useEffect(()=>{
+    const getProduct = async () =>{
       await dispatch(fetchSingleProduct(id));
     };
     getProduct();
-    // setLoading(false);
-    const loadingDelay = setTimeout(() => {
+       const loadingDelay = setTimeout(() => {
       setLoading(false);
-    }, 250);
-
+    }, 350);
     return () => clearTimeout(loadingDelay);
   }, [dispatch, id]);
+
   return (
     <main className="min-h-screen bg-white">
       <div className="max-w-screen-lg py-32 mx-auto">
-      {loading ? (
-        <SingleProductLoader />
-      ) : (
-          <div className="grid w-full grid-cols-1 px-12 space-y-10 md:space-y-0 md:px-0 md:grid-cols-2 md:gap-12">
+      {!loading &&  
+
+
+         ( <div className="grid w-full grid-cols-1 px-12 space-y-10 md:space-y-0 md:px-0 md:grid-cols-2 md:gap-12">
             {productAndPrice && product && price && (
               <>
                 <section id="product-details" className="relative md:order-last">
@@ -53,8 +65,8 @@ export default function SingleProduct() {
                 </section>
               </>
             )}
-          </div>
-      )}
+          </div>)
+      }
       </div>
     </main>
   );
