@@ -48,24 +48,6 @@ export default function Features() {
     </figure>
   </div>
 
-  <div className="flex justify-center">
-    {[...Array(10)].map((_, index) => (
-      <figure
-        key={index}
-        className="animate-slide mx-12"
-        style={{
-          transform: `translateY(${Math.sin(index) * 10}px)`,
-          width: '4%',
-        }}
-      >
-        <img
-          className="object-contain w-full h-auto"
-          src="../images/invisalignicon.png"
-          alt="invisalign"
-        />
-      </figure>
-    ))}
-  </div>
 </Section>
 
 
