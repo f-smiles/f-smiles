@@ -70,14 +70,14 @@ export default function DoctorsSection() {
               <img
                 className={`${
                   switchDoctor ? "right" : "switch-right"
-                } object-contain aspect-[2/3] transition-all duration-1000`}
+                } object-contain aspect-[2/3] transition-all duration-2000`}
                 src="../../images/team_members/GreggFrey.jpg"
                 alt="Dr. Gregg Frey"
               />
               <img
                 className={`${
                   switchDoctor ? "left" : "switch-left"
-                } object-contain aspect-[2/3] transition-all duration-500`}
+                } object-contain aspect-[2/3] transition-all duration-2000`}
                 src="../../images/team_members/DanFrey.jpg"
                 alt="Dr. Daniel Frey"
               />
@@ -108,7 +108,7 @@ export default function DoctorsSection() {
               <img
                 className={`${
                   switchDoctor ? "left" : "switch-left"
-                } object-contain aspect-[2/3] transition-all duration-500`}
+                } object-contain aspect-[2/3] transition-all duration-1000`}
                 src="../../images/team_members/GreggFrey.jpg"
                 alt="Dr. Gregg Frey"
               />

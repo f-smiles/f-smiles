@@ -9,7 +9,7 @@ export default function OurTeam() {
         <DoctorsSection />
       </section>
 
-      <section className="pt-24 pb-40 bg-primary80">
+      <section className="pt-24 pb-40 ">
         <MembersSection />
       </section>
     </main>

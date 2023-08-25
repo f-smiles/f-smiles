@@ -86,7 +86,7 @@ const Home = () => {
 
         <Hero />
         <Features />
-        <LogoSlider />
+        {/* <LogoSlider /> */}
         <Locations />
         <GiftCards />
       </main>
