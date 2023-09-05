@@ -131,7 +131,7 @@ export default function DesktopNavbar() {
                 onClick={handleToggleAbout}
               >
                 About
-                <span className="block max-w-0 group-hover:max-w-full transition-all duration-300 h-0.5 bg-secondary50 ease-out"></span>
+                <span className="block max-w-0 group-hover:max-w-full transition-all duration-300 h-0.5 bg-purple-500 ease-out"></span>
               </p>
               <div
                 className={`${
@@ -166,13 +166,13 @@ export default function DesktopNavbar() {
             </div>
             {/* patient */}
             <div id="patient-links">
-              <p
-                className="font-medium tracking-wider text-gray-800 uppercase transition duration-300 ease-in-out cursor-pointer hover:text-primary50 group"
-                onClick={handleTogglePatient}
-              >
-                Patient
-                <span className="block max-w-0 group-hover:max-w-full transition-all duration-300 h-0.5 bg-secondary50 ease-out"></span>
-              </p>
+            <p
+    className="font-medium tracking-wider text-gray-800 uppercase transition duration-300 ease-in-out cursor-pointer hover:text-primary50 group"
+    onClick={handleTogglePatient}
+  >
+    Patient
+    <span className="block max-w-0 group-hover:max-w-full transition-all duration-300 h-0.5 bg-purple-500 ease-out"></span>
+  </p>
               <div
                 className={`${
                   !patient ? "translate-x-[-100%]" : "translate-x-0"
@@ -192,7 +192,7 @@ export default function DesktopNavbar() {
                     patient_links.map((link, index) => (
                       <li key={link.name}>
                         <NavLink
-                          className="block transition-all duration-300 ease-in-out cursor-pointer text-primary50 hover:text-secondary60 hover:pl-8"
+                          className="block transition-all duration-300 ease-in-out cursor-pointer text-primary50 hover:text-secondary60  hover:pl-8"
                           to={link.href}
                           onClick={handleTogglePatient}
                         >
@@ -211,7 +211,7 @@ export default function DesktopNavbar() {
                 onClick={handleToggleTreatments}
               >
                 Treatments
-                <span className="block max-w-0 group-hover:max-w-full transition-all duration-300 h-0.5 ease-out bg-secondary50"></span>
+                <span className="block max-w-0 group-hover:max-w-full transition-all duration-300 h-0.5 ease-out bg-purple-500"></span>
               </p>
               <div
                 className={`${
