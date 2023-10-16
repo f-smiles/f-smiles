@@ -4,59 +4,20 @@ import DotPattern from "../svg/DotPattern";
 import { motion, useScroll, useTransform } from "framer-motion";
 
 export default function Hero() {
-  const charData = [
-    { text: 'B', },
-    { text: 'e', },
-    { text: 'c', },
-    { text: 'a',  },
-    { text: 'u',  },
-    { text: 's',  },
-    { text: 'e',  },
-    { text: ' ',  },
-    { text: 'e',  },
-    { text: 'v',  },
-    { text: 'e',  },
-    { text: 'r',  },
-    { text: 'y',  },
-    { text: ' ',  },
-    { text: 's',  },
-    { text: 'm',  },
-    { text: 'i',  },
-    { text: 'l',  },
-    { text: 'e',  },
-    
-  ];
-    const charDataLine2 = [
-      { text: 'I',  },
-      { text: 's',  },
-      { text: ' ',  },
-      { text: 'U',  },
-      { text: 'n',  },
-      { text: 'i',  },
-      { text: 'q',  },
-      { text: 'u',  },
-      { text: 'e',  },
 
-  ];
+
   const charStyle = {
     position: "absolute",
     animation: "move 1500ms alternate forwards",
     transformOrigin: "center bottom",
   };
-
   const waveStyle = {
-    width: "515px",
-    height: "168px",
     fontFamily: "Inconsolata, monospace",
     fontSize: "1.8rem",
     textTransform: "uppercase",
-    position: "relative",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    flexWrap: "wrap",
     color: "purple",
   };
+  
   let heroRef = useRef();
   let { scrollYProgress } = useScroll({
     target: heroRef,
@@ -95,24 +56,7 @@ export default function Hero() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 1, delay: 0.5 }} 
       >
-        {charData.map((char, index) => (
-          <motion.span
-            key={index}
-            className="absolute char"
-            style={{
-              '--char-index': index,
-              '--delay': `${index * 30}ms`,
-              color: char.color,
-              offsetPath: 'path("M.4 84.1s127.4 188 267.7 0 247.3 0 247.3 0")',
-              offsetDistance: `calc(var(--char-index) * 2rem)`
-            }}
-            initial={{ y: 100, opacity: 0 }} 
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: .5, delay: 0.25 + index * 0.1 }} 
-          >
-            {char.text}
-          </motion.span>
-        ))}
+
       </motion.h2>
 
       <motion.h2
@@ -122,24 +66,7 @@ export default function Hero() {
         animate={{ y: 0, opacity: 1 }} 
         transition={{ duration: .5, delay: 0.25 }} 
       >
-        {charDataLine2.map((char, index) => (
-          <motion.span
-            key={index}
-            className="absolute char"
-            style={{
-              '--char-index': index,
-              '--delay': `calc(${charData.length * 30}ms + ${index * 30}ms)`,
-              color: char.color,
-              offsetPath: 'path("M.4 84.1s127.4 188 267.7 0 247.3 0 247.3 0")',
-              offsetDistance: `calc(var(--char-index) * 2rem)`
-            }}
-            initial={{ y: 100, opacity: 0 }} 
-            animate={{ y: 0, opacity: 1 }} 
-            transition={{ duration: .5, delay: 0.25 + charData.length * 0.1 + index * 0.1 }} 
-          >
-            {char.text}
-          </motion.span>
-        ))}
+   
       </motion.h2>
 
       <p className="max-w-xl mt-6 text-lg leading-8 text-gray-600 lg:text-xl">
