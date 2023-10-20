@@ -49,25 +49,12 @@ export default function Hero() {
         <div className="grid max-w-screen-xl grid-cols-1 py-32 mx-auto sm:py-48 lg:py-56 place-items-center lg:grid-cols-2">
   <div className="relative mx-auto mt-32 lg:mt-0">
   <div className="min-h-screen flex items-center justify-center flex-wrap">
-      <motion.h2
-        className="font-semibold text-4xl uppercase relative w-64 h-24"
-        data-splitting
-        initial={{ y: -100, opacity: 0 }} 
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 1, delay: 0.5 }} 
-      >
+  <div className="text-4xl" style={{ whiteSpace: 'nowrap' }}>
+  <span>Because <div className="italic" style={{ display: 'inline' }}>Every</div> Smile</span><br />
+  <span>Is Unique</span>
+</div>
 
-      </motion.h2>
 
-      <motion.h2
-        className="font-semibold ml-20 text-4xl uppercase relative w-64 h-24"
-        data-splitting
-        initial={{ y: -100, opacity: 0 }} 
-        animate={{ y: 0, opacity: 1 }} 
-        transition={{ duration: .5, delay: 0.25 }} 
-      >
-   
-      </motion.h2>
 
       <p className="max-w-xl mt-6 text-lg leading-8 text-gray-600 lg:text-xl">
         Our goal is to make your smile look best on{' '}
