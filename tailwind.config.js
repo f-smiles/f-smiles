@@ -104,6 +104,7 @@ module.exports = {
       'euclidMedium': ['EuclidCircularAMedium', 'sans-serif'],
       'euclidRegular': ['EuclidCircularARegular', 'sans-serif'],
       'euclidSemibold': ['EuclidCircularASemibold', 'sans-serif'],
+      'HelveticaNowVar': ['HelveticaNowVar', 'sans-serif'],
     },
     animation: {
       blob: "blob 7s infinite",

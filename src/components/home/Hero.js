@@ -49,10 +49,12 @@ export default function Hero() {
         <div className="grid max-w-screen-xl grid-cols-1 py-32 mx-auto sm:py-48 lg:py-56 place-items-center lg:grid-cols-2">
   <div className="relative mx-auto mt-32 lg:mt-0">
   <div className="min-h-screen flex items-center justify-center flex-wrap">
-  <div className="text-4xl" style={{ whiteSpace: 'nowrap' }}>
-  <span>Because <div className="italic" style={{ display: 'inline' }}>Every</div> Smile</span><br />
-  <span>Is Unique</span>
+  <div className="font-HelveticaNowVar font-extralight text-4xl" style={{ whiteSpace: 'nowrap', textAlign: 'center', lineHeight: '1' }}>
+  <span style={{ fontSize: '4rem' }}>Because <div className="italic" style={{ display: 'inline' }}>Every</div> Smile</span><br />
+  <span style={{ fontSize: '4rem' }}>Is Unique</span>
 </div>
+
+
 
 
 

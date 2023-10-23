@@ -53,14 +53,14 @@ const YourCare = () => {
       className="ml-10 w-10 h-10"
     />
   </span>
-  <span className="ml-10 text-green-700 text-xl">
-    <Link className="hover:text-white" to="/book-now">
+  <span className="font-HelveticaNowVar ml-10 text-green-700 text-xl">
+    <Link className="font-extralight hover:text-white" to="/book-now">
       Schedule A Consultation
     </Link>
   </span>
 </div>
 
-          <div className="col-span-1 text-green-700 py-2 border-t border-b border-green-700 flex">
+          <div className=" col-span-1 text-green-700 py-2 border-t border-b border-green-700 flex">
             <img
               src="/images/map.svg"
               alt="map"
@@ -87,7 +87,7 @@ const YourCare = () => {
         </div>
         <div className="flex">
           <div className="w-1/2">
-            <h1 className="text-5xl text-center mt-12  mb-10">
+            <h1 className="font-HelveticaNowVar font-thin text-5xl text-center mt-12  mb-10">
               Getting Started
             </h1>
 
@@ -101,12 +101,21 @@ const YourCare = () => {
             </p>
           </div>
           <div className="md:w-1/2 flex justify-center items-center">
-            <img
-              className="rounded-full opacity-90 "
-              src="../../images/freysmilepatient1.jpg"
-              alt="patient"
-              style={{ maxWidth: "80%", maxHeight: "80%" }}
-            />
+          <div className="relative">
+  <img
+    className="rounded-full opacity-90"
+    src="../../images/freysmilepatient1.jpg"
+    alt="patient"
+    style={{ maxWidth: "80%", maxHeight: "80%" }}
+  />
+  <img
+    className="rounded-full absolute inset-0"
+    src="../../images/5.png"
+    alt="overlay-image"
+    style={{ maxWidth: "100%", maxHeight: "100%" }}
+  />
+</div>
+
           </div>
         </div>
       </div>

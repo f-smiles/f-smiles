@@ -10,6 +10,12 @@
   }
 
   @font-face {
+    font-family: "HelveticaNowVar";
+    src: url("../public/fonts/HelveticaNowVar.ttf") format("truetype"),
+ 
+  }
+
+  @font-face {
     font-family: "CeraProBold";
     src: url("../public/fonts/cerapro_bold.woff2") format("woff2"),
       url("../public/fonts/cerapro_bold.woff") format("woff");
