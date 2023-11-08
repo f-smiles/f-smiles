@@ -82,7 +82,7 @@ export default function Hero() {
     </div>
   <img
         className="mt-40 absolute top-0 max-w-lg left-18"
-        src="../../images/hero_clip.png"
+        src="../../images/mainsectionimage.jpg"
         alt="girl smiling"
       />
 
