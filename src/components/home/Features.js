@@ -2,25 +2,28 @@ import React, { useRef } from "react";
 import { Link } from "react-router-dom";
 import { useInView } from "framer-motion";
 
-function Section({ children, color }) {
+function Section({ children, color, zIndex, position }) {
   const ref = useRef(null);
   const isInView = useInView(ref, {
     amount: 0.1,
   });
 
   return (
+
     <div
-      ref={ref}
-      className="relative flex flex-col items-center justify-center min-h-screen text-primary95"
-      style={{
-        backgroundColor: isInView ? color : "#F1FFE0",
-        opacity: isInView ? 1 : 1,
-        transition: "all 0.5s ease-in-out",
-        transitionDelay: "150ms",
-      }}
-    >
-      {children}
-    </div>
+    ref={ref}
+    className="relative flex flex-col items-center justify-center min-h-screen text-primary95"
+    style={{
+      backgroundColor: color,
+      transform: `translateY(${isInView ? 0 : 100}px)`,
+      transition: "transform 0.5s ease-in-out",
+      zIndex: zIndex,
+      position: position,
+    }}
+  >
+    {children}
+  </div>
+
   );
 }
 
@@ -28,8 +31,11 @@ function Section({ children, color }) {
 export default function Features() {
   
   return (
-    <section id="features" className="z-40">
-<Section color="#F1FFE0" className="relative overflow-hidden">
+    <>
+    <div class="snap-y snap-mandatory h-screen overflow-scroll">
+    
+    <div class="snap-start bg-[#EFEEF4] w-screen h-screen flex items-center justify-center text-5xl">
+    <Section color="bg-D1CCe1" zIndex={2} position="relative">
 <h3 className="text-black absolute top-0 left-1/2 transform -translate-x-1/2 mt-10 text-6xl font-gilroy-light w-1/2 text-center">Invisalign</h3>
   <div className="flex flex-col items-center justify-center max-w-screen-xl mx-auto lg:flex-row">
  
@@ -49,9 +55,11 @@ export default function Features() {
   </div>
 
 </Section>
+</div>
 
 
-      <Section color="#eeebfa">
+<div class="snap-start bg-[#E8E1FD] w-screen  h-screen flex items-center justify-center text-5xl">
+
         <div className="flex flex-col items-center justify-center max-w-screen-xl mx-auto lg:flex-row">
           <div className="gap-6 space-y-4 text-gray-700 md:w-1/3">
             <h3 className="text-4xl ">Damon Braces</h3>
@@ -73,8 +81,10 @@ export default function Features() {
             />
           </figure>
         </div>
-      </Section>
-      <Section color="#ffede0">
+
+      </div>
+      <div class="snap-start  w-screen h-screen flex items-center justify-center text-5xl">
+  
         <div className="flex flex-col items-center justify-center max-w-screen-xl mx-auto lg:flex-row">
           <div className="gap-6 space-y-4 text-gray-700 md:w-1/3">
             <h3 className="text-4xl text-[#f2ab79]">Advanced Technology</h3>
@@ -88,8 +98,11 @@ export default function Features() {
             <img className="w-auto h-96" src="../images/itero2.png" alt="itero" />
           </figure>
         </div>
-      </Section>
-    </section>
+    
+      </div>
+
+      </div>
+      </>
   );
 }
 

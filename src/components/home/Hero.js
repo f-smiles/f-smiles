@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import { Link } from "react-router-dom";
 import DotPattern from "../svg/DotPattern";
 import { motion, useScroll, useTransform } from "framer-motion";
-
+import Features from "./Features";
 export default function Hero() {
 
 
@@ -104,7 +104,7 @@ export default function Hero() {
             }}
           />
         </div>
-        <svg
+        {/* <svg
   version="1.1"
   id="curved-border"
   xmlns="http://www.w3.org/2000/svg"
@@ -119,7 +119,7 @@ export default function Hero() {
     c77.28-21.08,219.28-41.4,311.28-38.34c233,7.77,323.98,82.1,469.23,96.61c149.64,14.94,288.45-12.46,371.26-36.99v55.34L0.1,119.43z"
     style={{ fill: '#F1FFE0' }} 
   />
-</svg>
+</svg> */}
       </div>
       
     </motion.section>

@@ -44,7 +44,7 @@ export default function Bag() {
         </div>
         ) : (
         <>
-          <div className="px-4 py-4 border border-t-0 lg:px-0 bordnpmer-b-gray-700 border-x-0">
+          <div className="px-4 py-4 border border-t-0 lg:px-0 border-b-gray-700 border-x-0">
             <h2 className="mb-6 font-semibold leading-7 text-gray-900">Shopping Bag</h2>
           </div>
           <div className='flex justify-end w-full px-8 mt-6 sm:px-4 lg:px-0 '>
