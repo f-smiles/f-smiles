@@ -119,9 +119,10 @@ export default function DesktopNavbar() {
       {/* Desktop Navbar */}
       <nav
         id="desktop-nav"
-        className="fixed top-0 left-0 right-0 z-50 hidden w-full transition duration-300 ease-in-out h-max bg-white/30 backdrop-blur-sm lg:block hover:bg-white"
+        className="mt-2 rounded-full fixed top-0 left-0 right-0 z-50 hidden transition duration-300 ease-in-out  bg-white/60 backdrop-blur-sm lg:block hover:bg-white mx-auto "
       >
-        <div className="flex items-center justify-between max-w-screen-xl px-4 mx-auto text-sm">
+        
+        <div className="max-w-screen-xl mx-auto p-2 md:p-0 flex items-center justify-between text-sm">
           {/* about, patient, treatments */}
           <div id="left-links" className="flex space-x-8 ">
             {/* about */}

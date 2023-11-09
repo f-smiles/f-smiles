@@ -26,11 +26,12 @@ function Hero() {
   return (
     <motion.section
     ref={heroRef}
-    style={{ scrollY }}
+    style={{ translateY: scrollY }}
     id="hero-section"
-    className="z-20"
+    className=""
   >
-    <div className="relative z-0 px-8 isolate pt-14 lg:px-8">
+  
+    <div className="relative px-8 isolate  lg:px-8">
       <div
         id="gradients"
         // className="absolute inset-x-0 overflow-hidden -top-40 -z-10 transform-gpu blur-3xl sm:-top-80"
@@ -46,11 +47,11 @@ function Hero() {
       </div>
       <div className="grid max-w-screen-xl grid-cols-1 py-32 mx-auto sm:py-48 lg:py-56 place-items-center lg:grid-cols-2">
 <div className="relative mx-auto mt-32 lg:mt-0">
-<div className="min-h-screen flex items-center justify-center flex-wrap">
-  <div className="relative w-full scale-110 -z-10">
+<div className="flex items-center justify-center flex-wrap">
+  <div className="absolute w-full  -top-1/2 scale-110 -z-10">
     <DotPattern />
   </div>
-<div className="font-HelveticaNowVar font-extralight text-4xl" style={{ whiteSpace: 'nowrap', textAlign: 'center', lineHeight: '1' }}>
+<div className="font-HelveticaNowVar font-extralight text-black text-4xl" style={{ whiteSpace: 'nowrap', textAlign: 'center', lineHeight: '1' }}>
 <span style={{ fontSize: '4rem' }}>Because <div className="italic" style={{ display: 'inline' }}>Every</div> Smile</span><br />
 <span style={{ fontSize: '4rem' }}>Is Unique</span>
 </div>
@@ -134,7 +135,7 @@ function Section({ children, color, zIndex, position }) {
     className="relative flex flex-col items-center justify-center min-h-screen text-primary95"
     style={{
       backgroundColor: color,
-      transform: `translateY(${isInView ? 0 : 100}px)`,
+      transform: isInView ? 'translateY(-10)' : 'translateY(100px)',
       transition: "transform 0.5s ease-in-out",
       zIndex: zIndex,
       position: position,
