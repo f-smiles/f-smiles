@@ -37,13 +37,6 @@ function Hero() {
         // className="absolute inset-x-0 overflow-hidden -top-40 -z-10 transform-gpu blur-3xl sm:-top-80"
         aria-hidden="true"
       >
-        <div
-          // className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
-          // style={{
-          //   clipPath:
-          //     "polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 452% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)",
-          // }}
-        />
       </div>
       <div className="grid max-w-screen-xl grid-cols-1 py-32 mx-auto sm:py-48 lg:py-56 place-items-center lg:grid-cols-2">
 <div className="relative mx-auto mt-32 lg:mt-0">
@@ -76,12 +69,15 @@ function Hero() {
 <motion.div>
 
 <img
-      className="mt-40 absolute top-0 max-w-lg -right-2"
+      className=" absolute -top-6 max-w-md -right-2"
       src="../../images/mainsectionimage.jpg"
       alt="girl smiling"
     />
 
 </motion.div>
+
+
+
 </div>
 
 
@@ -99,22 +95,7 @@ function Hero() {
           }}
         />
       </div>
-      {/* <svg
-version="1.1"
-id="curved-border"
-xmlns="http://www.w3.org/2000/svg"
-xmlnsXlink="http://www.w3.org/1999/xlink"
-className="absolute bottom-0 w-full"
-viewBox="0 0 1600 116.19"
-xmlSpace="preserve"
->
-<path
-  className="wave"
-  d="M0.1,119.43V67.45c0,0,99.87,71.51,322.45,8.12c5.56-1.66,92.01-26.52,125.74-35.72
-  c77.28-21.08,219.28-41.4,311.28-38.34c233,7.77,323.98,82.1,469.23,96.61c149.64,14.94,288.45-12.46,371.26-36.99v55.34L0.1,119.43z"
-  style={{ fill: '#F1FFE0' }} 
-/>
-</svg> */}
+   
     </div>
     
   </motion.section>
@@ -158,8 +139,8 @@ export default function Features() {
           <Hero />
         </Section>
         </div>
-    <div class="snap-start bg-[#EFEEF4] w-screen h-screen flex items-center justify-center text-5xl">
-    <Section color="bg-D1CCe1" zIndex={2} position="relative">
+    <div class="snap-start  w-screen h-screen flex items-center justify-center text-5xl">
+    <Section color="bg-D1CCe1"  >
 <h3 className="text-black absolute top-0 left-1/2 transform -translate-x-1/2 mt-10 text-6xl font-gilroy-light w-1/2 text-center">Invisalign</h3>
   <div className="flex flex-col items-center justify-center max-w-screen-xl mx-auto lg:flex-row">
  
