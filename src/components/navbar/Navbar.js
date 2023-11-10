@@ -118,13 +118,16 @@ export default function DesktopNavbar() {
     <>
       {/* Desktop Navbar */}
       <nav
-        id="desktop-nav"
-        className="mt-2 rounded-full fixed top-0 left-0 right-0 z-50 hidden transition duration-300 ease-in-out  bg-white/60 backdrop-blur-sm lg:block hover:bg-white mx-auto "
-      >
+  id="desktop-nav"
+  className="py-1 mt-2 rounded-full fixed bottom-0 left-0 right-0 z-50 transition duration-300 ease-in-out bg-white/60 backdrop-blur-sm lg:block hover:bg-white mx-auto"
+>
         
-        <div className="max-w-screen-xl mx-auto p-2 md:p-0 flex items-center justify-between text-sm">
+        <div className="max-w-screen-xl mx-auto p-2 md:p-0 flex justify-center text-sm">
           {/* about, patient, treatments */}
-          <div id="left-links" className="flex space-x-8 ">
+          <div
+  id="left-links"
+  className="flex space-x-8"
+  style={{ maxWidth: '800px', margin: '0 auto' }}>
             {/* about */}
             <div id="about-links">
               <p
@@ -140,7 +143,7 @@ export default function DesktopNavbar() {
                 } absolute top-0 left-0 w-screen h-screen backdrop-blur-sm bg-white/30 flex flex-row gap-2 overflow-hidden transition-all delay-300 duration-500 ease-out z-10
                 `}
               >
-                <ul className="relative flex flex-col w-1/3 h-full gap-8 px-8 py-16 overflow-auto text-2xl bg-white">
+<ul className="items-center space-x-4 text-gray-800 group">
                   <button
                     className="self-end transition-colors duration-300 ease-linear h-max text-primary50 hover:text-secondary60"
                     type="button"
@@ -180,7 +183,7 @@ export default function DesktopNavbar() {
                 } absolute top-0 left-0 w-screen h-screen backdrop-blur-sm bg-white/30 flex flex-row gap-2 overflow-hidden transition-all delay-300 duration-500 ease-out z-10
                   `}
               >
-                <ul className="relative flex flex-col w-1/3 h-full gap-8 px-8 py-16 overflow-auto text-2xl bg-white">
+                <ul className="relative flex flex-col h-full gap-8 px-8 py-16 overflow-auto text-2xl bg-white">
                   <button
                     className="self-end transition-colors duration-300 ease-linear h-max text-primary50 hover:text-secondary60"
                     type="button"
@@ -220,7 +223,8 @@ export default function DesktopNavbar() {
                 } absolute top-0 left-0 w-screen h-screen backdrop-blur-sm bg-white/30 flex flex-row gap-2 overflow-hidden transition-all delay-300 duration-500 ease-out z-10
                 `}
               >
-                <ul className="relative flex flex-col w-1/3 h-full gap-8 p-16 overflow-auto text-2xl bg-white">
+          
+      
                   <button
                     className="self-end p-4 transition-colors duration-300 ease-linear h-max text-primary50 hover:text-secondary60"
                     type="button"
@@ -240,29 +244,14 @@ export default function DesktopNavbar() {
                           {link.name}
                         </NavLink>
                       </li>
+                      
                     ))}
                   <Sphere />
-                </ul>
+      
               </div>
             </div>
-          </div>
-          {/* logo */}
-          <div id="logo" className="my-4">
-            <NavLink to="/#">
-              <img
-                className="h-10"
-                src="../../images/logo_full.png"
-                alt="frey smiles orthodontics logo"
-              />
-            </NavLink>
-          </div>
-          {/* patient login, our locations, shop, bag, book now */}
-          <div
-            id="right-links"
-            className="flex items-center gap-8 cursor-pointer"
-          >
-            <ul className="flex items-center space-x-8 text-gray-800 group">
-              <li className="inline-block relative transition-all duration-500 before:content-[''] before:absolute before:-bottom-1 before:right-0 before:translate-x-0 before:w-0 before:h-[2px] before:opacity-0 hover:before:w-1/2 hover:before:opacity-100 before:transition-all before:duration-500 before:bg-primary50 hover:text-primary50 ease-in-out">
+                
+    <li className="inline-block relative transition-all duration-500 before:content-[''] before:absolute before:-bottom-1 before:right-0 before:translate-x-0 before:w-0 before:h-[2px] before:opacity-0 hover:before:w-1/2 hover:before:opacity-100 before:transition-all before:duration-500 before:bg-primary50 hover:text-primary50 ease-in-out">
                 <NavLink
                   className="inline-block relative transition-all duration-500 before:content-[''] before:absolute before:-bottom-1 before:left-0 before:translate-x-0 before:w-0 before:h-[2px] before:opacity-0 hover:before:w-1/2 hover:before:opacity-100 before:transition-all before:duration-500 before:bg-primary50"
                   to="https://my.orthoblink.com/bLink/Login"
@@ -286,7 +275,18 @@ export default function DesktopNavbar() {
                   <p>Shop</p>
                 </NavLink>
               </li>
-            </ul>
+              <li className="flex items-center  font-medium tracking-wider uppercase transition duration-300 ease-in-out rounded cursor-pointer border hover:shadow-md hover:bg-violet-200">
+                <NavLink className="block" to="/book-now">
+                  Book Now
+                </NavLink>
+              </li>
+          </div>
+
+     
+     
+
+
+     
             {/* bag book */}
             <ul className="flex items-center space-x-4 text-gray-800 group">
               {bagItems.length > 0 && (
@@ -312,17 +312,13 @@ export default function DesktopNavbar() {
                   </span>
                 </li>
               )}
-              <li className="flex items-center px-6 py-3 font-medium tracking-wider uppercase transition duration-300 ease-in-out rounded cursor-pointer border hover:shadow-md hover:bg-violet-200">
-                <NavLink className="block" to="/book-now">
-                  Book Now
-                </NavLink>
-              </li>
+            
             </ul>
             {isBagOpen && (
               <BagSidePanel isBagOpen={isBagOpen} setIsBagOpen={setIsBagOpen} />
             )}
           </div>
-        </div>
+    
       </nav>
       {/* Desktop Navbar end */}
 
