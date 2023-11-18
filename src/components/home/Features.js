@@ -70,9 +70,15 @@ function Hero() {
     <div className="-mt-18 flex items-center justify-start gap-x-6">
       <Link
         to="/our-team"
-        className="text-2xl rounded-full  border border-primary50 p-4 mt-10 font-normal leading-6 transition-colors duration-300 ease-linear text-primary50 hover:text-primary30"
+        className="text-xl rounded-lg  border border-primary50 p-4 mt-10 font-normal leading-6 transition-colors duration-300 ease-linear text-primary50 hover:text-primary30"
       >
-        Our Team <span aria-hidden="true">→</span>
+        Our Team <span aria-hidden="true"></span>
+      </Link>
+      <Link
+        to="/book-now"
+        className="text-xl rounded-lg  border border-primary50 bg-primary50 text-white p-4 mt-10 font-normal leading-6 transition-colors duration-300 ease-linear text-primary50 hover:text-primary30"
+      >
+       Book Now <span aria-hidden="true"></span>
       </Link>
     </div>
   </div>
@@ -153,61 +159,53 @@ export default function Features() {
           <Hero />
         </Section>
         </div>
-    <div class="snap-start bg-[#EFEEF4]  text-2xl">
-    <Section color="bg-D1CCe1"  >
+        <div className="snap-start bg-ddd9eb text-2xl">
+  <div className="flex max-w-screen-xl mx-auto">
+    <div className="flex items-center justify-center h-screen relative">
+      <figure className="absolute inset-0 -top-1/8">
+        <img
+          className="object-contain w-full h-full"
+          src="../images/aligner.png"
+          alt="invisalign"
+        />
+      </figure>
+      <DotPattern style={{ WebkitTransform: 'scaleX(-1)', transform: 'scaleX(-1)' }} />
+    </div>
 
-<div className=" flex max-w-screen-xl mx-auto">
+    <div className="flex flex-col justify-center max-w-screen-xl flex-1 px-20">
+      <span className="text-8xl text-white inline-block transform rotate-90 origin-left-bottom">INVISALIGN</span>
+    </div>
 
-  <div className="flex flex-col justify-start w-full lg:w-1/2 ">
-
-  <DotPattern style={{
-  WebkitTransform: 'scaleX(-1)',
-  transform: 'scaleX(-1)'
-}} />
-  
-    <p className="text-xl pb-4">
-        As part of the top 1% of Invisalign providers in the US, we have the experience to deliver the smile you deserve.
-      </p>
-    <div className="space-y-4 text-gray-700">
-   
-
+    <div className="flex flex-col justify-center max-w-screen-xl flex-1 px-20">
+      <div className="text-black text-2xl text-center">
+        <p className="  w-full max-w-md text-black text-2xl">
+          As part of the top 1% of Invisalign providers in the US, we have the experience to deliver the smile you deserve.
+        </p>
+        <div className="text-lg mt-4">
+          <Link
+            className="justify-center justify-content text-black px-6 py-2 ease-linear border rounded-full border-[#e67fb4] hover:bg-gray-800 hover:border-0 hover:text-white"
+            to="/invisalign"
+          >
+            Start Your Journey
+          </Link>
+        </div>
+      </div>
     </div>
   </div>
-
-
-<div className="w-full ">
-  <figure>
-    <img
-      className="object-contain aspect-video"
-      src="../images/aligner.png"
-      alt="invisalign"
-    />
-  </figure>
-  <Link
-    className="text-black mb-10 px-6 py-2 transition-colors duration-300 ease-linear border rounded-full border-[#e67fb4] hover:bg-gray-800 hover:border-0 hover:text-white"
-    to="/invisalign"
-  >
-    How Invisalign Works
-  </Link>
-</div>
-
 </div>
 
 
 
-</Section>
-</div>
-
-
-<div class="snap-start bg-[#E8E1FD] w-screen  h-screen flex items-center justify-center text-5xl">
+<div class="snap-start bg-[#E8E1FD] w-screen  h-screen flex items-center justify-center ">
 
         <div className="flex flex-col items-center justify-center max-w-screen-xl mx-auto lg:flex-row">
           <div className="gap-6 space-y-4 text-gray-700 md:w-1/3">
             <h3 className="text-4xl ">Damon Braces</h3>
-            <p className="pb-4">
+            <p className="text-3xl pb-4">
               Combining self-ligating braces with advanced archwires clinically proven to move teeth quickly and comfortably.
             </p>
-            <Link className="inline-block px-6 py-4 transition-colors duration-300 ease-linear border rounded-full border-[#7781d9] hover:bg-gray-800 hover:border-0 hover:text-white" to="/braces">Damon System</Link>
+            <div className="mt-4">            <Link className="inline-block px-6 py-4 transition-colors duration-300 ease-linear border rounded-full border-[#7781d9] hover:bg-gray-800 hover:border-0 hover:text-white" to="/braces">Damon System</Link></div>
+
           </div>
           <figure className="flex flex-col items-center justify-center w-1/2">
             <img
@@ -224,17 +222,19 @@ export default function Features() {
         </div>
 
       </div>
-      <div class="snap-start  w-screen h-screen flex items-center justify-center text-5xl">
+      <div class="snap-start  w-screen h-screen flex items-center justify-center ">
   
         <div className="flex flex-col items-center justify-center max-w-screen-xl mx-auto lg:flex-row">
           <div className="gap-6 space-y-4 text-gray-700 md:w-1/3">
-            <h3 className="text-4xl text-[#f2ab79]">Advanced Technology</h3>
-            <p className="pb-4">
+          <svg width="300" height="300" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg"> <g clip-path="url(#clip0_119_246)"> <path d="M99.9937 200V184.439C49.0583 184.439 0 150.932 0 100H15.5495C15.5495 49.0678 49.0583 0 99.9937 0V15.5612C150.929 15.5612 200 49.0678 200 100H184.451C184.451 150.932 150.929 200 99.9937 200Z" fill="url(#paint0_linear_119_246)"/> </g> <defs> <linearGradient id="paint0_linear_119_246" x1="157.5" y1="32" x2="44" y2="147.5" gradientUnits="userSpaceOnUse"> <stop offset="0.0509862" stop-color="#FFB6E1"/> <stop offset="1" stop-color="#FBE3EA"/> </linearGradient> <clipPath id="clip0_119_246"> <rect width="200" height="200" fill="white"/> </clipPath> </defs> </svg>
+            <h3 className="text-3xl text-[#f2ab79]">Advanced Technology</h3>
+           
+            <Link className="inline-block px-6 py-4 transition-colors duration-300 ease-linear border rounded-full border-[#f2ab79] hover:bg-gray-800 hover:border-0 hover:border-secondary50 hover:text-white" to="/invisalign">Learn More</Link>
+          </div>
+          <p className="pb-4">
               We offer Invisalign without Impressions. Say goodbye to goopy
               impressions with our iTero digital scanner.
             </p>
-            <Link className="inline-block px-6 py-4 transition-colors duration-300 ease-linear border rounded-full border-[#f2ab79] hover:bg-gray-800 hover:border-0 hover:border-secondary50 hover:text-white" to="/invisalign">Learn More</Link>
-          </div>
           <figure className="flex items-center justify-center w-1/2">
             <img className="w-auto h-96" src="../images/itero2.png" alt="itero" />
           </figure>
