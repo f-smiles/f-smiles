@@ -68,7 +68,7 @@ const Schnecksville = () => {
         </p>
       </div>
       <div>
-        <div></div>
+    
         <BookNow />
       </div>
     </main>

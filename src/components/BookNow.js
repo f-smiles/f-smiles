@@ -163,7 +163,8 @@ const BookNow = () => {
       setShowForm(true);
     }, []);
   return (
-    <main className="pt-10 mt-20" style={showForm ? styles : {}}>
+<main className={`pt-10 mt-20 ${showForm ? 'opacity-100 fadeIn' : 'opacity-0'}`}>
+
 
       <div id="contact-form">
         {emailSent ? (

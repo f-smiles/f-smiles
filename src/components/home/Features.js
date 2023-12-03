@@ -149,7 +149,7 @@ export default function Features() {
  
     <div class="snap-start flex items-center justify-center text-5xl">
     <Section >
-    <svg width="100" height="100" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg"> <path fill-rule="evenodd" clip-rule="evenodd" d="M200 150C200 94.7715 155.228 50 100 50C44.7715 50 0 94.7715 0 150H200Z" fill="url(#paint0_linear_105_460)"/> <defs> <linearGradient id="paint0_linear_105_460" x1="27.5" y1="59.5" x2="69.9415" y2="168.136" gradientUnits="userSpaceOnUse"> <stop stop-color="#FFD9A0"/> <stop offset="1" stop-color="#FFF5F1"/> </linearGradient> </defs> </svg>
+    <svg width="60" height="60" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg"> <path fill-rule="evenodd" clip-rule="evenodd" d="M200 150C200 94.7715 155.228 50 100 50C44.7715 50 0 94.7715 0 150H200Z" fill="url(#paint0_linear_105_460)"/> <defs> <linearGradient id="paint0_linear_105_460" x1="27.5" y1="59.5" x2="69.9415" y2="168.136" gradientUnits="userSpaceOnUse"> <stop stop-color="#FFD9A0"/> <stop offset="1" stop-color="#FFF5F1"/> </linearGradient> </defs> </svg>
     <img
   src="/images/logo_icon.png"
   alt="logo"
@@ -177,7 +177,7 @@ export default function Features() {
 
     {/* Middle Column with INVISALIGN */}
     <div className="flex flex-col justify-center items-center w-1/3">
-      <span className="text-9xl text-white transform -rotate-90">INVISALIGN</span>
+      <span className="text-9xl text-white transform -rotate-90">Invisalign</span>
     </div>
 
     {/* Right Column with Link and Paragraph */}
@@ -202,7 +202,7 @@ export default function Features() {
 
 
 
-<div class="snap-start bg-[#E8E1FD] w-screen  h-screen flex items-center justify-center ">
+<div class="snap-start bg-[#E8E1FD] w-screen  h-screen  ">
 
         <div className="flex flex-col items-center justify-center max-w-screen-xl mx-auto lg:flex-row">
         <div className="flex items-center justify-center h-screen relative w-1/3 flex-col">
@@ -217,10 +217,12 @@ export default function Features() {
   </div>
 </div>
 
+<div className="flex items-center">
+  <span className="text-9xl text-white transform -rotate-90">Damon</span>
+  <span className="text-9xl text-white transform rotate-90" style={{ marginLeft: "-20rem" }}>Bracket</span>
+</div>
 
-          <div className="flex flex-col justify-center items-center w-1/3">
-      <span className="text-9xl text-white transform -rotate-90">            DAMON BRACES </span>
-    </div>
+
           <figure className="flex flex-col items-center justify-center w-1/2">
             <img
               className="w-auto h-32 md:h-40"
@@ -247,9 +249,11 @@ export default function Features() {
       <img className="w-auto h-96" src="../images/itero2.png" alt="itero" />
     </figure>
 </div>
-<div className="flex flex-col justify-center items-center w-1/3">
-<span className="text-8xl text-white transform -rotate-90">ADVANCED TECHNOLOGY</span>
+<div className="flex items-center">
+  <span className="text-9xl text-white transform -rotate-90">Advanced</span>
+  <span className="text-9xl text-white transform rotate-90" style={{ marginLeft: "-30rem" }}>Technology</span>
 </div>
+
 
 
 <div className="flex items-center justify-center h-screen relative w-1/3 flex-col">
