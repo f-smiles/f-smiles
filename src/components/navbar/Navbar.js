@@ -117,10 +117,7 @@ export default function DesktopNavbar() {
   return (
     <>
       {/* Desktop Navbar */}
-      <nav
-  id="desktop-nav"
-  className="py-1 mt-2 rounded-full fixed bottom-0 left-0 right-0 z-50 transition duration-300 ease-in-out bg-white/60 backdrop-blur-sm lg:block hover:bg-white mx-auto"
->
+      <nav id="desktop-nav" className="fixed left-0 right-0 z-50 hidden mb-[4vh] lg:block">
         
         <div className="max-w-screen-xl mx-auto p-2 md:p-0 flex justify-center text-sm">
           {/* about, patient, treatments */}

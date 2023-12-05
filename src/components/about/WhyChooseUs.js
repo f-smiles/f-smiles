@@ -68,58 +68,29 @@ export default function WhyChooseUs() {
           </h1>
         </div>
       </div>
-      {/* <div className="grid grid-cols-3 mt-4">
-      <div className="flex flex-col items-center justify-center col-span-1 px-4 py-20 text-purple-900 border border-purple-400">
-      <span className="text-3xl">3D i-Cat Imaging</span>
-        <img
-             src="/images/x-ray.svg"
-             alt="xray"
-             className="w-20 h-20"
-           />
-           <p className="mt-2">
-           The i-Cat imaging machine creates precise three-dimensional views of the oral-facial structures in as little as five seconds. Using these enhanced images, our orthodontists monitor facial growth and estimate your best treatment timing and plan.
-           </p>
-         </div>
-         <div className="flex flex-col items-center justify-center col-span-1 px-4 py-20 text-purple-900 border-t border-b border-purple-400">
-           <span className="text-3xl">Optimized Treatment</span>
-           <img
-             src="/images/propeltransparent.png"
-             alt="propels"
-             className="w-12 h-12"
-           />
-           <p className="mt-2"> Our team prioritizes your treatment optimization. We currently offer the most efficient adjuncts to accelerate your treatment.
- Currently we utilize light and vibrational therapy to stimulate the supporting tissues around the teeth so that they move to their ideal positions in less time. We always strive to reduce office visits is a priority of ours.  </p>
-         </div>
-         <div className="flex flex-col items-center justify-center col-span-1 px-4 py-20 text-purple-900 border border-purple-400">
-           <span className="text-3xl">Laser Therapy</span>
-           <img
-             src="/images/Laser-Symbol.svg"
-             alt="laser"
-             className="w-20 h-20 transform rotate-270"
-           />
-           <p>Straight teeth are just one part of a beautiful smile. Like any work of art, your teeth need the right frame to truly shine. Thanks to advanced laser technology, we can sculpt your gum tissue to create symmetrical contours that highlight your new smile.</p>
-         </div>
-       </div> */}
+   
       <div className="p-2 mx-auto">
         <div className="relative">
-          <div className="absolute inset-0 flex items-center justify-center"></div>
+          <div className="flex items-center justify-center"></div>
         </div>
+
             <div>
       <div
-        className="background"
-        style={{
-          background: '',
-          position: 'absolute',
-          top: 0,
-          bottom: 0,
-          right: 0,
-          left: 0,
-          width: '100vw',
-          height: '100vh',
-        }}
+        // className="background"
+        // style={{
+        //   background: '',
+        //   position: 'absolute',
+        //   top: 0,
+        //   bottom: 0,
+        //   right: 0,
+        //   left: 0,
+        //   width: '100vw',
+        //   height: '100vh',
+        // }}
       />
 
 <Parallax pages={5}>
+<div class="snap-y snap-mandatory bg-gradient-to-r from-stone-100 via-stone-100 to-purple-200 h-screen overflow-scroll">
   <ParallaxLayer style={{ ...alignCenter, justifyContent: 'flex-end', top: '-4%' }}>
     <div
       className="card parallax purple"
@@ -135,6 +106,7 @@ export default function WhyChooseUs() {
         marginRight: '15%',
       }}
     >
+
   <p style={{ letterSpacing: ".2px" }} className="">
   <h1 className="block mb-4 text-5xl text-violet-800">Uncompromising quality</h1>
   We strive to attain finished results consistent with the{" "}
@@ -148,6 +120,7 @@ export default function WhyChooseUs() {
 
     </div>
   </ParallaxLayer>
+  </div>
 
   <ParallaxLayer style={{ ...alignCenter, justifyContent: 'flex-end', top: '20%' }}>
   <div
@@ -185,6 +158,7 @@ export default function WhyChooseUs() {
 </div>
 
   </ParallaxLayer>
+ 
 <ParallaxLayer style={{ ...alignCenter, justifyContent: 'flex-end', top: '35%' }}>
   <div
     className="relative"
@@ -226,7 +200,8 @@ export default function WhyChooseUs() {
 </Parallax>
 
     </div>
-        <div className="-mt-40 ml-20 flex flex-col items-center justify-center py-10 bg-white md:flex-row">
+
+        <div className=" ml-20 flex flex-col items-center justify-center py-10 md:flex-row">
         <div style={{ zIndex: 2 }}>
   <img
     src="../../images/freysmilepatient.jpg"
@@ -238,7 +213,7 @@ export default function WhyChooseUs() {
     }}
   />
 </div>
-
+</div>
 
 <div className="max-w-xl mx-auto mt-20 text-center" style={{ marginLeft: "-800px" }}>
   
@@ -249,7 +224,7 @@ export default function WhyChooseUs() {
   <div className="max-w-xl mx-auto text-center">
 
   </div>
-</div>
+
 
         <div className="absolute relative inset-0 flex py-20 mb-20 overflow-hidden rounded-lg bg-opacity-60 backdrop-filter backdrop-blur-xl">
           <div className="w-1/2">
@@ -673,3 +648,36 @@ export default function WhyChooseUs() {
     </div>
   );
 };
+
+   {/* <div className="grid grid-cols-3 mt-4">
+      <div className="flex flex-col items-center justify-center col-span-1 px-4 py-20 text-purple-900 border border-purple-400">
+      <span className="text-3xl">3D i-Cat Imaging</span>
+        <img
+             src="/images/x-ray.svg"
+             alt="xray"
+             className="w-20 h-20"
+           />
+           <p className="mt-2">
+           The i-Cat imaging machine creates precise three-dimensional views of the oral-facial structures in as little as five seconds. Using these enhanced images, our orthodontists monitor facial growth and estimate your best treatment timing and plan.
+           </p>
+         </div>
+         <div className="flex flex-col items-center justify-center col-span-1 px-4 py-20 text-purple-900 border-t border-b border-purple-400">
+           <span className="text-3xl">Optimized Treatment</span>
+           <img
+             src="/images/propeltransparent.png"
+             alt="propels"
+             className="w-12 h-12"
+           />
+           <p className="mt-2"> Our team prioritizes your treatment optimization. We currently offer the most efficient adjuncts to accelerate your treatment.
+ Currently we utilize light and vibrational therapy to stimulate the supporting tissues around the teeth so that they move to their ideal positions in less time. We always strive to reduce office visits is a priority of ours.  </p>
+         </div>
+         <div className="flex flex-col items-center justify-center col-span-1 px-4 py-20 text-purple-900 border border-purple-400">
+           <span className="text-3xl">Laser Therapy</span>
+           <img
+             src="/images/Laser-Symbol.svg"
+             alt="laser"
+             className="w-20 h-20 transform rotate-270"
+           />
+           <p>Straight teeth are just one part of a beautiful smile. Like any work of art, your teeth need the right frame to truly shine. Thanks to advanced laser technology, we can sculpt your gum tissue to create symmetrical contours that highlight your new smile.</p>
+         </div>
+       </div> */}

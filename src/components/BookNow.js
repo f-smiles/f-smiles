@@ -177,6 +177,7 @@ const BookNow = () => {
             className="flex flex-col max-w-screen-sm p-8 mx-auto space-y-12  rounded-xl"
           >
             <div className="flex flex-col items-center">
+              
               <div className="mt-10 mb-20 text-5xl text-center text-indigo-700" style={{letterSpacing:"px"}}>
                 Request Appointment
               </div>

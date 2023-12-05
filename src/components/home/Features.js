@@ -163,7 +163,7 @@ export default function Features() {
 <div className="snap-start bg-ddd9eb text-2xl">
   <div className="flex max-w-screen-xl mx-auto">
 
-    {/* Left Column with Invisalign image and DotPattern */}
+
     <div className="flex items-center justify-center h-screen relative w-1/3">
       <figure className="absolute inset-0 -top-1/8">
         <img
@@ -175,12 +175,12 @@ export default function Features() {
       <DotPattern style={{ WebkitTransform: 'scaleX(-1)', transform: 'scaleX(-1)', position: 'absolute', top: '50%', left: '50%', transform: 'translate(-100%, -50%)' }} />
     </div>
 
-    {/* Middle Column with INVISALIGN */}
+   
     <div className="flex flex-col justify-center items-center w-1/3">
       <span className="text-9xl text-white transform -rotate-90">Invisalign</span>
     </div>
 
-    {/* Right Column with Link and Paragraph */}
+
     <div className="flex flex-col justify-center w-1/3">
       <div className="text-black text-2xl text-center">
         <p className="w-full max-w-md">
