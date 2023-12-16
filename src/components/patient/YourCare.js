@@ -31,6 +31,7 @@ const YourCare = () => {
 
   return (
     <>
+    
       <div>
         <div className="mt-40 py-2 px-24 grid grid-cols-3 ">
          <div
@@ -46,20 +47,20 @@ const YourCare = () => {
     setIsHovered(false);
   }}
 >
-  <span>
+  {/* <span>
     <img
       src="/images/greencalender.png"
       alt="calendar"
       className="ml-10 w-10 h-10"
     />
-  </span>
-  <span className="font-HelveticaNowVar ml-10 text-green-700 text-xl">
+  </span> */}
+  {/* <span className="font-HelveticaNowVar ml-10 text-green-700 text-xl">
     <Link className="font-extralight hover:text-white" to="/book-now">
       Schedule A Consultation
     </Link>
-  </span>
+  </span> */}
 </div>
-
+{/* 
           <div className=" col-span-1 text-green-700 py-2 border-t border-b border-green-700 flex">
             <img
               src="/images/map.svg"
@@ -71,8 +72,8 @@ const YourCare = () => {
                 Visit Our Offices
               </Link>
             </span>
-          </div>
-          <div className="col-span-1 text-green-700 px-4 py-2 border border-green-700 flex">
+          </div> */}
+          {/* <div className="col-span-1 text-green-700 px-4 py-2 border border-green-700 flex">
             <img
               src="/images/phone-call.svg"
               alt="halfcircles"
@@ -83,7 +84,7 @@ const YourCare = () => {
                 Give Us A Call
               </Link>
             </span>
-          </div>
+          </div> */}
         </div>
         <div className="flex">
           <div className="w-1/2">

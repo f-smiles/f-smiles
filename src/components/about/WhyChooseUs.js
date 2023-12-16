@@ -1,5 +1,6 @@
 import React, { Fragment, useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
+
 import { Parallax, ParallaxLayer } from '@react-spring/parallax'
 import {
   Accordion,
@@ -34,6 +35,26 @@ export default function WhyChooseUs() {
     return () => clearInterval(interval);
   }, [words.length]);
 
+  // useEffect(() => {
+  //   gsap.registerPlugin(ScrollTrigger)
+  //   let panels = gsap.utils.toArray(".panel")
+
+  //   const ctx = gsap.context(() => {
+  //     gsap.to(panels, {
+  //       yPercent: 0,
+  //       ease: "none",
+  //       scrollTrigger: {
+  //         trigger: ".wrapper",
+  //         pin: true,
+  //         scrub: true,
+  //         snap: 1 / (panels.length - 1),
+  //         start: "top top",
+  //         end: "bottom bottom",
+  //       }
+  //     })
+  //   }, panelsRef)
+  //   return () => ctx.revert()
+  // }, [])
   return (
     <div className="w-full px-4 py-4 pt-16 bg-white">
 
@@ -88,116 +109,109 @@ export default function WhyChooseUs() {
         //   height: '100vh',
         // }}
       />
-
 <Parallax pages={5}>
-<div class="snap-y snap-mandatory bg-gradient-to-r from-stone-100 via-stone-100 to-purple-200 h-screen overflow-scroll">
-  <ParallaxLayer style={{ ...alignCenter, justifyContent: 'flex-end', top: '-4%' }}>
-    <div
-      className="card parallax purple"
-      style={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: '1.5rem',
-        height: '10rem',
-        width: '25%',
-        textAlign: 'center',
-        borderRadius: '10px',
-        marginRight: '15%',
-      }}
-    >
+  <div className="snap-y snap-mandatory h-screen overflow-scroll">
+  <ParallaxLayer style={{ ...alignCenter, justifyContent: 'flex-end', top:"2%", transform: 'translateY(-50%)', scrollSnapAlign: 'start' }}>
+      <div
+        className="card parallax purple"
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          fontSize: '1.5rem',
+          height: '10rem',
+          width: '25%',
+          textAlign: 'center',
+          borderRadius: '10px',
+          marginRight: '15%',
+        }}
+      >
+        <p style={{ letterSpacing: ".2px" }} className="">
+          <h1 className="block mb-4 text-5xl text-violet-800">Uncompromising quality</h1>
+          We strive to attain finished results consistent with the{" "}
+          <span style={{ letterSpacing: ".2px" }} className="text-2xl text-violet-800">
+            American Board of Orthodontics (ABO){" "}
+          </span>{" "}
+          qualitative standards. Our doctors place great priority on the
+          certification and recertification process, ensuring that all diagnostic
+          records adhere to ABO standards.
+        </p>
+      </div>
+    </ParallaxLayer>
 
-  <p style={{ letterSpacing: ".2px" }} className="">
-  <h1 className="block mb-4 text-5xl text-violet-800">Uncompromising quality</h1>
-  We strive to attain finished results consistent with the{" "}
-  <span style={{ letterSpacing: ".2px" }} className="text-2xl text-violet-800">
-    American Board of Orthodontics (ABO){" "}
-  </span>{" "}
-  qualitative standards. Our doctors place great priority on the
-  certification and recertification process, ensuring that all diagnostic
-  records adhere to ABO standards.
-</p>
-
-    </div>
-  </ParallaxLayer>
+    <ParallaxLayer style={{ ...alignCenter, justifyContent: 'flex-end', top: '20%', transform: 'translateY(-50%)', scrollSnapAlign: 'start' }}>
+      <div
+        className="relative"
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          fontSize: '1.5rem',
+          height: '10rem',
+          width: '25%',
+          textAlign: 'center',
+          borderRadius: '10px',
+          marginRight: '15%',
+          color: 'black',
+        }}
+      >
+        <div style={{ position: 'relative', zIndex: '1' }}>
+          <p>
+            Currently, Dr. Gregg Frey is a certified orthodontist and is preparing cases for recertification. Dr. Daniel Frey is in the final stages of obtaining his initial certification.
+          </p>
+        </div>
+        <div
+          style={{
+            position: 'absolute',
+            top: '-40px',
+            left: '0',
+            right: '0',
+            height: '2px',
+            background: '#333',
+            borderRadius: '10px 10px 0 0',
+            zIndex: '0',
+          }}
+        ></div>
+      </div>
+    </ParallaxLayer>
+    <ParallaxLayer style={{ ...alignCenter, justifyContent: 'flex-end', top: '50%', transform: 'translateY(-50%)', scrollSnapAlign: 'start' }}>
+      <div
+        className="relative"
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          fontSize: '1.5rem',
+          height: '10rem',
+          width: '25%',
+          textAlign: 'center',
+          borderRadius: '10px',
+          marginRight: '15%',
+          color: 'black',
+        }}
+      >
+        <div style={{ position: 'relative', zIndex: '1' }}>
+          <p>
+            To complement our use of cutting-edge diagnostic technology, we uphold the highest standards for our records, ensuring accuracy and precision throughout the treatment process.
+          </p>
+        </div>
+        <div
+          style={{
+            position: 'absolute',
+            top: '-50px',
+            left: '0',
+            right: '0',
+            height: '2px',
+            background: '#333',
+            borderRadius: '10px 10px 0 0',
+            zIndex: '0',
+          }}
+        ></div>
+      </div>
+    </ParallaxLayer>
   </div>
-
-  <ParallaxLayer style={{ ...alignCenter, justifyContent: 'flex-end', top: '20%' }}>
-  <div
-  className="relative"
-  style={{
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    fontSize: '1.5rem',
-    height: '10rem',
-    width: '25%',
-    textAlign: 'center',
-    borderRadius: '10px',
-    marginRight: '15%',
-    color: 'black',
-  }}
->
-  <div style={{ position: 'relative', zIndex: '1' }}>
-    <p>
-      Currently, Dr. Gregg Frey is a certified orthodontist, and is preparing cases for recertification. Dr. Daniel Frey is in the final stages of obtaining his initial certification.
-    </p>
-  </div>
-  <div
-    style={{
-      position: 'absolute',
-      top: '-40px',
-      left: '0',
-      right: '0',
-      height: '2px',
-      background: '#333',
-      borderRadius: '10px 10px 0 0',
-      zIndex: '0',
-    }}
-  ></div>
-</div>
-
-  </ParallaxLayer>
- 
-<ParallaxLayer style={{ ...alignCenter, justifyContent: 'flex-end', top: '35%' }}>
-  <div
-    className="relative"
-    style={{
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-      fontSize: '1.5rem',
-      height: '10rem',
-      width: '25%',
-      textAlign: 'center',
-      borderRadius: '10px',
-      marginRight: '15%',
-      color: 'black',
-    }}
-  >
-    <div style={{ position: 'relative', zIndex: '1' }}>
-      <p>
-        To complement our use of cutting-edge diagnostic technology, we uphold the
-        highest standards for our records, ensuring accuracy and precision
-        throughout the treatment process.
-      </p>
-    </div>
-    <div
-      style={{
-        position: 'absolute',
-        top: '-50px',
-        left: '0',
-        right: '0',
-        height: '2px',
-        background: '#333',
-        borderRadius: '10px 10px 0 0',
-        zIndex: '0',
-      }}
-    ></div>
-  </div>
-</ParallaxLayer>
-
 </Parallax>
+
 
     </div>
 
