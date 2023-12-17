@@ -1,32 +1,74 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
 const Option= ({ image, title, subtitle, active, onClick }) => {
+  const [imageLoaded, setImageLoaded] = useState(false);
+  
+
+  const handleImageLoad = () => {
+    setImageLoaded(true);
+  };
+
   const optionStyle = {
-    background: `url(${image}) center/contain no-repeat`,
-    flex: active ? '100%' : '1',
-    maxWidth: active ? '100%' : '60px',
-    margin: active ? '0px' : '10px',
-    borderRadius: active ? '40px' : '30px',
-    backgroundSize: active ? 'contain' : 'cover',
-    backgroundPosition: active ? 'center' : '50% 30%', 
+    backgroundImage: `url(${image})`,
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+    backgroundSize: active ? "contain" : "cover",
+
+    flex: "1",
+    maxWidth: active ? "300px" : "20px",
+    minHeight: active ? "300px" : "200px",
+    margin: active ? "0px" : "10px",
+    borderRadius: active ? "40px" : "30px",
+  };
+  
+  const transition = {
+    type: "spring",
+    stiffness: 500,
+    damping: 30,
+  };
+
+  const imageTransition = {
+    type: "tween",
+    ease: "linear",
   };
 
   return (
-    <div className={`option ${active ? 'active' : ''}`} style={{ ...optionStyle }} onClick={onClick}>
-      <div className="shadow"></div>
-      <div className="label">
-        <div className="icon">
-          <i className="fas fa-walking"></i>
-        </div>
-        <div className="info">
-          <div className="main">{title}</div>
-          <div className="sub">{subtitle}</div>
-        </div>
+    <motion.div
+    className={`option ${active ? "active" : ""} overflow-hidden cursor-pointer transition-all`}
+    style={optionStyle}
+    onClick={onClick}
+    animate={{
+      flex: active ? 1 : 1,
+      scale: active ? 1 : 1,
+      transition: { ...transition, ...imageTransition },
+    }}
+  >
+    <div className="shadow"></div>
+    <div className="label">
+      <div className="icon">
+        <i className="fas fa-walking"></i>
       </div>
+      {active && (
+    <div className="info">
+            <div className="main">{title}</div>
+            <div className="sub">{subtitle}</div>
+          </div>
+      )}
     </div>
+    {active && !imageLoaded && (
+ <motion.img
+ src={image}
+ alt={title}
+ style={{ display: "none" }}
+ onLoad={handleImageLoad}
+ initial={{ width: "0%", height: "0%" }}
+ animate={{ x: 100 }}
+ transition={{ delay: 1 }}
+/>
+    )}
+  </motion.div>
   );
-  
 };
 const MembersSection = () => {
   const optionsData = [
@@ -82,31 +124,49 @@ const MembersSection = () => {
     },
   ];
 
-  const [activeOption, setActiveOption] = useState(null);
+  const [activeOption, setActiveOption] = useState(0);
 
   const handleOptionClick = (index) => {
-    setActiveOption((prevActiveOption) => (prevActiveOption === index ? null : index));
+    setActiveOption((prevIndex) => (index === prevIndex ? prevIndex : index));
   };
+  
+
+  useEffect(() => {
+    handleOptionClick(0);
+  }, []); 
 
   return (
-    <div className="flex justify-center items-center overflow-hidden h-screen transition-all font-roboto dark:bg-gray-800 dark:text-white">
-      <div className="w-4/5 h-400 flex">
-        {optionsData.map((option, index) => (
-          <Option
-            key={index}
-            image={option.image}
-            title={option.title}
-            subtitle={option.subtitle}
-            active={index === activeOption}
-            onClick={() => handleOptionClick(index)}
-          />
-        ))}
-      </div>
- 
-    </div>
+<div className="flex flex-row justify-center items-center overflow-hidden h-screen transition-all">
+<div className="flex flex-col justify-center items-start w-1/5">
+  <div>
+    {activeOption !== null && optionsData[activeOption] ? (
+      <>
+        <div>{optionsData[activeOption].title}</div>
+        <div>{optionsData[activeOption].subtitle}</div>
+      </>
+    ) : (
+      ""
+    )}
+  </div>
+</div>
+
+
+  <div className="w-3/5 h-400 flex">
+    {optionsData.map((option, index) => (
+      <Option
+        key={index}
+        image={option.image}
+
+        active={index === activeOption}
+        onClick={() => handleOptionClick(index)}
+      />
+    ))}
+  </div>
+</div>
+
+
   );
 };
-//a18072
 export default MembersSection;
 // let memberCardRef = useRef(null);
   // let { scrollYProgress } = useScroll({
