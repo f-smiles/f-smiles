@@ -10,6 +10,7 @@ export default function OurTeam() {
       </section>
 
       <section className="pt-24 pb-40 ">
+        
         <MembersSection />
       </section>
     </main>

@@ -13,13 +13,13 @@ const Option= ({ image, title, subtitle, active, onClick }) => {
     backgroundImage: `url(${image})`,
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
-    backgroundSize: active ? "contain" : "cover",
-
+    backgroundSize: "cover",
     flex: "1",
     maxWidth: active ? "300px" : "20px",
-    minHeight: active ? "300px" : "200px",
+    minHeight: "300px",
     margin: active ? "0px" : "10px",
     borderRadius: active ? "40px" : "30px",
+    transition: "0.5s cubic-bezier(0.05, 0.61, 0.41, 0.95",
   };
   
   const transition = {
@@ -34,15 +34,17 @@ const Option= ({ image, title, subtitle, active, onClick }) => {
   };
 
   return (
+    
     <motion.div
     className={`option ${active ? "active" : ""} overflow-hidden cursor-pointer transition-all`}
     style={optionStyle}
     onClick={onClick}
-    animate={{
-      flex: active ? 1 : 1,
-      scale: active ? 1 : 1,
-      transition: { ...transition, ...imageTransition },
-    }}
+    // animate={{
+    //   flex: active ? 1 : 1,
+    //   scale: active ? 1 : 1,
+    
+
+    // }}
   >
     <div className="shadow"></div>
     <div className="label">
@@ -63,8 +65,8 @@ const Option= ({ image, title, subtitle, active, onClick }) => {
  style={{ display: "none" }}
  onLoad={handleImageLoad}
  initial={{ width: "0%", height: "0%" }}
- animate={{ x: 100 }}
- transition={{ delay: 1 }}
+
+ transition={{ duration: 5, type: "tween", delay: 2 }}
 />
     )}
   </motion.div>
@@ -109,18 +111,18 @@ const MembersSection = () => {
     },
     {
       image: '../../images/team_members/Nicolle.jpg',
-      title: 'Specialized Orthodontic Assistant',
-      subtitle: '        Nicolle',
+      title: 'Nicolle',
+      subtitle: '       Specialized Orthodontic Assistant',
     },
     {
       image: '../../images/team_members/Grace.jpg',
-      title: 'Specialized Orthodontic Assistant',
-      subtitle: '       Grace',
+      title: 'Grace',
+      subtitle: 'Specialized Orthodontic Assistant',
     },
     {
       image: '../../images/team_members/Dana.jpg',
-      title: 'Marketing Operations',
-      subtitle: '       Dana',
+      title: 'Dana',
+      subtitle: 'Marketing Operations',
     },
   ];
 
@@ -136,7 +138,26 @@ const MembersSection = () => {
   }, []); 
 
   return (
+    
+    <div>    <h1 className="text-3xl leading-10 tracking-wide text-center md:text-4xl xl:text-4xl xl:font-medium">
+    Our Members
+  </h1>
+  <p className="mt-6 md:mt-8 text-md md:text-lg xl:text-xl xl:font-medium sm:text-left md:text-center">
+    Our members are X-ray certified, trained in CPR and first aid, and most
+    of them have received the designation of Specialized Orthodontic
+    Assistant{" "}
+    <a
+      className="underline transition duration-200 underline-offset-4 text-secondary40 hover:text-secondary50"
+      href="https://www.trapezio.com/training-resources/course-outlines/soa-prep-course-outline/"
+    >
+      (SOA)
+    </a>
+    . This is a voluntary certification program started by the American
+    Association of Orthodontists to recognize those in the profession for
+    their knowledge and experience.
+  </p>
 <div className="flex flex-row justify-center items-center overflow-hidden h-screen transition-all">
+  
 <div className="flex flex-col justify-center items-start w-1/5">
   <div>
     {activeOption !== null && optionsData[activeOption] ? (
@@ -163,7 +184,7 @@ const MembersSection = () => {
     ))}
   </div>
 </div>
-
+</div>
 
   );
 };
