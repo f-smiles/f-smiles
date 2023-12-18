@@ -31,63 +31,22 @@ const YourCare = () => {
 
   return (
     <>
-    
-      <div>
+    <div className="bg-red-100 pt-2">
+      <div >
         <div className="mt-40 py-2 px-24 grid grid-cols-3 ">
          <div
-  className="col-span-1 text-white ml-1 py-2 border border-green-700 flex items-center"
-  style={{
-    backgroundColor: isHovered ? "indigo" : "transparent",
-    transition: "background-color 0.3s",
-  }}
-  onMouseEnter={() => {
-    setIsHovered(true);
-  }}
-  onMouseLeave={() => {
-    setIsHovered(false);
-  }}
+  className="col-span-1 text-white ml-1 py-2 flex items-center"
+ 
+
 >
-  {/* <span>
-    <img
-      src="/images/greencalender.png"
-      alt="calendar"
-      className="ml-10 w-10 h-10"
-    />
-  </span> */}
-  {/* <span className="font-HelveticaNowVar ml-10 text-green-700 text-xl">
-    <Link className="font-extralight hover:text-white" to="/book-now">
-      Schedule A Consultation
-    </Link>
-  </span> */}
+
 </div>
-{/* 
-          <div className=" col-span-1 text-green-700 py-2 border-t border-b border-green-700 flex">
-            <img
-              src="/images/map.svg"
-              alt="map"
-              className="ml-20 w-10 h-10"
-            />
-            <span className="mt-1 ml-10 text-xl">
-              <Link className="hover:text-red-300" to="/locations">
-                Visit Our Offices
-              </Link>
-            </span>
-          </div> */}
-          {/* <div className="col-span-1 text-green-700 px-4 py-2 border border-green-700 flex">
-            <img
-              src="/images/phone-call.svg"
-              alt="halfcircles"
-              className="ml-20 w-10 h-8 "
-            />
-            <span className="mt-1 ml-10 text-xl">
-              <Link className="hover:text-red-300" to="/locations">
-                Give Us A Call
-              </Link>
-            </span>
-          </div> */}
+
         </div>
         <div className="flex">
-          <div className="w-1/2">
+
+     
+      <div className="w-1/2 relative z-10">
             <h1 className="font-HelveticaNowVar font-thin text-5xl text-center mt-12  mb-10">
               Getting Started
             </h1>
@@ -101,21 +60,50 @@ const YourCare = () => {
               providing you with a stress-free experience.
             </p>
           </div>
+     
           <div className="md:w-1/2 flex justify-center items-center">
-          <div className="relative">
+          <div className="md:w-1/2 flex justify-center items-center">
+  <div className="relative mx-2" style={{ width: "300px", height: "240px" }}>
+    <img
+      className="rounded-full opacity-90 w-full h-full object-cover"
+      src="../../images/carepatient1.png"
+      alt="patient"
+    />
+  </div>
+  <div className="relative mx-2" style={{ width: "300px", height: "300px" }}>
   <img
-    className="rounded-full opacity-90"
-    src="../../images/freysmilepatient1.jpg"
+    className="rounded-full opacity-90 w-full h-full object-cover"
+    src="../../images/carepatient2.png"
     alt="patient"
-    style={{ maxWidth: "80%", maxHeight: "80%" }}
-  />
-  <img
-    className="rounded-full absolute inset-0"
-    src="../../images/5.png"
-    alt="overlay-image"
-    style={{ maxWidth: "100%", maxHeight: "100%" }}
+    style={{ objectPosition: "10% 50%" }}
   />
 </div>
+
+  <div className="relative mx-2" style={{ width: "300px", height: "340px" }}>
+    <img
+      className="rounded-full opacity-90 w-full h-full object-cover"
+      src="../../images/carepatient3.png"
+      alt="patient"
+    />
+  </div>
+  <div className="relative mx-2" style={{ width: "330px", height: "400px" }}>
+    <img
+      className="rounded-full opacity-90 w-full h-full object-cover"
+      src="../../images/carepatient4.png"
+      alt="patient"
+      style={{ objectPosition: "40% 50%" }}
+    />
+  </div>
+  <div className="relative mx-2" style={{ width: "300px", height: "480px" }}>
+    <img
+      className="rounded-full opacity-90 w-full h-full object-cover"
+      src="../../images/freysmilepatient1.jpg"
+      alt="patient"
+    />
+  </div>
+</div>
+
+
 
           </div>
         </div>
@@ -257,6 +245,7 @@ const YourCare = () => {
           </div>
         </div>
       </section>
+      </div>
     </>
   );
 };
