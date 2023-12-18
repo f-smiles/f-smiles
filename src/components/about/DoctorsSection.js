@@ -23,7 +23,7 @@ export default function DoctorsSection() {
     <div className="container px-6 py-10 mx-auto">
       <div className="xl:flex xl:items-start xl:-mx-4">
         <div className="xl:w-1/2 xl:mx-4">
-          <h1 className="text-2xl font-light capitalize text-primary50 lg:text-4xl dark:text-white">
+          <h1 className="text-2xl font-light capitalize  lg:text-4xl dark:text-white">
             Our Doctors
           </h1>
 
@@ -33,17 +33,18 @@ export default function DoctorsSection() {
             className="flex items-center justify-start mt-6 space-x-4 text-gray-700 dark:text-white"
           >
             <button
-              className="p-2 transition duration-300 ease-in-out border-2 rounded-full border-secondary90 hover:border-secondary70 hover:cursor-pointer"
+              className="p-2 transition duration-300 ease-in-out border-2 rounded-full  hover:border-black 
+              hover:cursor-pointer"
               onClick={toggleSwitchDoctor}
             >
-              <ArrowLeftIcon className="z-0 w-5 h-5 text-secondary50" />
+              <ArrowLeftIcon className="z-0 w-5 h-5 text-primary50" />
             </button>
             <span>0{!switchDoctor ? index : index + 1} - 02</span>
             <button
-              className="p-2 transition duration-300 ease-in-out border-2 rounded-full border-secondary90 hover:border-secondary70 hover:cursor-pointer"
+              className="p-2 transition duration-300 ease-in-out border-2 rounded-full hover:border-black hover:cursor-pointer"
               onClick={toggleSwitchDoctor}
             >
-              <ArrowRightIcon className="z-0 w-5 h-5 text-secondary50" />
+              <ArrowRightIcon className="z-0 w-5 h-5 text-primary50" />
             </button>
           </div>
 
@@ -83,9 +84,9 @@ export default function DoctorsSection() {
               />
             </figure>
             <figcaption>
-              <h1 className="text-2xl font-semibold text-gray-700 capitalize dark:text-white">
+              <div className="text-xl text-gray-700 ">
                 {!switchDoctor ? "Dr. Gregg Frey" : "Dr. Daniel Frey"}
-              </h1>
+              </div>
 
               <p className="mt-2 text-gray-500 capitalize dark:text-gray-300">
                 {!switchDoctor ? "DDS" : "DMD, MSD"}
