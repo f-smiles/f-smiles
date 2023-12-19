@@ -2,9 +2,14 @@ import React, { useState, useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { Link } from "react-router-dom";
+import * as PIXI from 'pixi.js';
 AOS.init();
 
 const YourCare = () => {
+  const image = '../../images/wave.webp';
+  <a href='https://pngtree.com/freepng/color-circle-time-flow-chart_5453938.html'></a>
+
+
   const [isHovered, setIsHovered] = useState(false);
   const images = [
     '../images/patient-charlotte.jpeg',
@@ -31,220 +36,237 @@ const YourCare = () => {
 
   return (
     <>
-    <div className="bg-red-100 pt-2">
-      <div >
-        <div className="mt-40 py-2 px-24 grid grid-cols-3 ">
-         <div
-  className="col-span-1 text-white ml-1 py-2 flex items-center"
- 
+      <div className="bg-F7EFEE pt-2">
+        <div >
+          <div className="mt-40 py-2 px-24 grid grid-cols-3 ">
+            <div
+              className="col-span-1 text-white ml-1 py-2 flex items-center"
 
->
 
-</div>
+            >
 
-        </div>
-        <div className="flex">
+            </div>
 
-     
-      <div className="w-1/2 relative z-10">
-            <h1 className="font-HelveticaNowVar font-thin text-5xl text-center mt-12  mb-10">
-              Getting Started
-            </h1>
-
-            <p className="text-lg mt-20 justify-content ml-10">
-              {" "}
-              Experience a personalized consultation with one of our doctors,
-              either virtually or in-office. Discover the ideal solution for
-              your needs, free from any financial obligations or commitments.
-              Your well-being is our utmost priority, and we are dedicated to
-              providing you with a stress-free experience.
-            </p>
           </div>
-     
-          <div className="md:w-1/2 flex justify-center items-center">
-          <div className="md:w-1/2 flex justify-center items-center">
-  <div className="relative mx-2" style={{ width: "300px", height: "240px" }}>
-    <img
-      className="rounded-full opacity-90 w-full h-full object-cover"
-      src="../../images/carepatient1.png"
-      alt="patient"
-    />
-  </div>
-  <div className="relative mx-2" style={{ width: "300px", height: "300px" }}>
+          <div className="flex">
+
+
+            <div className="w-1/2 relative z-10 flex flex-col items-center">
+              <h1 className="font-HelveticaNowVar font-thin text-5xl text-center mt-12 mb-10">
+                Getting Started
+              </h1>
+              <div className="flex justify-center">
+                <div className="flex flex-col items-center mx-4">
+                  <h3
+                    className="border border-gray-300 text-center text-xl text-lime-900 mb-2 rounded-full px-4 py-2"
+                    style={{ width: "80px", height: "80px", lineHeight: "60px" }}
+                  >
+                    1
+                  </h3>
+                  <p>
+                    Book a personalized consultation with one of our doctors, either virtually or in person.
+                  </p>
+                </div>
+                <div className="flex flex-col items-center mx-4">
+                  <h3
+                    className="border border-gray-300 text-center text-xl text-lime-900 mb-2 rounded-full px-4 py-2"
+                    style={{ width: "80px", height: "80px", lineHeight: "60px" }}
+                  >
+                    2
+                  </h3>
+                  <p>
+                    Your first appointment will consist of a thorough orthodontic
+                    examination including photos and a digital radiograph of your teeth.
+                  </p>
+                </div>
+                <div className="flex flex-col items-center mx-auto">
+                  <h3
+                    className="border border-gray-300 text-center text-xl text-lime-900 mb-2 rounded-full px-4 py-2"
+                    style={{ width: "80px", height: "80px", lineHeight: "60px" }}
+                  >
+                    3
+                  </h3>
+                  <p>
+                    Discover the ideal solution for your needs, free from any financial obligations or commitments.
+                  </p>
+                </div>
+              </div>
+
+            </div>
+
+
+
+            <div className="md:w-1/2 flex justify-center items-center">
+              <div className="md:w-1/2 flex justify-center items-center">
+                <div className="relative mx-2" style={{ width: "300px", height: "240px" }}>
+                  <img
+                    className="rounded-full opacity-90 w-full h-full object-cover"
+                    src="../../images/carepatient1.png"
+                    alt="patient"
+                    style={{ objectPosition: "40% 50%" }}
+                  />
+                </div>
+                <div className="relative mx-2" style={{ width: "300px", height: "300px" }}>
+                  <img
+                    className="rounded-full opacity-90 w-full h-full object-cover"
+                    src="../../images/carepatient2.png"
+                    alt="patient"
+                    style={{ objectPosition: "10% 50%" }}
+                  />
+                </div>
+
+                <div className="relative mx-2" style={{ width: "300px", height: "340px" }}>
+                  <img
+                    className="rounded-full opacity-90 w-full h-full object-cover"
+                    src="../../images/carepatient3.png"
+                    alt="patient"
+                  />
+                </div>
+                <div className="relative mx-2" style={{ width: "330px", height: "400px" }}>
+                  <img
+                    className="rounded-full opacity-90 w-full h-full object-cover"
+                    src="../../images/carepatient4.png"
+                    alt="patient"
+                    style={{ objectPosition: "40% 50%" }}
+                  />
+                </div>
+                <div className="relative mx-2" style={{ width: "300px", height: "480px" }}>
+                  <img
+                    className="rounded-full opacity-90 w-full h-full object-cover"
+                    src="../../images/freysmilepatient1.jpg"
+                    alt="patient"
+                  />
+                </div>
+              </div>
+
+
+
+            </div>
+          </div>
+        </div>
+        <section className="my-16  space-y-24">
+
+          <div
+            data-aos="fade-up"
+            data-aos-duration="1050"
+            data-aos-easing="linear"
+            className="bg-F8F3F3 rounded-tl-3xl rounded-tr-3xl rounded-bl-3xl rounded-br-md md:flex max-h-full px-12 pb-12 pt-20"
+          >
+            <div className="md:w-1/2 flex justify-center items-center relative">
+            <div style={{ position: 'relative' }}>
   <img
-    className="rounded-full opacity-90 w-full h-full object-cover"
-    src="../../images/carepatient2.png"
-    alt="patient"
-    style={{ objectPosition: "10% 50%" }}
+    src={image}
+    alt="Background"
+    style={{
+      position: 'relative',
+      zIndex: 1,
+      width: '100%',
+      height: '100%',
+      objectFit: 'cover',
+    }}
+  />
+<div
+  className="md:w-1/2 flex justify-center items-center"
+  style={{
+    filter: 'brightness(0) invert(1)',
+    zIndex: 2,
+    width: '200px', 
+    height: 'auto', 
+    position: 'absolute', 
+    top: -40,
+    right: 20, 
+  }}
+>Monitor development
+  <img
+    src="../../images/flowchart.png"
+    alt="scan"
   />
 </div>
 
-  <div className="relative mx-2" style={{ width: "300px", height: "340px" }}>
-    <img
-      className="rounded-full opacity-90 w-full h-full object-cover"
-      src="../../images/carepatient3.png"
-      alt="patient"
-    />
-  </div>
-  <div className="relative mx-2" style={{ width: "330px", height: "400px" }}>
-    <img
-      className="rounded-full opacity-90 w-full h-full object-cover"
-      src="../../images/carepatient4.png"
-      alt="patient"
-      style={{ objectPosition: "40% 50%" }}
-    />
-  </div>
-  <div className="relative mx-2" style={{ width: "300px", height: "480px" }}>
-    <img
-      className="rounded-full opacity-90 w-full h-full object-cover"
-      src="../../images/freysmilepatient1.jpg"
-      alt="patient"
-    />
+  <div
+    className="glass-overlay"
+    style={{
+      position: 'absolute',
+      bottom: 0,
+      left: 0,
+      zIndex: 3, 
+      height: '100%',
+      width: '100%',
+      display: 'flex',
+      flexDirection: 'row',
+      pointerEvents: 'none',
+    }}
+  >
+    {[...Array(10)].map((_, index) => (
+      <div
+        key={index}
+        className="glass"
+        // style={{
+        //   width: 'calc(100% / 12)',
+        //   background: 'linear-gradient(90deg, rgba(255, 255, 255, 0.05) 10%, rgba(4, 9, 20, 0) 70%, rgba(255, 255, 255, 0.05) 110%)',
+        //   // backdropFilter: 'blur(1.5px)',
+        // }}
+      ></div>
+    ))}
   </div>
 </div>
 
 
-
-          </div>
-        </div>
-      </div>
-      <section className="my-16  space-y-24">
-        
-        <div
-          data-aos="fade-up"
-          data-aos-duration="750"
-          data-aos-easing="linear"
-          className=" rounded-tl-3xl rounded-tr-3xl rounded-bl-3xl rounded-br-md md:flex max-h-full px-12 pb-12 pt-20"
-          style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr" }}
-        >
-            <img
-        src="/images/sandbackground.png"
-        alt="chart"
-        className="object-cover w-full h-full"
-        style={{ opacity: 0.2, position: "absolute", top: 0, left: 0 }}
-      />
-          <div>
-            <h3 className="text-center text-6xl text-lime-900 mb-14 mt-20">
-              1
-            </h3>
-            <p className="text-lime-900">
-              During your initial visit, you'll get to know some of the friendly
-              faces of the FreySmiles orthodontic team and see what makes us
-              unique. We are always excited about meeting new patients.
-            </p>
-          </div>
-          <div className="">
-            <h3 className="text-center text-6xl text-lime-900 mb-14 mt-20">
-              2
-            </h3>
-            <p className="">
-              Your first appointment will consist of a thorough orthodontic
-              examination including photos, a digital radiograph of your teeth,
-            </p>
-            {/* <img
-      className="opacity-90"
-      src="../../images/itero.png"
-      alt="scan"
-      style={{ maxWidth: "80%", maxHeight: "80%" }}
-    /> */}
-          </div>
-          <div>
-            <h3 className="text-6xl text-center text-lime-900 mb-14 mt-20">
-              3
-            </h3>
-            <p>
-              and a discussion of your options. This important visit will give
-              us a full picture of your orthodontic needs.
-            </p>
-          </div>
-        </div>
-
-        <div
-      data-aos="fade-up"
-      data-aos-duration="1050"
-      data-aos-easing="linear"
-      className="bg-F8F3F3 rounded-tl-3xl rounded-tr-3xl rounded-bl-3xl rounded-br-md md:flex max-h-full px-12 pb-12 pt-20"
-    >
-      <div className="md:w-1/2 flex items-center relative">
-        <div className="rounded-full overflow-hidden flex-shrink-0">
-          <div
-            className="object-cover w-full h-full"
-            style={getTransitionStyle()}
-          ></div>
-        </div>
-        <div className="ml-6">
-          <h3 className="text-4xl text-lime-900 mb-14 mt-20">
-            Growth and Guidance
-          </h3>
-          <div className="paragraph-with-background">
-            <p>
-              If braces are not needed right away, you will be enrolled in our
-              FreySmiles Club, where we will see you every 6-12 months to
-              monitor your progress. Timing is extremely important for us to be
-              able to provide the best results and to deliver your new smile as
-              quickly as possible. These visits for a “peace of mind policy”
-              cost you nothing! We’ll also be working with your family dentist
-              before and during braces to provide you with the highest level of
-              care.
-            </p>
-          </div>
-        </div>
-      </div>
-      <div className="md:w-1/2 flex justify-center items-center relative">
-        <div className="animate-bubble-in">
-          {/* Placeholder for the current image */}
-          <img
-            className="rounded-full overflow-hidden w-96 h-96 object-cover flex-shrink-0"
-            src={images[currentImageIndex]}
-            alt="scan"
-          />
-        </div>
-        <div className="animate-delayed-bubble-in">
-          <img
-            className="rounded-md absolute top-10 right-20"
-            src="../../images/observation.svg"
-            alt="scan"
-            style={{
-              maxWidth: '20%',
-              maxHeight: '30%',
-              filter: 'drop-shadow(0px 0px 0px #000000)'
-            }}
-          />
-        </div>
-      </div>
     </div>
+            <div className="md:w-1/2 flex items-center relative">
+              <div className="rounded-full overflow-hidden flex-shrink-0">
+                <div
+                  className="object-cover w-full h-full"
+                  style={getTransitionStyle()}
+                ></div>
+              </div>
+              <div className="ml-6">
+                <h3 className="font-HelveticaNowVar font-thin text-5xl mb-14 mt-20">
+                  Growth and Guidance
+                </h3>
+                <div className="paragraph-with-background">
+                  <p>
+             The American Association of Orthodontists (AAO) recommends an orthodontic evaluation by age 7 to assess potential treatment needs. 
 
-        <div
-          data-aos="fade-up"
-          data-aos-duration="550"
-          data-aos-easing="linear"
-          className="rounded-tl-3xl rounded-tr-3xl rounded-bl-3xl rounded-br-md md:flex  max-h-full px-12 pb-12 pt-20"
-        >
-          <div className="md:w-1/2">
-            <h3 className="text-2xl text-lime-900 uppercase mb-14 mt-20">
-              What to Bring
-            </h3>
-            <p>
-              Since treatment plans and payment options may be discussed, we ask
-              that a parent or guardian be present for the first visit.
-              Including everyone who will be making this important decision
-              helps us communicate thoroughly. We are an insurance friendly
-              office so please assist us by bringing your insurance card if you
-              have orthodontic coverage. We want our patients to leave the
-              office with a clear understanding of their specific treatment
-              plan, so don’t hesitate to ask questions.
-            </p>
+             If immediate treatment isn't necessary, you'll be enrolled in our FreySmiles Club, where you'll receive biannual and annual check-ins to monitor your progress. Early intervention can simplify or eliminate the need for extensive treatment later on. Our collaboration with your family dentist ensures comprehensive care throughout your treatment.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="md:w-1/2 flex justify-center items-center">
-            <img
-              className="opacity-90 "
-              src="../../images/freysmilecartoon.jpg"
-              alt="scan"
-              style={{ maxWidth: "80%", maxHeight: "80%" }}
-            />
+
+
+          <div
+            data-aos="fade-up"
+            data-aos-duration="550"
+            data-aos-easing="linear"
+            className="rounded-tl-3xl rounded-tr-3xl rounded-bl-3xl rounded-br-md md:flex  max-h-full px-12 "
+          >
+            <div className="md:w-1/2">
+              <h3 className="font-HelveticaNowVar font-thin text-5xl text-center mb-10">
+                Pricing
+              </h3>
+              <p>
+                Since treatment plans and payment options may be discussed, we ask
+                that a parent or guardian be present for the first visit.
+                Including everyone who will be making this important decision
+                helps us communicate thoroughly. We are an insurance friendly
+                office so please assist us by bringing your insurance card if you
+                have orthodontic coverage. We want our patients to leave the
+                office with a clear understanding of their specific treatment
+                plan, so don’t hesitate to ask questions.
+              </p>
+            </div>
+            <div className="md:w-1/2 flex justify-center items-center">
+              <img
+                className="opacity-90 "
+                src="../../images/freysmilecartoon.jpg"
+                alt="scan"
+                style={{ maxWidth: "80%", maxHeight: "80%" }}
+              />
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
       </div>
     </>
   );
