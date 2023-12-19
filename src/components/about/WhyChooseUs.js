@@ -56,7 +56,7 @@ export default function WhyChooseUs() {
   //   return () => ctx.revert()
   // }, [])
   return (
-    <div className="w-full px-4 py-4 pt-16 bg-white">
+    <div className=" w-full px-4 py-4 pt-16">
 
       <div className="relative z-10 px-4 pt-4 pb-2 space-y-4 text-center text-gray-500 rounded-lg ">
         <div>

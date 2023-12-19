@@ -1,5 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { ArrowRightIcon, ArrowLeftIcon } from "@heroicons/react/24/solid";
 
 const Option = ({ image, title, subtitle, active, onClick }) => {
   const [imageLoaded, setImageLoaded] = useState(false);
@@ -8,6 +9,7 @@ const Option = ({ image, title, subtitle, active, onClick }) => {
   const handleImageLoad = () => {
     setImageLoaded(true);
   };
+
 
   const optionStyle = {
     backgroundImage: `url(${image})`,
@@ -73,6 +75,17 @@ const Option = ({ image, title, subtitle, active, onClick }) => {
   );
 };
 const MembersSection = () => {
+
+
+  const handleNextMember = () => {
+    setActiveOption((prevOption) =>
+      prevOption < optionsData.length - 1 ? prevOption + 1 : prevOption
+    );
+  };
+
+  const handlePrevMember = () => {
+    setActiveOption((prevOption) => (prevOption > 0 ? prevOption - 1 : prevOption));
+  };
   const optionsData = [
     {
       image: "../../images/team_members/Alyssa.jpg",
@@ -157,20 +170,55 @@ const MembersSection = () => {
         Association of Orthodontists to recognize those in the profession for
         their knowledge and experience.
       </p>
-      <div className="flex flex-row justify-center items-center overflow-hidden h-screen transition-all">
+      
+      <div>
 
-        <div className="flex flex-col justify-center items-start w-1/5">
-          <div>
-            {activeOption !== null && optionsData[activeOption] ? (
-              <>
-                <div className="text-2xl">{optionsData[activeOption].title}</div>
-                <div>{optionsData[activeOption].subtitle}</div>
-              </>
-            ) : (
-              ""
-            )}
+
+    
+
+      <div className="flex flex-row justify-center items-center overflow-hidden h-screen transition-all">
+      <div className="flex flex-col justify-center items-start w-1/5">
+        <div className="flex items-center w-full">
+  <button
+    onClick={handlePrevMember}
+    disabled={activeOption === 0}
+    className="p-2 transition duration-300 ease-in-out border-2 rounded-full hover:border-black hover:cursor-pointer"
+    style={{ display: 'flex', alignItems: 'center' }}
+  >
+    <ArrowLeftIcon className="z-0 w-5 h-5 text-primary50" />
+  </button>
+  <span className="mx-4">{(activeOption + 1).toString().padStart(2, '0')} - {optionsData.length}</span>
+
+  <button
+    onClick={handleNextMember}
+    disabled={activeOption === optionsData.length - 1}
+    className="p-2 transition duration-300 ease-in-out border-2 rounded-full hover:border-black hover:cursor-pointer"
+    style={{ display: 'flex', alignItems: 'center' }}
+  >
+    <ArrowRightIcon className="z-0 w-5 h-5 text-primary50" />
+  </button>
+  </div>
+  <div>
+    {activeOption !== null && optionsData[activeOption] ? (
+      <>
+        <div style={{ position: 'relative' }}>
+          <div
+            className="text-2xl"
+            style={{
+              borderBottom: '1px solid black',
+              paddingBottom: '5px', 
+            }}
+          >
+            {optionsData[activeOption].title}
           </div>
+          <div style={{ paddingTop: '10px' }}>{optionsData[activeOption].subtitle}</div>
         </div>
+      </>
+    ) : (
+      ""
+    )}
+  </div>
+</div>
 
 
         <div className="w-3/5 h-400 flex">
@@ -178,13 +226,16 @@ const MembersSection = () => {
             <Option
               key={index}
               image={option.image}
-
               active={index === activeOption}
               onClick={() => handleOptionClick(index)}
             />
           ))}
         </div>
       </div>
+    </div>
+    
+
+   
     </div>
 
   );

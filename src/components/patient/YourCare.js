@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { Link } from "react-router-dom";
-import * as PIXI from 'pixi.js';
+
 AOS.init();
 
 const YourCare = () => {
@@ -150,69 +150,69 @@ const YourCare = () => {
             data-aos="fade-up"
             data-aos-duration="1050"
             data-aos-easing="linear"
-            className="bg-F8F3F3 rounded-tl-3xl rounded-tr-3xl rounded-bl-3xl rounded-br-md md:flex max-h-full px-12 pb-12 pt-20"
+            className=" rounded-tl-3xl rounded-tr-3xl rounded-bl-3xl rounded-br-md md:flex max-h-full px-12 pb-12 pt-20"
           >
             <div className="md:w-1/2 flex justify-center items-center relative">
-            <div style={{ position: 'relative' }}>
-  <img
-    src={image}
-    alt="Background"
-    style={{
-      position: 'relative',
-      zIndex: 1,
-      width: '100%',
-      height: '100%',
-      objectFit: 'cover',
-    }}
-  />
-<div
-  className="md:w-1/2 flex justify-center items-center"
-  style={{
-    filter: 'brightness(0) invert(1)',
-    zIndex: 2,
-    width: '200px', 
-    height: 'auto', 
-    position: 'absolute', 
-    top: -40,
-    right: 20, 
-  }}
->Monitor development
-  <img
-    src="../../images/flowchart.png"
-    alt="scan"
-  />
-</div>
+              <div style={{ position: 'relative' }}>
+                <img
+                  src={image}
+                  alt="Background"
+                  style={{
+                    position: 'relative',
+                    zIndex: 1,
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                  }}
+                />
+                <div
+                  className="md:w-1/2 flex justify-center items-center"
+                  style={{
+                    filter: 'brightness(0) invert(1)',
+                    zIndex: 2,
+                    width: '200px',
+                    height: 'auto',
+                    position: 'absolute',
+                    top: -40,
+                    right: 20,
+                  }}
+                >Monitor development
+                  <img
+                    src="../../images/flowchart.png"
+                    alt="scan"
+                  />
+                </div>
 
-  <div
-    className="glass-overlay"
-    style={{
-      position: 'absolute',
-      bottom: 0,
-      left: 0,
-      zIndex: 3, 
-      height: '100%',
-      width: '100%',
-      display: 'flex',
-      flexDirection: 'row',
-      pointerEvents: 'none',
-    }}
-  >
-    {[...Array(10)].map((_, index) => (
-      <div
-        key={index}
-        className="glass"
-        // style={{
-        //   width: 'calc(100% / 12)',
-        //   background: 'linear-gradient(90deg, rgba(255, 255, 255, 0.05) 10%, rgba(4, 9, 20, 0) 70%, rgba(255, 255, 255, 0.05) 110%)',
-        //   // backdropFilter: 'blur(1.5px)',
-        // }}
-      ></div>
-    ))}
-  </div>
-</div>
+                <div
+                  className="glass-overlay"
+                  style={{
+                    position: 'absolute',
+                    bottom: 0,
+                    left: 0,
+                    zIndex: 3,
+                    height: '100%',
+                    width: '100%',
+                    display: 'flex',
+                    flexDirection: 'row',
+                    pointerEvents: 'none',
+                  }}
+                >
+                  {[...Array(10)].map((_, index) => (
+                    <div
+                      key={index}
+                      className="glass"
+                    // style={{
+                    //   width: 'calc(100% / 12)',
+                    //   background: 'linear-gradient(90deg, rgba(255, 255, 255, 0.05) 10%, rgba(4, 9, 20, 0) 70%, rgba(255, 255, 255, 0.05) 110%)',
+                    //   // backdropFilter: 'blur(1.5px)',
+                    // }}
+                    ></div>
+                  ))}
+                </div>
+              </div>
 
 
-    </div>
+            </div>
             <div className="md:w-1/2 flex items-center relative">
               <div className="rounded-full overflow-hidden flex-shrink-0">
                 <div
@@ -226,9 +226,9 @@ const YourCare = () => {
                 </h3>
                 <div className="paragraph-with-background">
                   <p>
-             The American Association of Orthodontists (AAO) recommends an orthodontic evaluation by age 7 to assess potential treatment needs. 
+                    The American Association of Orthodontists (AAO) recommends an orthodontic evaluation by age 7 to assess potential treatment needs.
 
-             If immediate treatment isn't necessary, you'll be enrolled in our FreySmiles Club, where you'll receive biannual and annual check-ins to monitor your progress. Early intervention can simplify or eliminate the need for extensive treatment later on. Our collaboration with your family dentist ensures comprehensive care throughout your treatment.
+                    If immediate treatment isn't necessary, you'll be enrolled in our FreySmiles Club, where you'll receive biannual and annual check-ins to monitor your progress. Early intervention can simplify or eliminate the need for extensive treatment later on. Our collaboration with your family dentist ensures comprehensive care throughout your treatment.
                   </p>
                 </div>
               </div>
@@ -242,29 +242,30 @@ const YourCare = () => {
             data-aos-easing="linear"
             className="rounded-tl-3xl rounded-tr-3xl rounded-bl-3xl rounded-br-md md:flex  max-h-full px-12 "
           >
-            <div className="md:w-1/2">
-              <h3 className="font-HelveticaNowVar font-thin text-5xl text-center mb-10">
-                Pricing
-              </h3>
-              <p>
-                Since treatment plans and payment options may be discussed, we ask
-                that a parent or guardian be present for the first visit.
-                Including everyone who will be making this important decision
-                helps us communicate thoroughly. We are an insurance friendly
-                office so please assist us by bringing your insurance card if you
-                have orthodontic coverage. We want our patients to leave the
-                office with a clear understanding of their specific treatment
-                plan, so don’t hesitate to ask questions.
-              </p>
+            <div className="">
+              <>
+                <h3 className="font-HelveticaNowVar font-thin text-5xl text-center mb-10">
+                  Pricing
+                </h3>
+                <p>
+                  Since treatment plans and payment options may be discussed, we ask that a parent or guardian be present for the first visit. Including everyone who will be making this important decision helps us communicate thoroughly. We want our patients to leave the office with a clear understanding of their specific treatment plan, so don’t hesitate to ask questions.
+                </p>
+                <table style={{ width: "100%", borderCollapse: "collapse" }}>
+                  <colgroup>
+                    <col style={{ width: "33%" }} />
+                    <col style={{ width: "33%" }} />
+                    <col style={{ width: "33%" }} />
+                  </colgroup>
+                  <tr>
+                    <td style={{ border: "1px solid #B3B3B5 ", padding: "8px", fontSize: "18px" }}> Please bring your insurance card if you have orthodontic coverage</td>
+                    <td style={{ border: "1px solid #B3B3B5 ", padding: "8px", fontSize: "18px" }}>FSA/HSA dollars are accepted</td>
+                    <td style={{ border: "1px solid #B3B3B5 ", padding: "8px", fontSize: "18px" }}>Payment Plans</td>
+                  </tr>
+                </table>
+              </>
+
             </div>
-            <div className="md:w-1/2 flex justify-center items-center">
-              <img
-                className="opacity-90 "
-                src="../../images/freysmilecartoon.jpg"
-                alt="scan"
-                style={{ maxWidth: "80%", maxHeight: "80%" }}
-              />
-            </div>
+
           </div>
         </section>
       </div>
