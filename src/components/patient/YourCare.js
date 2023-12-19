@@ -6,6 +6,37 @@ import { Link } from "react-router-dom";
 AOS.init();
 
 const YourCare = () => {
+  const [backgroundColor, setBackgroundColor] = useState("transparent");
+  const [isScrolled, setIsScrolled] = useState(false);
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      const transitionStart = 40; 
+      const transitionEnd = 800; 
+
+
+      const scrollPercentage = (scrollPosition - transitionStart) / (transitionEnd - transitionStart);
+
+   
+      const startColor = [247, 239, 238];
+      const endColor = [204, 222, 206]; 
+
+      const interpolatedColor = startColor.map((start, i) => {
+        const end = endColor[i];
+        return Math.round(start + (end - start) * scrollPercentage);
+      });
+
+
+      setBackgroundColor(`rgb(${interpolatedColor.join(",")})`);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   const image = '../../images/wave.webp';
   <a href='https://pngtree.com/freepng/color-circle-time-flow-chart_5453938.html'></a>
 
@@ -37,7 +68,7 @@ const YourCare = () => {
   return (
     <>
       <div className="bg-F7EFEE pt-2">
-        <div >
+        <div className="" >
           <div className="mt-40 py-2 px-24 grid grid-cols-3 ">
             <div
               className="col-span-1 text-white ml-1 py-2 flex items-center"
@@ -144,7 +175,7 @@ const YourCare = () => {
             </div>
           </div>
         </div>
-        <section className="my-16  space-y-24">
+        <section style={{ minHeight: "200vh", backgroundColor }}>
 
           <div
             data-aos="fade-up"
@@ -153,17 +184,9 @@ const YourCare = () => {
             className=" rounded-tl-3xl rounded-tr-3xl rounded-bl-3xl rounded-br-md md:flex max-h-full px-12 pb-12 pt-20"
           >
             <div className="md:w-1/2 flex justify-center items-center relative">
-              <div style={{ position: 'relative' }}>
+            <div className={`your-care ${isScrolled ? "scrolled" : ""}`}>
                 <img
                   src={image}
-                  alt="Background"
-                  style={{
-                    position: 'relative',
-                    zIndex: 1,
-                    width: '100%',
-                    height: '100%',
-                    objectFit: 'cover',
-                  }}
                 />
                 <div
                   className="md:w-1/2 flex justify-center items-center"

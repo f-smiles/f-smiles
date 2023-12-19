@@ -3,6 +3,8 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRightIcon, ArrowLeftIcon } from "@heroicons/react/24/solid";
 
 const Option = ({ image, title, subtitle, active, onClick }) => {
+
+
   const [imageLoaded, setImageLoaded] = useState(false);
 
 
@@ -75,6 +77,26 @@ const Option = ({ image, title, subtitle, active, onClick }) => {
   );
 };
 const MembersSection = () => {
+  const [animate, setAnimate] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const section = document.getElementById("team-section");
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.offsetHeight;
+      const scrollPosition = window.scrollY;
+
+      if (scrollPosition >= sectionTop - window.innerHeight + sectionHeight / 2) {
+        setAnimate(true);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
 
 
   const handleNextMember = () => {
@@ -153,10 +175,19 @@ const MembersSection = () => {
   return (
 
     <div>
-      <h1 className="text-2xl font-light capitalize  lg:text-4xl dark:text-white text-center">
+  <div id="team-section">
+      <h1
+        className={`text-2xl font-light capitalize lg:text-4xl dark:text-white text-center ${
+          animate ? "animate-rise" : ""
+        }`}
+      >
         Our Team
       </h1>
-      <p className="mt-6 md:mt-8 text-center md:text-lg xl:text-xl xl:font-medium py-2 px-20">
+      <p
+        className={`mt-6 md:mt-8 text-center md:text-lg xl:text-xl xl:font-medium py-2 px-20 ${
+          animate ? "animate-rise" : ""
+        }`}
+      >
         Our members are X-ray certified, trained in CPR and first aid, and most
         of them have received the designation of Specialized Orthodontic
         Assistant{" "}
@@ -170,6 +201,8 @@ const MembersSection = () => {
         Association of Orthodontists to recognize those in the profession for
         their knowledge and experience.
       </p>
+
+    </div>
       
       <div>
 
@@ -178,7 +211,7 @@ const MembersSection = () => {
 
       <div className="flex flex-row justify-center items-center overflow-hidden h-screen transition-all">
       <div className="flex flex-col justify-center items-start w-1/5">
-        <div className="flex items-center w-full">
+        <div className="flex items-center w-full -mt-40">
   <button
     onClick={handlePrevMember}
     disabled={activeOption === 0}
@@ -198,7 +231,7 @@ const MembersSection = () => {
     <ArrowRightIcon className="z-0 w-5 h-5 text-primary50" />
   </button>
   </div>
-  <div>
+  <div className="mt-20">
     {activeOption !== null && optionsData[activeOption] ? (
       <>
         <div style={{ position: 'relative' }}>

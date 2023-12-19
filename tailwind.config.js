@@ -96,7 +96,8 @@ module.exports = {
        'C7AF97':"#C7AF97",
        'EAE8E1':"#EAE8E1",
        'F8F3F3':"#F8F3F3",
-       'B3B3B5 ':"#B3B3B5"
+       'B3B3B5 ':"#B3B3B5",
+       'D0C8C5 ':"#D0C8C5 ",
       },
     },
     fontFamily: {
