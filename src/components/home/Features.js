@@ -1,10 +1,14 @@
-import React, { useRef,  } from "react";
+import React, { useRef, useEffect, useState} from "react";
 import { Link } from "react-router-dom";
 import { useInView } from "framer-motion";
 import DotPattern from "../svg/DotPattern";
+import GrowCircle from "../svg/GrowCircle";
 import { motion, useScroll, useTransform } from "framer-motion";
 
+
 function Hero() {
+  const [scrollY, setScrollY] = useState(0);
+
   const charStyle = {
     position: "absolute",
     animation: "move 1500ms alternate forwards",
@@ -18,12 +22,20 @@ function Hero() {
   };
 
   let heroRef = useRef();
-  let { scrollYProgress } = useScroll({
-    target: heroRef,
-    offset: ["start start", "end start"],
-  });
-  let scrollY = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
 
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const scale = 1 + scrollY / 500;
+  
   return (
     
     <motion.section
@@ -32,6 +44,7 @@ function Hero() {
     id="hero-section"
     className=""
   >
+      
 
     <div className="relative px-8 isolate  lg:px-8">
       <div
@@ -44,28 +57,61 @@ function Hero() {
 
 <div className="relative mx-auto mt-32 lg:mt-0">
 <div className="flex items-center justify-center flex-wrap">
-<div className="absolute w-full -top-1/2 scale-110 -z-10">
-  <svg width="500" height="500" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ transform: 'rotate(180deg)' }}>
-    <g>
-      <path d="M0 0H100C155.228 0 200 44.7715 200 100V200H100C44.7715 200 0 155.228 0 100V0Z" fill="url(#paint0_linear_221_10)" />
-    </g>
-    <defs>
-      <linearGradient id="paint0_linear_221_10" x1="100" y1="0" x2="100" y2="200" gradientUnits="userSpaceOnUse">
-        <stop stop-color="#e1e5fa" />
-        <stop offset="1" stop-color="#fceeff" />
-      </linearGradient>
-      <clipPath id="clip0_221_10">
-        <rect width="200" height="200" fill="white" />
-      </clipPath>
-    </defs>
-  </svg>
+<div className="relative"> 
+  <div className="absolute w-full top-1/2 transform -translate-y-1/2 -z-10">
+
+  </div>
+  <div className="relative mx-auto mt-32 lg:mt-0">
+  <div className="flex items-center justify-center flex-wrap">
+    <div className="relative">
+   
+    <motion.div
+  className="box"
+  animate={{
+    scale: [1, 2, 1],
+  }}
+  transition={{
+    duration: 2,
+    ease: "easeInOut",
+    times: [0, 0.5, 1], 
+    repeat: Infinity, 
+    repeatDelay: 1,
+  }}
+  style={{
+    position: "fixed",
+    top: "50%",
+    left: "50%",
+    transform: `translate(-50%, -50%) scale(${scale})`,
+    zIndex: -1,
+    width: "100px",
+    height: "100px",
+    backgroundColor: "blue",
+    borderRadius: "50%",
+  }}
+/>
+
+
+      <div
+        className="font-HelveticaNowVar font-extralight text-white text-4xl"
+        style={{
+          whiteSpace: "nowrap",
+          textAlign: "center",
+          lineHeight: "1",
+          zIndex: 1, 
+        }}
+      >
+        <span style={{ fontSize: "4rem" }}>
+          Because <div className="italic inline">Every</div> Smile
+        </span>
+        <br />
+        <span style={{ fontSize: "4rem" }}>Is Unique</span>
+      </div>
+    </div>
+  </div>
+</div>
 
 </div>
 
-<div className="font-HelveticaNowVar font-extralight text-white text-4xl" style={{ whiteSpace: 'nowrap', textAlign: 'center', lineHeight: '1' }}>
-<span style={{ fontSize: '4rem' }}>Because <div className="italic" style={{ display: 'inline' }}>Every</div> Smile</span><br />
-<span style={{ fontSize: '4rem' }}>Is Unique</span>
-</div>
   
     <div className="-mt-18 flex items-center justify-start gap-x-6">
       <Link
@@ -145,9 +191,9 @@ export default function Features() {
   return (
     <>
       
-    <div class="snap-y snap-mandatory bg-gradient-to-r from-stone-100 via-stone-100 to-purple-200 h-screen overflow-scroll">
+    <div class=" bg-gradient-to-r from-stone-100 via-stone-100 to-purple-200 h-screen overflow-scroll">
  
-    <div class="snap-start flex items-center justify-center text-5xl">
+    <div class=" flex items-center justify-center text-5xl">
     <Section >
     <svg width="60" height="60" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg"> <path fill-rule="evenodd" clip-rule="evenodd" d="M200 150C200 94.7715 155.228 50 100 50C44.7715 50 0 94.7715 0 150H200Z" fill="url(#paint0_linear_105_460)"/> <defs> <linearGradient id="paint0_linear_105_460" x1="27.5" y1="59.5" x2="69.9415" y2="168.136" gradientUnits="userSpaceOnUse"> <stop stop-color="#FFD9A0"/> <stop offset="1" stop-color="#FFF5F1"/> </linearGradient> </defs> </svg>
     <img
@@ -160,7 +206,7 @@ export default function Features() {
         </Section>
    
         </div>
-<div className="snap-start bg-ddd9eb text-2xl">
+<div className=" bg-ddd9eb text-2xl">
   <div className="flex max-w-screen-xl mx-auto">
 
 
