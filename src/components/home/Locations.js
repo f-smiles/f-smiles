@@ -42,7 +42,7 @@ export default function Locations() {
         {/* left */}
         <div className="w-1/2 h-full px-12 py-12 space-y-4 overflow-auto md:px-6 md:py-6 md:w-1/2">
           <span id="locations-heading" className="flex items-baseline">
-            <h2 className="text-3xl  lg:text-4xl text-secondary50">
+            <h2 className="font-HelveticaNowVar font-thin text-3xl  lg:text-4xl text-secondary50">
               Our Locations
             </h2>
             <img
@@ -58,11 +58,11 @@ export default function Locations() {
             communities.
           </p>
           <Link
-            className="inline-block px-6 py-4 transition duration-300 ease-linear rounded-full underline-offset-8 text-primary95 bg-primary50 hover:bg-secondary50 group"
+            className="inline-block px-6 py-4 transition duration-300 ease-linear rounded-full underline-offset-8 text-primary95 bg-primary50 hover:bg-gray-600 group"
             to="/book-now"
           >
-            Schedule an evaluation today
-            <span className="block h-0.5 transition-all ease-linear duration-500 max-w-0 group-hover:max-w-full bg-secondary80 rounded-full"></span>
+            Schedule a consultation
+            <span className="block h-0.5 transition-all ease-linear duration-500 max-w-0 bg-secondary80 rounded-full"></span>
           </Link>
           {/* locations list */}
           <div className="flex flex-col space-y-4">

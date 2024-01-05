@@ -177,7 +177,7 @@ const MembersSection = () => {
     <div>
   <div id="team-section">
       <h1
-        className={`text-2xl font-light capitalize lg:text-4xl dark:text-white text-center ${
+        className={`font-HelveticaNowVar font-thin text-2xl font-light capitalize lg:text-4xl dark:text-white text-center ${
           animate ? "animate-rise" : ""
         }`}
       >

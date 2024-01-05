@@ -5,9 +5,14 @@ import { init } from "emailjs-com";
 import { Disclosure } from "@headlessui/react";
 import { ChevronUpIcon } from "@heroicons/react/20/solid";
 import classNames from 'classnames';
+import { gsap } from "gsap";
+
 init(process.env.REACT_APP_PUBLIC_KEY);
 
+
 const BookNow = () => {
+  
+  
   const [isFirstNameVisible, setIsFirstNameVisible] = useState(false);
   const [isLastNameVisible, setIsLastNameVisible] = useState(false);
   const [patient_name, setPatientName] = useState("");
@@ -162,25 +167,66 @@ const BookNow = () => {
     useEffect(() => {
       setShowForm(true);
     }, []);
+    
   return (
+    <>
+
+{/* <svg
+  className="w-128 h-128"
+  viewBox="0 0 100 100"
+  xmlns="http://www.w3.org/2000/svg"
+>
+
+  <path
+    d="M 50, 50
+      m -50, 0
+      a 50,50 0 0,1 100,0
+      l -50,0
+      z"
+    fill="#c8b4d6"
+  />
+  <path
+    id="curve"
+    d="M 50, 50
+      m -50, 0
+      a 50,50 0 1,1 100,0
+      a 50,50 0 1,1 -100,0"
+    fill="none"
+  />
+  <text dy="20" dx="16" letterSpacing="2.5" fill="white" fontFamily="Larken">
+    <textPath xlinkHref="#curve">
+      <tspan fontSize="8">Let's make it happen</tspan>
+    </textPath>
+  </text>
+
+</svg>; */}
+
+
+
+
+
 <main className={`pt-10 mt-20 ${showForm ? 'opacity-100 fadeIn' : 'opacity-0'}`}>
 
 
-      <div id="contact-form">
+
+
+
+      <div id=" contact-form">
         {emailSent ? (
           <span className={emailSent ? "block" : "hidden"}>
             Thank you for your message, we will be in touch soon!
           </span>
         ) : (
+          
           <form
             onSubmit={handleSubmit}
             className="flex flex-col max-w-screen-sm p-8 mx-auto space-y-12  rounded-xl"
           >
-            <div className="flex flex-col items-center">
-              
-              <div className="mt-10 mb-20 text-5xl text-center text-indigo-700" style={{letterSpacing:"px"}}>
-                Request Appointment
-              </div>
+            <div className=" flex flex-col items-center">
+
+
+            <svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg"> <g clip-path="url(#clip0_238_1184)"> <path fill-rule="evenodd" clip-rule="evenodd" d="M0.00242398 200C0.000809232 199.834 0 199.667 0 199.5C0 174.111 18.7366 153.097 43.1371 149.533C18.7701 146.188 0 125.286 0 100C0 72.3858 22.3858 50 50 50H50.5C22.7765 50 0.270718 27.6601 0.00242398 0H199.998C199.729 27.6601 177.224 50 149.5 50H150C177.614 50 200 72.3858 200 100C200 125.286 181.23 146.188 156.863 149.533C181.263 153.097 200 174.111 200 199.5C200 199.667 199.999 199.834 199.998 200H0.00242398Z" fill="url(#paint0_linear_238_1184)"/> </g> <defs> <linearGradient id="paint0_linear_238_1184" x1="177" y1="-9.23648e-06" x2="39.5" y2="152.5" gradientUnits="userSpaceOnUse"> <stop stop-color="#B0B9FF"/> <stop offset="1" stop-color="#E7E9FF"/> </linearGradient> <clipPath id="clip0_238_1184"> <rect width="200" height="200" fill="white"/> </clipPath> </defs> </svg>
+         
               <div className="flex w-full gap-2">
                 <div className="relative flex-1 w-1/2">
                   <input
@@ -428,6 +474,7 @@ const BookNow = () => {
         )}
       </div>
     </main>
+    </>
   );
 };
 

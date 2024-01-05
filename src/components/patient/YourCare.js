@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 AOS.init();
 
 const YourCare = () => {
+  
   const [backgroundColor, setBackgroundColor] = useState("transparent");
   const [isScrolled, setIsScrolled] = useState(false);
   useEffect(() => {
@@ -13,9 +14,8 @@ const YourCare = () => {
       const scrollPosition = window.scrollY;
       const transitionStart = 40; 
       const transitionEnd = 800; 
+      const scrollPercentage = Math.min(1, Math.max(0, (scrollPosition - transitionStart) / (transitionEnd - transitionStart)));
 
-
-      const scrollPercentage = (scrollPosition - transitionStart) / (transitionEnd - transitionStart);
 
    
       const startColor = [247, 239, 238];
@@ -83,7 +83,7 @@ const YourCare = () => {
 
 
             <div className="w-1/2 relative z-10 flex flex-col items-center">
-              <h1 className="font-HelveticaNowVar font-thin text-5xl text-center mt-12 mb-10">
+              <h1 className="font-HelveticaNowVar font-thin text-5xl text-center mt-12 mb-10 animation">
                 Getting Started
               </h1>
               <div className="flex justify-center">
@@ -280,9 +280,73 @@ const YourCare = () => {
                     <col style={{ width: "33%" }} />
                   </colgroup>
                   <tr>
-                    <td style={{ border: "1px solid #B3B3B5 ", padding: "8px", fontSize: "18px" }}> Please bring your insurance card if you have orthodontic coverage</td>
-                    <td style={{ border: "1px solid #B3B3B5 ", padding: "8px", fontSize: "18px" }}>FSA/HSA dollars are accepted</td>
-                    <td style={{ border: "1px solid #B3B3B5 ", padding: "8px", fontSize: "18px" }}>Payment Plans</td>
+                  <td style={{ border: "1px solid #B3B3B5", padding: "8px", fontSize: "18px", textAlign: "center" }}>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    className="icon icon-tabler icon-tabler-shield-plus"
+    width="48"
+    height="48"
+    viewBox="0 0 24 24"
+    strokeWidth=".5" 
+    stroke="currentColor"
+    fill="none"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    style={{ display: "block", margin: "0 auto" }}
+  >
+    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+    <path d="M12.462 20.87c-.153 .047 -.307 .09 -.462 .13a12 12 0 0 1 -8.5 -15a12 12 0 0 0 8.5 -3a12 12 0 0 0 8.5 3a12 12 0 0 1 .11 6.37" />
+    <path d="M16 19h6" />
+    <path d="M19 16v6" />
+  </svg>
+  <div style={{ paddingTop: "10px" }}>Please bring your insurance card if you have orthodontic coverage</div>
+</td>
+<td style={{ border: "1px solid #B3B3B5", padding: "8px", fontSize: "18px", textAlign: "center" }}>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    className="icon icon-tabler icon-tabler-discount-check"
+    width="48" 
+    height="48" 
+    viewBox="0 0 24 24"
+    strokeWidth=".5" 
+    stroke="currentColor"
+    fill="none"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    style={{ display: "block", margin: "0 auto" }}
+  >
+    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+    <path d="M5 7.2a2.2 2.2 0 0 1 2.2 -2.2h1a2.2 2.2 0 0 0 1.55 -.64l.7 -.7a2.2 2.2 0 0 1 3.12 0l.7 .7c.412 .41 .97 .64 1.55 .64h1a2.2 2.2 0 0 1 2.2 2.2v1c0 .58 .23 1.138 .64 1.55l.7 .7a2.2 2.2 0 0 1 0 3.12l-.7 .7a2.2 2.2 0 0 0 -.64 1.55v1a2.2 2.2 0 0 1 -2.2 2.2h-1a2.2 2.2 0 0 0 -1.55 .64l-.7 .7a2.2 2.2 0 0 1 -3.12 0l-.7 -.7a2.2 2.2 0 0 0 -1.55 -.64h-1a2.2 2.2 0 0 1 -2.2 -2.2v-1a2.2 2.2 0 0 0 -.64 -1.55l-.7 -.7a2.2 2.2 0 0 1 0 -3.12l.7 -.7a2.2 2.2 0 0 0 .64 -1.55v-1" />
+    <path d="M9 12l2 2l4 -4" />
+  </svg>
+  FSA/HSA dollars are accepted
+</td>
+
+<td style={{ border: "1px solid #B3B3B5", padding: "8px", fontSize: "18px", textAlign: "center" }}>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    className="option check"
+    width="48"
+    height="48"
+    viewBox="0 0 24 24"
+    strokeWidth=".5"
+    stroke="currentColor"
+    fill="none"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    style={{ display: "block", margin: "0 auto" }}
+  >
+    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+    <path d="M3.5 5.5l1.5 1.5l2.5 -2.5" />
+    <path d="M3.5 11.5l1.5 1.5l2.5 -2.5" />
+    <path d="M3.5 17.5l1.5 1.5l2.5 -2.5" />
+    <path d="M11 6l9 0" />
+    <path d="M11 12l9 0" />
+    <path d="M11 18l9 0" />
+  </svg>
+  <div style={{ marginTop: "5px" }}>Payment Plans</div>
+</td>
+
                   </tr>
                 </table>
               </>

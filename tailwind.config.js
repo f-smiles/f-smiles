@@ -15,6 +15,7 @@ module.exports = {
         'source-neutral-dark': "#262626",
         'purplelil':"#E9E9F3",
         'lightblue':"#daf0ff",
+        'a9c7bc':"#a9c7bc",
         // 'source-tertiary': "#339966",
 
         'primary0': '#000000',
@@ -110,6 +111,7 @@ module.exports = {
       'euclidRegular': ['EuclidCircularARegular', 'sans-serif'],
       'euclidSemibold': ['EuclidCircularASemibold', 'sans-serif'],
       'HelveticaNowVar': ['HelveticaNowVar', 'sans-serif'],
+      'HelveticaNowPro':['HelveticaNowPro', 'sans-serif'],
     },
     animation: {
       blob: "blob 7s infinite",

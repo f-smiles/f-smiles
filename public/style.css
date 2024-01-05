@@ -435,3 +435,31 @@ text {
     background-image: linear-gradient(#f7faff 0%, #f0fff4 50%, #fffee2 100%);
   }
 }
+
+@keyframes slideLeft {
+  from {
+    opacity: 0;
+    transform: translateX(200px);
+  } 
+  to {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+}
+
+.animation {
+  text-align: center;
+
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 50px;
+  letter-spacing: 1px;
+  color: #333;
+}
+
+.animation span {
+  display: inline-block;
+  animation: slideLeft 1.5s forwards;
+  opacity: 0;
+  transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+

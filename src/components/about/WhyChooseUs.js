@@ -349,7 +349,7 @@ export default function WhyChooseUs() {
 
 <section className="bg-white">
         <table
-          className="mx-auto"
+          className="mx-auto font-HelveticaNowVar font-thin"
           style={{ width: "100%", borderCollapse: "collapse" }}
         >
           <tbody>
@@ -386,7 +386,7 @@ export default function WhyChooseUs() {
                   fontSize: "20px",
                 }}
               >
-                OTHER OFFICES
+                Other Offices
               </td>
             </tr>
             <tr>
