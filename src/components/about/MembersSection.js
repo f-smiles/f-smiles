@@ -1,7 +1,11 @@
 import React, { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRightIcon, ArrowLeftIcon } from "@heroicons/react/24/solid";
-
+import { gsap } from "gsap-trial";
+import { ScrollSmoother } from "gsap-trial/ScrollSmoother";
+import { ScrollTrigger } from "gsap-trial/ScrollTrigger";
+import { SplitText } from "gsap-trial/all";
+gsap.registerPlugin(ScrollSmoother, ScrollTrigger, SplitText);
 const Option = ({ image, title, subtitle, active, onClick }) => {
 
 
@@ -14,6 +18,7 @@ const Option = ({ image, title, subtitle, active, onClick }) => {
 
 
   const optionStyle = {
+    filter: active ? "none" : "grayscale(100%)", 
     backgroundImage: `url(${image})`,
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
@@ -40,7 +45,7 @@ const Option = ({ image, title, subtitle, active, onClick }) => {
   return (
 
     <motion.div
-      className={`option ${active ? "active" : ""} overflow-hidden cursor-pointer transition-all`}
+      className={`option ${active ? "active" : ""} cursor-pointer transition-all`}
       style={optionStyle}
       onClick={onClick}
     // animate={{
@@ -77,7 +82,6 @@ const Option = ({ image, title, subtitle, active, onClick }) => {
   );
 };
 const MembersSection = () => {
-  const [animate, setAnimate] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -171,106 +175,153 @@ const MembersSection = () => {
   useEffect(() => {
     handleOptionClick(0);
   }, []);
+  const smootherRef = useRef(null);
+  const textRef = useRef(null);
+  const [animate, setAnimate] = useState(false);
 
+  useEffect(() => {
+    const smoother = ScrollSmoother.create({
+      content: smootherRef.current,
+      smooth: 3,
+      normalizeScroll: true,
+      ignoreMobileResize: true,
+      effects: true,
+    });
+  
+    smoother.effects("img", { speed: "auto" });
+  
+    const heading = textRef.current;
+    const mySplitText = new SplitText(heading, { type: "chars" });
+    const chars = mySplitText.chars;
+  
+    chars.forEach((char, i) => {
+      smoother.effects(char, { lag: (i + 2) * 0.1, speed: 1 });
+    });
+  
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: heading,
+        start: 'top 20%',
+        end: 'bottom 10%',
+        scrub: 2,
+        markers: false,
+        toggleActions: 'play none play reset'
+      }
+    });
+  
+    const itemSplitted = new SplitText(heading, { type: 'lines' });
+    tl.from(itemSplitted.lines, { y: 100, opacity: 0, stagger: 0.05, duration: 0.5, ease: 'back.inOut' });
+  
+    return () => {
+
+    };
+  }, []);
+  
   return (
-
-    <div>
-  <div id="team-section">
-      <h1
-        className={`font-HelveticaNowVar font-thin text-2xl font-light capitalize lg:text-4xl dark:text-white text-center ${
-          animate ? "animate-rise" : ""
-        }`}
-      >
-        Our Team
-      </h1>
-      <p
-        className={`mt-6 md:mt-8 text-center md:text-lg xl:text-xl xl:font-medium py-2 px-20 ${
-          animate ? "animate-rise" : ""
-        }`}
-      >
-        Our members are X-ray certified, trained in CPR and first aid, and most
-        of them have received the designation of Specialized Orthodontic
-        Assistant{" "}
-        <a
-          className="underline transition duration-200 underline-offset-4 text-secondary40 hover:text-secondary50"
-          href="https://www.trapezio.com/training-resources/course-outlines/soa-prep-course-outline/"
-        >
-          (SOA)
-        </a>
-        . This is a voluntary certification program started by the American
-        Association of Orthodontists to recognize those in the profession for
-        their knowledge and experience.
-      </p>
-
-    </div>
-      
-      <div>
-
-
-    
-
-      <div className="flex flex-row justify-center items-center overflow-hidden h-screen transition-all">
-      <div className="flex flex-col justify-center items-start w-1/5">
-        <div className="flex items-center w-full -mt-40">
-  <button
-    onClick={handlePrevMember}
-    disabled={activeOption === 0}
-    className="p-2 transition duration-300 ease-in-out border-2 rounded-full hover:border-black hover:cursor-pointer"
-    style={{ display: 'flex', alignItems: 'center' }}
-  >
-    <ArrowLeftIcon className="z-0 w-5 h-5 text-primary50" />
-  </button>
-  <span className="mx-4">{(activeOption + 1).toString().padStart(2, '0')} - {optionsData.length}</span>
-
-  <button
-    onClick={handleNextMember}
-    disabled={activeOption === optionsData.length - 1}
-    className="p-2 transition duration-300 ease-in-out border-2 rounded-full hover:border-black hover:cursor-pointer"
-    style={{ display: 'flex', alignItems: 'center' }}
-  >
-    <ArrowRightIcon className="z-0 w-5 h-5 text-primary50" />
-  </button>
-  </div>
-  <div className="mt-20">
-    {activeOption !== null && optionsData[activeOption] ? (
-      <>
-        <div style={{ position: 'relative' }}>
-          <div
-            className="text-2xl"
-            style={{
-              borderBottom: '1px solid black',
-              paddingBottom: '5px', 
-            }}
+    <div className="relative ">
+      <div className="absolute inset-0 w-full h-full" ref={smootherRef} 
+      id="team-section">
+        <div className="my-24 text-center">
+          <h1
+            ref={textRef}
+            className="js-splittext-lines text-2xl font-bold text-center"
           >
-            {optionsData[activeOption].title}
-          </div>
-          <div style={{ paddingTop: '10px' }}>{optionsData[activeOption].subtitle}</div>
+            Split by <span className="text-pink-500">LINES:</span>        Our members are X-ray certified, trained in CPR and first aid, and most of them have
+          received the designation of Specialized Orthodontic Assistant{" "}
+          <a
+            className="text-6xl  underline transition duration-200 underline-offset-4 text-secondary40 hover:text-secondary50"
+            href="https://www.trapezio.com/training-resources/course-outlines/soa-prep-course-outline/"
+          >
+            (SOA)
+          </a>
+          . This is a voluntary certification program started by the American Association of
+          Orthodontists to recognize those in the profession for their knowledge and experience.
+          </h1>
         </div>
-      </>
-    ) : (
-      ""
-    )}
-  </div>
-</div>
+       
+        {/*  
+  <div className=" my-24 text-center" ref={smootherRef}>
+        <h1 className="text-6xl font-bold text-center js-splittext-lines" ref={textRef}>
+         
+        </h1>
+        <p className="text-6xl  mt-6 md:mt-8 text-center md:text-lg tex py-2 px-20">
+          Our members are X-ray certified, trained in CPR and first aid, and most of them have
+          received the designation of Specialized Orthodontic Assistant{" "}
+          <a
+            className="text-6xl  underline transition duration-200 underline-offset-4 text-secondary40 hover:text-secondary50"
+            href="https://www.trapezio.com/training-resources/course-outlines/soa-prep-course-outline/"
+          >
+            (SOA)
+          </a>
+          . This is a voluntary certification program started by the American Association of
+          Orthodontists to recognize those in the profession for their knowledge and experience.
+        </p>
+      </div> */}
+      </div>
+      <div>
+        <div className="font-HelveticaNowPro  tracking-tight tracking-tighter flex flex-row justify-center items-center overflow-hidden h-screen transition-all">
+          <div className="flex flex-col justify-center items-start w-1/5">
+            <div className=" flex items-center w-full -mt-40">
+              <button
+                onClick={handlePrevMember}
+                disabled={activeOption === 0}
+                className="p-2 transition duration-300 ease-in-out border-2 rounded-full hover:border-black hover:cursor-pointer"
+                style={{ display: "flex", alignItems: "center" }}
+              >
+                <ArrowLeftIcon className="z-0 w-5 h-5 text-primary50" />
+              </button>
+              <span className="mx-4">
+                {(activeOption + 1).toString().padStart(2, "0")} -{" "}
+                {optionsData.length}
+              </span>
 
+              <button
+                onClick={handleNextMember}
+                disabled={activeOption === optionsData.length - 1}
+                className="p-2 transition duration-300 ease-in-out border-2 rounded-full hover:border-black hover:cursor-pointer"
+                style={{ display: "flex", alignItems: "center" }}
+              >
+                <ArrowRightIcon className="z-0 w-5 h-5 text-primary50" />
+              </button>
+            </div>
+            <div className="mt-20">
+              {activeOption !== null && optionsData[activeOption] ? (
+                <>
+                  <div style={{ position: "relative" }}>
+                    <div
+                      className="text-2xl"
+                      style={{
+                        borderBottom: "1px solid black",
+                        paddingBottom: "5px",
+                      }}
+                    >
+                      {optionsData[activeOption].title}
+                    </div>
+                    <div style={{ paddingTop: "10px" }}>
+                      {optionsData[activeOption].subtitle}
+                    </div>
+                  </div>
+                </>
+              ) : (
+                ""
+              )}
+            </div>
+          </div>
 
-        <div className="w-3/5 h-400 flex">
-          {optionsData.map((option, index) => (
-            <Option
-              key={index}
-              image={option.image}
-              active={index === activeOption}
-              onClick={() => handleOptionClick(index)}
-            />
-          ))}
+          <div className="w-3/5 h-400 flex">
+            {optionsData.map((option, index) => (
+              <Option
+                key={index}
+                image={option.image}
+                active={index === activeOption}
+                onClick={() => handleOptionClick(index)}
+              />
+            ))}
+          </div>
         </div>
       </div>
-    </div>
-    
-
    
     </div>
-
   );
 };
 export default MembersSection;

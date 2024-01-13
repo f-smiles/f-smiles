@@ -1,7 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { ArrowRightIcon, ArrowLeftIcon } from "@heroicons/react/24/solid";
 
+
+
+
 export default function DoctorsSection() {
+
+
+
   const [index, setIndex] = useState(1);
   const [switchDoctor, setSwitchDoctor] = useState(false);
   const [showParagraph, setShowParagraph] = useState(false);
@@ -20,7 +26,7 @@ export default function DoctorsSection() {
   }, [switchDoctor]);
 
   return (
-    <div className=" px-6 py-10 mx-auto">
+    <div className=" font-HelveticaNowPro font-thin tracking-tight tracking-tighter px-6 py-10 mx-auto">
       <div className="xl:flex xl:items-start xl:-mx-4">
         <div className="xl:w-1/2 xl:mx-4">
           <h1 className="font-HelveticaNowPro font-thin tracking-tight tracking-tighter text-2xl  capitalize  lg:text-4xl dark:text-white">
@@ -84,14 +90,15 @@ export default function DoctorsSection() {
               />
             </figure>
             <figcaption>
-              <div className="text-xl text-gray-700 ">
-                {!switchDoctor ? "Dr. Gregg Frey" : "Dr. Daniel Frey"}
-              </div>
+  <div className="text-xl text-gray-700 font-HelveticaNowPro font-thin tracking-tight tracking-tighter ">
+    {!switchDoctor ? "Dr. Gregg Frey" : "Dr. Daniel Frey"}
+  </div>
 
-              <p className="mt-2 text-gray-500 capitalize dark:text-gray-300">
-                {!switchDoctor ? "DDS" : "DMD, MSD"}
-              </p>
-            </figcaption>
+  <p className="mt-2 text-gray-500 capitalize dark:text-gray-300 font-HelveticaNowPro">
+    {!switchDoctor ? "DDS" : "DMD, MSD"}
+  </p>
+</figcaption>
+
           </div>
 
           <div className="hidden mt-3 md:block">

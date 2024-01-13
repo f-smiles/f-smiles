@@ -311,3 +311,12 @@
 .fadeIn {
   animation: fadeIn 2s ease-in-out;
 }
+
+.ScrollSmoother-wrapper{
+  position:relative !important;
+  display: block !important;
+  width: 100%;
+  height:100%;
+  /* border:2px dashed black; */
+  min-height: 100vh;
+}
