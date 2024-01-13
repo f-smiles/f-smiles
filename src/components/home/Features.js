@@ -9,41 +9,57 @@ function Hero() {
   const scale = useTransform(scrollYProgress, [0.5, 1], [10, 40]);
   const ref = useRef(null);
   const isInView = useInView(ref);
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrolled = window.scrollY;
-      const rock1 = ref.current.querySelector('.rock-1');
-      const rock2 = ref.current.querySelector('.rock-2');
-      const rock3 = ref.current.querySelector('.rock-3');
-      const rock4 = ref.current.querySelector('.rock-4');
-      const rock5 = ref.current.querySelector('.rock-5');
-      const rock6 = ref.current.querySelector('.rock-6');
+  
 
-      if (rock1 && rock2 && rock3 && rock4 && rock5 && rock6) {
-        rock1.style.top = `${200 - scrolled * 0.2}px`;
-        rock2.style.top = `${100 - scrolled * 0.2}px`;
-        rock3.style.top = `${300 - scrolled * 0.2}px`;
-        rock4.style.top = `${400 - scrolled * 0.3}px`;
-        rock5.style.top = `${400 - scrolled * 0.5}px`;
-        rock6.style.top = `${200 - scrolled * 0.1}px`;
+  const aligner1Ref = useRef(null);
+  const aligner2Ref = useRef(null);
+  const aligner3Ref = useRef(null);
+  const aligner4Ref = useRef(null);
+  const aligner5Ref = useRef(null);
+  const aligner6Ref = useRef(null);
+
+  useEffect(() => {
+    const parallaxScroll = () => {
+      
+      const scrolled = window.scrollY;
+console.log(scrolled)
+      if (aligner1Ref.current) {
+        aligner1Ref.current.style.top = `${400 - scrolled * 0.3}px`;
+      }
+      if (aligner2Ref.current) {
+        aligner2Ref.current.style.top = `${200 - scrolled * 0.4}px`;
+      }
+      if (aligner3Ref.current) {
+        aligner3Ref.current.style.top = `${500 - scrolled * 0.3}px`;
+      }
+      if (aligner4Ref.current) {
+        aligner4Ref.current.style.top = `${600 - scrolled * 0.6}px`;
+      }
+      if (aligner5Ref.current) {
+        aligner5Ref.current.style.top = `${600 - scrolled * 1}px`;
+      }
+      if (aligner6Ref.current) {
+        aligner6Ref.current.style.top = `${400 - scrolled * 0.2}px`;
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', parallaxScroll);
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('scroll', parallaxScroll);
     };
   }, []);
 
+
   return (
-    <motion.section>
-           <div className="container border border-black relative flex">
-     
-          <img
-          className="rock-1 rocks absolute"
+    <motion.section className="relative">
+<motion.div ref={ref} className="min-h-screen">
+      <div className="container relative flex" style={{ overflow: 'hidden' }}>
+        <img
+          ref={aligner1Ref}
+          className="aligner-1 absolute"
           src="/images/invisalign.svg"
-          alt="rock"
+          alt="aligner"
           style={{
             width: '100px',
             height: '100px',
@@ -52,9 +68,10 @@ function Hero() {
           }}
         />
         <img
-          className="rock-2 rocks absolute"
+          ref={aligner2Ref}
+          className="aligner-2 absolute"
           src="/images/invisalignleft.svg"
-          alt="rock"
+          alt="aligner"
           style={{
             width: '120px',
             height: '120px',
@@ -62,22 +79,23 @@ function Hero() {
             top: '30%',
           }}
         />
-         <img
-          className="rock-3 rocks absolute"
+        <img
+          ref={aligner3Ref}
+          className="aligner-3 absolute"
           src="/images/aligner4.png"
-          alt="rock"
+          alt="aligner"
           style={{
-       
             width: '200px',
             height: 'auto',
             left: '10%',
             bottom: '20%',
           }}
         />
-           <img
-          className="rock-4 rocks absolute"
+        <img
+          ref={aligner4Ref}
+          className="aligner-4 absolute"
           src="/images/invisalign-tray.png"
-          alt="rock"
+          alt="aligner"
           style={{
             width: '140px',
             height: 'auto',
@@ -85,10 +103,11 @@ function Hero() {
             left: '31%',
           }}
         />
-                 <img
-          className="rock-5 rocks absolute"
+        <img
+          ref={aligner5Ref}
+          className="aligner-5 absolute"
           src="/images/clearalign.png"
-          alt="rock"
+          alt="aligne"
           style={{
             width: '140px',
             height: 'auto',
@@ -96,10 +115,11 @@ function Hero() {
             left: '5%',
           }}
         />
-                <img
-          className="rock-6 rocks absolute"
+        <img
+          ref={aligner6Ref}
+          className="aligner-6 absolute"
           src="/images/alignersilver.png"
-          alt="rock"
+          alt="aligner"
           style={{
             width: '180px',
             height: 'auto',
@@ -107,21 +127,14 @@ function Hero() {
             left: '20%',
           }}
         />
-        <div className="content w-1/2 p-10">
-          <div className="text">
-  <p className="w-full max-w-md">
-                  As part of the top 1% of Invisalign providers in the US, we
-                  have the experience to deliver the smile you deserve.
-                </p>
-          </div>
-        </div>
       </div>
+    </motion.div>
       <div className="relative px-8 isolate  lg:px-8">
-        <div
+        {/* <div
           id="gradients"
 
           aria-hidden="true"
-        ></div>
+        ></div> */}
         <div className="grid max-w-screen-xl grid-cols-1 py-32 mx-auto sm:py-48 lg:py-56 place-items-center lg:grid-cols-2">
           <div
             className="relative mx-auto mt-32 lg:mt-0 text-container"
@@ -136,7 +149,7 @@ function Hero() {
                       <div className="relative mx-auto my-32 max-w-7xl">
                 
                         <div className=" absolute w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
-                          <motion.div
+                          {/* <motion.div
           ref={ref}
                             className="bg-no-repeat bg-contain bg-center -z-10 h-32 w-32 overflow-hidden rounded-full"
                             style={{
@@ -152,7 +165,7 @@ function Hero() {
                             }}
                           >
 
-                          </motion.div>
+                          </motion.div> */}
                         </div>
                         <section style={{ position: "relative", zIndex: 1 }}>
                           <h4>
@@ -215,11 +228,11 @@ function Hero() {
           </motion.div>
         </div>
 
-        <div
+        {/* <div
           id="gradients"
           className="absolute inset-x-0 top-[calc(100%-23rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-40rem)]"
           aria-hidden="true"
-        ></div>
+        ></div> */}
       </div>
       
     </motion.section>
@@ -237,7 +250,7 @@ function Section({ children, color, zIndex, position }) {
       ref={ref}
       className="relative flex flex-col items-center justify-center min-h-screen text-primary95"
       style={{
-        backgroundColor: color,
+        // backgroundColor: color,
         transform: isInView ? "translateY(-10)" : "translateY(100px)",
         transition: "transform 0.5s ease-in-out",
         zIndex: zIndex,
@@ -252,7 +265,7 @@ function Section({ children, color, zIndex, position }) {
 export default function Features() {
   return (
     <>
-      <div className="h-screen overflow-scroll">
+      <div className="min-h-screen ">
         <div class=" flex items-center justify-center text-5xl">
           <Section>
             <svg

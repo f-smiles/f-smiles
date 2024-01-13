@@ -421,7 +421,7 @@ text {
 }
 .container {
   min-height: 100vh;
-  animation: changeBackgroundColor 5s infinite alternate;
+  /* animation: changeBackgroundColor 5s infinite alternate; */
 }
 
 @keyframes changeBackgroundColor {
