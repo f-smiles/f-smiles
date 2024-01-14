@@ -7,11 +7,9 @@ import { motion, useScroll, useTransform } from "framer-motion";
 function Hero() {
   const { scrollYProgress } = useScroll();
   const scale = useTransform(scrollYProgress, [0.5, 1], [10, 40]);
-  
 
   return (
     <motion.section className="relative">
-
       <div className="relative px-8 isolate  lg:px-8">
         {/* <div
           id="gradients"
@@ -30,7 +28,6 @@ function Hero() {
                   <div className="flex items-center justify-center flex-wrap">
                     <div className="relative">
                       <div className="relative mx-auto my-32 max-w-7xl">
-                
                         <div className=" absolute w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
                           {/* <motion.div
           ref={ref}
@@ -50,7 +47,7 @@ function Hero() {
 
                           </motion.div> */}
                         </div>
-                        <section style={{ position: "relative", zIndex: 1 }}>
+                        <section      className="font-HelveticaNowPro font-thin tracking-tight tracking-tighter" style={{ position: "relative", zIndex: 1 }}>
                           <h4>
                             <div>
                               <span
@@ -117,7 +114,6 @@ function Hero() {
           aria-hidden="true"
         ></div> */}
       </div>
-      
     </motion.section>
   );
 }
@@ -146,6 +142,26 @@ function Section({ children, color, zIndex, position }) {
 }
 
 export default function Features() {
+  const invisRef = useRef();
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("rise");
+          } else {
+            entry.target.classList.remove("rise");
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    observer.observe(invisRef.current);
+
+    return () => observer.disconnect();
+  }, []);
+
   const ref = useRef(null);
   const aligner1Ref = useRef(null);
   const aligner2Ref = useRef(null);
@@ -156,7 +172,6 @@ export default function Features() {
 
   useEffect(() => {
     const parallaxScroll = () => {
-      
       const scrolled = window.scrollY;
 
       if (aligner1Ref.current) {
@@ -172,17 +187,17 @@ export default function Features() {
         aligner4Ref.current.style.top = `${600 - scrolled * 0.6}px`;
       }
       if (aligner5Ref.current) {
-        aligner5Ref.current.style.top = `${600 - scrolled * .4}px`;
+        aligner5Ref.current.style.top = `${600 - scrolled * 0.4}px`;
       }
       if (aligner6Ref.current) {
         aligner6Ref.current.style.top = `${400 - scrolled * 0.2}px`;
       }
     };
 
-    window.addEventListener('scroll', parallaxScroll);
+    window.addEventListener("scroll", parallaxScroll);
 
     return () => {
-      window.removeEventListener('scroll', parallaxScroll);
+      window.removeEventListener("scroll", parallaxScroll);
     };
   }, []);
 
@@ -232,91 +247,114 @@ export default function Features() {
         </div>
         <div className="text-2xl">
           <div className="relative">
-
-            <div className=" flex" style={{
-    backgroundImage: `url(${process.env.PUBLIC_URL}/images/greypink.jpg)`,
-    backgroundRepeat: 'no-repeat',
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-  }}>
+            <div
+              className=" flex"
+              style={{
+                backgroundImage: `url(${process.env.PUBLIC_URL}/images/greypink.jpg)`,
+                backgroundRepeat: "no-repeat",
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
+            >
               <div className="w-1/3">
-            <motion.div ref={ref} className="min-h-screen">
-      <div className="container relative flex" style={{ overflow: 'hidden' }}>
-        <img
-          ref={aligner1Ref}
-          className="aligner-1 absolute"
-          src="/images/invisalign.svg"
-          alt="aligner"
-          style={{
-            width: '100px',
-            height: '100px',
-            left: '10%',
-            top: '50%',
-          }}
-        />
-        <img
-          ref={aligner2Ref}
-          className="aligner-2 absolute"
-          src="/images/invisalignleft.svg"
-          alt="aligner"
-          style={{
-            width: '120px',
-            height: '120px',
-            left: '20%',
-            top: '10%',
-          }}
-        />
-        <img
-          ref={aligner3Ref}
-          className="aligner-3 absolute"
-          src="/images/aligner4.png"
-          alt="aligner"
-          style={{
-            width: '200px',
-            height: 'auto',
-            left: '10%',
-            bottom: '20%',
-          }}
-        />
-        <img
-          ref={aligner4Ref}
-          className="aligner-4 absolute"
-          src="/images/invisalign-tray.png"
-          alt="aligner"
-          style={{
-            width: '140px',
-            height: 'auto',
-            bottom: '0%',
-            left: '31%',
-          }}
-        />
-        <img
-          ref={aligner5Ref}
-          className="aligner-5 absolute"
-          src="/images/clearalign.png"
-          alt="aligne"
-          style={{
-            width: '140px',
-            height: 'auto',
-            bottom: '20%',
-            left: '5%',
-          }}
-        />
-        <img
-          ref={aligner6Ref}
-          className="aligner-6 absolute"
-          src="/images/alignersilver.png"
-          alt="aligner"
-          style={{
-            width: '180px',
-            height: 'auto',
-            bottom: '10%',
-            left: '20%',
-          }}
-        />
-      </div>
-    </motion.div>
+                <motion.div ref={ref} className="min-h-screen">
+                  <div
+                    className="container relative flex"
+                    style={{ overflow: "hidden" }}
+                  >
+                    <img
+                      ref={aligner1Ref}
+                      className="aligner-1 absolute"
+                      src="/images/invisalign.svg"
+                      alt="aligner"
+                      style={{
+                        width: "100px",
+                        height: "100px",
+                        left: "10%",
+                        top: "50%",
+                      }}
+                    />
+                    <img
+                      ref={aligner2Ref}
+                      className="aligner-2 absolute"
+                      src="/images/invisalignleft.svg"
+                      alt="aligner"
+                      style={{
+                        width: "120px",
+                        height: "120px",
+                        left: "20%",
+                        top: "10%",
+                      }}
+                    />
+                    <img
+                      ref={aligner3Ref}
+                      className="aligner-3 absolute"
+                      src="/images/aligner4.png"
+                      alt="aligner"
+                      style={{
+                        width: "200px",
+                        height: "auto",
+                        left: "10%",
+                        bottom: "20%",
+                      }}
+                    />
+                    <img
+                      ref={aligner4Ref}
+                      className="aligner-4 absolute"
+                      src="/images/invisalign-tray.png"
+                      alt="aligner"
+                      style={{
+                        width: "140px",
+                        height: "auto",
+                        bottom: "0%",
+                        left: "31%",
+                      }}
+                    />
+                    <img
+                      ref={aligner5Ref}
+                      className="aligner-5 absolute"
+                      src="/images/clearalign.png"
+                      alt="aligne"
+                      style={{
+                        width: "140px",
+                        height: "auto",
+                        bottom: "20%",
+                        left: "5%",
+                      }}
+                    />
+                    <img
+                      ref={aligner6Ref}
+                      className="aligner-6 absolute"
+                      src="/images/alignersilver.png"
+                      alt="aligner"
+                      style={{
+                        width: "180px",
+                        height: "auto",
+                        bottom: "10%",
+                        left: "20%",
+                      }}
+                    />
+                  </div>
+                  <div className="mt-4 ">
+                    <Link
+                      className="inline-block px-6 py-4 transition-colors duration-300 ease-linear border rounded-lg  hover:bg-gray-800 hover:border-0 hover:text-white"
+                      to="/invisalign"
+                    >
+                      Explore
+                    </Link>
+                  </div>
+                  <div className="relative">
+      <button className="exampleBtn relative overflow-hidden">
+        <span className="main-text block transition-transform duration-500 ease-in-out">
+          Main Text
+        </span>
+        <span className="hover-text absolute top-0 left-0 w-full h-full transition-transform duration-500 ease-in-out transform translate-y-full opacity-0 group-hover:opacity-100">
+          Hover Text
+        </span>
+      </button>
     </div>
+                </motion.div>
+              </div>
               {/* <figure className="absolute inset-0 -top-1/8">
                 <img
                   className="object-contain w-full h-full"
@@ -324,7 +362,7 @@ export default function Features() {
                   alt="invisalign"
                 />
               </figure> */}
-                 <DotPattern
+              <DotPattern
                 style={{
                   WebkitTransform: "scaleX(-1)",
                   transform: "scaleX(-1)",
@@ -334,46 +372,47 @@ export default function Features() {
                   transform: "translate(-50%, -50%)",
                 }}
               />
-                   
-            <div className="flex w-1/3  justify-center items-center w-1/3">
-            <span
-        className="text-9xl  transform -rotate-90 rise"
-        style={{
-          fontFamily: 'Rubik, sans-serif',
-          fontWeight: '600',
-          WebkitTextStroke: '1px #666',
-          color: 'transparent',
-          margin: '-1.9vw',
-          cursor: 'pointer',
-        }}
-      >
-        Invisalign
-      </span>
-            </div>
 
-            <div className="flex flex-col justify-center w-1/3">
-              <div className="text-black text-2xl text-center">
-                <p className="font-HelveticaNowPro  tracking-tight tracking-tighter w-full max-w-md">
-                  As part of the top 1% of Invisalign providers in the US, we
-                  have the experience to deliver the smile you deserve.
-                </p>
-        
-                <div className="mt-4 ">
-                <Link
-                  className="inline-block px-6 py-4 transition-colors duration-300 ease-linear border rounded-lg  hover:bg-gray-800 hover:border-0 hover:text-white"
-                  to="/invisalign"
+              <div className="flex w-1/3  justify-center items-center w-1/3">
+                <span
+                  ref={invisRef}
+                  className="text-9xl transform -rotate-90 rise"
+                  style={{
+                    fontFamily: "Rubik, sans-serif",
+                    fontWeight: "600",
+                    WebkitTextStroke: "1px #666",
+                    color: "transparent",
+                    margin: "-1.9vw",
+                    cursor: "pointer",
+                  }}
                 >
-                  Explore
-                </Link>
+                  Invisalign
+                </span>
               </div>
-        
+
+              <div className="flex flex-col justify-center w-1/3">
+                <div className="text-black text-center relative">
+                  <img
+                    className="w-auto h-32 md:h-40 absolute transform -translate-x-1/2 -translate-y-1/2"
+                    src="../images/ellipse.svg"
+                    alt="invis"
+                    style={{ transform: "rotate(230deg)", marginLeft: "40px" }}
+                  />
+              <h1
+  className="text-5xl font-thin w-64 text-center mx-auto leading-tight"
+  style={{
+    marginTop: '-80px',
+  }}
+>
+  Top 1% of Invisalign providers.<br />Experience matters.
+</h1>
+
+                </div>
               </div>
             </div>
-            </div>
-   
           </div>
         </div>
-        <div class=" bg-[#E8E1FD] w-screen  h-screen  ">
+        <div class="bg-gradient-to-br from-FFF6EB to-DFD1C5 w-screen  h-screen  ">
           <div className="flex flex-col items-center justify-center max-w-screen-xl mx-auto lg:flex-row">
             <div className="flex items-center justify-center h-screen relative w-1/3 flex-col">
               <p className="text-3xl pb-4 text-center">
@@ -404,7 +443,7 @@ export default function Features() {
             </div>
 
             <figure className="flex flex-col items-center justify-center w-1/2">
-            <img
+              <img
                 // className="w-auto h-64 md:h-40"
                 src="../images/circletdot.svg"
                 alt="invis"

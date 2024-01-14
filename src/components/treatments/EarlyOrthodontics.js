@@ -1,4 +1,6 @@
-import React, {useState,Fragment} from "react";
+import React, {useState,Fragment, useEffect} from "react";
+
+import { gsap } from "gsap-trial";
 import { Disclosure } from "@headlessui/react";
 import { ChevronUpIcon } from "@heroicons/react/20/solid";
 import { useTrail, animated } from "@react-spring/web";
@@ -8,59 +10,92 @@ import {
   AccordionBody,
 } from "@material-tailwind/react";
 
-const words = [
-  "E",
-  "x",
-  "p",
-  "e",
-  "r",
-  "t",
-  " ",
-  "C",
-  "a",
-  "r",
-  "e",
-  " ",
-  "R",
-  "o",
-  "o",
-  "t",
-  "e",
-  "d",
-  " ",
-  "i",
-  "n",
-  " ",
-  "E",
-  "x",
-  "c",
-  "e",
-  "l",
-  "l",
-  "e",
-  "n",
-  "c",
-  "e",
-];
+
 
 const EarlyOrthodontics = () => {
-  const trail = useTrail(words.length, {
-    from: { opacity: 0 },
-    to: { opacity: 1 },
-    delay: 500,
-    config: { duration: 1000 },
-  });
+ 
   const [open, setOpen] = useState(1);
   const [alwaysOpen, setAlwaysOpen] = useState(true);
 
   const handleOpen = (value) => {
     setOpen(open === value ? 0 : value);
   };
+  useEffect(() => {
+    const tl = gsap.timeline({ defaults: { ease: "power4.out" } });
+    tl.from(".animate-up:nth-child(3)", {
+      scaleY: 0,
+      transformOrigin: "bottom center",
+      duration: 0.5,
+    })
+    .from(
+      ".animate-up:nth-child(2), .animate-up:nth-child(4)",
+      {
+        scaleY: 0,
+        transformOrigin: "bottom center",
+        duration: 0.5,
+        stagger: 0, 
+        y: "60%",
+      },
+      "-=0.4" 
+    )
+    .from(
+      ".animate-up:nth-child(1), .animate-up:nth-child(5)",
+      {
+        scaleY: 0,
+        transformOrigin: "bottom center",
+        duration: 0.5,
+        stagger: 0,
+        y: "30%", 
+      },
+      "-=0.4" 
+    )
+    .from(".reveal-text", {
+      opacity: 0,
+      y: "50%",
+
+      duration: 0.5,
+      ease: "power4.out",
+    });
+  }, []);
+  
+  
+  
+  
+  
   return (
 
-    <main className=" w-full pt-20">
+    <main className="w-full min-h-screen ">
+      <div className="flex">
+        <div
+          className="w-1/5 h-full bg-stone-100 animate-up"
+          style={{ minHeight: "100vh" }} 
+        ></div>
+        <div
+          className="w-1/5 h-full bg-stone-100 animate-up"
+          style={{ minHeight: "100vh" }}
+        ></div>
+        <div
+          className="w-1/5 h-full bg-stone-100 animate-up"
+          style={{ minHeight: "100vh" }} 
+        ></div>
+        <div
+          className="w-1/5 h-full bg-stone-100 animate-up"
+          style={{ minHeight: "100vh" }} 
+        ></div>
+         <div
+          className="w-1/5 h-full bg-stone-100 animate-up"
+          style={{ minHeight: "100vh" }} 
+        ></div>
+          <div className="text-6xl reveal-text absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">How can we help?</div>
+      </div>
 
-      <section className=" max-w-screen-lg mx-auto mt-10 py-20 p-10">
+    </main>
+  );
+};
+
+export default EarlyOrthodontics;
+
+      {/* <section className=" max-w-screen-lg mx-auto mt-10 py-20 p-10">
         <div className="relative">
           <h1 className="-ml-20 absolute top-0 mt-20 z-10 text-4xl text-indigo-200">
             <span className="text-stone-700">
@@ -98,9 +133,9 @@ const EarlyOrthodontics = () => {
 </p>
 
         </div>
-      </section>
+      </section> */}
 
-      <section className="bg-EAE8E1 pt-10 pb-10">
+      {/* <section className="bg-EAE8E1 pt-10 pb-10">
   <div className="py-2 flex">
     <img
       src="../../images/redhalf.svg"
@@ -134,8 +169,8 @@ const EarlyOrthodontics = () => {
       </p>
     </div>
   </div>
-</section>
-<section className="bg-F2F2F2 pt-10 pb-10">
+</section> */}
+{/* <section className="bg-F2F2F2 pt-10 pb-10">
   <div className="py-2 flex">
     <img
       src="../../images/drfreywithyoungpatient.jpg"
@@ -165,8 +200,8 @@ marginLeft: "10px",
 
 
   </div>
-</section>
-<section className="bg-C7AF97 pt-10 pb-10">
+</section> */}
+{/* <section className="bg-C7AF97 pt-10 pb-10">
   <div className="py-2 ">
 <h1 className="text-center text-4xl">Find answers to the most commonly asked questions</h1>
 <div
@@ -223,10 +258,4 @@ marginLeft: "10px",
             </Fragment>
           </div>
   </div>
-</section>
-    </main>
-  );
-};
-
-export default EarlyOrthodontics;
-
+</section> */}

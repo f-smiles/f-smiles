@@ -66,6 +66,9 @@ module.exports = {
         'tertiary95': "#b2fff6",
         'tertiary98': "#e4fffa",
         'tertiary99': "#f2fffc",
+        'FFF6EB':"#FFF6EB",
+        'DFD1C5':"#DFD1C5",
+        
 
       'B7B19F': "#B7B19F",
       // 'e8e6df': '#e8e6df',

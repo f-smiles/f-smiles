@@ -59,7 +59,6 @@ const AdultOrthodontics = () => {
   className="dot"
   style={{
     background:`url("/images/pinkblur.jpg")`,
-    // backgroundColor: "green",
     width: "100px",
     height: "100px",
     borderRadius: "50%",
@@ -80,23 +79,20 @@ className="flex flex-col"
   }}
 >
 <div>
+<div>
   <h4 style={{ textAlign: "center" }}>
-    <div>
-      <span
-        className="font-HelveticaNowPro font-thin tracking-tight tracking-tighter"
-        style={{ fontSize: "4rem", display: "block" }}
-      >
+    <div className="font-HelveticaNowPro font-thin tracking-tight tracking-tighter">
+      <span style={{ fontSize: "4rem", display: "block", marginBottom: "01rem" }}>
         Because{" "}
         <span className="italic inline">Every</span> Smile
       </span>
-      <span
-        className="font-HelveticaNowPro font-thin tracking-tight tracking-tighter"
-        style={{ fontSize: "4rem", display: "block" }}
-      >
+      <span style={{ fontSize: "4rem", display: "block", marginBottom: "0.5rem" }}>
         Is Unique
       </span>
     </div>
   </h4>
+</div>
+
   <div className="flex justify-center pt-10"> 
     <Link
       to="/our-team"
@@ -133,7 +129,7 @@ className="flex flex-col"
 <div className="h-screen overflow-scroll">
 <div
     className="flex flex-col items-center justify-center text-5xl"
-    style={{ position: "absolute", top: "0", left: "50%", transform: "translateX(-50%)" }} // Center the container horizontally at the top
+    style={{ position: "absolute", top: "0", left: "50%", transform: "translateX(-50%)" }} 
   >
     <div
       style={{

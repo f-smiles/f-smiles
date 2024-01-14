@@ -515,3 +515,13 @@ text {
 .rise {
   animation: rise 5s linear, textShadow 3s linear alternate infinite 5s;
 }
+
+
+
+/* .animate-up {
+
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out; 
+  animation-fill-mode: forwards; 
+} */
+
