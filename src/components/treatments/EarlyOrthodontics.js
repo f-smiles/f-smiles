@@ -55,6 +55,12 @@ const EarlyOrthodontics = () => {
 
       duration: 0.5,
       ease: "power4.out",
+    })
+    .to(".flex", {
+      y: "-100%",
+      duration: 1,
+      delay: 2,
+      ease: "power4.out",
     });
   }, []);
   
@@ -88,23 +94,10 @@ const EarlyOrthodontics = () => {
         ></div>
           <div className="text-6xl reveal-text absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">How can we help?</div>
       </div>
-
-    </main>
-  );
-};
-
-export default EarlyOrthodontics;
-
-      {/* <section className=" max-w-screen-lg mx-auto mt-10 py-20 p-10">
+      <section className=" max-w-screen-lg mx-auto mt-10 py-20 p-10">
         <div className="relative">
           <h1 className="-ml-20 absolute top-0 mt-20 z-10 text-4xl text-indigo-200">
-            <span className="text-stone-700">
-              {trail.map((props, index) => (
-                <animated.span key={index} style={props}>
-                  {words[index]}
-                </animated.span>
-              ))}
-            </span>
+     
           </h1>
           <img
             src="../../images/girlswing.png"
@@ -135,7 +128,7 @@ export default EarlyOrthodontics;
         </div>
       </section> */}
 
-      {/* <section className="bg-EAE8E1 pt-10 pb-10">
+      <section className="bg-EAE8E1 pt-10 pb-10">
   <div className="py-2 flex">
     <img
       src="../../images/redhalf.svg"
@@ -169,8 +162,8 @@ export default EarlyOrthodontics;
       </p>
     </div>
   </div>
-</section> */}
-{/* <section className="bg-F2F2F2 pt-10 pb-10">
+</section>
+<section className="bg-F2F2F2 pt-10 pb-10">
   <div className="py-2 flex">
     <img
       src="../../images/drfreywithyoungpatient.jpg"
@@ -200,8 +193,8 @@ marginLeft: "10px",
 
 
   </div>
-</section> */}
-{/* <section className="bg-C7AF97 pt-10 pb-10">
+</section>
+ <section className="bg-C7AF97 pt-10 pb-10">
   <div className="py-2 ">
 <h1 className="text-center text-4xl">Find answers to the most commonly asked questions</h1>
 <div
@@ -258,4 +251,10 @@ marginLeft: "10px",
             </Fragment>
           </div>
   </div>
-</section> */}
+</section>
+    </main>
+  );
+};
+
+export default EarlyOrthodontics;
+

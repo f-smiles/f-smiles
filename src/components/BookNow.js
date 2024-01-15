@@ -5,14 +5,63 @@ import { init } from "emailjs-com";
 import { Disclosure } from "@headlessui/react";
 import { ChevronUpIcon } from "@heroicons/react/20/solid";
 import classNames from "classnames";
-
+import { gsap } from "gsap-trial";
 
 init(process.env.REACT_APP_PUBLIC_KEY);
 
 
 
 const BookNow = () => {
+  
+  useEffect(() => {
+    const tl = gsap.timeline({ defaults: { ease: "power4.out" } });
+    tl.from(".animate-up:nth-child(3)", {
+      scaleY: 0,
+      transformOrigin: "bottom center",
+      duration: 0.5,
+    })
+    .from(
+      ".animate-up:nth-child(2), .animate-up:nth-child(4)",
+      {
+        scaleY: 0,
+        transformOrigin: "bottom center",
+        duration: 0.5,
+        stagger: 0, 
+        y: "60%",
+      },
+      "-=0.4" 
+    )
+    .from(
+      ".animate-up:nth-child(1), .animate-up:nth-child(5)",
+      {
+        scaleY: 0,
+        transformOrigin: "bottom center",
+        duration: 0.5,
+        stagger: 0,
+        y: "30%", 
+      },
+      "-=0.4" 
+    )
+    .from(".reveal-text", {
+      opacity: 0,
+      y: "50%",
 
+      duration: 0.5,
+      ease: "power4.out",
+    })
+    // .to(".wordbox", {
+    //   y: "-100%",
+    //   duration: 1,
+    //   delay: 1,
+    //   ease: "power4.out",
+    // })
+    .to(".contact-form", {
+      opacity: 1,
+      duration: 1,
+      ease: "power4.out",
+    });
+  }, []);
+  
   const [isFirstNameVisible, setIsFirstNameVisible] = useState(false);
   const [isLastNameVisible, setIsLastNameVisible] = useState(false);
   const [patient_name, setPatientName] = useState("");
@@ -168,13 +217,37 @@ const BookNow = () => {
 
   return (
     <>
-      <main
-        // className={`pt-10 mt-20 ${
-        //   showForm ? "opacity-100 fadeIn" : "opacity-0"
-        // }`}
+         <div className="flex min-h-screen">
+        <div
+          className="w-1/5 h-full bg-stone-100 animate-up"
+          style={{ minHeight: "100vh" }} 
+        ></div>
+        <div
+          className="w-1/5 h-full bg-stone-100 animate-up"
+          style={{ minHeight: "100vh" }}
+        ></div>
+        <div
+          className="w-1/5 h-full bg-stone-100 animate-up"
+          style={{ minHeight: "100vh" }} 
+        ></div>
+        <div
+          className="w-1/5 h-full bg-stone-100 animate-up"
+          style={{ minHeight: "100vh" }} 
+        ></div>
+         <div
+          className="w-1/5 h-full bg-stone-100 animate-up"
+          style={{ minHeight: "100vh" }} 
+        ></div>
+          <div className="text-6xl reveal-text absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">How can we help?</div>
+      </div>
+      <section
+     id="" 
+        className={`pt-10 mt-20 ${
+          showForm ? "opacity-100 fadeIn" : "opacity-0"
+        }`}
       >
   
-        <div id=" contact-form">
+        <div id=" ">
           {emailSent ? (
             <span className={emailSent ? "block" : "hidden"}>
               Thank you for your message, we will be in touch soon!
@@ -182,7 +255,7 @@ const BookNow = () => {
           ) : (
             <form
               onSubmit={handleSubmit}
-              className="flex flex-col max-w-screen-sm p-8 mx-auto space-y-12  rounded-xl"
+              className="min-h-screen border border-black flex flex-col max-w-screen-sm p-8 mx-auto space-y-12  rounded-xl"
             >
             
               <div className=" flex flex-col items-center">
@@ -419,7 +492,7 @@ const BookNow = () => {
                                 r="78.57"
                                 fill="#a78bfa"
                               />
-                              {/* <circle cx="250" cy="250" r="50" fill="#ba9bc9" /> */}
+           
                             </g>
                           </g>
                         </svg>
@@ -443,7 +516,7 @@ const BookNow = () => {
                                 r="250"
                                 fill="#f3f4f6"
                               />
-                              {/* <circle cx="250" cy="250" r="192.86" fill="#f3f4f6" /> */}
+            
                               <circle
                                 cx="250"
                                 cy="250"
@@ -532,7 +605,7 @@ const BookNow = () => {
             </form>
           )}
         </div>
-      </main>
+      </section>
     </>
   );
 };

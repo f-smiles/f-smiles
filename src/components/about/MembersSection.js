@@ -24,7 +24,7 @@ const Option = ({ image, title, subtitle, active, onClick }) => {
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
     flex: "1",
-    maxWidth: active ? "300px" : "30px",
+    maxWidth: active ? "300px" : "50px",
     minHeight: "300px",
     margin: active ? "0px" : "10px",
     borderRadius: active ? "40px" : "30px",
