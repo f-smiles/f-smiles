@@ -49,17 +49,13 @@ const BookNow = () => {
       duration: 0.5,
       ease: "power4.out",
     })
-    // .to(".wordbox", {
-    //   y: "-100%",
-    //   duration: 1,
-    //   delay: 1,
-    //   ease: "power4.out",
-    // })
-    .to(".contact-form", {
-      opacity: 1,
+    .to(".wordbox", {
+      y: "-100%",
       duration: 1,
+      delay: 2,
       ease: "power4.out",
-    });
+    })
+
   }, []);
   
   const [isFirstNameVisible, setIsFirstNameVisible] = useState(false);
@@ -217,12 +213,13 @@ const BookNow = () => {
 
   return (
     <>
-         <div className="flex min-h-screen">
+         <div className="min-h-screen">
+<div className="flex">
         <div
           className="w-1/5 h-full bg-stone-100 animate-up"
           style={{ minHeight: "100vh" }} 
         ></div>
-        <div
+        <div 
           className="w-1/5 h-full bg-stone-100 animate-up"
           style={{ minHeight: "100vh" }}
         ></div>
@@ -238,8 +235,10 @@ const BookNow = () => {
           className="w-1/5 h-full bg-stone-100 animate-up"
           style={{ minHeight: "100vh" }} 
         ></div>
-          <div className="text-6xl reveal-text absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">How can we help?</div>
-      </div>
+                  <div className="text-6xl reveal-text absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">How can we help?</div>
+        </div>
+
+          </div>
       <section
      id="" 
         className={`pt-10 mt-20 ${
@@ -255,7 +254,7 @@ const BookNow = () => {
           ) : (
             <form
               onSubmit={handleSubmit}
-              className="min-h-screen border border-black flex flex-col max-w-screen-sm p-8 mx-auto space-y-12  rounded-xl"
+              className=" wordbox border border-black flex flex-col max-w-screen-sm p-8 mx-auto space-y-12  rounded-xl"
             >
             
               <div className=" flex flex-col items-center">

@@ -56,7 +56,7 @@ const EarlyOrthodontics = () => {
       duration: 0.5,
       ease: "power4.out",
     })
-    .to(".flex", {
+    .to(".next-section", {
       y: "-100%",
       duration: 1,
       delay: 2,
@@ -71,6 +71,7 @@ const EarlyOrthodontics = () => {
   return (
 
     <main className="w-full min-h-screen ">
+
       <div className="flex">
         <div
           className="w-1/5 h-full bg-stone-100 animate-up"
@@ -94,7 +95,8 @@ const EarlyOrthodontics = () => {
         ></div>
           <div className="text-6xl reveal-text absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">How can we help?</div>
       </div>
-      <section className=" max-w-screen-lg mx-auto mt-10 py-20 p-10">
+
+      <section className="next-section max-w-screen-lg mx-auto mt-10 py-20 p-10">
         <div className="relative">
           <h1 className="-ml-20 absolute top-0 mt-20 z-10 text-4xl text-indigo-200">
      
@@ -126,7 +128,7 @@ const EarlyOrthodontics = () => {
 </p>
 
         </div>
-      </section> */}
+      </section> 
 
       <section className="bg-EAE8E1 pt-10 pb-10">
   <div className="py-2 flex">
