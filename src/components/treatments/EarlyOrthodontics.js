@@ -13,6 +13,7 @@ import {
 
 
 const EarlyOrthodontics = () => {
+  const [showNextSection, setShowNextSection] = useState(false);
  
   const [open, setOpen] = useState(1);
   const [alwaysOpen, setAlwaysOpen] = useState(true);
@@ -61,8 +62,12 @@ const EarlyOrthodontics = () => {
       duration: 1,
       delay: 2,
       ease: "power4.out",
+      onComplete: () => {
+        // Animation completed, show the next section
+        setShowNextSection(true);
+      },
     });
-  }, []);
+}, []);
   
   
   
@@ -71,7 +76,7 @@ const EarlyOrthodontics = () => {
   return (
 
     <main className="w-full min-h-screen ">
-
+ {!showNextSection && (
       <div className="flex">
         <div
           className="w-1/5 h-full bg-stone-100 animate-up"
@@ -95,8 +100,9 @@ const EarlyOrthodontics = () => {
         ></div>
           <div className="text-6xl reveal-text absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">How can we help?</div>
       </div>
-
-      <section className="next-section max-w-screen-lg mx-auto mt-10 py-20 p-10">
+      )}      {showNextSection && (
+             <div>
+      <section className="next-section b max-w-screen-lg mx-auto mt-10 py-20 p-10">
         <div className="relative">
           <h1 className="-ml-20 absolute top-0 mt-20 z-10 text-4xl text-indigo-200">
      
@@ -130,6 +136,7 @@ const EarlyOrthodontics = () => {
         </div>
       </section> 
 
+ 
       <section className="bg-EAE8E1 pt-10 pb-10">
   <div className="py-2 flex">
     <img
@@ -254,6 +261,8 @@ marginLeft: "10px",
           </div>
   </div>
 </section>
+</div>
+   )}
     </main>
   );
 };

@@ -15,48 +15,55 @@ const BookNow = () => {
   
   useEffect(() => {
     const tl = gsap.timeline({ defaults: { ease: "power4.out" } });
+  
+
     tl.from(".animate-up:nth-child(3)", {
       scaleY: 0,
       transformOrigin: "bottom center",
       duration: 0.5,
     })
-    .from(
-      ".animate-up:nth-child(2), .animate-up:nth-child(4)",
-      {
-        scaleY: 0,
-        transformOrigin: "bottom center",
+      .from(
+        ".animate-up:nth-child(2), .animate-up:nth-child(4)",
+        {
+          scaleY: 0,
+          transformOrigin: "bottom center",
+          duration: 0.5,
+          stagger: 0,
+          y: "60%",
+        },
+        "-=0.4"
+      )
+      .from(
+        ".animate-up:nth-child(1), .animate-up:nth-child(5)",
+        {
+          scaleY: 0,
+          transformOrigin: "bottom center",
+          duration: 0.5,
+          stagger: 0,
+          y: "30%",
+        },
+        "-=0.4"
+      )
+  
+      .from(".reveal-text", {
+        opacity: 0,
+        y: "50%",
         duration: 0.5,
-        stagger: 0, 
-        y: "60%",
-      },
-      "-=0.4" 
-    )
-    .from(
-      ".animate-up:nth-child(1), .animate-up:nth-child(5)",
-      {
-        scaleY: 0,
-        transformOrigin: "bottom center",
-        duration: 0.5,
-        stagger: 0,
-        y: "30%", 
-      },
-      "-=0.4" 
-    )
-    .from(".reveal-text", {
-      opacity: 0,
-      y: "50%",
-
-      duration: 0.5,
-      ease: "power4.out",
-    })
-    .to(".wordbox", {
-      y: "-100%",
+        ease: "power4.out",
+      });
+  
+   
+    tl.to(".help-section", {
+      y: "-100vh", 
       duration: 1,
-      delay: 2,
-      ease: "power4.out",
-    })
+      ease: "power4.in",
+    }, '+=1'); 
+  
 
+    tl.add(() => setShowForm(true));
+  
   }, []);
+  
   
   const [isFirstNameVisible, setIsFirstNameVisible] = useState(false);
   const [isLastNameVisible, setIsLastNameVisible] = useState(false);
@@ -213,7 +220,9 @@ const BookNow = () => {
 
   return (
     <>
+             <div className="fixed inset-0 bg-white z-50 help-section">
          <div className="min-h-screen">
+
 <div className="flex">
         <div
           className="w-1/5 h-full bg-stone-100 animate-up"
@@ -237,14 +246,12 @@ const BookNow = () => {
         ></div>
                   <div className="text-6xl reveal-text absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">How can we help?</div>
         </div>
-
+</div>
           </div>
-      <section
-     id="" 
-        className={`pt-10 mt-20 ${
-          showForm ? "opacity-100 fadeIn" : "opacity-0"
-        }`}
-      >
+    <section
+      className={`pt-10 mt-20 transition-opacity duration-500 ease-in-out ${showForm ? "opacity-100" : "opacity-0"}`}
+      style={{ display: showForm ? 'block' : 'none' }}
+    >
   
         <div id=" ">
           {emailSent ? (
