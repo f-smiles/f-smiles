@@ -303,7 +303,7 @@ const VirtualConsultation = () => {
           <div
   className="w-1/2 max-w-screen-sm mx-auto  rounded-xl"
   style={{
-    backgroundImage: `url("../../images/bubbleblue.png")`,
+    backgroundImage: `url("../../images/purplediscs.jpg")`,
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover", 
     backgroundPosition: "center", 

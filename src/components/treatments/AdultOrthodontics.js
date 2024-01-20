@@ -39,6 +39,7 @@ const AdultOrthodontics = () => {
       duration: 1,
     });
   }, []);
+  
 
   return (
     <main>

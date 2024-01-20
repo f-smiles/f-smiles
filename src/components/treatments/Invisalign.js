@@ -1,10 +1,50 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef} from "react";
+import { Link } from "react-router-dom";
+import { motion, useScroll, useTransform } from "framer-motion";
 import {
   Accordion,
   AccordionHeader,
   AccordionBody,
 } from "@material-tailwind/react";
 const Invisalign = () => {
+  const ref = useRef(null);
+  const aligner1Ref = useRef(null);
+  const aligner2Ref = useRef(null);
+  const aligner3Ref = useRef(null);
+  const aligner4Ref = useRef(null);
+  const aligner5Ref = useRef(null);
+  const aligner6Ref = useRef(null);
+
+  useEffect(() => {
+    const parallaxScroll = () => {
+      const scrolled = window.scrollY;
+
+      if (aligner1Ref.current) {
+        aligner1Ref.current.style.top = `${400 - scrolled * 0.3}px`;
+      }
+      if (aligner2Ref.current) {
+        aligner2Ref.current.style.top = `${600 - scrolled * 0.4}px`;
+      }
+      if (aligner3Ref.current) {
+        aligner3Ref.current.style.top = `${500 - scrolled * 0.1}px`;
+      }
+      if (aligner4Ref.current) {
+        aligner4Ref.current.style.top = `${600 - scrolled * 0.6}px`;
+      }
+      if (aligner5Ref.current) {
+        aligner5Ref.current.style.top = `${600 - scrolled * 0.4}px`;
+      }
+      if (aligner6Ref.current) {
+        aligner6Ref.current.style.top = `${400 - scrolled * 0.2}px`;
+      }
+    };
+
+    window.addEventListener("scroll", parallaxScroll);
+
+    return () => {
+      window.removeEventListener("scroll", parallaxScroll);
+    };
+  }, []);
   
   const [progress, setProgress] = useState(0);
   const [topRightProgress, setTopRightProgress] = useState(0);
@@ -125,7 +165,89 @@ const Invisalign = () => {
 
 <section style={sectionStyle} className="w-full px-4 pt-16 bg-F8F6F1">
       <div className="flex flex-col md:flex-row">
-        
+      <div className="w-1/3">
+                <motion.div ref={ref} className="min-h-screen">
+                  <div
+                    className="container relative flex"
+                    style={{ overflow: "hidden" }}
+                  >
+                    <img
+                      ref={aligner1Ref}
+                      className="aligner-1 absolute"
+                      src="/images/invisalign.svg"
+                      alt="aligner"
+                      style={{
+                        width: "100px",
+                        height: "100px",
+                        left: "10%",
+                        top: "50%",
+                      }}
+                    />
+                    <img
+                      ref={aligner2Ref}
+                      className="aligner-2 absolute"
+                      src="/images/invisalignleft.svg"
+                      alt="aligner"
+                      style={{
+                        width: "120px",
+                        height: "120px",
+                        left: "20%",
+                        top: "10%",
+                      }}
+                    />
+                    <img
+                      ref={aligner3Ref}
+                      className="aligner-3 absolute"
+                      src="/images/aligner4.png"
+                      alt="aligner"
+                      style={{
+                        width: "200px",
+                        height: "auto",
+                        left: "10%",
+                        bottom: "20%",
+                      }}
+                    />
+                    <img
+                      ref={aligner4Ref}
+                      className="aligner-4 absolute"
+                      src="/images/invisalign-tray.png"
+                      alt="aligner"
+                      style={{
+                        width: "140px",
+                        height: "auto",
+                        bottom: "0%",
+                        left: "31%",
+                      }}
+                    />
+                    <img
+                      ref={aligner5Ref}
+                      className="aligner-5 absolute"
+                      src="/images/clearalign.png"
+                      alt="aligne"
+                      style={{
+                        width: "140px",
+                        height: "auto",
+                        bottom: "20%",
+                        left: "5%",
+                      }}
+                    />
+                    <img
+                      ref={aligner6Ref}
+                      className="aligner-6 absolute"
+                      src="/images/alignersilver.png"
+                      alt="aligner"
+                      style={{
+                        width: "180px",
+                        height: "auto",
+                        bottom: "10%",
+                        left: "20%",
+                      }}
+                    />
+                  </div>
+             
+
+                </motion.div>
+              </div>
         <div className="md:w-1/2 md:pr-6">
           <div  className="text-white mt-40">
           <div className="relative w-full pb-full overflow-hidden">
@@ -273,6 +395,7 @@ const Invisalign = () => {
   <div className="flex justify-center mt-6">
  <div className="w-72 border border-lime-300 p-2 flex flex-col items-center mx-1">   
       <div className="h-64">
+      <img src="images/inviskit.png" alt="kit" />
         <img
           src="../../images/beforeafter1.png"
           alt="joel"

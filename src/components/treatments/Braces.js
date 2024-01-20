@@ -116,7 +116,7 @@ export default Braces;
     //       Orthodontics can provide our patients with more options than ever
     //       before when it comes to wearing different types of braces when
     //       undergoing treatment in Allentown, Bethlehem, Schnecksville and
-    //       Lehighton PA areas.
+    //       Lehighton PA areas.Not only do our doctors lessen your time in braces by combining clear aligners to finish your case we use most hygenic fasting moving brackets common misalignments such as major rotations and uneven teeth
     //     </p>
     //     <p>
     //       As experts in various treatment types, our doctors will help you

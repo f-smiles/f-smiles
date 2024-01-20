@@ -1,12 +1,68 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { Link } from "react-router-dom";
-
+import { gsap, Power3 } from "gsap-trial";
 AOS.init();
 
 const YourCare = () => {
-  
+  const heroRef = useRef(null);
+  const girlImageRef = useRef(null);
+  const boyImageRef = useRef(null);
+      const sectionRef = useRef(null);
+  const observer = useRef(null);
+
+  useEffect(() => {
+      observer.current = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+              if (entry.isIntersecting) {
+     
+                  gsap.from(girlImageRef.current, {
+                      y: 300,
+                      ease: Power3.easeOut,
+                      duration: 1.2
+                  });
+
+                  gsap.from(girlImageRef.current.children[0], {
+                      scale: 1.6,
+                      ease: Power3.easeOut,
+                      duration: 2,
+                      delay: 0.3
+                  });
+
+                  gsap.from(boyImageRef.current, {
+                      y: 150,
+                      ease: Power3.easeOut,
+                      duration: 1.2,
+                      delay: 0.2
+                  });
+
+                  gsap.from(boyImageRef.current.children[0], {
+                      scale: 1.6,
+                      ease: Power3.easeOut,
+                      duration: 2,
+                      delay: 0.3
+                  });
+
+                
+                  observer.current.unobserve(entry.target);
+              }
+          });
+      }, {
+          rootMargin: '0px',
+          threshold: 0.5 
+      });
+
+      if (heroRef.current) {
+          observer.current.observe(heroRef.current);
+      }
+
+      return () => {
+          if (heroRef.current) {
+              observer.current.unobserve(heroRef.current);
+          }
+      };
+  }, []);
   const [backgroundColor, setBackgroundColor] = useState("transparent");
   const [isScrolled, setIsScrolled] = useState(false);
   useEffect(() => {
@@ -67,7 +123,7 @@ const YourCare = () => {
 
   return (
     <>
-      <div className="bg-F7EFEE pt-2">
+      <div className="pt-2" style={{ minHeight: "200vh", backgroundColor }}>
         <div className="" >
           <div className="mt-40 py-2 px-24 grid grid-cols-3 ">
             <div
@@ -86,6 +142,7 @@ const YourCare = () => {
               <h1 className="font-HelveticaNowVar font-thin text-5xl text-center mt-12 mb-10 animation">
                 Getting Started
               </h1>
+
               <div className="flex justify-center">
                 <div className="flex flex-col items-center mx-4">
                   <h3
@@ -178,16 +235,23 @@ const YourCare = () => {
         <section style={{ minHeight: "200vh", backgroundColor }}>
 
           <div
-            data-aos="fade-up"
-            data-aos-duration="1050"
-            data-aos-easing="linear"
-            className=" rounded-tl-3xl rounded-tr-3xl rounded-bl-3xl rounded-br-md md:flex max-h-full px-12 pb-12 pt-20"
+    
+            className="md:flex max-h-full px-12 pb-12 pt-40"
           >
             <div className="md:w-1/2 flex justify-center items-center relative">
             <div className={`your-care ${isScrolled ? "scrolled" : ""}`}>
-                <img
+            <div ref={heroRef} className="hero h-screen">
+              <div ref={girlImageRef} className="hero-image ">
+                     <img
                   src={image}
                 />
+                {/* <img src="https://hello.andreatuysuzian.com/static/media/girl.a9703cf5.jpg" alt="Girl" /> */}
+            </div>
+            <div ref={boyImageRef} className="hero-image boy">
+                <img src="images/inviskit.png" alt="kit" />
+            </div>
+            </div>
+           
                 <div
                   className="md:w-1/2 flex justify-center items-center"
                   style={{
@@ -205,7 +269,7 @@ const YourCare = () => {
                     alt="scan"
                   />
                 </div>
-
+        
                 <div
                   className="glass-overlay"
                   style={{

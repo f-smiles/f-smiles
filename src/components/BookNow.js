@@ -57,7 +57,7 @@ const BookNow = () => {
       y: "-100vh", 
       duration: 1,
       ease: "power4.in",
-    }, '+=1'); 
+    }, '+=.1'); 
   
 
     tl.add(() => setShowForm(true));
@@ -261,7 +261,7 @@ const BookNow = () => {
           ) : (
             <form
               onSubmit={handleSubmit}
-              className=" wordbox border border-black flex flex-col max-w-screen-sm p-8 mx-auto space-y-12  rounded-xl"
+              className=" wordbox  flex flex-col max-w-screen-sm p-8 mx-auto space-y-12  rounded-xl"
             >
             
               <div className=" flex flex-col items-center">
