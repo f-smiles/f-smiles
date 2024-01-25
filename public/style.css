@@ -524,4 +524,8 @@ text {
   animation-timing-function: ease-in-out; 
   animation-fill-mode: forwards; 
 } */
+@keyframes draw-arc {
+  from { clip-path: inset(0 50% 50% 0); }
+  to { clip-path: inset(0 0 50% 0); }
+}
 

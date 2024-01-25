@@ -2,6 +2,7 @@ import React, { useRef, useEffect, useLayoutEffect, useState } from "react";
 
 import { useInView } from "framer-motion";
 import DotPattern from "../svg/DotPattern";
+import Arc from "../svg/Arc";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { gsap } from "gsap-trial";
 import { ScrollSmoother } from "gsap-trial/ScrollSmoother";
@@ -335,6 +336,19 @@ export default function Features() {
     };
   }, []);
 
+  const arcStyle = {
+    position: 'absolute',
+    top: '100%',
+    left: 0,
+    width: '100%',
+    height: '100%',
+    border: '45px solid white', // Adjust border thickness if needed
+    borderTop: 'none',
+    borderBottomLeftRadius: '175px',
+    borderBottomRightRadius: '175px',
+    transformOrigin: '50% 0',
+    animation: 'rotate-arc .4s linear forwards', // Define the animation
+};
   return (
     <>
       <div style={{ minHeight: "200vh", backgroundColor }}>
@@ -407,31 +421,38 @@ export default function Features() {
 <figure className="relative">
           <img src="../images/radial.svg" alt="dot" style={{ width: '240px', height: '240px' }} />
         </figure> */}
-        <img
-          className="absolute  left-1/2 transform -translate-x-1/2 w-64 h-auto"
-          src="../images/invisalign-tray.png"
-          alt="clear aligner"
-        />
-      </div>
-
-  
-      <div className="relative w-1/2 flex justify-center items-center">
-      <div className="relative">
+              <div className="relative">
           
-          <img
-            src="../images/ellipse.svg"
-            alt="Ellipse"
-            className="md:h-40"
-            style={{ transform: "rotate(250deg)", position: "relative", zIndex: 1 }}
-          />
+              <img
+    src="../images/ellipse.svg"
+    alt="Ellipse"
+    className="md:h-40"
+    style={{
+        filter: "invert(100%)",
+        transform: "rotate(250deg)",
+        position: "relative",
+        zIndex: 1
+    }}
+/>
+
           
           <h1
-            className="-mt-60 text-5xl font-thin mx-auto leading-tight"
+            className="text-violet-700 -mt-60 text-5xl font-thin mx-auto leading-tight"
             style={{ width: "200px", position: "relative", zIndex: 2 }}
           >
             Top 1% of Invisalign providers.<br />Experience matters.
           </h1>
         </div>
+        {/* <img
+          className="absolute  left-1/2 transform -translate-x-1/2 w-64 h-auto"
+          src="../images/invisalign-tray.png"
+          alt="clear aligner"
+        /> */}
+      </div>
+
+  
+      <div className="relative w-1/2 flex justify-center items-center">
+
       
       </div>
     </div>
@@ -443,16 +464,7 @@ export default function Features() {
         <div className="flex items-center justify-center max-w-screen-xl mx-auto lg:flex-row">
 
             <div className=" w-1/2 flex flex-col justify-center">
-              <h1
-                className="text-5xl font-thin w-64 text-center mx-auto leading-tight"
-                style={{
-                  marginTop: "-80px",
-                }}
-              >
-                Damon Bracket: less appointments faster treatment time
-                {/* Combining self-ligating braces with advanced archwires
-                clinically proven to move teeth quickly and comfortably. */}
-              </h1>
+< Arc/>
 
               <div className="mt-4">
                 <Link
