@@ -7,6 +7,32 @@ import {
   AccordionBody,
 } from "@material-tailwind/react";
 const Invisalign = () => {
+  const invisRef = useRef();
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("rise");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+  
+    if (invisRef.current) {
+      observer.observe(invisRef.current);
+    }
+  
+    return () => {
+      if (invisRef.current) {
+        observer.disconnect();
+      }
+    };
+  }, []);
+  
   const ref = useRef(null);
   const aligner1Ref = useRef(null);
   const aligner2Ref = useRef(null);
@@ -245,6 +271,22 @@ const Invisalign = () => {
                     />
                   </div>
              
+
+        <div className="w-1/3 flex justify-center items-center">
+          <span
+            ref={invisRef}
+            className="text-9xl transform -rotate-90 rise"
+            style={{
+              fontFamily: "Rubik, sans-serif",
+              fontWeight: "600",
+              WebkitTextStroke: "1px #666",
+              color: "transparent",
+              cursor: "pointer",
+            }}
+          >
+            Invisalign
+          </span>
+        </div>
 
                 </motion.div>
               </div>

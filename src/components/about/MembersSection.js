@@ -224,7 +224,7 @@ const MembersSection = () => {
         <div className="my-24 text-center">
           <h1
             ref={textRef}
-            className="js-splittext-lines text-2xl font-bold text-center"
+            className="js-split text-lines text-2xl font-bold text-center"
           >
             Split by <span className="text-pink-500">LINES:</span>        Our members are X-ray certified, trained in CPR and first aid, and most of them have
           received the designation of Specialized Orthodontic Assistant{" "}

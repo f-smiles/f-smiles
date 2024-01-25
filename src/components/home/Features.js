@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useEffect, useLayoutEffect, useState } from "react";
 
 import { useInView } from "framer-motion";
 import DotPattern from "../svg/DotPattern";
@@ -15,6 +15,32 @@ function Hero() {
   const dotRef = useRef(null);
   const { scrollYProgress } = useScroll();
   const scale = useTransform(scrollYProgress, [0.5, 1], [10, 40]);
+  function animateHeroContent() {
+    if (!heroContentRef.current) return;
+    const lines = heroContentRef.current.querySelectorAll('.hero-content-line');
+    lines.forEach((line, index) => {
+      gsap.fromTo(line, 
+        { y: 20, opacity: 0 }, // starting animation state
+        { y: 0, opacity: 1, duration: 1.5, ease: 'power3.out', delay: index * 0.2 } // ending animation state
+      );
+    });
+  }
+
+  function animateBookButton() {
+    if (!bookButtonRef.current) return;
+  
+    // Animate the button to fade in and move up
+    gsap.fromTo(bookButtonRef.current, 
+      { opacity: 0, y: 40 }, // Starting state: transparent and slightly lower
+      { opacity: 1, y: 0, duration: 1.5, ease: 'power3.out' } // End state: fully visible and in final position
+    );
+  }
+  
+  useLayoutEffect(() => {
+    animateHeroContent();
+    animateBookButton();
+  }, []);
+    
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -43,7 +69,7 @@ function Hero() {
       const lines = heroContentRef.current.querySelectorAll('.hero-content-line');
       lines.forEach((line, index) => {
         gsap.fromTo(line, 
-          { y: 44, opacity: 0 },
+          { y: 64, opacity: 0 },
           { y: 0, opacity: 1, duration: 1, ease: 'power3.out', delay: index * 0.2 }
         );
       });
@@ -268,32 +294,7 @@ export default function Features() {
     };
   }, []);
 
-  const invisRef = useRef();
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("rise");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.5 }
-    );
-  
-    if (invisRef.current) {
-      observer.observe(invisRef.current);
-    }
-  
-    return () => {
-      if (invisRef.current) {
-        observer.disconnect();
-      }
-    };
-  }, []);
-  
+ 
 
   const ref = useRef(null);
   const aligner1Ref = useRef(null);
@@ -378,75 +379,60 @@ export default function Features() {
             <Hero />
           </Section>
         </div>
-        <div
-  className="text-2xl w-screen h-screen relative"
-  style={{
-    backgroundImage: `url(${process.env.PUBLIC_URL}/images/pastel2.jpg)`,
-    backgroundRepeat: "no-repeat",
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-  }}
->
+        <div className="text-2xl w-screen h-screen relative">
   <div className="absolute inset-0 flex justify-center items-center">
-    <div
-      className="bg-white/30 w-11/12 h-4/5 flex flex-col items-center justify-center rounded-lg shadow-xl"
-      style={{
-        backdropFilter: "blur(10px)",
-        WebkitBackdropFilter: "blur(10px)",
-        border: "1px solid rgba(255, 255, 255, 0.18)",
-      }}
-    >
-      <div className="flex w-full">
+    <div className="flex w-full">
+      {/* Left Column */}
+      <div
+        style={{
+          backgroundImage: `url(${process.env.PUBLIC_URL}/images/blobpurple.png)`,
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+        className="min-h-screen w-1/2 flex flex-col justify-center items-center text-black text-center relative"
+      >
+        {/* Gradient Blur Image */}
+        {/* <img
+          src="../images/gradientblur.png"
+          alt="Gradient Blur"
+          className="absolute -top-40 left-0 z-0"
+          style={{
+            width: '220%',
+            height: 'auto', 
+            transform: 'rotate(250deg)',
+          }}
+        /> */}
+{/* 
+<figure className="relative">
+          <img src="../images/radial.svg" alt="dot" style={{ width: '240px', height: '240px' }} />
+        </figure> */}
+        <img
+          className="absolute  left-1/2 transform -translate-x-1/2 w-64 h-auto"
+          src="../images/invisalign-tray.png"
+          alt="clear aligner"
+        />
+      </div>
 
-        <div className="w-1/3 flex flex-col justify-center items-center text-black text-center">
-          <div className="mt-20">
-         
-            <img
-              className="md:h-40"
-              src="../images/ellipse.svg"
-              alt="ellipse"
-              style={{ transform: "rotate(250deg)" }}
-            />
-                 
-          </div>
+  
+      <div className="relative w-1/2 flex justify-center items-center">
+      <div className="relative">
+          
+          <img
+            src="../images/ellipse.svg"
+            alt="Ellipse"
+            className="md:h-40"
+            style={{ transform: "rotate(250deg)", position: "relative", zIndex: 1 }}
+          />
+          
           <h1
             className="-mt-60 text-5xl font-thin mx-auto leading-tight"
-            style={{ width: "200px" }}
+            style={{ width: "200px", position: "relative", zIndex: 2 }}
           >
             Top 1% of Invisalign providers.<br />Experience matters.
           </h1>
         </div>
-
-        <div className="w-1/3 flex justify-center items-center">
-          <span
-            ref={invisRef}
-            className="text-9xl transform -rotate-90 rise"
-            style={{
-              fontFamily: "Rubik, sans-serif",
-              fontWeight: "600",
-              WebkitTextStroke: "1px #666",
-              color: "transparent",
-              cursor: "pointer",
-            }}
-          >
-            Invisalign
-          </span>
-        </div>
-
-
-
-
-        <div className="relative w-1/3 flex justify-center items-center">
-  <figure className="relative">
-  <img src="../images/radial.svg" alt="dot"    style={{ width: '240px', height: '240px' }}  />
-   
-  </figure>
-  <img
-      className="absolute  left-1/2 transform -translate-x-1/2 w-64 h-auto"
-      src="../images/clearalign.png"
-      alt="clear aligner"
-    />
-</div>
+      
       </div>
     </div>
   </div>
@@ -454,8 +440,9 @@ export default function Features() {
 
 
         <div class="w-screen  h-screen  ">
-          <div className="flex flex-col items-center justify-center max-w-screen-xl mx-auto lg:flex-row">
-            <div className="flex items-center justify-center h-screen relative w-1/3 flex-col">
+        <div className="flex items-center justify-center max-w-screen-xl mx-auto lg:flex-row">
+
+            <div className=" w-1/2 flex flex-col justify-center">
               <h1
                 className="text-5xl font-thin w-64 text-center mx-auto leading-tight"
                 style={{
@@ -490,71 +477,47 @@ export default function Features() {
             </div>
 
             <figure
-              className="flex flex-col items-center justify-center w-1/2 relative"
-              style={{ height: "400px" }}
-            >
-              <svg
-                width="400"
-                height="400"
-                viewBox="0 0 200 200"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                style={{ position: "absolute", zIndex: 1 }}
-              >
-                {" "}
-                <g clip-path="url(#clip0_105_699)">
-                  {" "}
-                  <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M100 22.7143C100 10.564 90.1503 0.71428 78 0.71428H22C9.84974 0.71428 0 10.564 0 22.7143V78.7143C0 90.8645 9.84974 100.714 22 100.714H78C90.1503 100.714 100 110.564 100 122.714V177.286C100 189.436 109.85 199.286 122 199.286H178C190.15 199.286 200 189.436 200 177.286V121.286C200 109.135 190.15 99.2856 178 99.2856H122C109.85 99.2856 100 89.4359 100 77.2856V22.7143ZM177.286 100C189.436 100 199.286 90.1503 199.286 78V22C199.286 9.84974 189.436 2.97894e-06 177.286 2.44784e-06L121.286 0C109.135 -5.31105e-07 99.2857 9.84974 99.2857 22V78C99.2857 90.1503 89.436 100 77.2857 100L22.7143 100C10.564 100 0.714259 109.85 0.714259 122L0.714256 178C0.714256 190.15 10.564 200 22.7143 200L78.7143 200C90.8645 200 100.714 190.15 100.714 178V122C100.714 109.85 110.564 100 122.714 100L177.286 100Z"
-                    fill="url(#paint0_linear_105_699)"
-                  />{" "}
-                </g>{" "}
-                <defs>
-                  {" "}
-                  <linearGradient
-                    id="paint0_linear_105_699"
-                    x1="100"
-                    y1="0"
-                    x2="100"
-                    y2="200"
-                    gradientUnits="userSpaceOnUse"
-                  >
-                    {" "}
-                    <stop stop-color="#B8DBFC" />{" "}
-                    <stop offset="1" stop-color="#F8FBFE" />{" "}
-                  </linearGradient>{" "}
-                  <clipPath id="clip0_105_699">
-                    {" "}
-                    <rect width="200" height="200" fill="white" />{" "}
-                  </clipPath>{" "}
-                </defs>{" "}
-              </svg>
+  className="flex flex-col items-center justify-center w-1/2 relative"
+>
+<img
+  src="../images/iceberg.png"
+  alt="invis"
+  className="absolute"
+  style={{
+    width: "1000px", 
+    height: "auto", 
+    zIndex: 2,
+    top: "30%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+  }}
+/>
 
-              <img
-                src="../images/archwire.png"
-                alt="invis"
-                className="w-auto h-32 md:h-40 absolute"
-                style={{
-                  zIndex: 2,
-                  top: "30%",
-                  left: "50%",
-                  transform: "translate(-50%, -50%)",
-                }}
-              />
-              <img
-                src="../images/damontech.png"
-                alt="damon braces"
-                className="w-auto h-40 md:h-48 absolute"
-                style={{
-                  zIndex: 2,
-                  top: "80%",
-                  left: "20%",
-                  transform: "translate(-50%, -50%)",
-                }}
-              />
-            </figure>
+
+  {/* <img
+    src="../images/archwire.png"
+    alt="invis"
+    className="w-auto h-32 md:h-40 absolute"
+    style={{
+      zIndex: 2,
+      top: "30%",
+      left: "50%",
+      transform: "translate(-50%, -50%)",
+    }}
+  />
+  <img
+    src="../images/damontech.png"
+    alt="damon braces"
+    className="w-auto h-40 md:h-48 absolute"
+    style={{
+      zIndex: 2,
+      top: "80%",
+      left: "20%",
+      transform: "translate(-50%, -50%)",
+    }}
+  /> */}
+</figure>
+
           </div>
         </div>
       <div
@@ -569,11 +532,11 @@ export default function Features() {
             <div className="flex items-center justify-center h-screen relative w-1/2 flex-col">
               <figure className="flex items-center justify-center ">
                 <img src="../images/circletdot.svg" alt="dot" />
-                <img
-                  className="w-auto h-96"
-                  src="../images/itero2.png"
-                  alt="itero"
-                />
+                <video controls
+                  className="w-auto h-96 rounded-full">
+                  <source src="../images/video-teeth-scanner.mp4" type="video/mp4" />
+                
+                </video>
               </figure>
             </div>
             <div className="flex items-center">
