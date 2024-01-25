@@ -21,8 +21,8 @@ function Hero() {
     const lines = heroContentRef.current.querySelectorAll('.hero-content-line');
     lines.forEach((line, index) => {
       gsap.fromTo(line, 
-        { y: 20, opacity: 0 }, // starting animation state
-        { y: 0, opacity: 1, duration: 1.5, ease: 'power3.out', delay: index * 0.2 } // ending animation state
+        { y: 20, opacity: 0 }, 
+        { y: 0, opacity: 1, duration: 1.5, ease: 'power3.out', delay: index * 0.2 } 
       );
     });
   }
@@ -30,10 +30,10 @@ function Hero() {
   function animateBookButton() {
     if (!bookButtonRef.current) return;
   
-    // Animate the button to fade in and move up
+
     gsap.fromTo(bookButtonRef.current, 
-      { opacity: 0, y: 40 }, // Starting state: transparent and slightly lower
-      { opacity: 1, y: 0, duration: 1.5, ease: 'power3.out' } // End state: fully visible and in final position
+      { opacity: 0, y: 40 }, 
+      { opacity: 1, y: 0, duration: 1.5, ease: 'power3.out' } 
     );
   }
   
@@ -491,19 +491,16 @@ export default function Features() {
             <figure
   className="flex flex-col items-center justify-center w-1/2 relative"
 >
-<img
-  src="../images/iceberg.png"
-  alt="invis"
-  className="absolute"
-  style={{
-    width: "1000px", 
-    height: "auto", 
-    zIndex: 2,
-    top: "30%",
-    left: "50%",
-    transform: "translate(-50%, -50%)",
-  }}
-/>
+<h1
+                className="text-5xl font-thin w-64 text-center mx-auto leading-tight"
+                style={{
+                  marginTop: "-80px",
+                }}
+              >
+                Damon Bracket: less appointments faster treatment time
+                {/* Combining self-ligating braces with advanced archwires
+                clinically proven to move teeth quickly and comfortably. */}
+              </h1>
 
 
   {/* <img
