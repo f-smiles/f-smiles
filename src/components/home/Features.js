@@ -337,7 +337,7 @@ export default function Features() {
       });
     });
 
-    // Additional ScrollTrigger for controlling the Arc animation
+
     ScrollTrigger.create({
       trigger: damonRef.current,
       start: "top center", 
