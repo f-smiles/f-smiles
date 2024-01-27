@@ -190,43 +190,50 @@ const MembersSection = () => {
   
     smoother.effects("img", { speed: "auto" });
   
-    const heading = textRef.current;
-    const mySplitText = new SplitText(heading, { type: "chars" });
-    const chars = mySplitText.chars;
-  
-    chars.forEach((char, i) => {
-      smoother.effects(char, { lag: (i + 2) * 0.1, speed: 1 });
-    });
-  
+    let headings = gsap.utils.toArray(".js-title").reverse()
+    headings.forEach((heading, i) => {
+      let headingIndex = i + 1
+      let mySplitText = new SplitText(heading, { type: "chars" })
+      let chars = mySplitText.chars
+
+      chars.forEach((char, i) => {
+        smoother.effects(char, { lag: (i + headingIndex) * 0.1, speed: 1 })
+      })
+    })
+
+    let splitTextLines = gsap.utils.toArray(".js-splittext-lines")
+
     const tl = gsap.timeline({
       scrollTrigger: {
-        trigger: heading,
-        start: 'top 20%',
-        end: 'bottom 10%',
+        trigger: splitTextLines,
+        start: 'top 90%',
+        end: 'bottom 60%',
         scrub: 2,
         markers: false,
         toggleActions: 'play none play reset'
       }
-    });
-  
-    const itemSplitted = new SplitText(heading, { type: 'lines' });
-    tl.from(itemSplitted.lines, { y: 100, opacity: 0, stagger: 0.05, duration: 0.5, ease: 'back.inOut' });
-  
-    return () => {
+    })
+    const itemSplitted = new SplitText(splitTextLines, { type: 'lines' });
+			tl.from(itemSplitted.lines, { y: 100, opacity: 0, stagger: 0.05, duration: 0.5, ease: 'back.inOut' })
 
-    };
-  }, []);
+  }, [])
+  
   
   return (
     <div className="relative ">
       <div className="absolute inset-0 w-full h-full" ref={smootherRef} 
       id="team-section">
-        <div className="my-24 text-center">
+                <section className="my-24 text-center">
+          <h1 className="text-2xl font-bold text-center js-splittext-lines">
+            Split by <span className="text-pink-500">LINES:</span> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis gravida faucibus tincidunt. Donec a nisl dignissim, dictum sem in, mattis velit. Nulla nec gravida erat. Nunc scelerisque augue placerat lacus tristique rutrum. Vestibulum vulputate felis quis dolor lacinia pretium.
+          </h1>
+        </section>
+        {/* <div className="my-24 text-center">
           <h1
             ref={textRef}
-            className="js-split text-lines text-2xl font-bold text-center"
+            className="text-2xl font-bold text-center"
           >
-            Split by <span className="text-pink-500">LINES:</span>        Our members are X-ray certified, trained in CPR and first aid, and most of them have
+            Split by <span className="text-black">LINES:</span>        Our members are X-ray certified, trained in CPR and first aid, and most of them have
           received the designation of Specialized Orthodontic Assistant{" "}
           <a
             className="text-6xl  underline transition duration-200 underline-offset-4 text-secondary40 hover:text-secondary50"
@@ -237,9 +244,9 @@ const MembersSection = () => {
           . This is a voluntary certification program started by the American Association of
           Orthodontists to recognize those in the profession for their knowledge and experience.
           </h1>
-        </div>
+        </div> */}
        
-        {/*  
+{/*          
   <div className=" my-24 text-center" ref={smootherRef}>
         <h1 className="text-6xl font-bold text-center js-splittext-lines" ref={textRef}>
          

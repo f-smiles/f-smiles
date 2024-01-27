@@ -1,6 +1,6 @@
 import React, { Fragment, useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
-
+import Chart from "../svg/Chart"
 import { Parallax, ParallaxLayer } from '@react-spring/parallax'
 import {
   Accordion,
@@ -239,7 +239,7 @@ export default function WhyChooseUs() {
       left: 40,
       zIndex: 2,
       transform: 'rotate(180deg)',
-      opacity: 0.5 // Adjust for desired transparency
+      opacity: 0.5 
     }}
   />
   <div
@@ -686,6 +686,7 @@ export default function WhyChooseUs() {
             </tr>
           </tbody>
         </table>
+        < Chart />
         </section>
       </div>
     </div>
