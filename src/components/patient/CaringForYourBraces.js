@@ -223,3 +223,108 @@ const CaringForYourBraces = () => {
 };
 
 export default CaringForYourBraces
+// import React, { useEffect } from 'react';
+// import { gsap } from "gsap-trial";
+// import { ScrollTrigger } from "gsap/ScrollTrigger";
+// import Scrollbar from 'smooth-scrollbar';
+
+// const YourComponent = () => {
+
+//   useEffect(() => {
+//     gsap.registerPlugin(ScrollTrigger);
+
+//     // Initialize custom scrollbar
+//     let bodyScrollBar = Scrollbar.init(document.querySelector('.scroller'), {
+//         damping: 0.1,
+//         delegateTo: document,
+//     });
+
+//     // Proxy scroller for ScrollTrigger
+//     ScrollTrigger.scrollerProxy(".scroller", {
+//         scrollTop(value) {
+//             if (arguments.length) {
+//                 bodyScrollBar.scrollTop = value;
+//             }
+//             return bodyScrollBar.scrollTop;
+//         },
+//     });
+
+//     bodyScrollBar.addListener(ScrollTrigger.update);
+
+//     // Set zIndex for panels
+//     gsap.set(".panel", { zIndex: (i, target, targets) => targets.length - i });
+
+//     // Animating panels
+//     gsap.utils.toArray('.panel:not(.purple)').forEach((image, i) => {
+//         gsap.timeline({
+//             scrollTrigger: {
+//                 trigger: ".black",
+//                 scroller: ".scroller",
+//                 start: () => "top -" + (window.innerHeight * (i + 0.5)),
+//                 end: () => "+=" + window.innerHeight,
+//                 scrub: true,
+//                 invalidateOnRefresh: true,
+//             }
+//         })
+//         .to(image, { height: 0 });
+//     });
+
+//     // Set zIndex for panel texts
+//     gsap.set(".panel-text", { zIndex: (i, target, targets) => targets.length - i });
+
+//     // Animating panel texts
+//     gsap.utils.toArray('.panel-text').forEach((text, i) => {
+//         gsap.timeline({
+//             scrollTrigger: {
+//                 trigger: ".black",
+//                 scroller: ".scroller",
+//                 start: () => "top -" + (window.innerHeight * i),
+//                 end: () => "+=" + window.innerHeight,
+//                 scrub: true,
+//                 invalidateOnRefresh: true,
+//             }
+//         })
+//         .to(text, { duration: 0.33, opacity: 1, y: "50%" })
+//         .to(text, { duration: 0.33, opacity: 0, y: "0%" }, 0.66);
+//     });
+
+//     // Create ScrollTrigger for pinning
+//     ScrollTrigger.create({
+//         trigger: ".black",
+//         scroller: ".scroller",
+//         start: "top top",
+//         end: () => "+=" + ((gsap.utils.toArray('.panel').length + 1) * window.innerHeight),
+//         pin: true,
+//         scrub: true,
+//         invalidateOnRefresh: true,
+//         markers: true
+//     });
+
+//     return () => {
+//         ScrollTrigger.kill();
+//         bodyScrollBar.destroy();
+//     };
+// }, []);
+
+//     return (
+//         <div className="scroller h-screen overflow-hidden">
+//             <section className="black flex justify-around items-center h-screen bg-black sticky top-0 z-10">
+//                 <div className="text-wrap relative overflow-hidden w-[450px] h-[80vh]">
+//                     <div className="panel-text blue-text absolute inset-0 z-10 w-full h-full text-4xl uppercase font-bold text-center bg-black text-blue-500">Blue</div>
+//                     <div className="panel-text red-text absolute inset-0 z-10 w-full h-full text-4xl uppercase font-bold text-center bg-black text-red-500">Red</div>
+//                     <div className="panel-text orange-text absolute inset-0 z-10 w-full h-full text-4xl uppercase font-bold text-center bg-black text-orange-500">Orange</div>
+//                     <div className="panel-text purple-text absolute inset-0 z-10 w-full h-full text-4xl uppercase font-bold text-center bg-black text-purple-500">Purple</div>
+//                 </div>
+//                 <div className="p-wrap relative overflow-hidden w-[450px] h-[80vh]">
+//                     <div className="panel blue absolute inset-0 bg-blue-800"></div>
+//                     <div className="panel red absolute inset-0 bg-red-500"></div>
+//                     <div className="panel orange absolute inset-0 bg-orange-600"></div>
+//                     <div className="panel purple absolute inset-0 bg-purple-700"></div>
+//                 </div>
+//             </section>
+//             <section className="h-screen bg-blue-800"></section>
+//         </div>
+//     );
+// };
+
+// export default YourComponent;

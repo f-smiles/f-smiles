@@ -621,3 +621,8 @@ text {
     transform: rotateZ(0deg);
   }
 }
+
+.slideover{
+  transform: translateY(100%);
+  transition: transform 0.3s ease-in-out;
+}

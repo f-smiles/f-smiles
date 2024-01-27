@@ -50,6 +50,7 @@
     "redux": "^4.2.1",
     "redux-persist": "^6.0.0",
     "slick-carousel": "^1.8.1",
+    "smooth-scrollbar": "^8.8.4",
     "stripe": "^12.2.0",
     "swiper": "^10.1.0",
     "three": "^0.160.1",
