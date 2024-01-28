@@ -250,18 +250,26 @@ return (
       ))}
     </div>
   </div>
-<div className="w-1/2 flex flex-col justify-center items-center">
-  {slideData.map((slide, index) => (
-    <div
-      key={index}
-      className={`transition-opacity duration-1000 ease-out ${currentSlide === index + 1 ? 'opacity-100' : 'opacity-0'}`}
-    >
-      <h2 className="border border-black text-4xl font-semibold mb-4" style={{ maxWidth: '90%' }}>
-        {slide.description}
-      </h2>
-    </div>
-  ))}
-</div>
+  <div className="w-1/2 flex flex-col justify-center items-center">
+    {slideData.map((slide, index) => (
+      <div
+        key={index}
+        className="relative transition-opacity duration-1000 ease-out"
+        style={{
+          opacity: currentSlide === index + 1 ? 1 : 0,
+  
+          position: 'fixed', 
+          top: 'specific value', 
+          left: 'specific value', 
+        }}
+      >
+        <h2 className="text-4xl font-semibold mb-4" style={{ maxWidth: '90%' }}>
+          {slide.description}
+        </h2>
+      </div>
+    ))}
+  </div>
+
 
 </div>
 
