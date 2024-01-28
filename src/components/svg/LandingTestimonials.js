@@ -151,7 +151,7 @@ const changeSlide = (dir) => {
       }
     };
 
-    
+  
     const interval = setInterval(updateProgress, 1000);
 
     return () => clearInterval(interval);
@@ -189,7 +189,7 @@ const changeSlide = (dir) => {
 
 return (
   <div className="flex">
-<div className="relative w-1/2 min-h-screen overflow-hidden flex items-start" >
+<div className="relative w-1/2 min-h-screen overflow-hidden flex items-start" style={{ transform: 'scale(0.8)' }} >
 
 
     <div className="relative z-10 max-w-6xl mx-auto my-10 flex justify-between">
@@ -198,27 +198,37 @@ return (
         {[...Array(totalSlides)].map((_, index) => (
           <div key={index} className="flex items-center space-x-2">
             <div className="text-sm">{index + 1}</div>
-            <div className="relative w-14 h-px bg-white/50">
-              <div
-                className="absolute top-0 left-0 h-full bg-white transition-all duration-100 ease-out"
-                style={{ width: `${progressBars[index]}%` }}
-              ></div>
-            </div>
-            <span className={`transition-opacity duration-500 ${index === currentSlide - 1 && progressBars[index] < 100 ? 'opacity-100' : 'opacity-0'}`}>
-              {slideData[index].title}
-            </span>
+            <div className={`relative ${currentSlide === index + 1 ? 'w-28' : 'w-14'} h-px bg-white/50`}>
+    <div
+        className="absolute top-0 left-0 h-full bg-white transition-all duration-100 ease-out"
+        style={{ width: `${progressBars[index]}%` }}
+    ></div>
+</div>
+
+<span
+  className={`text-custom-size transition-opacity duration-500 ${
+    index === currentSlide - 1 && progressBars[index] < 100
+      ? 'opacity-100'
+      : 'opacity-0'
+  }`}
+  style={{ fontSize: '24px' }}
+>
+  {slideData[index].title}
+</span>
+
+
           </div>
         ))}
       </div>
 
-      {/* Controls */}
+  
       <div className="flex space-x-5">
         <div className="w-12 h-12 rounded-full border border-white bg-white text-black flex justify-center items-center opacity-50 cursor-pointer" onClick={goToPrevSlide}> <span className="text-sm">{'<'}</span></div>
         <div className="w-12 h-12 rounded-full border border-white bg-white text-black flex justify-center items-center opacity-50 cursor-pointer" onClick={goToNextSlide}> <span className="text-sm">{'>'}</span></div>
       </div>
     </div>
 
-    {/* Slider Content */}
+
     <div className="absolute top-0 left-0 w-full h-full">
       {slideData.map((slide, index) => (
         <div
@@ -227,7 +237,7 @@ return (
           className={`absolute inset-0 transition-opacity duration-1000 ease-out ${currentSlide === index + 1 ? 'opacity-100' : 'opacity-0'}`}
           style={{ transform: `translateX(${index > 0 ? 100 : 0}%)` }}
         >
-          {/* Slide content */}
+    
           <div className="absolute inset-0">
           <img
   src={slide.imgSrc}
