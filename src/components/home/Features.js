@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useLayoutEffect, useState } from "react";
 import LandingTestimonials from "../svg/LandingTestimonials.js";
 import { useInView } from "framer-motion";
-import DotPattern from "../svg/DotPattern";
+
 import Arc from "../svg/Arc";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { gsap } from "gsap-trial";
@@ -111,7 +111,7 @@ function Hero() {
   }
 
   return (
-    <motion.section className="relative">
+    <main className="relative">
       <div className="relative px-8 isolate  lg:px-8">
   
         <div className="grid max-w-screen-xl grid-cols-1  mx-auto sm:py-10  place-items-center lg:grid-cols-2">
@@ -182,20 +182,6 @@ function Hero() {
                 </div>
               </div>
 
-              <div className="-mt-18 flex items-center justify-start gap-x-6">
-                <Link
-                  to="/our-team"
-                  className="text-xl rounded-lg  border border-primary50 p-4 mt-10 font-normal leading-6 transition-colors duration-300 ease-linear text-primary50 hover:text-primary30"
-                >
-                  Our Team <span aria-hidden="true"></span>
-                </Link>
-                <Link
-                  to="/book-now"
-                  className="text-xl rounded-lg  border border-primary50 bg-primary50 text-white p-4 mt-10 font-normal leading-6 transition-colors duration-300 ease-linear text-primary50 hover:text-primary30"
-                >
-                  Book Now <span aria-hidden="true"></span>
-                </Link>
-              </div>
             </div>
           </div>
 
@@ -215,9 +201,10 @@ function Hero() {
         ></div> */}
       </div>
       <div>
-        <LandingTestimonials />
+   
       </div>
-    </motion.section>
+      <LandingTestimonials />
+    </main>
   );
 }
 
