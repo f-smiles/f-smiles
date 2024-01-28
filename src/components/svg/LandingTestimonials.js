@@ -28,23 +28,47 @@ const OakSlider = () => {
     }
 ];
 
-  const goToNextSlide = () => {
-    if (animating) return;
-    setAnimating(true);
+const goToNextSlide = () => {
+  if (animating) return;
+  setAnimating(true);
 
-    const newSlideIndex = currentSlide >= totalSlides ? 1 : currentSlide + 1;
-    slideAnimation(currentSlide, newSlideIndex, 'next');
-    setCurrentSlide(newSlideIndex);
+
+  const currentSlideIndex = currentSlide - 1;
+  setProgressBars((progressBars) =>
+    progressBars.map((progress, index) =>
+      index === currentSlideIndex ? 0 : progress
+    )
+  );
+
+
+  setActiveSlideProgress(0);
+
+  const newSlideIndex = currentSlide >= totalSlides ? 1 : currentSlide + 1;
+  slideAnimation(currentSlide, newSlideIndex, 'next');
+  setCurrentSlide(newSlideIndex);
 };
 
 const goToPrevSlide = () => {
-    if (animating) return;
-    setAnimating(true);
+  if (animating) return;
+  setAnimating(true);
 
-    const newSlideIndex = currentSlide <= 1 ? totalSlides : currentSlide - 1;
-    slideAnimation(currentSlide, newSlideIndex, 'prev');
-    setCurrentSlide(newSlideIndex);
+ 
+  const currentSlideIndex = currentSlide - 1;
+  setProgressBars((progressBars) =>
+    progressBars.map((progress, index) =>
+      index === currentSlideIndex ? 0 : progress
+    )
+  );
+
+
+  setActiveSlideProgress(0);
+
+  const newSlideIndex = currentSlide <= 1 ? totalSlides : currentSlide - 1;
+  slideAnimation(currentSlide, newSlideIndex, 'prev');
+  setCurrentSlide(newSlideIndex);
 };
+
+
 
 
 const slideAnimation = (from, to, dir) => {
@@ -70,6 +94,14 @@ const slideAnimation = (from, to, dir) => {
 const changeSlide = (dir) => {
   if (animating) return;
 
+ 
+  const currentSlideIndex = currentSlide - 1;
+  setProgressBars((progressBars) =>
+    progressBars.map((progress, index) =>
+      index === currentSlideIndex ? 0 : progress
+    )
+  );
+
   let newSlideIndex = currentSlide;
   if (dir === 'next') {
     newSlideIndex = currentSlide >= totalSlides ? 1 : currentSlide + 1;
@@ -77,77 +109,87 @@ const changeSlide = (dir) => {
     newSlideIndex = currentSlide <= 1 ? totalSlides : currentSlide - 1;
   }
 
-
   const slideDirection = dir === 'next' ? 'right' : 'left';
 
-  
-  slideAnimation(currentSlide, newSlideIndex, slideDirection);
+  setProgressBars((progressBars) =>
+    progressBars.map((progress, index) =>
+      index === newSlideIndex - 1 ? activeSlideProgress : progress
+    )
+  );
 
+  slideAnimation(currentSlide, newSlideIndex, slideDirection);
   setCurrentSlide(newSlideIndex);
 };
 
 
 
+  const [activeSlideProgress, setActiveSlideProgress] = useState(0); 
+  const autoPlaySlide = () => {
+    const updateProgress = () => {
 
-  useEffect(() => {
+      setActiveSlideProgress(0);
 
-  }, []);
+    
+      setProgressBars((progressBars) =>
+        progressBars.map((progress, index) => {
+          if (index === currentSlide - 1) {
+            const newProgress = progress + (100 / autoPlaySpeed);
+            return newProgress <= 100 ? newProgress : 100;
+          }
+          return progress;
+        })
+      );
 
-const autoPlaySlide = () => {
-  const updateProgress = () => {
-    setProgressBars((progressBars) =>
-      progressBars.map((progress, index) => {
-        if (index === currentSlide - 1) {
-          return Math.min(progress + (100 / autoPlaySpeed), 100);
-        }
-        return progress;
-      })
-    );
-
-    if (progressBars[currentSlide - 1] >= 100) {
- 
-      const dir = currentSlide === totalSlides ? 'next' : 'prev';
-      changeSlide(dir);
-      setProgressBars(new Array(totalSlides).fill(0));
-    }
-  };
-
-  const interval = setInterval(updateProgress, 1000);
-
-  return () => clearInterval(interval);
-};
-
-  
-  
-
-useEffect(() => {
-  let interval;
-  if (autoPlay) {
-      interval = setInterval(() => {
-          setProgressBars(progressBars => progressBars.map((progress, index) => {
-              if (index === currentSlide - 1) {
-                  const increment = (100 / (autoPlaySpeed * 10));
-                  return Math.min(progress + increment, 100);
-              }
-              return progress;
-          }));
-      }, 100); 
 
       if (progressBars[currentSlide - 1] >= 100) {
-          changeSlide('next');
-          setProgressBars(new Array(totalSlides).fill(0)); 
-      }
-  }
 
-  return () => clearInterval(interval);
-}, [autoPlay, autoPlaySpeed, currentSlide, progressBars]);
+        const dir = currentSlide >= totalSlides ? 'next' : 'prev';
+        changeSlide(dir);
+
+
+        setProgressBars(new Array(totalSlides).fill(0));
+      }
+    };
+
+    
+    const interval = setInterval(updateProgress, 1000);
+
+    return () => clearInterval(interval);
+  };
+
+
+  
+  useEffect(() => {
+    let interval;
+    if (autoPlay) {
+      interval = setInterval(() => {
+        setProgressBars((progressBars) =>
+          progressBars.map((progress, index) => {
+            if (index === currentSlide - 1) {
+              const newProgress = progress + (100 / (autoPlaySpeed * 10));
+              return newProgress <= 100 ? newProgress : 100;
+            }
+            return progress;
+          })
+        );
+      }, 100);
+  
+      if (progressBars[currentSlide - 1] >= 100) {
+        changeSlide('next');
+        setProgressBars(new Array(totalSlides).fill(0));
+      }
+    }
+  
+    return () => clearInterval(interval);
+  }, [autoPlay, autoPlaySpeed, currentSlide, progressBars]);
+  
 
 
 
 
 return (
-  
-<div className="relative w-1/2 min-h-screen overflow-hidden flex items-start" style={{ transform: 'scale(0.75)', aspectRatio: '1/1.5' }}>
+  <div className="flex">
+<div className="relative w-1/2 min-h-screen overflow-hidden flex items-start" >
 
 
     <div className="relative z-10 max-w-6xl mx-auto my-10 flex justify-between">
@@ -193,17 +235,26 @@ return (
   className="w-full h-full object-cover"
 />
           </div>
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="text-center">
-              <h2 className="text-4xl font-semibold mb-4">
-                {slide.description}
-              </h2>
-            </div>
-          </div>
+       
         </div>
       ))}
     </div>
   </div>
+<div className="w-1/2 flex flex-col justify-center items-center">
+  {slideData.map((slide, index) => (
+    <div
+      key={index}
+      className={`transition-opacity duration-1000 ease-out ${currentSlide === index + 1 ? 'opacity-100' : 'opacity-0'}`}
+    >
+      <h2 className="border border-black text-4xl font-semibold mb-4" style={{ maxWidth: '90%' }}>
+        {slide.description}
+      </h2>
+    </div>
+  ))}
+</div>
+
+</div>
+
 );
 
 };
