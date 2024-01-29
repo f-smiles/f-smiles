@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 
-export default function DotPattern() {
+export default function DotPattern(props) {
   // useEffect(() => {
   //   const rects = document.querySelectorAll("#dots rect");
   //   rects.forEach((rect, index) => {
@@ -11,6 +11,7 @@ export default function DotPattern() {
 
   return (
     <svg
+    {...props}
       id="dots"
       width="286"
       height="631"

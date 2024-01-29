@@ -1,10 +1,102 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { Link } from "react-router-dom";
+import { gsap, Power3 } from "gsap-trial";
 AOS.init();
 
 const YourCare = () => {
+  const heroRef = useRef(null);
+  const girlImageRef = useRef(null);
+  const boyImageRef = useRef(null);
+      const sectionRef = useRef(null);
+  const observer = useRef(null);
+
+  useEffect(() => {
+      observer.current = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+              if (entry.isIntersecting) {
+     
+                  gsap.from(girlImageRef.current, {
+                      y: 300,
+                      ease: Power3.easeOut,
+                      duration: 1.2
+                  });
+
+                  gsap.from(girlImageRef.current.children[0], {
+                      scale: 1.6,
+                      ease: Power3.easeOut,
+                      duration: 2,
+                      delay: 0.3
+                  });
+
+                  gsap.from(boyImageRef.current, {
+                      y: 150,
+                      ease: Power3.easeOut,
+                      duration: 1.2,
+                      delay: 0.2
+                  });
+
+                  gsap.from(boyImageRef.current.children[0], {
+                      scale: 1.6,
+                      ease: Power3.easeOut,
+                      duration: 2,
+                      delay: 0.3
+                  });
+
+                
+                  observer.current.unobserve(entry.target);
+              }
+          });
+      }, {
+          rootMargin: '0px',
+          threshold: 0.5 
+      });
+
+      if (heroRef.current) {
+          observer.current.observe(heroRef.current);
+      }
+
+      return () => {
+          if (heroRef.current) {
+              observer.current.unobserve(heroRef.current);
+          }
+      };
+  }, []);
+  const [backgroundColor, setBackgroundColor] = useState("transparent");
+  const [isScrolled, setIsScrolled] = useState(false);
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      const transitionStart = 40; 
+      const transitionEnd = 800; 
+      const scrollPercentage = Math.min(1, Math.max(0, (scrollPosition - transitionStart) / (transitionEnd - transitionStart)));
+
+
+   
+      const startColor = [247, 239, 238];
+      const endColor = [204, 222, 206]; 
+
+      const interpolatedColor = startColor.map((start, i) => {
+        const end = endColor[i];
+        return Math.round(start + (end - start) * scrollPercentage);
+      });
+
+
+      setBackgroundColor(`rgb(${interpolatedColor.join(",")})`);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const image = '../../images/wave.webp';
+  <a href='https://pngtree.com/freepng/color-circle-time-flow-chart_5453938.html'></a>
+
+
   const [isHovered, setIsHovered] = useState(false);
   const images = [
     '../images/patient-charlotte.jpeg',
@@ -31,222 +123,303 @@ const YourCare = () => {
 
   return (
     <>
-      <div>
-        <div className="mt-40 py-2 px-24 grid grid-cols-3 ">
-         <div
-  className="col-span-1 text-white ml-1 py-2 border border-green-700 flex items-center"
-  style={{
-    backgroundColor: isHovered ? "indigo" : "transparent",
-    transition: "background-color 0.3s",
-  }}
-  onMouseEnter={() => {
-    setIsHovered(true);
-  }}
-  onMouseLeave={() => {
-    setIsHovered(false);
-  }}
->
-  <span>
-    <img
-      src="/images/greencalender.png"
-      alt="calendar"
-      className="ml-10 w-10 h-10"
-    />
-  </span>
-  <span className="ml-10 text-green-700 text-xl">
-    <Link className="hover:text-white" to="/book-now">
-      Schedule A Consultation
-    </Link>
-  </span>
-</div>
+      <div className="pt-2" style={{ minHeight: "200vh", backgroundColor }}>
+        <div className="" >
+          <div className="mt-40 py-2 px-24 grid grid-cols-3 ">
+            <div
+              className="col-span-1 text-white ml-1 py-2 flex items-center"
 
-          <div className="col-span-1 text-green-700 py-2 border-t border-b border-green-700 flex">
-            <img
-              src="/images/map.svg"
-              alt="map"
-              className="ml-20 w-10 h-10"
-            />
-            <span className="mt-1 ml-10 text-xl">
-              <Link className="hover:text-red-300" to="/locations">
-                Visit Our Offices
-              </Link>
-            </span>
+
+            >
+
+            </div>
+
           </div>
-          <div className="col-span-1 text-green-700 px-4 py-2 border border-green-700 flex">
-            <img
-              src="/images/phone-call.svg"
-              alt="halfcircles"
-              className="ml-20 w-10 h-8 "
-            />
-            <span className="mt-1 ml-10 text-xl">
-              <Link className="hover:text-red-300" to="/locations">
-                Give Us A Call
-              </Link>
-            </span>
+          <div className="flex">
+
+
+            <div className="w-1/2 relative z-10 flex flex-col items-center">
+              <h1 className="font-HelveticaNowVar font-thin text-5xl text-center mt-12 mb-10 animation">
+                Getting Started
+              </h1>
+
+              <div className="flex justify-center">
+                <div className="flex flex-col items-center mx-4">
+                  <h3
+                    className="border border-gray-300 text-center text-xl text-lime-900 mb-2 rounded-full px-4 py-2"
+                    style={{ width: "80px", height: "80px", lineHeight: "60px" }}
+                  >
+                    1
+                  </h3>
+                  <p>
+                    Book a personalized consultation with one of our doctors, either virtually or in person.
+                  </p>
+                </div>
+                <div className="flex flex-col items-center mx-4">
+                  <h3
+                    className="border border-gray-300 text-center text-xl text-lime-900 mb-2 rounded-full px-4 py-2"
+                    style={{ width: "80px", height: "80px", lineHeight: "60px" }}
+                  >
+                    2
+                  </h3>
+                  <p>
+                    Your first appointment will consist of a thorough orthodontic
+                    examination including photos and a digital radiograph of your teeth.
+                  </p>
+                </div>
+                <div className="flex flex-col items-center mx-auto">
+                  <h3
+                    className="border border-gray-300 text-center text-xl text-lime-900 mb-2 rounded-full px-4 py-2"
+                    style={{ width: "80px", height: "80px", lineHeight: "60px" }}
+                  >
+                    3
+                  </h3>
+                  <p>
+                    Discover the ideal solution for your needs, free from any financial obligations or commitments.
+                  </p>
+                </div>
+              </div>
+
+            </div>
+
+
+
+            <div className="md:w-1/2 flex justify-center items-center">
+              <div className="md:w-1/2 flex justify-center items-center">
+                <div className="relative mx-2" style={{ width: "300px", height: "240px" }}>
+                  <img
+                    className="rounded-full opacity-90 w-full h-full object-cover"
+                    src="../../images/carepatient1.png"
+                    alt="patient"
+                    style={{ objectPosition: "40% 50%" }}
+                  />
+                </div>
+                <div className="relative mx-2" style={{ width: "300px", height: "300px" }}>
+                  <img
+                    className="rounded-full opacity-90 w-full h-full object-cover"
+                    src="../../images/carepatient2.png"
+                    alt="patient"
+                    style={{ objectPosition: "10% 50%" }}
+                  />
+                </div>
+
+                <div className="relative mx-2" style={{ width: "300px", height: "340px" }}>
+                  <img
+                    className="rounded-full opacity-90 w-full h-full object-cover"
+                    src="../../images/carepatient3.png"
+                    alt="patient"
+                  />
+                </div>
+                <div className="relative mx-2" style={{ width: "330px", height: "400px" }}>
+                  <img
+                    className="rounded-full opacity-90 w-full h-full object-cover"
+                    src="../../images/carepatient4.png"
+                    alt="patient"
+                    style={{ objectPosition: "40% 50%" }}
+                  />
+                </div>
+                <div className="relative mx-2" style={{ width: "300px", height: "480px" }}>
+                  <img
+                    className="rounded-full opacity-90 w-full h-full object-cover"
+                    src="../../images/freysmilepatient1.jpg"
+                    alt="patient"
+                  />
+                </div>
+              </div>
+
+
+
+            </div>
           </div>
         </div>
-        <div className="flex">
-          <div className="w-1/2">
-            <h1 className="text-5xl text-center mt-12  mb-10">
-              Getting Started
-            </h1>
+        <section style={{ minHeight: "200vh", backgroundColor }}>
 
-            <p className="text-lg mt-20 justify-content ml-10">
-              {" "}
-              Experience a personalized consultation with one of our doctors,
-              either virtually or in-office. Discover the ideal solution for
-              your needs, free from any financial obligations or commitments.
-              Your well-being is our utmost priority, and we are dedicated to
-              providing you with a stress-free experience.
-            </p>
-          </div>
-          <div className="md:w-1/2 flex justify-center items-center">
-            <img
-              className="rounded-full opacity-90 "
-              src="../../images/freysmilepatient1.jpg"
-              alt="patient"
-              style={{ maxWidth: "80%", maxHeight: "80%" }}
-            />
-          </div>
-        </div>
-      </div>
-      <section className="my-16  space-y-24">
-        
-        <div
-          data-aos="fade-up"
-          data-aos-duration="750"
-          data-aos-easing="linear"
-          className=" rounded-tl-3xl rounded-tr-3xl rounded-bl-3xl rounded-br-md md:flex max-h-full px-12 pb-12 pt-20"
-          style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr" }}
-        >
-            <img
-        src="/images/sandbackground.png"
-        alt="chart"
-        className="object-cover w-full h-full"
-        style={{ opacity: 0.2, position: "absolute", top: 0, left: 0 }}
-      />
-          <div>
-            <h3 className="text-center text-6xl text-lime-900 mb-14 mt-20">
-              1
-            </h3>
-            <p className="text-lime-900">
-              During your initial visit, you'll get to know some of the friendly
-              faces of the FreySmiles orthodontic team and see what makes us
-              unique. We are always excited about meeting new patients.
-            </p>
-          </div>
-          <div className="">
-            <h3 className="text-center text-6xl text-lime-900 mb-14 mt-20">
-              2
-            </h3>
-            <p className="">
-              Your first appointment will consist of a thorough orthodontic
-              examination including photos, a digital radiograph of your teeth,
-            </p>
-            {/* <img
-      className="opacity-90"
-      src="../../images/itero.png"
-      alt="scan"
-      style={{ maxWidth: "80%", maxHeight: "80%" }}
-    /> */}
-          </div>
-          <div>
-            <h3 className="text-6xl text-center text-lime-900 mb-14 mt-20">
-              3
-            </h3>
-            <p>
-              and a discussion of your options. This important visit will give
-              us a full picture of your orthodontic needs.
-            </p>
-          </div>
-        </div>
-
-        <div
-      data-aos="fade-up"
-      data-aos-duration="1050"
-      data-aos-easing="linear"
-      className="bg-F8F3F3 rounded-tl-3xl rounded-tr-3xl rounded-bl-3xl rounded-br-md md:flex max-h-full px-12 pb-12 pt-20"
-    >
-      <div className="md:w-1/2 flex items-center relative">
-        <div className="rounded-full overflow-hidden flex-shrink-0">
           <div
-            className="object-cover w-full h-full"
-            style={getTransitionStyle()}
-          ></div>
-        </div>
-        <div className="ml-6">
-          <h3 className="text-4xl text-lime-900 mb-14 mt-20">
-            Growth and Guidance
-          </h3>
-          <div className="paragraph-with-background">
-            <p>
-              If braces are not needed right away, you will be enrolled in our
-              FreySmiles Club, where we will see you every 6-12 months to
-              monitor your progress. Timing is extremely important for us to be
-              able to provide the best results and to deliver your new smile as
-              quickly as possible. These visits for a “peace of mind policy”
-              cost you nothing! We’ll also be working with your family dentist
-              before and during braces to provide you with the highest level of
-              care.
-            </p>
-          </div>
-        </div>
-      </div>
-      <div className="md:w-1/2 flex justify-center items-center relative">
-        <div className="animate-bubble-in">
-          {/* Placeholder for the current image */}
-          <img
-            className="rounded-full overflow-hidden w-96 h-96 object-cover flex-shrink-0"
-            src={images[currentImageIndex]}
-            alt="scan"
-          />
-        </div>
-        <div className="animate-delayed-bubble-in">
-          <img
-            className="rounded-md absolute top-10 right-20"
-            src="../../images/observation.svg"
-            alt="scan"
-            style={{
-              maxWidth: '20%',
-              maxHeight: '30%',
-              filter: 'drop-shadow(0px 0px 0px #000000)'
-            }}
-          />
-        </div>
-      </div>
-    </div>
+    
+            className="md:flex max-h-full px-12 pb-12 pt-40"
+          >
+            <div className="md:w-1/2 flex justify-center items-center relative">
+            <div className={`your-care ${isScrolled ? "scrolled" : ""}`}>
+            <div ref={heroRef} className="hero h-screen">
+              <div ref={girlImageRef} className="hero-image ">
+                     <img
+                  src={image}
+                />
+                {/* <img src="https://hello.andreatuysuzian.com/static/media/girl.a9703cf5.jpg" alt="Girl" /> */}
+            </div>
+            <div ref={boyImageRef} className="hero-image boy">
+                <img src="images/inviskit.png" alt="kit" />
+            </div>
+            </div>
+           
+                <div
+                  className="md:w-1/2 flex justify-center items-center"
+                  style={{
+                    filter: 'brightness(0) invert(1)',
+                    zIndex: 2,
+                    width: '200px',
+                    height: 'auto',
+                    position: 'absolute',
+                    top: -40,
+                    right: 20,
+                  }}
+                >Monitor development
+                  <img
+                    src="../../images/flowchart.png"
+                    alt="scan"
+                  />
+                </div>
+        
+                <div
+                  className="glass-overlay"
+                  style={{
+                    position: 'absolute',
+                    bottom: 0,
+                    left: 0,
+                    zIndex: 3,
+                    height: '100%',
+                    width: '100%',
+                    display: 'flex',
+                    flexDirection: 'row',
+                    pointerEvents: 'none',
+                  }}
+                >
+                  {[...Array(10)].map((_, index) => (
+                    <div
+                      key={index}
+                      className="glass"
+                    // style={{
+                    //   width: 'calc(100% / 12)',
+                    //   background: 'linear-gradient(90deg, rgba(255, 255, 255, 0.05) 10%, rgba(4, 9, 20, 0) 70%, rgba(255, 255, 255, 0.05) 110%)',
+                    //   // backdropFilter: 'blur(1.5px)',
+                    // }}
+                    ></div>
+                  ))}
+                </div>
+              </div>
 
-        <div
-          data-aos="fade-up"
-          data-aos-duration="550"
-          data-aos-easing="linear"
-          className="rounded-tl-3xl rounded-tr-3xl rounded-bl-3xl rounded-br-md md:flex  max-h-full px-12 pb-12 pt-20"
-        >
-          <div className="md:w-1/2">
-            <h3 className="text-2xl text-lime-900 uppercase mb-14 mt-20">
-              What to Bring
-            </h3>
-            <p>
-              Since treatment plans and payment options may be discussed, we ask
-              that a parent or guardian be present for the first visit.
-              Including everyone who will be making this important decision
-              helps us communicate thoroughly. We are an insurance friendly
-              office so please assist us by bringing your insurance card if you
-              have orthodontic coverage. We want our patients to leave the
-              office with a clear understanding of their specific treatment
-              plan, so don’t hesitate to ask questions.
-            </p>
+
+            </div>
+            <div className="md:w-1/2 flex items-center relative">
+              <div className="rounded-full overflow-hidden flex-shrink-0">
+                <div
+                  className="object-cover w-full h-full"
+                  style={getTransitionStyle()}
+                ></div>
+              </div>
+              <div className="ml-6">
+                <h3 className="font-HelveticaNowVar font-thin text-5xl mb-14 mt-20">
+                  Growth and Guidance
+                </h3>
+                <div className="paragraph-with-background">
+                  <p>
+                    The American Association of Orthodontists (AAO) recommends an orthodontic evaluation by age 7 to assess potential treatment needs.
+
+                    If immediate treatment isn't necessary, you'll be enrolled in our FreySmiles Club, where you'll receive biannual and annual check-ins to monitor your progress. Early intervention can simplify or eliminate the need for extensive treatment later on. Our collaboration with your family dentist ensures comprehensive care throughout your treatment.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="md:w-1/2 flex justify-center items-center">
-            <img
-              className="opacity-90 "
-              src="../../images/freysmilecartoon.jpg"
-              alt="scan"
-              style={{ maxWidth: "80%", maxHeight: "80%" }}
-            />
+
+
+          <div
+            data-aos="fade-up"
+            data-aos-duration="550"
+            data-aos-easing="linear"
+            className="rounded-tl-3xl rounded-tr-3xl rounded-bl-3xl rounded-br-md md:flex  max-h-full px-12 "
+          >
+            <div className="">
+              <>
+                <h3 className="font-HelveticaNowVar font-thin text-5xl text-center mb-10">
+                  Pricing
+                </h3>
+                <p>
+                  Since treatment plans and payment options may be discussed, we ask that a parent or guardian be present for the first visit. Including everyone who will be making this important decision helps us communicate thoroughly. We want our patients to leave the office with a clear understanding of their specific treatment plan, so don’t hesitate to ask questions.
+                </p>
+                <table style={{ width: "100%", borderCollapse: "collapse" }}>
+                  <colgroup>
+                    <col style={{ width: "33%" }} />
+                    <col style={{ width: "33%" }} />
+                    <col style={{ width: "33%" }} />
+                  </colgroup>
+                  <tr>
+                  <td style={{ border: "1px solid #B3B3B5", padding: "8px", fontSize: "18px", textAlign: "center" }}>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    className="icon icon-tabler icon-tabler-shield-plus"
+    width="48"
+    height="48"
+    viewBox="0 0 24 24"
+    strokeWidth=".5" 
+    stroke="currentColor"
+    fill="none"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    style={{ display: "block", margin: "0 auto" }}
+  >
+    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+    <path d="M12.462 20.87c-.153 .047 -.307 .09 -.462 .13a12 12 0 0 1 -8.5 -15a12 12 0 0 0 8.5 -3a12 12 0 0 0 8.5 3a12 12 0 0 1 .11 6.37" />
+    <path d="M16 19h6" />
+    <path d="M19 16v6" />
+  </svg>
+  <div style={{ paddingTop: "10px" }}>Please bring your insurance card if you have orthodontic coverage</div>
+</td>
+<td style={{ border: "1px solid #B3B3B5", padding: "8px", fontSize: "18px", textAlign: "center" }}>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    className="icon icon-tabler icon-tabler-discount-check"
+    width="48" 
+    height="48" 
+    viewBox="0 0 24 24"
+    strokeWidth=".5" 
+    stroke="currentColor"
+    fill="none"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    style={{ display: "block", margin: "0 auto" }}
+  >
+    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+    <path d="M5 7.2a2.2 2.2 0 0 1 2.2 -2.2h1a2.2 2.2 0 0 0 1.55 -.64l.7 -.7a2.2 2.2 0 0 1 3.12 0l.7 .7c.412 .41 .97 .64 1.55 .64h1a2.2 2.2 0 0 1 2.2 2.2v1c0 .58 .23 1.138 .64 1.55l.7 .7a2.2 2.2 0 0 1 0 3.12l-.7 .7a2.2 2.2 0 0 0 -.64 1.55v1a2.2 2.2 0 0 1 -2.2 2.2h-1a2.2 2.2 0 0 0 -1.55 .64l-.7 .7a2.2 2.2 0 0 1 -3.12 0l-.7 -.7a2.2 2.2 0 0 0 -1.55 -.64h-1a2.2 2.2 0 0 1 -2.2 -2.2v-1a2.2 2.2 0 0 0 -.64 -1.55l-.7 -.7a2.2 2.2 0 0 1 0 -3.12l.7 -.7a2.2 2.2 0 0 0 .64 -1.55v-1" />
+    <path d="M9 12l2 2l4 -4" />
+  </svg>
+  FSA/HSA dollars are accepted
+</td>
+
+<td style={{ border: "1px solid #B3B3B5", padding: "8px", fontSize: "18px", textAlign: "center" }}>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    className="option check"
+    width="48"
+    height="48"
+    viewBox="0 0 24 24"
+    strokeWidth=".5"
+    stroke="currentColor"
+    fill="none"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    style={{ display: "block", margin: "0 auto" }}
+  >
+    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+    <path d="M3.5 5.5l1.5 1.5l2.5 -2.5" />
+    <path d="M3.5 11.5l1.5 1.5l2.5 -2.5" />
+    <path d="M3.5 17.5l1.5 1.5l2.5 -2.5" />
+    <path d="M11 6l9 0" />
+    <path d="M11 12l9 0" />
+    <path d="M11 18l9 0" />
+  </svg>
+  <div style={{ marginTop: "5px" }}>Payment Plans</div>
+</td>
+
+                  </tr>
+                </table>
+              </>
+
+            </div>
+
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
     </>
   );
 };

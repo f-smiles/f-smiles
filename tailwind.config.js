@@ -15,6 +15,7 @@ module.exports = {
         'source-neutral-dark': "#262626",
         'purplelil':"#E9E9F3",
         'lightblue':"#daf0ff",
+        'a9c7bc':"#a9c7bc",
         // 'source-tertiary': "#339966",
 
         'primary0': '#000000',
@@ -65,15 +66,21 @@ module.exports = {
         'tertiary95': "#b2fff6",
         'tertiary98': "#e4fffa",
         'tertiary99': "#f2fffc",
+        'FFF6EB':"#FFF6EB",
+        'DFD1C5':"#DFD1C5",
+        
 
       'B7B19F': "#B7B19F",
       // 'e8e6df': '#e8e6df',
+      'F7EFEE':"#F7EFEE",
       'f7f5f2': '#f7f5f2',
       'f4eae4': '#f4eae4',
       '#c75b18': '#c75b18',
       '7e3a87':'#7e3a87',
       'F8F6F1':"#F8F6F1",
       'E6DDD3':'#E6DDD3',
+      'D1CCE1':'#D1CCE1',
+      'ddd9eb':'#ddd9eb',
 
       'dec0ae': '#dec0ae',
       'BDB5D5': '#BDB5D5',
@@ -92,7 +99,9 @@ module.exports = {
        'f6f0ea':"#f6f0ea",
        'C7AF97':"#C7AF97",
        'EAE8E1':"#EAE8E1",
-       'F8F3F3':"#F8F3F3"
+       'F8F3F3':"#F8F3F3",
+       'B3B3B5 ':"#B3B3B5",
+       'D0C8C5 ':"#D0C8C5 ",
       },
     },
     fontFamily: {
@@ -104,6 +113,8 @@ module.exports = {
       'euclidMedium': ['EuclidCircularAMedium', 'sans-serif'],
       'euclidRegular': ['EuclidCircularARegular', 'sans-serif'],
       'euclidSemibold': ['EuclidCircularASemibold', 'sans-serif'],
+      'HelveticaNowVar': ['HelveticaNowVar', 'sans-serif'],
+      'HelveticaNowPro':['HelveticaNowPro', 'sans-serif'],
     },
     animation: {
       blob: "blob 7s infinite",

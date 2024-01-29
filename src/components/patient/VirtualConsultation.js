@@ -110,9 +110,9 @@ const VirtualConsultation = () => {
   return (
     <main
       id="contact-form"
-      className="mt-20 p-8"
+      className="mt-20 flex "
       style={{
-        backgroundImage: `url("../../images/wavylinepurple.png"), url("../../images/halfcircle.svg")`,
+        backgroundImage: `url("../../images/wavylinepurple.png")`,
         backgroundSize: "50%, 40%",
         backgroundPosition: "-10% center, top -25% right -45%",
         backgroundRepeat: "no-repeat",
@@ -124,12 +124,13 @@ const VirtualConsultation = () => {
         </span>
       ) : (
         <>
+          <div className="w-1/2">
           <form
             onSubmit={handleSubmit}
-            className="backdrop-blur-md bg-white/30 max-w-screen-sm mx-auto flex flex-col space-y-12 p-8 rounded-xl"
+            className=" max-w-screen-sm mx-auto flex flex-col space-y-12 p-8 rounded-xl"
           >
             <h1 className="text-center text-black text-3xl text-indigo-700">
-              Request a Virtual Consultation
+            Virtual Consultation
             </h1>
             <p className="text-sm flex text-center text-indigo-700">
               Learn everything you need to know about starting in a
@@ -298,6 +299,19 @@ const VirtualConsultation = () => {
               </button>
             </section>
           </form>
+          </div>
+          <div
+  className="w-1/2 max-w-screen-sm mx-auto  rounded-xl"
+  style={{
+    backgroundImage: `url("../../images/purplediscs.jpg")`,
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "cover", 
+    backgroundPosition: "center", 
+  }}
+>
+
+</div>
+
         </>
       )}
     </main>

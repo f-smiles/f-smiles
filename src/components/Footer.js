@@ -4,7 +4,7 @@ import { Facebook, Instagram } from 'lucide-react';
 
 export default function Footer() {
   return (
-    <footer className="pt-12 pb-24 mt-auto bg-primary20 text-primary95">
+    <footer className="bg-d4cdc0 pt-12 pb-24 mt-auto">
       <div className="flex flex-wrap max-w-screen-xl mx-auto">
         <div className="w-full mb-6 sm:w-1/4">
           <Link

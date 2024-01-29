@@ -1,5 +1,6 @@
 import React, { Fragment, useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
+import Chart from "../svg/Chart"
 import { Parallax, ParallaxLayer } from '@react-spring/parallax'
 import {
   Accordion,
@@ -34,8 +35,28 @@ export default function WhyChooseUs() {
     return () => clearInterval(interval);
   }, [words.length]);
 
+  // useEffect(() => {
+  //   gsap.registerPlugin(ScrollTrigger)
+  //   let panels = gsap.utils.toArray(".panel")
+
+  //   const ctx = gsap.context(() => {
+  //     gsap.to(panels, {
+  //       yPercent: 0,
+  //       ease: "none",
+  //       scrollTrigger: {
+  //         trigger: ".wrapper",
+  //         pin: true,
+  //         scrub: true,
+  //         snap: 1 / (panels.length - 1),
+  //         start: "top top",
+  //         end: "bottom bottom",
+  //       }
+  //     })
+  //   }, panelsRef)
+  //   return () => ctx.revert()
+  // }, [])
   return (
-    <div className="w-full px-4 py-4 pt-16 bg-white">
+    <div className=" w-full px-4 py-4 pt-16">
 
       <div className="relative z-10 px-4 pt-4 pb-2 space-y-4 text-center text-gray-500 rounded-lg ">
         <div>
@@ -68,177 +89,174 @@ export default function WhyChooseUs() {
           </h1>
         </div>
       </div>
-      {/* <div className="grid grid-cols-3 mt-4">
-      <div className="flex flex-col items-center justify-center col-span-1 px-4 py-20 text-purple-900 border border-purple-400">
-      <span className="text-3xl">3D i-Cat Imaging</span>
-        <img
-             src="/images/x-ray.svg"
-             alt="xray"
-             className="w-20 h-20"
-           />
-           <p className="mt-2">
-           The i-Cat imaging machine creates precise three-dimensional views of the oral-facial structures in as little as five seconds. Using these enhanced images, our orthodontists monitor facial growth and estimate your best treatment timing and plan.
-           </p>
-         </div>
-         <div className="flex flex-col items-center justify-center col-span-1 px-4 py-20 text-purple-900 border-t border-b border-purple-400">
-           <span className="text-3xl">Optimized Treatment</span>
-           <img
-             src="/images/propeltransparent.png"
-             alt="propels"
-             className="w-12 h-12"
-           />
-           <p className="mt-2"> Our team prioritizes your treatment optimization. We currently offer the most efficient adjuncts to accelerate your treatment.
- Currently we utilize light and vibrational therapy to stimulate the supporting tissues around the teeth so that they move to their ideal positions in less time. We always strive to reduce office visits is a priority of ours.  </p>
-         </div>
-         <div className="flex flex-col items-center justify-center col-span-1 px-4 py-20 text-purple-900 border border-purple-400">
-           <span className="text-3xl">Laser Therapy</span>
-           <img
-             src="/images/Laser-Symbol.svg"
-             alt="laser"
-             className="w-20 h-20 transform rotate-270"
-           />
-           <p>Straight teeth are just one part of a beautiful smile. Like any work of art, your teeth need the right frame to truly shine. Thanks to advanced laser technology, we can sculpt your gum tissue to create symmetrical contours that highlight your new smile.</p>
-         </div>
-       </div> */}
+   
       <div className="p-2 mx-auto">
         <div className="relative">
-          <div className="absolute inset-0 flex items-center justify-center"></div>
+          <div className="flex items-center justify-center"></div>
         </div>
+
             <div>
       <div
-        className="background"
-        style={{
-          background: '',
-          position: 'absolute',
-          top: 0,
-          bottom: 0,
-          right: 0,
-          left: 0,
-          width: '100vw',
-          height: '100vh',
-        }}
+        // className="background"
+        // style={{
+        //   background: '',
+        //   position: 'absolute',
+        //   top: 0,
+        //   bottom: 0,
+        //   right: 0,
+        //   left: 0,
+        //   width: '100vw',
+        //   height: '100vh',
+        // }}
       />
-
 <Parallax pages={5}>
-  <ParallaxLayer style={{ ...alignCenter, justifyContent: 'flex-end', top: '-4%' }}>
-    <div
-      className="card parallax purple"
-      style={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: '1.5rem',
-        height: '10rem',
-        width: '25%',
-        textAlign: 'center',
-        borderRadius: '10px',
-        marginRight: '15%',
-      }}
-    >
-  <p style={{ letterSpacing: ".2px" }} className="">
-  <h1 className="block mb-4 text-5xl text-violet-800">Uncompromising quality</h1>
-  We strive to attain finished results consistent with the{" "}
-  <span style={{ letterSpacing: ".2px" }} className="text-2xl text-violet-800">
-    American Board of Orthodontics (ABO){" "}
-  </span>{" "}
-  qualitative standards. Our doctors place great priority on the
-  certification and recertification process, ensuring that all diagnostic
-  records adhere to ABO standards.
-</p>
+  <div className="snap-y snap-mandatory h-screen overflow-scroll">
+  <ParallaxLayer style={{ ...alignCenter, justifyContent: 'flex-end', top:"2%", transform: 'translateY(-50%)', scrollSnapAlign: 'start' }}>
+      <div
+        className="card parallax purple"
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          fontSize: '1.5rem',
+          height: '10rem',
+          width: '25%',
+          textAlign: 'center',
+          borderRadius: '10px',
+          marginRight: '15%',
+        }}
+      >
+        <p style={{ letterSpacing: ".2px" }} className="">
+          <h1 className="block mb-4 text-5xl text-violet-800">Uncompromising quality</h1>
+          We strive to attain finished results consistent with the{" "}
+          <span style={{ letterSpacing: ".2px" }} className="text-2xl text-violet-800">
+            American Board of Orthodontics (ABO){" "}
+          </span>{" "}
+          qualitative standards. Our doctors place great priority on the
+          certification and recertification process, ensuring that all diagnostic
+          records adhere to ABO standards.
+        </p>
+      </div>
+    </ParallaxLayer>
 
-    </div>
-  </ParallaxLayer>
-
-  <ParallaxLayer style={{ ...alignCenter, justifyContent: 'flex-end', top: '20%' }}>
-  <div
-  className="relative"
-  style={{
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    fontSize: '1.5rem',
-    height: '10rem',
-    width: '25%',
-    textAlign: 'center',
-    borderRadius: '10px',
-    marginRight: '15%',
-    color: 'black',
-  }}
->
-  <div style={{ position: 'relative', zIndex: '1' }}>
-    <p>
-      Currently, Dr. Gregg Frey is a certified orthodontist, and is preparing cases for recertification. Dr. Daniel Frey is in the final stages of obtaining his initial certification.
-    </p>
+    <ParallaxLayer style={{ ...alignCenter, justifyContent: 'flex-end', top: '20%', transform: 'translateY(-50%)', scrollSnapAlign: 'start' }}>
+      <div
+        className="relative"
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          fontSize: '1.5rem',
+          height: '10rem',
+          width: '25%',
+          textAlign: 'center',
+          borderRadius: '10px',
+          marginRight: '15%',
+          color: 'black',
+        }}
+      >
+        <div style={{ position: 'relative', zIndex: '1' }}>
+          <p>
+            Currently, Dr. Gregg Frey is a certified orthodontist and is preparing cases for recertification. Dr. Daniel Frey is in the final stages of obtaining his initial certification.
+          </p>
+        </div>
+        <div
+          style={{
+            position: 'absolute',
+            top: '-40px',
+            left: '0',
+            right: '0',
+            height: '2px',
+            background: '#333',
+            borderRadius: '10px 10px 0 0',
+            zIndex: '0',
+          }}
+        ></div>
+      </div>
+    </ParallaxLayer>
+    <ParallaxLayer style={{ ...alignCenter, justifyContent: 'flex-end', top: '50%', transform: 'translateY(-50%)', scrollSnapAlign: 'start' }}>
+      <div
+        className="relative"
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          fontSize: '1.5rem',
+          height: '10rem',
+          width: '25%',
+          textAlign: 'center',
+          borderRadius: '10px',
+          marginRight: '15%',
+          color: 'black',
+        }}
+      >
+        <div style={{ position: 'relative', zIndex: '1' }}>
+          <p>
+            To complement our use of cutting-edge diagnostic technology, we uphold the highest standards for our records, ensuring accuracy and precision throughout the treatment process.
+          </p>
+        </div>
+        <div
+          style={{
+            position: 'absolute',
+            top: '-50px',
+            left: '0',
+            right: '0',
+            height: '2px',
+            background: '#333',
+            borderRadius: '10px 10px 0 0',
+            zIndex: '0',
+          }}
+        ></div>
+      </div>
+    </ParallaxLayer>
   </div>
-  <div
-    style={{
-      position: 'absolute',
-      top: '-40px',
-      left: '0',
-      right: '0',
-      height: '2px',
-      background: '#333',
-      borderRadius: '10px 10px 0 0',
-      zIndex: '0',
-    }}
-  ></div>
-</div>
-
-  </ParallaxLayer>
-<ParallaxLayer style={{ ...alignCenter, justifyContent: 'flex-end', top: '35%' }}>
-  <div
-    className="relative"
-    style={{
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-      fontSize: '1.5rem',
-      height: '10rem',
-      width: '25%',
-      textAlign: 'center',
-      borderRadius: '10px',
-      marginRight: '15%',
-      color: 'black',
-    }}
-  >
-    <div style={{ position: 'relative', zIndex: '1' }}>
-      <p>
-        To complement our use of cutting-edge diagnostic technology, we uphold the
-        highest standards for our records, ensuring accuracy and precision
-        throughout the treatment process.
-      </p>
-    </div>
-    <div
-      style={{
-        position: 'absolute',
-        top: '-50px',
-        left: '0',
-        right: '0',
-        height: '2px',
-        background: '#333',
-        borderRadius: '10px 10px 0 0',
-        zIndex: '0',
-      }}
-    ></div>
-  </div>
-</ParallaxLayer>
-
 </Parallax>
 
+
     </div>
-        <div className="-mt-40 ml-20 flex flex-col items-center justify-center py-10 bg-white md:flex-row">
-        <div style={{ zIndex: 2 }}>
+
+        <div className=" ml-20 flex flex-col items-center justify-center py-10 md:flex-row">
+        <div style={{ position: 'relative', width: '80%' }}>
   <img
     src="../../images/freysmilepatient.jpg"
     alt="invisalign"
-    className="rounded-full"
+    className=""
     style={{
-      width: "40%",
-      height: "auto",
+      width: '50%',
+      height: 'auto',
+      position: 'relative',
+      zIndex: 1
+    }}
+  />
+  <img
+    src="../../images/bluetriangle.png"
+    alt="blue"
+    style={{
+      position: 'absolute',
+      width: '40%',
+      height: 'auto',
+      top: 60,
+      left: 40,
+      zIndex: 2,
+      transform: 'rotate(180deg)',
+      opacity: 0.5 
+    }}
+  />
+  <div
+    style={{
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      width: '100%',
+      height: '100%',
+      backdropFilter: 'blur(1px)',
+      zIndex: 3
     }}
   />
 </div>
 
+
+</div>
 
 <div className="max-w-xl mx-auto mt-20 text-center" style={{ marginLeft: "-800px" }}>
   
@@ -249,7 +267,7 @@ export default function WhyChooseUs() {
   <div className="max-w-xl mx-auto text-center">
 
   </div>
-</div>
+
 
         <div className="absolute relative inset-0 flex py-20 mb-20 overflow-hidden rounded-lg bg-opacity-60 backdrop-filter backdrop-blur-xl">
           <div className="w-1/2">
@@ -360,7 +378,7 @@ export default function WhyChooseUs() {
 
 <section className="bg-white">
         <table
-          className="mx-auto"
+          className="mx-auto font-HelveticaNowVar font-thin"
           style={{ width: "100%", borderCollapse: "collapse" }}
         >
           <tbody>
@@ -397,7 +415,7 @@ export default function WhyChooseUs() {
                   fontSize: "20px",
                 }}
               >
-                OTHER OFFICES
+                Other Offices
               </td>
             </tr>
             <tr>
@@ -668,8 +686,42 @@ export default function WhyChooseUs() {
             </tr>
           </tbody>
         </table>
+        < Chart />
         </section>
       </div>
     </div>
   );
 };
+
+   {/* <div className="grid grid-cols-3 mt-4">
+      <div className="flex flex-col items-center justify-center col-span-1 px-4 py-20 text-purple-900 border border-purple-400">
+      <span className="text-3xl">3D i-Cat Imaging</span>
+        <img
+             src="/images/x-ray.svg"
+             alt="xray"
+             className="w-20 h-20"
+           />
+           <p className="mt-2">
+           The i-Cat imaging machine creates precise three-dimensional views of the oral-facial structures in as little as five seconds. Using these enhanced images, our orthodontists monitor facial growth and estimate your best treatment timing and plan.
+           </p>
+         </div>
+         <div className="flex flex-col items-center justify-center col-span-1 px-4 py-20 text-purple-900 border-t border-b border-purple-400">
+           <span className="text-3xl">Optimized Treatment</span>
+           <img
+             src="/images/propeltransparent.png"
+             alt="propels"
+             className="w-12 h-12"
+           />
+           <p className="mt-2"> Our team prioritizes your treatment optimization. We currently offer the most efficient adjuncts to accelerate your treatment.
+ Currently we utilize light and vibrational therapy to stimulate the supporting tissues around the teeth so that they move to their ideal positions in less time. We always strive to reduce office visits is a priority of ours.  </p>
+         </div>
+         <div className="flex flex-col items-center justify-center col-span-1 px-4 py-20 text-purple-900 border border-purple-400">
+           <span className="text-3xl">Laser Therapy</span>
+           <img
+             src="/images/Laser-Symbol.svg"
+             alt="laser"
+             className="w-20 h-20 transform rotate-270"
+           />
+           <p>Straight teeth are just one part of a beautiful smile. Like any work of art, your teeth need the right frame to truly shine. Thanks to advanced laser technology, we can sculpt your gum tissue to create symmetrical contours that highlight your new smile.</p>
+         </div>
+       </div> */}
