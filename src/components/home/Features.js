@@ -113,7 +113,6 @@ function Hero() {
   return (
     <main className="relative">
       <div className="relative px-8 isolate  lg:px-8">
-  
         <div className="grid max-w-screen-xl grid-cols-1  mx-auto sm:py-10  place-items-center lg:grid-cols-2">
           <div
             className="relative mx-auto mt-32 lg:mt-0 text-container"
@@ -181,17 +180,16 @@ function Hero() {
                   </div>
                 </div>
               </div>
-
             </div>
           </div>
 
           <div className="flex justify-center items-center">
-    <img
-      className="rounded-full max-w-md"
-      src="../../images/mainsectionimage.jpg"
-      alt="girl smiling"
-    />
-  </div>
+            <img
+              className="rounded-full max-w-md"
+              src="../../images/mainsectionimage.jpg"
+              alt="girl smiling"
+            />
+          </div>
         </div>
 
         {/* <div
@@ -200,9 +198,7 @@ function Hero() {
           aria-hidden="true"
         ></div> */}
       </div>
-      <div>
-   
-      </div>
+      <div></div>
       <LandingTestimonials />
     </main>
   );
@@ -238,7 +234,6 @@ export default function Features() {
     setIsPlaying(true);
   }, []);
 
-  
   const arcContainerRef = useRef(null);
 
   useEffect(() => {
@@ -247,14 +242,14 @@ export default function Features() {
     if (arcContainerRef.current) {
       gsap.fromTo(
         arcContainerRef.current,
-        { opacity: 0, y: 50 }, 
+        { opacity: 0, y: 50 },
         {
           opacity: 1,
           y: 0,
-          duration: 1, 
+          duration: 1,
           scrollTrigger: {
             trigger: arcContainerRef.current,
-            start: "top 80%", 
+            start: "top 80%",
             toggleActions: "play none none none",
           },
         }
@@ -271,7 +266,7 @@ export default function Features() {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(entries => {
+    const observer = new IntersectionObserver((entries) => {
       const [entry] = entries;
       setIsVisible(entry.isIntersecting);
     });
@@ -289,11 +284,8 @@ export default function Features() {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger, SplitText);
 
-
     let tl = gsap.timeline();
-    tl.from(invisalignRef.current, {
-   
-    });
+    tl.from(invisalignRef.current, {});
 
     let shrinkTimeline = gsap.timeline({
       scrollTrigger: {
@@ -348,14 +340,12 @@ export default function Features() {
       });
     });
 
-
     ScrollTrigger.create({
       trigger: damonRef.current,
-      start: "top center", 
+      start: "top center",
       onEnter: () => setStartArcAnimation(true),
       onLeaveBack: () => setStartArcAnimation(false),
     });
-
 
     return () => {
       ScrollTrigger.getAll().forEach((t) => t.kill());
@@ -405,18 +395,18 @@ export default function Features() {
           start: transitionStart,
           end: transitionEnd * 0.25,
           colorStart: [164, 151, 173],
-          colorEnd: [227, 217, 225 ],
+          colorEnd: [227, 217, 225],
         },
         {
           start: transitionEnd * 0.25,
           end: transitionEnd * 0.5,
-          colorStart: [227, 217, 225 ],
-          colorEnd: [221,220,220],
+          colorStart: [227, 217, 225],
+          colorEnd: [221, 220, 220],
         },
         {
           start: transitionEnd * 0.5,
           end: transitionEnd * 0.75,
-          colorStart: [221,220,220],
+          colorStart: [221, 220, 220],
           colorEnd: [175, 167, 181],
         },
         {
@@ -618,22 +608,41 @@ export default function Features() {
           >
             <div className="flex items-center justify-center max-w-screen-xl mx-auto lg:flex-row">
               <div className="w-1/2 flex flex-col justify-center items-center">
-                <div className="rounded-full bg-white bg-opacity-10 shadow-lg p-4">
-                  {/* <img
-    src="../images/damontech.png"
-    alt="damon braces"
-    className="w-auto h-40 md:h-48 absolute"
-    style={{
-      zIndex: 2,
-      top: "80%",
-      left: "20%",
-      transform: "translate(-50%, -50%)",
-    }}
-  /> */}
-                  <div className="flex justify-center items-center h-full">
-                    <Arc triggerRef={damonRef} />
-                  </div>
-                </div>
+                <svg
+                  width="100%"
+                  height="100%"
+                  viewBox="0 0 200 200"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  style={{ transform: "rotate(90deg)" }}
+                >
+                  {" "}
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M32 100.641C32 68.391 54.1651 41.3515 84 34.1102V1.28125C36.3772 8.98855 0 50.5392 0 100.641C0 150.742 36.3772 192.293 84 200V167.171C54.1651 159.93 32 132.89 32 100.641ZM200 100.641C200 150.742 163.623 192.293 116 200V167.171C145.835 159.93 168 132.89 168 100.641C168 68.391 145.835 41.3515 116 34.1102V1.28125C163.623 8.98855 200 50.5392 200 100.641Z"
+                    fill="url(#paint0_linear_231_555)"
+                  />{" "}
+                  <defs>
+                    {" "}
+                    <linearGradient
+                      id="paint0_linear_231_555"
+                      x1="157.5"
+                      y1="33.0763"
+                      x2="44.7421"
+                      y2="148.561"
+                      gradientUnits="userSpaceOnUse"
+                    >
+                      {" "}
+                      <stop offset="0.0509862" stop-color="#FFB6E1" />{" "}
+                      <stop offset="1" stop-color="#FBE3EA" />{" "}
+                    </linearGradient>{" "}
+                  </defs>{" "}
+                </svg>
+                <div className="absolute inset-0 z-10 flex justify-center items-center">
+    <Arc triggerRef={damonRef} />
+  </div>
+                <div className="rounded-tl-full rounded-tr-full bg-white bg-opacity-10 shadow-lg p-4 "></div>
               </div>
 
               <figure className="flex flex-col items-center justify-center w-1/2 relative">
@@ -645,23 +654,24 @@ export default function Features() {
                   {/* Combining self-ligating braces with advanced archwires
                 clinically proven to move teeth quickly and comfortably. */}
                 </h1>
+  
                 <div className="playing">
-  <div className="mt-4 flex justify-center">
-    <Link
-      className={`flex items-center justify-center px-6 py-4 transition-colors duration-300 ease-linear border rounded-full border-[#7781d9] hover:bg-gray-800 hover:border-0 hover:text-white ${isVisible ? 'ball-animation' : ''}`}
-      to="/braces"
-      style={{
-        width: "120px",
-        height: "120px",
-        borderRadius: "50%",
-      }}
-    >
-      Explore
-    </Link>
-  </div>
-</div>
-
-           
+                  <div className="mt-4 flex justify-center">
+                    <Link
+                      className={`flex items-center justify-center px-6 py-4 transition-colors duration-300 ease-linear border rounded-full border-[#7781d9] hover:bg-gray-800 hover:border-0 hover:text-white ${
+                        isVisible ? "ball-animation" : ""
+                      }`}
+                      to="/braces"
+                      style={{
+                        width: "120px",
+                        height: "120px",
+                        borderRadius: "50%",
+                      }}
+                    >
+                      Explore
+                    </Link>
+                  </div>
+                </div>
 
                 {/* <img
     src="../images/damontech.png"

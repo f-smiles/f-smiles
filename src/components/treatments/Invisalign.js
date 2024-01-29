@@ -189,9 +189,19 @@ const Invisalign = () => {
 
 
 
-<section style={sectionStyle} className="w-full px-4 pt-16 bg-F8F6F1">
+<section  
+            class="w-screen  h-screen  "
+            style={{
+              backgroundImage: `url(${process.env.PUBLIC_URL}/images/purplepeach.jpg)`,
+              backgroundRepeat: "no-repeat",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+          >
       <div className="flex flex-col md:flex-row">
+
       <div className="w-1/3">
+        
                 <motion.div ref={ref} className="min-h-screen">
                   <div
                     className="container relative flex"
@@ -271,26 +281,7 @@ const Invisalign = () => {
                     />
                   </div>
              
-
-        <div className="w-1/3 flex justify-center items-center">
-          <span
-            ref={invisRef}
-            className="text-9xl transform -rotate-90 rise"
-            style={{
-              fontFamily: "Rubik, sans-serif",
-              fontWeight: "600",
-              WebkitTextStroke: "1px #666",
-              color: "transparent",
-              cursor: "pointer",
-            }}
-          >
-            Invisalign
-          </span>
-        </div>
-
-                </motion.div>
-              </div>
-        <div className="md:w-1/2 md:pr-6">
+   {/* <div className="md:w-1/2 md:pr-6">
           <div  className="text-white mt-40">
           <div className="relative w-full pb-full overflow-hidden">
    
@@ -369,8 +360,38 @@ const Invisalign = () => {
 
     
           </div>
+        </div> */}
+       
+
+                </motion.div>
+              </div>
+     
+         <div className="w-1/3 flex justify-center items-center">
+          <span
+            ref={invisRef}
+            className="text-9xl transform -rotate-90 rise"
+            style={{
+              fontFamily: "Rubik, sans-serif",
+              fontWeight: "600",
+              WebkitTextStroke: "1px #666",
+              color: "transparent",
+              cursor: "pointer",
+            }}
+          >
+            Invisalign
+          </span>
         </div>
-        <div style={{ position: "absolute", top: "160px", left: "50%", transform: "translateX(-50%)", zIndex: 20 }}>
+
+ <svg viewBox="0 0 367 367" height="367" width="367" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
+      <defs>
+        <pattern id="bias" height="100%" width="100%" patternContentUnits="objectBoundingBox" viewBox="0 0 1 1" preserveAspectRatio="xMidYMid slice">
+          <image height="1" width="1" preserveAspectRatio="xMidYMid slice" xlinkHref="../../images/elizabethpatient.jpeg" />
+        </pattern>
+      </defs>
+      <path d="M0,183.5 L0,0 L183.5,0 C284.844252,0 367,82.1557484 367,183.5 C367,284.844252 284.844252,367 183.5,367 C82.1557484,367 0,284.844252 0,183.5 Z" fill="url(#bias)"></path>
+    </svg>
+    
+    <div style={{ position: "absolute", top: "160px", left: "50%", transform: "translateX(-50%)", zIndex: 20 }}>
          <svg
   version="1.1"
   xmlns="http://www.w3.org/2000/svg"
@@ -421,14 +442,6 @@ const Invisalign = () => {
   1%
 </div>
 
-
-
-        <img
-      src="../../images/elizabethpatient.jpeg"
-      alt="invisalign"
-      className="w-full md:max-w-1/2 relative z-0"
-      style={imageStyle}
-    />
       </div>
       </section>
       <section className="mt-10 mb-10">
