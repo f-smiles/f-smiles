@@ -177,8 +177,8 @@ const OakSlider = () => {
           className="relative w-full md:w-1/2 min-h-screen overflow-hidden flex items-start"
           style={{ transform: "scale(0.8)" }}
         >
-          <div className="relative z-10 max-w-6xl mx-auto my-10 flex justify-between">
-            <div className="flex flex-col space-y-2">
+          <div className="relative z-10 max-w-6xl mx-auto my-10 flex justify-between ">
+            {/* <div className="flex flex-col space-y-2">
               {[...Array(totalSlides)].map((_, index) => (
                 <div key={index} className="flex items-center space-x-2">
                   <div className="text-sm">{index + 1}</div>
@@ -205,7 +205,7 @@ const OakSlider = () => {
                   </span>
                 </div>
               ))}
-            </div>
+            </div> */}
 
             <div className="flex space-x-5">
               <div
@@ -260,6 +260,34 @@ const OakSlider = () => {
           </div>
         </div>
         <div className="w-1/2 flex flex-col justify-center items-center hidden md:flex">
+        <div className="-mt-60 flex flex-col space-y-2">
+              {[...Array(totalSlides)].map((_, index) => (
+                <div key={index} className="flex items-center space-x-2">
+                  <div className="text-sm">{index + 1}</div>
+                  <div
+                    className={`relative ${
+                      currentSlide === index + 1 ? "w-28" : "w-14"
+                    } h-px bg-white/50`}
+                  >
+                    <div
+                      className="absolute top-0 left-0 h-full bg-white transition-all duration-100 ease-out"
+                      style={{ width: `${progressBars[index]}%` }}
+                    ></div>
+                  </div>
+
+                  <span
+                    className={`text-custom-size transition-opacity duration-500 ${
+                      index === currentSlide - 1 && progressBars[index] < 100
+                        ? "opacity-100"
+                        : "opacity-0"
+                    }`}
+                    style={{ fontSize: "24px" }}
+                  >
+                    {slideData[index].title}
+                  </span>
+                </div>
+              ))}
+            </div>
   {slideData.map((slide, index) => (
     <div
       key={index}
