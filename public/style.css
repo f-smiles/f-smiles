@@ -626,3 +626,18 @@ text {
   transform: translateY(100%);
   transition: transform 0.3s ease-in-out;
 }
+
+@keyframes rollBall {
+  0% { 
+    transform: translateX(100vw) rotate(0); 
+  }
+  100% { 
+    transform: translateX(0) rotate(-360deg); 
+  }
+}
+
+.ball-animation {
+  animation: rollBall 2s ease-out forwards;
+}
+
+

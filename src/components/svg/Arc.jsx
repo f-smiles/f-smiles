@@ -3,11 +3,11 @@ import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 
 const AnimatedArcChart = ({ triggerRef }) => {
-  const [currentPercent, setCurrentPercent] = useState(50); // Starting from 100%
-  const targetPercent = 30; // Target percentage for the animation
-  const maxArcPercent = 50; // Adjust the maximum arc percentage
-  const chartRef = useRef(null); // Reference to the chart component
-  const lineLength = 571; // Total length of the SVG path
+  const [currentPercent, setCurrentPercent] = useState(50); 
+  const targetPercent = 30; 
+  const maxArcPercent = 50; 
+  const chartRef = useRef(null); 
+  const lineLength = 571; 
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -15,8 +15,8 @@ const AnimatedArcChart = ({ triggerRef }) => {
     if (triggerRef && triggerRef.current) {
       ScrollTrigger.create({
         trigger: triggerRef.current,
-        start: 'top center', // Trigger the animation when the top of the triggerRef hits the center of the viewport
-        onEnter: () => startAnimation() // Start the animation
+        start: 'top center', 
+        onEnter: () => startAnimation() 
       });
     }
 

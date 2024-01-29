@@ -232,6 +232,13 @@ function Section({ children, color, zIndex, position }) {
 }
 
 export default function Features() {
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  useEffect(() => {
+    setIsPlaying(true);
+  }, []);
+
+  
   const arcContainerRef = useRef(null);
 
   useEffect(() => {
@@ -261,7 +268,24 @@ export default function Features() {
   const invisalignRef = useRef(null);
   const damonRef = useRef(null);
   const advancedTechRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(entries => {
+      const [entry] = entries;
+      setIsVisible(entry.isIntersecting);
+    });
+
+    if (damonRef.current) {
+      observer.observe(damonRef.current);
+    }
+
+    return () => {
+      if (damonRef.current) {
+        observer.unobserve(damonRef.current);
+      }
+    };
+  }, [damonRef]);
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger, SplitText);
 
@@ -621,19 +645,23 @@ export default function Features() {
                   {/* Combining self-ligating braces with advanced archwires
                 clinically proven to move teeth quickly and comfortably. */}
                 </h1>
-                <div className="mt-4 flex justify-center">
-                  <Link
-                    className="flex items-center justify-center px-6 py-4 transition-colors duration-300 ease-linear border rounded-full border-[#7781d9] hover:bg-gray-800 hover:border-0 hover:text-white"
-                    to="/braces"
-                    style={{
-                      width: "120px",
-                      height: "120px",
-                      borderRadius: "50%",
-                    }}
-                  >
-                    Explore
-                  </Link>
-                </div>
+                <div className="playing">
+  <div className="mt-4 flex justify-center">
+    <Link
+      className={`flex items-center justify-center px-6 py-4 transition-colors duration-300 ease-linear border rounded-full border-[#7781d9] hover:bg-gray-800 hover:border-0 hover:text-white ${isVisible ? 'ball-animation' : ''}`}
+      to="/braces"
+      style={{
+        width: "120px",
+        height: "120px",
+        borderRadius: "50%",
+      }}
+    >
+      Explore
+    </Link>
+  </div>
+</div>
+
+           
 
                 {/* <img
     src="../images/damontech.png"
