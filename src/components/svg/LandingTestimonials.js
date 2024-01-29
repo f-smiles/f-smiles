@@ -1,164 +1,146 @@
-import React, { useState, useRef, useEffect} from 'react';
-import gsap from 'gsap';
-
+import React, { useState, useRef, useEffect } from "react";
+import gsap from "gsap";
+import { useSwipeable } from "react-swipeable";
 const OakSlider = () => {
-  const totalSlides = 3; 
+  const totalSlides = 3;
   const [currentSlide, setCurrentSlide] = useState(1);
-  const [animating, setAnimating] = useState(false); 
+  const [animating, setAnimating] = useState(false);
   const slidesRef = useRef(new Array(totalSlides).fill(null));
-  const [autoPlay, setAutoPlay] = useState(true); 
-  const autoPlaySpeed = 8; 
-  const [progressBars, setProgressBars] = useState(new Array(totalSlides).fill(0));
+  const [autoPlay, setAutoPlay] = useState(true);
+  const autoPlaySpeed = 8;
+  const [progressBars, setProgressBars] = useState(
+    new Array(totalSlides).fill(0)
+  );
 
   const slideData = [
     {
-        imgSrc: "../images/narvaez.jpg",
-        title: "Narvaez",
-        description: "Narvaez quote"
+      imgSrc: "../images/narvaez.jpg",
+      title: "Narvaez",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Parturient montes nascetur ridiculus mus mauris. ",
     },
     {
-        imgSrc: "../images/kinzie.jpg", 
-        title: "Kinzie",
-        description: "Kinzie quote"
+      imgSrc: "../images/kinzie.jpg",
+      title: "Kinzie",
+      description: " consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Parturient montes nascetur ridiculus mus mauris. ",
     },
     {
-        imgSrc: "../images/hurlburt.jpeg", 
-        title: "Hurlburt",
-        description: "Hurlburt quote"
+      imgSrc: "../images/kara.jpeg",
+      title: "Kara",
+      description: "Lorem ipsum sectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Parturient montes nascetur ridiculus mus mauris. ",
+      customStyle: "scale-50",
+    },
+  ];
+
+  const goToNextSlide = () => {
+    if (animating) return;
+    setAnimating(true);
+
+    const currentSlideIndex = currentSlide - 1;
+    setProgressBars((progressBars) =>
+      progressBars.map((progress, index) =>
+        index === currentSlideIndex ? 0 : progress
+      )
+    );
+
+    setActiveSlideProgress(0);
+
+    const newSlideIndex = currentSlide >= totalSlides ? 1 : currentSlide + 1;
+    slideAnimation(currentSlide, newSlideIndex, "next");
+    setCurrentSlide(newSlideIndex);
+  };
+
+  const goToPrevSlide = () => {
+    if (animating) return;
+    setAnimating(true);
+
+    const currentSlideIndex = currentSlide - 1;
+    setProgressBars((progressBars) =>
+      progressBars.map((progress, index) =>
+        index === currentSlideIndex ? 0 : progress
+      )
+    );
+
+    setActiveSlideProgress(0);
+
+    const newSlideIndex = currentSlide <= 1 ? totalSlides : currentSlide - 1;
+    slideAnimation(currentSlide, newSlideIndex, "prev");
+    setCurrentSlide(newSlideIndex);
+  };
+
+  const slideAnimation = (from, to, dir) => {
+    const fromSlide = slidesRef.current[from - 1];
+    const toSlide = slidesRef.current[to - 1];
+
+    gsap.fromTo(
+      fromSlide,
+      { x: 0 },
+      { x: dir === "next" ? "100%" : "-100%", duration: 1 }
+    );
+
+    gsap.fromTo(
+      toSlide,
+      { x: dir === "next" ? "-100%" : "100%" },
+      { x: 0, duration: 1, onComplete: () => setAnimating(false) }
+    );
+  };
+
+  const changeSlide = (dir) => {
+    if (animating) return;
+
+    const currentSlideIndex = currentSlide - 1;
+    setProgressBars((progressBars) =>
+      progressBars.map((progress, index) =>
+        index === currentSlideIndex ? 0 : progress
+      )
+    );
+
+    let newSlideIndex = currentSlide;
+    if (dir === "next") {
+      newSlideIndex = currentSlide >= totalSlides ? 1 : currentSlide + 1;
+    } else {
+      newSlideIndex = currentSlide <= 1 ? totalSlides : currentSlide - 1;
     }
-];
 
-const goToNextSlide = () => {
-  if (animating) return;
-  setAnimating(true);
+    const slideDirection = dir === "next" ? "right" : "left";
 
+    setProgressBars((progressBars) =>
+      progressBars.map((progress, index) =>
+        index === newSlideIndex - 1 ? activeSlideProgress : progress
+      )
+    );
 
-  const currentSlideIndex = currentSlide - 1;
-  setProgressBars((progressBars) =>
-    progressBars.map((progress, index) =>
-      index === currentSlideIndex ? 0 : progress
-    )
-  );
+    slideAnimation(currentSlide, newSlideIndex, slideDirection);
+    setCurrentSlide(newSlideIndex);
+  };
 
-
-  setActiveSlideProgress(0);
-
-  const newSlideIndex = currentSlide >= totalSlides ? 1 : currentSlide + 1;
-  slideAnimation(currentSlide, newSlideIndex, 'next');
-  setCurrentSlide(newSlideIndex);
-};
-
-const goToPrevSlide = () => {
-  if (animating) return;
-  setAnimating(true);
-
- 
-  const currentSlideIndex = currentSlide - 1;
-  setProgressBars((progressBars) =>
-    progressBars.map((progress, index) =>
-      index === currentSlideIndex ? 0 : progress
-    )
-  );
-
-
-  setActiveSlideProgress(0);
-
-  const newSlideIndex = currentSlide <= 1 ? totalSlides : currentSlide - 1;
-  slideAnimation(currentSlide, newSlideIndex, 'prev');
-  setCurrentSlide(newSlideIndex);
-};
-
-
-
-
-const slideAnimation = (from, to, dir) => {
-  const fromSlide = slidesRef.current[from - 1];
-  const toSlide = slidesRef.current[to - 1];
-
-
-  gsap.fromTo(
-    fromSlide,
-    { x: 0 },
-    { x: dir === 'next' ? '100%' : '-100%', duration: 1 }
-  );
-
-  gsap.fromTo(
-    toSlide,
-    { x: dir === 'next' ? '-100%' : '100%' },
-    { x: 0, duration: 1, onComplete: () => setAnimating(false) }
-  );
-};
-
-
-
-const changeSlide = (dir) => {
-  if (animating) return;
-
- 
-  const currentSlideIndex = currentSlide - 1;
-  setProgressBars((progressBars) =>
-    progressBars.map((progress, index) =>
-      index === currentSlideIndex ? 0 : progress
-    )
-  );
-
-  let newSlideIndex = currentSlide;
-  if (dir === 'next') {
-    newSlideIndex = currentSlide >= totalSlides ? 1 : currentSlide + 1;
-  } else {
-    newSlideIndex = currentSlide <= 1 ? totalSlides : currentSlide - 1;
-  }
-
-  const slideDirection = dir === 'next' ? 'right' : 'left';
-
-  setProgressBars((progressBars) =>
-    progressBars.map((progress, index) =>
-      index === newSlideIndex - 1 ? activeSlideProgress : progress
-    )
-  );
-
-  slideAnimation(currentSlide, newSlideIndex, slideDirection);
-  setCurrentSlide(newSlideIndex);
-};
-
-
-
-  const [activeSlideProgress, setActiveSlideProgress] = useState(0); 
+  const [activeSlideProgress, setActiveSlideProgress] = useState(0);
   const autoPlaySlide = () => {
     const updateProgress = () => {
-
       setActiveSlideProgress(0);
 
-    
       setProgressBars((progressBars) =>
         progressBars.map((progress, index) => {
           if (index === currentSlide - 1) {
-            const newProgress = progress + (100 / autoPlaySpeed);
+            const newProgress = progress + 100 / autoPlaySpeed;
             return newProgress <= 100 ? newProgress : 100;
           }
           return progress;
         })
       );
 
-
       if (progressBars[currentSlide - 1] >= 100) {
-
-        const dir = currentSlide >= totalSlides ? 'next' : 'prev';
+        const dir = currentSlide >= totalSlides ? "next" : "prev";
         changeSlide(dir);
-
 
         setProgressBars(new Array(totalSlides).fill(0));
       }
     };
 
-  
     const interval = setInterval(updateProgress, 1000);
 
     return () => clearInterval(interval);
   };
 
-
-  
   useEffect(() => {
     let interval;
     if (autoPlay) {
@@ -166,122 +148,144 @@ const changeSlide = (dir) => {
         setProgressBars((progressBars) =>
           progressBars.map((progress, index) => {
             if (index === currentSlide - 1) {
-              const newProgress = progress + (100 / (autoPlaySpeed * 10));
+              const newProgress = progress + 100 / (autoPlaySpeed * 10);
               return newProgress <= 100 ? newProgress : 100;
             }
             return progress;
           })
         );
       }, 100);
-  
+
       if (progressBars[currentSlide - 1] >= 100) {
-        changeSlide('next');
+        changeSlide("next");
         setProgressBars(new Array(totalSlides).fill(0));
       }
     }
-  
+
     return () => clearInterval(interval);
   }, [autoPlay, autoPlaySpeed, currentSlide, progressBars]);
-  
 
+  const handlers = useSwipeable({
+    onSwipedLeft: () => goToNextSlide(),
+    onSwipedRight: () => goToPrevSlide(),
+  });
 
-
-
-return (
-  <div className="flex">
-<div className="relative w-1/2 min-h-screen overflow-hidden flex items-start" style={{ transform: 'scale(0.8)' }} >
-
-
-    <div className="relative z-10 max-w-6xl mx-auto my-10 flex justify-between">
-  
-      <div className="flex flex-col space-y-2">
-        {[...Array(totalSlides)].map((_, index) => (
-          <div key={index} className="flex items-center space-x-2">
-            <div className="text-sm">{index + 1}</div>
-            <div className={`relative ${currentSlide === index + 1 ? 'w-28' : 'w-14'} h-px bg-white/50`}>
-    <div
-        className="absolute top-0 left-0 h-full bg-white transition-all duration-100 ease-out"
-        style={{ width: `${progressBars[index]}%` }}
-    ></div>
-</div>
-
-<span
-  className={`text-custom-size transition-opacity duration-500 ${
-    index === currentSlide - 1 && progressBars[index] < 100
-      ? 'opacity-100'
-      : 'opacity-0'
-  }`}
-  style={{ fontSize: '24px' }}
->
-  {slideData[index].title}
-</span>
-
-
-          </div>
-        ))}
-      </div>
-
-  
-      <div className="flex space-x-5">
-        <div className="w-12 h-12 rounded-full border border-white bg-white text-black flex justify-center items-center opacity-50 cursor-pointer" onClick={goToPrevSlide}> <span className="text-sm">{'<'}</span></div>
-        <div className="w-12 h-12 rounded-full border border-white bg-white text-black flex justify-center items-center opacity-50 cursor-pointer" onClick={goToNextSlide}> <span className="text-sm">{'>'}</span></div>
-      </div>
-    </div>
-
-
-    <div className="absolute top-0 left-0 w-full h-full">
-      {slideData.map((slide, index) => (
+  return (
+    <div>
+      <div className="flex flex-col  md:flex-row">
         <div
-          key={index}
-          ref={el => slidesRef.current[index] = el}
-          className={`absolute inset-0 transition-opacity duration-1000 ease-out ${currentSlide === index + 1 ? 'opacity-100' : 'opacity-0'}`}
-          style={{ transform: `translateX(${index > 0 ? 100 : 0}%)` }}
+          className="relative w-full md:w-1/2 min-h-screen overflow-hidden flex items-start"
+          style={{ transform: "scale(0.8)" }}
         >
-    
-          <div className="absolute inset-0">
-          <img
-  src={slide.imgSrc}
-  alt={`Slide ${index + 1}`}
-  className="w-full h-full object-cover"
-/>
+          <div className="relative z-10 max-w-6xl mx-auto my-10 flex justify-between">
+            <div className="flex flex-col space-y-2">
+              {[...Array(totalSlides)].map((_, index) => (
+                <div key={index} className="flex items-center space-x-2">
+                  <div className="text-sm">{index + 1}</div>
+                  <div
+                    className={`relative ${
+                      currentSlide === index + 1 ? "w-28" : "w-14"
+                    } h-px bg-white/50`}
+                  >
+                    <div
+                      className="absolute top-0 left-0 h-full bg-white transition-all duration-100 ease-out"
+                      style={{ width: `${progressBars[index]}%` }}
+                    ></div>
+                  </div>
+
+                  <span
+                    className={`text-custom-size transition-opacity duration-500 ${
+                      index === currentSlide - 1 && progressBars[index] < 100
+                        ? "opacity-100"
+                        : "opacity-0"
+                    }`}
+                    style={{ fontSize: "24px" }}
+                  >
+                    {slideData[index].title}
+                  </span>
+                </div>
+              ))}
+            </div>
+
+            <div className="flex space-x-5">
+              <div
+                className="w-12 h-12 rounded-full border border-white bg-white text-black flex justify-center items-center opacity-50 cursor-pointer hidden md:flex"
+                onClick={goToPrevSlide}
+              >
+                <span className="text-sm">{"<"}</span>
+              </div>
+              <div
+                className="w-12 h-12 rounded-full border border-white bg-white text-black flex justify-center items-center opacity-50 cursor-pointer hidden md:flex"
+                onClick={goToNextSlide}
+              >
+                <span className="text-sm">{">"}</span>
+              </div>
+            </div>
           </div>
-       
+          <div className="w-full h-screen md:hidden" {...handlers}>
+            {slideData.map((slide, index) => (
+              <div
+                key={index}
+                ref={(el) => (slidesRef.current[index] = el)}
+                className={`absolute inset-0 transition-opacity duration-1000 ease-out ${
+                  currentSlide === index + 1 ? "opacity-100" : "opacity-0"
+                }`}
+              >
+                <img
+                  src={slide.imgSrc}
+                  alt={`Slide ${index + 1}`}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            ))}
+          </div>
+
+          <div className="absolute top-0 left-0 w-full h-full">
+            {slideData.map((slide, index) => (
+              <div
+                key={index}
+                ref={(el) => (slidesRef.current[index] = el)}
+                className={`absolute inset-0 transition-opacity duration-1000 ease-out ${
+                  currentSlide === index + 1 ? "opacity-100" : "opacity-0"
+                }`}
+                style={{ transform: `translateX(${index > 0 ? 100 : 0}%)` }}
+              >
+                <div className="absolute inset-0">
+                  <img
+                    src={slide.imgSrc}
+                    alt={`Slide ${index + 1}`}
+                    className="w-full h-full object-cover "
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
-      ))}
-    </div>
-  </div>
-  <div className="w-1/2 flex flex-col justify-center items-center">
-    {slideData.map((slide, index) => (
-      <div
-        key={index}
-        className="relative transition-opacity duration-1000 ease-out"
-        style={{
-          opacity: currentSlide === index + 1 ? 1 : 0,
-  
-          position: 'fixed', 
-          top: 'specific value', 
-          left: 'specific value', 
-        }}
-      >
-        <h2 className="text-4xl font-semibold mb-4" style={{ maxWidth: '90%' }}>
-          {slide.description}
-        </h2>
+        <div className="w-1/2 flex flex-col justify-center items-center">
+          {slideData.map((slide, index) => (
+            <div
+              key={index}
+              className="relative transition-opacity duration-1000 ease-out"
+              style={{
+                opacity: currentSlide === index + 1 ? 1 : 0,
+
+                position: "fixed",
+                top: "specific value",
+                left: "specific value",
+              }}
+            >
+              <h2 className="text-2xl  font-thin mb-4 text-black" style={{ maxWidth: "90%" }}>
+                {slide.description}
+              </h2>
+            </div>
+          ))}
+        </div>
       </div>
-    ))}
-  </div>
-
-
-</div>
-
-);
-
+    </div>
+  );
 };
 
 export default OakSlider;
-
-
-
-
 
 // import React, { useEffect } from 'react';
 // import  gsap  from "gsap";
@@ -293,12 +297,10 @@ export default OakSlider;
 //   useEffect(() => {
 //     gsap.registerPlugin(ScrollTrigger);
 
-
 //     let bodyScrollBar = Scrollbar.init(document.querySelector('.scroller'), {
 //         damping: 0.1,
 //         delegateTo: document,
 //     });
-
 
 //     ScrollTrigger.scrollerProxy(".scroller", {
 //         scrollTop(value) {
@@ -311,10 +313,8 @@ export default OakSlider;
 
 //     bodyScrollBar.addListener(ScrollTrigger.update);
 
- 
 //     gsap.set(".panel", { zIndex: (i, target, targets) => targets.length - i });
 
-    
 //     gsap.utils.toArray('.panel:not(.purple)').forEach((image, i) => {
 //         gsap.timeline({
 //             scrollTrigger: {
@@ -329,10 +329,8 @@ export default OakSlider;
 //         .to(image, { height: 0 });
 //     });
 
-
 //     gsap.set(".panel-text", { zIndex: (i, target, targets) => targets.length - i });
 
-   
 //     gsap.utils.toArray('.panel-text').forEach((text, i) => {
 //         gsap.timeline({
 //             scrollTrigger: {
@@ -348,7 +346,6 @@ export default OakSlider;
 //         .to(text, { duration: 0.33, opacity: 0, y: "0%" }, 0.66);
 //     });
 
-   
 //     ScrollTrigger.create({
 //         trigger: ".black",
 //         scroller: ".scroller",
@@ -357,7 +354,7 @@ export default OakSlider;
 //         pin: true,
 //         scrub: true,
 //         invalidateOnRefresh: true,
-  
+
 //     });
 
 //     return () => {
@@ -386,7 +383,7 @@ export default OakSlider;
 
 //                 </div>
 //             </section>
-        
+
 //         </div>
 //     );
 // };

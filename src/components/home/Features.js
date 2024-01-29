@@ -381,18 +381,18 @@ export default function Features() {
           start: transitionStart,
           end: transitionEnd * 0.25,
           colorStart: [164, 151, 173],
-          colorEnd: [219, 254, 255],
+          colorEnd: [227, 217, 225 ],
         },
         {
           start: transitionEnd * 0.25,
           end: transitionEnd * 0.5,
-          colorStart: [219, 254, 255],
-          colorEnd: [219, 255, 239],
+          colorStart: [227, 217, 225 ],
+          colorEnd: [221,220,220],
         },
         {
           start: transitionEnd * 0.5,
           end: transitionEnd * 0.75,
-          colorStart: [219, 255, 239],
+          colorStart: [221,220,220],
           colorEnd: [175, 167, 181],
         },
         {
