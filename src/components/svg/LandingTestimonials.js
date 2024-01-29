@@ -222,64 +222,62 @@ const OakSlider = () => {
               </div>
             </div>
           </div>
-          <div className="w-full h-screen md:hidden" {...handlers}>
-            {slideData.map((slide, index) => (
-              <div
-                key={index}
-                ref={(el) => (slidesRef.current[index] = el)}
-                className={`absolute inset-0 transition-opacity duration-1000 ease-out ${
-                  currentSlide === index + 1 ? "opacity-100" : "opacity-0"
-                }`}
-              >
-                <img
-                  src={slide.imgSrc}
-                  alt={`Slide ${index + 1}`}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            ))}
-          </div>
 
-          <div className="absolute top-0 left-0 w-full h-full">
-            {slideData.map((slide, index) => (
-              <div
-                key={index}
-                ref={(el) => (slidesRef.current[index] = el)}
-                className={`absolute inset-0 transition-opacity duration-1000 ease-out ${
-                  currentSlide === index + 1 ? "opacity-100" : "opacity-0"
-                }`}
-                style={{ transform: `translateX(${index > 0 ? 100 : 0}%)` }}
-              >
-                <div className="absolute inset-0">
-                  <img
-                    src={slide.imgSrc}
-                    alt={`Slide ${index + 1}`}
-                    className="w-full h-full object-cover "
-                  />
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-        <div className="w-1/2 flex flex-col justify-center items-center">
+
+          <div className="absolute top-0 left-0 w-full h-full" {...handlers}>
           {slideData.map((slide, index) => (
-            <div
-              key={index}
-              className="relative transition-opacity duration-1000 ease-out"
-              style={{
-                opacity: currentSlide === index + 1 ? 1 : 0,
+    <div
+      key={index}
+      ref={(el) => (slidesRef.current[index] = el)}
+      className={`absolute inset-0 transition-opacity duration-1000 ease-out ${
+        currentSlide === index + 1 ? "opacity-100" : "opacity-0"
+      }`}
+      style={{ transform: `translateX(${index > 0 ? 100 : 0}%)` }}
+    >
 
-                position: "fixed",
-                top: "specific value",
-                left: "specific value",
-              }}
-            >
-              <h2 className="text-2xl  font-thin mb-4 text-black" style={{ maxWidth: "90%" }}>
-                {slide.description}
-              </h2>
-            </div>
-          ))}
+      <div className="absolute inset-0">
+        <img
+          src={slide.imgSrc}
+          alt={`Slide ${index + 1}`}
+          className="w-full h-full object-cover "
+        />
+      </div>
+
+      {/* {/ Glassmorphism Mobile View /} */}
+      <div className={`absolute inset-0 right-0 p-4 bg-white/30 backdrop-blur-sm z-10 md:hidden ${currentSlide === index + 1 ? 'opacity-100' : 'opacity-0'}`}
+         style={{
+           maxWidth: '60%',
+           margin: 'auto',
+
+           height: '60%', 
+         }}>
+        <h2 className="text-2xl font-thin mb-4 text-black" style={{ maxWidth: "90%" }}>
+          {slide.description}
+        </h2>
+      </div>
+    </div>
+  ))}
+          </div>
         </div>
+        <div className="w-1/2 flex flex-col justify-center items-center hidden md:flex">
+  {slideData.map((slide, index) => (
+    <div
+      key={index}
+      className={`relative transition-opacity duration-1000 ease-out ${currentSlide === index + 1 ? 'opacity-100' : 'opacity-0'}`}
+      style={{
+        opacity: currentSlide === index + 1 ? 1 : 0,
+        position: "fixed",
+        top: "specific value",
+        left: "specific value",
+      }}
+    >
+
+      <h2 className="text-2xl font-thin mb-4 text-black" style={{ maxWidth: "90%" }}>
+        {slide.description}
+      </h2>
+    </div>
+  ))}
+</div>
       </div>
     </div>
   );

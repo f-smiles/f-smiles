@@ -641,3 +641,27 @@ text {
 }
 
 
+.logos {
+  overflow-x: hidden;
+  white-space: nowrap;
+}
+
+.logo_items {
+  display: inline-flex;
+
+  animation: scrollLogo 10s linear infinite;
+}
+
+@keyframes scrollLogo {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+
+    transform: translateX(-50%);
+  }
+}
+
+/* .logo_items img{
+  height: 100px;
+} */

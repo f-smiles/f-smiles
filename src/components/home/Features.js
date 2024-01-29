@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useLayoutEffect, useState } from "react";
 import LandingTestimonials from "../svg/LandingTestimonials.js";
 import { useInView } from "framer-motion";
-
+import Logo from "../svg/Logo.js";
 import Arc from "../svg/Arc";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { gsap } from "gsap-trial";
@@ -192,13 +192,9 @@ function Hero() {
           </div>
         </div>
 
-        {/* <div
-          id="gradients"
-          className="absolute inset-x-0 top-[calc(100%-23rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-40rem)]"
-          aria-hidden="true"
-        ></div> */}
+
       </div>
-      <div></div>
+      <div>      <Logo /></div>
       <LandingTestimonials />
     </main>
   );
@@ -541,6 +537,7 @@ export default function Features() {
             />
 
             <Hero />
+
           </Section>
         </div>
         <div ref={invisalignRef} className="section ">

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Hero from "./Hero";
-import LogoSlider from "./logoslider";
+import Logo from "../svg/Logo";
 import Features from "./Features";
 import FeaturedReviews from "./FeaturedReviews";
 import Locations from "./Locations";
@@ -86,7 +86,7 @@ const Home = () => {
 
         {/* <Hero /> */}
         <Features />
-        {/* <LogoSlider /> */}
+        {/* <Logo /> */}
         {/* <Locations /> */}
         {/* <GiftCards /> */}
       </main>

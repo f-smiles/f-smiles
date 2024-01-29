@@ -2,54 +2,55 @@ import { useRef } from "react";
 import { motion, useScroll, useSpring, useTransform, useMotionValue, useVelocity, useAnimationFrame } from "framer-motion";
 import { wrap } from "@motionone/utils";
 
-function ParallaxText({ children, baseVelocity = 100 }) {
-  const baseX = useMotionValue(0);
-  const { scrollY } = useScroll();
-  const scrollVelocity = useVelocity(scrollY);
-  const smoothVelocity = useSpring(scrollVelocity, {
-    damping: 50,
-    stiffness: 400
-  });
-  const velocityFactor = useTransform(smoothVelocity, [0, 1000], [0, 5], {
-    clamp: false
-  });
+// function ParallaxText({ children, baseVelocity = 100 }) {
+//   const baseX = useMotionValue(0);
+//   const { scrollY } = useScroll();
+//   const scrollVelocity = useVelocity(scrollY);
+//   const smoothVelocity = useSpring(scrollVelocity, {
+//     damping: 50,
+//     stiffness: 400
+//   });
+//   const velocityFactor = useTransform(smoothVelocity, [0, 1000], [0, 5], {
+//     clamp: false
+//   });
 
-  const x = useTransform(baseX, (v) => `${wrap(-20, 45, v)}%`);
+//   const x = useTransform(baseX, (v) => `${wrap(-20, 45, v)}%`);
 
-  const directionFactor = useRef(1);
-  useAnimationFrame((t, delta) => {
-    let moveBy = directionFactor.current * baseVelocity * (delta / 1000);
+//   const directionFactor = useRef(1);
+//   useAnimationFrame((t, delta) => {
+//     let moveBy = directionFactor.current * baseVelocity * (delta / 1000);
 
-    if (velocityFactor.get() < 0) {
-      directionFactor.current = -1;
-    } else if (velocityFactor.get() > 0) {
-      directionFactor.current = 1;
-    }
+//     if (velocityFactor.get() < 0) {
+//       directionFactor.current = -1;
+//     } else if (velocityFactor.get() > 0) {
+//       directionFactor.current = 1;
+//     }
 
-    moveBy += directionFactor.current * moveBy * velocityFactor.get();
+//     moveBy += directionFactor.current * moveBy * velocityFactor.get();
 
-    baseX.set(baseX.get() + moveBy);
-  });
+//     baseX.set(baseX.get() + moveBy);
+//   });
 
-  return (
-    <div className="max-w-screen-xl mx-auto parallax">
-      <motion.div className="scroller" style={{ x }}>
-        <span className='inline-flex space-x-10'>{children} </span>
-      </motion.div>
-    </div>
-  );
-}
+//   return (
+//     <div className="max-w-screen-xl mx-auto parallax">
+//       <motion.div className="scroller" style={{ x }}>
+//         <span className='inline-flex space-x-10'>{children} </span>
+//       </motion.div>
+//     </div>
+//   );
+// }
 
 export default function LogoSlider() {
   return (
-    <section id="logo-slider" className="my-8 space-y-4">
-      <ParallaxText baseVelocity={-5}>
+    
+    <div className="logos">
+    <div className="logo_items">
         <img
           className='object-contain h-[48px] my-auto aspect-auto'
           src="../../images/movingbannerfiles/damonlogo_invert.png"
           alt="damon"
         />
-        <img
+  <img
           className='object-contain w-24 aspect-auto'
           src="../../images/movingbannerfiles/invis-logo_invert.png"
           alt="invisalign"
@@ -64,8 +65,6 @@ export default function LogoSlider() {
           src="../../images/movingbannerfiles/topDentist_logo.png"
           alt="top-dentist"
         />
-      </ParallaxText>
-      <ParallaxText baseVelocity={5}>
         <img
           className='object-contain my-auto h-18 aspect-auto'
           src="../../images/movingbannerfiles/invisalign_invert.png"
@@ -86,12 +85,89 @@ export default function LogoSlider() {
           src="../../images/movingbannerfiles/valley.png"
           alt="best of the valley 2018"
         />
-      </ParallaxText>
-    </section>
+          <img
+          className='object-contain h-[48px] my-auto aspect-auto'
+          src="../../images/movingbannerfiles/damonlogo_invert.png"
+          alt="damon"
+        />
+  <img
+          className='object-contain w-24 aspect-auto'
+          src="../../images/movingbannerfiles/invis-logo_invert.png"
+          alt="invisalign"
+        />
+        <img
+          className='object-contain my-auto h-28 aspect-auto'
+          src="../../images/movingbannerfiles/readers.png"
+          alt="readers choice"
+        />
+          <img
+          className='object-contain my-auto h-[64px] aspect-auto'
+          src="../../images/movingbannerfiles/topDentist_logo.png"
+          alt="top-dentist"
+        />
+        <img
+          className='object-contain my-auto h-18 aspect-auto'
+          src="../../images/movingbannerfiles/invisalign_invert.png"
+          alt="invisalign"
+        />
+        <img
+          className='object-contain h-16 my-auto aspect-auto'
+          src="../../images/movingbannerfiles/aao_invert.png"
+          alt="aao"
+        />
+        
+    </div>
+  </div>
+
   );
 }
 
-
+    // <section id="logo-slider" className="my-8 space-y-4">
+    //   <ParallaxText baseVelocity={-5}>
+    //     <img
+    //       className='object-contain h-[48px] my-auto aspect-auto'
+    //       src="../../images/movingbannerfiles/damonlogo_invert.png"
+    //       alt="damon"
+    //     />
+    //     <img
+    //       className='object-contain w-24 aspect-auto'
+    //       src="../../images/movingbannerfiles/invis-logo_invert.png"
+    //       alt="invisalign"
+    //     />
+    //     <img
+    //       className='object-contain my-auto h-28 aspect-auto'
+    //       src="../../images/movingbannerfiles/readers.png"
+    //       alt="readers choice"
+    //     />
+    //     <img
+    //       className='object-contain my-auto h-[64px] aspect-auto'
+    //       src="../../images/movingbannerfiles/topDentist_logo.png"
+    //       alt="top-dentist"
+    //     />
+    //   </ParallaxText>
+    //   <ParallaxText baseVelocity={5}>
+    //     <img
+    //       className='object-contain my-auto h-18 aspect-auto'
+    //       src="../../images/movingbannerfiles/invisalign_invert.png"
+    //       alt="invisalign"
+    //     />
+    //     <img
+    //       className='object-contain h-16 my-auto aspect-auto'
+    //       src="../../images/movingbannerfiles/aao_invert.png"
+    //       alt="aao"
+    //     />
+    //     <img
+    //       className='object-contain h-32 aspect-auto'
+    //       src="../../images/movingbannerfiles/ABO_invert.png"
+    //       alt="ABO"
+    //     />
+    //     <img
+    //       className='object-contain h-28 aspect-auto'
+    //       src="../../images/movingbannerfiles/valley.png"
+    //       alt="best of the valley 2018"
+    //     />
+    //   </ParallaxText>
+    // </section>
 
 
 // import React, { useRef } from "react";
