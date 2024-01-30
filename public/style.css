@@ -665,3 +665,35 @@ text {
 /* .logo_items img{
   height: 100px;
 } */
+.circle-wipe-button {
+  /* ... existing styles ... */
+  overflow: hidden;
+  position: relative;
+  border-radius: 50%; /* Ensure button is a circle */
+}
+
+.circle-wipe-button::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 30%; /* Start as a small circle */
+  height: 30%;
+  background: #000; /* Adjust color as needed */
+  border-radius: 50%;
+  transform: translate(-50%, 50%) scale(0); /* Adjust for starting from the bottom center */
+  transition: transform 0.3s ease-out;
+  z-index: 1;
+}
+
+.circle-wipe-button:hover::before, 
+.circle-wipe-button:focus::before {
+  transform: translate(-50%, -50%) scale(5); /* Scale enough to cover the button */
+}
+
+.circle-wipe-text {
+  /* ... existing styles ... */
+  position: relative;
+  z-index: 2;
+}
+

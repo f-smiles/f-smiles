@@ -250,21 +250,32 @@ function Hero() {
       </div>
       <div className="flex">
         <div className="flex flex-col w-1/3">
-          <div>Why Choose Us</div>
+          <div className="text-black text-6xl">Why Patients Choose Us</div>
+          <button className="text-3xl font-HelveticaNowPro font-thin tracking-tight inline-flex items-center justify-center">
+  <Link
+    to="/why-choose-us"
+    className="circle-wipe-button  text-2xl rounded-full border border-white text-white p-4 mt-10 font-normal leading-6 transition-colors duration-300 ease-linear text-primary50 hover:text-primary30" style={{ width: '60px', height: '60px', borderRadius: '50%' }}
+  >
+    EK <span aria-hidden="true circle-wipe-text"></span>
+  </Link>
+</button>
+
         </div>
         <div ref={containerRef} className="flex h-full">
-          <div className="flex flex-col w-1/3 ml-40">
+          <div className="flex flex-col w-1/3 ml-60">
             <div
               ref={div1Ref}
               className="justify text-center border border-white py-20 mx-10 h-64 w-96"
             >
-              50+ Years of Experience
+              <span className="text-7xl">50+</span>{" "}
+              <span className="text-4xl">Years of Experience</span>
             </div>
             <div
               ref={div3Ref}
-              className="justify text-center border border-white py-20 mx-10 h-64 w-96"
+              className="justify text-center border border-white py-20 mx-10 h-64 w-96 mt-6"
             >
-              5k+ Patients
+              <span className="text-7xl">25k+</span>
+              <span className="text-4xl">Patients</span>
             </div>
           </div>
           <div className="flex flex-col w-1/3 mr-20">
@@ -272,11 +283,12 @@ function Hero() {
               ref={div2Ref}
               className="justify text-center border border-white py-20 mx-10 h-64 w-96"
             >
-              20+ Years of Education
+              <span className="text-7xl">20+</span>{" "}
+              <span className="text-4xl">Years of Education</span>
             </div>
             <div
               ref={div4Ref}
-              className="justify text-center border border-white py-20 mx-10 h-64 w-96"
+              className="justify text-center border border-white py-20 mx-10 h-64 w-96 mt-6"
             >
               More Data
             </div>
@@ -284,11 +296,10 @@ function Hero() {
         </div>
       </div>
 
-      <div>
-        {" "}
-        <Logo />
-      </div>
+      <div> </div>
+
       <LandingTestimonials />
+      <Logo />
     </main>
   );
 }
