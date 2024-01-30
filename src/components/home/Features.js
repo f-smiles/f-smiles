@@ -21,49 +21,52 @@ function Hero() {
   const div4Ref = useRef(null);
 
   useEffect(() => {
-    gsap.set(div1Ref.current, { x: -100, y: -100 }); 
-    gsap.set(div2Ref.current, { x: 100, y: -100 }); 
-    gsap.set(div3Ref.current, { x: -100, y: 100 }); 
-    gsap.set(div4Ref.current, { x: 100, y: 100 }); 
+    gsap.set(div1Ref.current, { x: -100, y: -100 });
+    gsap.set(div2Ref.current, { x: 100, y: -100 });
+    gsap.set(div3Ref.current, { x: -100, y: 100 });
+    gsap.set(div4Ref.current, { x: 100, y: 100 });
     gsap.to(div1Ref.current, {
-      x: 0, y: 0, 
+      x: 0,
+      y: 0,
       scrollTrigger: {
         trigger: containerRef.current,
         start: "top bottom",
-        end: "bottom top",
-        scrub: true
-      }
-    });
-  
-    gsap.to(div2Ref.current, {
-      x: 0, y: 0, 
-      scrollTrigger: {
-        trigger: containerRef.current,
-        start: "top bottom",
-        end: "bottom top",
-        scrub: true
-      }
-    });
-  
-    gsap.to(div3Ref.current, {
-      x: 0, y: 0, 
-      scrollTrigger: {
-        trigger: containerRef.current,
-        start: "top bottom",
-        end: "bottom top",
-        scrub: true
-      }
-    });
-    gsap.to(div4Ref.current, {
-      x: 0, y: 0, 
-      scrollTrigger: {
-        trigger: containerRef.current,
-        start: "top bottom",
-        end: "bottom top",
-        scrub: true
-      }
+        end: "center center",
+        scrub: true,
+      },
     });
 
+    gsap.to(div2Ref.current, {
+      x: 0,
+      y: 0,
+      scrollTrigger: {
+        trigger: containerRef.current,
+        start: "top bottom",
+        end: "center center",
+        scrub: true,
+      },
+    });
+
+    gsap.to(div3Ref.current, {
+      x: 0,
+      y: 0,
+      scrollTrigger: {
+        trigger: containerRef.current,
+        start: "top bottom",
+        end: "center center",
+        scrub: true,
+      },
+    });
+    gsap.to(div4Ref.current, {
+      x: 0,
+      y: 0,
+      scrollTrigger: {
+        trigger: containerRef.current,
+        start: "top bottom",
+        end: "center center",
+        scrub: true,
+      },
+    });
   }, []);
 
   const heroContentRef = useRef(null);
@@ -250,23 +253,35 @@ function Hero() {
           <div>Why Choose Us</div>
         </div>
         <div ref={containerRef} className="flex h-full">
-      <div className="flex flex-col w-1/3 ml-40">
-        <div ref={div1Ref} className="justify text-center border border-white py-20 mx-10 h-64 w-96">
-          50+ Years of Experience
+          <div className="flex flex-col w-1/3 ml-40">
+            <div
+              ref={div1Ref}
+              className="justify text-center border border-white py-20 mx-10 h-64 w-96"
+            >
+              50+ Years of Experience
+            </div>
+            <div
+              ref={div3Ref}
+              className="justify text-center border border-white py-20 mx-10 h-64 w-96"
+            >
+              5k+ Patients
+            </div>
+          </div>
+          <div className="flex flex-col w-1/3 mr-20">
+            <div
+              ref={div2Ref}
+              className="justify text-center border border-white py-20 mx-10 h-64 w-96"
+            >
+              20+ Years of Education
+            </div>
+            <div
+              ref={div4Ref}
+              className="justify text-center border border-white py-20 mx-10 h-64 w-96"
+            >
+              More Data
+            </div>
+          </div>
         </div>
-        <div ref={div3Ref} className="justify text-center border border-white py-20 mx-10 h-64 w-96">
-          5k+ Patients
-        </div>
-      </div>
-      <div className="flex flex-col w-1/3 mr-20">
-        <div ref={div2Ref} className="justify text-center border border-white py-20 mx-10 h-64 w-96">
-          20+ Years of Education
-        </div>
-        <div ref={div4Ref} className="justify text-center border border-white py-20 mx-10 h-64 w-96">
-          More Data
-        </div>
-      </div>
-    </div>
       </div>
 
       <div>
