@@ -252,14 +252,14 @@ function Hero() {
         <div className="flex flex-col w-1/3">
           <div className="text-black text-6xl">Why Patients Choose Us</div>
           <button className="text-3xl font-HelveticaNowPro font-thin tracking-tight inline-flex items-center justify-center">
-  <Link
-    to="/why-choose-us"
-    className="circle-wipe-button  text-2xl rounded-full border border-white text-white p-4 mt-10 font-normal leading-6 transition-colors duration-300 ease-linear text-primary50 hover:text-primary30" style={{ width: '60px', height: '60px', borderRadius: '50%' }}
-  >
-    EK <span aria-hidden="true circle-wipe-text"></span>
-  </Link>
-</button>
-
+            <Link
+              to="/why-choose-us"
+              className="circle-wipe-button  text-2xl rounded-full border border-white text-white p-4 mt-10 font-normal leading-6 transition-colors duration-300 ease-linear text-primary50 hover:text-primary30"
+              style={{ width: "40px", height: "40px", borderRadius: "50%" }}
+            >
+              EK <span aria-hidden="true circle-wipe-text"></span>
+            </Link>
+          </button>
         </div>
         <div ref={containerRef} className="flex h-full">
           <div className="flex flex-col w-1/3 ml-60">
@@ -328,6 +328,25 @@ function Section({ children, color, zIndex, position }) {
 }
 
 export default function Features() {
+
+  const damonImageRef = useRef(null);
+
+  useEffect(() => {
+    gsap.fromTo(
+      damonImageRef.current,
+      { y: () => -window.innerHeight * 0.2 },
+      {
+        y: () => window.innerHeight * 0.1,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: damonImageRef.current,
+          start: 'top bottom', 
+          end: 'bottom top', 
+          scrub: true
+        }
+      }
+    );
+  }, []);
   const spring = {
     type: "spring",
     damping: 20,
@@ -714,41 +733,21 @@ export default function Features() {
           >
             <div className="flex items-center justify-center max-w-screen-xl mx-auto lg:flex-row">
               <div className="w-1/2 flex flex-col justify-center items-center">
-                <svg
-                  width="100%"
-                  height="100%"
-                  viewBox="0 0 200 200"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  style={{ transform: "rotate(90deg)" }}
-                >
-                  {" "}
-                  <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M32 100.641C32 68.391 54.1651 41.3515 84 34.1102V1.28125C36.3772 8.98855 0 50.5392 0 100.641C0 150.742 36.3772 192.293 84 200V167.171C54.1651 159.93 32 132.89 32 100.641ZM200 100.641C200 150.742 163.623 192.293 116 200V167.171C145.835 159.93 168 132.89 168 100.641C168 68.391 145.835 41.3515 116 34.1102V1.28125C163.623 8.98855 200 50.5392 200 100.641Z"
-                    fill="url(#paint0_linear_231_555)"
-                  />{" "}
-                  <defs>
-                    {" "}
-                    <linearGradient
-                      id="paint0_linear_231_555"
-                      x1="157.5"
-                      y1="33.0763"
-                      x2="44.7421"
-                      y2="148.561"
-                      gradientUnits="userSpaceOnUse"
-                    >
-                      {" "}
-                      <stop offset="0.0509862" stop-color="#FFB6E1" />{" "}
-                      <stop offset="1" stop-color="#FBE3EA" />{" "}
-                    </linearGradient>{" "}
-                  </defs>{" "}
-                </svg>
+              <div className="flex items-center justify-center h-screen">
+              <figure className="relative m-[75vh_0] w-[24rem] h-[32rem] overflow-hidden"> 
+        <img 
+          ref={damonImageRef} 
+          src="/images/monse.jpg" 
+          alt="Description" 
+          className=" absolute top-[-10rem] left-0 h-[calc(100%_+_20rem)] w-full object-cover" 
+        />
+      </figure>
+    </div>
                 <div className="absolute inset-0 z-10 flex justify-center items-center">
                   <Arc triggerRef={damonRef} />
+               
                 </div>
-                <div className="rounded-tl-full rounded-tr-full bg-white bg-opacity-10 shadow-lg p-4 "></div>
+                <div className=" p-4 "></div>
               </div>
 
               <figure className="flex flex-col items-center justify-center w-1/2 relative">
@@ -791,9 +790,12 @@ export default function Features() {
     }}
   /> */}
               </figure>
+              
             </div>
+
           </div>
         </div>
+
         <div ref={advancedTechRef}>
           <div className="text-2xl  relative bg-violet-100">
             <div className="flex flex-col items-center justify-center max-w-screen-xl mx-auto lg:flex-row">

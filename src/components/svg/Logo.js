@@ -1,126 +1,47 @@
-import { useRef } from "react";
-import { motion, useScroll, useSpring, useTransform, useMotionValue, useVelocity, useAnimationFrame } from "framer-motion";
-import { wrap } from "@motionone/utils";
+import React, { useEffect, useRef, useState } from 'react';
+import { gsap } from 'gsap';
 
-// function ParallaxText({ children, baseVelocity = 100 }) {
-//   const baseX = useMotionValue(0);
-//   const { scrollY } = useScroll();
-//   const scrollVelocity = useVelocity(scrollY);
-//   const smoothVelocity = useSpring(scrollVelocity, {
-//     damping: 50,
-//     stiffness: 400
-//   });
-//   const velocityFactor = useTransform(smoothVelocity, [0, 1000], [0, 5], {
-//     clamp: false
-//   });
+const LogoGrid = () => {
 
-//   const x = useTransform(baseX, (v) => `${wrap(-20, 45, v)}%`);
+  const logos = [
+    ['../../images/movingbannerfiles/damonlogo_invert.png', '../../images/movingbannerfiles/invis-logo_invert.png', '../../images/movingbannerfiles/readers.png'], // Logos for column 1
+    ['../../images/movingbannerfiles/topDentist_logo.png', '../../images/movingbannerfiles/aao_invert.png', 'l../../images/movingbannerfiles/invisalign_invert.png'], // Logos for column 2
+    ['../../images/movingbannerfiles/ABO.png', '../../images/movingbannerfiles/damonlogo_invert.png', '../../images/movingbannerfiles/valley.png'], // Logos for column 3
+    ['../../images/movingbannerfiles/readers.png', '../../images/movingbannerfiles/topDentist_logo.png', './../images/movingbannerfiles/invis-logo_invert.png'] // Logos for column 4
+  ];
+  const [activeLogos, setActiveLogos] = useState(logos.map(() => 0));
 
-//   const directionFactor = useRef(1);
-//   useAnimationFrame((t, delta) => {
-//     let moveBy = directionFactor.current * baseVelocity * (delta / 1000);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveLogos(currentActive =>
+        currentActive.map((active, idx) => (active + 1) % logos[idx].length)
+      );
+    }, 3000); 
 
-//     if (velocityFactor.get() < 0) {
-//       directionFactor.current = -1;
-//     } else if (velocityFactor.get() > 0) {
-//       directionFactor.current = 1;
-//     }
+    return () => clearInterval(interval);
+  }, []);
 
-//     moveBy += directionFactor.current * moveBy * velocityFactor.get();
 
-//     baseX.set(baseX.get() + moveBy);
-//   });
-
-//   return (
-//     <div className="max-w-screen-xl mx-auto parallax">
-//       <motion.div className="scroller" style={{ x }}>
-//         <span className='inline-flex space-x-10'>{children} </span>
-//       </motion.div>
-//     </div>
-//   );
-// }
-
-export default function LogoSlider() {
   return (
-    
-    <div className="logos">
-    <div className="logo_items">
-        <img
-          className='object-contain h-[48px] my-auto aspect-auto'
-          src="../../images/movingbannerfiles/damonlogo_invert.png"
-          alt="damon"
-        />
-  <img
-          className='object-contain w-24 aspect-auto'
-          src="../../images/movingbannerfiles/invis-logo_invert.png"
-          alt="invisalign"
-        />
-        <img
-          className='object-contain my-auto h-28 aspect-auto'
-          src="../../images/movingbannerfiles/readers.png"
-          alt="readers choice"
-        />
-        <img
-          className='object-contain my-auto h-[64px] aspect-auto'
-          src="../../images/movingbannerfiles/topDentist_logo.png"
-          alt="top-dentist"
-        />
-        <img
-          className='object-contain my-auto h-18 aspect-auto'
-          src="../../images/movingbannerfiles/invisalign_invert.png"
-          alt="invisalign"
-        />
-        <img
-          className='object-contain h-16 my-auto aspect-auto'
-          src="../../images/movingbannerfiles/aao_invert.png"
-          alt="aao"
-        />
-        <img
-          className='object-contain h-32 aspect-auto'
-          src="../../images/movingbannerfiles/ABO_invert.png"
-          alt="ABO"
-        />
-        <img
-          className='object-contain h-28 aspect-auto'
-          src="../../images/movingbannerfiles/valley.png"
-          alt="best of the valley 2018"
-        />
-          <img
-          className='object-contain h-[48px] my-auto aspect-auto'
-          src="../../images/movingbannerfiles/damonlogo_invert.png"
-          alt="damon"
-        />
-  <img
-          className='object-contain w-24 aspect-auto'
-          src="../../images/movingbannerfiles/invis-logo_invert.png"
-          alt="invisalign"
-        />
-        <img
-          className='object-contain my-auto h-28 aspect-auto'
-          src="../../images/movingbannerfiles/readers.png"
-          alt="readers choice"
-        />
-          <img
-          className='object-contain my-auto h-[64px] aspect-auto'
-          src="../../images/movingbannerfiles/topDentist_logo.png"
-          alt="top-dentist"
-        />
-        <img
-          className='object-contain my-auto h-18 aspect-auto'
-          src="../../images/movingbannerfiles/invisalign_invert.png"
-          alt="invisalign"
-        />
-        <img
-          className='object-contain h-16 my-auto aspect-auto'
-          src="../../images/movingbannerfiles/aao_invert.png"
-          alt="aao"
-        />
-        
-    </div>
+    <div className="logo-grid  grid grid-cols-4">
+    {logos.map((columnLogos, columnIndex) => (
+      <div key={columnIndex} className="column">
+        {columnLogos.map((logo, logoIndex) => (
+          <div 
+            key={logoIndex} 
+            className={`grid-logo-wrapper ${activeLogos[columnIndex] === logoIndex ? 'active' : ''}`}
+          >
+            <img src={logo} alt={`Logo ${logoIndex + 1}`} />
+          </div>
+        ))}
+      </div>
+    ))}
   </div>
-
+  
   );
-}
+};
+
+export default LogoGrid;
 
     // <section id="logo-slider" className="my-8 space-y-4">
     //   <ParallaxText baseVelocity={-5}>

@@ -666,10 +666,10 @@ text {
   height: 100px;
 } */
 .circle-wipe-button {
-  /* ... existing styles ... */
   overflow: hidden;
   position: relative;
-  border-radius: 50%; /* Ensure button is a circle */
+  border-radius: 50%;
+  /* Add any additional styling as needed */
 }
 
 .circle-wipe-button::before {
@@ -677,23 +677,58 @@ text {
   position: absolute;
   bottom: 0;
   left: 50%;
-  width: 30%; /* Start as a small circle */
-  height: 30%;
-  background: #000; /* Adjust color as needed */
+  width: 10%;
+  height: 10%;
+  background: #000;
   border-radius: 50%;
-  transform: translate(-50%, 50%) scale(0); /* Adjust for starting from the bottom center */
+  transform: translate(-50%, 50%) scale(0);
   transition: transform 0.3s ease-out;
   z-index: 1;
 }
 
 .circle-wipe-button:hover::before, 
 .circle-wipe-button:focus::before {
-  transform: translate(-50%, -50%) scale(5); /* Scale enough to cover the button */
+  transform-origin: center;
+  transform: translate(-50%, -50%) scale(20);
 }
 
 .circle-wipe-text {
-  /* ... existing styles ... */
   position: relative;
   z-index: 2;
 }
 
+
+.logo-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 300px);
+  grid-template-rows: 300px;
+}
+
+.column {
+  position: relative;
+}
+
+.grid-logo-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%; /* Width of the column */
+  height: 300px; /* Standard height for all logos */
+  overflow: hidden; /* To prevent larger images from overflowing */
+  transform: translateY(-30px);
+  transition: all 0.3s ease-in-out;
+  visibility: hidden;
+  opacity: 0;
+}
+
+
+.grid-logo-wrapper.active {
+  transform: translateY(0);
+  visibility: visible;
+  opacity: 1;
+}
+.grid-logo-wrapper img {
+  width: 40%;
+  height: 40%; 
+  object-fit: contain;
+}
