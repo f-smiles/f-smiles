@@ -1,7 +1,8 @@
 import React, { useState, useRef, useEffect } from "react";
 import gsap from "gsap";
 import { useSwipeable } from "react-swipeable";
-const OakSlider = () => {
+
+const TestimonialSlider = () => {
   const totalSlides = 3;
   const [currentSlide, setCurrentSlide] = useState(1);
   const [animating, setAnimating] = useState(false);
@@ -168,6 +169,7 @@ const OakSlider = () => {
   const handlers = useSwipeable({
     onSwipedLeft: () => goToNextSlide(),
     onSwipedRight: () => goToPrevSlide(),
+
   });
 
   return (
@@ -175,7 +177,7 @@ const OakSlider = () => {
       <div className="flex flex-col  md:flex-row">
         <div
           className="relative w-full md:w-1/2 min-h-screen overflow-hidden flex items-start"
-          style={{ transform: "scale(0.8)" }}
+          style={{ transform: "scale(0.7)" }}
         >
           <div className="relative z-10 max-w-6xl mx-auto my-10 flex justify-between ">
             {/* <div className="flex flex-col space-y-2">
@@ -311,7 +313,7 @@ const OakSlider = () => {
   );
 };
 
-export default OakSlider;
+export default TestimonialSlider;
 
 // import React, { useEffect } from 'react';
 // import  gsap  from "gsap";

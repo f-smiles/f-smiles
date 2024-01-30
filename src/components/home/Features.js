@@ -10,9 +10,62 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Link } from "react-router-dom";
 import SplitText from "gsap-trial/SplitText";
 import Circle from "../svg/Circle.jsx";
+import { shuffle } from "lodash";
 gsap.registerPlugin(SplitText);
 gsap.registerPlugin(ScrollSmoother, ScrollTrigger, SplitText);
 function Hero() {
+  const containerRef = useRef(null);
+  const div1Ref = useRef(null);
+  const div2Ref = useRef(null);
+  const div3Ref = useRef(null);
+  const div4Ref = useRef(null);
+
+  useEffect(() => {
+    gsap.set(div1Ref.current, { x: -100, y: -100 }); 
+    gsap.set(div2Ref.current, { x: 100, y: -100 }); 
+    gsap.set(div3Ref.current, { x: -100, y: 100 }); 
+    gsap.set(div4Ref.current, { x: 100, y: 100 }); 
+    gsap.to(div1Ref.current, {
+      x: 0, y: 0, 
+      scrollTrigger: {
+        trigger: containerRef.current,
+        start: "top bottom",
+        end: "bottom top",
+        scrub: true
+      }
+    });
+  
+    gsap.to(div2Ref.current, {
+      x: 0, y: 0, 
+      scrollTrigger: {
+        trigger: containerRef.current,
+        start: "top bottom",
+        end: "bottom top",
+        scrub: true
+      }
+    });
+  
+    gsap.to(div3Ref.current, {
+      x: 0, y: 0, 
+      scrollTrigger: {
+        trigger: containerRef.current,
+        start: "top bottom",
+        end: "bottom top",
+        scrub: true
+      }
+    });
+    gsap.to(div4Ref.current, {
+      x: 0, y: 0, 
+      scrollTrigger: {
+        trigger: containerRef.current,
+        start: "top bottom",
+        end: "bottom top",
+        scrub: true
+      }
+    });
+
+  }, []);
+
   const heroContentRef = useRef(null);
   const bookButtonRef = useRef(null);
   const sectionRef = useRef(null);
@@ -191,10 +244,35 @@ function Hero() {
             />
           </div>
         </div>
-
-
       </div>
-      <div>      <Logo /></div>
+      <div className="flex">
+        <div className="flex flex-col w-1/3">
+          <div>Why Choose Us</div>
+        </div>
+        <div ref={containerRef} className="flex h-full">
+      <div className="flex flex-col w-1/3 ml-40">
+        <div ref={div1Ref} className="justify text-center border border-white py-20 mx-10 h-64 w-96">
+          50+ Years of Experience
+        </div>
+        <div ref={div3Ref} className="justify text-center border border-white py-20 mx-10 h-64 w-96">
+          5k+ Patients
+        </div>
+      </div>
+      <div className="flex flex-col w-1/3 mr-20">
+        <div ref={div2Ref} className="justify text-center border border-white py-20 mx-10 h-64 w-96">
+          20+ Years of Education
+        </div>
+        <div ref={div4Ref} className="justify text-center border border-white py-20 mx-10 h-64 w-96">
+          More Data
+        </div>
+      </div>
+    </div>
+      </div>
+
+      <div>
+        {" "}
+        <Logo />
+      </div>
       <LandingTestimonials />
     </main>
   );
@@ -224,6 +302,12 @@ function Section({ children, color, zIndex, position }) {
 }
 
 export default function Features() {
+  const spring = {
+    type: "spring",
+    damping: 20,
+    stiffness: 300,
+  };
+
   const [isPlaying, setIsPlaying] = useState(false);
 
   useEffect(() => {
@@ -537,7 +621,6 @@ export default function Features() {
             />
 
             <Hero />
-
           </Section>
         </div>
         <div ref={invisalignRef} className="section ">
@@ -637,8 +720,8 @@ export default function Features() {
                   </defs>{" "}
                 </svg>
                 <div className="absolute inset-0 z-10 flex justify-center items-center">
-    <Arc triggerRef={damonRef} />
-  </div>
+                  <Arc triggerRef={damonRef} />
+                </div>
                 <div className="rounded-tl-full rounded-tr-full bg-white bg-opacity-10 shadow-lg p-4 "></div>
               </div>
 
@@ -651,7 +734,7 @@ export default function Features() {
                   {/* Combining self-ligating braces with advanced archwires
                 clinically proven to move teeth quickly and comfortably. */}
                 </h1>
-  
+
                 <div className="playing">
                   <div className="mt-4 flex justify-center">
                     <Link
