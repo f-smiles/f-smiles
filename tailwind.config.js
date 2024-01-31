@@ -102,6 +102,7 @@ module.exports = {
        'F8F3F3':"#F8F3F3",
        'B3B3B5 ':"#B3B3B5",
        'D0C8C5 ':"#D0C8C5 ",
+       'a3bba3': "#a3bba3",
       },
     },
     fontFamily: {

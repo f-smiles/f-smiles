@@ -166,20 +166,19 @@ function Hero() {
     }
   }
   useEffect(() => {
-    const signs = document.querySelectorAll('.neon');
+    const signs = document.querySelectorAll(".neon");
 
-    const randomIn = (min, max) => (
-      Math.floor(Math.random() * (max - min + 1) + min)
-    );
+    const randomIn = (min, max) =>
+      Math.floor(Math.random() * (max - min + 1) + min);
 
     const mixupInterval = (el) => {
       const ms = randomIn(2000, 4000);
-      el.style.setProperty('--interval', `${ms}ms`);
+      el.style.setProperty("--interval", `${ms}ms`);
     };
 
     signs.forEach((el) => {
       mixupInterval(el);
-      el.addEventListener('webkitAnimationIteration', () => {
+      el.addEventListener("webkitAnimationIteration", () => {
         mixupInterval(el);
       });
     });
@@ -269,12 +268,13 @@ function Hero() {
       </div>
       <div className="flex">
         <div className="flex flex-col w-1/3">
-        <div className="h-64"></div>
-<div className="text-container">
-  <span className="rotate-text neon subtitle font-Yellowtail-Regular font-thin">Why Patients Choose Us</span>
-</div>
-<div className="h-64 "></div>
-
+          <div className="h-64"></div>
+          <div className="text-container">
+            <span className="rotate-text neon subtitle font-Yellowtail-Regular font-thin">
+              Why Patients Choose Us
+            </span>
+          </div>
+          <div className="h-64 "></div>
 
           <button className="text-3xl font-HelveticaNowPro font-thin tracking-tight inline-flex items-center justify-center">
             <Link
@@ -292,15 +292,23 @@ function Hero() {
               ref={div1Ref}
               className="justify text-center border border-white py-20 mx-10 h-64 w-96"
             >
-              <span className="text-7xl font-HelveticaNowPro font-thin">50+</span>{" "}
-              <span className="text-4xl font-HelveticaNowPro font-thin">Years of Experience</span>
+              <span className="text-7xl font-HelveticaNowPro font-thin">
+                50+
+              </span>{" "}
+              <span className="text-4xl font-HelveticaNowPro font-thin">
+                Years of Experience
+              </span>
             </div>
             <div
               ref={div3Ref}
               className="justify text-center border border-white py-20 mx-10 h-64 w-96 mt-6"
             >
-              <span className="text-7xl font-HelveticaNowPro font-thin">25k+</span>
-              <span className="text-4xl font-HelveticaNowPro font-thin">Patients</span>
+              <span className="text-7xl font-HelveticaNowPro font-thin">
+                25k+
+              </span>
+              <span className="text-4xl font-HelveticaNowPro font-thin">
+                Patients
+              </span>
             </div>
           </div>
           <div className="flex flex-col w-1/3 mr-20">
@@ -308,8 +316,12 @@ function Hero() {
               ref={div2Ref}
               className="justify text-center border border-white py-20 mx-10 h-64 w-96"
             >
-              <span className="text-7xl font-HelveticaNowPro font-thin">20+</span>{" "}
-              <span className="text-4xl font-HelveticaNowPro font-thin">Years of Education</span>
+              <span className="text-7xl font-HelveticaNowPro font-thin">
+                20+
+              </span>{" "}
+              <span className="text-4xl font-HelveticaNowPro font-thin">
+                Years of Education
+              </span>
             </div>
             <div
               ref={div4Ref}
@@ -324,7 +336,6 @@ function Hero() {
       <div> </div>
       <Logo />
       <LandingTestimonials />
- 
     </main>
   );
 }
@@ -353,7 +364,6 @@ function Section({ children, color, zIndex, position }) {
 }
 
 export default function Features() {
-
   const damonImageRef = useRef(null);
 
   useEffect(() => {
@@ -362,13 +372,13 @@ export default function Features() {
       { y: () => -window.innerHeight * 0.2 },
       {
         y: () => window.innerHeight * 0.1,
-        ease: 'none',
+        ease: "none",
         scrollTrigger: {
           trigger: damonImageRef.current,
-          start: 'top bottom', 
-          end: 'bottom top', 
-          scrub: true
-        }
+          start: "top bottom",
+          end: "bottom top",
+          scrub: true,
+        },
       }
     );
   }, []);
@@ -496,7 +506,6 @@ export default function Features() {
       onEnter: () => setStartArcAnimation(true),
       onLeaveBack: () => setStartArcAnimation(false),
     });
-    
 
     return () => {
       ScrollTrigger.getAll().forEach((t) => t.kill());
@@ -535,22 +544,8 @@ export default function Features() {
 
   const svgRef = useRef(null);
 
-  useEffect(() => {
-    // Start with the SVG scaled up
-    gsap.set(svgRef.current, { scale: 3, transformOrigin: "50% 50%" });
 
-    ScrollTrigger.create({
-        trigger: svgRef.current,
-        start: "top top",
-        end: "center center",
-        scrub: true,
-        onUpdate: self => {
-   
-            const scale = 3 - (2.5 * self.progress); 
-            gsap.set(svgRef.current, { scale: Math.max(scale, 0.5) });
-        }
-    });
-}, []);
+
 
   const [backgroundColor, setBackgroundColor] = useState("transparent");
   useEffect(() => {
@@ -565,7 +560,7 @@ export default function Features() {
         {
           start: transitionStart,
           end: transitionEnd * 0.25,
-          colorStart: [227,203,203],
+          colorStart: [227, 203, 203],
           colorEnd: [227, 217, 225],
         },
         {
@@ -618,7 +613,7 @@ export default function Features() {
     };
   }, []);
 
-  const ref = useRef(null);
+
   const aligner1Ref = useRef(null);
   const aligner2Ref = useRef(null);
   const aligner3Ref = useRef(null);
@@ -656,6 +651,11 @@ export default function Features() {
       window.removeEventListener("scroll", parallaxScroll);
     };
   }, []);
+ 
+
+
+const { scrollYProgress } = useScroll()
+  const scale = useTransform(scrollYProgress, [0, 1], ["1000%", "80%"])
 
   const arcStyle = {
     position: "absolute",
@@ -755,21 +755,21 @@ export default function Features() {
                       Experience matters.
                     </h1>
                     <button className="rounded-full border-glowing">
-  <Link
-    to="/invisalign"
-    style={{
-      width: "100px",
-      height: "100px",
-      borderRadius: "50%",
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-      textDecoration: "none", 
-    }}
-  >
-   Learn More
-  </Link>
-</button>
+                      <Link
+                        to="/invisalign"
+                        style={{
+                          width: "100px",
+                          height: "100px",
+                          borderRadius: "50%",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          textDecoration: "none",
+                        }}
+                      >
+                        Learn More
+                      </Link>
+                    </button>
                   </div>
                   {/* <img
           className="absolute  left-1/2 transform -translate-x-1/2 w-64 h-auto"
@@ -783,31 +783,22 @@ export default function Features() {
             </div>
           </div>
         </div>
-        <div ref={damonRef} className="section ">
-          <div
-            class="w-screen  h-screen  "
-            // style={{
-            //   backgroundImage: `url(${process.env.PUBLIC_URL}/images/pastel2.jpg)`,
-            //   backgroundRepeat: "no-repeat",
-            //   backgroundSize: "cover",
-            //   backgroundPosition: "center",
-            // }}
-          >
+        <div ref={damonRef} className="section bg-a3bba3 ">
+          <div class="w-screen  h-screen  ">
             <div className="flex items-center justify-center max-w-screen-xl mx-auto lg:flex-row">
               <div className="w-1/2 flex flex-col justify-center items-center">
-              <div className="flex items-center justify-center h-screen">
-              <figure className="relative m-[75vh_0] w-[24rem] h-[32rem] overflow-hidden"> 
-        <img 
-          ref={damonImageRef} 
-          src="/images/monse.jpg" 
-          alt="Description" 
-          className=" absolute top-[-10rem] left-0 h-[calc(100%_+_20rem)] w-full object-cover" 
-        />
-      </figure>
-    </div>
+                <div className="flex items-center justify-center h-screen">
+                  <figure className="relative m-[75vh_0] w-[24rem] h-[32rem] overflow-hidden">
+                    <img
+                      ref={damonImageRef}
+                      src="/images/monse.jpg"
+                      alt="Description"
+                      className=" absolute top-[-10rem] left-0 h-[calc(100%_+_20rem)] w-full object-cover"
+                    />
+                  </figure>
+                </div>
                 <div className="absolute  z-10 flex justify-center items-center">
                   <Arc triggerRef={damonRef} />
-               
                 </div>
                 <div className=" p-4 "></div>
               </div>
@@ -839,29 +830,26 @@ export default function Features() {
                     </Link>
                   </div>
                 </div>
-
               </figure>
-              
             </div>
-
           </div>
         </div>
-
-        <div ref={advancedTechRef}>
-        <div ref={svgRef} id="" className="w-full h-screen ">
-        <svg viewBox="0 0 256 256">
-
-    <g>
-        <path fill="#000000" d="M10,71.6c0,17.2,4.5,36.1,12.3,52c17,34.7,49.9,58.6,88.4,64.6c8.9,1.4,25.9,1.4,34.5,0c28.3-4.4,53.7-18.4,71.8-39.4c13.2-15.4,22.2-33.4,26.2-52.4c1.7-8,2.8-18.3,2.8-25.2v-4.5H128H10V71.6z"/>
-    </g>
-</svg>
-        </div>
-          <div className="text-2xl  relative">
+     
+        <div ref={advancedTechRef} className="h-[100vh] relative border-4 border-dashed border-pink-500">
+        <motion.div style={{ scale }} className="z-0 absolute top-0 right-0 w-full h-full -translate-y-1/2"> 
+        <svg viewBox="0 0 256 256" className='w-full h-full border border-black'>
+          <g>
+            <path
+              fill="#a3bba3"
+              d="M10,71.6c0,17.2,4.5,36.1,12.3,52c17,34.7,49.9,58.6,88.4,64.6c8.9,1.4,25.9,1.4,34.5,0c28.3-4.4,53.7-18.4,71.8-39.4c13.2-15.4,22.2-33.4,26.2-52.4c1.7-8,2.8-18.3,2.8-25.2v-4.5H128H10V71.6z"
+            />
+          </g>
+        </svg>
+      </motion.div>
             <div className="tech-background flex flex-col items-center justify-center max-w-screen-xl mx-auto lg:flex-row">
               <div className="flex items-center justify-center relative w-1/2 flex-col">
                 <figure className="flex items-center justify-center ">
                   {/* <img src="../images/circletdot.svg" alt="dot" /> */}
-
                 </figure>
               </div>
 
@@ -878,8 +866,8 @@ export default function Features() {
                   }}
                 />
                 <p className="text-3xl pb-4 absolute" style={{ zIndex: 2 }}>
-                  Our doctor have been pioneering the most comfortable appliances for your treatment since 2005
-
+                  Our doctor have been pioneering the most comfortable
+                  appliances for your treatment since 2005
                 </p>
 
                 <Link
@@ -893,7 +881,6 @@ export default function Features() {
 
               <div></div>
             </div>
-          </div>
         </div>
       </div>
     </>
