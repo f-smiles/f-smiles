@@ -165,6 +165,25 @@ function Hero() {
       );
     }
   }
+  useEffect(() => {
+    const signs = document.querySelectorAll('.neon');
+
+    const randomIn = (min, max) => (
+      Math.floor(Math.random() * (max - min + 1) + min)
+    );
+
+    const mixupInterval = (el) => {
+      const ms = randomIn(2000, 4000);
+      el.style.setProperty('--interval', `${ms}ms`);
+    };
+
+    signs.forEach((el) => {
+      mixupInterval(el);
+      el.addEventListener('webkitAnimationIteration', () => {
+        mixupInterval(el);
+      });
+    });
+  }, []);
 
   return (
     <main className="relative">
@@ -250,7 +269,13 @@ function Hero() {
       </div>
       <div className="flex">
         <div className="flex flex-col w-1/3">
-          <div className="text-black text-6xl">Why Patients Choose Us</div>
+        <div className="h-64"></div>
+<div className="text-container">
+  <span className="rotate-text neon subtitle font-Yellowtail-Regular font-thin">Why Patients Choose Us</span>
+</div>
+<div className="h-64 "></div>
+
+
           <button className="text-3xl font-HelveticaNowPro font-thin tracking-tight inline-flex items-center justify-center">
             <Link
               to="/why-choose-us"
@@ -267,15 +292,15 @@ function Hero() {
               ref={div1Ref}
               className="justify text-center border border-white py-20 mx-10 h-64 w-96"
             >
-              <span className="text-7xl">50+</span>{" "}
-              <span className="text-4xl">Years of Experience</span>
+              <span className="text-7xl font-HelveticaNowPro font-thin">50+</span>{" "}
+              <span className="text-4xl font-HelveticaNowPro font-thin">Years of Experience</span>
             </div>
             <div
               ref={div3Ref}
               className="justify text-center border border-white py-20 mx-10 h-64 w-96 mt-6"
             >
-              <span className="text-7xl">25k+</span>
-              <span className="text-4xl">Patients</span>
+              <span className="text-7xl font-HelveticaNowPro font-thin">25k+</span>
+              <span className="text-4xl font-HelveticaNowPro font-thin">Patients</span>
             </div>
           </div>
           <div className="flex flex-col w-1/3 mr-20">
@@ -283,12 +308,12 @@ function Hero() {
               ref={div2Ref}
               className="justify text-center border border-white py-20 mx-10 h-64 w-96"
             >
-              <span className="text-7xl">20+</span>{" "}
-              <span className="text-4xl">Years of Education</span>
+              <span className="text-7xl font-HelveticaNowPro font-thin">20+</span>{" "}
+              <span className="text-4xl font-HelveticaNowPro font-thin">Years of Education</span>
             </div>
             <div
               ref={div4Ref}
-              className="justify text-center border border-white py-20 mx-10 h-64 w-96 mt-6"
+              className="justify text-center border border-white py-20 mx-10 h-64 w-96 mt-6 font-HelveticaNowPro font-thin"
             >
               More Data
             </div>
@@ -297,9 +322,9 @@ function Hero() {
       </div>
 
       <div> </div>
-
-      <LandingTestimonials />
       <Logo />
+      <LandingTestimonials />
+ 
     </main>
   );
 }
@@ -448,20 +473,20 @@ export default function Features() {
 
     // ScrollTrigger for pinning sections
     ScrollTrigger.create({
-      trigger: invisalignRef.current,
-      start: "top top",
-      end: "+=100%",
-      pin: true,
-      pinSpacing: false,
+      // trigger: invisalignRef.current,
+      // start: "top top",
+      // end: "+=100%",
+      // pin: true,
+      // pinSpacing: false,
     });
 
     [damonRef, advancedTechRef].forEach((ref) => {
       ScrollTrigger.create({
-        trigger: ref.current,
-        start: "top top",
-        end: "+=100%",
-        pin: true,
-        pinSpacing: false,
+        // trigger: ref.current,
+        // start: "top top",
+        // end: "+=100%",
+        // pin: true,
+        // pinSpacing: false,
       });
     });
 
@@ -471,6 +496,7 @@ export default function Features() {
       onEnter: () => setStartArcAnimation(true),
       onLeaveBack: () => setStartArcAnimation(false),
     });
+    
 
     return () => {
       ScrollTrigger.getAll().forEach((t) => t.kill());
@@ -508,7 +534,7 @@ export default function Features() {
 
   const [backgroundColor, setBackgroundColor] = useState("transparent");
   useEffect(() => {
-    setBackgroundColor("rgb(164, 151, 173)");
+    setBackgroundColor("rgb(227,203,203)");
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
       const transitionStart = 40;
@@ -519,7 +545,7 @@ export default function Features() {
         {
           start: transitionStart,
           end: transitionEnd * 0.25,
-          colorStart: [164, 151, 173],
+          colorStart: [227,203,203],
           colorEnd: [227, 217, 225],
         },
         {
@@ -708,6 +734,22 @@ export default function Features() {
                       <br />
                       Experience matters.
                     </h1>
+                    <button className="rounded-full border-glowing">
+  <Link
+    to="/invisalign"
+    style={{
+      width: "100px",
+      height: "100px",
+      borderRadius: "50%",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      textDecoration: "none", 
+    }}
+  >
+   Learn More
+  </Link>
+</button>
                   </div>
                   {/* <img
           className="absolute  left-1/2 transform -translate-x-1/2 w-64 h-auto"
@@ -721,15 +763,15 @@ export default function Features() {
             </div>
           </div>
         </div>
-        <div ref={damonRef} className="section bg-stone-100">
+        <div ref={damonRef} className="section ">
           <div
             class="w-screen  h-screen  "
-            style={{
-              backgroundImage: `url(${process.env.PUBLIC_URL}/images/pastel2.jpg)`,
-              backgroundRepeat: "no-repeat",
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-            }}
+            // style={{
+            //   backgroundImage: `url(${process.env.PUBLIC_URL}/images/pastel2.jpg)`,
+            //   backgroundRepeat: "no-repeat",
+            //   backgroundSize: "cover",
+            //   backgroundPosition: "center",
+            // }}
           >
             <div className="flex items-center justify-center max-w-screen-xl mx-auto lg:flex-row">
               <div className="w-1/2 flex flex-col justify-center items-center">
@@ -743,7 +785,7 @@ export default function Features() {
         />
       </figure>
     </div>
-                <div className="absolute inset-0 z-10 flex justify-center items-center">
+                <div className="absolute  z-10 flex justify-center items-center">
                   <Arc triggerRef={damonRef} />
                
                 </div>
@@ -778,17 +820,6 @@ export default function Features() {
                   </div>
                 </div>
 
-                {/* <img
-    src="../images/damontech.png"
-    alt="damon braces"
-    className="w-auto h-40 md:h-48 absolute"
-    style={{
-      zIndex: 2,
-      top: "80%",
-      left: "20%",
-      transform: "translate(-50%, -50%)",
-    }}
-  /> */}
               </figure>
               
             </div>
@@ -797,16 +828,12 @@ export default function Features() {
         </div>
 
         <div ref={advancedTechRef}>
-          <div className="text-2xl  relative bg-violet-100">
+          <div className="text-2xl  relative ">
             <div className="flex flex-col items-center justify-center max-w-screen-xl mx-auto lg:flex-row">
               <div className="flex items-center justify-center relative w-1/2 flex-col">
                 <figure className="flex items-center justify-center ">
                   {/* <img src="../images/circletdot.svg" alt="dot" /> */}
-                  {/* <video controls
-                  className="w-auto h-96 rounded-full">
-                  <source src="../images/video-teeth-scanner.mp4" type="video/mp4" />
-                
-                </video> */}
+
                 </figure>
               </div>
 
@@ -823,8 +850,8 @@ export default function Features() {
                   }}
                 />
                 <p className="text-3xl pb-4 absolute" style={{ zIndex: 2 }}>
-                  We offer Invisalign without Impressions. Say goodbye to goopy
-                  impressions with our iTero digital scanner.
+                  Our doctor have been pioneering the most comfortable appliances for your treatment since 2005
+
                 </p>
 
                 <Link

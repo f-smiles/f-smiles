@@ -712,9 +712,9 @@ text {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%; /* Width of the column */
-  height: 300px; /* Standard height for all logos */
-  overflow: hidden; /* To prevent larger images from overflowing */
+  width: 100%; 
+  height: 300px; 
+  overflow: hidden; 
   transform: translateY(-30px);
   transition: all 0.3s ease-in-out;
   visibility: hidden;
@@ -732,3 +732,43 @@ text {
   height: 40%; 
   object-fit: contain;
 }
+
+.neon {
+  --interval: 1s;
+  text-shadow:
+    0 0 10px var(--color1),
+    0 0 20px var(--color2),
+    0 0 40px var(--color3),
+    0 0 80px var(--color4);
+  will-change: filter, color;
+  filter: saturate(60%);
+  animation: text-flicker steps(100) var(--interval) 1s infinite;
+}
+
+.neon.subtitle {
+  color: lightpink;
+  --color1: pink;
+  --color2: crimson;
+  --color3: fuchsia;
+  --color4: magenta;
+}
+
+@keyframes text-flicker {
+  0% {
+    color: white;
+    filter: saturate(150%) hue-rotate(10deg);
+  }
+  50% {
+    color: white;
+    filter: saturate(175%) hue-rotate(15deg);
+  }
+  100% {
+    color: white;
+    filter: saturate(150%) hue-rotate(10deg);
+  }
+}
+
+.rotate-text {
+  transform: rotate(-20deg);
+}
+

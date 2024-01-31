@@ -2,7 +2,11 @@ import React, { useState, useRef, useEffect } from "react";
 import gsap from "gsap";
 import { useSwipeable } from "react-swipeable";
 
+const hiddenStyle = "opacity-0 translate-x-[-100%]";
+const visibleStyle = "opacity-100 translate-x-0";
+
 const TestimonialSlider = () => {
+  
   const totalSlides = 3;
   const [currentSlide, setCurrentSlide] = useState(1);
   const [animating, setAnimating] = useState(false);
@@ -172,11 +176,32 @@ const TestimonialSlider = () => {
 
   });
 
+
+  
+  // Testimonial section - Left Content
+  gsap.set(".left-row", {
+    opacity: 0,
+    xPercent: -100
+  });
+  gsap.to(".left-row", {
+    duration: 1.6,
+    opacity: 1,
+    xPercent: 0,
+    ease: "power2.inOut",
+    yoyo: true,
+    scrollTrigger: {
+      trigger: ".testimonial-section",
+      start: "top center",
+      end: "center",
+      markers: false
+    }
+  });
+  
   return (
     <div>
-      <div className="flex flex-col  md:flex-row">
+      <div className=" flex flex-col  md:flex-row">
         <div
-          className="relative w-full md:w-1/2 min-h-screen overflow-hidden flex items-start"
+          className="testimonial-section relative w-full md:w-1/2 min-h-screen overflow-hidden flex items-start"
           style={{ transform: "scale(0.7)" }}
         >
           <div className="relative z-10 max-w-6xl mx-auto my-10 flex justify-between ">
@@ -226,7 +251,7 @@ const TestimonialSlider = () => {
           </div>
 
 
-          <div className="absolute top-0 left-0 w-full h-full" {...handlers}>
+          <div className="absolute top-0 w-full h-full" {...handlers}>
           {slideData.map((slide, index) => (
     <div
       key={index}
@@ -262,7 +287,7 @@ const TestimonialSlider = () => {
           </div>
         </div>
         <div className="w-1/2 flex flex-col justify-center items-center hidden md:flex">
-        <div className="-mt-60 flex flex-col space-y-2">
+        <div className=" -mt-60 flex flex-col space-y-2">
               {[...Array(totalSlides)].map((_, index) => (
                 <div key={index} className="flex items-center space-x-2">
                   <div className="text-sm">{index + 1}</div>

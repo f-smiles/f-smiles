@@ -115,6 +115,7 @@ module.exports = {
       'euclidSemibold': ['EuclidCircularASemibold', 'sans-serif'],
       'HelveticaNowVar': ['HelveticaNowVar', 'sans-serif'],
       'HelveticaNowPro':['HelveticaNowPro', 'sans-serif'],
+      'Yellowtail-Regular':['Yellowtail-Regular']
     },
     animation: {
       blob: "blob 7s infinite",
