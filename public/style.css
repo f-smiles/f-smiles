@@ -542,7 +542,7 @@ text {
   overflow: hidden;
 }
 
-/* The light blue background of the semi-circle */
+
 .thumbnails-arc:before {
   content: '';
   position: absolute;
@@ -554,10 +554,10 @@ text {
 
 .thumbnail-img {
   position: absolute;
-  bottom: 0; /* Align thumbnails at the bottom of the semi-circle */
-  /* Additional styling for the thumbnails */
-  width: 56px; /* Adjust as needed */
-  height: 56px; /* Adjust as needed */
+  bottom: 0; 
+ 
+  width: 56px; 
+  height: 56px;
   border-radius: 50%;
   object-fit: cover;
 }

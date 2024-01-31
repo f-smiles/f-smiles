@@ -531,6 +531,26 @@ export default function Features() {
         ? `${-(scrollY - advancedTechStartScroll)}px`
         : `${sectionHeight}px`,
   };
+  const backgroundRef = useRef(null);
+
+  const svgRef = useRef(null);
+
+  useEffect(() => {
+    // Start with the SVG scaled up
+    gsap.set(svgRef.current, { scale: 3, transformOrigin: "50% 50%" });
+
+    ScrollTrigger.create({
+        trigger: svgRef.current,
+        start: "top top",
+        end: "center center",
+        scrub: true,
+        onUpdate: self => {
+   
+            const scale = 3 - (2.5 * self.progress); 
+            gsap.set(svgRef.current, { scale: Math.max(scale, 0.5) });
+        }
+    });
+}, []);
 
   const [backgroundColor, setBackgroundColor] = useState("transparent");
   useEffect(() => {
@@ -828,8 +848,16 @@ export default function Features() {
         </div>
 
         <div ref={advancedTechRef}>
-          <div className="text-2xl  relative ">
-            <div className="flex flex-col items-center justify-center max-w-screen-xl mx-auto lg:flex-row">
+        <div ref={svgRef} id="" className="w-full h-screen ">
+        <svg viewBox="0 0 256 256">
+
+    <g>
+        <path fill="#000000" d="M10,71.6c0,17.2,4.5,36.1,12.3,52c17,34.7,49.9,58.6,88.4,64.6c8.9,1.4,25.9,1.4,34.5,0c28.3-4.4,53.7-18.4,71.8-39.4c13.2-15.4,22.2-33.4,26.2-52.4c1.7-8,2.8-18.3,2.8-25.2v-4.5H128H10V71.6z"/>
+    </g>
+</svg>
+        </div>
+          <div className="text-2xl  relative">
+            <div className="tech-background flex flex-col items-center justify-center max-w-screen-xl mx-auto lg:flex-row">
               <div className="flex items-center justify-center relative w-1/2 flex-col">
                 <figure className="flex items-center justify-center ">
                   {/* <img src="../images/circletdot.svg" alt="dot" /> */}
