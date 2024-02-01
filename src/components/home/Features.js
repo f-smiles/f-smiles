@@ -3,7 +3,7 @@ import LandingTestimonials from "../svg/LandingTestimonials.js";
 import { useInView } from "framer-motion";
 import Logo from "../svg/Logo.js";
 import Arc from "../svg/Arc";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, useAnimation } from "framer-motion";
 import { gsap } from "gsap-trial";
 import { ScrollSmoother } from "gsap-trial/ScrollSmoother";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -11,6 +11,7 @@ import { Link } from "react-router-dom";
 import SplitText from "gsap-trial/SplitText";
 import Circle from "../svg/Circle.jsx";
 import { shuffle } from "lodash";
+
 gsap.registerPlugin(SplitText);
 gsap.registerPlugin(ScrollSmoother, ScrollTrigger, SplitText);
 function Hero() {
@@ -185,21 +186,112 @@ function Hero() {
   }, []);
 
   return (
-    <main className="relative">
-      <div className="relative px-8 isolate  lg:px-8">
-        <div className="grid max-w-screen-xl grid-cols-1  mx-auto sm:py-10  place-items-center lg:grid-cols-2">
+    <main className="relative"
+    style={{
+      background:
+        "linear-gradient(45deg, rgba(170,212,192,1) 0%, rgba(232,232,230,1) 100%)",
+    }}>
+      <div className="px-8 isolate -mt-40 lg:px-8"
+      >
+        <div
+          className="relative grid rounded-lg bg-opacity-10 backdrop-blur-sm max-w-screen-xl grid-cols-1 mx-auto sm:py-10 place-items-center lg:grid-cols-2"
+  
+        >
+          {/* SVG in the middle of the div */}
+          <div className="absolute inset-0 flex justify-center items-center">
+      
+<svg >
+  <defs>
+    <clipPath id="myClipPath" clipPathUnits="objectBoundingBox" transform="scale(0.0004 0.0007)">
+      <path d="M1746.43,38.94C849.17-212.65-120.14,825.24,12.19,1135.81c101.84,239,679.67,189.43,1132.31,162.51,448.32-26.66,958.25,402.35,1298.59-122.64C2733.65,727.5,2258.09,182.41,1746.43,38.94Z" />
+    </clipPath>
+  </defs>
+</svg>
+
+
+<img 
+  src="/images/texturedpanel2.jpg" 
+  alt="Description" 
+  style={{ width: '800px', height: '600px', clipPath: 'url(#myClipPath)' }} 
+/>
+          </div>
+
+          {/* Text container */}
+          <div className="relative z-10 mx-auto lg:mt-0">
+            <div className="flex items-center justify-center flex-wrap">
+              <div className="relative">
+                <div className="hero">
+                  <div className="hero-content" ref={heroContentRef}>
+                    <div className="hero-content-line font-HelveticaNowPro font-thin tracking-tight tracking-tighter">
+                      Because Every Smile
+                    </div>
+                    <div className="font-HelveticaNowPro font-thin tracking-tight tracking-tighter hero-content-line">
+                      Is Unique
+                    </div>
+                  </div>
+                  <div className="btn-row" ref={bookButtonRef}>
+                    <button className="text-3xl font-HelveticaNowPro font-thin tracking-tight tracking-tighter book-button inline-flex items-center justify-center">
+                      <span>
+                        <Link
+                          to="/book-now"
+                          className="text-2xl rounded-lg text-white p-4 mt-10 font-normal leading-6 transition-colors duration-300 ease-linear text-primary50 hover:text-primary30"
+                        >
+                          Book Now
+                        </Link>
+                      </span>
+                      <div className="arrow-icon ml-3 inline-flex items-center justify-center bg-violet-400 h-10 w-10 rounded-full cursor-pointer">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          strokeWidth="1.5"
+                          stroke="currentColor"
+                          className="w-6 h-6"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3"
+                          />
+                        </svg>
+                      </div>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Image */}
+          <div className="relative z-10 flex justify-center items-center">
+            <img
+              className="rounded-full max-w-md"
+              src="../../images/mainsectionimage.jpg"
+              alt="girl smiling"
+            />
+          </div>
+        </div>
+        {/* <div className=" grid rounded-lg  bg-opacity-10 backdrop-blur-sm max-w-screen-xl grid-cols-1  mx-auto sm:py-10  place-items-center lg:grid-cols-2"
+           style={{
+            background: 'linear-gradient(45deg, rgba(170,212,192,1) 0%, rgba(232,232,230,1) 100%)'
+          }}>
+           
+            <svg viewBox="0 0 2531.55 1438.27">
+            <path class="cls-2" d="M1746.43,38.94C849.17-212.65-120.14,825.24,12.19,1135.81c101.84,239,679.67,189.43,1132.31,162.51,448.32-26.66,958.25,402.35,1298.59-122.64C2733.65,727.5,2258.09,182.41,1746.43,38.94Z" />
+        </svg>
+     
           <div
-            className="relative mx-auto mt-32 lg:mt-0 text-container"
+            className="relative mx-auto lg:mt-0 text-container"
             style={{ zIndex: 2 }}
           >
             <div className="flex items-center justify-center flex-wrap">
               <div className="relative">
-                <div className="absolute w-full top-1/2 transform -translate-y-1/2 -z-10"></div>
-                <div className="relative mx-auto mt-32 lg:mt-0">
+                <div className="absolute w-full  transform  -z-10"></div>
+                <div className="relative mx-auto lg:mt-0">
                   <div className="flex items-center justify-center flex-wrap">
                     <div className="relative">
-                      <div className="relative mx-auto my-32 max-w-7xl">
-                        <div className=" absolute w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"></div>
+                      <div className="relative mx-auto  max-w-7xl">
+                        <div className="  w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"></div>
                         <div className="hero">
                           <div className="hero-content" ref={heroContentRef}>
                             <div className="hero-content-line font-HelveticaNowPro font-thin tracking-tight tracking-tighter">
@@ -264,9 +356,10 @@ function Hero() {
               alt="girl smiling"
             />
           </div>
-        </div>
+        </div> */}
       </div>
       <div className="flex">
+        <Circle />
         <div className="flex flex-col w-1/3">
           <div className="h-64"></div>
           <div className="text-container">
@@ -544,12 +637,9 @@ export default function Features() {
 
   const svgRef = useRef(null);
 
-
-
-
   const [backgroundColor, setBackgroundColor] = useState("transparent");
   useEffect(() => {
-    setBackgroundColor("rgb(227,203,203)");
+    setBackgroundColor("rgb(225,220,215)");
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
       const transitionStart = 40;
@@ -560,7 +650,7 @@ export default function Features() {
         {
           start: transitionStart,
           end: transitionEnd * 0.25,
-          colorStart: [227, 203, 203],
+          colorStart: [225, 220, 215],
           colorEnd: [227, 217, 225],
         },
         {
@@ -613,7 +703,6 @@ export default function Features() {
     };
   }, []);
 
-
   const aligner1Ref = useRef(null);
   const aligner2Ref = useRef(null);
   const aligner3Ref = useRef(null);
@@ -651,11 +740,9 @@ export default function Features() {
       window.removeEventListener("scroll", parallaxScroll);
     };
   }, []);
- 
 
-
-const { scrollYProgress } = useScroll()
-  const scale = useTransform(scrollYProgress, [0, 1], ["1000%", "80%"])
+  const { scrollYProgress } = useScroll();
+  const scale = useTransform(scrollYProgress, [0, 1], ["600%", "40%"]);
 
   const arcStyle = {
     position: "absolute",
@@ -672,43 +759,16 @@ const { scrollYProgress } = useScroll()
   };
   return (
     <>
-      <div style={{ backgroundColor }}>
+      <div 
+      
+      style={{ backgroundColor }}>
         <div class=" flex items-center justify-center text-5xl">
           <Section>
-            <svg
-              width="60"
-              height="60"
-              viewBox="0 0 200 200"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              {" "}
-              <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
-                d="M200 150C200 94.7715 155.228 50 100 50C44.7715 50 0 94.7715 0 150H200Z"
-                fill="url(#paint0_linear_105_460)"
-              />{" "}
-              <defs>
-                {" "}
-                <linearGradient
-                  id="paint0_linear_105_460"
-                  x1="27.5"
-                  y1="59.5"
-                  x2="69.9415"
-                  y2="168.136"
-                  gradientUnits="userSpaceOnUse"
-                >
-                  {" "}
-                  <stop stop-color="#FFD9A0" />{" "}
-                  <stop offset="1" stop-color="#FFF5F1" />{" "}
-                </linearGradient>{" "}
-              </defs>{" "}
-            </svg>
+        
             <img
               src="/images/logo_icon.png"
               alt="logo"
-              className="w-20 h-20 "
+              className="w-20 h-20 z-10"
             />
 
             <Hero />
@@ -727,8 +787,6 @@ const { scrollYProgress } = useScroll()
                   }}
                   className="min-h-screen w-1/2 flex flex-col justify-center items-center text-black text-center relative"
                 >
-                  {/* Gradient Blur Image */}
-
                   <div className="relative">
                     <img
                       src="../images/ellipse.svg"
@@ -834,53 +892,62 @@ const { scrollYProgress } = useScroll()
             </div>
           </div>
         </div>
-     
-        <div ref={advancedTechRef} className="h-[100vh] relative border-4 border-dashed border-pink-500">
-        <motion.div style={{ scale }} className="z-0 absolute top-0 right-0 w-full h-full -translate-y-1/2"> 
-        <svg viewBox="0 0 256 256" className='w-full h-full border border-black'>
-          <g>
-            <path
-              fill="#a3bba3"
-              d="M10,71.6c0,17.2,4.5,36.1,12.3,52c17,34.7,49.9,58.6,88.4,64.6c8.9,1.4,25.9,1.4,34.5,0c28.3-4.4,53.7-18.4,71.8-39.4c13.2-15.4,22.2-33.4,26.2-52.4c1.7-8,2.8-18.3,2.8-25.2v-4.5H128H10V71.6z"
-            />
-          </g>
-        </svg>
-      </motion.div>
-            <div className="tech-background flex flex-col items-center justify-center max-w-screen-xl mx-auto lg:flex-row">
-              <div className="flex items-center justify-center relative w-1/2 flex-col">
-                <figure className="flex items-center justify-center ">
-                  {/* <img src="../images/circletdot.svg" alt="dot" /> */}
-                </figure>
-              </div>
 
-              <div className="flex items-center justify-center h-screen relative w-1/3 flex-col">
-                <img
-                  src="../images/dotcircle.png"
-                  alt="invis"
-                  className="relative w-96 h-auto"
-                  style={{
-                    zIndex: 1,
-                    top: "30%",
-                    left: "50%",
-                    transform: "translate(-50%, -50%)",
-                  }}
+        <div
+          ref={advancedTechRef}
+          className="h-[100vh] relative"
+        >
+          <motion.div
+            style={{ scale }}
+            className="absolute top-0 right-0 w-full h-full -translate-y-1/2"
+          >
+            <svg
+              viewBox="0 0 256 256"
+              className="w-full h-full"
+            >
+              <g>
+                <path
+                  fill="#a3bba3"
+                  d="M10,71.6c0,17.2,4.5,36.1,12.3,52c17,34.7,49.9,58.6,88.4,64.6c8.9,1.4,25.9,1.4,34.5,0c28.3-4.4,53.7-18.4,71.8-39.4c13.2-15.4,22.2-33.4,26.2-52.4c1.7-8,2.8-18.3,2.8-25.2v-4.5H128H10V71.6z"
                 />
-                <p className="text-3xl pb-4 absolute" style={{ zIndex: 2 }}>
-                  Our doctor have been pioneering the most comfortable
-                  appliances for your treatment since 2005
-                </p>
-
-                <Link
-                  className="inline-block px-6 py-4 transition-colors duration-300 ease-linear border rounded-full border-[#f2ab79] hover:bg-gray-800 hover:border-0 hover:border-secondary50 hover:text-white"
-                  to="/invisalign"
-                  style={{ zIndex: 1 }}
-                >
-                  Learn More
-                </Link>
-              </div>
-
-              <div></div>
+              </g>
+            </svg>
+          </motion.div>
+          <div className="tech-background flex flex-col items-center justify-center max-w-screen-xl mx-auto lg:flex-row">
+            <div className="flex items-center justify-center relative w-1/2 flex-col">
+              <figure className="flex items-center justify-center ">
+                {/* <img src="../images/circletdot.svg" alt="dot" /> */}
+              </figure>
             </div>
+
+            <div className="flex items-center justify-center h-screen relative w-1/3 flex-col">
+              <img
+                src="../images/dotcircle.png"
+                alt="invis"
+                className="relative w-96 h-auto"
+                style={{
+                  zIndex: 1,
+                  top: "30%",
+                  left: "50%",
+                  transform: "translate(-50%, -50%)",
+                }}
+              />
+              <p className="text-3xl pb-4 absolute" style={{ zIndex: 2 }}>
+                Our doctor have been pioneering the most comfortable appliances
+                for your treatment since 2005
+              </p>
+
+              <Link
+                className="inline-block px-6 py-4 transition-colors duration-300 ease-linear border rounded-full border-[#f2ab79] hover:bg-gray-800 hover:border-0 hover:border-secondary50 hover:text-white"
+                to="/invisalign"
+                style={{ zIndex: 1 }}
+              >
+                Learn More
+              </Link>
+            </div>
+
+            <div></div>
+          </div>
         </div>
       </div>
     </>

@@ -57,17 +57,17 @@ const BubbleGumScene = () => {
     });
 
 
-    // const gumGeometry = new THREE.SphereGeometry(5, 64, 64);
-    // const gum = new THREE.Mesh(gumGeometry, shaderMaterial);
-    // scene.add(gum);
-
-    // const bgGeometry = new THREE.PlaneGeometry(window.innerWidth, window.innerHeight);
-    // const bgMesh = new THREE.Mesh(bgGeometry, shaderMaterial);
-    // scene.add(bgMesh);
-
     const gumGeometry = new THREE.SphereGeometry(5, 64, 64);
     const gum = new THREE.Mesh(gumGeometry, shaderMaterial);
     scene.add(gum);
+
+    const bgGeometry = new THREE.PlaneGeometry(window.innerWidth, window.innerHeight);
+    const bgMesh = new THREE.Mesh(bgGeometry, shaderMaterial);
+    scene.add(bgMesh);
+
+    // const gumGeometry = new THREE.SphereGeometry(5, 64, 64);
+    // const gum = new THREE.Mesh(gumGeometry, shaderMaterial);
+    // scene.add(gum);
     const clock = new THREE.Clock();
     const animate = () => {
       uniforms.u_time.value = clock.getElapsedTime();
