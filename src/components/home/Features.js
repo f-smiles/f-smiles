@@ -9,7 +9,7 @@ import { ScrollSmoother } from "gsap-trial/ScrollSmoother";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Link } from "react-router-dom";
 import SplitText from "gsap-trial/SplitText";
-import Circle from "../svg/Circle.jsx";
+import { useNavigate } from 'react-router-dom';
 import { shuffle } from "lodash";
 
 gsap.registerPlugin(SplitText);
@@ -185,91 +185,172 @@ function Hero() {
     });
   }, []);
 
+ const [isScaled, setIsScaled] = useState(false);
+  const [showBookNow, setShowBookNow] = useState(false);
+
+  const handleClick = () => {
+    setIsScaled(true); 
+
+    
+    setTimeout(() => {
+      setShowBookNow(true);
+    }, 1500); 
+  };
+
+
   return (
-    <main className="relative"
-    style={{
-      background:
-        "linear-gradient(45deg, rgba(170,212,192,1) 0%, rgba(232,232,230,1) 100%)",
-    }}>
-      <div className="px-8 isolate -mt-40 lg:px-8"
-      >
-        <div
-          className="relative grid rounded-lg bg-opacity-10 backdrop-blur-sm max-w-screen-xl grid-cols-1 mx-auto sm:py-10 place-items-center lg:grid-cols-2"
-  
-        >
-          {/* SVG in the middle of the div */}
+    <main
+      className="relative"
+      // style={{
+      //   background:
+      //     "linear-gradient(45deg, rgba(170,212,192,1) 0%, rgba(232,232,230,1) 100%)",
+      // }}
+    >
+      <div className="px-8 isolate  lg:px-8">
+        <div className="relative grid rounded-lg  max-w-screen-xl grid-cols-1 mx-auto sm:py-10 place-items-center lg:grid-cols-2">
           <div className="absolute inset-0 flex justify-center items-center">
-      
-<svg >
-  <defs>
-    <clipPath id="myClipPath" clipPathUnits="objectBoundingBox" transform="scale(0.0004 0.0007)">
-      <path d="M1746.43,38.94C849.17-212.65-120.14,825.24,12.19,1135.81c101.84,239,679.67,189.43,1132.31,162.51,448.32-26.66,958.25,402.35,1298.59-122.64C2733.65,727.5,2258.09,182.41,1746.43,38.94Z" />
-    </clipPath>
-  </defs>
-</svg>
+            <svg>
+              <defs>
+                <clipPath
+                  id="myClipPath"
+                  clipPathUnits="objectBoundingBox"
+                  transform="scale(0.0004 0.0007)"
+                >
+                  <path d="M1746.43,38.94C849.17-212.65-120.14,825.24,12.19,1135.81c101.84,239,679.67,189.43,1132.31,162.51,448.32-26.66,958.25,402.35,1298.59-122.64C2733.65,727.5,2258.09,182.41,1746.43,38.94Z" />
+                </clipPath>
+              </defs>
+            </svg>
 
-
-<img 
-  src="/images/texturedpanel2.jpg" 
-  alt="Description" 
-  style={{ width: '800px', height: '600px', clipPath: 'url(#myClipPath)' }} 
-/>
+            {/* <img
+              src="/images/texturedpanel2.jpg"
+              alt="Description"
+              style={{
+                width: "800px",
+                height: "600px",
+                clipPath: "url(#myClipPath)",
+              }}
+            /> */}
           </div>
 
-          {/* Text container */}
           <div className="relative z-10 mx-auto lg:mt-0">
             <div className="flex items-center justify-center flex-wrap">
               <div className="relative">
                 <div className="hero">
                   <div className="hero-content" ref={heroContentRef}>
-                    <div className="hero-content-line font-HelveticaNowPro font-thin tracking-tight tracking-tighter">
-                      Because Every Smile
+                    <div className="text-6xl hero-content-line font-HelveticaNowPro font-thin tracking-tight tracking-tighter">
+                      Because Every Smile   Is Unique
                     </div>
-                    <div className="font-HelveticaNowPro font-thin tracking-tight tracking-tighter hero-content-line">
-                      Is Unique
+                    <div className="text-6xl font-HelveticaNowPro font-thin tracking-tight tracking-tighter hero-content-line">
+                    
                     </div>
                   </div>
-                  <div className="btn-row" ref={bookButtonRef}>
-                    <button className="text-3xl font-HelveticaNowPro font-thin tracking-tight tracking-tighter book-button inline-flex items-center justify-center">
-                      <span>
-                        <Link
-                          to="/book-now"
-                          className="text-2xl rounded-lg text-white p-4 mt-10 font-normal leading-6 transition-colors duration-300 ease-linear text-primary50 hover:text-primary30"
-                        >
-                          Book Now
-                        </Link>
-                      </span>
-                      <div className="arrow-icon ml-3 inline-flex items-center justify-center bg-violet-400 h-10 w-10 rounded-full cursor-pointer">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          strokeWidth="1.5"
-                          stroke="currentColor"
-                          className="w-6 h-6"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3"
-                          />
-                        </svg>
-                      </div>
-                    </button>
-                  </div>
+                
                 </div>
               </div>
             </div>
           </div>
+          <div className="relative flex justify-center items-center">
 
-          {/* Image */}
-          <div className="relative z-10 flex justify-center items-center">
+  <div    className={`absolute z-20 inline-block ${isScaled ? 'scale-up' : 'scale-100'}`}   onClick={handleClick} style={{ top: '10%', left: '-20%' }}> 
+    <Link to="/book-now"  className="inline-flex justify-center items-center">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 480 480"
+      className="w-48 h-48" 
+    >
+   
+      <path fill="#C8A2C8">
+        <animateTransform
+          attributeName="transform"
+          attributeType="XML"
+          type="rotate"
+          from="0"
+          to="0"
+          dur="0"
+        />
+        <animate
+          attributeName="d"
+          values="M20,248c0,57.7,21.4,114.4,56.8,154.6C118.6,450,181.8,476,250,476c63,0,122-23.5,163.2-64.8
+                  C454.5,370,480,315,480,252c0-68.1-29.9-133.3-77.2-175c-40.2-35.5-97-57-154.8-57C167.1,20,96,66.2,55.5,129.7
+                  C33,165,20,203,20,248z; M24,248c0,57.7,19.4,112.4,54.8,152.6C120.6,448,183.8,478,252,478c63,0,118-27.5,159.2-68.8
+                  C452.5,368,482,317,482,254c0-68.1-29.9-137.3-77.2-179c-40.2-35.5-101-53-158.8-53C165.1,22,94,64.2,53.5,127.7
+                  C31,163,24,203,24,248z; M20,248c0,57.7,25.4,110.4,60.8,150.6C122.6,446,185.8,480,254,480c63,0,114-31.5,155.2-72.8
+                  C450.5,366,484,319,484,256c0-68.1-29.9-139.3-77.2-181c-40.2-35.5-105-55-162.8-55C163.1,20,92,62.2,51.5,125.7
+                  C29,161,20,203,20,248z; M20,248c6.7,58.1,19.2,116.9,60.8,150.6c53.4,43.3,105.5,73,173.2,81.4c64,8,109.2-36.8,155.2-72.8
+                  C453,373,494.2,318.1,484,256c-11-67-21.5-151.4-77.2-181C358,49,301.5,14.4,244,20C162,28,85.6,58.5,51.5,125.7
+                  C31.2,165.9,14.8,203.3,20,248z; M20,248c0,57.7,21.4,114.4,56.8,154.6C118.6,450,181.8,476,250,476c63,0,122-23.5,163.2-64.8
+                  C454.5,370,480,315,480,252c0-68.1-29.9-133.3-77.2-175c-40.2-35.5-97-57-154.8-57C167.1,20,96,66.2,55.5,129.7
+                  C33,165,20,203,20,248z"
+          dur="1.5s"
+          repeatCount="indefinite"
+        />
+      </path>
+    </svg>
+      <span className="font-HelveticaNowPro font-thin tracking-tight absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-3xl text-white">
+        Book<br/>Now
+      </span>
+    </Link>
+  </div>
+
+
+  <img
+    className="rounded-full max-w-md z-10"
+    src="../../images/mainsectionimage.jpg"
+    alt="girl smiling"
+  />
+</div>
+
+          {/* <div className="relative z-10 flex justify-center items-center">
+            
+          <div className="relative inline-block">
+          <Link to="/book-now" className="inline-flex justify-center items-center w-full h-full">
+ <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 480 480"
+      className="w-full h-full" 
+    >
+   
+      <path fill="">
+        <animateTransform
+          attributeName="transform"
+          attributeType="XML"
+          type="rotate"
+          from="0"
+          to="0"
+          dur="0"
+        />
+        <animate
+          attributeName="d"
+          values="M20,248c0,57.7,21.4,114.4,56.8,154.6C118.6,450,181.8,476,250,476c63,0,122-23.5,163.2-64.8
+                  C454.5,370,480,315,480,252c0-68.1-29.9-133.3-77.2-175c-40.2-35.5-97-57-154.8-57C167.1,20,96,66.2,55.5,129.7
+                  C33,165,20,203,20,248z; M24,248c0,57.7,19.4,112.4,54.8,152.6C120.6,448,183.8,478,252,478c63,0,118-27.5,159.2-68.8
+                  C452.5,368,482,317,482,254c0-68.1-29.9-137.3-77.2-179c-40.2-35.5-101-53-158.8-53C165.1,22,94,64.2,53.5,127.7
+                  C31,163,24,203,24,248z; M20,248c0,57.7,25.4,110.4,60.8,150.6C122.6,446,185.8,480,254,480c63,0,114-31.5,155.2-72.8
+                  C450.5,366,484,319,484,256c0-68.1-29.9-139.3-77.2-181c-40.2-35.5-105-55-162.8-55C163.1,20,92,62.2,51.5,125.7
+                  C29,161,20,203,20,248z; M20,248c6.7,58.1,19.2,116.9,60.8,150.6c53.4,43.3,105.5,73,173.2,81.4c64,8,109.2-36.8,155.2-72.8
+                  C453,373,494.2,318.1,484,256c-11-67-21.5-151.4-77.2-181C358,49,301.5,14.4,244,20C162,28,85.6,58.5,51.5,125.7
+                  C31.2,165.9,14.8,203.3,20,248z; M20,248c0,57.7,21.4,114.4,56.8,154.6C118.6,450,181.8,476,250,476c63,0,122-23.5,163.2-64.8
+                  C454.5,370,480,315,480,252c0-68.1-29.9-133.3-77.2-175c-40.2-35.5-97-57-154.8-57C167.1,20,96,66.2,55.5,129.7
+                  C33,165,20,203,20,248z"
+          dur="1.5s"
+          repeatCount="indefinite"
+        />
+      </path>
+    </svg>
+    <span className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-3xl text-white">
+  Book<br/>Now
+</span>
+      </Link>
+
+    </div>
+    
+
             <img
               className="rounded-full max-w-md"
               src="../../images/mainsectionimage.jpg"
               alt="girl smiling"
             />
-          </div>
+          </div> */}
         </div>
         {/* <div className=" grid rounded-lg  bg-opacity-10 backdrop-blur-sm max-w-screen-xl grid-cols-1  mx-auto sm:py-10  place-items-center lg:grid-cols-2"
            style={{
@@ -359,13 +440,14 @@ function Hero() {
         </div> */}
       </div>
       <div className="flex">
-        <Circle />
+        {/* <Circle /> */}
         <div className="flex flex-col w-1/3">
           <div className="h-64"></div>
           <div className="text-container">
-            <span className="rotate-text neon subtitle font-Yellowtail-Regular font-thin">
+            {/* <span className="rotate-text neon subtitle font-Yellowtail-Regular font-thin">
               Why Patients Choose Us
-            </span>
+            </span> */}
+            Why Patients Choose Us
           </div>
           <div className="h-64 "></div>
 
@@ -743,6 +825,7 @@ export default function Features() {
 
   const { scrollYProgress } = useScroll();
   const scale = useTransform(scrollYProgress, [0, 1], ["600%", "40%"]);
+  const translateY = useTransform(scrollYProgress, [0, 1], ["-50%", "0%"]);
 
   const arcStyle = {
     position: "absolute",
@@ -759,21 +842,23 @@ export default function Features() {
   };
   return (
     <>
-      <div 
-      
-      style={{ backgroundColor }}>
-        <div class=" flex items-center justify-center text-5xl">
-          <Section>
-        
+      <div style={{ backgroundColor }}>
+        <div style={{ backgroundColor, position: "relative" }}>
+          <div className="absolute pl-20 pt-10">
             <img
               src="/images/logo_icon.png"
               alt="logo"
-              className="w-20 h-20 z-10"
+              className="w-16 h-16 z-10"
             />
+          </div>
 
+          <div className="flex items-center justify-center text-5xl">
+          
+  
             <Hero />
-          </Section>
+          </div>
         </div>
+
         <div ref={invisalignRef} className="section ">
           <div className="text-2xl w-screen h-screen relative">
             <div className="absolute inset-0 flex justify-center items-center">
@@ -893,18 +978,12 @@ export default function Features() {
           </div>
         </div>
 
-        <div
-          ref={advancedTechRef}
-          className="h-[100vh] relative"
-        >
+        <div ref={advancedTechRef} className="h-[100vh] relative">
           <motion.div
             style={{ scale }}
             className="absolute top-0 right-0 w-full h-full -translate-y-1/2"
           >
-            <svg
-              viewBox="0 0 256 256"
-              className="w-full h-full"
-            >
+            <svg viewBox="0 0 256 256" className="w-full h-full">
               <g>
                 <path
                   fill="#a3bba3"

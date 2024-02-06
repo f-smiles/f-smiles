@@ -9,10 +9,10 @@ const CaringForYourBraces = () => {
 
   React.useEffect(() => {
     if (isInView) {
-      // Start the reveal animation
+
       controls.start({ clipPath: `circle(150% at 50% 50%)` });
     } else {
-      // Reset to the initial state
+
       controls.start({ clipPath: `circle(0% at 50% 50%)` });
     }
   }, [controls, isInView]);

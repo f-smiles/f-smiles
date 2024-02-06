@@ -80,3 +80,53 @@ const AnimatedArcChart = ({ triggerRef }) => {
 };
 
 export default AnimatedArcChart;
+
+// import React, { useEffect, useRef } from 'react';
+// import { gsap, Power3 } from 'gsap';
+
+// const CircularProgress = ({ percentage = 85, speed = 10 }) => {
+//   const barRef = useRef(null);
+
+//   const drawProgress = (percent) => {
+//     const angle = percent * 360;
+//     const paddedRadius = 50;
+//     const radians = (angle * Math.PI / 180);
+//     const x = Math.sin(radians) * paddedRadius;
+//     const y = Math.cos(radians) * -paddedRadius;
+//     const mid = (angle > 180) ? 1 : 0;
+//     const pathData = `M 50 50 v -${paddedRadius} A ${paddedRadius} ${paddedRadius} 1 ${mid} 1 ${50 + x} ${50 + y} z`;
+
+//     barRef.current.setAttribute('d', pathData);
+//   };
+
+//   useEffect(() => {
+//     gsap.to({}, {
+//       x: percentage / 100,
+//       duration: speed,
+//       ease: Power3.easeOut,
+//       onUpdate: function () {
+//         drawProgress(this.targets()[0].x);
+//       }
+//     });
+//   }, [percentage, speed]);
+
+//   return (
+//     <div id="dashed-circle-progress" className="flex justify-center items-center h-screen">
+//       <svg className="progress-radial" width="300px" height="400px" viewBox="0 0 120 120" shape-rendering="geometricPrecision">
+//         <defs>
+//           <mask id="circle_mask" x="0" y="0" width="100" height="100" maskUnits="userSpaceOnUse">
+//             <circle cx="50" cy="50" r="51" stroke-width="0" fill="black" opacity="1"/>
+//             <circle r="50" cx="50" cy="50" fill="transparent" strokeDasharray="1" strokeDashoffset="1000" stroke="white" strokeWidth="9"/>
+//             <circle className="progress-radial-mask-inner" cx="50" cy="50" r="40" strokeWidth="0" fill="black" opacity="1"/>
+//           </mask>
+//         </defs>
+//         <g mask="url(#circle_mask)">
+//           <circle className="progress-radial-track" cx="50" cy="50" r="50" fill="white"/>
+//           <path ref={barRef} className="progress-radial-bar" fill="#66cdc3"/>
+//         </g>
+//       </svg>
+//     </div>
+//   );
+// };
+
+// export default CircularProgress;

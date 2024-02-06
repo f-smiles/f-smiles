@@ -772,3 +772,15 @@ text {
   transform: rotate(-20deg);
 }
 
+@keyframes scaleUpAnimation {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(50); /* Adjust this value as needed */
+  }
+}
+
+.scale-up {
+  animation: scaleUpAnimation 0.5s forwards;
+}
