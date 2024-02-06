@@ -4,10 +4,10 @@ import { gsap } from 'gsap';
 const LogoGrid = () => {
 
   const logos = [
-    ['../../images/movingbannerfiles/damonlogo_invert.png', '../../images/movingbannerfiles/invis-logo_invert.png', '../../images/movingbannerfiles/readers.png'], // Logos for column 1
-    ['../../images/movingbannerfiles/topDentist_logo.png', '../../images/movingbannerfiles/aao_invert.png', 'l../../images/movingbannerfiles/invisalign_invert.png'], // Logos for column 2
-    ['../../images/movingbannerfiles/ABO.png', '../../images/movingbannerfiles/damonlogo_invert.png', '../../images/movingbannerfiles/valley.png'], // Logos for column 3
-    ['../../images/movingbannerfiles/readers.png', '../../images/movingbannerfiles/topDentist_logo.png', './../images/movingbannerfiles/invis-logo_invert.png'] // Logos for column 4
+    ['../../images/movingbannerfiles/damonlogo_invert.png', '../../images/movingbannerfiles/invis-logo_invert.png', '../../images/movingbannerfiles/readers.png'], 
+    ['../../images/movingbannerfiles/topDentist_logo.png', '../../images/movingbannerfiles/aao_invert.png', 'l../../images/movingbannerfiles/invisalign_invert.png'], 
+    ['../../images/movingbannerfiles/ABO.png', '../../images/movingbannerfiles/damonlogo_invert.png', '../../images/movingbannerfiles/valley.png'], 
+    ['../../images/movingbannerfiles/readers.png', '../../images/movingbannerfiles/top-Dentist.png', './../images/movingbannerfiles/invis-logo_invert.png'] 
   ];
   const [activeLogos, setActiveLogos] = useState(logos.map(() => 0));
 

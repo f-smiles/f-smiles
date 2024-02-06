@@ -237,12 +237,24 @@ function Hero() {
               <div className="relative">
                 <div className="hero">
                   <div className="hero-content" ref={heroContentRef}>
-                    <div className="text-6xl hero-content-line font-HelveticaNowPro font-thin tracking-tight tracking-tighter">
-                      Because Every Smile   Is Unique
-                    </div>
-                    <div className="text-6xl font-HelveticaNowPro font-thin tracking-tight tracking-tighter hero-content-line">
                     
-                    </div>
+                  
+                    <div className="marquee">
+        <div className="marquee__inner first">
+          <span>Because</span>
+          <span>Every</span>
+          <span>Smile</span>
+          <span>Is</span>
+          <span>Unique</span>
+        </div>
+        <div className="marquee__inner second">
+          <span>Because</span>
+          <span>Every</span>
+          <span>Smile</span>
+          <span>Is</span>
+          <span>Unique</span>
+        </div>
+      </div>
                   </div>
                 
                 </div>
@@ -300,57 +312,7 @@ function Hero() {
   />
 </div>
 
-          {/* <div className="relative z-10 flex justify-center items-center">
-            
-          <div className="relative inline-block">
-          <Link to="/book-now" className="inline-flex justify-center items-center w-full h-full">
- <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 480 480"
-      className="w-full h-full" 
-    >
-   
-      <path fill="">
-        <animateTransform
-          attributeName="transform"
-          attributeType="XML"
-          type="rotate"
-          from="0"
-          to="0"
-          dur="0"
-        />
-        <animate
-          attributeName="d"
-          values="M20,248c0,57.7,21.4,114.4,56.8,154.6C118.6,450,181.8,476,250,476c63,0,122-23.5,163.2-64.8
-                  C454.5,370,480,315,480,252c0-68.1-29.9-133.3-77.2-175c-40.2-35.5-97-57-154.8-57C167.1,20,96,66.2,55.5,129.7
-                  C33,165,20,203,20,248z; M24,248c0,57.7,19.4,112.4,54.8,152.6C120.6,448,183.8,478,252,478c63,0,118-27.5,159.2-68.8
-                  C452.5,368,482,317,482,254c0-68.1-29.9-137.3-77.2-179c-40.2-35.5-101-53-158.8-53C165.1,22,94,64.2,53.5,127.7
-                  C31,163,24,203,24,248z; M20,248c0,57.7,25.4,110.4,60.8,150.6C122.6,446,185.8,480,254,480c63,0,114-31.5,155.2-72.8
-                  C450.5,366,484,319,484,256c0-68.1-29.9-139.3-77.2-181c-40.2-35.5-105-55-162.8-55C163.1,20,92,62.2,51.5,125.7
-                  C29,161,20,203,20,248z; M20,248c6.7,58.1,19.2,116.9,60.8,150.6c53.4,43.3,105.5,73,173.2,81.4c64,8,109.2-36.8,155.2-72.8
-                  C453,373,494.2,318.1,484,256c-11-67-21.5-151.4-77.2-181C358,49,301.5,14.4,244,20C162,28,85.6,58.5,51.5,125.7
-                  C31.2,165.9,14.8,203.3,20,248z; M20,248c0,57.7,21.4,114.4,56.8,154.6C118.6,450,181.8,476,250,476c63,0,122-23.5,163.2-64.8
-                  C454.5,370,480,315,480,252c0-68.1-29.9-133.3-77.2-175c-40.2-35.5-97-57-154.8-57C167.1,20,96,66.2,55.5,129.7
-                  C33,165,20,203,20,248z"
-          dur="1.5s"
-          repeatCount="indefinite"
-        />
-      </path>
-    </svg>
-    <span className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-3xl text-white">
-  Book<br/>Now
-</span>
-      </Link>
-
-    </div>
-    
-
-            <img
-              className="rounded-full max-w-md"
-              src="../../images/mainsectionimage.jpg"
-              alt="girl smiling"
-            />
-          </div> */}
+         
         </div>
         {/* <div className=" grid rounded-lg  bg-opacity-10 backdrop-blur-sm max-w-screen-xl grid-cols-1  mx-auto sm:py-10  place-items-center lg:grid-cols-2"
            style={{
@@ -440,7 +402,7 @@ function Hero() {
         </div> */}
       </div>
       <div className="flex">
-        {/* <Circle /> */}
+  
         <div className="flex flex-col w-1/3">
           <div className="h-64"></div>
           <div className="text-container">
