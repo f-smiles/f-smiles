@@ -9,7 +9,7 @@ import { ScrollSmoother } from "gsap-trial/ScrollSmoother";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Link } from "react-router-dom";
 import SplitText from "gsap-trial/SplitText";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import { shuffle } from "lodash";
 
 gsap.registerPlugin(SplitText);
@@ -20,6 +20,15 @@ function Hero() {
   const div2Ref = useRef(null);
   const div3Ref = useRef(null);
   const div4Ref = useRef(null);
+  const listItemsRef = useRef(null);
+
+  ScrollTrigger.create({
+    trigger: listItemsRef.current,
+    start: "top top",
+    end: "+=100%",
+    pin: true,
+    pinSpacing: false,
+  });
 
   useEffect(() => {
     gsap.set(div1Ref.current, { x: -100, y: -100 });
@@ -185,19 +194,91 @@ function Hero() {
     });
   }, []);
 
- const [isScaled, setIsScaled] = useState(false);
+  const [isScaled, setIsScaled] = useState(false);
   const [showBookNow, setShowBookNow] = useState(false);
 
   const handleClick = () => {
-    setIsScaled(true); 
+    setIsScaled(true);
 
-    
     setTimeout(() => {
       setShowBookNow(true);
-    }, 1500); 
+    }, 1500);
   };
 
+  const itemRefs = useRef([]);
+  itemRefs.current = [];
+  const setMultipleRefs = (element) => {
+ 
+    if (typeof listItemsRef === 'function') {
+      listItemsRef(element);
+    } else if (listItemsRef) {
+      listItemsRef.current = element;
+    }
+  
+    
+    if (typeof addToRefs === 'function') {
+      addToRefs(element);
+    } else if (addToRefs) {
+      addToRefs.current = element;
+    }
+  };
+  
+  const addToRefs = (el) => {
+    if (el && !itemRefs.current.includes(el)) {
+      itemRefs.current.push(el);
+    }
+  };
 
+  const listRef = useRef(null);
+
+
+
+  const items = [
+    {
+      imgSrc: "/images/happypatient.png",
+      text: "25k+ Patients"
+    },
+    {
+      imgSrc: "/images/lehighvalley.jpg",
+      text: "4 Bespoke Locations"
+    },
+    {
+      imgSrc: "/images/topsortho.png",
+      text: "50+ Years Experience"
+    }
+  ];
+  
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+  
+    const items = listRef.current.querySelectorAll(".list__item");
+  
+    items.forEach((item) => {
+      const itemTitle = item.querySelector(".list__item__title");
+      const itemImg = item.querySelector("img");
+  
+ 
+      gsap.timeline({
+        scrollTrigger: {
+          trigger: item,
+          start: "0% 75%",
+          end: "25% 50%",
+          scrub: 3,
+        }
+      }).fromTo(itemTitle, { scale: 2, y: "100%" }, { scale: 1, y: "0%", ease: "power2.inOut" });
+  
+      
+      gsap.fromTo(itemImg, { x: "60vw", y: "60vh", rotate: -30 }, {
+        x: "-60vw", y: "-60vh", rotate: 30, ease: "none", scrollTrigger: {
+          trigger: item,
+          start: "50% 100%",
+          end: "100% 50%",
+          scrub: 3,
+        }
+      });
+    });
+  }, []);
+  
   return (
     <main
       className="relative"
@@ -237,52 +318,56 @@ function Hero() {
               <div className="relative">
                 <div className="hero">
                   <div className="hero-content" ref={heroContentRef}>
-                    
-                  
                     <div className="marquee">
-        <div className="marquee__inner first">
-          <span>Because</span>
-          <span>Every</span>
-          <span>Smile</span>
-          <span>Is</span>
-          <span>Unique</span>
-        </div>
-        <div className="marquee__inner second">
-          <span>Because</span>
-          <span>Every</span>
-          <span>Smile</span>
-          <span>Is</span>
-          <span>Unique</span>
-        </div>
-      </div>
+                      <div className="marquee__inner first">
+                        <span>Because</span>
+                        <span>Every</span>
+                        <span>Smile</span>
+                        <span>Is</span>
+                        <span>Unique</span>
+                      </div>
+                      <div className="marquee__inner second">
+                        <span>Because</span>
+                        <span>Every</span>
+                        <span>Smile</span>
+                        <span>Is</span>
+                        <span>Unique</span>
+                      </div>
+                    </div>
                   </div>
-                
                 </div>
               </div>
             </div>
           </div>
           <div className="relative flex justify-center items-center">
-
-  <div    className={`absolute z-20 inline-block ${isScaled ? 'scale-up' : 'scale-100'}`}   onClick={handleClick} style={{ top: '10%', left: '-20%' }}> 
-    <Link to="/book-now"  className="inline-flex justify-center items-center">
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 480 480"
-      className="w-48 h-48" 
-    >
-   
-      <path fill="#C8A2C8">
-        <animateTransform
-          attributeName="transform"
-          attributeType="XML"
-          type="rotate"
-          from="0"
-          to="0"
-          dur="0"
-        />
-        <animate
-          attributeName="d"
-          values="M20,248c0,57.7,21.4,114.4,56.8,154.6C118.6,450,181.8,476,250,476c63,0,122-23.5,163.2-64.8
+            <div
+              className={`absolute z-20 inline-block ${
+                isScaled ? "scale-up" : "scale-100"
+              }`}
+              onClick={handleClick}
+              style={{ top: "10%", left: "-20%" }}
+            >
+              <Link
+                to="/book-now"
+                className="inline-flex justify-center items-center"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 480 480"
+                  className="w-48 h-48"
+                >
+                  <path fill="#C8A2C8">
+                    <animateTransform
+                      attributeName="transform"
+                      attributeType="XML"
+                      type="rotate"
+                      from="0"
+                      to="0"
+                      dur="0"
+                    />
+                    <animate
+                      attributeName="d"
+                      values="M20,248c0,57.7,21.4,114.4,56.8,154.6C118.6,450,181.8,476,250,476c63,0,122-23.5,163.2-64.8
                   C454.5,370,480,315,480,252c0-68.1-29.9-133.3-77.2-175c-40.2-35.5-97-57-154.8-57C167.1,20,96,66.2,55.5,129.7
                   C33,165,20,203,20,248z; M24,248c0,57.7,19.4,112.4,54.8,152.6C120.6,448,183.8,478,252,478c63,0,118-27.5,159.2-68.8
                   C452.5,368,482,317,482,254c0-68.1-29.9-137.3-77.2-179c-40.2-35.5-101-53-158.8-53C165.1,22,94,64.2,53.5,127.7
@@ -293,123 +378,79 @@ function Hero() {
                   C31.2,165.9,14.8,203.3,20,248z; M20,248c0,57.7,21.4,114.4,56.8,154.6C118.6,450,181.8,476,250,476c63,0,122-23.5,163.2-64.8
                   C454.5,370,480,315,480,252c0-68.1-29.9-133.3-77.2-175c-40.2-35.5-97-57-154.8-57C167.1,20,96,66.2,55.5,129.7
                   C33,165,20,203,20,248z"
-          dur="1.5s"
-          repeatCount="indefinite"
-        />
-      </path>
-    </svg>
-      <span className="font-HelveticaNowPro font-thin tracking-tight absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-3xl text-white">
-        Book<br/>Now
-      </span>
-    </Link>
-  </div>
-
-
-  <img
-    className="rounded-full max-w-md z-10"
-    src="../../images/mainsectionimage.jpg"
-    alt="girl smiling"
-  />
-</div>
-
-         
-        </div>
-        {/* <div className=" grid rounded-lg  bg-opacity-10 backdrop-blur-sm max-w-screen-xl grid-cols-1  mx-auto sm:py-10  place-items-center lg:grid-cols-2"
-           style={{
-            background: 'linear-gradient(45deg, rgba(170,212,192,1) 0%, rgba(232,232,230,1) 100%)'
-          }}>
-           
-            <svg viewBox="0 0 2531.55 1438.27">
-            <path class="cls-2" d="M1746.43,38.94C849.17-212.65-120.14,825.24,12.19,1135.81c101.84,239,679.67,189.43,1132.31,162.51,448.32-26.66,958.25,402.35,1298.59-122.64C2733.65,727.5,2258.09,182.41,1746.43,38.94Z" />
-        </svg>
-     
-          <div
-            className="relative mx-auto lg:mt-0 text-container"
-            style={{ zIndex: 2 }}
-          >
-            <div className="flex items-center justify-center flex-wrap">
-              <div className="relative">
-                <div className="absolute w-full  transform  -z-10"></div>
-                <div className="relative mx-auto lg:mt-0">
-                  <div className="flex items-center justify-center flex-wrap">
-                    <div className="relative">
-                      <div className="relative mx-auto  max-w-7xl">
-                        <div className="  w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"></div>
-                        <div className="hero">
-                          <div className="hero-content" ref={heroContentRef}>
-                            <div className="hero-content-line font-HelveticaNowPro font-thin tracking-tight tracking-tighter">
-                              Because Every Smile
-                            </div>
-                            <div className="font-HelveticaNowPro font-thin tracking-tight tracking-tighter hero-content-line">
-                              Is Unique
-                            </div>
-                          </div>
-                          <div className="btn-row" ref={bookButtonRef}>
-                            <button className="text-3xl font-HelveticaNowPro font-thin tracking-tight tracking-tighter book-button inline-flex items-center justify-center">
-                              <span>
-                                {" "}
-                                <Link
-                                  to="/book-now"
-                                  className="text-2xl rounded-lg  text-white p-4 mt-10 font-normal leading-6 transition-colors duration-300 ease-linear text-primary50 hover:text-primary30"
-                                >
-                                  Book Now <span aria-hidden="true"></span>
-                                </Link>
-                              </span>
-                              <div className="arrow-icon ml-3 inline-flex items-center justify-center bg-violet-400 h-10 w-10 rounded-full cursor-pointer">
-                                <svg
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  fill="none"
-                                  viewBox="0 0 24 24"
-                                  strokeWidth="1.5"
-                                  stroke="currentColor"
-                                  className="w-6 h-6"
-                                >
-                                  <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3"
-                                  />
-                                </svg>
-                              </div>
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div
-                        className="font-HelveticaNowVar font-extralight text-white text-4xl"
-                        style={{
-                          whiteSpace: "nowrap",
-                          textAlign: "center",
-                          lineHeight: "1",
-                          zIndex: 1,
-                        }}
-                      ></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                      dur="1.5s"
+                      repeatCount="indefinite"
+                    />
+                  </path>
+                </svg>
+                <span className="font-HelveticaNowPro font-thin tracking-tight absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-3xl text-white">
+                  Book
+                  <br />
+                  Now
+                </span>
+              </Link>
             </div>
-          </div>
 
-          <div className="flex justify-center items-center">
             <img
-              className="rounded-full max-w-md"
+              className="rounded-full max-w-md z-10"
               src="../../images/mainsectionimage.jpg"
               alt="girl smiling"
             />
           </div>
-        </div> */}
+        </div>
+       
       </div>
-      <div className="flex">
-  
+      <div>
+
+      <section ref={listRef} className="flex flex-col items-center justify-center">
+        {items.map((item, index) => (
+          <div key={index} className="list__item relative w-full h-screen flex items-end pb-10">
+            <img 
+              src={item.imgSrc}
+              alt={`Description ${index + 1}`}
+              className="absolute z-20 object-cover"
+              style={{
+                top: '50%', 
+                left: '50%', 
+                width: '33%', 
+                height: 'auto', 
+                aspectRatio: '9 / 14', 
+                transform: 'translate(-50%, -50%)'
+              }}
+            />
+            <div 
+              className="list__item__title absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-8xl font-bold z-10"
+              style={{
+                top: '50%', 
+                left: '50%', 
+                transform: 'translate(-50%, -50%)',
+                fontSize: '12vw', 
+                fontFamily: '"Playfair Display"', 
+                lineHeight: '80%',
+                color: '#221608'
+              }}
+            >
+              {item.text}
+            </div>
+          </div>
+        ))}
+      </section>
+
+
+
+
+
+    </div>
+      {/* <div className="rounded-full  mt-20 flex" 
+ 
+      >
         <div className="flex flex-col w-1/3">
-          <div className="h-64"></div>
+     
           <div className="text-container">
-            {/* <span className="rotate-text neon subtitle font-Yellowtail-Regular font-thin">
+            <span className="rotate-text neon subtitle font-Yellowtail-Regular font-thin">
               Why Patients Choose Us
-            </span> */}
-            Why Patients Choose Us
+            </span>
+     
           </div>
           <div className="h-64 "></div>
 
@@ -419,7 +460,7 @@ function Hero() {
               className="circle-wipe-button  text-2xl rounded-full border border-white text-white p-4 mt-10 font-normal leading-6 transition-colors duration-300 ease-linear text-primary50 hover:text-primary30"
               style={{ width: "40px", height: "40px", borderRadius: "50%" }}
             >
-              EK <span aria-hidden="true circle-wipe-text"></span>
+              <span aria-hidden="true circle-wipe-text"></span>
             </Link>
           </button>
         </div>
@@ -464,14 +505,14 @@ function Hero() {
               ref={div4Ref}
               className="justify text-center border border-white py-20 mx-10 h-64 w-96 mt-6 font-HelveticaNowPro font-thin"
             >
-              More Data
+              4 Bespoke Locations
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
 
-      <div> </div>
-      <Logo />
+      
+      {/* <Logo /> */}
       <LandingTestimonials />
     </main>
   );
@@ -558,6 +599,7 @@ export default function Features() {
 
   const [startArcAnimation, setStartArcAnimation] = useState(false);
   const invisalignRef = useRef(null);
+
   const damonRef = useRef(null);
   const advancedTechRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -618,22 +660,25 @@ export default function Features() {
       });
     });
 
+
     // ScrollTrigger for pinning sections
     ScrollTrigger.create({
-      // trigger: invisalignRef.current,
-      // start: "top top",
-      // end: "+=100%",
-      // pin: true,
-      // pinSpacing: false,
+      trigger: invisalignRef.current,
+      start: "top top",
+      end: "+=100%",
+      pin: true,
+      pinSpacing: false,
     });
+
+ 
 
     [damonRef, advancedTechRef].forEach((ref) => {
       ScrollTrigger.create({
-        // trigger: ref.current,
-        // start: "top top",
-        // end: "+=100%",
-        // pin: true,
-        // pinSpacing: false,
+        trigger: ref.current,
+        start: "top top",
+        end: "+=100%",
+        pin: true,
+        pinSpacing: false,
       });
     });
 
@@ -815,8 +860,6 @@ export default function Features() {
           </div>
 
           <div className="flex items-center justify-center text-5xl">
-          
-  
             <Hero />
           </div>
         </div>
