@@ -218,40 +218,32 @@ export default function WhyChooseUs() {
         <div className=" ml-20 flex flex-col items-center justify-center py-10 md:flex-row">
         <div style={{ position: 'relative', width: '80%' }}>
   <img
-    src="../../images/freysmilepatient.jpg"
+    src="../../images/Kasprenski.jpg"
     alt="invisalign"
     className=""
     style={{
-      width: '50%',
+      width: '70%',
       height: 'auto',
       position: 'relative',
       zIndex: 1
     }}
   />
   <img
-    src="../../images/bluetriangle.png"
+    src="../../images/skyblue.png"
     alt="blue"
     style={{
       position: 'absolute',
-      width: '40%',
+      width: '30%',
       height: 'auto',
-      top: 60,
-      left: 40,
+      top: 10,
+      left: 200,
       zIndex: 2,
       transform: 'rotate(180deg)',
       opacity: 0.5 
     }}
   />
   <div
-    style={{
-      position: 'absolute',
-      top: 0,
-      left: 0,
-      width: '100%',
-      height: '100%',
-      backdropFilter: 'blur(1px)',
-      zIndex: 3
-    }}
+
   />
 </div>
 

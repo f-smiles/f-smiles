@@ -188,7 +188,7 @@ const BookNow = () => {
             className="  max-w-screen-sm mx-auto flex flex-col space-y-12 p-8 rounded-xl"
           >
             <div className="flex flex-col items-center">
-              <div className="mt-10 text-center text-5xl mb-20" style={{letterSpacing:"px"}}>
+              <div className=" mt-10 text-center text-5xl mb-20" style={{letterSpacing:"px"}}>
                SAY HELLO
               </div>
               <div className="flex w-full gap-2">

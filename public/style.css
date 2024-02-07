@@ -926,3 +926,128 @@ text {
     border-radius: 55% 45% 50% 45% / 45% 55% 50% 55%;
   }
 }
+
+:root {
+  --color-foreground: #dbc2b2;
+  --color-background: #fdfdfd;
+  --delay: 10;
+}
+
+
+
+.c-shutter {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  list-style: none;
+}
+
+.c-shutter__slat {
+  flex-grow: 1;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  background-color: var(--color-foreground);
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+
+.c-shutter__slat:nth-child(1) { animation-delay: calc(1 / var(--delay) * 1s); }
+.c-shutter__slat:nth-child(2) { animation-delay: calc(2 / var(--delay) * 1s); }
+.c-shutter__slat:nth-child(3) { animation-delay: calc(3 / var(--delay) * 1s); }
+.c-shutter__slat:nth-child(4) { animation-delay: calc(4 / var(--delay) * 1s); }
+.c-shutter__slat:nth-child(5) { animation-delay: calc(5 / var(--delay) * 1s); }
+.c-shutter__slat:nth-child(6) { animation-delay: calc(6 / var(--delay) * 1s); }
+.c-shutter__slat:nth-child(7) { animation-delay: calc(7 / var(--delay) * 1s); }
+.c-shutter__slat:nth-child(8) { animation-delay: calc(8 / var(--delay) * 1s); }
+.c-shutter__slat:nth-child(9) { animation-delay: calc(9 / var(--delay) * 1s); }
+.c-shutter__slat:nth-child(10) { animation-delay: calc(10 / var(--delay) * 1s); }
+
+
+@keyframes shutterOpening {
+  0% { height: 100%; }
+  100% { height: 0; }
+}
+
+@keyframes shutterClosing {
+  0% { height: 0%; }
+  100% { height: 100%; }
+}
+
+
+.c-shutter--opened .c-shutter__slat {
+  animation-name: shutterOpening;
+}
+
+.c-shutter--closed .c-shutter__slat {
+  animation-name: shutterClosing;
+}
+
+
+.c-demo {
+  position: fixed;
+  cursor: pointer;
+  font-family: "Red Hat Display", Arial, sans-serif;
+  font-size: 1rem;
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  bottom: 1rem;
+  left: 50%;
+  transform: translatex(-50%);
+  padding: 1rem 2rem;
+  border-radius: 0.25rem;
+  border: none;
+  transition: opacity .5s ease-in-out, outline .5s ease-in-out;
+}
+.clock-container {
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+
+}
+
+.flip-card {
+  margin: 0 5px;
+ 
+  width: 60px;
+  height: 100px;
+
+}
+
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.flip-card.flipped .flip-card-inner {
+  transform: rotateX(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em; 
+}
+
+
+.flip-card-back {
+  transform: rotateX(180deg);
+}
+
+
+
+
+
+

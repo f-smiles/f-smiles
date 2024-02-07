@@ -81,8 +81,7 @@ function Hero() {
 
   const heroContentRef = useRef(null);
   const bookButtonRef = useRef(null);
-  const sectionRef = useRef(null);
-  const dotRef = useRef(null);
+
   const { scrollYProgress } = useScroll();
   const scale = useTransform(scrollYProgress, [0.5, 1], [10, 40]);
   function animateHeroContent() {
@@ -175,24 +174,24 @@ function Hero() {
       );
     }
   }
-  useEffect(() => {
-    const signs = document.querySelectorAll(".neon");
 
-    const randomIn = (min, max) =>
-      Math.floor(Math.random() * (max - min + 1) + min);
+  //   const signs = document.querySelectorAll(".neon");
 
-    const mixupInterval = (el) => {
-      const ms = randomIn(2000, 4000);
-      el.style.setProperty("--interval", `${ms}ms`);
-    };
+  //   const randomIn = (min, max) =>
+  //     Math.floor(Math.random() * (max - min + 1) + min);
 
-    signs.forEach((el) => {
-      mixupInterval(el);
-      el.addEventListener("webkitAnimationIteration", () => {
-        mixupInterval(el);
-      });
-    });
-  }, []);
+  //   const mixupInterval = (el) => {
+  //     const ms = randomIn(2000, 4000);
+  //     el.style.setProperty("--interval", `${ms}ms`);
+  //   };
+
+  //   signs.forEach((el) => {
+  //     mixupInterval(el);
+  //     el.addEventListener("webkitAnimationIteration", () => {
+  //       mixupInterval(el);
+  //     });
+  //   });
+  // }, []);
 
   const [isScaled, setIsScaled] = useState(false);
   const [showBookNow, setShowBookNow] = useState(false);
@@ -202,27 +201,25 @@ function Hero() {
 
     setTimeout(() => {
       setShowBookNow(true);
-    }, 1500);
+    }, 3500);
   };
 
   const itemRefs = useRef([]);
   itemRefs.current = [];
   const setMultipleRefs = (element) => {
- 
-    if (typeof listItemsRef === 'function') {
+    if (typeof listItemsRef === "function") {
       listItemsRef(element);
     } else if (listItemsRef) {
       listItemsRef.current = element;
     }
-  
-    
-    if (typeof addToRefs === 'function') {
+
+    if (typeof addToRefs === "function") {
       addToRefs(element);
     } else if (addToRefs) {
       addToRefs.current = element;
     }
   };
-  
+
   const addToRefs = (el) => {
     if (el && !itemRefs.current.includes(el)) {
       itemRefs.current.push(el);
@@ -231,61 +228,76 @@ function Hero() {
 
   const listRef = useRef(null);
 
-
-
-  const items = [
+  const imageItems = [
     {
       imgSrc: "/images/happypatient.png",
-      text: "25k+ Patients"
+      text: "25k+ Patients",
     },
     {
       imgSrc: "/images/lehighvalley.jpg",
-      text: "4 Bespoke Locations"
+      text: "4 Bespoke Locations",
     },
     {
       imgSrc: "/images/topsortho.png",
-      text: "50+ Years Experience"
-    }
+      text: "50+ Years Experience",
+    },
   ];
-  
+
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
-  
+
     const items = listRef.current.querySelectorAll(".list__item");
-  
+
     items.forEach((item) => {
       const itemTitle = item.querySelector(".list__item__title");
       const itemTitleOutline = item.querySelector(".list__item__titleOutline");
       const itemImg = item.querySelector("img");
-  
-    
-      gsap.timeline({
-        scrollTrigger: {
-          trigger: item,
-          start: "0% 75%",
-          end: "25% 50%",
-          scrub: 3,
-        }
-      }).fromTo([itemTitle, itemTitleOutline], { scale: 2, y: "100%" }, { scale: 1, y: "0%", ease: "power2.inOut" });
 
-      gsap.timeline({
-        scrollTrigger: {
-          trigger: item,
-          start: "50% 100%",
-          end: "100% 50%",
-          scrub: 3,
-          onEnter: () => gsap.to(itemTitleOutline, { opacity: 1, duration: 0.1 }),
-          onLeave: () => gsap.to(itemTitleOutline, { opacity: 0, duration: 0.1 }),
-          onEnterBack: () => gsap.to(itemTitleOutline, { opacity: 1, duration: 0.1 }),
-          onLeaveBack: () => gsap.to(itemTitleOutline, { opacity: 0, duration: 0.1 }),
-        }
-      }).fromTo(itemImg, { x: "60vw", y: "60vh", rotate: -30 }, {
-        x: "-60vw", y: "-60vh", rotate: 30, ease: "none"
-      });
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: item,
+            start: "0% 75%",
+            end: "25% 50%",
+            scrub: 3,
+          },
+        })
+        .fromTo(
+          [itemTitle, itemTitleOutline],
+          { scale: 2, y: "100%" },
+          { scale: 1, y: "0%", ease: "power2.inOut" }
+        );
+
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: item,
+            start: "50% 100%",
+            end: "100% 50%",
+            scrub: 3,
+            onEnter: () =>
+              gsap.to(itemTitleOutline, { opacity: 1, duration: 0.1 }),
+            onLeave: () =>
+              gsap.to(itemTitleOutline, { opacity: 0, duration: 0.1 }),
+            onEnterBack: () =>
+              gsap.to(itemTitleOutline, { opacity: 1, duration: 0.1 }),
+            onLeaveBack: () =>
+              gsap.to(itemTitleOutline, { opacity: 0, duration: 0.1 }),
+          },
+        })
+        .fromTo(
+          itemImg,
+          { x: "60vw", y: "60vh", rotate: -30 },
+          {
+            x: "-60vw",
+            y: "-60vh",
+            rotate: 30,
+            ease: "none",
+          }
+        );
     });
   }, []);
-  
-  
+
   return (
     <main
       className="relative"
@@ -405,65 +417,63 @@ function Hero() {
             />
           </div>
         </div>
-       
       </div>
       <div>
-
-  <section ref={listRef} className="flex flex-col items-center justify-center">
-  {items.map((item, index) => (
-    <div key={index} className="list__item relative w-full h-screen flex items-end pb-10">
-      <img 
-        src={item.imgSrc}
-        alt={`Description ${index + 1}`}
-        className="absolute z-20 object-cover"
-        style={{
-          top: '50%', 
-          left: '50%', 
-          width: '33%', 
-          height: 'auto', 
-          aspectRatio: '9 / 14', 
-          transform: 'translate(-50%, -50%)'
-        }}
-      />
-      <div 
-        className="list__item__title absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-8xl font-bold z-10"
-        style={{
-          top: '50%', 
-          left: '50%', 
-          transform: 'translate(-50%, -50%)',
-          fontSize: '12vw', 
-          fontFamily: '"Playfair Display"', 
-          lineHeight: '80%',
-          color: '#221608'
-        }}
-      >
-        {item.text}
+        <section
+          ref={listRef}
+          className="flex flex-col items-center justify-center"
+        >
+          {imageItems && imageItems.map((item, index) => (
+            <div
+              key={index}
+              className="list__item relative w-full h-screen flex items-end pb-10"
+            >
+              <img
+                src={item.imgSrc}
+                alt={`Description ${index + 1}`}
+                className="absolute z-20 object-cover"
+                style={{
+                  top: "50%",
+                  left: "50%",
+                  width: "33%",
+                  height: "auto",
+                  aspectRatio: "9 / 14",
+                  transform: "translate(-50%, -50%)",
+                }}
+              />
+              <div
+                className="list__item__title absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-8xl font-bold z-10"
+                style={{
+                  top: "50%",
+                  left: "50%",
+                  transform: "translate(-50%, -50%)",
+                  fontSize: "12vw",
+                  fontFamily: '"Playfair Display"',
+                  lineHeight: "80%",
+                  color: "#221608",
+                }}
+              >
+                {item.text}
+              </div>
+              <div
+                className="list__item__titleOutline absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-8xl font-bold z-30"
+                style={{
+                  top: "50%",
+                  left: "50%",
+                  transform: "translate(-50%, -50%)",
+                  fontSize: "12vw",
+                  fontFamily: '"Playfair Display"',
+                  lineHeight: "80%",
+                  color: "transparent",
+                  WebkitTextStroke: "2px #221608",
+                }}
+              >
+                {item.text}
+              </div>
+            </div>
+          ))}
+        </section>
       </div>
-      <div 
-        className="list__item__titleOutline absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-8xl font-bold z-30"
-        style={{
-          top: '50%', 
-          left: '50%', 
-          transform: 'translate(-50%, -50%)',
-          fontSize: '12vw', 
-          fontFamily: '"Playfair Display"', 
-          lineHeight: '80%',
-          color: 'transparent',
-          WebkitTextStroke: '2px #221608'
-        }}
-      >
-        {item.text}
-      </div>
-    </div>
-  ))}
-</section>
-
-
-
-
-
-
-    </div>
       {/* <div className="rounded-full  mt-20 flex" 
  
       >
@@ -534,8 +544,7 @@ function Hero() {
         </div>
       </div> */}
 
-      
-      {/* <Logo /> */}
+      <Logo />
       <LandingTestimonials />
     </main>
   );
@@ -683,27 +692,24 @@ export default function Features() {
       });
     });
 
-
     // ScrollTrigger for pinning sections
-    ScrollTrigger.create({
-      trigger: invisalignRef.current,
-      start: "top top",
-      end: "+=100%",
-      pin: true,
-      pinSpacing: false,
-    });
+    // ScrollTrigger.create({
+    //   trigger: invisalignRef.current,
+    //   start: "top top",
+    //   end: "+=100%",
+    //   pin: true,
+    //   pinSpacing: false,
+    // });
 
- 
-
-    [damonRef, advancedTechRef].forEach((ref) => {
-      ScrollTrigger.create({
-        trigger: ref.current,
-        start: "top top",
-        end: "+=100%",
-        pin: true,
-        pinSpacing: false,
-      });
-    });
+    // [damonRef, advancedTechRef].forEach((ref) => {
+    //   ScrollTrigger.create({
+    //     trigger: ref.current,
+    //     start: "top top",
+    //     end: "+=100%",
+    //     pin: true,
+    //     pinSpacing: false,
+    //   });
+    // });
 
     ScrollTrigger.create({
       trigger: damonRef.current,
@@ -717,37 +723,35 @@ export default function Features() {
     };
   }, []);
 
-  const sectionHeight = window.innerHeight;
+  // const sectionHeight = window.innerHeight;
 
-  const invisalignStyle = {
-    position: "relative",
-    zIndex: 1,
-    top: 0,
-  };
+  // const invisalignStyle = {
+  //   position: "relative",
+  //   zIndex: 1,
+  //   top: 0,
+  // };
 
-  const damonStartScroll = sectionHeight * 1.4;
-  const advancedTechStartScroll = damonStartScroll + sectionHeight;
+  // const damonStartScroll = sectionHeight * 1.4;
+  // const advancedTechStartScroll = damonStartScroll + sectionHeight;
 
-  const damonStyle = {
-    position: "relative",
-    zIndex: 2,
-    top:
-      scrollY >= damonStartScroll
-        ? `${-(scrollY - damonStartScroll)}px`
-        : `${sectionHeight}px`,
-  };
+  // const damonStyle = {
+  //   position: "relative",
+  //   zIndex: 2,
+  //   top:
+  //     scrollY >= damonStartScroll
+  //       ? `${-(scrollY - damonStartScroll)}px`
+  //       : `${sectionHeight}px`,
+  // };
 
-  const advancedTechStyle = {
-    position: "relative",
-    zIndex: 3,
-    top:
-      scrollY >= advancedTechStartScroll
-        ? `${-(scrollY - advancedTechStartScroll)}px`
-        : `${sectionHeight}px`,
-  };
-  const backgroundRef = useRef(null);
+  // const advancedTechStyle = {
+  //   position: "relative",
+  //   zIndex: 3,
+  //   top:
+  //     scrollY >= advancedTechStartScroll
+  //       ? `${-(scrollY - advancedTechStartScroll)}px`
+  //       : `${sectionHeight}px`,
+  // };
 
-  const svgRef = useRef(null);
 
   const [backgroundColor, setBackgroundColor] = useState("transparent");
   useEffect(() => {
@@ -812,44 +816,6 @@ export default function Features() {
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
-  const aligner1Ref = useRef(null);
-  const aligner2Ref = useRef(null);
-  const aligner3Ref = useRef(null);
-  const aligner4Ref = useRef(null);
-  const aligner5Ref = useRef(null);
-  const aligner6Ref = useRef(null);
-
-  useEffect(() => {
-    const parallaxScroll = () => {
-      const scrolled = window.scrollY;
-
-      if (aligner1Ref.current) {
-        aligner1Ref.current.style.top = `${400 - scrolled * 0.3}px`;
-      }
-      if (aligner2Ref.current) {
-        aligner2Ref.current.style.top = `${600 - scrolled * 0.4}px`;
-      }
-      if (aligner3Ref.current) {
-        aligner3Ref.current.style.top = `${500 - scrolled * 0.1}px`;
-      }
-      if (aligner4Ref.current) {
-        aligner4Ref.current.style.top = `${600 - scrolled * 0.6}px`;
-      }
-      if (aligner5Ref.current) {
-        aligner5Ref.current.style.top = `${600 - scrolled * 0.4}px`;
-      }
-      if (aligner6Ref.current) {
-        aligner6Ref.current.style.top = `${400 - scrolled * 0.2}px`;
-      }
-    };
-
-    window.addEventListener("scroll", parallaxScroll);
-
-    return () => {
-      window.removeEventListener("scroll", parallaxScroll);
     };
   }, []);
 
@@ -925,22 +891,6 @@ export default function Features() {
                       <br />
                       Experience matters.
                     </h1>
-                    <button className="rounded-full border-glowing">
-                      <Link
-                        to="/invisalign"
-                        style={{
-                          width: "100px",
-                          height: "100px",
-                          borderRadius: "50%",
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "center",
-                          textDecoration: "none",
-                        }}
-                      >
-                        Learn More
-                      </Link>
-                    </button>
                   </div>
                   {/* <img
           className="absolute  left-1/2 transform -translate-x-1/2 w-64 h-auto"
@@ -950,11 +900,24 @@ export default function Features() {
                 </div>
 
                 <div className="relative w-1/2 flex justify-center items-center"></div>
+                <button className="text-3xl font-HelveticaNowPro font-thin tracking-tight inline-flex items-center justify-center">
+                  <Link
+                    to="/invisalign"
+                    className="circle-wipe-button  text-xl rounded-full border border-white text-white p-4 mt-10 font-normal leading-6 transition-colors duration-300 ease-linear text-primary50 hover:text-primary30"
+                    style={{
+                      width: "120px",
+                      height: "120px",
+                      borderRadius: "50%",
+                    }}
+                  >
+                    <span aria-hidden="true circle-wipe-text">Learn More</span>
+                  </Link>
+                </button>
               </div>
             </div>
           </div>
         </div>
-        <div ref={damonRef} className="section bg-a3bba3 ">
+        <div ref={damonRef} className="rounded-3xl section bg-a3bba3 ">
           <div class="w-screen  h-screen  ">
             <div className="flex items-center justify-center max-w-screen-xl mx-auto lg:flex-row">
               <div className="w-1/2 flex flex-col justify-center items-center">
@@ -969,7 +932,7 @@ export default function Features() {
                   </figure>
                 </div>
                 <div className="absolute  z-10 flex justify-center items-center">
-                  <Arc triggerRef={damonRef} />
+                  {/* <Arc triggerRef={damonRef} /> */}
                 </div>
                 <div className=" p-4 "></div>
               </div>
