@@ -289,8 +289,14 @@ const Invisalign = () => {
               height: "100%",
             }}
           >
-            
-            <svg
+              <div className="three">
+  <img
+    src="/images/elizabethpatient.jpeg"
+    alt="Your Image"
+    className="item__img"
+  />
+</div>
+            {/* <svg
               viewBox="0 0 367 367"
               height="367"
               width="367"
@@ -318,7 +324,7 @@ const Invisalign = () => {
                 d="M0,183.5 L0,0 L183.5,0 C284.844252,0 367,82.1557484 367,183.5 C367,284.844252 284.844252,367 183.5,367 C82.1557484,367 0,284.844252 0,183.5 Z"
                 fill="url(#bias)"
               ></path>
-            </svg>
+            </svg> */}
           </div>
         </div>
       </section>

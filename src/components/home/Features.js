@@ -255,9 +255,10 @@ function Hero() {
   
     items.forEach((item) => {
       const itemTitle = item.querySelector(".list__item__title");
+      const itemTitleOutline = item.querySelector(".list__item__titleOutline");
       const itemImg = item.querySelector("img");
   
- 
+    
       gsap.timeline({
         scrollTrigger: {
           trigger: item,
@@ -265,19 +266,25 @@ function Hero() {
           end: "25% 50%",
           scrub: 3,
         }
-      }).fromTo(itemTitle, { scale: 2, y: "100%" }, { scale: 1, y: "0%", ease: "power2.inOut" });
-  
-      
-      gsap.fromTo(itemImg, { x: "60vw", y: "60vh", rotate: -30 }, {
-        x: "-60vw", y: "-60vh", rotate: 30, ease: "none", scrollTrigger: {
+      }).fromTo([itemTitle, itemTitleOutline], { scale: 2, y: "100%" }, { scale: 1, y: "0%", ease: "power2.inOut" });
+
+      gsap.timeline({
+        scrollTrigger: {
           trigger: item,
           start: "50% 100%",
           end: "100% 50%",
           scrub: 3,
+          onEnter: () => gsap.to(itemTitleOutline, { opacity: 1, duration: 0.1 }),
+          onLeave: () => gsap.to(itemTitleOutline, { opacity: 0, duration: 0.1 }),
+          onEnterBack: () => gsap.to(itemTitleOutline, { opacity: 1, duration: 0.1 }),
+          onLeaveBack: () => gsap.to(itemTitleOutline, { opacity: 0, duration: 0.1 }),
         }
+      }).fromTo(itemImg, { x: "60vw", y: "60vh", rotate: -30 }, {
+        x: "-60vw", y: "-60vh", rotate: 30, ease: "none"
       });
     });
   }, []);
+  
   
   return (
     <main
@@ -402,39 +409,55 @@ function Hero() {
       </div>
       <div>
 
-      <section ref={listRef} className="flex flex-col items-center justify-center">
-        {items.map((item, index) => (
-          <div key={index} className="list__item relative w-full h-screen flex items-end pb-10">
-            <img 
-              src={item.imgSrc}
-              alt={`Description ${index + 1}`}
-              className="absolute z-20 object-cover"
-              style={{
-                top: '50%', 
-                left: '50%', 
-                width: '33%', 
-                height: 'auto', 
-                aspectRatio: '9 / 14', 
-                transform: 'translate(-50%, -50%)'
-              }}
-            />
-            <div 
-              className="list__item__title absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-8xl font-bold z-10"
-              style={{
-                top: '50%', 
-                left: '50%', 
-                transform: 'translate(-50%, -50%)',
-                fontSize: '12vw', 
-                fontFamily: '"Playfair Display"', 
-                lineHeight: '80%',
-                color: '#221608'
-              }}
-            >
-              {item.text}
-            </div>
-          </div>
-        ))}
-      </section>
+  <section ref={listRef} className="flex flex-col items-center justify-center">
+  {items.map((item, index) => (
+    <div key={index} className="list__item relative w-full h-screen flex items-end pb-10">
+      <img 
+        src={item.imgSrc}
+        alt={`Description ${index + 1}`}
+        className="absolute z-20 object-cover"
+        style={{
+          top: '50%', 
+          left: '50%', 
+          width: '33%', 
+          height: 'auto', 
+          aspectRatio: '9 / 14', 
+          transform: 'translate(-50%, -50%)'
+        }}
+      />
+      <div 
+        className="list__item__title absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-8xl font-bold z-10"
+        style={{
+          top: '50%', 
+          left: '50%', 
+          transform: 'translate(-50%, -50%)',
+          fontSize: '12vw', 
+          fontFamily: '"Playfair Display"', 
+          lineHeight: '80%',
+          color: '#221608'
+        }}
+      >
+        {item.text}
+      </div>
+      <div 
+        className="list__item__titleOutline absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-8xl font-bold z-30"
+        style={{
+          top: '50%', 
+          left: '50%', 
+          transform: 'translate(-50%, -50%)',
+          fontSize: '12vw', 
+          fontFamily: '"Playfair Display"', 
+          lineHeight: '80%',
+          color: 'transparent',
+          WebkitTextStroke: '2px #221608'
+        }}
+      >
+        {item.text}
+      </div>
+    </div>
+  ))}
+</section>
+
 
 
 

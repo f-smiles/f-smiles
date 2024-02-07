@@ -340,15 +340,24 @@ export default function WhyChooseUs() {
 
 
   <div className="flex items-center justify-center w-1/3">
-    
-    <img
+  <div className="demo" style={{ width: '600px', height: '800px' }}>
+  <div className="three">
+  <img
+    src="/images/smilescholarship.jpg"
+    alt="Your Image"
+    className="item__img"
+  />
+</div>
+
+    </div>
+    {/* <img
       src="../../images/smilescholarship.jpg"
       alt="invisalign"
       className="w-full h-auto -ml-80"
       style={{
         maxWidth: "100%",
       }}
-    />
+    /> */}
   </div>
 
 
