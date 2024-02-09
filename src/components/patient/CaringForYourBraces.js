@@ -1,106 +1,131 @@
-import { motion, useAnimation } from 'framer-motion';
-import { useInView } from 'framer-motion';
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 
-const CaringForYourBraces = () => {
-  const controls = useAnimation();
-  const ref = useRef(null);
-  const isInView = useInView(ref);
+const sections = [
+  {
+      title: "Brush and floss",
+      content: "Brushing and flossing during orthodontic treatment is more important than ever. Orthodontic appliances such as clear aligners, brackets, and wires interfere with normal self-cleansing mechanisms of the mouth. Research shows that only 10% of patients brush and floss consistently during active treatment. We're here to ensure you don't just get lost in the statistics."
+  },
 
-  React.useEffect(() => {
-    if (isInView) {
+  {
+      title: "General Soreness",
+      content: "When you get your braces on, you may feel general soreness in your mouth and teeth may be tender to biting pressures for 3 –5 days. Take Tylenol or whatever you normally take for headache or discomfort. The lips, cheeks and tongue may also become irritated for one to two weeks as they toughen and become accustomed to the braces. We will supply wax to put on the braces in irritated areas to lessen discomfort."
+  },
 
-      controls.start({ clipPath: `circle(150% at 50% 50%)` });
-    } else {
+  {
+    title: "Loose Wire or Band",
+    content: "When crowding and/or significant dental rotations is the case initially, a new wire placed at the office may eventually slide longer than the last bracket. In this case, depending on the orientation of the last tooth, it may poke into your cheek or gums. If irritation to the lips or You  can place orthodontic wax on the wire to reduce prevent stabbing. If the wire doesn't settle in on its own, it will benefit from being clipped within two weeks. Call our office to schedule an appointment."
+},
 
-      controls.start({ clipPath: `circle(0% at 50% 50%)` });
-    }
-  }, [controls, isInView]);
+{
+  title: "Loosening of Teeth",
+  content: "This is to be expected throughout treatment. The teeth must loosen first so they can move. The teeth will settle into the bone and soft tissue in their desired position after treatment is completed if retainers are worn correctly."
+},
+{
+  title: "Rubberband wear",
+  content: "To successfully complete orthodontic treatment, the patient              must work together with the orthodontist. If the doctor has prescribed rubber bands it will be necessary for you to follow the prescription for an ideal result. Failure to follow protocol will lead to a less than ideal treatment result. Excessive broken brackets will delay treatment and lead to an incomplete result. Compromised results due to lack of compliance is not grounds for financial reconciliation. "
+},
+{
+  title: "Athletics",
+  content: "Braces and mouthguards typically don't mix. Molded mouthguards will prevent planned tooth movement. If you require a mouthguard for contact sports, we stock ortho-friendly mouthguards which may work. "
+},
+{
+  title: "How long will I be in braces",
+  content: "Every year hundreds of parents trust our experience to provide beautiful, healthy smiles for their children. Deepending on case complexity and compliance, your time in braces may vary, but at FreySmiles Orthodontics case completion may only be typically only 12-22 months away."
+},
 
-  return (
-    <div className="bg-black">
-    <motion.div
-      ref={ref}
-      initial={{ clipPath: `circle(0% at 50% 50%)` }}
-      animate={controls}
-      transition={{ duration: 0.8, ease: "easeOut" }}
-      style={{ width: '100%', height: '100vh', background: 'black', overflow: 'hidden' }}
-    >
+  {
+    title: "Eating with braces",
+    content: "Something to keep in mind with braces is to take caution when eating hard foods, i.e., tough meats,hard breads, granola, and the like.  But you’ll need to protect yourorthodontic appliances when you eat for as long as you’re wearing braces."
+},
 
-      <motion.div
-        style={{ width: '100%', height: '100vh', background: 'white' }}
 
-      />
-    </motion.div>
+];
+const SplitScrollComponent = () => {
+    const scrollContainerRef = useRef(null);
+
+    useEffect(() => {
+        const scrollContainer = scrollContainerRef.current;
+        let scrollingImages = scrollContainer.querySelectorAll('.image-wrapper');
+
+        scrollingImages = Array.from(scrollingImages);
+        scrollingImages.forEach((e, i) => {
+            e.style.zIndex = `${scrollingImages.length - i}`;
+        });
+
+        const setScrollHeight = () => {
+            const offset = scrollContainer.getBoundingClientRect().top + window.scrollY;
+            const scrollHeight = window.innerHeight;
+            return { offset, scrollHeight };
+        }
+
+        const updateImages = () => {
+            const { offset, scrollHeight } = setScrollHeight();
+
+            scrollingImages.forEach((e, i) => {
+                let scrollPct = ((window.scrollY - offset - scrollHeight * i) / scrollHeight) * 100;
+                scrollPct = 100 - scrollPct; // For 'reverse' effect
+                scrollPct = Math.min(Math.max(scrollPct, 0), 100);
+
+                let clipPath = `polygon(0% 0%, 100% 0%, 100% ${scrollPct}%, 0% ${scrollPct}%)`;
+                e.style.clipPath = clipPath;
+                e.style.webkitClipPath = clipPath;
+            });
+        };
+
+        window.addEventListener('scroll', updateImages);
+        window.addEventListener('resize', () => {
+            setScrollHeight();
+            updateImages();
+        });
+
+
+        return () => {
+            window.removeEventListener('scroll', updateImages);
+            window.removeEventListener('resize', updateImages);
+        };
+    }, []);
+
+    return (
+      <div ref={scrollContainerRef} className="flex flex-row items-stretch">
+      {/* Column for images */}
+      <div className="flex flex-col w-1/2 sticky top-0 h-screen">
+          {/* Images here */}
+          <div className="absolute w-full h-full top-0 left-0 image-wrapper">
+      <iframe
+        className="w-full h-full"
+        src="/images/Brushing_And_Flossing.mp4"
+        allowFullScreen
+      ></iframe>
     </div>
-  );
+          <div className="absolute w-full h-full top-0 left-0 image-wrapper" style={{ zIndex: 3 }}>
+              <img src="https://picsum.photos/1600/1600?random21" style={{ objectFit: 'cover' }} className="w-full h-full" />
+          </div>
+          <div className="absolute w-full h-full top-0 left-0 image-wrapper" style={{ zIndex: 3 }}>
+              <img src="https://picsum.photos/1600/1600?random2" style={{ objectFit: 'cover' }} className="w-full h-full" />
+          </div>
+      </div>
+  
+      {/* Column for text */}
+      <div className="w-1/2 overflow-auto">
+                {sections.map((section, index) => (
+                    <section key={index} className="p-20 min-h-[75vh] flex flex-col justify-center mb-5">
+                        <h1 className="text-center font-bold text-5xl mb-4">{section.title}</h1>
+                        <p className="text-center">{section.content}</p>
+                    </section>
+                ))}
+            </div>
+  </div>
+  
+    );
 };
 
+export default SplitScrollComponent;
 
-export default CaringForYourBraces
 
-// import React from "react";
-// import { Disclosure } from "@headlessui/react";
-// import { ChevronUpIcon } from "@heroicons/react/20/solid";
-
-// const CaringForYourBraces = () => {
-//   return (
-//     <div className="w-full px-4 pt-16 ">
-//       <h2>Caring for Your Braces</h2>
-//       <div
-//         data-headlessui-state="open"
-//         className="mx-auto w-full max-w-screen-lg rounded-2xl bg-white p-2"
-//       >
-//         <Disclosure defaultOpen={true}>
-//           {({ open }) => (
-//             <>
-//               <Disclosure.Button className="flex w-full justify-between rounded-lg bg-purple-100 px-4 py-2 text-left text-sm font-medium text-purple-900 hover:bg-purple-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
-//                 <span>Brushing and Flossing</span>
-//                 <ChevronUpIcon
-//                   className={`${
-//                     open ? "rotate-180 transform" : ""
-//                   } h-5 w-5 text-purple-500`}
-//                 />
-//               </Disclosure.Button>
-//               <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
-//                 <div data-headlessui-state="open">
-//                   It’s more important than ever to brush and floss regularly
-//                   when you have braces, so the teeth and gums are healthy during
-//                   orthodontic treatment. Patients who do not keep their teeth
-//                   clean may require more frequent visits to the dentist for a
-//                   professional cleaning. Adults who have a history of gum
-//                   disease should also see a periodontist during orthodontic
-//                   treatment. Watch the two videos below on the proper care of
-//                   braces during orthodontic treatment.
-//                 </div>
-//               </Disclosure.Panel>
-//             </>
-//           )}
-//         </Disclosure>
-//         <Disclosure as="div" className="mt-2">
-//           {({ open }) => (
-//             <>
-//               <Disclosure.Button className="flex w-full justify-between rounded-lg bg-purple-100 px-4 py-2 text-left text-sm font-medium text-purple-900 hover:bg-purple-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
-//                 <span>Eating with Braces</span>
-//                 <ChevronUpIcon
-//                   className={`${
-//                     open ? "rotate-180 transform" : ""
-//                   } h-5 w-5 text-purple-500`}
-//                 />
-//               </Disclosure.Button>
-//               <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
-//                 <div data-headlessui-state="open">
-//                   What can you eat? Let’s talk about what you shouldn’t eat! For
-//                   the first day or so, stick to soft foods. Avoid tough meats,
-//                   hard breads, and raw vegetables. Before long, you’ll be able
-//                   to bite a cucumber again. But you’ll need to protect your
-//                   orthodontic appliances when you eat for as long as you’re
-//                   wearing braces.
-//                 </div>
 //                 <h3>Food To Avoid</h3>
 //                 <p>
 //                   <ul>
-//                     <li>Chewy foods: bagels, hard rolls, licorice.</li>
+//                     <li>Chewy foods: dense baked goods, such as bagels and baguettes, licorice.</li>
 //                     <li>Crunchy foods: popcorn, ice.</li>
 //                     <li>Sticky foods: caramels, gum.</li>
 //                     <li>Hard foods: nuts, candy.</li>
@@ -113,155 +138,7 @@ export default CaringForYourBraces
 //                   fingernails) can damage the braces. Damaged braces will cause
 //                   treatment to take longer.
 //                 </p>
-//               </Disclosure.Panel>
-//             </>
-//           )}
-//         </Disclosure>
-//         <Disclosure as="div" className="mt-2">
-//           {({ open }) => (
-//             <>
-//               <Disclosure.Button className="flex w-full justify-between rounded-lg bg-purple-100 px-4 py-2 text-left text-sm font-medium text-purple-900 hover:bg-purple-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
-//                 <span>General Soreness</span>
-//                 <ChevronUpIcon
-//                   className={`${
-//                     open ? "rotate-180 transform" : ""
-//                   } h-5 w-5 text-purple-500`}
-//                 />
-//               </Disclosure.Button>
-//               <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
-//                 <div data-headlessui-state="open">
-//                   When you get your braces on, you may feel general soreness in
-//                   your mouth and teeth may be tender to biting pressures for 3 –
-//                   5 days. Take Tylenol or whatever you normally take for
-//                   headache or discomfort. The lips, cheeks and tongue may also
-//                   become irritated for one to two weeks as they toughen and
-//                   become accustomed to the braces. We will supply wax to put on
-//                   the braces in irritated areas to lessen discomfort.
-//                 </div>
-//               </Disclosure.Panel>
-//             </>
-//           )}
-//         </Disclosure>
-//         <Disclosure as="div" className="mt-2">
-//           {({ open }) => (
-//             <>
-//               <Disclosure.Button className="flex w-full justify-between rounded-lg bg-purple-100 px-4 py-2 text-left text-sm font-medium text-purple-900 hover:bg-purple-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
-//                 <span>Loosening of Teeth</span>
-//                 <ChevronUpIcon
-//                   className={`${
-//                     open ? "rotate-180 transform" : ""
-//                   } h-5 w-5 text-purple-500`}
-//                 />
-//               </Disclosure.Button>
-//               <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
-//                 <div data-headlessui-state="open">
-//                   This is to be expected throughout treatment. Don’t worry! It’s
-//                   normal. Teeth must loosen first so they can move. The teeth
-//                   will firm up in their new — corrected — positions after
-//                   treatment is completed.
-//                 </div>
-//               </Disclosure.Panel>
-//             </>
-//           )}
-//         </Disclosure>
-//         <Disclosure as="div" className="mt-2">
-//           {({ open }) => (
-//             <>
-//               <Disclosure.Button className="flex w-full justify-between rounded-lg bg-purple-100 px-4 py-2 text-left text-sm font-medium text-purple-900 hover:bg-purple-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
-//                 <span>Loose Wire or Band</span>
-//                 <ChevronUpIcon
-//                   className={`${
-//                     open ? "rotate-180 transform" : ""
-//                   } h-5 w-5 text-purple-500`}
-//                 />
-//               </Disclosure.Button>
-//               <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
-//                 <div data-headlessui-state="open">
-//                   Don’t be alarmed if a wire or band comes loose. This happens
-//                   occasionally. If a wire sticks out and is irritating, use a
-//                   blunt instrument (eraser end of a pencil) and carefully,
-//                   gently push the irritating wire back under the archwire.
-//                   Simply get it out of the way. If irritation to the lips or
-//                   mouth continues, place wax or wet cotton on the wire to reduce
-//                   the annoyance. Call our office as soon as possible for an
-//                   appointment to check and repair the problem.
-//                 </div>
-//               </Disclosure.Panel>
-//             </>
-//           )}
-//         </Disclosure>
-//         <Disclosure as="div" className="mt-2">
-//           {({ open }) => (
-//             <>
-//               <Disclosure.Button className="flex w-full justify-between rounded-lg bg-purple-100 px-4 py-2 text-left text-sm font-medium text-purple-900 hover:bg-purple-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
-//                 <span>Rubber Band Wear</span>
-//                 <ChevronUpIcon
-//                   className={`${
-//                     open ? "rotate-180 transform" : ""
-//                   } h-5 w-5 text-purple-500`}
-//                 />
-//               </Disclosure.Button>
-//               <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
-//                 <div data-headlessui-state="open">
-//                   To successfully complete orthodontic treatment, the patient
-//                   must work together with the orthodontist. The teeth and jaws
-//                   can only move toward their corrected positions if the patient
-//                   consistently wears the rubber bands or other appliances as
-//                   prescribed. Lack of cooperation following instructions and
-//                   damaged appliances lengthen the treatment time… so please …
-//                   follow instructions.
-//                 </div>
-//               </Disclosure.Panel>
-//             </>
-//           )}
-//         </Disclosure>
-//         <Disclosure as="div" className="mt-2">
-//           {({ open }) => (
-//             <>
-//               <Disclosure.Button className="flex w-full justify-between rounded-lg bg-purple-100 px-4 py-2 text-left text-sm font-medium text-purple-900 hover:bg-purple-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
-//                 <span>Athletics</span>
-//                 <ChevronUpIcon
-//                   className={`${
-//                     open ? "rotate-180 transform" : ""
-//                   } h-5 w-5 text-purple-500`}
-//                 />
-//               </Disclosure.Button>
-//               <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
-//                 <div data-headlessui-state="open">
-//                   If you play sports, it’s important you let us know. A
-//                   protective mouthguard is provided for playing contact sports.
-//                 </div>
-//               </Disclosure.Panel>
-//             </>
-//           )}
-//         </Disclosure>
-//         <Disclosure as="div" className="mt-2">
-//           {({ open }) => (
-//             <>
-//               <Disclosure.Button className="flex w-full justify-between rounded-lg bg-purple-100 px-4 py-2 text-left text-sm font-medium text-purple-900 hover:bg-purple-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
-//                 <span>How Long Will I Wear Braces?</span>
-//                 <ChevronUpIcon
-//                   className={`${
-//                     open ? "rotate-180 transform" : ""
-//                   } h-5 w-5 text-purple-500`}
-//                 />
-//               </Disclosure.Button>
-//               <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
-//                 <div data-headlessui-state="open">
-//                   Every year hundreds of parents trust our experience to provide
-//                   beautiful, healthy smiles for their children. Obviously,
-//                   depending on case complexity and compliance, your time in
-//                   braces may vary, but at FreySmiles Orthodontics a stunning
-//                   smile is typically only 12-22 months away.
-//                 </div>
-//               </Disclosure.Panel>
-//             </>
-//           )}
-//         </Disclosure>
-//       </div>
-//     </div>
-//   );
-// };
+
 
 // export default CaringForYourBraces
 // import React, { useEffect } from 'react';

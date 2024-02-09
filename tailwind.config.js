@@ -16,6 +16,7 @@ module.exports = {
         'purplelil':"#E9E9F3",
         'lightblue':"#daf0ff",
         'a9c7bc':"#a9c7bc",
+        'B9C1E2':"#B9C1E2",
         // 'source-tertiary': "#339966",
 
         'primary0': '#000000',

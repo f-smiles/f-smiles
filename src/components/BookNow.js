@@ -7,6 +7,8 @@ import { Disclosure } from "@headlessui/react";
 import { ChevronUpIcon } from "@heroicons/react/20/solid";
 import classNames from 'classnames';
 import { motion, useAnimation } from 'framer-motion';
+import Circle from "./svg/Circle"
+
 init(process.env.REACT_APP_PUBLIC_KEY);
 
 
@@ -168,14 +170,67 @@ const BookNow = () => {
     useEffect(() => {
       setShowForm(true);
     }, []);
+
+    const svgRef = useRef(null);
+
+    useEffect(() => {
+    
+      const timer = setTimeout(() => {
+          if (svgRef.current) {
+              svgRef.current.classList.add('initial-rotate');
+
+              setTimeout(() => {
+                  svgRef.current.classList.remove('initial-rotate');
+              }, 1200); 
+          }
+      }, 1000); 
+
+      return () => clearTimeout(timer); 
+  }, []);
   return (
     <main className="">
-       <motion.div
+           <motion.div
         initial={{ clipPath: `circle(0% at 50% 50%)` }}
         animate={controls}
         transition={{ duration: 0.8, ease: "easeOut" }}
         style={{ width: '100%', height: '200vh', background: '#C8A2C8', overflow: 'hidden' }}
       >
+        <div className="flex">
+      <div className="w-1/2">
+      <div className=" mt-10 text-center text-5xl mb-20" style={{letterSpacing:"px"}}>
+               SAY HELLO
+              </div>
+              <div className="text-center">We can't wait to meet you</div>
+
+              <div className="text-center">
+      <a className="underline" href="mailto:info@freysmiles.com">info@freysmiles.com</a>
+    </div>
+    <div className="flex justify-center items-center h-screen ">
+
+
+            <div className="w-1/5 max-w-xs">
+            <svg ref={svgRef} viewBox="0 0 10 10" className="w-full h-auto smiley">
+                    <circle className="smile"
+                            cx="5" cy="5" r="4"
+                            stroke="#51414F" strokeWidth=".75"
+                            strokeDasharray="11.5,13.6327"
+                            strokeLinecap="round"
+                            fill="transparent"
+                            style={{ strokeDashoffset: '-.5' }} />
+                    <circle className="eyes"
+                            cx="5" cy="5" r="4"
+                            stroke="#51414F" strokeWidth=".75"
+                            strokeDasharray="0,6.6327,0,17.5"
+                            strokeLinecap="round"
+                            fill="transparent"
+                            style={{ strokeDashoffset: '-15.5' }} />
+                </svg>
+
+            </div>
+        </div>
+      </div>
+      <div className="w-1/2">
+  
         
       <div id="contact-form">
         {emailSent ? (
@@ -188,9 +243,7 @@ const BookNow = () => {
             className="  max-w-screen-sm mx-auto flex flex-col space-y-12 p-8 rounded-xl"
           >
             <div className="flex flex-col items-center">
-              <div className=" mt-10 text-center text-5xl mb-20" style={{letterSpacing:"px"}}>
-               SAY HELLO
-              </div>
+        
               <div className="flex w-full gap-2">
                 <div className="relative flex-1 w-1/2">
                 <input
@@ -436,6 +489,9 @@ const BookNow = () => {
             </div>
           </form>
         )}
+      </div>
+   
+      </div>
       </div>
       </motion.div>
     </main>

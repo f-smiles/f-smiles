@@ -29,9 +29,9 @@ const TestimonialSlider = () => {
       description: " consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Parturient montes nascetur ridiculus mus mauris. ",
     },
     {
-      imgSrc: "../images/kara.jpeg",
-      title: "Kara",
-      description: "Lorem ipsum sectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Parturient montes nascetur ridiculus mus mauris. ",
+      imgSrc: "../images/lanie.png",
+      title: "Lainie W",
+      description: "FreySmiles is the best! I'm so happy with my smile and the confidence it's brought me!",
       customStyle: "scale-50",
     },
   ];
@@ -178,7 +178,7 @@ const TestimonialSlider = () => {
 
 
   
-  // Testimonial section - Left Content
+
   gsap.set(".left-row", {
     opacity: 0,
     xPercent: -100
@@ -205,34 +205,7 @@ const TestimonialSlider = () => {
           style={{ transform: "scale(0.7)" }}
         >
           <div className="relative z-10 max-w-6xl mx-auto my-10 flex justify-between ">
-            {/* <div className="flex flex-col space-y-2">
-              {[...Array(totalSlides)].map((_, index) => (
-                <div key={index} className="flex items-center space-x-2">
-                  <div className="text-sm">{index + 1}</div>
-                  <div
-                    className={`relative ${
-                      currentSlide === index + 1 ? "w-28" : "w-14"
-                    } h-px bg-white/50`}
-                  >
-                    <div
-                      className="absolute top-0 left-0 h-full bg-white transition-all duration-100 ease-out"
-                      style={{ width: `${progressBars[index]}%` }}
-                    ></div>
-                  </div>
-
-                  <span
-                    className={`text-custom-size transition-opacity duration-500 ${
-                      index === currentSlide - 1 && progressBars[index] < 100
-                        ? "opacity-100"
-                        : "opacity-0"
-                    }`}
-                    style={{ fontSize: "24px" }}
-                  >
-                    {slideData[index].title}
-                  </span>
-                </div>
-              ))}
-            </div> */}
+    
 
             <div className="flex space-x-5">
               <div
@@ -327,7 +300,7 @@ const TestimonialSlider = () => {
       }}
     >
 
-      <h2 className="text-2xl font-thin mb-4 text-black" style={{ maxWidth: "90%" }}>
+      <h2 className="text-5xl font-thin mb-4 text-black" style={{ maxWidth: "90%" }}>
         {slide.description}
       </h2>
     </div>
