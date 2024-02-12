@@ -48,11 +48,10 @@ const sections = [
       "Something to keep in mind with braces is to take caution when eating hard foods, i.e., tough meats,hard breads, granola, and the like.  But you’ll need to protect yourorthodontic appliances when you eat for as long as you’re wearing braces.",
   },
 ];
-const SplitScrollComponent = () => {
+const CaringForYourBraces = () => {
+  
   const scrollContainerRef = useRef(null);
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-
     gsap.to(".bglinear", {
       scrollTrigger: {
         trigger: "#p2",
@@ -80,165 +79,168 @@ const SplitScrollComponent = () => {
     };
   }, []);
 
-  // useEffect(() => {
-  //   const scrollContainer = scrollContainerRef.current;
-  //   let scrollingImages = scrollContainer.querySelectorAll(".image-wrapper");
+  useEffect(() => {
+    const scrollContainer = scrollContainerRef.current;
+    let scrollingImages = scrollContainer.querySelectorAll(".image-wrapper");
 
-  //   scrollingImages = Array.from(scrollingImages);
-  //   scrollingImages.forEach((e, i) => {
-  //     e.style.zIndex = `${scrollingImages.length - i}`;
-  //   });
+    scrollingImages = Array.from(scrollingImages);
+    scrollingImages.forEach((e, i) => {
+      e.style.zIndex = `${scrollingImages.length - i}`;
+    });
 
-  //   const setScrollHeight = () => {
-  //     const offset =
-  //       scrollContainer.getBoundingClientRect().top + window.scrollY;
-  //     const scrollHeight = window.innerHeight;
-  //     return { offset, scrollHeight };
-  //   };
+    const setScrollHeight = () => {
+      const offset =
+        scrollContainer.getBoundingClientRect().top + window.scrollY;
+      const scrollHeight = window.innerHeight;
+      return { offset, scrollHeight };
+    };
 
-  //   const updateImages = () => {
-  //     const { offset, scrollHeight } = setScrollHeight();
+    const updateImages = () => {
+      const { offset, scrollHeight } = setScrollHeight();
 
-  //     scrollingImages.forEach((e, i) => {
-  //       let scrollPct =
-  //         ((window.scrollY - offset - scrollHeight * i) / scrollHeight) * 100;
-  //       scrollPct = 100 - scrollPct; 
-  //       scrollPct = Math.min(Math.max(scrollPct, 0), 100);
+      scrollingImages.forEach((e, i) => {
+        let scrollPct =
+          ((window.scrollY - offset - scrollHeight * i) / scrollHeight) * 100;
+        scrollPct = 100 - scrollPct;
+        scrollPct = Math.min(Math.max(scrollPct, 0), 100);
 
-  //       let clipPath = `polygon(0% 0%, 100% 0%, 100% ${scrollPct}%, 0% ${scrollPct}%)`;
-  //       e.style.clipPath = clipPath;
-  //       e.style.webkitClipPath = clipPath;
-  //     });
-  //   };
+        let clipPath = `polygon(0% 0%, 100% 0%, 100% ${scrollPct}%, 0% ${scrollPct}%)`;
+        e.style.clipPath = clipPath;
+        e.style.webkitClipPath = clipPath;
+      });
+    };
 
-  //   window.addEventListener("scroll", updateImages);
-  //   window.addEventListener("resize", () => {
-  //     setScrollHeight();
-  //     updateImages();
-  //   });
+    window.addEventListener("scroll", updateImages);
+    window.addEventListener("resize", () => {
+      setScrollHeight();
+      updateImages();
+    });
 
-  //   return () => {
-  //     window.removeEventListener("scroll", updateImages);
-  //     window.removeEventListener("resize", updateImages);
-  //   };
-  // }, []);
+    return () => {
+      window.removeEventListener("scroll", updateImages);
+      window.removeEventListener("resize", updateImages);
+    };
+  }, []);
 
   return (
     <>
-      {/* <div ref={scrollContainerRef} className="flex flex-row items-stretch">
+      <div ref={scrollContainerRef} className="flex flex-row items-stretch"
       
+      >
         <div className="flex flex-col w-1/2 sticky top-0 h-screen">
+        <div className="bg-black absolute w-full h-full top-0 left-0 flex items-center justify-center image-wrapper">
 
-          <div className="absolute w-full h-full top-0 left-0 image-wrapper">
-            <iframe
-              className="w-full h-full"
-              src="/images/Brushing_And_Flossing.mp4"
-              allowFullScreen
-            ></iframe>
-          </div>
-          <div
-            className="absolute w-full h-full top-0 left-0 image-wrapper"
-            style={{ zIndex: 3 }}
-          >
-            <img
-              src="https://picsum.photos/1600/1600?random21"
-              style={{ objectFit: "cover" }}
-              className="w-full h-full"
-            />
-          </div>
-          <div
-            className="absolute w-full h-full top-0 left-0 image-wrapper"
-            style={{ zIndex: 3 }}
-          >
-            <img
-              src="https://picsum.photos/1600/1600?random2"
-              style={{ objectFit: "cover" }}
-              className="w-full h-full"
-            />
-          </div>
+              <div className="absolute w-full h-full top-0 left-0 image-wrapper">
+              <video className="w-full h-full" autoPlay loop muted preLoad>
+        <source src="/images/aao.mp4" type="video/mp4"/>
+      </video>
+    </div>
+</div>
+
+          <div  className="absolute w-full h-full top-0 left-0 bg-stone-100 image-wrapper " >
+  <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+    <clipPath id="shape">
+      <path fill="#FF0066" d="M41.7,-56.3C50.9,-50.8,52.9,-34.3,50.8,-21.1C48.7,-8,42.5,1.9,40.3,14.4C38,26.8,39.6,41.7,33.5,54.9C27.5,68.1,13.7,79.5,2.8,75.6C-8,71.7,-16.1,52.5,-24.1,39.9C-32,27.3,-40,21.4,-45.4,12.8C-50.8,4.2,-53.8,-7.1,-54.5,-21.6C-55.2,-36.1,-53.5,-53.7,-44,-59.2C-34.6,-64.7,-17.3,-58,-0.5,-57.3C16.3,-56.6,32.6,-61.9,41.7,-56.3Z" transform="translate(100 100)" />
+    </clipPath>
+    <image width="100%" height="100%" clipPath="url(#shape)" href="images/bracespatient.png" />
+  </svg>
+</div>
+
+
+<div className="bg-white absolute w-full h-full top-0 left-0 image-wrapper" style={{ zIndex: 3 }}>
+      <div className="flex justify-center items-center h-screen">
+        <img
+          src="/images/brushing.png"
+          alt="Profile"
+          className="blob-image1 object-cover"
+        />
+      </div>
+    </div>
         </div>
 
- 
-        <div className="w-1/2 overflow-auto">
+        <div className="w-1/2 overflow-auto" >
           {sections.map((section, index) => (
             <section
               key={index}
               className="p-20 min-h-[75vh] flex flex-col justify-center mb-5"
             >
-              <h1 className="text-center font-bold text-5xl mb-4">
+              <div className="text-center font-HelveticaNowPro font-thin tracking-tight tracking-tighter text-5xl mb-4">
                 {section.title}
-              </h1>
+              </div>
               <p className="text-center">{section.content}</p>
             </section>
           ))}
         </div>
-      </div> */}
-      <div>
-        <section
-          className="bglinear"
+      </div>
+
+      <section
+        className="bglinear"
+        style={{
+          // position: "fixed",
+          position: "absolute",
+          width: "100%",
+          height: "100vh",
+          backgroundImage: "linear-gradient(90deg, #000 50%, #fff 50%)",
+          zIndex: -1,
+          transition: "all 0.1s ease",
+          perspective: "1px",
+        }}
+      >
+        <span
           style={{
-            position: "fixed",
-            width: "100%",
-            height: "100vh",
-            backgroundImage: "linear-gradient(90deg, #000 50%, #fff 50%)",
-            zIndex: -1,
-            transition: "all 0.1s ease",
-            perspective: "1px",
+            color: "transparent",
+            fontSize: "122px",
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            WebkitBackgroundClip: "text",
+            WebkitTextStroke: "2px rgba(133, 133, 133, 1)",
+            backfaceVisibility: "none",
           }}
         >
-          <span
-            style={{
-              color: "transparent",
-              fontSize: "122px",
-              position: "absolute",
-              top: "50%",
-              left: "50%",
-              transform: "translate(-50%, -50%)",
-              WebkitBackgroundClip: "text",
-              WebkitTextStroke: "2px rgba(133, 133, 133, 1)",
-              backfaceVisibility: "none",
-            }}
-          >
-           FOODS
-          </span>
-        </section>
+          FOODS
+        </span>
+      </section>
 
-        <section
-          id="p1"
-          className="flex justify-around items-center w-full h-screen bg-transparent z-10"
+      <section
+        id="p1"
+        className="flex justify-around items-center w-full bg-transparent z-10"
+      >
+        <h1 className="text-white text-4xl">YES</h1>
+        <h1 className="text-black text-4xl">NO</h1>
+        <a
+          href="#p2"
+          className="text-black text-2xl absolute left-1/2 top-0 mt-2 p-2 bg-gray-200 rounded transform -translate-x-1/2"
         >
-          <h1 className="text-white text-4xl">YES</h1>
-          <h1 className="text-black text-4xl">NO</h1>
-          <a
-            href="#p2"
-            className="text-black text-2xl absolute left-1/2 top-0 mt-2 p-2 bg-gray-200 rounded transform -translate-x-1/2"
-          >
-            <i className="fas fa-arrow-down"></i>
-          </a>
-        </section>
+          <i className="fas fa-arrow-down"></i>
+        </a>
+      </section>
 
-        <section
-          id="p2"
-          className="flex justify-around items-center w-full h-screen bg-transparent z-10 relative"
+      <section
+        id="p2"
+        className="flex justify-around items-center w-full h-screen bg-transparent z-10 relative"
+      >
+        <h1 className="text-black text-4xl">FOODS TO AVOID</h1>
+        <h1 className="text-white text-4xl">OK</h1>
+        <a
+          href="#p1"
+          className="text-black text-2xl absolute left-1/2 top-5/6 mt-2 p-2 bg-gray-200 rounded transform -translate-x-1/2"
         >
-          <h1 className="text-black text-4xl">FOODS TO AVOID</h1>
-          <h1 className="text-white text-4xl">OK</h1>
-          <a
-            href="#p1"
-            className="text-black text-2xl absolute left-1/2 top-5/6 mt-2 p-2 bg-gray-200 rounded transform -translate-x-1/2"
-          >
-            <i className="fas fa-arrow-up"></i>
-          </a>
-        </section>
-      </div>
+          <i className="fas fa-arrow-up"></i>
+        </a>
+      </section>
     </>
   );
 };
 
-export default SplitScrollComponent;
+export default CaringForYourBraces;
+
+
 
 //                 <h3>Food To Avoid</h3>
-{/* <p>
+{
+  /* <p>
 <ul>
    <li>Chewy foods: dense baked goods, such as bagels and baguettes, licorice.</li>
    <li>Crunchy foods: popcorn, ice.</li>
@@ -252,7 +254,8 @@ export default SplitScrollComponent;
 Chewing on hard things (for example, pens, pencils or
 fingernails) can damage the braces. Damaged braces will cause
  treatment to take longer.
-</p> */}
+</p> */
+}
 
 // export default CaringForYourBraces
 // import React, { useEffect } from 'react';
@@ -260,36 +263,36 @@ fingernails) can damage the braces. Damaged braces will cause
 // import { ScrollTrigger } from "gsap/ScrollTrigger";
 // import Scrollbar from 'smooth-scrollbar';
 
-// const YourComponent = () => {
-  // useEffect(() => {
-  //   gsap.registerPlugin(ScrollTrigger);
 
-  //   gsap.to(".bglinear", {
-  //     scrollTrigger: {
-  //       trigger: "#p2",
-  //       scrub: true,
-  //       start: "10% bottom",
-  //       end: "80% 80%",
-  //     },
-  //     backgroundImage: "linear-gradient(270deg, #000 50%, #fff 0%)",
-  //     duration: 3,
-  //   });
+// useEffect(() => {
+//   gsap.registerPlugin(ScrollTrigger);
 
-  //   gsap.to(".bglinear", {
-  //     scrollTrigger: {
-  //       trigger: "#p2",
-  //       scrub: true,
-  //       start: "10% 80%",
-  //       end: "80% 80%",
-  //     },
-  //     letterSpacing: "10px",
-  //     duration: 3,
-  //   });
+//   gsap.to(".bglinear", {
+//     scrollTrigger: {
+//       trigger: "#p2",
+//       scrub: true,
+//       start: "10% bottom",
+//       end: "80% 80%",
+//     },
+//     backgroundImage: "linear-gradient(270deg, #000 50%, #fff 0%)",
+//     duration: 3,
+//   });
 
-  //   return () => {
-  //     ScrollTrigger.getAll().forEach((t) => t.kill());
-  //   };
-  // }, []);
+//   gsap.to(".bglinear", {
+//     scrollTrigger: {
+//       trigger: "#p2",
+//       scrub: true,
+//       start: "10% 80%",
+//       end: "80% 80%",
+//     },
+//     letterSpacing: "10px",
+//     duration: 3,
+//   });
+
+//   return () => {
+//     ScrollTrigger.getAll().forEach((t) => t.kill());
+//   };
+// }, []);
 
 //   useEffect(() => {
 //     gsap.registerPlugin(ScrollTrigger);
@@ -368,7 +371,7 @@ fingernails) can damage the braces. Damaged braces will cause
 // }, []);
 
 //     return (
- // <>
+// <>
 //         <div className="scroller h-screen overflow-hidden">
 //             <section className="black flex justify-around items-center h-screen bg-black sticky top-0 z-10">
 //                 <div className="text-wrap relative overflow-hidden w-[450px] h-[80vh]">
@@ -387,7 +390,8 @@ fingernails) can damage the braces. Damaged braces will cause
 //             <section className="h-screen bg-blue-800"></section>
 //         </div>
 // {/* <div>
-{/* <section
+{
+  /* <section
   className="bglinear"
   style={{
     position: "fixed",
@@ -442,10 +446,10 @@ fingernails) can damage the braces. Damaged braces will cause
   >
     <i className="fas fa-arrow-up"></i>
   </a>
-</section> */}
+</section> */
+}
 //</>
 
 //     );
 // };
 
-// export default YourComponent;
