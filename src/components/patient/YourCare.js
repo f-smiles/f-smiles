@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { gsap, Power3 } from "gsap-trial";
 AOS.init();
 const FlipCard = ({ value }) => {
-  // The flip state could be based on a comparison of new value vs old value
+
   const [flipped, setFlipped] = useState(false);
 
   useEffect(() => {
@@ -39,13 +39,13 @@ const YourCare = () => {
   const [showContent, setShowContent] = useState(false);
 
   useEffect(() => {
-    // Automatically start the opening animation
+
     const timer = setTimeout(() => {
       setIsOpen(true);
-      // Set another timeout to match the shutter animation duration
+   
       const contentTimer = setTimeout(() => {
         setShowContent(true);
-      }, 1000); // Adjust this duration to match your shutter animation
+      }, 1000); 
 
       return () => clearTimeout(contentTimer);
     }, 2000);
@@ -55,9 +55,9 @@ const YourCare = () => {
 
   const toggleShutter = () => {
     setIsOpen(!isOpen);
-    // Toggle content visibility based on shutter state
+
     if (!isOpen) {
-      setTimeout(() => setShowContent(true), 1000); // Delay to match animation
+      setTimeout(() => setShowContent(true), 1000); 
     } else {
       setShowContent(false);
     }
@@ -156,43 +156,26 @@ const YourCare = () => {
   const image = "../../images/wave.webp";
   <a href="https://pngtree.com/freepng/color-circle-time-flow-chart_5453938.html"></a>;
 
-  const [isHovered, setIsHovered] = useState(false);
-  const images = [
-    "../images/patient-charlotte.jpeg",
-    "../images/landon.jpeg",
-    "../images/youngboy.jpg",
-  ];
-
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 5000);
-
-    return () => clearInterval(interval);
-  }, [images]);
-
-  const getTransitionStyle = () => {
-    return {
-      backgroundImage: `url(${images[currentImageIndex]})`,
-      transition: "background-image 1s ease-in-out",
-    };
-  };
-
   return (
     <>
       <div className="flex justify-center items-center h-screen">
         <ul
           className={`c-shutter ${isOpen ? "c-shutter--opened" : ""}`}
-          style={{ "--message": '"Hello"' }}
+       
         >
           {[...Array(10)].map((_, i) => (
             <li key={i} className="c-shutter__slat"></li>
           ))}
         </ul>
         {showContent && (
-          <div className="content">
+          <div className="content"
+          style={{ 
+            backgroundImage: `url('/images/pinkcircle.png')`,
+            backgroundSize: 'contain',
+            backgroundRepeat: 'no-repeat',
+            backgroundPosition: 'center',
+        
+          }}>
             <div className="clock-container">
               <FlipCard value={formatDigit(time.getHours())} />
               <FlipCard value={formatDigit(time.getMinutes())} />
@@ -382,10 +365,7 @@ const YourCare = () => {
             </div>
             <div className="md:w-1/2 flex items-center relative">
               <div className="rounded-full overflow-hidden flex-shrink-0">
-                <div
-                  className="object-cover w-full h-full"
-                  style={getTransitionStyle()}
-                ></div>
+            
               </div>
               <div ref={boyImageRef} className="hero-image boy">
                   <div className="ml-6">
