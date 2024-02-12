@@ -1,22 +1,94 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import DotPattern from "../svg/DotPattern"
+import DotPattern from "../svg/DotPattern";
 import { motion, useScroll, useTransform } from "framer-motion";
-import {
-  Accordion,
-  AccordionHeader,
-  AccordionBody,
-} from "@material-tailwind/react";
+import gsap from "gsap";
+import { useTrail, animated } from "@react-spring/web";
+import { ScrollSmoother } from "gsap-trial/ScrollSmoother";
+import { ScrollTrigger } from "gsap-trial/ScrollTrigger";
+import { SplitText } from "gsap-trial/all";
+
+gsap.registerPlugin(ScrollTrigger, ScrollSmoother, SplitText);
+
+
 const Invisalign = () => {
-  const invisRef = useRef();
+  const sectionRef = useRef(null);
+  const dotRef = useRef(null);
 
   useEffect(() => {
-    if (invisRef.current) {
-      invisRef.current.classList.add("rise");
-    }
+    const section = sectionRef.current;
+    const dot = dotRef.current;
+
+    gsap.set(dot, {
+      width: "140rem",
+      height: "140rem",
+      backgroundColor: "green",
+      borderRadius: "50%",
+      position: "absolute",
+      top: "50%",
+      left: "20%",
+      transform: "translate(-50%, -50%)",
+      scale: 0.1,
+    });
+
+    const tl1 = gsap.timeline({
+      scrollTrigger: {
+        trigger: section,
+        start: "top top",
+        end: "bottom top",
+        scrub: 1,
+      },
+    });
+
+    tl1.to(dot, {
+      scale: 1,
+      duration: 1,
+    });
   }, []);
 
-  const ref = useRef(null);
+  const wrapperRef = useRef();
+  const contentRef = useRef();
+  const textLayerRefs = useRef([]);
+
+  useEffect(() => {
+    const smoother = ScrollSmoother.create({
+      wrapper: wrapperRef.current,
+      content: contentRef.current,
+      smooth: 1,
+      normalizeScroll: true,
+      ignoreMobileResize: true,
+      effects: true,
+      preventDefault: true,
+    });
+
+    textLayerRefs.current.forEach((layer, i) => {
+      gsap.set(layer, {
+        opacity: i === 0 ? 1 : 0,
+      });
+    });
+
+    textLayerRefs.current.forEach((layer, i) => {
+      if (i === 0) return;
+
+      gsap.to(layer, {
+        opacity: 1,
+        ease: "none",
+        scrollTrigger: {
+          trigger: layer,
+          start: "top bottom",
+          end: "bottom top",
+          scrub: true,
+        },
+      });
+    });
+
+    return () => {
+      smoother.kill();
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
+  }, []);
+
+  const textRef = useRef([]);
   const aligner1Ref = useRef(null);
   const aligner2Ref = useRef(null);
   const aligner3Ref = useRef(null);
@@ -174,114 +246,137 @@ const Invisalign = () => {
   return (
     <main>
       <section
-        className="flex"
+        className="w-full relative section bg-cover bg-center bg-no-repeat bg-fixed h-screen"
         style={{
-          backgroundImage: `url(${process.env.PUBLIC_URL}/images/purplepeach.jpg)`,
-          backgroundRepeat: "no-repeat",
+          backgroundImage: `url('/images/liquid.jpg')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
         }}
       >
-        <div className="flex flex-col md:flex-row w-full">
-          <div className="w-1/3">
-            <motion.div ref={ref} className="min-h-screen">
-              <div
-                className="container relative flex"
-                style={{ overflow: "hidden" }}
-              >
-                <DotPattern />
-                <img
-                  ref={aligner1Ref}
-                  className="aligner-1 absolute"
-                  src="/images/invisalign.svg"
-                  alt="aligner"
-                  style={{
-                    width: "100px",
-                    height: "100px",
-                    left: "10%",
-                    top: "50%",
-                  }}
-                />
-                <img
-                  ref={aligner2Ref}
-                  className="aligner-2 absolute"
-                  src="/images/invisalignleft.svg"
-                  alt="aligner"
-                  style={{
-                    width: "120px",
-                    height: "120px",
-                    left: "20%",
-                    top: "10%",
-                  }}
-                />
-                <img
-                  ref={aligner3Ref}
-                  className="aligner-3 absolute"
-                  src="/images/aligner4.png"
-                  alt="aligner"
-                  style={{
-                    width: "200px",
-                    height: "auto",
-                    left: "10%",
-                    bottom: "20%",
-                  }}
-                />
-                <img
-                  ref={aligner4Ref}
-                  className="aligner-4 absolute"
-                  src="/images/invisalign-tray.png"
-                  alt="aligner"
-                  style={{
-                    width: "140px",
-                    height: "auto",
-                    bottom: "0%",
-                    left: "31%",
-                  }}
-                />
-                <img
-                  ref={aligner5Ref}
-                  className="aligner-5 absolute"
-                  src="/images/clearalign.png"
-                  alt="aligne"
-                  style={{
-                    width: "140px",
-                    height: "auto",
-                    bottom: "20%",
-                    left: "5%",
-                  }}
-                />
-                <img
-                  ref={aligner6Ref}
-                  className="aligner-6 absolute"
-                  src="/images/alignersilver.png"
-                  alt="aligner"
-                  style={{
-                    width: "180px",
-                    height: "auto",
-                    bottom: "10%",
-                    left: "20%",
-                  }}
-                />
-              </div>
-            </motion.div>
+        <div className="flex h-full">
+          <div className="flex-1"></div>
+          <div className="flex-1 flex justify-end items-center pr-20">
+            <img
+              src="/images/square.svg"
+              alt="square"
+              className="w-full h-full object-cover"
+            />
           </div>
+        </div>
+        <div ref={wrapperRef}>
+          <section ref={contentRef}>
+            <div
+              className="heading text-white text-5xl py-44"
+              aria-hidden="true"
+            ></div>
 
-          <div className="w-1/3 flex justify-center items-center">
-            <span
-              ref={invisRef}
-              className="text-9xl transform -rotate-90 rise"
-              style={{
-                fontFamily: "Rubik, sans-serif",
-                fontWeight: "600",
-                WebkitTextStroke: "1px #666",
-                color: "transparent",
-                cursor: "pointer",
-              }}
-            >
-              Invisalign
-            </span>
-          </div>
-          <div className="w-1/3 flex"
+            <div className="h-screen relative w-full text-center mt-10">
+              {Array.from({ length: 7 }, (_, index) => (
+                <p
+                  key={index}
+                  ref={(el) => (textLayerRefs.current[index] = el)}
+                  className={`layered-text ${
+                    index === 0 ? "solid-text" : "outlined-text"
+                  }`}
+                  data-speed={1 - index * 0.05}
+                  style={{
+                    // position: "absolute",
+                    top: "0%",
+                    left: "50%",
+                    transform: "translate(-50%, -50%)",
+                    fontSize: "10rem",
+                    whiteSpace: "nowrap",
+                  }}
+                >
+                  INVISALIGN
+                </p>
+              ))}
+            </div>
+
+            <section className="container">
+              <div></div>
+            </section>
+          </section>
+        </div>
+      </section>
+
+      <div>
+      <section
+        ref={sectionRef}
+        className="min-h-screen"
+        style={{
+          position: "relative",
+          height: "100vh",
+          // display: "flex",
+          // alignItems: "center",
+          // justifyContent: "center",
+        }}
+      >
+        <div
+          ref={dotRef}
+          className="dot"
+          style={{
+            background: `url("/images/pinkblur.jpg")`,
+            width: "100px",
+            height: "100px",
+            borderRadius: "50%",
+            position: "absolute",
+
+            transform: "translate(-50%, -50%)",
+          }}
+        ></div>
+      </section>
+      <section className="relative flex flex-col clear-both p-6 md:pt-0 md:pb-0">
+    <img
+      className="block transform rotate-12 m-auto w-full md:order-1 md:max-w-[40%]"
+      src="/images/happypatient.png"
+      alt="invis"
+    />
+
+    <div className="md:relative md:pt-[25vh]">
+      <div className="sticky top-0 z-20 w-[60%]"> 
+        <div className="font-HelveticaNowPro relative w-full px-5 py-2 bg-white mt-10 z-10 text-center text-[72px] font-serif font-medium">
+        <img
+      className="block transform rotate-12 m-auto w-full md:order-1 md:max-w-[40%]"
+      src="/images/aligner.png"
+      alt="invis"
+    />
+        </div>
+      </div>
+      <div style={{ position: 'absolute', left: '30%', top: '5%', bottom: 0, borderLeft: '8px dotted black' }}></div>
+
+
+      <div className="flex flex-col justify-center items-start float-right w-[40%] h-screen">
+      <p>
+            Invisalign uses a series of customized, clear aligners to
+            straighten teeth faster and with fewer office visits than
+            traditional braces. Thousands of orthodontists in the United
+            States and Canada use Invisalign to accurately and effectively
+            treat their patients. This type of treatment in the hands of
+            experts delivers fantastic results. Aligners are:
+            <li>
+    Completely invisible - aligners cannot be seen while you are wearing
+    them! Friends, family members and co-workers may never even know you
+    are wearing aligners, unless of course, you tell them!
+  </li>
+  <li>
+    Comfortable to wear - The aligners are made from a special plastic
+    that has smooth, rounded edges so they won't irritate your mouth and
+    tissues like traditional braces often can.
+  </li>
+          </p>
+      </div>
+    </div>
+  </section>
+        <div
+          id="section1"
+          className="z-20 section bg-cover bg-center bg-no-repeat bg-fixed h-screen"
+        ></div>
+      </div>
+
+      {/* <div
+            className="w-1/3 flex"
             style={{
               display: "flex",
               justifyContent: "center",
@@ -289,45 +384,17 @@ const Invisalign = () => {
               height: "100%",
             }}
           >
-              <div className="three">
-  <img
-    src="/images/elizabethpatient.jpeg"
-    alt="Your Image"
-    className="item__img"
-  />
-</div>
-            {/* <svg
-              viewBox="0 0 367 367"
-              height="367"
-              width="367"
-              xmlns="http://www.w3.org/2000/svg"
-              xmlnsXlink="http://www.w3.org/1999/xlink"
-            >
-              <defs>
-                <pattern
-                  id="bias"
-                  height="100%"
-                  width="100%"
-                  patternContentUnits="objectBoundingBox"
-                  viewBox="0 0 1 1"
-                  preserveAspectRatio="xMidYMid slice"
-                >
-                  <image
-                    height="1"
-                    width="1"
-                    preserveAspectRatio="xMidYMid slice"
-                    xlinkHref="../../images/elizabethpatient.jpeg"
-                  />
-                </pattern>
-              </defs>
-              <path
-                d="M0,183.5 L0,0 L183.5,0 C284.844252,0 367,82.1557484 367,183.5 C367,284.844252 284.844252,367 183.5,367 C82.1557484,367 0,284.844252 0,183.5 Z"
-                fill="url(#bias)"
-              ></path>
-            </svg> */}
-          </div>
-        </div>
-      </section>
+            <div >
+              <img
+                src="/images/elizabethpatient.jpeg"
+                alt="patient"
+                className="item__img"
+              />
+            </div>
+      
+          </div> */}
+
+      {/* 
       <section className="mt-10 mb-10">
         <div className="text-center text-3xl mb-4">Before & After</div>
         <div className="text-center">
@@ -366,7 +433,7 @@ const Invisalign = () => {
             <p className="mt-2 italic">- London</p>
           </div>
         </div>
-      </section>
+      </section> */}
     </main>
   );
 };
@@ -593,4 +660,106 @@ Top
 
 
 </div> */
+}
+{
+  /* <div className="w-1/3">
+            <motion.div ref={ref} className="min-h-screen">
+              <div
+                className="container relative flex"
+                style={{ overflow: "hidden" }}
+              >
+       
+                <img
+                  ref={aligner1Ref}
+                  className="aligner-1 absolute"
+                  src="/images/invisalign.svg"
+                  alt="aligner"
+                  style={{
+                    width: "100px",
+                    height: "100px",
+                    left: "10%",
+                    top: "50%",
+                  }}
+                />
+                <img
+                  ref={aligner2Ref}
+                  className="aligner-2 absolute"
+                  src="/images/invisalignleft.svg"
+                  alt="aligner"
+                  style={{
+                    width: "120px",
+                    height: "120px",
+                    left: "20%",
+                    top: "10%",
+                  }}
+                />
+                <img
+                  ref={aligner3Ref}
+                  className="aligner-3 absolute"
+                  src="/images/aligner4.png"
+                  alt="aligner"
+                  style={{
+                    width: "200px",
+                    height: "auto",
+                    left: "10%",
+                    bottom: "20%",
+                  }}
+                />
+                <img
+                  ref={aligner4Ref}
+                  className="aligner-4 absolute"
+                  src="/images/invisalign-tray.png"
+                  alt="aligner"
+                  style={{
+                    width: "140px",
+                    height: "auto",
+                    bottom: "0%",
+                    left: "31%",
+                  }}
+                />
+                <img
+                  ref={aligner5Ref}
+                  className="aligner-5 absolute"
+                  src="/images/clearalign.png"
+                  alt="aligne"
+                  style={{
+                    width: "140px",
+                    height: "auto",
+                    bottom: "20%",
+                    left: "5%",
+                  }}
+                />
+                <img
+                  ref={aligner6Ref}
+                  className="aligner-6 absolute"
+                  src="/images/alignersilver.png"
+                  alt="aligner"
+                  style={{
+                    width: "180px",
+                    height: "auto",
+                    bottom: "10%",
+                    left: "20%",
+                  }}
+                />
+              </div>
+            </motion.div>
+          </div> */
+}
+
+{
+  /* <div className="w-1/3 flex justify-center items-center">
+            <span
+              ref={invisRef}
+              className="text-9xl transform -rotate-90 rise"
+              style={{
+                fontFamily: "Rubik, sans-serif",
+                fontWeight: "600",
+                WebkitTextStroke: "1px #666",
+                color: "transparent",
+                cursor: "pointer",
+              }}
+            >
+              Invisalign
+            </span>
+          </div> */
 }

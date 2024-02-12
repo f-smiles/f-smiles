@@ -63,7 +63,7 @@ const EarlyOrthodontics = () => {
       delay: 2,
       ease: "power4.out",
       onComplete: () => {
-        // Animation completed, show the next section
+
         setShowNextSection(true);
       },
     });
