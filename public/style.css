@@ -542,7 +542,7 @@ text {
   overflow: hidden;
 }
 
-/* The light blue background of the semi-circle */
+
 .thumbnails-arc:before {
   content: '';
   position: absolute;
@@ -554,10 +554,10 @@ text {
 
 .thumbnail-img {
   position: absolute;
-  bottom: 0; /* Align thumbnails at the bottom of the semi-circle */
-  /* Additional styling for the thumbnails */
-  width: 56px; /* Adjust as needed */
-  height: 56px; /* Adjust as needed */
+  bottom: 0; 
+ 
+  width: 56px; 
+  height: 56px;
   border-radius: 50%;
   object-fit: cover;
 }
@@ -665,3 +665,444 @@ text {
 /* .logo_items img{
   height: 100px;
 } */
+.circle-wipe-button {
+  overflow: hidden;
+  position: relative;
+  border-radius: 50%;
+  /* Add any additional styling as needed */
+}
+
+.circle-wipe-button::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 10%;
+  height: 10%;
+  background: #000;
+  border-radius: 50%;
+  transform: translate(-50%, 50%) scale(0);
+  transition: transform 0.3s ease-out;
+  z-index: 1;
+}
+
+.circle-wipe-button:hover::before, 
+.circle-wipe-button:focus::before {
+  transform-origin: center;
+  transform: translate(-50%, -50%) scale(20);
+}
+
+.circle-wipe-text {
+  position: relative;
+  z-index: 2;
+}
+
+
+.logo-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 300px);
+  grid-template-rows: 300px;
+}
+
+.column {
+  position: relative;
+}
+
+.grid-logo-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%; 
+  height: 300px; 
+  overflow: hidden; 
+  transform: translateY(-30px);
+  transition: all 0.3s ease-in-out;
+  visibility: hidden;
+  opacity: 0;
+}
+
+
+.grid-logo-wrapper.active {
+  transform: translateY(0);
+  visibility: visible;
+  opacity: 1;
+}
+.grid-logo-wrapper img {
+  width: 40%;
+  height: 40%; 
+  object-fit: contain;
+}
+
+.neon {
+  --interval: 1s;
+  text-shadow:
+    0 0 10px var(--color1),
+    0 0 20px var(--color2),
+    0 0 40px var(--color3),
+    0 0 80px var(--color4);
+  will-change: filter, color;
+  filter: saturate(60%);
+  animation: text-flicker steps(100) var(--interval) 1s infinite;
+}
+
+.neon.subtitle {
+  color: lightpink;
+  --color1: pink;
+  --color2: crimson;
+  --color3: fuchsia;
+  --color4: magenta;
+}
+
+@keyframes text-flicker {
+  0% {
+    color: white;
+    filter: saturate(150%) hue-rotate(10deg);
+  }
+  50% {
+    color: white;
+    filter: saturate(175%) hue-rotate(15deg);
+  }
+  100% {
+    color: white;
+    filter: saturate(150%) hue-rotate(10deg);
+  }
+}
+
+.rotate-text {
+  transform: rotate(-20deg);
+}
+
+@keyframes scaleUpAnimation {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(50);
+  }
+}
+
+.scale-up {
+  animation: scaleUpAnimation 0.5s forwards;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  
+  50% {
+    background-position: 100% 50%;
+  }
+  
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.text-gradient {
+  display: block;
+  font-weight: bold;
+  font-size: 50px;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  --start-color-1: #00e0d9;
+  --end-color-1: #0074e0;
+  --start-color-2: #ef4848;
+  --end-color-2: #facc29;
+  --start-color-3: #ff0080;
+  --end-color-3: #7527c4;
+  background-image: linear-gradient(-45deg, var(--start-color-1), var(--end-color-1), var(--start-color-2), var(--end-color-2), var(--start-color-3), var(--end-color-3));
+  animation: gradient 5s ease-in-out infinite;
+  background-size: 400% 400%;
+}
+
+@keyframes marqueeOne {
+  0%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(calc(-50% + var(--offset)), 0, 0);
+  }
+}
+
+@keyframes marqueeTwo {
+  0%, 100% {
+    transform: translate3d(calc(-50% + var(--offset)), 0, 0);
+  }
+  50% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+
+.marquee {
+  position: relative;
+  overflow: hidden;
+  --offset: 20vw;
+  --move-initial: -100%;
+  --move-initial: calc(-25% + var(--offset));
+  --move-final: calc(-50% + var(--offset));
+}
+
+.marquee__inner {
+  width: fit-content;
+  display: flex;
+  position: relative;
+  white-space: nowrap;
+}
+
+
+.marquee__inner span {
+  font-size: 10vw;
+  padding: 0 2vw;
+  text-transform: uppercase;
+}
+
+
+.first span {
+  color: black;
+  -webkit-text-fill-color: black; 
+}
+
+
+.second span {
+  -webkit-text-stroke: 2px black;
+  -webkit-text-fill-color: transparent;
+}
+
+@media (min-width: 1024px) {
+  .second span {
+    -webkit-text-stroke: 3px black;
+  }
+}
+
+.first {
+  animation: marqueeOne 40s linear infinite;
+}
+
+.second {
+  animation: marqueeTwo 40s linear infinite;
+}
+
+
+.three {
+  width: 440px; 
+  height: 800px; 
+  background-image: url('https://raise-up.com.tw/wp-content/uploads/2021/09/temp-slider-demo.jpg');
+  -webkit-mask-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/Pgo8c3ZnIHZpZXdCb3g9IjAgMCAyMDAgMjAwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogIDxwYXRoIGZpbGw9IiNGRjAwNjYiIGQ9Ik00NC44LC02NC44QzU3LjYsLTUyLjMsNjcuMSwtMzguNiw2OS4zLC0yNC4zQzcxLjQsLTEwLDY2LjEsNC45LDYxLjUsMjAuM0M1Ni45LDM1LjcsNTMuMSw1MS43LDQyLjksNjJDMzIuOCw3Mi4yLDE2LjQsNzYuNywwLjksNzUuNUMtMTQuNiw3NC4zLC0yOS4zLDY3LjQsLTQ1LjEsNTlDLTYxLDUwLjYsLTc4LDQwLjcsLTgyLjMsMjYuOUMtODYuNSwxMy4xLC03OCwtNC43LC02OC41LC0xOC43Qy01OS4xLC0zMi43LC00OC43LC00Mi44LC0zNy4yLC01NS42Qy0yNS42LC02OC41LC0xMi44LC04NC4xLDEuNiwtODYuM0MxNiwtODguNCwzMiwtNzcuMyw0NC44LC02NC44WiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTAwIDEwMCkiIC8+Cjwvc3ZnPgo=');
+  mask-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/Pgo8c3ZnIHZpZXdCb3g9IjAgMCAyMDAgMjAwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogIDxwYXRoIGZpbGw9IiNGRjAwNjYiIGQ9Ik00NC44LC02NC44QzU3LjYsLTUyLjMsNjcuMSwtMzguNiw2OS4zLC0yNC4zQzcxLjQsLTEwLDY2LjEsNC45LDYxLjUsMjAuM0M1Ni45LDM1LjcsNTMuMSw1MS43LDQyLjksNjJDMzIuOCw3Mi4yLDE2LjQsNzYuNywwLjksNzUuNUMtMTQuNiw3NC4zLC0yOS4zLDY3LjQsLTQ1LjEsNTlDLTYxLDUwLjYsLTc4LDQwLjcsLTgyLjMsMjYuOUMtODYuNSwxMy4xLC03OCwtNC43LC02OC41LC0xOC43Qy01OS4xLC0zMi43LC00OC43LC00Mi44LC0zNy4yLC01NS42Qy0yNS42LC02OC41LC0xMi44LC04NC4xLDEuNiwtODYuM0MxNiwtODguNCwzMiwtNzcuMyw0NC44LC02NC44WiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTAwIDEwMCkiIC8+Cjwvc3ZnPgo=');
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+.blob-image__accent {
+  position: absolute;
+  inset: 0;
+  background: transparent;
+  border: 2px solid #D5AFAD;
+  border-radius: 45% 55% 45% 55% / 55% 45% 55% 45%;
+  animation: anim-spin 9s linear infinite, anim-blob 1.5s ease-in-out infinite alternate;
+}
+
+.blob-image__photo {
+  box-sizing: border-box;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  padding: 8%;
+  object-fit: cover;
+  border-radius: 55% 45% 55% 45% / 45% 55% 45% 55%;
+}
+
+@keyframes anim-spin {
+  to {
+    transform: rotate(-1turn);
+  }
+}
+
+@keyframes anim-blob {
+  to {
+    border-radius: 55% 45% 50% 45% / 45% 55% 50% 55%;
+  }
+}
+
+:root {
+  --color-foreground: #dbc2b2;
+  --color-background: #fdfdfd;
+  --delay: 10;
+}
+
+
+
+.c-shutter {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  list-style: none;
+}
+
+.c-shutter__slat {
+  flex-grow: 1;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  background-color: var(--color-foreground);
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+
+.c-shutter__slat:nth-child(1) { animation-delay: calc(1 / var(--delay) * 1s); }
+.c-shutter__slat:nth-child(2) { animation-delay: calc(2 / var(--delay) * 1s); }
+.c-shutter__slat:nth-child(3) { animation-delay: calc(3 / var(--delay) * 1s); }
+.c-shutter__slat:nth-child(4) { animation-delay: calc(4 / var(--delay) * 1s); }
+.c-shutter__slat:nth-child(5) { animation-delay: calc(5 / var(--delay) * 1s); }
+.c-shutter__slat:nth-child(6) { animation-delay: calc(6 / var(--delay) * 1s); }
+.c-shutter__slat:nth-child(7) { animation-delay: calc(7 / var(--delay) * 1s); }
+.c-shutter__slat:nth-child(8) { animation-delay: calc(8 / var(--delay) * 1s); }
+.c-shutter__slat:nth-child(9) { animation-delay: calc(9 / var(--delay) * 1s); }
+.c-shutter__slat:nth-child(10) { animation-delay: calc(10 / var(--delay) * 1s); }
+
+
+@keyframes shutterOpening {
+  0% { height: 100%; }
+  100% { height: 0; }
+}
+
+@keyframes shutterClosing {
+  0% { height: 0%; }
+  100% { height: 100%; }
+}
+
+
+.c-shutter--opened .c-shutter__slat {
+  animation-name: shutterOpening;
+}
+
+.c-shutter--closed .c-shutter__slat {
+  animation-name: shutterClosing;
+}
+
+
+.c-demo {
+  position: fixed;
+  cursor: pointer;
+  font-family: "Red Hat Display", Arial, sans-serif;
+  font-size: 1rem;
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  bottom: 1rem;
+  left: 50%;
+  transform: translatex(-50%);
+  padding: 1rem 2rem;
+  border-radius: 0.25rem;
+  border: none;
+  transition: opacity .5s ease-in-out, outline .5s ease-in-out;
+}
+.clock-container {
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+
+}
+
+.flip-card {
+  margin: 0 5px;
+ 
+  width: 60px;
+  height: 100px;
+
+}
+
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.flip-card.flipped .flip-card-inner {
+  transform: rotateX(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em; 
+}
+
+
+.flip-card-back {
+  transform: rotateX(180deg);
+}
+
+.wavy-blob {
+  position: absolute;
+  right: 0;
+  top: -100;
+  width: 70%;
+  z-index: -1;
+  overflow: hidden;
+}
+
+
+
+
+
+.wavydiv {
+  background: -webkit-linear-gradient(to right, #D6A4A4, #DAE2F8);
+  background: linear-gradient(to right, #D6A4A4, #DAE2F8);
+}
+
+@keyframes rotate {
+  to {
+      transform: rotateZ(720deg);
+  }
+}
+
+@keyframes smile {
+  50% {
+      stroke-dasharray: 20, 5.1327;
+  }
+}
+
+@keyframes eyes {
+  70% {
+      stroke-dasharray: 1, 0, 0.5, 23.6327;
+  }
+}
+
+.smiley:hover {
+  animation: rotate 1.2s cubic-bezier(0.65, 0, 0.75, 1);
+}
+
+.smiley:hover .smile {
+  animation: smile 1s cubic-bezier(0.2, 0, 0.8, 1);
+}
+
+.smiley:hover .eyes {
+  animation: eyes 1s cubic-bezier(.7, 0, 0.4, 1);
+}
+
+
+@keyframes initial-rotate {
+  to {
+      transform: rotateZ(360deg);
+  }
+}
+
+.initial-rotate {
+  animation: initial-rotate 1.2s cubic-bezier(0.65, 0, 0.75, 1);
+}
+
+

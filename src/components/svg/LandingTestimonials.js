@@ -1,7 +1,12 @@
 import React, { useState, useRef, useEffect } from "react";
 import gsap from "gsap";
 import { useSwipeable } from "react-swipeable";
-const OakSlider = () => {
+
+const hiddenStyle = "opacity-0 translate-x-[-100%]";
+const visibleStyle = "opacity-100 translate-x-0";
+
+const TestimonialSlider = () => {
+  
   const totalSlides = 3;
   const [currentSlide, setCurrentSlide] = useState(1);
   const [animating, setAnimating] = useState(false);
@@ -24,9 +29,9 @@ const OakSlider = () => {
       description: " consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Parturient montes nascetur ridiculus mus mauris. ",
     },
     {
-      imgSrc: "../images/kara.jpeg",
-      title: "Kara",
-      description: "Lorem ipsum sectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Parturient montes nascetur ridiculus mus mauris. ",
+      imgSrc: "../images/lanie.png",
+      title: "Lainie W",
+      description: "FreySmiles is the best! I'm so happy with my smile and the confidence it's brought me!",
       customStyle: "scale-50",
     },
   ];
@@ -168,44 +173,39 @@ const OakSlider = () => {
   const handlers = useSwipeable({
     onSwipedLeft: () => goToNextSlide(),
     onSwipedRight: () => goToPrevSlide(),
+
   });
 
+
+  
+
+  gsap.set(".left-row", {
+    opacity: 0,
+    xPercent: -100
+  });
+  gsap.to(".left-row", {
+    duration: 1.6,
+    opacity: 1,
+    xPercent: 0,
+    ease: "power2.inOut",
+    yoyo: true,
+    scrollTrigger: {
+      trigger: ".testimonial-section",
+      start: "top center",
+      end: "center",
+      markers: false
+    }
+  });
+  
   return (
     <div>
-      <div className="flex flex-col  md:flex-row">
+      <div className=" flex flex-col  md:flex-row">
         <div
-          className="relative w-full md:w-1/2 min-h-screen overflow-hidden flex items-start"
-          style={{ transform: "scale(0.8)" }}
+          className="testimonial-section relative w-full md:w-1/2 min-h-screen overflow-hidden flex items-start"
+          style={{ transform: "scale(0.7)" }}
         >
           <div className="relative z-10 max-w-6xl mx-auto my-10 flex justify-between ">
-            {/* <div className="flex flex-col space-y-2">
-              {[...Array(totalSlides)].map((_, index) => (
-                <div key={index} className="flex items-center space-x-2">
-                  <div className="text-sm">{index + 1}</div>
-                  <div
-                    className={`relative ${
-                      currentSlide === index + 1 ? "w-28" : "w-14"
-                    } h-px bg-white/50`}
-                  >
-                    <div
-                      className="absolute top-0 left-0 h-full bg-white transition-all duration-100 ease-out"
-                      style={{ width: `${progressBars[index]}%` }}
-                    ></div>
-                  </div>
-
-                  <span
-                    className={`text-custom-size transition-opacity duration-500 ${
-                      index === currentSlide - 1 && progressBars[index] < 100
-                        ? "opacity-100"
-                        : "opacity-0"
-                    }`}
-                    style={{ fontSize: "24px" }}
-                  >
-                    {slideData[index].title}
-                  </span>
-                </div>
-              ))}
-            </div> */}
+    
 
             <div className="flex space-x-5">
               <div
@@ -224,7 +224,7 @@ const OakSlider = () => {
           </div>
 
 
-          <div className="absolute top-0 left-0 w-full h-full" {...handlers}>
+          <div className="absolute top-0 w-full h-full" {...handlers}>
           {slideData.map((slide, index) => (
     <div
       key={index}
@@ -260,7 +260,7 @@ const OakSlider = () => {
           </div>
         </div>
         <div className="w-1/2 flex flex-col justify-center items-center hidden md:flex">
-        <div className="-mt-60 flex flex-col space-y-2">
+        <div className=" -mt-60 flex flex-col space-y-2">
               {[...Array(totalSlides)].map((_, index) => (
                 <div key={index} className="flex items-center space-x-2">
                   <div className="text-sm">{index + 1}</div>
@@ -300,7 +300,7 @@ const OakSlider = () => {
       }}
     >
 
-      <h2 className="text-2xl font-thin mb-4 text-black" style={{ maxWidth: "90%" }}>
+      <h2 className="text-5xl font-thin mb-4 text-black" style={{ maxWidth: "90%" }}>
         {slide.description}
       </h2>
     </div>
@@ -311,7 +311,7 @@ const OakSlider = () => {
   );
 };
 
-export default OakSlider;
+export default TestimonialSlider;
 
 // import React, { useEffect } from 'react';
 // import  gsap  from "gsap";

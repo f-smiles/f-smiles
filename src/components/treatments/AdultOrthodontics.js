@@ -68,233 +68,28 @@ const AdultOrthodontics = () => {
     transform: "translate(-50%, -50%)",
   }}
 ></div>
-<section
-className="flex flex-col"
-  style={{
-    position: "relative",
-    top: "50%",
-    left: "20%", 
-    transform: "translate(-50%, -50%)",
-    textAlign: "center",
-    zIndex: 1,
-  }}
->
-<div>
-<div>
-  <h4 style={{ textAlign: "center" }}>
-    <div className="font-HelveticaNowPro font-thin tracking-tight tracking-tighter">
-      <span style={{ fontSize: "4rem", display: "block", marginBottom: "01rem" }}>
-        Because{" "}
-        <span className="italic inline">Every</span> Smile
-      </span>
-      <span style={{ fontSize: "4rem", display: "block", marginBottom: "0.5rem" }}>
-        Is Unique
-      </span>
+
+<div className="flex justify-center items-center h-screen bg-gray-200">
+      <div className="relative w-60 aspect-w-1 aspect-h-1">
+      <div className="flex justify-center items-center h-screen bg-gray-200">
+      <div className="relative w-60 aspect-w-1 aspect-h-1">
+        <div className="blob-image__accent"></div>
+        <img
+          className="blob-image__photo"
+          src="https://images.unsplash.com/photo-1506863530036-1efeddceb993"
+          alt=""
+        />
+      </div>
     </div>
-  </h4>
-</div>
 
-  <div className="flex justify-center pt-10"> 
-    <Link
-      to="/our-team"
-      className="text-xl rounded-lg border border-primary50 p-4 font-normal leading-6 transition-colors duration-300 ease-linear text-primary50 hover:text-primary30"
-    >
-      Our Team <span aria-hidden="true"></span>
-    </Link>
-    <Link
-      to="/book-now"
-      className="text-xl rounded-lg border border-primary50 bg-primary50 text-white p-4 font-normal leading-6 transition-colors duration-300 ease-linear text-primary50 hover:text-primary30 ml-4"
-    >
-      Book Now <span aria-hidden="true"></span>
-    </Link>
-  </div>
-</div>
-
-<div className="">     <img
-              className="-mt-120 rounded-full absolute max-w-md right-10"
-              src="../../images/mainsectionimage.jpg"
-              alt="girl smiling"
-              style={{
-                position: "absolute",
-                top: "100%",
-                right: "-40%",
-                transform: "translate(-50%, -50%)",
-              }}
-            /></div>
-</section>
-
+       
+      </div>
+    </div>
          
             
     </section>
 
-<div className="h-screen overflow-scroll">
-<div
-    className="flex flex-col items-center justify-center text-5xl"
-    style={{ position: "absolute", top: "0", left: "50%", transform: "translateX(-50%)" }} 
-  >
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        marginTop: "20px", 
-      }}
-    >
-      <svg
-        width="60"
-        height="60"
-        viewBox="0 0 200 200"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        style={{ marginBottom: "4px" }} 
-      >
-        <path
-          fillRule="evenodd"
-          clipRule="evenodd"
-          d="M200 150C200 94.7715 155.228 50 100 50C44.7715 50 0 94.7715 0 150H200Z"
-          fill="url(#paint0_linear_105_460)"
-        />
-        <defs>
-          <linearGradient
-            id="paint0_linear_105_460"
-            x1="27.5"
-            y1="59.5"
-            x2="69.9415"
-            y2="168.136"
-            gradientUnits="userSpaceOnUse"
-          >
-            <stop stopColor="#FFD9A0" />
-            <stop offset="1" stopColor="#FFF5F1" />
-          </linearGradient>
-        </defs>
-      </svg>
-      <img
-        src="/images/logo_icon.png"
-        alt="logo"
-        className="w-20 h-20" 
-      />
-    </div>
-  </div>
-<div className=" bg-ddd9eb text-2xl">
-  <div className="flex max-w-screen-xl mx-auto">
-    <div className="flex items-center justify-center h-screen relative w-1/3">
-      <figure className="absolute inset-0 -top-1/8">
-        <img
-          className="object-contain w-full h-full"
-          src="../images/aligner.png"
-          alt="invisalign"
-        />
-      </figure>
-    
-    </div>
 
-    <div className="flex flex-col justify-center items-center w-1/3">
-      <span className="text-9xl text-white transform -rotate-90">
-        Invisalign
-      </span>
-    </div>
-
-    <div className="flex flex-col justify-center w-1/3">
-      <div className="text-black text-2xl text-center">
-        <p className="w-full max-w-md">
-          As part of the top 1% of Invisalign providers in the US, we
-          have the experience to deliver the smile you deserve.
-        </p>
-        <div className="text-lg mt-4">
-          <Link
-            className="justify-center justify-content text-black px-6 py-2 ease-linear border rounded-full border-[#e67fb4] hover:bg-gray-800 hover:border-0 hover:text-white"
-            to="/invisalign"
-          >
-            Start Your Journey
-          </Link>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div class=" bg-[#E8E1FD] w-screen  h-screen  ">
-  <div className="flex flex-col items-center justify-center max-w-screen-xl mx-auto lg:flex-row">
-    <div className="flex items-center justify-center h-screen relative w-1/3 flex-col">
-      <p className="text-3xl pb-4 text-center">
-        Combining self-ligating braces with advanced archwires
-        clinically proven to move teeth quickly and comfortably.
-      </p>
-
-      <div className="mt-4">
-        <Link
-          className="inline-block px-6 py-4 transition-colors duration-300 ease-linear border rounded-full border-[#7781d9] hover:bg-gray-800 hover:border-0 hover:text-white"
-          to="/braces"
-        >
-          Damon System
-        </Link>
-      </div>
-    </div>
-
-    <div className="flex items-center">
-      <span className="text-9xl text-white transform -rotate-90">
-        Damon
-      </span>
-      <span
-        className="text-9xl text-white transform rotate-90"
-        style={{ marginLeft: "-20rem" }}
-      >
-        Bracket
-      </span>
-    </div>
-
-    <figure className="flex flex-col items-center justify-center w-1/2">
-      <img
-        className="w-auto h-32 md:h-40"
-        src="../images/damonfull.png"
-        alt="invis"
-      />
-      <img
-        className="w-auto h-40 md:h-48"
-        src="../images/damontech.png"
-        alt="damon braces"
-      />
-    </figure>
-  </div>
-</div>
-<div class="bg-[#E8E1FD]  w-screen h-screen flex items-center justify-center ">
-  <div className="flex flex-col items-center justify-center max-w-screen-xl mx-auto lg:flex-row">
-    <div className="flex items-center justify-center h-screen relative w-1/2 flex-col">
-      <figure className="flex items-center justify-center ">
-        <img
-          className="w-auto h-96"
-          src="../images/itero2.png"
-          alt="itero"
-        />
-      </figure>
-    </div>
-    <div className="flex items-center">
-      <span className="text-9xl text-white transform -rotate-90">
-        Advanced
-      </span>
-      <span
-        className="text-9xl text-white transform rotate-90"
-        style={{ marginLeft: "-30rem" }}
-      >
-        Technology
-      </span>
-    </div>
-
-    <div className="flex items-center justify-center h-screen relative w-1/3 flex-col">
-      <p className="text-3xl pb-4">
-        We offer Invisalign without Impressions. Say goodbye to goopy
-        impressions with our iTero digital scanner.
-      </p>
-
-      <Link
-        className="inline-block px-6 py-4 transition-colors duration-300 ease-linear border rounded-full border-[#f2ab79] hover:bg-gray-800 hover:border-0 hover:border-secondary50 hover:text-white"
-        to="/invisalign"
-      >
-        Learn More
-      </Link>
-    </div>
-  </div>
-</div>
-</div>
 </main>
   );
 }

@@ -16,6 +16,7 @@ module.exports = {
         'purplelil':"#E9E9F3",
         'lightblue':"#daf0ff",
         'a9c7bc':"#a9c7bc",
+        'B9C1E2':"#B9C1E2",
         // 'source-tertiary': "#339966",
 
         'primary0': '#000000',
@@ -102,6 +103,7 @@ module.exports = {
        'F8F3F3':"#F8F3F3",
        'B3B3B5 ':"#B3B3B5",
        'D0C8C5 ':"#D0C8C5 ",
+       'a3bba3': "#a3bba3",
       },
     },
     fontFamily: {
@@ -115,6 +117,7 @@ module.exports = {
       'euclidSemibold': ['EuclidCircularASemibold', 'sans-serif'],
       'HelveticaNowVar': ['HelveticaNowVar', 'sans-serif'],
       'HelveticaNowPro':['HelveticaNowPro', 'sans-serif'],
+      'Yellowtail-Regular':['Yellowtail-Regular']
     },
     animation: {
       blob: "blob 7s infinite",
