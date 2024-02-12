@@ -336,8 +336,8 @@ function Hero() {
             <div className="flex items-center justify-center flex-wrap">
               <div className="relative">
                 <div className="hero">
-                  <div className="hero-content" ref={heroContentRef}>
-                    <div className="marquee">
+                  <div className="hero-content  " ref={heroContentRef}>
+                    <div className=" marquee_features ">
                       <div className="marquee__inner first">
                         <span>Because</span>
                         <span>Every</span>
