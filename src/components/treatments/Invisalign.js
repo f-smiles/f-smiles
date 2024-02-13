@@ -343,7 +343,8 @@ const Invisalign = () => {
           className="min-h-screen"
           style={{
             position: "relative",
-            height: "100vh",
+            height: "300vh",
+            
           }}
         >
           <div
