@@ -17,6 +17,7 @@ module.exports = {
         'lightblue':"#daf0ff",
         'a9c7bc':"#a9c7bc",
         'B9C1E2':"#B9C1E2",
+        'f2ecb6':"#f2ecb6",
         // 'source-tertiary': "#339966",
 
         'primary0': '#000000',
@@ -109,6 +110,7 @@ module.exports = {
     fontFamily: {
       'cera': ['CeraProRegular', 'sans-serif'],
       'cera-bold': ['CeraProBold', 'sans-serif'],
+      'Marcellus': ['Marcellus', 'serif'],
       'larken': ['Larken', 'serif'],
       'euclidBold': ['EuclidCircularABold', 'sans-serif'],
       'euclidLight': ['EuclidCircularALight', 'sans-serif'],
@@ -117,7 +119,8 @@ module.exports = {
       'euclidSemibold': ['EuclidCircularASemibold', 'sans-serif'],
       'HelveticaNowVar': ['HelveticaNowVar', 'sans-serif'],
       'HelveticaNowPro':['HelveticaNowPro', 'sans-serif'],
-      'Yellowtail-Regular':['Yellowtail-Regular']
+      'Yellowtail-Regular':['Yellowtail-Regular'],
+      'wild_worldbold':['wild_worldbold']
     },
     animation: {
       blob: "blob 7s infinite",
@@ -147,5 +150,3 @@ module.exports = {
     display: ["group-hover"],
   }
 }
-
-

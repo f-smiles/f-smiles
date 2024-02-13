@@ -1148,3 +1148,22 @@ text {
   -webkit-text-stroke: 1px white; 
   opacity: 0; 
 }
+
+
+.dot-hover {
+  width: 500px;
+  height: 500px;
+  position: absolute;
+  background-image: url('/images/collagebeforeafter.png');
+  background-attachment: fixed;
+  background-position: bottom;
+  background-size: cover;
+  border-radius: 50%;
+
+}
+
+.overlay {
+  /* background-color: rgba(255, 255, 255, 0.439); */
+  height: 100%;
+  border-radius: 50%;
+}
