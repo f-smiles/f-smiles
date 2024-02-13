@@ -1130,7 +1130,6 @@ text {
   white-space: nowrap;
   font-size: 10rem;
   font-family: 'wild_worldbold', sans-serif;
-  /* position: absolute; */
   top: 50%; 
   left: 50%; 
   transform: translate(-50%, -50%);
