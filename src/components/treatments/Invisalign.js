@@ -13,36 +13,50 @@ gsap.registerPlugin(ScrollTrigger, ScrollSmoother, SplitText);
 const Invisalign = () => {
   const sectionRef = useRef(null);
   const dotRef = useRef(null);
-
+  const dotTextRef = useRef(null);
   useEffect(() => {
     const section = sectionRef.current;
     const dot = dotRef.current;
+    const text = dotTextRef.current; 
+  
 
     gsap.set(dot, {
       width: "100vw",
       height: "100vw",
       borderRadius: "50%",
       position: "absolute",
-      // top: "50%",
       left: "50%",
       transform: "translate(-50%, -50%)",
       scale: 0.1,
     });
+  
+
+    gsap.set(text, {
+      autoAlpha: 0, 
+    });
+  
 
     const tl1 = gsap.timeline({
       scrollTrigger: {
         trigger: section,
-        start: "top top",
+        start: "top center",
         end: "bottom top",
         scrub: 1,
       },
     });
+  
 
     tl1.to(dot, {
-      scale: 2.5,
+      scale: 8.5,
       duration: 1,
-    });
+    })
+
+    .to(text, {
+      autoAlpha: 1,
+      duration: 0.5, 
+    }, "<"); 
   }, []);
+  
 
   const wrapperRef = useRef();
   const contentRef = useRef();
@@ -281,14 +295,23 @@ const Invisalign = () => {
   }, 10);
 
   return (
-    <main>
+    <main >
+      <div style={{ 
+    display: 'flex', 
+    justifyContent: 'center', 
+    alignItems: 'center', 
+    height: '100vh' 
+}}>
       <section
-        className="w-full relative section bg-cover bg-center bg-no-repeat bg-fixed h-screen"
+        className="w-full  relative "
         style={{
           backgroundImage: `url('/images/liquid.jpg')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
+          width: '80%',    
+          height: '80vh',  
+          margin: 'auto',
         }}
       >
         <div className="flex h-full">
@@ -308,27 +331,26 @@ const Invisalign = () => {
               aria-hidden="true"
             ></div>
 
-            <div className="h-screen relative w-full text-center mt-10">
-              {Array.from({ length: 7 }, (_, index) => (
-                <p
-                  key={index}
-                  ref={(el) => (textLayerRefs.current[index] = el)}
-                  className={`layered-text ${
-                    index === 0 ? "solid-text" : "outlined-text"
-                  }`}
-                  data-speed={1 - index * 0.05}
-                  style={{
-                    top: "0%",
-                    left: "50%",
-                    transform: "translate(-50%, -50%)",
-                    fontSize: "10rem",
-                    whiteSpace: "nowrap",
-                  }}
-                >
-                  INVISALIGN
-                </p>
-              ))}
-            </div>
+     <div className="h-screen relative w-full text-center mt-10">
+  {Array.from({ length: 7 }, (_, index) => (
+    <p
+      key={index}
+      ref={(el) => (textLayerRefs.current[index] = el)}
+      className={`layered-text ${index === 0 ? "solid-text" : "outlined-text"}`}
+      data-speed={1 - index * 0.05}
+      style={{
+        top: "0%",
+        left: "50%",
+        transform: "translate(-50%, -50%)",
+        fontSize: "5rem", 
+        whiteSpace: "nowrap",
+      }}
+    >
+      INVISALIGN
+    </p>
+  ))}
+</div>
+
 
             <section className="container">
               <div></div>
@@ -336,7 +358,7 @@ const Invisalign = () => {
           </section>
         </div>
       </section>
-
+</div>
       <div>
         <section
           ref={sectionRef}
@@ -351,7 +373,8 @@ const Invisalign = () => {
             ref={dotRef}
             className="dot"
             style={{
-              background: `url("/images/blurimage.jpg")`,
+              background: `url("/images/test.png")`,
+              top: "100px",
               width: "100px",
               height: "100px",
               borderRadius: "50%",
@@ -359,9 +382,36 @@ const Invisalign = () => {
               zIndex: 1,
             }}
           ></div>
+{/* <div style={{ width: '40%', margin: '0 auto' }}> 
+  <h2 ref={dotTextRef} className="text-5xl text-element-class" style={{
+    position: 'relative', 
+    zIndex: 40,
+    textAlign: 'center',
+  }}>
+     Comfortable to wear - The aligners are made from a special
+                    plastic that has smooth, rounded edges so they won't
+                    irritate your mouth and tissues like traditional braces
+                    often can.
+  </h2>
+</div> */}
+<div  class="background-image"
+>
+<img src="/images/patientssemicircle.jpg" className="w-80 h-auto z-20" />
+
+  <div ref={dotTextRef} class="glass-card z-20">
+
+    <p   className="">  Invisalign uses a series of customized, clear aligners to
+                  straighten teeth faster and with fewer office visits than
+                  traditional braces.</p>
+
+
+  </div>
+</div>
+
+
           <section className="relative flex flex-col clear-both p-6 md:pt-0 md:pb-0">
             <img
-              className="block transform rotate-12 m-auto w-full md:order-1 md:max-w-[40%]"
+              className="z-20 block transform rotate-12 m-auto w-full md:order-1 md:max-w-[40%]"
               src="/images/happypatient.png"
               alt="invis"
             />

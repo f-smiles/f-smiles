@@ -5,6 +5,7 @@ import { gsap } from "gsap-trial";
 import { ScrollSmoother } from "gsap-trial/ScrollSmoother";
 import { ScrollTrigger } from "gsap-trial/ScrollTrigger";
 import { SplitText } from "gsap-trial/all";
+import * as PIXI from 'pixi.js';
 gsap.registerPlugin(ScrollSmoother, ScrollTrigger, SplitText);
 const Option = ({ image, title, subtitle, active, onClick }) => {
   const [imageLoaded, setImageLoaded] = useState(false);
@@ -78,6 +79,74 @@ const Option = ({ image, title, subtitle, active, onClick }) => {
 };
 
 export default function OurTeam() {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const totalImages = 3; 
+  const spritesRef = useRef([]);
+  const displacementFilterRef = useRef(null);
+
+  useEffect(() => {
+      let app = new PIXI.Application({
+          width: 800,
+          height: 600,
+          transparent: true,
+      });
+      document.getElementById('pixi-canvas').appendChild(app.view);
+
+      const imageUrls = [
+          'https://s3-us-west-2.amazonaws.com/s.cdpn.io/123024/j110.jpg',
+          'https://s3-us-west-2.amazonaws.com/s.cdpn.io/123024/j104.jpg',
+          'https://s3-us-west-2.amazonaws.com/s.cdpn.io/123024/j42.jpg'
+      ];
+
+      let sprites = imageUrls.map(url => {
+          let sprite = PIXI.Sprite.from(url);
+          sprite.visible = false; 
+          app.stage.addChild(sprite);
+          return sprite;
+      });
+
+
+      sprites[0].visible = true;
+
+      let displacementSprite = PIXI.Sprite.from('https://s3-us-west-2.amazonaws.com/s.cdpn.io/123024/disp5.jpg');
+      displacementSprite.texture.baseTexture.wrapMode = PIXI.WRAP_MODES.REPEAT;
+      displacementSprite.skew.x = 1;
+      displacementSprite.skew.y = -1;
+      displacementSprite.position.y = 380;
+      displacementSprite.scale.y = 1.8;
+      displacementSprite.scale.x = 1.8;
+      app.stage.addChild(displacementSprite);
+  
+      let displacementFilter = new PIXI.filters.DisplacementFilter(displacementSprite);
+      sprites.forEach(sprite => sprite.filters = [displacementFilter]);
+      
+      spritesRef.current = sprites;
+      displacementFilterRef.current = displacementFilter;
+
+      function onArrowKeyPress(e) {
+          if (e.keyCode === 37 || e.keyCode === 39) { 
+              changeImage((currentImageIndex + (e.keyCode === 39 ? 1 : -1) + totalImages) % totalImages);
+          }
+      }
+
+      window.addEventListener('keydown', onArrowKeyPress);
+
+      return () => {
+          window.removeEventListener('keydown', onArrowKeyPress);
+          app.destroy();
+      };
+  }, []);
+
+
+
+
+  const handlePrevClick = () => {
+      changeImage((currentImageIndex - 1 + totalImages) % totalImages);
+  };
+
+  const handleNextClick = () => {
+      changeImage((currentImageIndex + 1) % totalImages);
+  };
   const optionsData = [
     {
       image: "../../images/team_members/Alyssa.jpg",
@@ -232,6 +301,11 @@ export default function OurTeam() {
 
   return (
     <main className="relative overflow-hidden min-h-screen">
+   <div className="slider-container">
+            <div id="pixi-canvas" className="w-full h-full"></div>
+            <button onClick={handlePrevClick} className="arrow-button left-arrow">Prev</button>
+            <button onClick={handleNextClick} className="arrow-button right-arrow">Next</button>
+        </div>
       {/* <svg 
     className="absolute top-0 left-0 w-full h-full  z-[-1]" 
     xmlns="http://www.w3.org/2000/svg"
@@ -286,22 +360,19 @@ export default function OurTeam() {
           <div className="grid grid-cols-2 gap-8 mt-8 place-items-stretch xl:mt-0 xl:mx-4 xl:w-1/2 md:grid-cols-2">
             
             <div>
-              <figure className="parent">
-                <img
-                  className={`${
-                    switchDoctor ? "right" : "switch-right"
-                  } object-contain aspect-[2/3] transition-all duration-2000`}
-                  src="../../images/team_members/GreggFrey.jpg"
-                  alt="Dr. Gregg Frey"
-                />
-                <img
-                  className={`${
-                    switchDoctor ? "left" : "switch-left"
-                  } object-contain aspect-[2/3] transition-all duration-2000`}
-                  src="../../images/team_members/DanFrey.jpg"
-                  alt="Dr. Daniel Frey"
-                />
-              </figure>
+            <figure className="parent">
+    <img
+        className={`${switchDoctor ? "right" : "switch-right"} object-contain aspect-[2/3] transition-all ease-in-out duration-3000`}
+        src="../../images/team_members/GreggFrey.jpg"
+        alt="Dr. Gregg Frey"
+    />
+    <img
+        className={`${switchDoctor ? "left" : "switch-left"} object-contain aspect-[2/3] transition-all ease-in-out duration-3000`}
+        src="../../images/team_members/DanFrey.jpg"
+        alt="Dr. Daniel Frey"
+    />
+</figure>
+
               <figcaption>
                 <div className="text-xl text-gray-700 font-HelveticaNowPro font-thin tracking-tight tracking-tighter ">
                   {!switchDoctor ? "Dr. Gregg Frey" : "Dr. Daniel Frey"}
@@ -357,25 +428,27 @@ export default function OurTeam() {
       </div>
       <div className="relative ">
         <div
-          style={{
-            backgroundImage: `url('/images/wavyline2.png')`,
-            backgroundSize: "contain",
-            backgroundPosition: "center",
-            backgroundRepeat: "no-repeat",
-          }}
+          // style={{
+          //   backgroundImage: `url('/images/wavyline2.png')`,
+          //   backgroundSize: "contain",
+          //   backgroundPosition: "center",
+          //   backgroundRepeat: "no-repeat",
+          // }}
         >
           <div className=" my-24 text-center">
-            <div className="text-5xl font-HelveticaNowPro font-thin tracking-tight tracking-tighter">Our Team</div>
+          <div className="font-geomanistregular uppercase font-bold text-[12vw]">Meet the Team</div>
+
+
             <div className="flex justify-center items-center w-full h-full">
       <img 
-    className="pt-6 w-32 h-auto" 
+    className="pt-6 w-48 h-auto" 
     src="/images/whitedots.svg" 
     alt="squiggly design"
   />
   </div>
             <p
               ref={textScrubRef}
-              className="mx-auto text-2xl text-center max-w-2xl"
+              className="mx-auto text-3xl text-center max-w-3xl"
             >
               {splitToWords(`Our team members are X-ray certified, trained in CPR and first aid, and most of them have
     received the designation of Specialized Orthodontic Assistant`)}

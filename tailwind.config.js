@@ -109,6 +109,7 @@ module.exports = {
     },
     fontFamily: {
       'cera': ['CeraProRegular', 'sans-serif'],
+      'geomanist':['Geomanist', 'sans-serif'],
       'cera-bold': ['CeraProBold', 'sans-serif'],
       'Marcellus': ['Marcellus', 'serif'],
       'larken': ['Larken', 'serif'],
